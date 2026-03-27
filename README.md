@@ -15,6 +15,12 @@
 	Jornada ativa: Roleta de eras + Sokoban + Quiz multimodal + Feedback inteligente
 </marquee>
 
+<p align="center">
+  <a href="https://raphaelbarretopro.github.io/quiz/" target="_blank">
+    <img src="https://img.shields.io/badge/▶%20Jogar%20Agora-Saga%20do%20Futuro-00d4ff?style=for-the-badge" alt="Jogar Agora" />
+  </a>
+</p>
+
 ---
 
 ## Sumário
