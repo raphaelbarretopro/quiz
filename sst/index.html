@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saga do Futuro - Motor Dinâmico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@400;700&family=Roboto:wght@300;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Tela inicial: coleta o nome do jogador e aguarda a carga dos dados da aula. -->
+        <div id="start-screen">
+            <h2 id="main-title" style="font-family: 'Cinzel'; color: var(--primary);">Carregando Dados da Aula...</h2>
+            <p>Domine o conhecimento e avance na sua jornada.</p>
+            <input type="text" id="p-name-input" placeholder="SEU NOME" autofocus>
+            <br><br>
+            <button id="btn-start" class="opt-btn" style="width: 300px; background: var(--primary); color: #000; font-weight: bold;" disabled>AGUARDE...</button>
+            <p>Professor Raphael Barreto | Firjan SENAI</p>
+        </div>
+
+        <!-- Tela da roleta: define o tema/era que será jogado. -->
+        <div id="portal-screen" class="hidden">
+            <h2 id="portal-msg">O CÍCLO DO CONHECIMENTO</h2>
+            <div class="wheel-container">
+                <div class="wheel-marker"></div>
+                <div id="wheel">
+                    </div>
+            </div>
+            <button id="spin-btn" class="opt-btn">GIRAR ROLETA</button>
+            <button id="stop-btn" class="opt-btn hidden" style="background: #ff0000;">PARAR AGORA!</button>
+        </div>
+
+        <!-- Mini-jogo Sokoban: etapa intermediária antes das perguntas. -->
+        <div id="sokoban-screen" class="hidden">
+            <h2 id="sokoban-title">📦 EMPURRE AS BASES DA ERA PARA PROSSEGUIR</h2>
+            <div id="sokoban-grid"></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
+                <button id="btn-up" class="opt-btn" style="width: 50px; margin:0;">↑</button>
+                <div style="display: flex; gap: 50px;">
+                    <button id="btn-left" class="opt-btn" style="width: 50px; margin:0;">←</button>
+                    <button id="btn-right" class="opt-btn" style="width: 50px; margin:0;">→</button>
+                </div>
+                <button id="btn-down" class="opt-btn" style="width: 50px; margin:0;">↓</button>
+            </div>
+            <button id="btn-reset-sokoban" class="opt-btn" style="width: auto; padding: 10px 40px; margin-top: 15px; background: #444;">Reiniciar</button>
+        </div>
+
+        <!-- Modal de introdução: apresenta a era sorteada e seu contexto. -->
+        <div id="intro-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+            <div style="background: #111; border: 3px solid var(--primary); padding: 30px; width: 85%; max-width: 500px; border-radius: 20px; text-align: center;">
+                <h2 id="modal-title" style="color:var(--primary); font-family:'Orbitron';"></h2>
+                <p id="modal-text" style="font-size: 1.1rem; margin: 20px 0;"></p>
+                <button id="btn-modal-close" class="opt-btn" style="background:var(--primary); color:#000; font-weight:bold;">ENTENDIDO, AO JOGO!</button>
+            </div>
+        </div>
+
+        <!-- Tela principal do quiz: pergunta, opções e feedback da resposta. -->
+        <div id="quiz-screen" class="hidden">
+            <div id="era-tag" style="background:var(--primary); color:#000; padding:10px 12px; border-radius:5px; font-weight:bold; margin-bottom:8px; display:inline-block;"></div>
+            <p id="q-txt" style="font-size:1.3rem; margin-bottom:15px; font-weight:500;"></p>
+            <div id="opts" style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;"></div>
+            <div id="drag-drop-container" class="drag-area hidden"></div>
+            <div id="fb-area" style="margin-top:15px; font-weight:bold; font-size:1.1rem;"></div>
+            <button id="val-btn" class="opt-btn hidden" style="background:var(--primary); color:#000; font-weight:bold;">VALIDAR RESPOSTA</button>
+            <button id="next-btn" class="opt-btn hidden">AVANÇAR ➔</button>
+        </div>
+        
+    </div>
+    <!-- Controlador principal da aplicação (arquitetura MVC em módulos ES). -->
+    <script type="module" src="js/controller.js"></script>
+</body>
+</html>

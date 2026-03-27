@@ -1,0 +1,313 @@
+:root {
+    /* Tema base global (pode ser alterado dinamicamente via JS). */
+    --primary: #00d4ff;
+    --bg: #050a10;
+    --panel: rgba(10, 20, 30, 0.95);
+    --text: #f0f0f0;
+    --bg-img: none;
+    /* Imagem dinâmica */
+}
+
+body {
+    /* Fundo com sobreposição escura para manter contraste do conteúdo. */
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    transition: all 1s ease;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--bg-img);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Container principal da aplicação. */
+#game-container {
+    width: 95%;
+    max-width: 900px;
+    background: var(--panel);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid var(--primary);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    max-height: 95vh;
+    overflow-y: auto;
+}
+
+.hidden {
+    /* Classe utilitária para ocultar blocos de interface. */
+    display: none !important;
+}
+
+/* Estrutura visual da roleta. */
+.wheel-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+    border: 10px solid var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 30px var(--primary);
+    overflow: visible;
+}
+
+.wheel-marker {
+    /* Marcador fixo que indica o resultado da roleta. */
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 35px solid #ff0000;
+    z-index: 60;
+}
+
+#wheel {
+    /* Disco da roleta que recebe transform: rotate(...) via JS. */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+    border: 2px solid #000;
+}
+
+.wheel-seg {
+    /* Segmento individual criado dinamicamente para cada tema. */
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Orbitron';
+    font-weight: bold;
+    font-size: 0.7rem;
+}
+
+.stext {
+    /* Rótulo textual posicionado dentro de cada segmento. */
+    position: absolute;
+    transform: rotate(45deg);
+    width: 100px;
+    text-align: center;
+    left: 35px;
+    top: 60px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* Grid do mini-jogo Sokoban. */
+#sokoban-grid {
+    display: grid;
+    grid-template-columns: repeat(11, 35px);
+    grid-template-rows: repeat(11, 35px);
+    gap: 2px;
+    margin: 15px auto;
+    width: 407px;
+    background: #222;
+    border: 4px solid var(--primary);
+}
+
+.tile {
+    /* Célula base do tabuleiro. */
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.t-wall {
+    /* Parede: célula bloqueada. */
+    background: #333;
+}
+
+.t-target {
+    /* Alvo: posição final das caixas. */
+    background: rgba(0, 212, 255, 0.2);
+    border: 1px inset var(--primary);
+}
+
+.t-box {
+    /* Caixa móvel do Sokoban. */
+    background: var(--primary);
+    color: #000;
+    border-radius: 5px;
+    font-family: 'Orbitron';
+    z-index: 5;
+    font-size: 14px;
+}
+
+.t-box-ok {
+    /* Caixa corretamente posicionada em um alvo. */
+    background: #2ecc71 !important;
+    color: white;
+}
+
+/* Área da questão de arrastar e soltar. */
+.drag-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.drag-pool {
+    /* Reservatório dos itens arrastáveis. */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.drop-zones {
+    /* Grade com zonas de destino das definições. */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    text-align: left;
+}
+
+.drop-box {
+    /* Bloco contendo rótulo e zona de drop. */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed var(--primary);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.target-zone {
+    /* Área que recebe um item arrastado. */
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    min-height: 45px;
+    margin-top: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.target-zone.over {
+    /* Estado visual durante hover de drag. */
+    border-color: #fff;
+    background: rgba(0, 212, 255, 0.2);
+}
+
+.target-zone.filled {
+    /* Estado visual quando zona está preenchida corretamente. */
+    background: #2ecc71;
+    border-style: solid;
+}
+
+.drag-card {
+    /* Cartão arrastável individual. */
+    background: var(--primary);
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: grab;
+    font-weight: bold;
+    font-family: 'Orbitron';
+    font-size: 0.8rem;
+}
+
+/* Botões de ação reutilizados em toda a aplicação. */
+.opt-btn {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--primary);
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+.opt-btn:hover {
+    /* Destaque visual no hover. */
+    background: var(--primary);
+    color: #000;
+    font-weight: bold;
+}
+
+#p-name-input {
+    /* Campo principal para identificação do jogador. */
+    padding: 15px;
+    width: 80%;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    background: #000;
+    color: #fff;
+    border: 2px solid var(--primary);
+    font-family: 'Orbitron';
+}
+
+.firework {
+    /* Partícula de feedback visual para acerto/conclusão. */
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: explode 1s ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes explode {
+    /* Anima partícula do centro para fora enquanto desaparece. */
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(35);
+        opacity: 0;
+    }
+}
+
+.multi-opt {
+    /* Opção de resposta para questões de múltipla seleção. */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.combo-box {
+    /* Select customizado para questões do tipo combo. */
+    background: #000;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'Orbitron';
+    cursor: pointer;
+}
