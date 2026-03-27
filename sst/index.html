@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header style="position: fixed; top: 0; left: 0; width: 100%; text-align: center; padding: 18px 0; z-index: 9999; pointer-events: none;">
+        <img src="img/FirjanSENAI-01.png" alt="Logo Firjan SENAI" style="height: 288px; filter: brightness(0) invert(1);">
+    </header>
     <div id="game-container">
         <!-- Tela inicial: coleta o nome do jogador e aguarda a carga dos dados da aula. -->
         <div id="start-screen">
@@ -33,7 +36,7 @@
 
         <!-- Mini-jogo Sokoban: etapa intermediária antes das perguntas. -->
         <div id="sokoban-screen" class="hidden">
-            <h2 id="sokoban-title">📦 EMPURRE AS BASES DA ERA PARA PROSSEGUIR</h2>
+            <h2 id="sokoban-title">📦 EMPURRE AS CAIXAS PARA FORMAR O PRÓXIMO TEMA</h2>
             <div id="sokoban-grid"></div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
                 <button id="btn-up" class="opt-btn" style="width: 50px; margin:0;">↑</button>
@@ -67,6 +70,15 @@
         </div>
         
     </div>
+    <!-- Modal customizado de feedback: substitui alertas nativos com cores dinâmicas do tópico. -->
+    <div id="feedback-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; align-items: center; justify-content: center;">
+        <div style="background: #111; border: 3px solid var(--primary); padding: 30px; width: 85%; max-width: 430px; border-radius: 20px; text-align: center; box-shadow: 0 0 30px var(--primary);">
+            <h2 id="fb-modal-title" style="color: var(--primary); font-family:'Orbitron'; margin-bottom: 12px;"></h2>
+            <p id="fb-modal-text" style="font-size: 1.05rem; margin: 16px 0; color: #f0f0f0; line-height: 1.6;"></p>
+            <button id="fb-modal-btn" class="opt-btn" style="background: var(--primary); color: #000; font-weight: bold; width: 200px; margin-top: 8px;">OK</button>
+        </div>
+    </div>
+
     <!-- Controlador principal da aplicação (arquitetura MVC em módulos ES). -->
     <script type="module" src="js/controller.js"></script>
 </body>

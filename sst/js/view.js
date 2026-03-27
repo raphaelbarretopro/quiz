@@ -33,7 +33,13 @@ export default class View {
             dragDrop: document.getElementById('drag-drop-container'),
             fbArea: document.getElementById('fb-area'),
             valBtn: document.getElementById('val-btn'),
-            nextBtn: document.getElementById('next-btn')
+            nextBtn: document.getElementById('next-btn'),
+
+            // Modal customizado de feedback (substitui alert nativo).
+            feedbackModal: document.getElementById('feedback-modal'),
+            fbModalTitle: document.getElementById('fb-modal-title'),
+            fbModalText: document.getElementById('fb-modal-text'),
+            fbModalBtn: document.getElementById('fb-modal-btn')
         };
         
         this.rot = 0;
@@ -77,7 +83,7 @@ export default class View {
     bindStart(handler) {
         this.els.btnStart.addEventListener('click', () => {
             const name = this.els.pNameInput.value.trim();
-            if (name.length < 3) return alert("Digite seu nome!");
+            if (name.length < 3) { this.showAlert("Atenção!", "Digite seu nome completo (mínimo 3 letras)."); return; }
             handler(name);
         });
     }
@@ -279,9 +285,9 @@ export default class View {
                     if (this.dragsFixed === q.items.length) { 
                         answerHandler(q.correct, null); 
                     }
-                } else { 
-                    alert("Definição incorreta!"); 
-                    zone.style.background = "rgba(255,255,255,0.1)"; 
+                } else {
+                    this.showAlert("✗ Definição Incorreta!", "Tente novamente. Arraste o item para a zona correta.");
+                    zone.style.background = "rgba(255,255,255,0.1)";
                 }
             };
         });
@@ -295,8 +301,9 @@ export default class View {
             this.els.valBtn.classList.add('hidden');
             this.triggerExplosion();
         } else {
-            this.els.fbArea.innerHTML = `<span style="color:#ff4b4b">✗ Foco nos detalhes, ${playerName}...</span><br><small style="color:#ff6b6b">${tip}</small>`;
             if (btnElement) btnElement.style.background = "#ff4b4b";
+            // Exibe modal com a dica da questão nas cores do tópico atual.
+            this.showAlert(`✗ Foco nos detalhes, ${playerName}...`, tip);
         }
     }
 
@@ -311,6 +318,17 @@ export default class View {
             <p style="margin-top:20px; font-size:0.8rem; opacity:0.7;">Professor Raphael Barreto | Firjan SENAI</p>
         `;
         this.triggerExplosion();
+    }
+
+    showAlert(title, message, callback = null) {
+        // Exibe modal customizado com as cores do tópico atual no lugar do alert nativo.
+        this.els.fbModalTitle.innerText = title;
+        this.els.fbModalText.innerText = message;
+        this.els.feedbackModal.classList.remove('hidden');
+        this.els.fbModalBtn.onclick = () => {
+            this.els.feedbackModal.classList.add('hidden');
+            if (callback) callback();
+        };
     }
 
     shuffle(array) {
