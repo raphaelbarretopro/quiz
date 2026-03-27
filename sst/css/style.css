@@ -266,7 +266,7 @@ body {
 }
 
 .firework {
-    /* Partícula de feedback visual para acerto/conclusão. */
+    /* Partícula circular base. */
     position: fixed;
     width: 10px;
     height: 10px;
@@ -276,15 +276,33 @@ body {
     z-index: 9999;
 }
 
+.fw-star {
+    /* Partícula em forma de losango. */
+    border-radius: 2px;
+    transform-origin: center;
+    width: 8px;
+    height: 8px;
+    rotate: 45deg;
+}
+
+.fw-bar {
+    /* Partícula alongada estilo traço. */
+    border-radius: 2px;
+    width: 4px;
+    height: 14px;
+}
+
 @keyframes explode {
-    /* Anima partícula do centro para fora enquanto desaparece. */
+    /* Parte do centro, expande e desaparece. */
     0% {
         transform: scale(1);
         opacity: 1;
     }
-
+    60% {
+        opacity: 0.9;
+    }
     100% {
-        transform: translate(var(--tx), var(--ty)) scale(35);
+        transform: translate(var(--tx), var(--ty)) scale(20);
         opacity: 0;
     }
 }

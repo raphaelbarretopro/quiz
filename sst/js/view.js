@@ -341,15 +341,42 @@ export default class View {
     }
 
     triggerExplosion() {
-        // Gera partículas temporárias para feedback visual de acerto/conclusão.
-        for (let i = 0; i < 40; i++) {
-            const f = document.createElement('div'); f.className = 'firework';
-            f.style.left = '50vw'; f.style.top = '50vh';
-            f.style.setProperty('--tx', (Math.random() - 0.5) * window.innerWidth * 2 + 'px');
-            f.style.setProperty('--ty', (Math.random() - 0.5) * window.innerHeight * 2 + 'px');
-            f.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        // Lê a cor primária do tópico atual via CSS variable.
+        const primary = getComputedStyle(document.documentElement)
+            .getPropertyValue('--primary').trim() || '#00d4ff';
+
+        const shapes = ['firework', 'firework fw-star', 'firework fw-bar'];
+        const count = 70;
+
+        for (let i = 0; i < count; i++) {
+            const f = document.createElement('div');
+            // Alterna formas para efeito mais rico.
+            f.className = shapes[i % shapes.length];
+
+            // Origem espalhada levemente ao redor do centro.
+            const ox = 45 + Math.random() * 10;
+            const oy = 45 + Math.random() * 10;
+            f.style.left = ox + 'vw';
+            f.style.top  = oy + 'vh';
+
+            // Distância e ângulo aleatórios para cada partícula.
+            const angle = Math.random() * 2 * Math.PI;
+            const dist  = 120 + Math.random() * (window.innerWidth * 0.45);
+            f.style.setProperty('--tx', Math.cos(angle) * dist + 'px');
+            f.style.setProperty('--ty', Math.sin(angle) * dist + 'px');
+
+            // Duração ligeiramente variada para não ficarem sincronizadas.
+            const duration = 0.7 + Math.random() * 0.7;
+            f.style.animationDuration = duration + 's';
+
+            // Variações de brilho da cor do tópico: claro, puro e quase branco.
+            const lightness = [55, 70, 88][i % 3];
+            // Converte hex para hsl aproximado reutilizando a cor via filter.
+            f.style.backgroundColor = primary;
+            f.style.filter = `brightness(${lightness}%) saturate(120%)`;
+
             document.body.appendChild(f);
-            setTimeout(() => f.remove(), 1000);
+            setTimeout(() => f.remove(), duration * 1000 + 100);
         }
     }
 }
