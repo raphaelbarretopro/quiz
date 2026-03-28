@@ -1,124 +1,103 @@
-<h1 align="center">Saga do Futuro</h1>
+# Saga do Futuro
 
-<p align="center">
-	<strong>Quiz interativo e gamificado para apoio didático em Segurança no Trabalho em TI</strong>
-</p>
+Quiz educativo gamificado para Seguranca no Trabalho em TI, com narrativa por eras, mini-jogo de transicao e ranking global em tempo real.
 
-<p align="center">
-	<img src="https://img.shields.io/badge/Status-Ativo-2ea44f?style=for-the-badge" alt="status" />
-	<img src="https://img.shields.io/badge/Arquitetura-MVC-0a66c2?style=for-the-badge" alt="mvc" />
-	<img src="https://img.shields.io/badge/JavaScript-ES%20Modules-f7df1e?style=for-the-badge&logo=javascript&logoColor=111" alt="js" />
-	<img src="https://img.shields.io/badge/Frontend-HTML%20%2B%20CSS-e34f26?style=for-the-badge&logo=html5&logoColor=fff" alt="frontend" />
-</p>
+Demo publica:
+https://raphaelbarretopro.github.io/quiz/sst/aula-11/
 
-<marquee behavior="alternate" scrollamount="8">
-	Jornada ativa: Roleta de eras + Sokoban + Quiz multimodal + Feedback inteligente
-</marquee>
+## Visao geral
 
-<p align="center">
-  <a href="https://raphaelbarretopro.github.io/quiz/sst/aula-11/" target="_blank">
-    <img src="https://img.shields.io/badge/▶%20Jogar%20Agora-Saga%20do%20Futuro-00d4ff?style=for-the-badge" alt="Jogar Agora" />
-  </a>
-</p>
+O projeto atual em producao esta em `sst/aula-11`. O fluxo principal e:
 
----
+1. Jogador informa nome e inicia jornada.
+2. Sistema carrega dados da aula via `data.json`.
+3. Em mudancas de tema, abre roleta + modal + Sokoban.
+4. Perguntas sao exibidas com feedback imediato.
+5. A cada 3 acertos seguidos, abre rodada de bonus (caca-niquel).
+6. Ao final, salva score no Firebase e mostra ranking.
 
-## Sumário
+## Funcionalidades implementadas
 
-- [Visão Geral](#visão-geral)
-- [Destaques do Projeto](#destaques-do-projeto)
-- [Fluxo da Experiência](#fluxo-da-experiência)
-- [Arquitetura](#arquitetura)
-- [Estrutura de Pastas](#estrutura-de-pastas)
-- [Como Executar](#como-executar)
-- [Sistema de Ranking Firebase](#sistema-de-ranking-firebase)
-- [Configuração de Conteúdo](#configuração-de-conteúdo)
-- [Tipos de Questão Suportados](#tipos-de-questão-suportados)
-- [Customização Rápida](#customização-rápida)
-- [Roadmap](#roadmap)
-- [Licença](#licença)
-- [Créditos](#créditos)
+- Arquitetura MVC com modulos ES.
+- 50 questoes no banco atual (`sst/aula-11/data.json`).
+- 5 tipos de questao: `multiple`, `boolean`, `combo`, `multi`, `drag`.
+- 4 eras/temas didaticos com troca dinamica de cor e background.
+- Transicoes de era com roleta e Sokoban.
+- Pontuacao em tempo real com animacoes e audio.
+- Bonus de caca-niquel por sequencia de acertos.
+- Ranking global com Firebase Realtime Database.
+- Painel lateral com Top 15 em tempo real.
+- Timer total de sessao e timer especifico para desafio Sokoban.
+- Layout responsivo para desktop e mobile.
 
----
+## Regras de jogo
 
-## Visão Geral
+- Acerto: +100 pontos.
+- Erro: sem penalidade de pontos.
+- Desempate no ranking: menor tempo total da sessao.
+- Bonus: 3 acertos consecutivos liberam uma rodada de caca-niquel.
+- Cada rodada de bonus permite ate 3 giros.
 
-O Saga do Futuro é uma aplicação web educacional com narrativa gamificada. O jogador informa o nome, passa por transições temáticas com roleta e mini-jogo Sokoban, responde perguntas com diferentes formatos e recebe feedback imediato com relatório final de pontos de melhoria.
+Tempo maximo por desafio Sokoban (por era):
 
-Projeto ideal para uso em sala de aula, oficinas, trilhas técnicas e treinamentos internos.
+- `ACID`: 60s
+- `AGEN`: 50s
+- `PROT`: 40s
+- `NORM`: 30s
 
----
-
-## Destaques do Projeto
-
-- Troca dinâmica de tema (cores e imagem de fundo) por etapa.
-- Roleta construída em tempo de execução com base nos tópicos do JSON.
-- Mini-jogo Sokoban como gate de progressão entre eras.
-- Motor de perguntas multimodal.
-- Embaralhamento de alternativas para reduzir padrão de memorização.
-- Registro de erros sem duplicidade com resumo final de revisão.
-- **💰 Sistema de Pontuação com Animações**: 100 pontos por acerto, painel fixo, moedas caindo.
-- **🏆 Ranking Global em Tempo Real**: Firebase Realtime Database para sincronizar pontos entre alunos.
-- **🎨 Painel de Pontos**: Exibição dinâmica com efeitos de pulsação e som Web Audio API.
-
----
-
-## Fluxo da Experiência
-
-1. Jogador inicia a jornada.
-2. Sistema carrega dados didáticos.
-3. Em transições de tema: roleta -> modal -> Sokoban.
-4. Perguntas são renderizadas conforme o tipo.
-5. Feedback imediato e avanço.
-6. Encerramento com relatório de erros e dicas.
-
----
-
-## Arquitetura
-
-Padrão MVC com separação clara de responsabilidades:
-
-| Camada | Arquivo | Responsabilidade |
-|---|---|---|
-| Model | sst/js/model.js | Estado, regras do jogo, carregamento de dados, lógica Sokoban |
-| View | sst/js/view.js | Renderização, eventos UI, efeitos visuais, feedback |
-| Controller | sst/js/controller.js | Orquestração do fluxo entre Model e View |
-
----
-
-## Estrutura de Pastas
+## Estrutura do projeto
 
 ```text
 quiz/
 	LICENSE
+	QUICK-START.md
 	README.md
 	sst/
-		data.json
-		index.html
-		css/
-			style.css
-		js/
-			controller.js
-			model.js
-			view.js
+		aula-11/
+			index.html
+			data.json
+			FIREBASE-SETUP.md
+			audio/
+				Sonic.mp3
+				show.mp3
+				valendo.mp3
+			css/
+				style.css
+			img/
+				FirjanSENAI-01.png
+			js/
+				controller.js
+				model.js
+				view.js
+				ranking-manager.js
+				firebase-config.js
+		aula-12/
+			(vazio no momento)
 ```
 
----
+## Arquitetura
 
-## Como Executar
+| Camada | Arquivo | Responsabilidade |
+|---|---|---|
+| Model | `sst/aula-11/js/model.js` | Estado da sessao, carga de dados, regras de pontuacao, estado do Sokoban |
+| View | `sst/aula-11/js/view.js` | Renderizacao de UI, interacoes, efeitos visuais/sonoros, modais |
+| Controller | `sst/aula-11/js/controller.js` | Orquestracao do fluxo, timers, progresso, bonus e fim de jogo |
+| Servico | `sst/aula-11/js/ranking-manager.js` | Persistencia e leitura de ranking no Firebase |
 
-Como há leitura de arquivo JSON via fetch, rode com servidor HTTP local.
+## Como executar localmente
 
-### Opção 1: Live Server (VS Code)
+Como o app usa `fetch` para carregar `data.json`, execute via servidor HTTP local.
 
-1. Abra a pasta do projeto.
-2. Abra sst/index.html.
+### Opcao 1: Live Server (VS Code)
+
+1. Abra a pasta do repositorio no VS Code.
+2. Abra `sst/aula-11/index.html`.
 3. Execute com Live Server.
 
-### Opção 2: Python
+### Opcao 2: Python
 
 ```bash
-cd sst
+cd sst/aula-11
 python -m http.server 5500
 ```
 
@@ -128,137 +107,89 @@ Abra no navegador:
 http://localhost:5500
 ```
 
----
+## Ranking Firebase
 
-## Sistema de Ranking Firebase
+O ranking global usa Firebase Realtime Database e salva:
 
-O projeto inclui um sistema de ranking em tempo real usando **Firebase Realtime Database**. Isso permite que os alunos vejam um ranking global compartilhado enquanto jogam.
+- `name`
+- `score`
+- `correct`
+- `total`
+- `accuracy`
+- `gameTime`
+- `timestamp`
+- `date`
 
-### ✨ Funcionalidades
+Passo a passo completo:
+`sst/aula-11/FIREBASE-SETUP.md`
 
-- 🏆 **Ranking em Tempo Real**: Todos os alunos veem o ranking atacalizado automaticamente.
-- 💰 **Métricas Salvas**: Pontuação, acertos, porcentagem e tempo total.
-- 🥇 **Medalhas**: Top 3 destacados com 🥇🥈🥉.
-- 📱 **Compatível com GitHub Pages**: Funciona perfeitamente em hosting estático.
+Arquivo de configuracao:
+`sst/aula-11/js/firebase-config.js`
 
-### 🚀 Configuração (Obrigatório)
+## Banco de questoes (`data.json`)
 
-Para ativar o ranking, siga o guia completo em: **[FIREBASE-SETUP.md](sst/FIREBASE-SETUP.md)**
+O arquivo `sst/aula-11/data.json` contem:
 
-Resumo rápido:
-1. Criar projeto em https://console.firebase.google.com
-2. Criar Realtime Database
-3. Copiar credenciais
-4. Colar em sst/js/firebase-config.js
+- `lesson_info` com titulo e topicos (id, nome, descricao, cor, imagem, letras do Sokoban).
+- `questions` com os objetos de cada questao.
 
-### 📊 Dados Salvos
+Campos usados por questao:
 
-Cada resultado contém:
-- `name`: Nome do aluno
-- `score`: Pontuação total (100 pontos por acerto)
-- `correct`: Número de acertos
-- `total`: Total de perguntas
-- `accuracy`: Porcentagem (ex: 80%)
-- `gameTime`: Tempo total em segundos
-- `timestamp`: Horário envio
-- `date`: Data formatada
+- `type`
+- `topics`
+- `questions`
+- `answers` ou `options`
+- `correct`
+- `tip`
+- `trans` (opcional; dispara roleta + Sokoban para o proximo tema)
 
-### 🎯 Para Professores
+Transicoes configuradas atualmente:
 
-**Monitorar em Tempo Real:**
-1. Firebase Console → Realtime Database
-2. Expanda pasta "scores"
-3. Veja todos os alunos jogando em tempo real
+- `ACID -> AGEN`
+- `AGEN -> PROT`
+- `PROT -> NORM`
 
-**Exportar Resultados:**
-1. Clique com botão direito em "scores"
-2. "Exportar como JSON"
-3. Use Excel ou Google Sheets para análise
+## Tipos de questao suportados
 
----
+- `multiple`: escolha unica por botoes.
+- `boolean`: verdadeiro/falso (renderizado como escolha unica).
+- `combo`: select (`<select>`) com validacao por botao.
+- `multi`: multiplas respostas com checkbox.
+- `drag`: arrastar e soltar com zonas de destino.
 
-## Configuração de Conteúdo
+## Customizacoes comuns
 
-Todo o conteúdo está centralizado em sst/data.json.
+1. Alterar tema por era: editar `color` e `img_url` em `lesson_info.topics`.
+2. Alterar pontuacao por acerto: editar `pointsPerCorrect` em `sst/aula-11/js/model.js`.
+3. Adicionar perguntas: incluir novos objetos no array `questions`.
+4. Criar nova transicao entre eras: adicionar `trans` na questao desejada.
 
-### lesson_info
+## Deploy
 
-- title: título da aula.
-- topics: lista de eras com:
-	- id
-	- name
-	- desc
-	- color
-	- img_url
-	- sokoban (letras exibidas nas caixas)
+O projeto funciona em hospedagem estatica (exemplo: GitHub Pages), desde que a pagina inicial publicada seja:
 
-### questions
+- `sst/aula-11/index.html`
 
-Cada item define uma pergunta com:
+## Observacoes tecnicas
 
-- type
-- topics
-- questions
-- answers ou options
-- correct
-- tip
-- trans (opcional, para ativar transição de era)
+- O ranking depende do Firebase configurado corretamente.
+- Sem Firebase, o quiz continua funcional, mas sem persistencia global de ranking.
+- O arquivo `QUICK-START.md` existe como guia rapido, mas este README e a referencia completa.
 
----
+## Roadmap sugerido
 
-## Tipos de Questão Suportados
+- Persistencia local de progresso (checkpoint da jornada).
+- Painel administrativo para editar `data.json` sem editar codigo.
+- Relatorios por turma e exportacao estendida.
+- Cobertura de testes para regras de pontuacao e fluxo.
+- Modo offline com fallback local de ranking.
 
-- multiple: alternativa única por botão.
-- boolean: verdadeiro/falso (usa fluxo de alternativa única).
-- combo: seleção em caixa de combinação.
-- multi: múltiplas respostas com checkbox.
-- drag: arrastar e soltar com validação por zona.
+## Licenca
 
----
+Consulte o arquivo `LICENSE`.
 
-## Customização Rápida
+## Creditos
 
-<details>
-	<summary><strong>Alterar tema visual por era</strong></summary>
-
-Edite color e img_url em sst/data.json dentro de lesson_info.topics.
-</details>
-
-<details>
-	<summary><strong>Adicionar novas perguntas</strong></summary>
-
-Inclua novos objetos no array questions em sst/data.json seguindo os formatos já existentes.
-</details>
-
-<details>
-	<summary><strong>Criar nova transição entre módulos</strong></summary>
-
-Adicione o campo trans em uma pergunta para disparar roleta + modal + Sokoban antes da próxima era.
-</details>
-
----
-
-## Roadmap
-
-- ✅ Sistema de Pontuação com Animações
-- ✅ Ranking Global com Firebase Realtime
-- ✅ Painel de Pontos com Efeitos Visuais
-- 📋 Persistência de progresso em armazenamento local.
-- 📋 Dashboard para autoria de questões sem edição manual de JSON.
-- 📋 Relatórios de desempenho por turma (exportação avançada).
-- 📋 Internacionalização de conteúdo.
-- 📋 Cobertura de testes para regras de pontuação e progressão.
-- 📋 Autenticação (opcional para maior segurança).
-
----
-
-## Licença
-
-Este projeto está licenciado conforme o arquivo LICENSE.
-
----
-
-## Créditos
-
-- Conteúdo didático e condução pedagógica: Professor Raphael Barreto - Firjan SENAI.
+Conteudo didatico e conducao pedagogica:
+Professor Raphael Barreto - Firjan SENAI.
 
