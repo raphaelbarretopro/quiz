@@ -58,13 +58,24 @@ export default class View {
             // Modal de Ranking
             rankingModal: document.getElementById('ranking-modal'),
             rankingList: document.getElementById('ranking-list'),
-            rankingModalClose: document.getElementById('ranking-modal-close')
+            rankingModalClose: document.getElementById('ranking-modal-close'),
+
+            // Elementos do Caça Níquel
+            slotMachineModal: document.getElementById('slot-machine-modal'),
+            slotSpinBtn: document.getElementById('slot-spin-btn'),
+            slotCloseBtn: document.getElementById('slot-close-btn'),
+            slotResult: document.getElementById('slot-result'),
+            slotReel1: document.getElementById('reel-1'),
+            slotReel2: document.getElementById('reel-2'),
+            slotReel3: document.getElementById('reel-3')
         };
         
         this.rot = 0;
         this.spinTimer = null;
         this.dragsFixed = 0;
         this.audioContext = null;
+        this.questionCount = 0; // Contador de questões para trigger do caça níquel
+        this.lastSlotPositions = [0, 0, 0]; // Armazena posições finais dos reels
 
         // Efeito principal de acerto (arquivo externo) com fallback sintético.
         this.correctAnswerAudio = new Audio('audio/Sonic.mp3');
@@ -1029,5 +1040,337 @@ export default class View {
         const min = Math.floor(safe / 60).toString().padStart(2, '0');
         const sec = (safe % 60).toString().padStart(2, '0');
         return `${min}:${sec}`;
+    }
+
+    /* ================================
+       MÉTODOS PARA CAÇA NÍQUEL (SLOT MACHINE)
+       ================================ */
+
+    shouldShowSlotMachine() {
+        // Retorna true se deve mostrar o caça níquel (a cada 5-10 questões)
+        const minQuestions = 5;
+        const maxQuestions = 10;
+        const range = maxQuestions - minQuestions;
+        const randomTrigger = minQuestions + Math.floor(Math.random() * range);
+        
+        return this.questionCount % randomTrigger === 0 && this.questionCount > 0;
+    }
+
+    showSlotMachine() {
+        // Abre o modal do caça níquel
+        this.els.slotMachineModal.classList.remove('hidden');
+        this.els.slotSpinBtn.disabled = false;
+        this._ensureSlotTracks();
+        
+        // Reset visual do resultado ao abrir.
+        this.els.slotResult.innerHTML = '';
+        this.els.slotResult.classList.add('hidden');
+        
+        this.bindSlotMachineEvents();
+    }
+
+    _ensureSlotTracks() {
+        // Monta o trilho interno de cada reel uma única vez.
+        const reels = [this.els.slotReel1, this.els.slotReel2, this.els.slotReel3];
+
+        reels.forEach((reel) => {
+            if (!reel || reel.querySelector('.slot-track')) return;
+
+            const symbolNodes = Array.from(reel.querySelectorAll('.slot-symbol'));
+            const baseSymbols = symbolNodes.map((node) => (node.textContent || '').trim()).filter(Boolean);
+            const track = document.createElement('div');
+            track.className = 'slot-track';
+
+            symbolNodes.forEach((node) => track.appendChild(node));
+            symbolNodes.forEach((node) => track.appendChild(node.cloneNode(true)));
+
+            reel.appendChild(track);
+            reel.dataset.baseSymbols = JSON.stringify(baseSymbols);
+            reel.dataset.baseCount = String(baseSymbols.length || 1);
+            reel.dataset.currentIndex = '0';
+        });
+    }
+
+    _getSlotResultsFromPositions(positions) {
+        const reels = [this.els.slotReel1, this.els.slotReel2, this.els.slotReel3];
+        return positions.map((pos, index) => {
+            const reel = reels[index];
+            if (!reel) return '';
+            const baseSymbols = JSON.parse(reel.dataset.baseSymbols || '[]');
+            if (!baseSymbols.length) return '';
+            const normalized = ((pos % baseSymbols.length) + baseSymbols.length) % baseSymbols.length;
+            return baseSymbols[normalized];
+        });
+    }
+
+    getSlotSymbolsFromPositions(positions) {
+        // Exposto para o controller montar o resumo final da rodada.
+        return this._getSlotResultsFromPositions(positions);
+    }
+
+    hideSlotMachine() {
+        // Fecha o modal do caça níquel
+        this.els.slotMachineModal.classList.add('hidden');
+        this.els.slotResult.innerHTML = '';
+        this.els.slotResult.classList.add('hidden');
+    }
+
+    bindSlotMachineEvents() {
+        // Liga os eventos do caça níquel
+        if (this.els.slotSpinBtn) {
+            this.els.slotSpinBtn.onclick = () => this.spinSlotMachine();
+        }
+        if (this.els.slotCloseBtn) {
+            this.els.slotCloseBtn.onclick = () => this.hideSlotMachine();
+        }
+    }
+
+    spinSlotMachine() {
+        // Anima os 3 reels e resolve quando o resultado final estiver disponível.
+        this._ensureSlotTracks();
+
+        const reels = [this.els.slotReel1, this.els.slotReel2, this.els.slotReel3];
+        const spinDurations = [1100, 1400, 1700];
+
+        const finalPositions = reels.map((reel) => {
+            const count = Number(reel?.dataset.baseCount || 5);
+            return Math.floor(Math.random() * Math.max(1, count));
+        });
+
+        // Armazena as posições para uso posterior
+        this.lastSlotPositions = finalPositions;
+
+        reels.forEach((reel, index) => {
+            const track = reel?.querySelector('.slot-track');
+            if (!reel || !track) return;
+
+            const baseCount = Number(reel.dataset.baseCount || 5);
+            const loops = 2 + index;
+            const targetIndex = (loops * baseCount) + finalPositions[index];
+            const targetOffset = targetIndex * 120;
+
+            reel.classList.add('spinning');
+            track.style.transition = `transform ${spinDurations[index]}ms cubic-bezier(0.16, 0.84, 0.32, 1)`;
+            track.style.transform = `translateY(-${targetOffset}px)`;
+
+            setTimeout(() => {
+                reel.classList.remove('spinning');
+                const finalOffset = finalPositions[index] * 120;
+                track.style.transition = 'none';
+                track.style.transform = `translateY(-${finalOffset}px)`;
+                reel.dataset.currentIndex = String(finalPositions[index]);
+
+                requestAnimationFrame(() => {
+                    track.style.transition = `transform ${spinDurations[index]}ms cubic-bezier(0.16, 0.84, 0.32, 1)`;
+                });
+            }, spinDurations[index]);
+        });
+
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                this.showSlotResult(finalPositions);
+                resolve(finalPositions);
+            }, Math.max(...spinDurations) + 300);
+        });
+    }
+
+    showSlotResult(positions) {
+        // Exibe o resultado sem atualizar pontos (controle fica com o controller)
+        const results = this._getSlotResultsFromPositions(positions);
+
+        let message = '';
+        let isJackpot = false;
+
+        // Verifica se todos 3 são iguais
+        const allEqual = results[0] === results[1] && results[1] === results[2];
+        
+        // Conta quantos pares são iguais
+        const pair1 = results[0] === results[1];
+        const pair2 = results[1] === results[2];
+        const pair3 = results[0] === results[2];
+        const equalPairs = (pair1 ? 1 : 0) + (pair2 ? 1 : 0) + (pair3 ? 1 : 0);
+
+        if (allEqual) {
+            isJackpot = true;
+
+            if (results[0] === '7️⃣') {
+                message = `🎉 JACKPOT! 7️⃣7️⃣7️⃣<br>+500 MOEDAS!`;
+            } else if (results[0] === '💎') {
+                message = `✨ 3 DIAMANTES!<br>+300 MOEDAS!`;
+            } else if (results[0] === '⭐') {
+                message = `⭐ 3 ESTRELAS!<br>+250 MOEDAS!`;
+            } else {
+                message = `🍎 3 FRUTAS!<br>+150 MOEDAS!`;
+            }
+
+            // Toca som de vitória e anima moedas
+            this.playCountingSound();
+            setTimeout(() => this.createCoinAnimation(), 200);
+        } else if (equalPairs === 1) {
+            // Exatamente 2 iguais
+            message = `🎟️ 2 SÍMBOLOS IGUAIS!<br>+50 MOEDAS!`;
+            this.playCountingSound();
+        } else {
+            // Nenhum igual
+            message = `❌ SEM SORTE!<br>TENTE NOVAMENTE!`;
+        }
+
+        // Exibe resultado
+        this.els.slotResult.innerHTML = message;
+        this.els.slotResult.classList.remove('hidden', 'jackpot');
+        
+        if (isJackpot) {
+            this.els.slotResult.classList.add('jackpot');
+        }
+    }
+
+    getPrizeFromPositions(positions) {
+        // Calcula o prêmio basado nas posições dos reels
+        const results = this._getSlotResultsFromPositions(positions);
+
+        let prize = 0;
+
+        // Verifica se todos 3 são iguais
+        const allEqual = results[0] === results[1] && results[1] === results[2];
+        
+        // Conta quantos pares são iguais
+        const pair1 = results[0] === results[1];
+        const pair2 = results[1] === results[2];
+        const pair3 = results[0] === results[2];
+        
+        // Conta pares iguais
+        const equalPairs = (pair1 ? 1 : 0) + (pair2 ? 1 : 0) + (pair3 ? 1 : 0);
+
+        if (allEqual) {
+            // 3 iguais
+            if (results[0] === '7️⃣') {
+                prize = 500;
+            } else if (results[0] === '💎') {
+                prize = 300;
+            } else if (results[0] === '⭐') {
+                prize = 250;
+            } else {
+                prize = 150;
+            }
+        } else if (equalPairs === 1) {
+            // Exatamente 2 iguais (1 par de iguais)
+            prize = 50;
+        } else {
+            // Nenhum igual
+            prize = 0;
+        }
+
+        return prize;
+    }
+
+    showSlotFinalSummary(spins, baseScore) {
+        // Mostra no centro da tela os valores de cada rodada, somando ao placar atual.
+        const safeSpins = Array.isArray(spins) ? spins : [];
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO BÔNUS 🎰</h3>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${baseScore}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = Number(baseScore) || 0;
+            const stepDelay = 700;
+
+            safeSpins.forEach((spin, index) => {
+                setTimeout(() => {
+                    const symbolsTxt = (spin.symbols || []).join(' ');
+                    const prize = Number(spin.prize) || 0;
+
+                    const row = document.createElement('div');
+                    row.className = 'slot-summary-row';
+                    row.innerHTML = `
+                        <span>Rodada ${index + 1}: ${symbolsTxt}</span>
+                        <strong>+${prize}</strong>
+                    `;
+                    listEl.appendChild(row);
+
+                    const oldScore = runningScore;
+                    runningScore += prize;
+                    totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                    this.animateScoreIncrease(oldScore, runningScore);
+                }, stepDelay * (index + 1));
+            });
+
+            const finishDelay = (stepDelay * (safeSpins.length + 1)) + 3000;
+            setTimeout(() => {
+                overlay.remove();
+                resolve(runningScore);
+            }, finishDelay);
+        });
+    }
+
+    checkSlotResult(positions) {
+        // Verifica se ganhou e exibe resultado
+        const results = this._getSlotResultsFromPositions(positions);
+
+        let prize = 0;
+        let message = '';
+        let isJackpot = false;
+
+        // Verifica se todos 3 são iguais
+        const allEqual = results[0] === results[1] && results[1] === results[2];
+        
+        // Conta quantos pares são iguais
+        const pair1 = results[0] === results[1];
+        const pair2 = results[1] === results[2];
+        const pair3 = results[0] === results[2];
+        const equalPairs = (pair1 ? 1 : 0) + (pair2 ? 1 : 0) + (pair3 ? 1 : 0);
+
+        if (allEqual) {
+            isJackpot = true;
+
+            if (results[0] === '7️⃣') {
+                prize = 500;
+                message = `🎉 JACKPOT! 7️⃣7️⃣7️⃣<br>+500 MOEDAS!`;
+            } else if (results[0] === '💎') {
+                prize = 300;
+                message = `✨ 3 DIAMANTES!<br>+300 MOEDAS!`;
+            } else if (results[0] === '⭐') {
+                prize = 250;
+                message = `⭐ 3 ESTRELAS!<br>+250 MOEDAS!`;
+            } else {
+                prize = 150;
+                message = `🍎 3 FRUTAS!<br>+150 MOEDAS!`;
+            }
+
+            // Toca som de vitória e anima moedas
+            this.playCountingSound();
+            setTimeout(() => this.createCoinAnimation(), 200);
+        } else if (equalPairs === 1) {
+            // Exatamente 2 iguais
+            prize = 50;
+            message = `🎟️ 2 SÍMBOLOS IGUAIS!<br>+50 MOEDAS!`;
+            this.playCountingSound();
+        } else {
+            // Nenhum igual
+            message = `❌ SEM SORTE!<br>TENTE NOVAMENTE!`;
+        }
+
+        // Exibe resultado
+        this.els.slotResult.innerHTML = message;
+        this.els.slotResult.classList.remove('hidden', 'jackpot');
+        
+        if (isJackpot) {
+            this.els.slotResult.classList.add('jackpot');
+        }
+
+        // Retorna o prêmio para o controller
+        return { prize, message, isJackpot };
     }
 }

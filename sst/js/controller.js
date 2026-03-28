@@ -18,6 +18,15 @@ class Controller {
         this.hasTimedOut = false;
         this.timerStarted = false;
         this.lastTimeoutSnapshot = null;
+        this.correctStreak = 0;
+        this.lastAnswerWasCorrect = false;
+        this.slotMaxSpins = 3;
+        this.slotSpinsUsed = 0;
+        this.slotIsActive = false;
+        this.slotSpinInProgress = false;
+        this.slotRoundId = 0;
+        this.slotRoundSpins = [];
+        this.slotRoundBaseScore = 0;
 
         // Registra os handlers da interface com o contexto da instância.
         this.view.bindStart(this.handleStart.bind(this));
@@ -61,6 +70,14 @@ class Controller {
         this.startTime = Date.now();
         this.hasTimedOut = false;
         this.timerStarted = false;
+        this.correctStreak = 0;
+        this.lastAnswerWasCorrect = false;
+        this.slotSpinsUsed = 0;
+        this.slotIsActive = false;
+        this.slotSpinInProgress = false;
+        this.slotRoundId = 0;
+        this.slotRoundSpins = [];
+        this.slotRoundBaseScore = 0;
         this.clearGameTimeout();
         this.stopTotalTimer();
         this.view.updateTimerDisplay(this.gameDurationMs / 1000);
@@ -249,14 +266,17 @@ class Controller {
         const q = this.model.getCurrentQuestion();
         // Compara resposta escolhida com a correta (inclui casos de array e valor simples).
         const isCorrect = JSON.stringify(selectedValue) === JSON.stringify(q.correct) || selectedValue === q.correct;
+        this.lastAnswerWasCorrect = isCorrect;
 
         if (isCorrect) {
             this.model.stats.correct++;
+            this.correctStreak++;
             const oldScore = this.model.playerScore;
             const newScore = this.model.addScore(this.model.pointsPerCorrect);
             this.view.animateScoreIncrease(oldScore, newScore);
             this.view.showFeedback(true, q.tip, this.model.playerName, btnElement, q);
         } else {
+            this.correctStreak = 0;
             this.model.registerMistake(q);
             // Erro não pontua e também não desconta: mantém o score atual.
             this.view.updateScoreDisplay(this.model.playerScore);
@@ -268,8 +288,15 @@ class Controller {
         // Avança no fluxo; ao final, exibe tela de encerramento.
         if (this.hasTimedOut) return;
         this.model.curStep++;
+        
         if (this.model.curStep < this.model.questions.length) {
-            this.renderStep();
+            // Regra: abre caça-níquel ao atingir 3 acertos consecutivos.
+            if (this.correctStreak >= 3) {
+                this.correctStreak = 0;
+                this.openSlotRound();
+            } else {
+                this.renderStep();
+            }
         } else {
             this.clearGameTimeout();
             this.stopTotalTimer();
@@ -308,6 +335,91 @@ class Controller {
     handleRankingModalClose() {
         // Fecha modal de ranking
         this.view.hideRankingModal();
+    }
+
+    bindSlotMachineResult() {
+        // Mantido por compatibilidade: fluxo migrou para openSlotRound().
+    }
+
+    openSlotRound() {
+        this.slotRoundId++;
+        const activeRoundId = this.slotRoundId;
+        this.slotIsActive = true;
+        this.slotSpinsUsed = 0;
+        this.slotSpinInProgress = false;
+        this.slotRoundSpins = [];
+        this.slotRoundBaseScore = this.model.playerScore;
+        this.view.showSlotMachine();
+        this.view.els.slotSpinBtn.disabled = false;
+        this.updateSlotSpinButtonLabel();
+        this.view.els.slotResult.classList.remove('hidden', 'jackpot');
+        this.view.els.slotResult.innerHTML = `🎰 BÔNUS LIBERADO!<br>${this.slotMaxSpins} GIROS DISPONÍVEIS`;
+
+        this.view.els.slotSpinBtn.onclick = async () => {
+            if (!this.slotIsActive) return;
+            if (this.slotSpinsUsed >= this.slotMaxSpins) return;
+            if (this.slotSpinInProgress) return;
+
+            // Conta o giro no clique para não ultrapassar o limite.
+            this.slotSpinInProgress = true;
+            this.slotSpinsUsed++;
+            this.view.els.slotSpinBtn.disabled = true;
+            this.updateSlotSpinButtonLabel();
+
+            try {
+                const finalPositions = await this.view.spinSlotMachine();
+
+                // Se a rodada já mudou/encerrou, encerra sem mexer no fluxo.
+                if (!this.slotIsActive || this.slotRoundId !== activeRoundId) {
+                    return;
+                }
+
+                const symbols = this.view.getSlotSymbolsFromPositions(finalPositions);
+                const prize = this.view.getPrizeFromPositions(finalPositions);
+                this.slotRoundSpins.push({ symbols, prize });
+
+                const remaining = this.slotMaxSpins - this.slotSpinsUsed;
+                if (remaining <= 0) {
+                    this.view.els.slotSpinBtn.disabled = true;
+                    this.view.els.slotResult.classList.remove('hidden');
+                    this.view.els.slotResult.innerHTML += '<br><small>Processando bônus final...</small>';
+
+                    this.slotIsActive = false;
+                    const finalScore = await this.view.showSlotFinalSummary(
+                        this.slotRoundSpins,
+                        this.slotRoundBaseScore
+                    );
+                    this.model.playerScore = finalScore;
+                    this.view.updateScoreDisplay(finalScore);
+                    this.slotSpinInProgress = false;
+                    this.view.hideSlotMachine();
+                    this.renderStep();
+                    return;
+                }
+
+                this.view.els.slotSpinBtn.disabled = false;
+                this.updateSlotSpinButtonLabel();
+            } finally {
+                // Garante destrava mesmo em qualquer erro de runtime.
+                if (this.slotRoundId === activeRoundId) {
+                    this.slotSpinInProgress = false;
+                }
+            }
+        };
+
+        this.view.els.slotCloseBtn.onclick = () => {
+            if (!this.slotIsActive) return;
+            this.slotIsActive = false;
+            this.slotSpinInProgress = false;
+            this.view.els.slotSpinBtn.disabled = false;
+            this.view.hideSlotMachine();
+            this.renderStep();
+        };
+    }
+
+    updateSlotSpinButtonLabel() {
+        const remaining = Math.max(0, this.slotMaxSpins - this.slotSpinsUsed);
+        this.view.els.slotSpinBtn.textContent = `GIRAR (${remaining}) 🎰`;
     }
 }
 
