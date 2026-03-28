@@ -332,6 +332,42 @@ body {
     }
 }
 
+.lightning-flash {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1600;
+    background:
+        radial-gradient(circle at 50% 22%,
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.18) 24%,
+            rgba(255, 255, 255, 0) 58%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='g'%3E%3CfeGaussianBlur stdDeviation='6' result='b'/%3E%3CfeMerge%3E%3CfeMergeNode in='b'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3ClinearGradient id='lg' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.98'/%3E%3Cstop offset='100%25' stop-color='%238ad8ff' stop-opacity='0.85'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M980 80 L900 380 L1010 380 L880 760 L1080 430 L975 430 L1080 140 Z' fill='url(%23lg)' filter='url(%23g)'/%3E%3Cpath d='M680 130 L620 330 L700 330 L600 590 L760 360 L680 360 L760 170 Z' fill='url(%23lg)' opacity='0.65' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: cover, cover;
+    background-position: center, center;
+    mix-blend-mode: screen;
+    animation: lightningFlash 0.48s ease-out forwards;
+}
+
+@keyframes lightningFlash {
+    0% {
+        opacity: 0;
+    }
+    12% {
+        opacity: 0.9;
+    }
+    28% {
+        opacity: 0.22;
+    }
+    46% {
+        opacity: 0.75;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .multi-opt {
     /* Opção de resposta para questões de múltipla seleção. */
     display: flex;

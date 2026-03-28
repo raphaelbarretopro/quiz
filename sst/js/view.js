@@ -194,6 +194,7 @@ export default class View {
         
         // Adiciona voltas extras (1800deg = 5 voltas) para efeito visual
         this.els.wheel.style.transform = `rotate(${targetAngle + 1800}deg)`;
+        this.triggerLightning(2);
         
         setTimeout(() => {
             this.els.modalTitle.innerText = "NOVO TEMA: " + topicData.name;
@@ -233,7 +234,6 @@ export default class View {
 
     sokobanComplete(callback) {
         this.playSokobanWinSound();
-        this.triggerExplosion();
         setTimeout(() => {
             this.els.sokobanScreen.classList.add('hidden');
             callback();
@@ -365,7 +365,7 @@ export default class View {
             if (btnElement) btnElement.style.background = "#2ecc71";
             this.els.nextBtn.classList.remove('hidden');
             this.els.valBtn.classList.add('hidden');
-            this.triggerExplosion();
+            this.triggerLightning(1);
         } else {
             if (btnElement) btnElement.style.background = "#ff4b4b";
             this.playErrorSound();
@@ -396,8 +396,6 @@ export default class View {
         if (onShowRanking) {
             document.getElementById('btn-show-ranking').addEventListener('click', onShowRanking);
         }
-        
-        this.triggerExplosion();
     }
 
     showAlert(title, message, callback = null) {
@@ -457,6 +455,21 @@ export default class View {
 
             document.body.appendChild(f);
             setTimeout(() => f.remove(), duration * 1000 + 100);
+        }
+    }
+
+    triggerLightning(count = 1) {
+        // Efeito rápido de raio para momentos de destaque.
+        const flashes = Math.max(1, Number(count) || 1);
+
+        for (let i = 0; i < flashes; i++) {
+            const delay = i * 160 + Math.random() * 90;
+            setTimeout(() => {
+                const flash = document.createElement('div');
+                flash.className = 'lightning-flash';
+                document.body.appendChild(flash);
+                setTimeout(() => flash.remove(), 420);
+            }, delay);
         }
     }
 
