@@ -11,6 +11,12 @@ class Controller {
         this.isReady = false;
         this.currentTargetTopic = null;
         this.startTime = null;
+        this.gameDurationMs = 60000;
+        this.gameTimeoutId = null;
+        this.gameTickId = null;
+        this.hasTimedOut = false;
+        this.timerStarted = false;
+        this.lastTimeoutSnapshot = null;
 
         // Registra os handlers da interface com o contexto da instância.
         this.view.bindStart(this.handleStart.bind(this));
@@ -40,8 +46,91 @@ class Controller {
         // Inicia a sessão do jogador e passa para o primeiro passo da jornada.
         this.model.playerName = name;
         this.view.setScorePlayerName(name);
+        // Tempo total da sessão (independente do timer do Sokoban).
         this.startTime = Date.now();
+        this.hasTimedOut = false;
+        this.timerStarted = false;
+        this.clearGameTimeout();
+        this.view.updateTimerDisplay(this.gameDurationMs / 1000);
+        this.view.setTimerVisibility(false);
         this.view.els.startScreen.classList.add('hidden');
+        this.renderStep();
+    }
+
+    startGameTimeout() {
+        this.clearGameTimeout();
+        this.hasTimedOut = false;
+        const endsAt = Date.now() + this.gameDurationMs;
+        const tick = () => {
+            const remaining = Math.ceil((endsAt - Date.now()) / 1000);
+            this.view.updateTimerDisplay(remaining);
+        };
+        tick();
+        this.gameTickId = setInterval(tick, 250);
+
+        this.gameTimeoutId = setTimeout(() => {
+            if (this.hasTimedOut) return;
+            this.hasTimedOut = true;
+            this.clearGameTimeout();
+            this.view.updateTimerDisplay(0);
+
+            // Mantém um registro da tentativa interrompida por tempo.
+            this.lastTimeoutSnapshot = {
+                playerName: this.model.playerName,
+                score: this.model.playerScore,
+                correct: this.model.stats.correct,
+                mistakes: this.model.stats.mistakes.length,
+                step: this.model.curStep,
+                timeoutAt: Date.now()
+            };
+
+            this.view.showAlert(
+                '⏱️ Tempo Esgotado!',
+                'Você atingiu o limite de 1 minuto. Clique em OK para reiniciar este desafio mantendo sua pontuação e progresso.',
+                this.restartAfterTimeout.bind(this)
+            );
+        }, this.gameDurationMs);
+    }
+
+    clearGameTimeout() {
+        if (this.gameTimeoutId) {
+            clearTimeout(this.gameTimeoutId);
+            this.gameTimeoutId = null;
+        }
+        if (this.gameTickId) {
+            clearInterval(this.gameTickId);
+            this.gameTickId = null;
+        }
+    }
+
+    restartAfterTimeout() {
+        // Reinicia apenas o desafio atual, preservando score e estatísticas da sessão.
+        this.clearGameTimeout();
+        this.hasTimedOut = false;
+        this.timerStarted = false;
+        this.view.updateTimerDisplay(this.gameDurationMs / 1000);
+        this.view.setTimerVisibility(false);
+
+        // Fecha modais e mantém o fluxo na etapa atual.
+        this.view.els.feedbackModal.classList.add('hidden');
+        this.view.els.introModal.classList.add('hidden');
+        this.view.els.rankingModal.classList.add('hidden');
+        this.view.els.startScreen.classList.add('hidden');
+        this.view.els.portalScreen.classList.add('hidden');
+        this.view.els.quizScreen.classList.add('hidden');
+
+        // Se o timeout ocorreu no Sokoban, reinicia somente o mini-jogo com novo timer.
+        if (this.currentTargetTopic) {
+            this.model.sokobanActive = true;
+            this.view.showSokoban();
+            this.handleSokobanReset();
+            this.view.setTimerVisibility(true);
+            this.startGameTimeout();
+            this.timerStarted = true;
+            return;
+        }
+
+        // Fallback seguro: retorna para o fluxo normal sem perder progresso.
         this.renderStep();
     }
 
@@ -51,21 +140,31 @@ class Controller {
         // Em transições de tema, força a etapa da roleta + Sokoban antes da pergunta.
         if (q.trans && !this.isReady) {
             this.currentTargetTopic = q.trans;
+            this.view.setTimerVisibility(false);
             this.view.showPortal();
             return;
         }
         
         // Renderiza a pergunta da etapa atual com o tema correspondente.
         const topicData = this.model.getTopicData(q.topics);
-        this.view.renderQuestion(q, topicData, this.model.playerName, this.handleAnswer.bind(this));
+        this.view.renderQuestion(
+            q,
+            topicData,
+            this.model.playerName,
+            this.handleAnswer.bind(this),
+            this.model.curStep,
+            this.model.questions.length
+        );
         this.isReady = false;
     }
 
     handleWheelStart() {
+        if (this.hasTimedOut) return;
         this.view.startSpin();
     }
 
     handleWheelStop() {
+        if (this.hasTimedOut) return;
         // Converte o tópico-alvo para índice e anima a roleta até o setor correto.
         const topicIndex = this.model.lessonInfo.topics.findIndex(t => t.id === this.currentTargetTopic);
         const topicData = this.model.getTopicData(this.currentTargetTopic);
@@ -74,6 +173,12 @@ class Controller {
     }
 
     handleModalClose() {
+        if (this.hasTimedOut) return;
+        if (!this.timerStarted) {
+            this.view.setTimerVisibility(true);
+            this.startGameTimeout();
+            this.timerStarted = true;
+        }
         // Ao fechar o modal da era, inicia o mini-jogo de transição.
         this.view.showSokoban();
         this.model.sokobanActive = true;
@@ -81,18 +186,24 @@ class Controller {
     }
 
     handleSokobanReset() {
+        if (this.hasTimedOut) return;
         // Reinicia estado e redesenha o tabuleiro Sokoban.
         this.model.resetSokoban(this.currentTargetTopic);
         this.view.drawSokoban(this.model.sLevel, this.model.sP, this.model.sB);
     }
 
     handleSokobanMove(dx, dy) {
+        if (this.hasTimedOut) return;
         // Aplica movimento, atualiza o grid e verifica vitória da etapa.
         const hasWon = this.model.movePlayer(dx, dy);
         this.view.drawSokoban(this.model.sLevel, this.model.sP, this.model.sB);
         
         if (hasWon && this.model.sokobanActive) {
             this.model.sokobanActive = false;
+            // Ao concluir o Sokoban, o timer desta tarefa é encerrado.
+            this.clearGameTimeout();
+            this.timerStarted = false;
+            this.view.setTimerVisibility(false);
             this.view.sokobanComplete(() => {
                 this.isReady = true;
                 this.renderStep();
@@ -101,6 +212,7 @@ class Controller {
     }
 
     handleAnswer(selectedValue, btnElement) {
+        if (this.hasTimedOut) return;
         const q = this.model.getCurrentQuestion();
         // Compara resposta escolhida com a correta (inclui casos de array e valor simples).
         const isCorrect = JSON.stringify(selectedValue) === JSON.stringify(q.correct) || selectedValue === q.correct;
@@ -122,12 +234,16 @@ class Controller {
 
     async handleNext() {
         // Avança no fluxo; ao final, exibe tela de encerramento.
+        if (this.hasTimedOut) return;
         this.model.curStep++;
         if (this.model.curStep < this.model.questions.length) {
             this.renderStep();
         } else {
+            this.clearGameTimeout();
+            this.timerStarted = false;
             // Calcula tempo total
-            const gameTime = Math.floor((Date.now() - this.startTime) / 1000);
+            const startedAt = this.startTime || Date.now();
+            const gameTime = Math.floor((Date.now() - startedAt) / 1000);
             
             // Salva no Firebase
             await this.ranking.saveScore(
@@ -145,6 +261,7 @@ class Controller {
                 this.model.playerScore,
                 this.handleShowRanking.bind(this)
             );
+            this.view.setTimerVisibility(false);
         }
     }
 

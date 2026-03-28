@@ -4,11 +4,8 @@
 
 import {
     get,
-    limitToLast,
     off,
     onValue,
-    orderByChild,
-    query,
     ref,
     set
 } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js';
@@ -18,6 +15,22 @@ export default class RankingManager {
     constructor() {
         this.isFirebaseReady = Boolean(database);
         this.rankingQuery = null;
+    }
+
+    sortScores(scores = []) {
+        // Ordena por pontuação (desc) e usa menor tempo como desempate.
+        return [...scores].sort((a, b) => {
+            const scoreA = Number(a?.score || 0);
+            const scoreB = Number(b?.score || 0);
+            if (scoreA !== scoreB) return scoreB - scoreA;
+
+            const timeA = Number.isFinite(Number(a?.gameTime)) ? Number(a.gameTime) : Number.POSITIVE_INFINITY;
+            const timeB = Number.isFinite(Number(b?.gameTime)) ? Number(b.gameTime) : Number.POSITIVE_INFINITY;
+            if (timeA !== timeB) return timeA - timeB;
+
+            // Critério estável final: registro mais antigo primeiro.
+            return Number(a?.timestamp || 0) - Number(b?.timestamp || 0);
+        });
     }
 
     async saveScore(playerName, score, correctAnswers, totalQuestions, gameTime = 0) {
@@ -58,12 +71,7 @@ export default class RankingManager {
         }
 
         try {
-            const rankingQuery = query(
-                ref(database, 'scores'),
-                orderByChild('score'),
-                limitToLast(limit)
-            );
-            const snapshot = await get(rankingQuery);
+            const snapshot = await get(ref(database, 'scores'));
             const scores = [];
 
             if (snapshot.exists()) {
@@ -72,26 +80,7 @@ export default class RankingManager {
                 });
             }
 
-            // Em alguns cenarios de regra/indice, a query pode retornar vazia.
-            // Faz fallback para leitura direta e ordenacao local.
-            if (scores.length === 0) {
-                const fallbackSnapshot = await get(ref(database, 'scores'));
-                if (!fallbackSnapshot.exists()) {
-                    return [];
-                }
-
-                const allScores = [];
-                fallbackSnapshot.forEach(childSnapshot => {
-                    allScores.push(childSnapshot.val());
-                });
-
-                return allScores
-                    .sort((a, b) => Number(b.score || 0) - Number(a.score || 0))
-                    .slice(0, limit);
-            }
-
-            // Inverte para mostrar em ordem decrescente (maior primeiro)
-            return scores.reverse();
+            return this.sortScores(scores).slice(0, limit);
         } catch (error) {
             console.error('Erro ao buscar ranking:', error);
             return [];
@@ -104,12 +93,8 @@ export default class RankingManager {
             return null;
         }
 
-        // Listener em tempo real para atualizações do ranking
-        const rankingQuery = query(
-            ref(database, 'scores'),
-            orderByChild('score'),
-            limitToLast(limit)
-        );
+        // Listener em tempo real para atualizações do ranking (ordenação local com desempate por tempo).
+        const rankingQuery = ref(database, 'scores');
 
         this.rankingQuery = rankingQuery;
         onValue(rankingQuery, (snapshot) => {
@@ -119,7 +104,7 @@ export default class RankingManager {
                     scores.push(childSnapshot.val());
                 });
             }
-            callback(scores.reverse());
+            callback(this.sortScores(scores).slice(0, limit));
         });
 
         return rankingQuery;

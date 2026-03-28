@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Logo fixa na parte superior ao centro -->
-    <img src="img/FirjanSENAI-01.png" alt="Logo Firjan SENAI" style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); height: 100px; margin-top:20px; filter: brightness(0) invert(1); opacity: 0.75; z-index: 9999; pointer-events: none;">
+  
     
     <!-- Painel de pontuação fixo no canto superior direito -->
     <div id="score-panel" class="score-panel">
@@ -20,6 +19,7 @@
                 
             </div>
             <div class="score-value" id="score-value">0</div>
+            <div id="timer-display" class="timer-display hidden">⏱ 01:00</div>
         </div>
     </div>
 
@@ -47,7 +47,7 @@
             <input type="text" id="p-name-input" placeholder="SEU NOME" autofocus>
             <br><br>
             <button id="btn-start" class="opt-btn" style="width: 300px; background: var(--primary); color: #000; font-weight: bold;" disabled>AGUARDE...</button>
-            <p>Professor Raphael Barreto | Firjan SENAI</p>
+            <p>Desenvolvido por Raphael Barreto | Firjan SENAI</p>
         </div>
 
         <!-- Tela da roleta: define o tema/era que será jogado. -->
@@ -66,14 +66,6 @@
         <div id="sokoban-screen" class="hidden">
             <h2 id="sokoban-title">📦 EMPURRE AS CAIXAS PARA FORMAR O PRÓXIMO TEMA</h2>
             <div id="sokoban-grid"></div>
-            <div style="display: flex; flex-direction: column; align-items: center; gap: 5px;">
-                <button id="btn-up" class="opt-btn" style="width: 50px; margin:0;">↑</button>
-                <div style="display: flex; gap: 50px;">
-                    <button id="btn-left" class="opt-btn" style="width: 50px; margin:0;">←</button>
-                    <button id="btn-right" class="opt-btn" style="width: 50px; margin:0;">→</button>
-                </div>
-                <button id="btn-down" class="opt-btn" style="width: 50px; margin:0;">↓</button>
-            </div>
             <button id="btn-reset-sokoban" class="opt-btn" style="width: auto; padding: 10px 40px; margin-top: 15px; background: #444;">Reiniciar</button>
         </div>
 

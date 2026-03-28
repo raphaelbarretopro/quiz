@@ -44,10 +44,12 @@ export default class View {
             // Painel de pontos
             scorePanel: document.getElementById('score-panel'),
             scoreValue: document.getElementById('score-value'),
+            timerDisplay: document.getElementById('timer-display'),
             scorePlayer: document.getElementById('score-player'),
             coinsContainer: document.getElementById('coins-container'),
             top15Panel: document.getElementById('top15-panel'),
             top15Body: document.getElementById('top15-body'),
+            firjanLogo: document.getElementById('firjan-logo'),
 
             // Modal de Ranking
             rankingModal: document.getElementById('ranking-modal'),
@@ -58,6 +60,22 @@ export default class View {
         this.rot = 0;
         this.spinTimer = null;
         this.dragsFixed = 0;
+        this.audioContext = null;
+    }
+
+    getSharedAudioContext() {
+        // Reusa um único contexto de áudio para evitar bloqueios por excesso de instâncias.
+        if (!this.audioContext) {
+            const Ctx = window.AudioContext || window.webkitAudioContext;
+            if (!Ctx) return null;
+            this.audioContext = new Ctx();
+        }
+
+        if (this.audioContext.state === 'suspended') {
+            this.audioContext.resume().catch(() => {});
+        }
+
+        return this.audioContext;
     }
 
     initUI(lessonInfo) {
@@ -105,15 +123,12 @@ export default class View {
     bindWheelStop(handler) { this.els.stopBtn.addEventListener('click', handler); }
     bindModalClose(handler) { this.els.btnModalClose.addEventListener('click', handler); }
     bindSokobanMove(handler) {
-        this.els.btnUp.addEventListener('click', () => handler(0, -1));
-        this.els.btnDown.addEventListener('click', () => handler(0, 1));
-        this.els.btnLeft.addEventListener('click', () => handler(-1, 0));
-        this.els.btnRight.addEventListener('click', () => handler(1, 0));
         window.addEventListener("keydown", (e) => {
-            if (e.key === "ArrowUp") handler(0, -1);
-            if (e.key === "ArrowDown") handler(0, 1);
-            if (e.key === "ArrowLeft") handler(-1, 0);
-            if (e.key === "ArrowRight") handler(1, 0);
+            if (this.els.sokobanScreen.classList.contains('hidden')) return;
+            if (e.key === "ArrowUp") { e.preventDefault(); handler(0, -1); }
+            if (e.key === "ArrowDown") { e.preventDefault(); handler(0, 1); }
+            if (e.key === "ArrowLeft") { e.preventDefault(); handler(-1, 0); }
+            if (e.key === "ArrowRight") { e.preventDefault(); handler(1, 0); }
         });
     }
     bindSokobanReset(handler) { this.els.btnResetSokoban.addEventListener('click', handler); }
@@ -125,6 +140,32 @@ export default class View {
         this.els.spinBtn.classList.remove('hidden');
         this.els.stopBtn.classList.add('hidden');
         this.els.stopBtn.innerText = "PARAR AGORA!";
+        // Oculta a logo Firjan ao sair da tela inicial.
+        if (this.els.firjanLogo) this.els.firjanLogo.classList.add('hidden');
+    }
+
+    _ratchetTick() {
+        if (!this._ratchetCtx) return;
+        const ctx = this._ratchetCtx;
+        const now = ctx.currentTime;
+        // Ruído curto filtrado — simula o estalo metálico da catraca.
+        const bufSize = Math.floor(ctx.sampleRate * 0.035);
+        const buf = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < bufSize; i++) data[i] = Math.random() * 2 - 1;
+        const src = ctx.createBufferSource();
+        src.buffer = buf;
+        const filt = ctx.createBiquadFilter();
+        filt.type = 'bandpass';
+        filt.frequency.value = 1100;
+        filt.Q.value = 5;
+        const gain = ctx.createGain();
+        gain.gain.setValueAtTime(0.4, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+        src.connect(filt);
+        filt.connect(gain);
+        gain.connect(ctx.destination);
+        src.start(now);
     }
 
     startSpin() {
@@ -135,11 +176,18 @@ export default class View {
             this.rot += 45; 
             this.els.wheel.style.transform = `rotate(${this.rot}deg)`; 
         }, 40);
+        // Som de catraca rápida durante o giro.
+        this._ratchetCtx = new (window.AudioContext || window.webkitAudioContext)();
+        this.rattleTimer = setInterval(() => this._ratchetTick(), 100);
     }
 
     stopSpin(topicIndex, totalTopics, topicData) {
         clearInterval(this.spinTimer);
-        
+        clearInterval(this.rattleTimer);
+        // Desaceleração sonora: cliques com intervalos crescentes (catraca freando).
+        [0, 140, 310, 520, 780, 1090, 1460].forEach(d => setTimeout(() => this._ratchetTick(), d));
+        setTimeout(() => { if (this._ratchetCtx) { this._ratchetCtx.close(); this._ratchetCtx = null; } }, 2000);
+
         // Calcula a angulação exata para parar a roleta no tópico correto
         const segmentAngle = 360 / totalTopics;
         const targetAngle = (360 - (topicIndex * segmentAngle)) % 360;
@@ -148,7 +196,7 @@ export default class View {
         this.els.wheel.style.transform = `rotate(${targetAngle + 1800}deg)`;
         
         setTimeout(() => {
-            this.els.modalTitle.innerText = "NOVA ERA: " + topicData.name;
+            this.els.modalTitle.innerText = "NOVO TEMA: " + topicData.name;
             this.els.modalText.innerText = topicData.desc;
             this.els.introModal.classList.remove('hidden');
             this.applyTheme(topicData);
@@ -184,6 +232,7 @@ export default class View {
     }
 
     sokobanComplete(callback) {
+        this.playSokobanWinSound();
         this.triggerExplosion();
         setTimeout(() => {
             this.els.sokobanScreen.classList.add('hidden');
@@ -191,7 +240,7 @@ export default class View {
         }, 1500);
     }
 
-    renderQuestion(q, topicData, playerName, answerHandler) {
+    renderQuestion(q, topicData, playerName, answerHandler, currentStep = 0, totalQuestions = 0) {
         // Limpa estado visual da pergunta anterior antes de renderizar a próxima.
         this.els.opts.innerHTML = ""; 
         this.els.dragDrop.innerHTML = ""; 
@@ -202,9 +251,12 @@ export default class View {
         this.els.nextBtn.classList.add('hidden'); 
         this.els.valBtn.classList.add('hidden');
         this.els.quizScreen.classList.remove('hidden');
+        if (this.els.firjanLogo) this.els.firjanLogo.classList.add('hidden');
         
         this.applyTheme(topicData);
         this.els.eraTag.innerText = `MODALIDADE: ${topicData.name}`;
+        const questionNumber = `QUESTÃO ${currentStep + 1}/${totalQuestions}`;
+        const questionNumberHtml = `<span style="display:inline-block; font-size:0.85rem; color:var(--primary); letter-spacing:0.8px; font-family:'Orbitron'; margin-bottom:8px;">${questionNumber}</span><br>`;
 
         let newValBtn = this.els.valBtn.cloneNode(true);
         this.els.valBtn.parentNode.replaceChild(newValBtn, this.els.valBtn);
@@ -213,7 +265,7 @@ export default class View {
         // Fluxo de renderização muda conforme o tipo da questão.
         if (q.type === "combo") {
             const parts = q.questions.split("[COMBO]");
-            this.els.qTxt.innerHTML = parts[0].replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = questionNumberHtml + parts[0].replace("[NAME]", playerName);
             const sel = document.createElement('select');
             sel.className = "combo-box";
             
@@ -227,7 +279,7 @@ export default class View {
             this.els.valBtn.onclick = () => answerHandler(sel.value, null);
         } 
         else if (q.type === "multi") {
-            this.els.qTxt.innerText = q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = questionNumberHtml + q.questions.replace("[NAME]", playerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
             
             shuffledAnswers.forEach(a => {
@@ -244,13 +296,13 @@ export default class View {
             };
         }
         else if (q.type === "drag") {
-            this.els.qTxt.innerText = q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = questionNumberHtml + q.questions.replace("[NAME]", playerName);
             this.els.opts.classList.add('hidden'); 
             this.els.dragDrop.classList.remove('hidden');
             this.renderDrag(q, answerHandler);
         }
         else {
-            this.els.qTxt.innerText = q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = questionNumberHtml + q.questions.replace("[NAME]", playerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
             
             shuffledAnswers.forEach(a => {
@@ -299,6 +351,7 @@ export default class View {
                         answerHandler(q.correct, null); 
                     }
                 } else {
+                    this.playErrorSound();
                     this.showAlert("✗ Definição Incorreta!", "Tente novamente. Arraste o item para a zona correta.");
                     zone.style.background = "rgba(255,255,255,0.1)";
                 }
@@ -315,6 +368,7 @@ export default class View {
             this.triggerExplosion();
         } else {
             if (btnElement) btnElement.style.background = "#ff4b4b";
+            this.playErrorSound();
             // Exibe modal com a dica da questão nas cores do tópico atual.
             this.showAlert(`✗ Foco nos detalhes, ${playerName}...`, tip);
         }
@@ -408,7 +462,8 @@ export default class View {
 
     playCountingSound() {
         // Gera som de contagem usando Web Audio API (sem dependências).
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const audioContext = this.getSharedAudioContext();
+        if (!audioContext) return;
         const now = audioContext.currentTime;
         
         // "Ding" - tom de coin/moeda
@@ -426,6 +481,60 @@ export default class View {
         
         osc.start(now);
         osc.stop(now + 0.1);
+    }
+
+    playErrorSound() {
+        // Som arcade de erro: dois beeps curtos descendentes.
+        const audioContext = this.getSharedAudioContext();
+        if (!audioContext) return;
+        const now = audioContext.currentTime;
+
+        const beep = (start, fromFreq, toFreq, duration = 0.09) => {
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(fromFreq, start);
+            osc.frequency.exponentialRampToValueAtTime(toFreq, start + duration);
+
+            gain.gain.setValueAtTime(0.001, start);
+            gain.gain.exponentialRampToValueAtTime(0.18, start + 0.008);
+            gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
+
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+            osc.start(start);
+            osc.stop(start + duration + 0.01);
+        };
+
+        beep(now, 520, 330, 0.08);
+        beep(now + 0.11, 420, 220, 0.1);
+    }
+
+    playSokobanWinSound() {
+        // Tríade curta de vitória ao concluir o Sokoban.
+        const audioContext = this.getSharedAudioContext();
+        if (!audioContext) return;
+        const now = audioContext.currentTime;
+        const notes = [659.25, 783.99, 987.77];
+
+        notes.forEach((freq, i) => {
+            const start = now + i * 0.09;
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, start);
+
+            gain.gain.setValueAtTime(0.001, start);
+            gain.gain.exponentialRampToValueAtTime(0.22, start + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.001, start + 0.13);
+
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+            osc.start(start);
+            osc.stop(start + 0.14);
+        });
     }
 
     animateScoreIncrease(oldScore, newScore) {
@@ -464,22 +573,27 @@ export default class View {
     }
 
     createCoinAnimation() {
-        // Cria animação de moedas caindo estilo caça-níqueis.
-        const count = 12; // Número de moedas
+        // Cria animação de moedas caindo estilo caça-níqueis alinhadas à janela de perguntas.
+        const count = 30; // Número de moedas
         const primary = getComputedStyle(document.documentElement)
             .getPropertyValue('--primary').trim() || '#ffd700';
+        
+        // Obtém posição do container de perguntas
+        const gameContainer = document.getElementById('game-container');
+        const rect = gameContainer.getBoundingClientRect();
         
         for (let i = 0; i < count; i++) {
             const coin = document.createElement('div');
             coin.className = 'coin';
             
-            // Posição inicial aleatória no painel
-            const startX = 20 + Math.random() * 60; // % do viewport
-            const startY = 5 + Math.random() * 20; // % do viewport
+            // Posição dentro do container de perguntas (em pixels do viewport)
+            const startX = rect.left + Math.random() * rect.width;
+            const startY = rect.top + Math.random() * (rect.height * 0.3); // topo 30% do container
             
-            coin.style.left = startX + 'vw';
-            coin.style.top = startY + 'vh';
+            coin.style.left = startX + 'px';
+            coin.style.top = startY + 'px';
             coin.style.backgroundColor = primary;
+            coin.style.position = 'fixed';
             
             // Delay para cascata de moedas
             const delay = i * 0.05;
@@ -501,6 +615,20 @@ export default class View {
         // Exibe o nome do jogador ativo no painel de pontuação.
         if (!this.els.scorePlayer) return;
         this.els.scorePlayer.textContent = playerName.toUpperCase();
+    }
+
+    updateTimerDisplay(totalSeconds) {
+        // Mostra o tempo restante no formato MM:SS.
+        if (!this.els.timerDisplay) return;
+        const safeSeconds = Math.max(0, Math.floor(totalSeconds));
+        const min = Math.floor(safeSeconds / 60).toString().padStart(2, '0');
+        const sec = (safeSeconds % 60).toString().padStart(2, '0');
+        this.els.timerDisplay.textContent = `⏱ ${min}:${sec}`;
+    }
+
+    setTimerVisibility(isVisible) {
+        if (!this.els.timerDisplay) return;
+        this.els.timerDisplay.classList.toggle('hidden', !isVisible);
     }
 
     animateScorePenalty(oldScore, newScore, penaltyValue = -50) {
@@ -592,6 +720,7 @@ export default class View {
             <th style="padding:10px; text-align:left; color:gold;">🏅 POS.</th>
             <th style="padding:10px; text-align:left; color:gold;">JOGADOR</th>
             <th style="padding:10px; text-align:center; color:gold;">💰</th>
+            <th style="padding:10px; text-align:center; color:gold;">⏱</th>
             <th style="padding:10px; text-align:center; color:gold;">✓</th>
             <th style="padding:10px; text-align:center; color:gold;">%</th>
         `;
@@ -609,6 +738,7 @@ export default class View {
                 <td style="padding:10px; color:gold; font-weight:bold;">${medal} ${index + 1}</td>
                 <td style="padding:10px; color:#f0f0f0;">${score.name}</td>
                 <td style="padding:10px; text-align:center; color:#ffd700; font-weight:bold;">${score.score}</td>
+                <td style="padding:10px; text-align:center; color:#ffef9f;">${this.formatGameTime(score.gameTime)}</td>
                 <td style="padding:10px; text-align:center; color:#2ecc71;">${score.correct}/${score.total}</td>
                 <td style="padding:10px; text-align:center; color:#00d4ff;">${score.accuracy}%</td>
             `;
@@ -622,5 +752,12 @@ export default class View {
     hideRankingModal() {
         // Fecha o modal de ranking.
         this.els.rankingModal.classList.add('hidden');
+    }
+
+    formatGameTime(totalSeconds) {
+        const safe = Math.max(0, Math.floor(Number(totalSeconds) || 0));
+        const min = Math.floor(safe / 60).toString().padStart(2, '0');
+        const sec = (safe % 60).toString().padStart(2, '0');
+        return `${min}:${sec}`;
     }
 }
