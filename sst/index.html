@@ -10,6 +10,35 @@
 <body>
     <!-- Logo fixa na parte superior ao centro -->
     <img src="img/FirjanSENAI-01.png" alt="Logo Firjan SENAI" style="position: fixed; top: 0; left: 50%; transform: translateX(-50%); height: 100px; margin-top:20px; filter: brightness(0) invert(1); opacity: 0.75; z-index: 9999; pointer-events: none;">
+    
+    <!-- Painel de pontuação fixo no canto superior direito -->
+    <div id="score-panel" class="score-panel">
+        <div class="score-display">
+            <div class="score-meta">
+                <span id="score-player" class="score-player">JOGADOR</span>
+                <span class="score-label">💰 PONTOS</span>
+                
+            </div>
+            <div class="score-value" id="score-value">0</div>
+        </div>
+    </div>
+
+    <!-- Top 15 fixo abaixo da pontuação -->
+    <div id="top15-panel" class="top15-panel">
+        <h3 class="top15-title">🏆 TOP 15</h3>
+        <div class="top15-head">
+            <span>#</span>
+            <span>Jogador</span>
+            <span>Pts</span>
+        </div>
+        <div id="top15-body" class="top15-body">
+            <p class="top15-empty">Carregando ranking...</p>
+        </div>
+    </div>
+
+    <!-- Container para animação de moedas -->
+    <div id="coins-container" class="coins-container"></div>
+    
     <div id="game-container">
         <!-- Tela inicial: coleta o nome do jogador e aguarda a carga dos dados da aula. -->
         <div id="start-screen">
@@ -75,6 +104,15 @@
             <h2 id="fb-modal-title" style="color: var(--primary); font-family:'Orbitron'; margin-bottom: 12px;"></h2>
             <p id="fb-modal-text" style="font-size: 1.05rem; margin: 16px 0; color: #f0f0f0; line-height: 1.6;"></p>
             <button id="fb-modal-btn" class="opt-btn" style="background: var(--primary); color: #000; font-weight: bold; width: 200px; margin-top: 8px;">OK</button>
+        </div>
+    </div>
+
+    <!-- Modal de Ranking Global -->
+    <div id="ranking-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; display: flex; align-items: center; justify-content: center;">
+        <div style="background: #111; border: 3px solid gold; padding: 30px; width: 90%; max-height: 80vh; max-width: 600px; border-radius: 20px; text-align: center; box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); overflow-y: auto;">
+            <h2 id="ranking-modal-title" style="color: gold; font-family:'Orbitron'; margin-bottom: 20px; font-size: 1.8rem;">🏆 RANKING GLOBAL</h2>
+            <div id="ranking-list" style="text-align: left; margin-bottom: 20px;"></div>
+            <button id="ranking-modal-close" class="opt-btn" style="background: gold; color: #000; font-weight: bold; width: 200px;">VOLTAR</button>
         </div>
     </div>
 

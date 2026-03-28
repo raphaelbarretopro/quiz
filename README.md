@@ -31,6 +31,7 @@
 - [Arquitetura](#arquitetura)
 - [Estrutura de Pastas](#estrutura-de-pastas)
 - [Como Executar](#como-executar)
+- [Sistema de Ranking Firebase](#sistema-de-ranking-firebase)
 - [Configuração de Conteúdo](#configuração-de-conteúdo)
 - [Tipos de Questão Suportados](#tipos-de-questão-suportados)
 - [Customização Rápida](#customização-rápida)
@@ -56,6 +57,9 @@ Projeto ideal para uso em sala de aula, oficinas, trilhas técnicas e treinament
 - Motor de perguntas multimodal.
 - Embaralhamento de alternativas para reduzir padrão de memorização.
 - Registro de erros sem duplicidade com resumo final de revisão.
+- **💰 Sistema de Pontuação com Animações**: 100 pontos por acerto, painel fixo, moedas caindo.
+- **🏆 Ranking Global em Tempo Real**: Firebase Realtime Database para sincronizar pontos entre alunos.
+- **🎨 Painel de Pontos**: Exibição dinâmica com efeitos de pulsação e som Web Audio API.
 
 ---
 
@@ -126,6 +130,53 @@ http://localhost:5500
 
 ---
 
+## Sistema de Ranking Firebase
+
+O projeto inclui um sistema de ranking em tempo real usando **Firebase Realtime Database**. Isso permite que os alunos vejam um ranking global compartilhado enquanto jogam.
+
+### ✨ Funcionalidades
+
+- 🏆 **Ranking em Tempo Real**: Todos os alunos veem o ranking atacalizado automaticamente.
+- 💰 **Métricas Salvas**: Pontuação, acertos, porcentagem e tempo total.
+- 🥇 **Medalhas**: Top 3 destacados com 🥇🥈🥉.
+- 📱 **Compatível com GitHub Pages**: Funciona perfeitamente em hosting estático.
+
+### 🚀 Configuração (Obrigatório)
+
+Para ativar o ranking, siga o guia completo em: **[FIREBASE-SETUP.md](sst/FIREBASE-SETUP.md)**
+
+Resumo rápido:
+1. Criar projeto em https://console.firebase.google.com
+2. Criar Realtime Database
+3. Copiar credenciais
+4. Colar em sst/js/firebase-config.js
+
+### 📊 Dados Salvos
+
+Cada resultado contém:
+- `name`: Nome do aluno
+- `score`: Pontuação total (100 pontos por acerto)
+- `correct`: Número de acertos
+- `total`: Total de perguntas
+- `accuracy`: Porcentagem (ex: 80%)
+- `gameTime`: Tempo total em segundos
+- `timestamp`: Horário envio
+- `date`: Data formatada
+
+### 🎯 Para Professores
+
+**Monitorar em Tempo Real:**
+1. Firebase Console → Realtime Database
+2. Expanda pasta "scores"
+3. Veja todos os alunos jogando em tempo real
+
+**Exportar Resultados:**
+1. Clique com botão direito em "scores"
+2. "Exportar como JSON"
+3. Use Excel ou Google Sheets para análise
+
+---
+
 ## Configuração de Conteúdo
 
 Todo o conteúdo está centralizado em sst/data.json.
@@ -189,11 +240,15 @@ Adicione o campo trans em uma pergunta para disparar roleta + modal + Sokoban an
 
 ## Roadmap
 
-- Persistência de progresso em armazenamento local.
-- Dashboard para autoria de questões sem edição manual de JSON.
-- Relatórios de desempenho por turma.
-- Internacionalização de conteúdo.
-- Cobertura de testes para regras de pontuação e progressão.
+- ✅ Sistema de Pontuação com Animações
+- ✅ Ranking Global com Firebase Realtime
+- ✅ Painel de Pontos com Efeitos Visuais
+- 📋 Persistência de progresso em armazenamento local.
+- 📋 Dashboard para autoria de questões sem edição manual de JSON.
+- 📋 Relatórios de desempenho por turma (exportação avançada).
+- 📋 Internacionalização de conteúdo.
+- 📋 Cobertura de testes para regras de pontuação e progressão.
+- 📋 Autenticação (opcional para maior segurança).
 
 ---
 

@@ -39,7 +39,20 @@ export default class View {
             feedbackModal: document.getElementById('feedback-modal'),
             fbModalTitle: document.getElementById('fb-modal-title'),
             fbModalText: document.getElementById('fb-modal-text'),
-            fbModalBtn: document.getElementById('fb-modal-btn')
+            fbModalBtn: document.getElementById('fb-modal-btn'),
+
+            // Painel de pontos
+            scorePanel: document.getElementById('score-panel'),
+            scoreValue: document.getElementById('score-value'),
+            scorePlayer: document.getElementById('score-player'),
+            coinsContainer: document.getElementById('coins-container'),
+            top15Panel: document.getElementById('top15-panel'),
+            top15Body: document.getElementById('top15-body'),
+
+            // Modal de Ranking
+            rankingModal: document.getElementById('ranking-modal'),
+            rankingList: document.getElementById('ranking-list'),
+            rankingModalClose: document.getElementById('ranking-modal-close')
         };
         
         this.rot = 0;
@@ -307,16 +320,29 @@ export default class View {
         }
     }
 
-    showEndScreen(stats, playerName) {
+    showEndScreen(stats, playerName, totalScore = 0, onShowRanking) {
         this.els.quizScreen.innerHTML = `
             <h2 style="font-family:'Cinzel'; color:gold;">🏆 JORNADA CONCLUÍDA: ${playerName}</h2>
+            <div style="background:rgba(255,215,0,0.1); border:2px solid gold; padding:20px; border-radius:15px; margin-bottom:20px;">
+                <p style="font-size:1.8rem; font-weight:bold; color:gold; margin:0;">💰 ${totalScore} PONTOS</p>
+                <p style="font-size:0.95rem; color:#ccc; margin:5px 0 0 0;">Acertos: ${stats.correct}</p>
+            </div>
             <p style="font-size:1.1rem;">Veja os pontos que merecem sua atenção para o futuro:</p>
             <div style="background:#000; padding:20px; border-radius:15px; text-align:left; border:1px solid var(--primary); max-height:300px; overflow-y:auto; margin-bottom:20px;">
                 ${stats.mistakes.map(m => `<p style='font-size:0.95rem; border-bottom:1px solid #333; padding-bottom:10px;'><b>QUESTÃO:</b> ${m.q}<br><b style="color:var(--primary)">DICA DE MESTRE:</b> ${m.h}</p>`).join("") || "<p style='text-align:center; color:#2ecc71;'><b>VOCÊ FOI IMPECÁVEL! DOMÍNIO TOTAL DAS ERAS!</b></p>"}
             </div>
-            <button class="opt-btn" style="width:300px; background:gold; color:#000; font-weight:bold; font-size:1.2rem;" onclick="location.reload()">REINICIAR JORNADA</button>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 20px;">
+                <button id="btn-show-ranking" class="opt-btn" style="width:280px; background:#00d4ff; color:#000; font-weight:bold; font-size:1.1rem;">🏅 VER RANKING GLOBAL</button>
+                <button class="opt-btn" style="width:280px; background:gold; color:#000; font-weight:bold; font-size:1.1rem;" onclick="location.reload()">🔄 REINICIAR JORNADA</button>
+            </div>
             <p style="margin-top:20px; font-size:0.8rem; opacity:0.7;">Professor Raphael Barreto | Firjan SENAI</p>
         `;
+        
+        // Liga evento do botão de ranking
+        if (onShowRanking) {
+            document.getElementById('btn-show-ranking').addEventListener('click', onShowRanking);
+        }
+        
         this.triggerExplosion();
     }
 
@@ -378,5 +404,223 @@ export default class View {
             document.body.appendChild(f);
             setTimeout(() => f.remove(), duration * 1000 + 100);
         }
+    }
+
+    playCountingSound() {
+        // Gera som de contagem usando Web Audio API (sem dependências).
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const now = audioContext.currentTime;
+        
+        // "Ding" - tom de coin/moeda
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        
+        osc.connect(gain);
+        gain.connect(audioContext.destination);
+        
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.exponentialRampToValueAtTime(600, now + 0.1);
+        
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+        
+        osc.start(now);
+        osc.stop(now + 0.1);
+    }
+
+    animateScoreIncrease(oldScore, newScore) {
+        // Anima o aumento de pontos com som e moedas caindo.
+        this.playCountingSound();
+        this.createCoinAnimation();
+        
+        // Anima o número crescendo
+        const scoreValue = this.els.scoreValue;
+        const duration = 500; // ms
+        const steps = 30;
+        const increment = (newScore - oldScore) / steps;
+        let currentValue = oldScore;
+        let stepCount = 0;
+        
+        const interval = setInterval(() => {
+            stepCount++;
+            currentValue += increment;
+            scoreValue.textContent = Math.floor(currentValue);
+            
+            if (stepCount >= steps) {
+                clearInterval(interval);
+                scoreValue.textContent = newScore;
+                scoreValue.style.animation = 'none';
+                setTimeout(() => {
+                    scoreValue.style.animation = '';
+                }, 10);
+            }
+        }, duration / steps);
+        
+        // Efeito visual de pulsação
+        scoreValue.classList.add('score-pulse');
+        setTimeout(() => {
+            scoreValue.classList.remove('score-pulse');
+        }, 600);
+    }
+
+    createCoinAnimation() {
+        // Cria animação de moedas caindo estilo caça-níqueis.
+        const count = 12; // Número de moedas
+        const primary = getComputedStyle(document.documentElement)
+            .getPropertyValue('--primary').trim() || '#ffd700';
+        
+        for (let i = 0; i < count; i++) {
+            const coin = document.createElement('div');
+            coin.className = 'coin';
+            
+            // Posição inicial aleatória no painel
+            const startX = 20 + Math.random() * 60; // % do viewport
+            const startY = 5 + Math.random() * 20; // % do viewport
+            
+            coin.style.left = startX + 'vw';
+            coin.style.top = startY + 'vh';
+            coin.style.backgroundColor = primary;
+            
+            // Delay para cascata de moedas
+            const delay = i * 0.05;
+            coin.style.animation = `coinFall ${0.8 + Math.random() * 0.4}s ease-in ${delay}s forwards`;
+            
+            this.els.coinsContainer.appendChild(coin);
+            
+            // Remove após animação completar
+            setTimeout(() => coin.remove(), (0.8 + Math.random() * 0.4 + delay) * 1000 + 100);
+        }
+    }
+
+    updateScoreDisplay(newScore) {
+        // Atualiza o painel sem animação (para casos que não são acertos).
+        this.els.scoreValue.textContent = newScore;
+    }
+
+    setScorePlayerName(playerName) {
+        // Exibe o nome do jogador ativo no painel de pontuação.
+        if (!this.els.scorePlayer) return;
+        this.els.scorePlayer.textContent = playerName.toUpperCase();
+    }
+
+    animateScorePenalty(oldScore, newScore, penaltyValue = -50) {
+        // Exibe penalidade com contador decrescente e badge flutuante.
+        const scoreValue = this.els.scoreValue;
+        const duration = 350;
+        const steps = 18;
+        const decrement = (oldScore - newScore) / steps;
+        let currentValue = oldScore;
+        let stepCount = 0;
+
+        const interval = setInterval(() => {
+            stepCount++;
+            currentValue -= decrement;
+            scoreValue.textContent = Math.round(currentValue);
+
+            if (stepCount >= steps) {
+                clearInterval(interval);
+                scoreValue.textContent = newScore;
+            }
+        }, duration / steps);
+
+        scoreValue.classList.add('score-penalty-pulse');
+        setTimeout(() => {
+            scoreValue.classList.remove('score-penalty-pulse');
+        }, 500);
+
+        const badge = document.createElement('div');
+        badge.className = 'score-delta-badge negative';
+        badge.textContent = penaltyValue > 0 ? `+${penaltyValue}` : `${penaltyValue}`;
+        this.els.scorePanel.appendChild(badge);
+
+        setTimeout(() => {
+            badge.remove();
+        }, 900);
+    }
+
+    renderTop15Panel(scores) {
+        // Atualiza o ranking fixo da lateral com os 15 melhores.
+        if (!this.els.top15Body) return;
+
+        this.els.top15Body.innerHTML = '';
+
+        if (!scores || scores.length === 0) {
+            this.els.top15Body.innerHTML = '<p class="top15-empty">Nenhum ranking ainda...</p>';
+            return;
+        }
+
+        scores.slice(0, 15).forEach((score, index) => {
+            const row = document.createElement('div');
+            row.className = 'top15-row';
+
+            if (index < 3) {
+                row.classList.add('is-podium');
+            }
+
+            row.innerHTML = `
+                <span class="top15-pos">${index + 1}</span>
+                <span class="top15-name">${score.name || '---'}</span>
+                <span class="top15-score">${score.score || 0}</span>
+            `;
+            this.els.top15Body.appendChild(row);
+        });
+    }
+
+    bindRankingModalClose(handler) {
+        // Liga evento de fechar ranking modal.
+        this.els.rankingModalClose.addEventListener('click', handler);
+    }
+
+    showRankingModal(scores) {
+        // Abre o modal com o ranking global.
+        this.els.rankingList.innerHTML = '';
+
+        if (scores.length === 0) {
+            this.els.rankingList.innerHTML = '<p style="color: #ccc; text-align: center; padding: 20px;">Nenhum ranking disponível ainda...</p>';
+            this.els.rankingModal.classList.remove('hidden');
+            return;
+        }
+
+        // Cria tabela de ranking
+        const table = document.createElement('table');
+        table.style.cssText = 'width:100%; border-collapse:collapse;';
+
+        // Header
+        const headerRow = document.createElement('tr');
+        headerRow.style.cssText = 'background: rgba(255,215,0,0.1); border-bottom: 2px solid gold;';
+        headerRow.innerHTML = `
+            <th style="padding:10px; text-align:left; color:gold;">🏅 POS.</th>
+            <th style="padding:10px; text-align:left; color:gold;">JOGADOR</th>
+            <th style="padding:10px; text-align:center; color:gold;">💰</th>
+            <th style="padding:10px; text-align:center; color:gold;">✓</th>
+            <th style="padding:10px; text-align:center; color:gold;">%</th>
+        `;
+        table.appendChild(headerRow);
+
+        // Linhas de dados
+        scores.forEach((score, index) => {
+            const row = document.createElement('tr');
+            const isTop3 = index < 3;
+            const bgColor = isTop3 ? `rgba(255,215,0,${0.1 - index * 0.02})` : 'rgba(255,255,255,0.02)';
+            const medal = ['🥇', '🥈', '🥉'][index] || '▫️';
+
+            row.style.cssText = `background: ${bgColor}; border-bottom: 1px solid rgba(255,255,255,0.1);`;
+            row.innerHTML = `
+                <td style="padding:10px; color:gold; font-weight:bold;">${medal} ${index + 1}</td>
+                <td style="padding:10px; color:#f0f0f0;">${score.name}</td>
+                <td style="padding:10px; text-align:center; color:#ffd700; font-weight:bold;">${score.score}</td>
+                <td style="padding:10px; text-align:center; color:#2ecc71;">${score.correct}/${score.total}</td>
+                <td style="padding:10px; text-align:center; color:#00d4ff;">${score.accuracy}%</td>
+            `;
+            table.appendChild(row);
+        });
+
+        this.els.rankingList.appendChild(table);
+        this.els.rankingModal.classList.remove('hidden');
+    }
+
+    hideRankingModal() {
+        // Fecha o modal de ranking.
+        this.els.rankingModal.classList.add('hidden');
     }
 }

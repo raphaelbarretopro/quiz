@@ -1,13 +1,16 @@
 import Model from './model.js';
 import View from './view.js';
+import RankingManager from './ranking-manager.js';
 
 // Controller: coordena o fluxo entre dados (Model) e interface (View).
 class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
+        this.ranking = new RankingManager();
         this.isReady = false;
         this.currentTargetTopic = null;
+        this.startTime = null;
 
         // Registra os handlers da interface com o contexto da instância.
         this.view.bindStart(this.handleStart.bind(this));
@@ -17,6 +20,7 @@ class Controller {
         this.view.bindSokobanMove(this.handleSokobanMove.bind(this));
         this.view.bindSokobanReset(this.handleSokobanReset.bind(this));
         this.view.bindNext(this.handleNext.bind(this));
+        this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
     async init() {
@@ -24,12 +28,19 @@ class Controller {
         const success = await this.model.loadData();
         if(success) {
             this.view.initUI(this.model.lessonInfo);
+
+            // Mantém painel Top 15 da tela principal atualizado em tempo real.
+            this.ranking.subscribeToTopScores(15, (scores) => {
+                this.view.renderTop15Panel(scores);
+            });
         }
     }
 
     handleStart(name) {
         // Inicia a sessão do jogador e passa para o primeiro passo da jornada.
         this.model.playerName = name;
+        this.view.setScorePlayerName(name);
+        this.startTime = Date.now();
         this.view.els.startScreen.classList.add('hidden');
         this.renderStep();
     }
@@ -96,21 +107,56 @@ class Controller {
 
         if (isCorrect) {
             this.model.stats.correct++;
+            const oldScore = this.model.playerScore;
+            const newScore = this.model.addScore(this.model.pointsPerCorrect);
+            this.view.animateScoreIncrease(oldScore, newScore);
             this.view.showFeedback(true, q.tip, this.model.playerName, btnElement);
         } else {
             this.model.registerMistake(q);
+            const oldScore = this.model.playerScore;
+            const newScore = this.model.addScore(this.model.pointsPerMistake);
+            this.view.animateScorePenalty(oldScore, newScore, this.model.pointsPerMistake);
             this.view.showFeedback(false, q.tip, this.model.playerName, btnElement);
         }
     }
 
-    handleNext() {
+    async handleNext() {
         // Avança no fluxo; ao final, exibe tela de encerramento.
         this.model.curStep++;
         if (this.model.curStep < this.model.questions.length) {
             this.renderStep();
         } else {
-            this.view.showEndScreen(this.model.stats, this.model.playerName);
+            // Calcula tempo total
+            const gameTime = Math.floor((Date.now() - this.startTime) / 1000);
+            
+            // Salva no Firebase
+            await this.ranking.saveScore(
+                this.model.playerName,
+                this.model.playerScore,
+                this.model.stats.correct,
+                this.model.questions.length,
+                gameTime
+            );
+
+            // Exibe tela final com botão de ranking
+            this.view.showEndScreen(
+                this.model.stats,
+                this.model.playerName,
+                this.model.playerScore,
+                this.handleShowRanking.bind(this)
+            );
         }
+    }
+
+    async handleShowRanking() {
+        // Busca e exibe ranking global
+        const scores = await this.ranking.getTopScores(15);
+        this.view.showRankingModal(scores);
+    }
+
+    handleRankingModalClose() {
+        // Fecha modal de ranking
+        this.view.hideRankingModal();
     }
 }
 

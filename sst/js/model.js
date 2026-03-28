@@ -3,6 +3,9 @@ export default class Model {
         // Estado geral da sessão.
         this.playerName = "";
         this.curStep = 0;
+        this.playerScore = 0;
+        this.pointsPerCorrect = 100;
+        this.pointsPerMistake = -50;
         this.stats = { correct: 0, mistakes: [] };
         
         // Dados carregados do arquivo JSON.
@@ -105,5 +108,11 @@ export default class Model {
                 h: q.tip 
             });
         }
+    }
+
+    addScore(points) {
+        // Adiciona pontos e retorna a nova pontuação.
+        this.playerScore += points;
+        return this.playerScore;
     }
 }
