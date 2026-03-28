@@ -1,6 +1,10 @@
 :root {
     /* Tema base global (pode ser alterado dinamicamente via JS). */
     --primary: #00d4ff;
+    --neon-border: #00e5ff;
+    --neon-gold: #ffd700;
+    --font-ui: 'Oxanium', 'Orbitron', sans-serif;
+    --font-title: 'Audiowide', 'Orbitron', sans-serif;
     --bg: #050a10;
     --panel: rgba(10, 20, 30, 0.95);
     --text: #f0f0f0;
@@ -15,7 +19,7 @@ body {
     /* Fundo com sobreposição escura para manter contraste do conteúdo. */
     background-color: var(--bg);
     color: var(--text);
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-ui);
     margin: 0;
     display: flex;
     justify-content: center;
@@ -32,6 +36,39 @@ body {
     background-attachment: fixed;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.top15-title,
+.score-label,
+#portal-msg,
+#main-title,
+#modal-title,
+#fb-modal-title,
+#ranking-modal-title {
+    font-family: var(--font-title) !important;
+    letter-spacing: 0.4px;
+}
+
+button,
+input,
+select,
+textarea,
+label,
+.opt-btn,
+.multi-opt,
+.drag-card,
+.combo-box,
+.score-player,
+.top15-name,
+.top15-score,
+.top15-time {
+    font-family: var(--font-ui);
+}
+
 /* Container principal da aplicação. */
 #game-container {
     width: min(1100px, 100%);
@@ -39,7 +76,8 @@ body {
     background: var(--panel);
     padding: 30px;
     border-radius: 20px;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--neon-border);
+    box-shadow: 0 0 14px rgba(0, 229, 255, 0.55), inset 0 0 18px rgba(0, 120, 170, 0.28);
     backdrop-filter: blur(10px);
     text-align: center;
     position: relative;
@@ -53,15 +91,32 @@ body {
     display: none !important;
 }
 
+#quiz-screen {
+    position: relative;
+}
+
+.question-counter {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    font-size: 0.82rem;
+    color: var(--primary);
+    letter-spacing: 0.9px;
+    font-family: var(--font-title);
+    opacity: 0.95;
+    pointer-events: none;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.45);
+}
+
 /* Estrutura visual da roleta. */
 .wheel-container {
     position: relative;
     width: 300px;
     height: 300px;
     margin: 10px auto;
-    border: 10px solid var(--primary);
+    border: 10px solid var(--neon-border);
     border-radius: 50%;
-    box-shadow: 0 0 30px var(--primary);
+    box-shadow: 0 0 26px rgba(0, 229, 255, 0.65);
     overflow: visible;
 }
 
@@ -190,11 +245,11 @@ body {
 }
 
 .drag-pool {
-    /* Reservatório dos itens arrastáveis. */
-    display: flex;
+    /* Reservatório dos itens arrastáveis em duas colunas. */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     gap: 10px;
-    flex-wrap: wrap;
     padding: 10px;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
@@ -251,16 +306,41 @@ body {
     font-weight: bold;
     font-family: 'Orbitron';
     font-size: 0.8rem;
-    width: 100%;
+    width: auto;
     box-sizing: border-box;
     text-align: center;
-    flex: 1 1 100%;
+    flex: none;
+}
+
+.correct-answer-box {
+    margin-top: 8px;
+    color: #d9d9d9;
+}
+
+.drag-correct-grid {
+    margin-top: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 10px;
+}
+
+.drag-correct-item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 6px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 0.82rem;
 }
 
 /* Botões de ação reutilizados em toda a aplicação. */
 .opt-btn {
     background: rgba(0, 0, 0, 0.8);
-    border: 1px solid var(--primary);
+    border: 1px solid var(--neon-border);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
     color: white;
     padding: 12px;
     border-radius: 10px;
@@ -277,6 +357,37 @@ body {
     font-weight: bold;
 }
 
+.opt-btn:disabled {
+    cursor: not-allowed;
+}
+
+.locked-option {
+    opacity: 0.45 !important;
+    filter: grayscale(1);
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}
+
+.locked-option.is-correct {
+    opacity: 1 !important;
+    filter: none;
+    border: 2px solid #2ecc71 !important;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.65);
+}
+
+.locked-field {
+    opacity: 0.55;
+    filter: grayscale(1);
+    pointer-events: none;
+}
+
+.locked-field.is-correct {
+    opacity: 1;
+    filter: none;
+    border-color: #2ecc71;
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.65);
+}
+
 #p-name-input {
     /* Campo principal para identificação do jogador. */
     padding: 15px;
@@ -286,8 +397,9 @@ body {
     border-radius: 10px;
     background: #000;
     color: #fff;
-    border: 2px solid var(--primary);
-    font-family: 'Orbitron';
+    border: 2px solid var(--neon-border);
+    font-family: var(--font-title);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.45);
 }
 
 .firework {
@@ -403,12 +515,11 @@ body {
     z-index: 1000;
     width: var(--hud-width);
     background: rgba(0, 0, 0, 0.9);
-    border: 3px solid;
-    border-color: #ffd700;
+    border: 3px solid var(--neon-gold);
     border-radius: 15px;
     padding: 15px 25px;
     box-sizing: border-box;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.58), inset 0 0 18px rgba(255, 215, 0, 0.2);
     backdrop-filter: blur(10px);
 }
 
@@ -422,9 +533,9 @@ body {
     max-height: calc(100vh - (20px + 126px + var(--hud-gap) + 20px));
     overflow: hidden;
     background: rgba(0, 0, 0, 0.9);
-    border: 2px solid rgba(255, 215, 0, 0.75);
+    border: 2px solid rgba(255, 215, 0, 0.9);
     border-radius: 14px;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.35);
+    box-shadow: 0 0 22px rgba(255, 215, 0, 0.5), inset 0 0 16px rgba(255, 215, 0, 0.18);
     backdrop-filter: blur(10px);
     padding: 10px 12px;
     box-sizing: border-box;
@@ -444,7 +555,7 @@ body {
 .top15-head,
 .top15-row {
     display: grid;
-    grid-template-columns: 28px 1fr 52px;
+    grid-template-columns: 24px 1fr 56px 62px;
     align-items: center;
     gap: 8px;
 }
@@ -456,6 +567,15 @@ body {
     padding: 6px 4px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     text-transform: uppercase;
+}
+
+.top15-head span:nth-child(1) {
+    text-align: center;
+}
+
+.top15-head span:nth-child(3),
+.top15-head span:nth-child(4) {
+    text-align: right;
 }
 
 .top15-body {
@@ -488,15 +608,31 @@ body {
 .top15-name {
     color: #f3f3f3;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.top15-medal {
+    font-size: 0.9rem;
+    line-height: 1;
+    flex: 0 0 auto;
 }
 
 .top15-score {
     color: #2ecc71;
     font-weight: 700;
     text-align: right;
+}
+
+.top15-time {
+    color: #ffef9f;
+    font-weight: 700;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
 }
 
 .top15-empty {
@@ -550,6 +686,11 @@ body {
         justify-content: flex-start;
         width: 100%;
         margin: 0 auto;
+    }
+
+    #quiz-screen.is-drag-question {
+        overflow-y: auto;
+        padding-right: 4px;
     }
 
     #opts {
@@ -615,6 +756,11 @@ body {
     .score-player {
         max-width: 180px;
     }
+
+    .drag-pool,
+    .drag-correct-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .score-display {
@@ -641,7 +787,7 @@ body {
 }
 
 .score-player {
-    font-size: 0.72rem;
+    font-size: 1rem;
     color: #00d4ff;
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
@@ -667,6 +813,15 @@ body {
     font-family: 'Orbitron', sans-serif;
     font-size: 0.86rem;
     color: #00d4ff;
+    letter-spacing: 0.8px;
+    font-weight: 700;
+}
+
+.total-time-display {
+    margin-top: 2px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.78rem;
+    color: #ffef9f;
     letter-spacing: 0.8px;
     font-weight: 700;
 }
@@ -811,8 +966,24 @@ body {
 
 #ranking-list table {
     /* Tabela de ranking com estilo premium */
-    font-family: 'Orbitron', monospace;
+    font-family: var(--font-ui), monospace;
     letter-spacing: 0.5px;
+}
+
+#intro-modal > div,
+#feedback-modal > div,
+#ranking-modal > div,
+.drag-pool,
+.drop-box,
+.target-zone,
+.multi-opt,
+.combo-box,
+#sokoban-grid,
+#ranking-list table,
+#ranking-list th,
+#ranking-list td {
+    border-color: var(--neon-border) !important;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.22);
 }
 
 #ranking-list th {

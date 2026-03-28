@@ -29,6 +29,7 @@ export default class View {
             
             eraTag: document.getElementById('era-tag'),
             qTxt: document.getElementById('q-txt'),
+            questionCounter: document.getElementById('question-counter'),
             opts: document.getElementById('opts'),
             dragDrop: document.getElementById('drag-drop-container'),
             fbArea: document.getElementById('fb-area'),
@@ -45,6 +46,7 @@ export default class View {
             scorePanel: document.getElementById('score-panel'),
             scoreValue: document.getElementById('score-value'),
             timerDisplay: document.getElementById('timer-display'),
+            totalTimeDisplay: document.getElementById('total-time-display'),
             scorePlayer: document.getElementById('score-player'),
             coinsContainer: document.getElementById('coins-container'),
             top15Panel: document.getElementById('top15-panel'),
@@ -61,6 +63,11 @@ export default class View {
         this.spinTimer = null;
         this.dragsFixed = 0;
         this.audioContext = null;
+
+        // Efeito principal de acerto (arquivo externo) com fallback sintético.
+        this.correctAnswerAudio = new Audio('audio/Sonic.mp3');
+        this.correctAnswerAudio.preload = 'auto';
+        this.correctAnswerAudio.volume = 0.9;
     }
 
     getSharedAudioContext() {
@@ -245,6 +252,7 @@ export default class View {
         this.els.opts.innerHTML = ""; 
         this.els.dragDrop.innerHTML = ""; 
         this.els.fbArea.innerText = "";
+        this.els.quizScreen.classList.remove('is-drag-question');
         
         this.els.dragDrop.classList.add('hidden'); 
         this.els.opts.classList.remove('hidden');
@@ -256,16 +264,19 @@ export default class View {
         this.applyTheme(topicData);
         this.els.eraTag.innerText = `MODALIDADE: ${topicData.name}`;
         const questionNumber = `QUESTÃO ${currentStep + 1}/${totalQuestions}`;
-        const questionNumberHtml = `<span style="display:inline-block; font-size:0.85rem; color:var(--primary); letter-spacing:0.8px; font-family:'Orbitron'; margin-bottom:8px;">${questionNumber}</span><br>`;
+        if (this.els.questionCounter) {
+            this.els.questionCounter.textContent = questionNumber;
+        }
 
         let newValBtn = this.els.valBtn.cloneNode(true);
         this.els.valBtn.parentNode.replaceChild(newValBtn, this.els.valBtn);
         this.els.valBtn = newValBtn;
+        this.els.valBtn.disabled = false;
 
         // Fluxo de renderização muda conforme o tipo da questão.
         if (q.type === "combo") {
             const parts = q.questions.split("[COMBO]");
-            this.els.qTxt.innerHTML = questionNumberHtml + parts[0].replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = parts[0].replace("[NAME]", playerName);
             const sel = document.createElement('select');
             sel.className = "combo-box";
             
@@ -279,7 +290,7 @@ export default class View {
             this.els.valBtn.onclick = () => answerHandler(sel.value, null);
         } 
         else if (q.type === "multi") {
-            this.els.qTxt.innerHTML = questionNumberHtml + q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
             
             shuffledAnswers.forEach(a => {
@@ -289,6 +300,17 @@ export default class View {
                 this.els.opts.appendChild(l);
             });
             this.els.valBtn.classList.remove('hidden');
+            this.els.valBtn.disabled = true;
+
+            const updateMultiValidateState = () => {
+                const checkedCount = this.els.opts.querySelectorAll('input:checked').length;
+                this.els.valBtn.disabled = checkedCount === 0;
+            };
+
+            this.els.opts.querySelectorAll('input[type="checkbox"]').forEach((input) => {
+                input.addEventListener('change', updateMultiValidateState);
+            });
+
             this.els.valBtn.onclick = () => {
                 const sel = Array.from(this.els.opts.querySelectorAll('input:checked')).map(i => i.value);
                 const isCor = sel.length === q.correct.length && sel.every(v => q.correct.includes(v));
@@ -296,13 +318,14 @@ export default class View {
             };
         }
         else if (q.type === "drag") {
-            this.els.qTxt.innerHTML = questionNumberHtml + q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
             this.els.opts.classList.add('hidden'); 
             this.els.dragDrop.classList.remove('hidden');
+            this.els.quizScreen.classList.add('is-drag-question');
             this.renderDrag(q, answerHandler);
         }
         else {
-            this.els.qTxt.innerHTML = questionNumberHtml + q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
             
             shuffledAnswers.forEach(a => {
@@ -318,6 +341,7 @@ export default class View {
     renderDrag(q, answerHandler) {
         this.els.dragDrop.innerHTML = `<div class="drag-pool" id="drag-pool"></div><div class="drop-zones" id="drop-zones"></div>`;
         this.dragsFixed = 0;
+        let dragFailed = false;
         const shuffledItems = this.shuffle([...q.items]);
         
         shuffledItems.forEach(item => {
@@ -340,8 +364,10 @@ export default class View {
             zone.ondragover = (e) => { e.preventDefault(); zone.style.background = "rgba(0,212,255,0.2)"; };
             zone.ondragleave = () => { zone.style.background = "rgba(255,255,255,0.1)"; };
             zone.ondrop = (e) => {
+                if (dragFailed) return;
                 const id = e.dataTransfer.getData("text");
                 const item = q.items.find(i => i.id === id);
+                if (!item) return;
                 // Valida o vínculo item -> zona pelo id de correspondência.
                 if (item.match === zone.dataset.match) {
                     zone.appendChild(document.getElementById(id)); 
@@ -351,35 +377,155 @@ export default class View {
                         answerHandler(q.correct, null); 
                     }
                 } else {
-                    this.playErrorSound();
-                    this.showAlert("✗ Definição Incorreta!", "Tente novamente. Arraste o item para a zona correta.");
-                    zone.style.background = "rgba(255,255,255,0.1)";
+                    dragFailed = true;
+                    answerHandler({ __dragdropWrong: true }, null);
                 }
             };
         });
     }
 
-    showFeedback(isCorrect, tip, playerName, btnElement) {
+    showFeedback(isCorrect, tip, playerName, btnElement, questionData = null) {
         if (isCorrect) {
             this.els.fbArea.innerHTML = `<span style="color:#2ecc71">✓ Excelente análise, ${playerName}!</span><br><small style="color:#ccc">${tip}</small>`;
             if (btnElement) btnElement.style.background = "#2ecc71";
             this.els.nextBtn.classList.remove('hidden');
             this.els.valBtn.classList.add('hidden');
-            this.triggerLightning(1);
         } else {
             if (btnElement) btnElement.style.background = "#ff4b4b";
+            if (questionData?.type === 'drag') {
+                this.els.fbArea.innerHTML = `
+                    <span style="color:#ff8f8f">✗ Resposta incorreta, ${playerName}.</span><br>
+                    <small style="color:#ccc">${tip}</small>
+                `;
+            } else {
+                const correctAnswer = this.formatCorrectAnswer(questionData);
+                this.els.fbArea.innerHTML = `
+                    <span style="color:#ff8f8f">✗ Resposta incorreta, ${playerName}.</span><br>
+                    <small style="color:#ccc">${tip}</small><br>
+                    <div class="correct-answer-box"><b>Resposta correta:</b> ${correctAnswer}</div>
+                `;
+            }
             this.playErrorSound();
-            // Exibe modal com a dica da questão nas cores do tópico atual.
-            this.showAlert(`✗ Foco nos detalhes, ${playerName}...`, tip);
+            this.lockQuestionAfterError(questionData, btnElement);
+            this.els.nextBtn.classList.remove('hidden');
+            this.els.valBtn.classList.add('hidden');
         }
     }
 
-    showEndScreen(stats, playerName, totalScore = 0, onShowRanking) {
+    lockQuestionAfterError(q, btnElement) {
+        if (!q) return;
+
+        const correctValues = Array.isArray(q.correct)
+            ? q.correct.map(v => String(v))
+            : [String(q.correct ?? '')];
+
+        if (q.type === 'combo') {
+            const combo = this.els.qTxt.querySelector('.combo-box');
+            if (combo) {
+                combo.disabled = true;
+                combo.classList.add('locked-field', 'is-correct');
+                if (q.correct !== undefined && q.correct !== null) {
+                    combo.value = String(q.correct);
+                }
+            }
+            this.els.valBtn.disabled = true;
+            return;
+        }
+
+        if (q.type === 'multi') {
+            const checks = this.els.opts.querySelectorAll('input[type="checkbox"]');
+            checks.forEach((check) => {
+                const value = String(check.value);
+                check.checked = correctValues.includes(value);
+                check.disabled = true;
+
+                const wrapper = check.closest('.multi-opt');
+                if (!wrapper) return;
+                wrapper.classList.add('locked-option');
+                if (correctValues.includes(value)) {
+                    wrapper.classList.add('is-correct');
+                }
+            });
+            this.els.valBtn.disabled = true;
+            return;
+        }
+
+        if (q.type === 'drag') {
+            const zones = Array.from(this.els.dragDrop.querySelectorAll('.target-zone'));
+            const cards = Array.from(this.els.dragDrop.querySelectorAll('.drag-card'));
+
+            const zoneByMatch = new Map(zones.map((zone) => [zone.dataset.match, zone]));
+            zones.forEach((zone) => {
+                zone.innerHTML = '';
+                zone.style.background = 'rgba(255,255,255,0.12)';
+            });
+
+            // Mostra a solução no próprio grid de drop para economizar espaço na tela.
+            q.items.forEach((item) => {
+                const targetZone = zoneByMatch.get(item.match);
+                const card = document.getElementById(item.id) || cards.find((c) => c.id === item.id);
+                if (!targetZone || !card) return;
+                card.draggable = false;
+                card.classList.add('locked-option');
+                card.style.pointerEvents = 'none';
+                targetZone.appendChild(card);
+            });
+
+            cards.forEach((card) => {
+                card.draggable = false;
+                card.classList.add('locked-option');
+                card.style.pointerEvents = 'none';
+            });
+
+            const zonesLocked = this.els.dragDrop.querySelectorAll('.target-zone');
+            zonesLocked.forEach((zone) => {
+                zone.classList.add('locked-option');
+                zone.style.pointerEvents = 'none';
+            });
+            return;
+        }
+
+        const options = this.els.opts.querySelectorAll('.opt-btn');
+        options.forEach((opt) => {
+            const value = String(opt.innerText || '').trim();
+            opt.disabled = true;
+            opt.classList.add('locked-option');
+            if (correctValues.includes(value)) {
+                opt.classList.add('is-correct');
+            }
+        });
+
+        if (btnElement) {
+            btnElement.classList.add('locked-option');
+        }
+    }
+
+    formatCorrectAnswer(q) {
+        if (!q) return '-';
+
+        if (q.type === 'drag' && Array.isArray(q.items) && Array.isArray(q.zones)) {
+            const zoneById = new Map(q.zones.map((zone) => [zone.id, zone.label]));
+            const pairs = q.items.map((item) => {
+                const zoneLabel = zoneById.get(item.match) || item.match;
+                return `<div class="drag-correct-item"><span>${item.txt}</span><span>→</span><span>${zoneLabel}</span></div>`;
+            });
+            return `<div class="drag-correct-grid">${pairs.join('')}</div>`;
+        }
+
+        if (Array.isArray(q.correct)) {
+            return q.correct.join(', ');
+        }
+
+        return String(q.correct ?? '-');
+    }
+
+    showEndScreen(stats, playerName, totalScore = 0, onShowRanking, totalGameTime = 0) {
         this.els.quizScreen.innerHTML = `
-            <h2 style="font-family:'Cinzel'; color:gold;">🏆 JORNADA CONCLUÍDA: ${playerName}</h2>
+            <h2 style="font-family:'Audiowide'; color:gold;">🏆 JORNADA CONCLUÍDA: ${playerName}</h2>
             <div style="background:rgba(255,215,0,0.1); border:2px solid gold; padding:20px; border-radius:15px; margin-bottom:20px;">
                 <p style="font-size:1.8rem; font-weight:bold; color:gold; margin:0;">💰 ${totalScore} PONTOS</p>
                 <p style="font-size:0.95rem; color:#ccc; margin:5px 0 0 0;">Acertos: ${stats.correct}</p>
+                <p style="font-size:0.95rem; color:#ffef9f; margin:4px 0 0 0;">Tempo total: ${this.formatGameTime(totalGameTime)}</p>
             </div>
             <p style="font-size:1.1rem;">Veja os pontos que merecem sua atenção para o futuro:</p>
             <div style="background:#000; padding:20px; border-radius:15px; text-align:left; border:1px solid var(--primary); max-height:300px; overflow-y:auto; margin-bottom:20px;">
@@ -474,26 +620,59 @@ export default class View {
     }
 
     playCountingSound() {
-        // Gera som de contagem usando Web Audio API (sem dependências).
+        // Toca o efeito Sonic do arquivo local; se falhar, usa um beep curto como fallback.
+        if (this.correctAnswerAudio) {
+            const sound = this.correctAnswerAudio;
+
+            // Comportamento estilo Sonic: novo acerto interrompe o som atual e reinicia.
+            sound.pause();
+            try {
+                sound.currentTime = 0;
+            } catch (_) {
+                // Alguns navegadores podem bloquear currentTime temporariamente.
+            }
+
+            sound.play().catch(() => {
+                const audioContext = this.getSharedAudioContext();
+                if (!audioContext) return;
+                const now = audioContext.currentTime;
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(880, now);
+                osc.frequency.exponentialRampToValueAtTime(1320, now + 0.09);
+
+                gain.gain.setValueAtTime(0.001, now);
+                gain.gain.exponentialRampToValueAtTime(0.16, now + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                osc.start(now);
+                osc.stop(now + 0.12);
+            });
+            return;
+        }
+
         const audioContext = this.getSharedAudioContext();
         if (!audioContext) return;
         const now = audioContext.currentTime;
-        
-        // "Ding" - tom de coin/moeda
         const osc = audioContext.createOscillator();
         const gain = audioContext.createGain();
-        
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.exponentialRampToValueAtTime(1320, now + 0.09);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.16, now + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.11);
+
         osc.connect(gain);
         gain.connect(audioContext.destination);
-        
-        osc.frequency.setValueAtTime(800, now);
-        osc.frequency.exponentialRampToValueAtTime(600, now + 0.1);
-        
-        gain.gain.setValueAtTime(0.3, now);
-        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
-        
         osc.start(now);
-        osc.stop(now + 0.1);
+        osc.stop(now + 0.12);
     }
 
     playErrorSound() {
@@ -639,9 +818,20 @@ export default class View {
         this.els.timerDisplay.textContent = `⏱ ${min}:${sec}`;
     }
 
+    updateTotalTimeDisplay(totalSeconds) {
+        // Mostra o tempo total acumulado de sessão para critério de desempate.
+        if (!this.els.totalTimeDisplay) return;
+        this.els.totalTimeDisplay.textContent = `🕒 TOTAL ${this.formatGameTime(totalSeconds)}`;
+    }
+
     setTimerVisibility(isVisible) {
         if (!this.els.timerDisplay) return;
         this.els.timerDisplay.classList.toggle('hidden', !isVisible);
+    }
+
+    setTotalTimeVisibility(isVisible) {
+        if (!this.els.totalTimeDisplay) return;
+        this.els.totalTimeDisplay.classList.toggle('hidden', !isVisible);
     }
 
     animateScorePenalty(oldScore, newScore, penaltyValue = -50) {
@@ -693,6 +883,7 @@ export default class View {
         scores.slice(0, 15).forEach((score, index) => {
             const row = document.createElement('div');
             row.className = 'top15-row';
+            const medal = ['🥇', '🥈', '🥉'][index] || '';
 
             if (index < 3) {
                 row.classList.add('is-podium');
@@ -700,8 +891,9 @@ export default class View {
 
             row.innerHTML = `
                 <span class="top15-pos">${index + 1}</span>
-                <span class="top15-name">${score.name || '---'}</span>
+                <span class="top15-name">${medal ? `<span class="top15-medal">${medal}</span>` : ''}${score.name || '---'}</span>
                 <span class="top15-score">${score.score || 0}</span>
+                <span class="top15-time">${this.formatGameTime(score.gameTime)}</span>
             `;
             this.els.top15Body.appendChild(row);
         });
@@ -716,8 +908,16 @@ export default class View {
         // Abre o modal com o ranking global.
         this.els.rankingList.innerHTML = '';
 
+        const tieBreakHint = document.createElement('p');
+        tieBreakHint.style.cssText = 'color:#ffef9f; font-size:0.78rem; margin:0 0 10px 0; text-align:center;';
+        tieBreakHint.textContent = 'Critério de desempate: menor tempo total.';
+        this.els.rankingList.appendChild(tieBreakHint);
+
         if (scores.length === 0) {
-            this.els.rankingList.innerHTML = '<p style="color: #ccc; text-align: center; padding: 20px;">Nenhum ranking disponível ainda...</p>';
+            const empty = document.createElement('p');
+            empty.style.cssText = 'color:#ccc; text-align:center; padding:20px;';
+            empty.textContent = 'Nenhum ranking disponível ainda...';
+            this.els.rankingList.appendChild(empty);
             this.els.rankingModal.classList.remove('hidden');
             return;
         }

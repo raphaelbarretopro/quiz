@@ -14,6 +14,7 @@ class Controller {
         this.gameDurationMs = 60000;
         this.gameTimeoutId = null;
         this.gameTickId = null;
+        this.totalTimeTickId = null;
         this.hasTimedOut = false;
         this.timerStarted = false;
         this.lastTimeoutSnapshot = null;
@@ -51,10 +52,33 @@ class Controller {
         this.hasTimedOut = false;
         this.timerStarted = false;
         this.clearGameTimeout();
+        this.stopTotalTimer();
         this.view.updateTimerDisplay(this.gameDurationMs / 1000);
+        this.view.updateTotalTimeDisplay(0);
+        this.view.setTotalTimeVisibility(true);
+        this.startTotalTimer();
         this.view.setTimerVisibility(false);
         this.view.els.startScreen.classList.add('hidden');
         this.renderStep();
+    }
+
+    getElapsedGameSeconds() {
+        const startedAt = this.startTime || Date.now();
+        return Math.floor((Date.now() - startedAt) / 1000);
+    }
+
+    startTotalTimer() {
+        this.stopTotalTimer();
+        this.view.updateTotalTimeDisplay(this.getElapsedGameSeconds());
+        this.totalTimeTickId = setInterval(() => {
+            this.view.updateTotalTimeDisplay(this.getElapsedGameSeconds());
+        }, 250);
+    }
+
+    stopTotalTimer() {
+        if (!this.totalTimeTickId) return;
+        clearInterval(this.totalTimeTickId);
+        this.totalTimeTickId = null;
     }
 
     startGameTimeout() {
@@ -220,13 +244,12 @@ class Controller {
             const oldScore = this.model.playerScore;
             const newScore = this.model.addScore(this.model.pointsPerCorrect);
             this.view.animateScoreIncrease(oldScore, newScore);
-            this.view.showFeedback(true, q.tip, this.model.playerName, btnElement);
+            this.view.showFeedback(true, q.tip, this.model.playerName, btnElement, q);
         } else {
             this.model.registerMistake(q);
-            const oldScore = this.model.playerScore;
-            const newScore = this.model.addScore(this.model.pointsPerMistake);
-            this.view.animateScorePenalty(oldScore, newScore, this.model.pointsPerMistake);
-            this.view.showFeedback(false, q.tip, this.model.playerName, btnElement);
+            // Erro não pontua e também não desconta: mantém o score atual.
+            this.view.updateScoreDisplay(this.model.playerScore);
+            this.view.showFeedback(false, q.tip, this.model.playerName, btnElement, q);
         }
     }
 
@@ -238,10 +261,11 @@ class Controller {
             this.renderStep();
         } else {
             this.clearGameTimeout();
+            this.stopTotalTimer();
             this.timerStarted = false;
             // Calcula tempo total
-            const startedAt = this.startTime || Date.now();
-            const gameTime = Math.floor((Date.now() - startedAt) / 1000);
+            const gameTime = this.getElapsedGameSeconds();
+            this.view.updateTotalTimeDisplay(gameTime);
             
             // Salva no Firebase
             await this.ranking.saveScore(
@@ -257,7 +281,8 @@ class Controller {
                 this.model.stats,
                 this.model.playerName,
                 this.model.playerScore,
-                this.handleShowRanking.bind(this)
+                this.handleShowRanking.bind(this),
+                gameTime
             );
             this.view.setTimerVisibility(false);
         }

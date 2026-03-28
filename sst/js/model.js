@@ -5,7 +5,7 @@ export default class Model {
         this.curStep = 0;
         this.playerScore = 0;
         this.pointsPerCorrect = 100;
-        this.pointsPerMistake = -50;
+        this.pointsPerMistake = 0;
         this.stats = { correct: 0, mistakes: [] };
         
         // Dados carregados do arquivo JSON.

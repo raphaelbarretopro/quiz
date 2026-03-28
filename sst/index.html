@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saga do Futuro - Motor Dinâmico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Orbitron:wght@400;700&family=Roboto:wght@300;400;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Oxanium:wght@400;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -20,6 +20,7 @@
             </div>
             <div class="score-value" id="score-value">0</div>
             <div id="timer-display" class="timer-display hidden">⏱ 01:00</div>
+            <div id="total-time-display" class="total-time-display hidden">🕒 TOTAL 00:00</div>
         </div>
     </div>
 
@@ -30,6 +31,7 @@
             <span>#</span>
             <span>Jogador</span>
             <span>Pts</span>
+            <span>Time</span>
         </div>
         <div id="top15-body" class="top15-body">
             <p class="top15-empty">Carregando ranking...</p>
@@ -42,7 +44,7 @@
     <div id="game-container">
         <!-- Tela inicial: coleta o nome do jogador e aguarda a carga dos dados da aula. -->
         <div id="start-screen">
-            <h2 id="main-title" style="font-family: 'Cinzel'; color: var(--primary);">Carregando Dados da Aula...</h2>
+            <h2 id="main-title" style="font-family:'Audiowide'; color: var(--primary);">Carregando Dados da Aula...</h2>
             <p>Domine o conhecimento e avance na sua jornada.</p>
             <input type="text" id="p-name-input" placeholder="SEU NOME" autofocus>
             <br><br>
@@ -87,6 +89,7 @@
             <div id="fb-area" style="margin-top:15px; font-weight:bold; font-size:1.1rem;"></div>
             <button id="val-btn" class="opt-btn hidden" style="background:var(--primary); color:#000; font-weight:bold;">VALIDAR RESPOSTA</button>
             <button id="next-btn" class="opt-btn hidden">AVANÇAR ➔</button>
+            <div id="question-counter" class="question-counter">QUESTÃO 1/50</div>
         </div>
         
     </div>
