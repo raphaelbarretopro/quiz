@@ -83,11 +83,20 @@ export default class View {
         this.correctAnswerAudio.volume = 0.9;
 
         // Trilha de fundo principal.
+        this.countingCue = new Audio('audio/valendo.mp3');
+        this.countingCue.preload = 'auto';
+        this.countingCue.volume = 0.9;
+
         this.bgMusic = new Audio('audio/show.mp3');
         this.bgMusic.loop = true;
         this.bgMusic.preload = 'auto';
-        this.bgMusic.volume = 0.35;
+        this.defaultMusicVolume = 0.35;
+        this.targetMusicVolume = this.defaultMusicVolume;
+        this.bgMusic.volume = this.targetMusicVolume;
         this.isMusicOn = true;
+        this.isStartingMusic = false;
+        this.musicStartToken = 0;
+        this.musicFadeInterval = null;
         this._bindMusicControls();
     }
 
@@ -102,7 +111,10 @@ export default class View {
             this.els.musicVolume.value = String(this.bgMusic.volume);
             this.els.musicVolume.addEventListener('input', () => {
                 const volume = Number(this.els.musicVolume.value);
-                this.bgMusic.volume = Number.isFinite(volume) ? volume : 0.35;
+                this.targetMusicVolume = Number.isFinite(volume) ? volume : this.defaultMusicVolume;
+                if (!this.bgMusic.paused && !this.isStartingMusic) {
+                    this.bgMusic.volume = this.targetMusicVolume;
+                }
             });
         }
 
@@ -111,20 +123,129 @@ export default class View {
 
     updateMusicUiState() {
         if (!this.els.musicToggle) return;
-        const isPlaying = !this.bgMusic.paused;
+        const isPlaying = this.isStartingMusic || !this.bgMusic.paused;
         this.els.musicToggle.textContent = isPlaying ? 'DESLIGAR' : 'LIGAR';
         this.els.musicToggle.classList.toggle('is-off', !isPlaying);
     }
 
-    startBackgroundMusic() {
+    startBackgroundMusic(withIntroCue = false) {
         if (!this.isMusicOn) return;
-        this.bgMusic.play()
-            .then(() => this.updateMusicUiState())
-            .catch(() => this.updateMusicUiState());
+
+        if (!this.bgMusic.paused && !withIntroCue) {
+            this.updateMusicUiState();
+            return;
+        }
+
+        const token = ++this.musicStartToken;
+        this.isStartingMusic = true;
+        this.updateMusicUiState();
+
+        const run = async () => {
+            if (withIntroCue) {
+                await this.playIntroCue(token);
+            }
+
+            if (!this.isMusicOn || token !== this.musicStartToken) return;
+            await this.playBackgroundWithFadeIn(token);
+        };
+
+        run()
+            .catch(() => {})
+            .finally(() => {
+                if (token === this.musicStartToken) {
+                    this.isStartingMusic = false;
+                }
+                this.updateMusicUiState();
+            });
+    }
+
+    playIntroCue(token) {
+        return new Promise((resolve) => {
+            if (!this.countingCue || token !== this.musicStartToken || !this.isMusicOn) {
+                resolve();
+                return;
+            }
+
+            const cue = this.countingCue;
+            const finish = () => {
+                cue.removeEventListener('ended', onEnded);
+                cue.removeEventListener('error', onEnded);
+                resolve();
+            };
+
+            const onEnded = () => finish();
+            cue.pause();
+            try {
+                cue.currentTime = 0;
+            } catch (_) {}
+
+            cue.addEventListener('ended', onEnded, { once: true });
+            cue.addEventListener('error', onEnded, { once: true });
+            cue.play().catch(() => finish());
+        });
+    }
+
+    async playBackgroundWithFadeIn(token) {
+        if (token !== this.musicStartToken || !this.isMusicOn) return;
+
+        if (this.musicFadeInterval) {
+            clearInterval(this.musicFadeInterval);
+            this.musicFadeInterval = null;
+        }
+
+        this.bgMusic.pause();
+        try {
+            this.bgMusic.currentTime = 0;
+        } catch (_) {}
+
+        this.bgMusic.volume = 0;
+        await this.bgMusic.play();
+        this.fadeInMusic(this.targetMusicVolume, 1200, token);
+    }
+
+    fadeInMusic(targetVolume, durationMs, token) {
+        if (this.musicFadeInterval) {
+            clearInterval(this.musicFadeInterval);
+            this.musicFadeInterval = null;
+        }
+
+        const steps = 24;
+        const stepTime = Math.max(20, Math.floor(durationMs / steps));
+        let currentStep = 0;
+
+        this.musicFadeInterval = setInterval(() => {
+            if (token !== this.musicStartToken || !this.isMusicOn) {
+                clearInterval(this.musicFadeInterval);
+                this.musicFadeInterval = null;
+                return;
+            }
+
+            currentStep += 1;
+            const progress = Math.min(1, currentStep / steps);
+            this.bgMusic.volume = targetVolume * progress;
+
+            if (progress >= 1) {
+                clearInterval(this.musicFadeInterval);
+                this.musicFadeInterval = null;
+                this.bgMusic.volume = this.targetMusicVolume;
+            }
+        }, stepTime);
     }
 
     toggleBackgroundMusic() {
-        if (!this.bgMusic.paused) {
+        if (!this.bgMusic.paused || this.isStartingMusic) {
+            this.musicStartToken++;
+            this.isStartingMusic = false;
+            if (this.musicFadeInterval) {
+                clearInterval(this.musicFadeInterval);
+                this.musicFadeInterval = null;
+            }
+            if (this.countingCue) {
+                this.countingCue.pause();
+                try {
+                    this.countingCue.currentTime = 0;
+                } catch (_) {}
+            }
             this.bgMusic.pause();
             this.isMusicOn = false;
             this.updateMusicUiState();
@@ -132,7 +253,7 @@ export default class View {
         }
 
         this.isMusicOn = true;
-        this.startBackgroundMusic();
+        this.startBackgroundMusic(false);
     }
 
     getSharedAudioContext() {
@@ -188,7 +309,7 @@ export default class View {
             const name = this.els.pNameInput.value.trim();
             if (name.length < 3) { this.showAlert("Atenção!", "Digite seu nome completo (mínimo 3 letras)."); return; }
             handler(name);
-            this.startBackgroundMusic();
+            this.startBackgroundMusic(true);
         });
     }
 
