@@ -256,7 +256,8 @@ export default class View {
         
         // Adiciona voltas extras (1800deg = 5 voltas) para efeito visual
         this.els.wheel.style.transform = `rotate(${targetAngle + 1800}deg)`;
-        this.triggerLightning(2);
+        this.playCountingSound();
+        this.createCoinAnimation();
         
         setTimeout(() => {
             this.els.modalTitle.innerText = "NOVO TEMA: " + topicData.name;
