@@ -124,9 +124,6 @@ class Controller {
             this.model.sokobanActive = true;
             this.view.showSokoban();
             this.handleSokobanReset();
-            this.view.setTimerVisibility(true);
-            this.startGameTimeout();
-            this.timerStarted = true;
             return;
         }
 
@@ -174,11 +171,6 @@ class Controller {
 
     handleModalClose() {
         if (this.hasTimedOut) return;
-        if (!this.timerStarted) {
-            this.view.setTimerVisibility(true);
-            this.startGameTimeout();
-            this.timerStarted = true;
-        }
         // Ao fechar o modal da era, inicia o mini-jogo de transição.
         this.view.showSokoban();
         this.model.sokobanActive = true;
@@ -187,6 +179,12 @@ class Controller {
 
     handleSokobanReset() {
         if (this.hasTimedOut) return;
+        // Reiniciar o mini-jogo também reinicia o cronômetro da etapa Sokoban.
+        if (this.model.sokobanActive) {
+            this.view.setTimerVisibility(true);
+            this.startGameTimeout();
+            this.timerStarted = true;
+        }
         // Reinicia estado e redesenha o tabuleiro Sokoban.
         this.model.resetSokoban(this.currentTargetTopic);
         this.view.drawSokoban(this.model.sLevel, this.model.sP, this.model.sB);
