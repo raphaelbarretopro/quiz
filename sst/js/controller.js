@@ -30,6 +30,16 @@ class Controller {
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
+    getSokobanDurationMsByTopic(topicId) {
+        const byTopic = {
+            ACID: 60000,
+            AGEN: 50000,
+            PROT: 40000,
+            NORM: 30000
+        };
+        return byTopic[topicId] || 60000;
+    }
+
     async init() {
         // Carrega dados iniciais e libera a UI apenas se a carga for bem-sucedida.
         const success = await this.model.loadData();
@@ -110,7 +120,7 @@ class Controller {
 
             this.view.showAlert(
                 '⏱️ Tempo Esgotado!',
-                'Você atingiu o limite de 1 minuto. Clique em OK para reiniciar este desafio mantendo sua pontuação e progresso.',
+                `Você atingiu o limite de ${Math.floor(this.gameDurationMs / 1000)} segundos nesta era. Clique em OK para reiniciar este desafio mantendo sua pontuação e progresso.`,
                 this.restartAfterTimeout.bind(this)
             );
         }, this.gameDurationMs);
@@ -161,6 +171,7 @@ class Controller {
         // Em transições de tema, força a etapa da roleta + Sokoban antes da pergunta.
         if (q.trans && !this.isReady) {
             this.currentTargetTopic = q.trans;
+            this.gameDurationMs = this.getSokobanDurationMsByTopic(this.currentTargetTopic);
             this.view.setTimerVisibility(false);
             this.view.showPortal();
             return;

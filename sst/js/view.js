@@ -51,6 +51,8 @@ export default class View {
             coinsContainer: document.getElementById('coins-container'),
             top15Panel: document.getElementById('top15-panel'),
             top15Body: document.getElementById('top15-body'),
+            musicToggle: document.getElementById('music-toggle'),
+            musicVolume: document.getElementById('music-volume'),
             firjanLogo: document.getElementById('firjan-logo'),
 
             // Modal de Ranking
@@ -68,6 +70,58 @@ export default class View {
         this.correctAnswerAudio = new Audio('audio/Sonic.mp3');
         this.correctAnswerAudio.preload = 'auto';
         this.correctAnswerAudio.volume = 0.9;
+
+        // Trilha de fundo principal.
+        this.bgMusic = new Audio('audio/show.mp3');
+        this.bgMusic.loop = true;
+        this.bgMusic.preload = 'auto';
+        this.bgMusic.volume = 0.35;
+        this.isMusicOn = true;
+        this._bindMusicControls();
+    }
+
+    _bindMusicControls() {
+        if (this.els.musicToggle) {
+            this.els.musicToggle.addEventListener('click', () => {
+                this.toggleBackgroundMusic();
+            });
+        }
+
+        if (this.els.musicVolume) {
+            this.els.musicVolume.value = String(this.bgMusic.volume);
+            this.els.musicVolume.addEventListener('input', () => {
+                const volume = Number(this.els.musicVolume.value);
+                this.bgMusic.volume = Number.isFinite(volume) ? volume : 0.35;
+            });
+        }
+
+        this.updateMusicUiState();
+    }
+
+    updateMusicUiState() {
+        if (!this.els.musicToggle) return;
+        const isPlaying = !this.bgMusic.paused;
+        this.els.musicToggle.textContent = isPlaying ? 'DESLIGAR' : 'LIGAR';
+        this.els.musicToggle.classList.toggle('is-off', !isPlaying);
+    }
+
+    startBackgroundMusic() {
+        if (!this.isMusicOn) return;
+        this.bgMusic.play()
+            .then(() => this.updateMusicUiState())
+            .catch(() => this.updateMusicUiState());
+    }
+
+    toggleBackgroundMusic() {
+        if (!this.bgMusic.paused) {
+            this.bgMusic.pause();
+            this.isMusicOn = false;
+            this.updateMusicUiState();
+            return;
+        }
+
+        this.isMusicOn = true;
+        this.startBackgroundMusic();
     }
 
     getSharedAudioContext() {
@@ -123,6 +177,7 @@ export default class View {
             const name = this.els.pNameInput.value.trim();
             if (name.length < 3) { this.showAlert("Atenção!", "Digite seu nome completo (mínimo 3 letras)."); return; }
             handler(name);
+            this.startBackgroundMusic();
         });
     }
 
@@ -240,7 +295,9 @@ export default class View {
     }
 
     sokobanComplete(callback) {
-        this.playSokobanWinSound();
+        // Ao concluir o Sokoban, celebra com o mesmo combo visual/sonoro de recompensa.
+        this.playCountingSound();
+        this.createCoinAnimation();
         setTimeout(() => {
             this.els.sokobanScreen.classList.add('hidden');
             callback();
@@ -767,8 +824,7 @@ export default class View {
     createCoinAnimation() {
         // Cria animação de moedas caindo estilo caça-níqueis alinhadas à janela de perguntas.
         const count = 30; // Número de moedas
-        const primary = getComputedStyle(document.documentElement)
-            .getPropertyValue('--primary').trim() || '#ffd700';
+        const coinGold = '#ffd700';
         
         // Obtém posição do container de perguntas
         const gameContainer = document.getElementById('game-container');
@@ -784,7 +840,7 @@ export default class View {
             
             coin.style.left = startX + 'px';
             coin.style.top = startY + 'px';
-            coin.style.backgroundColor = primary;
+            coin.style.backgroundColor = coinGold;
             coin.style.position = 'fixed';
             
             // Delay para cascata de moedas
