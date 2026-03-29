@@ -19,7 +19,16 @@ class Controller {
         this.timerStarted = false;
         this.lastTimeoutSnapshot = null;
         this.correctStreak = 0;
+        this.slotStreak = 0;
         this.lastAnswerWasCorrect = false;
+        this.pacmanBonusReward = 1000;
+        this.pacmanBonusActive = false;
+        this.pacmanTriggeredInCurrentStreak = false;
+        this.enduroBonusReward = 1500;
+        this.enduroBonusActive = false;
+        this.trexBonusReward = 2000;
+        this.trexBonusActive = false;
+        this.trexFinalTriggered = false;
         this.slotMaxSpins = 3;
         this.slotSpinsUsed = 0;
         this.slotIsActive = false;
@@ -36,6 +45,9 @@ class Controller {
         this.view.bindSokobanMove(this.handleSokobanMove.bind(this));
         this.view.bindSokobanReset(this.handleSokobanReset.bind(this));
         this.view.bindNext(this.handleNext.bind(this));
+        this.view.bindPacmanTest(this.handlePacmanTest.bind(this));
+        this.view.bindEnduroTest(this.handleEnduroTest.bind(this));
+        this.view.bindTRexTest(this.handleTRexTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -71,7 +83,13 @@ class Controller {
         this.hasTimedOut = false;
         this.timerStarted = false;
         this.correctStreak = 0;
+        this.slotStreak = 0;
         this.lastAnswerWasCorrect = false;
+        this.pacmanBonusActive = false;
+        this.pacmanTriggeredInCurrentStreak = false;
+        this.enduroBonusActive = false;
+        this.trexBonusActive = false;
+        this.trexFinalTriggered = false;
         this.slotSpinsUsed = 0;
         this.slotIsActive = false;
         this.slotSpinInProgress = false;
@@ -264,19 +282,31 @@ class Controller {
     handleAnswer(selectedValue, btnElement) {
         if (this.hasTimedOut) return;
         const q = this.model.getCurrentQuestion();
-        // Compara resposta escolhida com a correta (inclui casos de array e valor simples).
-        const isCorrect = JSON.stringify(selectedValue) === JSON.stringify(q.correct) || selectedValue === q.correct;
+        // Normaliza respostas corretas para comparação robusta
+        const normalizedCorrect = Array.isArray(q.correct)
+            ? q.correct.map(v => String(v).trim())
+            : String(q.correct).trim();
+        const normalizedSelected = Array.isArray(selectedValue)
+            ? selectedValue.map(v => String(v).trim())
+            : String(selectedValue).trim();
+        // Compara resposta escolhida com a correta (inclui casos de array e valor simples, com normalização de espaços).
+        const isCorrect = Array.isArray(normalizedCorrect) && Array.isArray(normalizedSelected)
+            ? normalizedCorrect.length === normalizedSelected.length && normalizedCorrect.every(v => normalizedSelected.includes(v))
+            : JSON.stringify(normalizedSelected) === JSON.stringify(normalizedCorrect) || normalizedSelected === normalizedCorrect;
         this.lastAnswerWasCorrect = isCorrect;
 
         if (isCorrect) {
             this.model.stats.correct++;
             this.correctStreak++;
+            this.slotStreak++;
             const oldScore = this.model.playerScore;
             const newScore = this.model.addScore(this.model.pointsPerCorrect);
             this.view.animateScoreIncrease(oldScore, newScore);
             this.view.showFeedback(true, q.tip, this.model.playerName, btnElement, q);
         } else {
             this.correctStreak = 0;
+            this.slotStreak = 0;
+            this.pacmanTriggeredInCurrentStreak = false;
             this.model.registerMistake(q);
             // Erro não pontua e também não desconta: mantém o score atual.
             this.view.updateScoreDisplay(this.model.playerScore);
@@ -290,40 +320,65 @@ class Controller {
         this.model.curStep++;
         
         if (this.model.curStep < this.model.questions.length) {
-            // Regra: abre caça-níquel ao atingir 3 acertos consecutivos.
-            if (this.correctStreak >= 3) {
+            // Regra especial: 15 acertos seguidos desbloqueiam o bônus ENDURO.
+            if (this.correctStreak >= 15) {
                 this.correctStreak = 0;
+                this.slotStreak = 0;
+                this.pacmanTriggeredInCurrentStreak = false;
+                await this.openEnduroBonusRound();
+                return;
+            }
+
+            // Regra especial: PAC-MAN continua em 10 acertos, uma vez por streak.
+            if (this.correctStreak >= 10 && !this.pacmanTriggeredInCurrentStreak) {
+                this.pacmanTriggeredInCurrentStreak = true;
+                await this.openPacmanBonusRound();
+                return;
+            }
+
+            // Regra: abre caça-níquel ao atingir 3 acertos consecutivos (contador dedicado).
+            if (this.slotStreak >= 3) {
+                this.slotStreak = 0;
                 this.openSlotRound();
             } else {
                 this.renderStep();
             }
         } else {
-            this.clearGameTimeout();
-            this.stopTotalTimer();
-            this.timerStarted = false;
-            // Calcula tempo total
-            const gameTime = this.getElapsedGameSeconds();
-            this.view.updateTotalTimeDisplay(gameTime);
-            
-            // Salva no Firebase
-            await this.ranking.saveScore(
-                this.model.playerName,
-                this.model.playerScore,
-                this.model.stats.correct,
-                this.model.questions.length,
-                gameTime
-            );
+            // Bônus especial: T-REX Game roda uma única vez após a última pergunta (índice 49).
+            if (!this.trexFinalTriggered) {
+                this.trexFinalTriggered = true;
+                await this.openTRexBonusRound();
+                return;
+            }
 
-            // Exibe tela final com botão de ranking
-            this.view.showEndScreen(
-                this.model.stats,
-                this.model.playerName,
-                this.model.playerScore,
-                this.handleShowRanking.bind(this),
-                gameTime
-            );
-            this.view.setTimerVisibility(false);
+            await this.finalizeQuiz();
         }
+    }
+
+    async finalizeQuiz() {
+        this.clearGameTimeout();
+        this.stopTotalTimer();
+        this.timerStarted = false;
+
+        const gameTime = this.getElapsedGameSeconds();
+        this.view.updateTotalTimeDisplay(gameTime);
+
+        await this.ranking.saveScore(
+            this.model.playerName,
+            this.model.playerScore,
+            this.model.stats.correct,
+            this.model.questions.length,
+            gameTime
+        );
+
+        this.view.showEndScreen(
+            this.model.stats,
+            this.model.playerName,
+            this.model.playerScore,
+            this.handleShowRanking.bind(this),
+            gameTime
+        );
+        this.view.setTimerVisibility(false);
     }
 
     async handleShowRanking() {
@@ -420,6 +475,126 @@ class Controller {
     updateSlotSpinButtonLabel() {
         const remaining = Math.max(0, this.slotMaxSpins - this.slotSpinsUsed);
         this.view.els.slotSpinBtn.textContent = `GIRAR (${remaining}) 🎰`;
+    }
+
+    async handlePacmanTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.pacmanBonusActive || this.enduroBonusActive) return;
+        await this.openPacmanBonusRound();
+    }
+
+    async handleEnduroTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.pacmanBonusActive || this.enduroBonusActive) return;
+        await this.openEnduroBonusRound();
+    }
+
+    async openPacmanBonusRound() {
+        if (this.pacmanBonusActive || this.hasTimedOut) return;
+
+        this.pacmanBonusActive = true;
+        const result = await this.view.runPacmanBonusLevel();
+
+        if (this.hasTimedOut) {
+            this.pacmanBonusActive = false;
+            return;
+        }
+
+        if (result.won) {
+            const finalScore = await this.view.showPacmanFinalSummary(
+                this.model.playerScore,
+                this.pacmanBonusReward,
+                result.cherryBonus
+            );
+            this.model.playerScore = finalScore;
+            this.view.updateScoreDisplay(finalScore);
+        } else {
+            this.view.showAlert(
+                '👻 Desafio Não Concluído',
+                'Você esgotou os 3 créditos do desafio especial desta vez. Continue acertando para tentar novamente!',
+                () => this.view.resumeGameMusic()
+            );
+        }
+
+        this.pacmanBonusActive = false;
+        this.renderStep();
+    }
+
+    async openEnduroBonusRound() {
+        if (this.enduroBonusActive || this.hasTimedOut) return;
+
+        this.enduroBonusActive = true;
+        const result = await this.view.runEnduroBonusLevel();
+
+        if (this.hasTimedOut) {
+            this.enduroBonusActive = false;
+            return;
+        }
+
+        if (result.won) {
+            await this.view.showEnduroVictoryPopup(this.model.playerName);
+            const finalScore = await this.view.showEnduroFinalSummary(
+                this.model.playerScore,
+                this.enduroBonusReward,
+                result.stagesCompleted,
+                result.carsPassed
+            );
+            this.model.playerScore = finalScore;
+            this.view.updateScoreDisplay(finalScore);
+        } else {
+            this.view.showAlert(
+                '🏎️ Corrida Interrompida',
+                'Você esgotou os 3 carros nesta corrida do ENDURO. Continue acertando para liberar uma nova tentativa!',
+                () => this.view.resumeGameMusic()
+            );
+        }
+
+        this.enduroBonusActive = false;
+        this.renderStep();
+    }
+
+    async handleTRexTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.pacmanBonusActive || this.enduroBonusActive || this.trexBonusActive) return;
+        await this.openTRexBonusRound();
+    }
+
+    async openTRexBonusRound() {
+        if (this.trexBonusActive || this.hasTimedOut) return;
+
+        this.trexBonusActive = true;
+        const result = await this.view.runTRexBonusLevel();
+
+        if (this.hasTimedOut) {
+            this.trexBonusActive = false;
+            return;
+        }
+
+        if (result.won) {
+            await this.view.showTRexVictoryPopup(this.model.playerName);
+            const finalScore = await this.view.showTRexFinalSummary(
+                this.model.playerScore,
+                this.trexBonusReward,
+                result.distance
+            );
+            this.model.playerScore = finalScore;
+            this.view.updateScoreDisplay(finalScore);
+        } else {
+            this.view.showAlert(
+                '🦖 Jogo Interrompido',
+                'Você foi colidido e o desafio T-REX foi interrompido. Continue acertando as perguntas para liberar uma nova tentativa!',
+                () => this.view.resumeGameMusic()
+            );
+        }
+
+        this.trexBonusActive = false;
+
+        if (this.model.curStep >= this.model.questions.length) {
+            await this.finalizeQuiz();
+            return;
+        }
+
+        this.renderStep();
     }
 }
 

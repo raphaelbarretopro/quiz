@@ -67,22 +67,112 @@ export default class View {
             slotResult: document.getElementById('slot-result'),
             slotReel1: document.getElementById('reel-1'),
             slotReel2: document.getElementById('reel-2'),
-            slotReel3: document.getElementById('reel-3')
+            slotReel3: document.getElementById('reel-3'),
+
+            // Bonus especial estilo PAC-MAN
+            pacmanBonusModal: document.getElementById('pacman-bonus-modal'),
+            pacmanCanvas: document.getElementById('pacman-canvas'),
+            pacmanPellets: document.getElementById('pacman-pellets'),
+            pacmanTimer: document.getElementById('pacman-timer'),
+            pacmanUp: document.getElementById('pacman-up'),
+            pacmanDown: document.getElementById('pacman-down'),
+            pacmanLeft: document.getElementById('pacman-left'),
+            pacmanRight: document.getElementById('pacman-right'),
+            pacmanGiveUpBtn: document.getElementById('pacman-giveup-btn'),
+            pacmanTestBtn: document.getElementById('pacman-test-btn'),
+            enduroTestBtn: document.getElementById('enduro-test-btn'),
+            trexTestBtn: document.getElementById('trex-test-btn'),
+
+            // Bonus especial estilo ENDURO
+            enduroBonusModal: document.getElementById('enduro-bonus-modal'),
+            enduroCanvas: document.getElementById('enduro-canvas'),
+            enduroStatus: document.getElementById('enduro-status'),
+            enduroTimer: document.getElementById('enduro-timer'),
+            enduroGiveUpBtn: document.getElementById('enduro-giveup-btn'),
+
+            // Bonus especial estilo T-REX
+            trexBonusModal: document.getElementById('trex-bonus-modal'),
+            trexCanvas: document.getElementById('trex-canvas'),
+            trexDistance: document.getElementById('trex-distance'),
+            trexTimer: document.getElementById('trex-timer'),
+            trexGiveUpBtn: document.getElementById('trex-giveup-btn')
         };
-        
+
         this.rot = 0;
         this.spinTimer = null;
         this.dragsFixed = 0;
         this.audioContext = null;
-        this.questionCount = 0; // Contador de questões para trigger do caça níquel
-        this.lastSlotPositions = [0, 0, 0]; // Armazena posições finais dos reels
+        this.questionCount = 0;
+        this.lastSlotPositions = [0, 0, 0];
+        this.slotSpinSoundTimer = null;
+        this.reelFxRaf = new Map();
+        this.slotStopAudioCursor = 0;
+        this.pacmanSession = null;
+        this.enduroSession = null;
+        this.trexSession = null;
 
-        // Efeito principal de acerto (arquivo externo) com fallback sintético.
         this.correctAnswerAudio = new Audio('audio/Sonic.mp3');
         this.correctAnswerAudio.preload = 'auto';
         this.correctAnswerAudio.volume = 0.9;
 
-        // Trilha de fundo principal.
+        this.slotStopAudioPool = [0, 1, 2].map(() => {
+            const s = new Audio('audio/Sonic.mp3');
+            s.preload = 'auto';
+            s.volume = 0.9;
+            return s;
+        });
+
+        this.cashRegisterAudio = new Audio('audio/caixa_registradora.mp3');
+        this.cashRegisterAudio.preload = 'auto';
+        this.cashRegisterAudio.volume = 0.72;
+
+        this.pacmanStartAudio = new Audio('audio/pacman-start.mp3');
+        this.pacmanStartAudio.preload = 'auto';
+        this.pacmanStartAudio.volume = 0.9;
+
+        this.pacmanEatAudio = new Audio('audio/pacman-comendo.mp3');
+        this.pacmanEatAudio.preload = 'auto';
+        this.pacmanEatAudio.loop = true;
+        this.pacmanEatAudio.volume = 0.65;
+
+        this.pacmanDieAudio = new Audio('audio/pacman-morreu.mp3');
+        this.pacmanDieAudio.preload = 'auto';
+        this.pacmanDieAudio.volume = 0.82;
+
+        this.pacmanVitaminAudio = new Audio('audio/pacman-vitamina.mp3');
+        this.pacmanVitaminAudio.preload = 'auto';
+        this.pacmanVitaminAudio.volume = 0.8;
+
+        this.pacmanEndingPowerAudio = new Audio('audio/pacman-acabando-tempo-vitamina.mp3');
+        this.pacmanEndingPowerAudio.preload = 'auto';
+        this.pacmanEndingPowerAudio.volume = 0.8;
+
+        this.enduroStartAudio = new Audio('audio/largada.mp3');
+        this.enduroStartAudio.preload = 'auto';
+        this.enduroStartAudio.volume = 0.9;
+
+        this.enduroRaceAudio = new Audio('audio/musica-enduro.mp3');
+        this.enduroRaceAudio.preload = 'auto';
+        this.enduroRaceAudio.loop = true;
+        this.enduroRaceAudio.volume = 0.55;
+
+        this.enduroVictoryAudio = new Audio('audio/vitoria.mp3');
+        this.enduroVictoryAudio.preload = 'auto';
+        this.enduroVictoryAudio.volume = 0.9;
+
+        this.trexStartAudio = new Audio('audio/largada.mp3');
+        this.trexStartAudio.preload = 'auto';
+        this.trexStartAudio.volume = 0.9;
+
+        this.trexRaceAudio = new Audio('audio/gabriela.mp3');
+        this.trexRaceAudio.preload = 'auto';
+        this.trexRaceAudio.loop = true;
+        this.trexRaceAudio.volume = 0.55;
+
+        this.trexVictoryAudio = new Audio('audio/voz-t-rex.mp3');
+        this.trexVictoryAudio.preload = 'auto';
+        this.trexVictoryAudio.volume = 0.9;
+
         this.countingCue = new Audio('audio/valendo.mp3');
         this.countingCue.preload = 'auto';
         this.countingCue.volume = 0.9;
@@ -91,169 +181,8 @@ export default class View {
         this.bgMusic.loop = true;
         this.bgMusic.preload = 'auto';
         this.defaultMusicVolume = 0.35;
-        this.targetMusicVolume = this.defaultMusicVolume;
-        this.bgMusic.volume = this.targetMusicVolume;
-        this.isMusicOn = true;
-        this.isStartingMusic = false;
-        this.musicStartToken = 0;
-        this.musicFadeInterval = null;
-        this._bindMusicControls();
-    }
-
-    _bindMusicControls() {
-        if (this.els.musicToggle) {
-            this.els.musicToggle.addEventListener('click', () => {
-                this.toggleBackgroundMusic();
-            });
-        }
-
-        if (this.els.musicVolume) {
-            this.els.musicVolume.value = String(this.bgMusic.volume);
-            this.els.musicVolume.addEventListener('input', () => {
-                const volume = Number(this.els.musicVolume.value);
-                this.targetMusicVolume = Number.isFinite(volume) ? volume : this.defaultMusicVolume;
-                if (!this.bgMusic.paused && !this.isStartingMusic) {
-                    this.bgMusic.volume = this.targetMusicVolume;
-                }
-            });
-        }
-
-        this.updateMusicUiState();
-    }
-
-    updateMusicUiState() {
-        if (!this.els.musicToggle) return;
-        const isPlaying = this.isStartingMusic || !this.bgMusic.paused;
-        this.els.musicToggle.textContent = isPlaying ? 'DESLIGAR' : 'LIGAR';
-        this.els.musicToggle.classList.toggle('is-off', !isPlaying);
-    }
-
-    startBackgroundMusic(withIntroCue = false) {
-        if (!this.isMusicOn) return;
-
-        if (!this.bgMusic.paused && !withIntroCue) {
-            this.updateMusicUiState();
-            return;
-        }
-
-        const token = ++this.musicStartToken;
-        this.isStartingMusic = true;
-        this.updateMusicUiState();
-
-        const run = async () => {
-            if (withIntroCue) {
-                await this.playIntroCue(token);
-            }
-
-            if (!this.isMusicOn || token !== this.musicStartToken) return;
-            await this.playBackgroundWithFadeIn(token);
-        };
-
-        run()
-            .catch(() => {})
-            .finally(() => {
-                if (token === this.musicStartToken) {
-                    this.isStartingMusic = false;
-                }
-                this.updateMusicUiState();
-            });
-    }
-
-    playIntroCue(token) {
-        return new Promise((resolve) => {
-            if (!this.countingCue || token !== this.musicStartToken || !this.isMusicOn) {
-                resolve();
-                return;
-            }
-
-            const cue = this.countingCue;
-            const finish = () => {
-                cue.removeEventListener('ended', onEnded);
-                cue.removeEventListener('error', onEnded);
-                resolve();
-            };
-
-            const onEnded = () => finish();
-            cue.pause();
-            try {
-                cue.currentTime = 0;
-            } catch (_) {}
-
-            cue.addEventListener('ended', onEnded, { once: true });
-            cue.addEventListener('error', onEnded, { once: true });
-            cue.play().catch(() => finish());
-        });
-    }
-
-    async playBackgroundWithFadeIn(token) {
-        if (token !== this.musicStartToken || !this.isMusicOn) return;
-
-        if (this.musicFadeInterval) {
-            clearInterval(this.musicFadeInterval);
-            this.musicFadeInterval = null;
-        }
-
-        this.bgMusic.pause();
-        try {
-            this.bgMusic.currentTime = 0;
-        } catch (_) {}
-
-        this.bgMusic.volume = 0;
-        await this.bgMusic.play();
-        this.fadeInMusic(this.targetMusicVolume, 1200, token);
-    }
-
-    fadeInMusic(targetVolume, durationMs, token) {
-        if (this.musicFadeInterval) {
-            clearInterval(this.musicFadeInterval);
-            this.musicFadeInterval = null;
-        }
-
-        const steps = 24;
-        const stepTime = Math.max(20, Math.floor(durationMs / steps));
-        let currentStep = 0;
-
-        this.musicFadeInterval = setInterval(() => {
-            if (token !== this.musicStartToken || !this.isMusicOn) {
-                clearInterval(this.musicFadeInterval);
-                this.musicFadeInterval = null;
-                return;
-            }
-
-            currentStep += 1;
-            const progress = Math.min(1, currentStep / steps);
-            this.bgMusic.volume = targetVolume * progress;
-
-            if (progress >= 1) {
-                clearInterval(this.musicFadeInterval);
-                this.musicFadeInterval = null;
-                this.bgMusic.volume = this.targetMusicVolume;
-            }
-        }, stepTime);
-    }
-
-    toggleBackgroundMusic() {
-        if (!this.bgMusic.paused || this.isStartingMusic) {
-            this.musicStartToken++;
-            this.isStartingMusic = false;
-            if (this.musicFadeInterval) {
-                clearInterval(this.musicFadeInterval);
-                this.musicFadeInterval = null;
-            }
-            if (this.countingCue) {
-                this.countingCue.pause();
-                try {
-                    this.countingCue.currentTime = 0;
-                } catch (_) {}
-            }
-            this.bgMusic.pause();
-            this.isMusicOn = false;
-            this.updateMusicUiState();
-            return;
-        }
-
-        this.isMusicOn = true;
-        this.startBackgroundMusic(false);
+        this.bgMusic.volume = this.defaultMusicVolume;
+        this.musicEnabled = true;
     }
 
     getSharedAudioContext() {
@@ -269,6 +198,64 @@ export default class View {
         }
 
         return this.audioContext;
+    }
+
+    pauseGameMusic() {
+        // Pausa a música de fundo durante mini-games
+        if (this.bgMusic) {
+            this.bgMusic.pause();
+        }
+    }
+
+    resumeGameMusic() {
+        // Retoma a música de fundo após mini-games terminarem
+        if (this.bgMusic && this.musicEnabled) {
+            this.bgMusic.play().catch(() => {});
+        }
+    }
+
+    startBackgroundMusic(shouldPlay = true) {
+        // Inicia a música de fundo e configura o botão de toggle
+        if (!this.bgMusic) return;
+        
+        if (shouldPlay) {
+            this.musicEnabled = true;
+            this.bgMusic.currentTime = 0;
+            this.bgMusic.play().catch(() => {});
+            if (this.els.musicToggle) {
+                this.els.musicToggle.textContent = 'DESLIGAR';
+                this.els.musicToggle.classList.remove('music-off');
+            }
+        }
+
+        // Configura o event listener do botão de toggle
+        if (this.els.musicToggle) {
+            this.els.musicToggle.onclick = () => {
+                if (this.musicEnabled) {
+                    // Desliga a música
+                    this.musicEnabled = false;
+                    this.bgMusic.pause();
+                    this.els.musicToggle.textContent = 'LIGAR';
+                    this.els.musicToggle.classList.add('music-off');
+                } else {
+                    // Liga a música
+                    this.musicEnabled = true;
+                    this.bgMusic.play().catch(() => {});
+                    this.els.musicToggle.textContent = 'DESLIGAR';
+                    this.els.musicToggle.classList.remove('music-off');
+                }
+            };
+        }
+
+        // Configura o controle de volume
+        if (this.els.musicVolume) {
+            this.els.musicVolume.addEventListener('input', (e) => {
+                const volume = parseFloat(e.target.value);
+                if (this.bgMusic) {
+                    this.bgMusic.volume = volume;
+                }
+            });
+        }
     }
 
     initUI(lessonInfo) {
@@ -327,6 +314,23 @@ export default class View {
     }
     bindSokobanReset(handler) { this.els.btnResetSokoban.addEventListener('click', handler); }
     bindNext(handler) { this.els.nextBtn.addEventListener('click', handler); }
+    bindPacmanTest(handler) {
+        // Mantém compatibilidade quando não houver botão de teste do PACMAN no HTML.
+        if (!this.els.pacmanTestBtn) return;
+        this.els.pacmanTestBtn.addEventListener('click', handler);
+    }
+
+    bindEnduroTest(handler) {
+        // Mantém compatibilidade quando não houver botão de teste do ENDURO no HTML.
+        if (!this.els.enduroTestBtn) return;
+        this.els.enduroTestBtn.addEventListener('click', handler);
+    }
+
+    bindTRexTest(handler) {
+        // Mantém compatibilidade quando não houver botão de teste do T-REX no HTML.
+        if (!this.els.trexTestBtn) return;
+        this.els.trexTestBtn.addEventListener('click', handler);
+    }
 
     showPortal() {
         this.els.quizScreen.classList.add('hidden');
@@ -483,10 +487,24 @@ export default class View {
             this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
             
+            // Normaliza as respostas corretas removendo espaços extras para comparação robusta
+            const normalizedCorrect = Array.isArray(q.correct)
+                ? q.correct.map(c => String(c).trim())
+                : [String(q.correct).trim()];
+            
             shuffledAnswers.forEach(a => {
                 const l = document.createElement('label');
                 l.className = "multi-opt";
-                l.innerHTML = `<input type="checkbox" value="${a}"> <span>${a}</span>`;
+                // Usa setAttribute para escapar HTML corretamente e armazena também em data-value
+                const normalizedValue = String(a).trim();
+                const input = document.createElement('input');
+                input.type = 'checkbox';
+                input.value = normalizedValue;
+                input.setAttribute('data-value', normalizedValue);
+                const span = document.createElement('span');
+                span.textContent = a; // textContent é seguro e não interpreta HTML
+                l.appendChild(input);
+                l.appendChild(span);
                 this.els.opts.appendChild(l);
             });
             this.els.valBtn.classList.remove('hidden');
@@ -502,9 +520,11 @@ export default class View {
             });
 
             this.els.valBtn.onclick = () => {
-                const sel = Array.from(this.els.opts.querySelectorAll('input:checked')).map(i => i.value);
-                const isCor = sel.length === q.correct.length && sel.every(v => q.correct.includes(v));
-                answerHandler(isCor ? q.correct : sel, null);
+                const sel = Array.from(this.els.opts.querySelectorAll('input:checked')).map(i => String(i.value).trim());
+                // Valida se o usuário selecionou exatamente as respostas corretas (independente de ordem)
+                const isCor = sel.length === normalizedCorrect.length && sel.every(v => normalizedCorrect.includes(v)) && normalizedCorrect.every(v => sel.includes(v));
+                // Passa sempre as respostas normalizadas, garantindo que a comparação no controller funcione
+                answerHandler(isCor ? normalizedCorrect : sel, null);
             };
         }
         else if (q.type === "drag") {
@@ -919,6 +939,96 @@ export default class View {
         });
     }
 
+    _slotSpinTick() {
+        const audioContext = this.getSharedAudioContext();
+        if (!audioContext) return;
+
+        const now = audioContext.currentTime;
+
+        // Clique de catraca com ruído curto filtrado.
+        const noiseLength = Math.max(1, Math.floor(audioContext.sampleRate * 0.02));
+        const noiseBuffer = audioContext.createBuffer(1, noiseLength, audioContext.sampleRate);
+        const noiseData = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < noiseLength; i++) {
+            noiseData[i] = (Math.random() * 2 - 1) * (1 - i / noiseLength);
+        }
+
+        const noiseSource = audioContext.createBufferSource();
+        noiseSource.buffer = noiseBuffer;
+
+        const clickFilter = audioContext.createBiquadFilter();
+        clickFilter.type = 'bandpass';
+        clickFilter.frequency.setValueAtTime(1450 + Math.random() * 350, now);
+        clickFilter.Q.value = 7;
+
+        const clickGain = audioContext.createGain();
+        clickGain.gain.setValueAtTime(0.001, now);
+        clickGain.gain.exponentialRampToValueAtTime(0.22, now + 0.004);
+        clickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.03);
+
+        noiseSource.connect(clickFilter);
+        clickFilter.connect(clickGain);
+        clickGain.connect(audioContext.destination);
+        noiseSource.start(now);
+        noiseSource.stop(now + 0.035);
+
+        // Subgrave curto para dar sensação de motor girando.
+        const motorOsc = audioContext.createOscillator();
+        const motorGain = audioContext.createGain();
+        motorOsc.type = 'triangle';
+        motorOsc.frequency.setValueAtTime(88 + Math.random() * 10, now);
+        motorOsc.frequency.exponentialRampToValueAtTime(72, now + 0.04);
+
+        motorGain.gain.setValueAtTime(0.001, now);
+        motorGain.gain.exponentialRampToValueAtTime(0.06, now + 0.006);
+        motorGain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+
+        motorOsc.connect(motorGain);
+        motorGain.connect(audioContext.destination);
+        motorOsc.start(now);
+        motorOsc.stop(now + 0.05);
+    }
+
+    startSlotSpinSound() {
+        if (this.slotSpinSoundTimer) {
+            clearInterval(this.slotSpinSoundTimer);
+            this.slotSpinSoundTimer = null;
+        }
+
+        // Toca som de catraca contínuo durante o giro
+        this._slotSpinTick();
+        this.slotSpinSoundTimer = setInterval(() => {
+            this._slotSpinTick();
+        }, 45);
+    }
+
+    stopSlotSpinSound() {
+        if (this.slotSpinSoundTimer) {
+            clearInterval(this.slotSpinSoundTimer);
+            this.slotSpinSoundTimer = null;
+        }
+    }
+
+    playSlotReelStopSound() {
+        // Toca o Sonic em pool para não cortar o som entre reels.
+        if (this.slotStopAudioPool && this.slotStopAudioPool.length > 0) {
+            const sound = this.slotStopAudioPool[this.slotStopAudioCursor];
+            this.slotStopAudioCursor = (this.slotStopAudioCursor + 1) % this.slotStopAudioPool.length;
+
+            sound.pause();
+            try {
+                sound.currentTime = 0;
+            } catch (_) {}
+
+            sound.play().catch(() => {
+                this.playCountingSound();
+            });
+            return;
+        }
+
+        this.playCountingSound();
+    }
+
     animateScoreIncrease(oldScore, newScore) {
         // Anima o aumento de pontos com som e moedas caindo.
         this.playCountingSound();
@@ -1163,6 +1273,1604 @@ export default class View {
         return `${min}:${sec}`;
     }
 
+    runPacmanBonusLevel() {
+        const modal = this.els.pacmanBonusModal;
+        const canvas = this.els.pacmanCanvas;
+        if (!modal || !canvas) {
+            return Promise.resolve(false);
+        }
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        // Se já existir sessão ativa (proteção), encerra antes de criar outra.
+        if (this.pacmanSession && this.pacmanSession.cleanup) {
+            this.pacmanSession.cleanup(false);
+        }
+
+        const ctx = canvas.getContext('2d');
+        const size = 15;
+        const cell = Math.floor(canvas.width / size);
+        const layout = [
+            '###############',   // 0
+            '#.............#',   // 1
+            '#.##.#####.##.#',   // 2
+            '#.............#',   // 3
+            '##.##.#.#.##.##',   // 4
+            '#.....###.....#',   // 5  (topo da ghost house, cols 6-8 = paredes)
+            '##.##.#G#.##.##',   // 6  (porta ghost house col 7 = G)
+            '....#.GGG.#....',   // 7  (TUNEL sem bordas + ghost house cols 6-8 = G)
+            '##.##.###.##.##',   // 8  (fundo ghost house fechado)
+            '#.....#.#.....#',   // 9
+            '##.##.#.#.##.##',   // 10 (col 7 aberto para conectar row 9 e row 11)
+            '#.............#',   // 11
+            '#.##.#####.##.#',   // 12
+            '#.............#',   // 13
+            '###############'    // 14
+        ];
+
+        const walls = new Set();
+        const pellets = new Set();
+        const powerPellets = new Set();
+        const ghostHouseCells = new Set();
+        const powerPelletKeys = ['1,1', '13,1', '1,13', '13,13'];
+        const cherryPositions = new Set(['3,3', '11,3', '3,11', '11,11']);
+        const cherries = new Set();
+        // Corredor interno da ghost house liberado para atalho do Pacman.
+        const ghostHouseSideGates = new Set(['6,7', '7,7', '8,7']);
+        const tunnelRow = 7;
+        let cherryBonus = 0;
+
+        for (let y = 0; y < size; y++) {
+            for (let x = 0; x < size; x++) {
+                const key = `${x},${y}`;
+                if (layout[y][x] === '#') {
+                    walls.add(key);
+                } else if (layout[y][x] === 'G') {
+                    ghostHouseCells.add(key);
+                } else {
+                    pellets.add(key);
+                }
+            }
+        }
+
+        powerPelletKeys.forEach((key) => {
+            if (!pellets.has(key)) return;
+            powerPellets.add(key);
+            pellets.delete(key);
+        });
+
+        cherryPositions.forEach((key) => {
+            if (!pellets.has(key)) return;
+            pellets.delete(key);
+            cherries.add(key);
+        });
+
+        const playerStart = { x: 7, y: 1 };
+        const ghostSpawns = [
+            { x: 6, y: 7, dir: { x: -1, y: 0 }, color: '#ff0000' },   // Blinky (vermelho)
+            { x: 7, y: 7, dir: { x: 0,  y: 1  }, color: '#ffb8ff' },   // Pinky (rosa)
+            { x: 8, y: 7, dir: { x: 1,  y: 0  }, color: '#00ffff' },   // Inky (ciano)
+            { x: 7, y: 6, dir: { x: 0,  y: -1 }, color: '#ffb851' },   // Clyde (laranja)
+        ];
+
+        const player = {
+            x: playerStart.x,
+            y: playerStart.y,
+            dir: { x: 1, y: 0 },
+            nextDir: { x: 1, y: 0 }
+        };
+
+        const ghosts = ghostSpawns.map((g) => ({
+            x: g.x,
+            y: g.y,
+            dir: { ...g.dir },
+            color: g.color
+        }));
+
+        let mouthFrame = 0;
+        let pelletTotal = pellets.size + powerPellets.size;
+        let finished = false;
+        let timeLeft = 60;
+        let lives = 3;
+        let powerUntil = 0;
+        let respawnShieldUntil = 0;
+        let ghostStepCounter = 0;
+        let moveTick = null;
+        let timerTick = null;
+        let renderRaf = null;
+        let keyHandler = null;
+        let resolvePromise = () => {};
+        let powerWarnPlayed = false;
+
+        const stopPacmanSounds = () => {
+            [this.pacmanEatAudio, this.pacmanDieAudio, this.pacmanVitaminAudio, this.pacmanEndingPowerAudio].forEach((s) => {
+                s.pause();
+                try { s.currentTime = 0; } catch (_) {}
+            });
+        };
+
+        const dirs = {
+            ArrowUp: { x: 0, y: -1 },
+            ArrowDown: { x: 0, y: 1 },
+            ArrowLeft: { x: -1, y: 0 },
+            ArrowRight: { x: 1, y: 0 }
+        };
+
+        const asKey = (x, y) => `${x},${y}`;
+        const isWall = (x, y) => walls.has(asKey(x, y));
+        const isPowerActive = () => Date.now() < powerUntil;
+        const isShielded = () => Date.now() < respawnShieldUntil;
+
+        // Aplica wrap-around horizontal na linha do túnal.
+        const applyWrap = (x, y, dx) => {
+            const nx = x + dx;
+            if (y === tunnelRow) {
+                if (nx < 0) return size - 1;
+                if (nx >= size) return 0;
+            }
+            return nx;
+        };
+
+        const canMovePlayer = (ent, dir) => {
+            const nx = applyWrap(ent.x, ent.y, dir.x);
+            const ny = ent.y + dir.y;
+            if (nx < 0 || ny < 0 || nx >= size || ny >= size) return false;
+            const key = asKey(nx, ny);
+            if (walls.has(key)) return false;
+            if (ghostHouseCells.has(key) && !ghostHouseSideGates.has(key)) return false;
+            return true;
+        };
+
+        const canMoveGhost = (ent, dir) => {
+            const nx = applyWrap(ent.x, ent.y, dir.x);
+            const ny = ent.y + dir.y;
+            if (nx < 0 || ny < 0 || nx >= size || ny >= size) return false;
+            return !walls.has(asKey(nx, ny));
+        };
+
+        // Alias para o código de onStep que usa canMove para o jogador.
+        const canMove = canMovePlayer;
+
+        const moveEntity = (ent, dir) => {
+            ent.x = applyWrap(ent.x, ent.y, dir.x);
+            ent.y += dir.y;
+        };
+
+        const resetPositions = () => {
+            player.x = playerStart.x;
+            player.y = playerStart.y;
+            player.dir = { x: 1, y: 0 };
+            player.nextDir = { x: 1, y: 0 };
+
+            ghosts.forEach((ghost, idx) => {
+                const spawn = ghostSpawns[idx];
+                ghost.x = spawn.x;
+                ghost.y = spawn.y;
+                ghost.dir = { ...spawn.dir };
+            });
+
+            // Curto escudo ao renascer para evitar morte em cadeia instantânea.
+            respawnShieldUntil = Date.now() + 1300;
+        };
+
+        const consumeCell = (x, y) => {
+            const key = asKey(x, y);
+            if (pellets.delete(key)) return;
+
+            if (powerPellets.delete(key)) {
+                powerUntil = Date.now() + 10000;
+                powerWarnPlayed = false;
+                this.pacmanEndingPowerAudio.pause();
+                try { this.pacmanEndingPowerAudio.currentTime = 0; } catch (_) {}
+                this.pacmanVitaminAudio.currentTime = 0;
+                this.pacmanVitaminAudio.play().catch(() => {});
+                return;
+            }
+
+            if (cherries.delete(key)) {
+                cherryBonus += 50;
+                this.playCountingSound();
+            }
+        };
+
+        const updateHud = () => {
+            const remaining = pellets.size + powerPellets.size;
+            const collected = pelletTotal - remaining;
+            const powerSeconds = Math.max(0, Math.ceil((powerUntil - Date.now()) / 1000));
+            const cherryCollected = cherryPositions.size - cherries.size;
+            if (this.els.pacmanPellets) {
+                const cherryTxt = cherryCollected > 0 ? ` | 🍒 ${cherryCollected}` : '';
+                this.els.pacmanPellets.textContent = `Pontos: ${collected}/${pelletTotal}${cherryTxt}`;
+            }
+            if (this.els.pacmanTimer) {
+                const powerTxt = powerSeconds > 0 ? `${powerSeconds}s` : 'OFF';
+                this.els.pacmanTimer.textContent = `Tempo: ${timeLeft}s | Créditos: ${lives} | Poder: ${powerTxt}`;
+            }
+        };
+
+        const draw = () => {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Paleta visual simplificada: uma única linha azul sólida.
+            const clrBg = '#020205';
+            const clrWall = '#2f5dff';
+            const wallStrokeW = Math.max(4, Math.round(cell * 0.22));
+
+            // Helper: célula (cx,cy) é corredor transitável (não é parede nem casa dos fantasmas)?
+            const isCorridor = (cx, cy) => {
+                if (cx < 0 || cy < 0 || cx >= size || cy >= size) {
+                    return cy === tunnelRow; // bordas do túnel são abertas
+                }
+                const k = asKey(cx, cy);
+                return !walls.has(k) && !ghostHouseCells.has(k);
+            };
+
+            // Fundo preto sólido, sem preenchimento azul por célula.
+            ctx.fillStyle = clrBg;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Desenha contornos das paredes (estilo linha azul arcade).
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    if (!walls.has(asKey(x, y))) continue;
+                    const px = x * cell, py = y * cell;
+                    const fN = isCorridor(x, y - 1), fS = isCorridor(x, y + 1);
+                    const fW = isCorridor(x - 1, y), fE = isCorridor(x + 1, y);
+                    const t = wallStrokeW;
+
+                    ctx.fillStyle = clrWall;
+
+                    if (fN) {
+                        ctx.fillRect(px, py, cell, t);
+                    }
+                    if (fS) {
+                        ctx.fillRect(px, py + cell - t, cell, t);
+                    }
+                    if (fW) {
+                        ctx.fillRect(px, py, t, cell);
+                    }
+                    if (fE) {
+                        ctx.fillRect(px + cell - t, py, t, cell);
+                    }
+
+                }
+            }
+
+            // Contorno da casa dos fantasmas com porta amarela.
+            if (ghostHouseCells.size > 0) {
+                const cells = Array.from(ghostHouseCells).map((k) => {
+                    const [gx, gy] = k.split(',').map(Number);
+                    return { gx, gy };
+                });
+                const minGX = Math.min(...cells.map((c) => c.gx));
+                const maxGX = Math.max(...cells.map((c) => c.gx));
+                const minGY = Math.min(...cells.map((c) => c.gy));
+                const maxGY = Math.max(...cells.map((c) => c.gy));
+
+                const inset = Math.round(cell * 0.12);
+                const hx = minGX * cell + inset;
+                const hy = minGY * cell + inset;
+                const hw = ((maxGX - minGX + 1) * cell) - (inset * 2);
+                const hh = ((maxGY - minGY + 1) * cell) - (inset * 2);
+
+                // Borda da ghost house no mesmo estilo de linha sólida.
+                ctx.fillStyle = clrWall;
+                ctx.fillRect(hx, hy, hw, wallStrokeW);
+                ctx.fillRect(hx, hy + hh - wallStrokeW, hw, wallStrokeW);
+                ctx.fillRect(hx, hy, wallStrokeW, hh);
+                ctx.fillRect(hx + hw - wallStrokeW, hy, wallStrokeW, hh);
+
+                // Portas laterais amarelas (saída dos fantasmas).
+                const gateY1 = hy + (hh * 0.38);
+                const gateY2 = hy + (hh * 0.72);
+                const gateLeftX = hx;
+                const gateRightX = hx + hw;
+                ctx.strokeStyle = '#ffd84a';
+                ctx.lineWidth = Math.max(2, cell * 0.10);
+                ctx.beginPath();
+                ctx.moveTo(gateLeftX, gateY1);
+                ctx.lineTo(gateLeftX, gateY2);
+                ctx.moveTo(gateRightX, gateY1);
+                ctx.lineTo(gateRightX, gateY2);
+                ctx.stroke();
+            }
+
+            // ── PELLETS / SUPERVITAMINAS / CEREJAS ────────────────────────
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    const px  = x * cell;
+                    const py  = y * cell;
+                    const key = asKey(x, y);
+
+                    if (pellets.has(key)) {
+                        ctx.beginPath();
+                        ctx.fillStyle = '#ffe27a';
+                        ctx.arc(px + (cell / 2), py + (cell / 2), Math.max(2, cell * 0.10), 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    if (powerPellets.has(key)) {
+                        const pulse = 0.68 + (Math.sin((Date.now() / 180) + x + y) * 0.18);
+                        ctx.beginPath();
+                        ctx.fillStyle = '#ffef8a';
+                        ctx.arc(px + (cell / 2), py + (cell / 2), Math.max(4, cell * pulse * 0.25), 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+
+                    if (cherries.has(key)) {
+                        const cx2 = px + cell / 2;
+                        const cy2 = py + cell / 2;
+                        ctx.fillStyle = '#dd2244';
+                        ctx.beginPath();
+                        ctx.arc(cx2 - cell * 0.13, cy2 + cell * 0.08, cell * 0.16, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(cx2 + cell * 0.13, cy2 + cell * 0.08, cell * 0.16, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.strokeStyle = '#33aa44';
+                        ctx.lineWidth = Math.max(1, cell * 0.07);
+                        ctx.beginPath();
+                        ctx.moveTo(cx2 - cell * 0.13, cy2 - cell * 0.08);
+                        ctx.quadraticCurveTo(cx2, cy2 - cell * 0.35, cx2 + cell * 0.13, cy2 - cell * 0.08);
+                        ctx.stroke();
+                        ctx.fillStyle = '#33aa44';
+                        ctx.beginPath();
+                        ctx.ellipse(cx2, cy2 - cell * 0.28, cell * 0.12, cell * 0.07, -0.5, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                }
+            }
+
+            // ── PACMAN ─────────────────────────────────────────────────────
+            const pacX = player.x * cell + (cell / 2);
+            const pacY = player.y * cell + (cell / 2);
+            const mouth = 0.22 + (Math.abs(Math.sin(mouthFrame)) * 0.24);
+            mouthFrame += 0.33;
+            let angleBase = 0;
+            if (player.dir.x === 1)  angleBase = 0;
+            if (player.dir.x === -1) angleBase = Math.PI;
+            if (player.dir.y === -1) angleBase = -Math.PI / 2;
+            if (player.dir.y === 1)  angleBase = Math.PI / 2;
+
+            ctx.beginPath();
+            ctx.moveTo(pacX, pacY);
+            ctx.fillStyle = isPowerActive() ? '#fff08a' : '#ffd400';
+            ctx.arc(pacX, pacY, cell * 0.42, angleBase + mouth, angleBase + (Math.PI * 2) - mouth);
+            ctx.closePath();
+            ctx.fill();
+
+            // ── FANTASMAS ──────────────────────────────────────────────────
+            ghosts.forEach((g) => {
+                const gx = g.x * cell + (cell / 2);
+                const gy = g.y * cell + (cell / 2);
+                ctx.fillStyle = isPowerActive() ? '#4b8cff' : g.color;
+                ctx.beginPath();
+                ctx.arc(gx, gy - (cell * 0.06), cell * 0.35, Math.PI, 0);
+                ctx.lineTo(gx + (cell * 0.35), gy + (cell * 0.30));
+                ctx.lineTo(gx - (cell * 0.35), gy + (cell * 0.30));
+                ctx.closePath();
+                ctx.fill();
+
+                ctx.fillStyle = '#fff';
+                ctx.beginPath();
+                ctx.arc(gx - (cell * 0.11), gy - (cell * 0.02), cell * 0.07, 0, Math.PI * 2);
+                ctx.arc(gx + (cell * 0.11), gy - (cell * 0.02), cell * 0.07, 0, Math.PI * 2);
+                ctx.fill();
+
+                if (isPowerActive()) {
+                    ctx.fillStyle = '#d9ecff';
+                    ctx.beginPath();
+                    ctx.arc(gx - (cell * 0.11), gy - (cell * 0.02), cell * 0.03, 0, Math.PI * 2);
+                    ctx.arc(gx + (cell * 0.11), gy - (cell * 0.02), cell * 0.03, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
+
+            if (isShielded()) {
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.85)';
+                ctx.lineWidth = Math.max(2, cell * 0.08);
+                ctx.beginPath();
+                ctx.arc(pacX, pacY, cell * 0.50, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            // ── VIDAS (ícones na linha inferior) ───────────────────────────
+            const livesToShow = Math.max(0, lives - 1);
+            for (let li = 0; li < livesToShow; li++) {
+                const lx = (li + 0.55) * cell * 0.88 + cell * 0.1;
+                const ly = canvas.height - cell * 0.42;
+                const lr = cell * 0.27;
+                ctx.fillStyle = '#ffd400';
+                ctx.beginPath();
+                ctx.moveTo(lx, ly);
+                ctx.arc(lx, ly, lr, 0.35, Math.PI * 2 - 0.35);
+                ctx.closePath();
+                ctx.fill();
+            }
+        };
+
+        const setDir = (dir) => {
+            if (!dir) return;
+            player.nextDir = { ...dir };
+        };
+
+        const moveGhost = (ghost) => {
+            const candidates = [
+                { x: 1, y: 0 },
+                { x: -1, y: 0 },
+                { x: 0, y: 1 },
+                { x: 0, y: -1 }
+            ].filter((d) => canMoveGhost(ghost, d));
+
+            if (!candidates.length) return;
+
+            const ranked = candidates.map((d) => {
+                const dist = Math.abs((ghost.x + d.x) - player.x) + Math.abs((ghost.y + d.y) - player.y);
+                return { d, dist };
+            });
+
+            if (isPowerActive()) {
+                ranked.sort((a, b) => (b.dist + Math.random()) - (a.dist + Math.random()));
+            } else {
+                ranked.sort((a, b) => (a.dist + (Math.random() * 2.2)) - (b.dist + (Math.random() * 2.2)));
+            }
+
+            ghost.dir = ranked[0].d;
+            moveEntity(ghost, ghost.dir);
+        };
+
+        const handleCollisions = () => {
+            let died = false;
+
+            ghosts.forEach((ghost, idx) => {
+                if (ghost.x !== player.x || ghost.y !== player.y) return;
+
+                if (isPowerActive()) {
+                    const spawn = ghostSpawns[idx];
+                    ghost.x = spawn.x;
+                    ghost.y = spawn.y;
+                    ghost.dir = { ...spawn.dir };
+                    this.playCountingSound();
+                    return;
+                }
+
+                if (isShielded()) return;
+                died = true;
+            });
+
+            return died;
+        };
+
+        const finish = (won) => {
+            if (finished) return;
+            finished = true;
+
+            if (moveTick) clearInterval(moveTick);
+            if (timerTick) clearInterval(timerTick);
+            if (renderRaf) cancelAnimationFrame(renderRaf);
+            if (keyHandler) window.removeEventListener('keydown', keyHandler);
+
+            stopPacmanSounds();
+            this.pacmanStartAudio.pause();
+            try { this.pacmanStartAudio.currentTime = 0; } catch (_) {}
+
+            [this.els.pacmanUp, this.els.pacmanDown, this.els.pacmanLeft, this.els.pacmanRight].forEach((btn) => {
+                if (!btn) return;
+                btn.onmousedown = null;
+                btn.ontouchstart = null;
+            });
+
+            if (this.els.pacmanGiveUpBtn) {
+                this.els.pacmanGiveUpBtn.onclick = null;
+            }
+
+            modal.classList.add('hidden');
+            this.pacmanSession = null;
+            resolvePromise({ won, cherryBonus });
+        };
+
+        const renderLoop = () => {
+            draw();
+            if (!finished) {
+                renderRaf = requestAnimationFrame(renderLoop);
+            }
+        };
+
+        const onStep = () => {
+            if (canMove(player, player.nextDir)) {
+                player.dir = { ...player.nextDir };
+            }
+
+            const moved = canMove(player, player.dir);
+            if (moved) {
+                moveEntity(player, player.dir);
+            }
+
+            // Som de comer: toca apenas enquanto o PACMAN está em movimento
+            if (moved) {
+                if (this.pacmanEatAudio.paused) {
+                    this.pacmanEatAudio.play().catch(() => {});
+                }
+            } else {
+                if (!this.pacmanEatAudio.paused) {
+                    this.pacmanEatAudio.pause();
+                }
+            }
+
+            consumeCell(player.x, player.y);
+
+            ghostStepCounter += 1;
+            if (ghostStepCounter % 3 === 0) {
+                ghosts.forEach(moveGhost);
+            }
+
+            if (handleCollisions()) {
+                lives -= 1;
+
+                // Som de morte
+                this.pacmanEatAudio.pause();
+                try { this.pacmanEatAudio.currentTime = 0; } catch (_) {}
+                this.pacmanDieAudio.currentTime = 0;
+                this.pacmanDieAudio.play().catch(() => {});
+
+                if (lives <= 0) {
+                    finish(false);
+                    return;
+                }
+
+                resetPositions();
+                updateHud();
+                return;
+            }
+
+            // Aviso sonoro quando o poder da supervitamina está quase acabando (< 3s)
+            if (isPowerActive()) {
+                if ((powerUntil - Date.now()) < 3000 && !powerWarnPlayed) {
+                    powerWarnPlayed = true;
+                    this.pacmanEndingPowerAudio.currentTime = 0;
+                    this.pacmanEndingPowerAudio.play().catch(() => {});
+                }
+            } else {
+                powerWarnPlayed = false;
+            }
+
+            updateHud();
+            if ((pellets.size + powerPellets.size) === 0) {
+                this.playSokobanWinSound();
+                finish(true);
+            }
+        };
+
+        keyHandler = (e) => {
+            if (modal.classList.contains('hidden')) return;
+            const dir = dirs[e.key];
+            if (!dir) return;
+            e.preventDefault();
+            setDir(dir);
+        };
+        window.addEventListener('keydown', keyHandler);
+
+        if (this.els.pacmanGiveUpBtn) {
+            this.els.pacmanGiveUpBtn.onclick = () => finish(false);
+        }
+
+        consumeCell(player.x, player.y);
+        updateHud();
+        renderLoop();
+
+        // Toca o jingle de entrada e só libera o game loop após ele terminar
+        stopPacmanSounds();
+        this.pacmanStartAudio.currentTime = 0;
+        this.pacmanStartAudio.play().catch(() => {});
+
+        const startGameLoop = () => {
+            if (finished) return;
+            moveTick = setInterval(onStep, 220);
+            timerTick = setInterval(() => {
+                timeLeft -= 1;
+                updateHud();
+                if (timeLeft <= 0) finish(false);
+            }, 1000);
+        };
+
+        this.pacmanStartAudio.onended = () => startGameLoop();
+        // Fallback: inicia o jogo mesmo se o áudio não disparar onended em 5s
+        setTimeout(() => { if (!moveTick) startGameLoop(); }, 5000);
+
+        const promise = new Promise((resolve) => {
+            resolvePromise = resolve;
+        });
+
+        this.pacmanSession = {
+            cleanup: (won = false) => finish(won)
+        };
+
+        return promise;
+    }
+
+    runEnduroBonusLevel() {
+        const modal = this.els.enduroBonusModal;
+        const canvas = this.els.enduroCanvas;
+        if (!modal || !canvas) {
+            return Promise.resolve({ won: false, stagesCompleted: 0, carsPassed: 0 });
+        }
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.enduroSession && this.enduroSession.cleanup) {
+            this.enduroSession.cleanup(false);
+        }
+
+        const ctx = canvas.getContext('2d');
+        const raceDurationSec = 60;
+        const finishAnimationSec = 6;
+        const durationSec = raceDurationSec + finishAnimationSec;
+        let timeLeft = durationSec;
+        let lives = 3;
+        let finished = false;
+        let invulUntil = 0;
+        let timerTick = null;
+        let rafId = null;
+        let resolvePromise = () => {};
+        let keyDownHandler = null;
+        let keyUpHandler = null;
+        let startRaceTimer = null;
+        let lastTs = 0;
+        let spawnAcc = 0;
+        let roadOffset = 0;
+        let carsPassed = 0;
+        let raceStarted = false;
+        let finishLineActive = false;
+        let finishLineY = -90;
+
+        const stages = [
+            { name: 'DIA', start: 0, bg: '#4f7fd6', road: '#2a2a2a', fog: 0.00, grip: 0.24, speedMul: 0.90 },
+            { name: 'NEBLINA', start: 15, bg: '#5d6f88', road: '#2f2f2f', fog: 0.28, grip: 0.22, speedMul: 0.94 },
+            { name: 'GELO', start: 30, bg: '#8baed7', road: '#58697a', fog: 0.08, grip: 0.12, speedMul: 0.98 },
+            { name: 'NOITE', start: 45, bg: '#10162f', road: '#1f1f1f', fog: 0.00, grip: 0.24, speedMul: 1.02 }
+        ];
+
+        const keys = { left: false, right: false, up: false, down: false };
+        const player = {
+            x: canvas.width / 2,
+            y: canvas.height - 52,
+            baseY: canvas.height - 52,
+            w: 20,
+            h: 34,
+            steer: 0,
+            targetSteer: 0,
+            speed: 150,
+            throttleSpeed: 120
+        };
+
+        const traffic = [];
+
+        const getStage = () => {
+            const elapsed = Math.min(raceDurationSec, durationSec - timeLeft);
+            let active = stages[0];
+            for (let i = 0; i < stages.length; i++) {
+                if (elapsed >= stages[i].start) active = stages[i];
+            }
+            return active;
+        };
+
+        const roadGeom = () => {
+            const sway = Math.sin(Date.now() / 1200) * 18;
+            const cx = (canvas.width / 2) + sway;
+            const roadW = 220;
+            const left = cx - (roadW / 2);
+            const right = cx + (roadW / 2);
+            return { left, right, roadW };
+        };
+
+        const clampPlayerX = () => {
+            const { left, right } = roadGeom();
+            const minX = left + player.w + 8;
+            const maxX = right - player.w - 8;
+            if (player.x < minX) player.x = minX;
+            if (player.x > maxX) player.x = maxX;
+        };
+
+        const spawnTrafficCar = () => {
+            const stage = getStage();
+            const { left, roadW } = roadGeom();
+            const lanes = 4;
+            const laneW = roadW / lanes;
+            const lane = Math.floor(Math.random() * lanes);
+            const x = left + (laneW * lane) + (laneW / 2);
+            const speed = (62 + Math.random() * 50) * stage.speedMul;
+            const colorPool = ['#ff3b30', '#4cc9ff', '#ffd166', '#f79dff', '#83ff89'];
+            traffic.push({ x, y: -30, w: 18, h: 30, speed, color: colorPool[Math.floor(Math.random() * colorPool.length)] });
+        };
+
+        const hitTest = (a, b) => {
+            return (
+                Math.abs(a.x - b.x) < ((a.w + b.w) / 2) &&
+                Math.abs(a.y - b.y) < ((a.h + b.h) / 2)
+            );
+        };
+
+        const drawCar = (x, y, w, h, color) => {
+            ctx.fillStyle = color;
+            ctx.fillRect(x - (w / 2), y - (h / 2), w, h);
+            ctx.fillStyle = 'rgba(255,255,255,0.88)';
+            ctx.fillRect(x - (w * 0.28), y - (h * 0.18), w * 0.56, h * 0.22);
+            ctx.fillStyle = '#111';
+            ctx.fillRect(x - (w * 0.36), y + (h * 0.32), w * 0.2, h * 0.12);
+            ctx.fillRect(x + (w * 0.16), y + (h * 0.32), w * 0.2, h * 0.12);
+        };
+
+        const updateHud = () => {
+            const stage = getStage();
+            if (this.els.enduroStatus) {
+                this.els.enduroStatus.textContent = `Estágio: ${stage.name} | Carros: ${lives} | Ultrapassados: ${carsPassed}`;
+            }
+            if (this.els.enduroTimer) {
+                if (timeLeft > finishAnimationSec) {
+                    this.els.enduroTimer.textContent = `Tempo: ${timeLeft - finishAnimationSec}s`;
+                } else {
+                    this.els.enduroTimer.textContent = `Chegada: ${timeLeft}s`;
+                }
+            }
+        };
+
+        const drawFinishLineAndFlag = (left, right, roadW) => {
+            if (!finishLineActive) return;
+
+            const lineH = 14;
+            const checkerW = 14;
+            const lineY = Math.round(finishLineY);
+
+            ctx.fillStyle = '#f6f6f6';
+            ctx.fillRect(left, lineY, roadW, lineH);
+
+            for (let i = 0; i < Math.ceil(roadW / checkerW); i++) {
+                ctx.fillStyle = i % 2 === 0 ? '#111' : '#f9f9f9';
+                ctx.fillRect(left + (i * checkerW), lineY, checkerW, lineH / 2);
+                ctx.fillStyle = i % 2 === 0 ? '#f9f9f9' : '#111';
+                ctx.fillRect(left + (i * checkerW), lineY + (lineH / 2), checkerW, lineH / 2);
+            }
+
+            const personX = right + 14;
+            const personY = lineY + 6;
+            const flagWave = Math.sin(Date.now() / 130) * 6;
+
+            ctx.fillStyle = '#ffd9b3';
+            ctx.beginPath();
+            ctx.arc(personX, personY - 12, 4, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = '#f4f4f4';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(personX, personY - 8);
+            ctx.lineTo(personX, personY + 8);
+            ctx.moveTo(personX, personY);
+            ctx.lineTo(personX - 6, personY + 4);
+            ctx.moveTo(personX, personY);
+            ctx.lineTo(personX + 6, personY + 4);
+            ctx.stroke();
+
+            const poleX = personX + 6;
+            const poleTopY = personY - 18;
+            const poleBotY = personY + 2;
+            ctx.strokeStyle = '#e5d7a6';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(poleX, poleTopY);
+            ctx.lineTo(poleX, poleBotY);
+            ctx.stroke();
+
+            const flagW = 14;
+            const flagH = 10;
+            const fx = poleX;
+            const fy = poleTopY + 1 + flagWave * 0.15;
+
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(fx, fy, flagW, flagH);
+            ctx.fillStyle = '#111';
+            ctx.fillRect(fx, fy, flagW / 2, flagH / 2);
+            ctx.fillRect(fx + flagW / 2, fy + flagH / 2, flagW / 2, flagH / 2);
+        };
+
+        const stopEnduroSounds = () => {
+            [this.enduroStartAudio, this.enduroRaceAudio].forEach((s) => {
+                if (!s) return;
+                s.pause();
+                try { s.currentTime = 0; } catch (_) {}
+            });
+        };
+
+        const finish = (won) => {
+            if (finished) return;
+            finished = true;
+
+            if (timerTick) clearInterval(timerTick);
+            if (rafId) cancelAnimationFrame(rafId);
+            if (startRaceTimer) clearTimeout(startRaceTimer);
+            if (keyDownHandler) window.removeEventListener('keydown', keyDownHandler);
+            if (keyUpHandler) window.removeEventListener('keyup', keyUpHandler);
+            if (pointerJumpHandler) canvas.removeEventListener('pointerdown', pointerJumpHandler);
+            stopEnduroSounds();
+
+            if (this.els.enduroGiveUpBtn) {
+                this.els.enduroGiveUpBtn.onclick = null;
+            }
+
+            modal.classList.add('hidden');
+            this.enduroSession = null;
+            resolvePromise({ won, stagesCompleted: won ? stages.length : 0, carsPassed });
+        };
+
+        const loop = (ts) => {
+            if (finished) return;
+            if (!lastTs) lastTs = ts;
+            const dt = Math.min(0.05, (ts - lastTs) / 1000);
+            lastTs = ts;
+
+            const stage = getStage();
+            const { left, right, roadW } = roadGeom();
+
+            // Entrada do jogador
+            player.targetSteer = 0;
+            if (keys.left) player.targetSteer -= 1;
+            if (keys.right) player.targetSteer += 1;
+            player.steer += (player.targetSteer - player.steer) * stage.grip;
+            player.x += player.steer * player.speed * dt;
+
+            // Controle frente/trás para ajustar a posição na pista.
+            const throttle = (keys.up ? -1 : 0) + (keys.down ? 1 : 0);
+            player.y += throttle * player.throttleSpeed * dt;
+            const minY = 72;
+            const maxY = canvas.height - 28;
+            if (player.y < minY) player.y = minY;
+            if (player.y > maxY) player.y = maxY;
+
+            clampPlayerX();
+
+            // Spawns e trafego
+            if (timeLeft > finishAnimationSec) {
+                const spawnRate = stage.name === 'NOITE' ? 0.68 : (stage.name === 'GELO' ? 0.76 : 0.84);
+                spawnAcc += dt;
+                while (spawnAcc >= spawnRate) {
+                    spawnTrafficCar();
+                    spawnAcc -= spawnRate;
+                }
+            }
+
+            // Nos segundos finais, dispara a linha de chegada.
+            if (timeLeft <= finishAnimationSec && !finishLineActive) {
+                finishLineActive = true;
+                finishLineY = -70;
+            }
+
+            if (finishLineActive) {
+                const progress = Math.min(1, (finishAnimationSec - timeLeft) / finishAnimationSec);
+                const targetY = player.y - 42;
+                finishLineY = -70 + ((targetY + 70) * progress);
+            }
+
+            for (let i = traffic.length - 1; i >= 0; i--) {
+                const c = traffic[i];
+                c.y += c.speed * dt;
+
+                if (timeLeft > finishAnimationSec && Date.now() >= invulUntil && hitTest(player, c)) {
+                    lives -= 1;
+                    invulUntil = Date.now() + 1400;
+                    player.x = canvas.width / 2;
+                    player.y = player.baseY;
+                    traffic.splice(i, 1);
+
+                    if (lives <= 0) {
+                        finish(false);
+                        return;
+                    }
+                    continue;
+                }
+
+                if (c.y > canvas.height + 40) {
+                    carsPassed += 1;
+                    traffic.splice(i, 1);
+                }
+            }
+
+            // Render
+            ctx.fillStyle = stage.bg;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = stage.road;
+            ctx.fillRect(left, 0, roadW, canvas.height);
+
+            ctx.fillStyle = '#e7e7e7';
+            ctx.fillRect(left, 0, 3, canvas.height);
+            ctx.fillRect(right - 3, 0, 3, canvas.height);
+
+            drawFinishLineAndFlag(left, right, roadW);
+
+            roadOffset += (190 * dt);
+            const laneCount = 3;
+            const laneW = roadW / (laneCount + 1);
+            for (let l = 1; l <= laneCount; l++) {
+                const lx = left + laneW * l;
+                for (let y = -40; y < canvas.height + 40; y += 44) {
+                    const yy = (y + roadOffset) % (canvas.height + 44) - 22;
+                    ctx.fillStyle = 'rgba(255, 255, 170, 0.75)';
+                    ctx.fillRect(lx - 1.5, yy, 3, 18);
+                }
+            }
+
+            traffic.forEach((c) => drawCar(c.x, c.y, c.w, c.h, c.color));
+            drawCar(player.x, player.y, player.w, player.h, '#ffd54a');
+
+            // Indicador de vidas no canto inferior esquerdo
+            for (let i = 0; i < lives; i++) {
+                const lx = 22 + (i * 18);
+                const ly = canvas.height - 18;
+                drawCar(lx, ly, 12, 18, '#ffd54a');
+            }
+
+            // Neblina
+            if (stage.fog > 0) {
+                ctx.fillStyle = `rgba(220, 225, 240, ${stage.fog})`;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            // Noite com farol em formato de piramide saindo da frente do carro
+            if (stage.name === 'NOITE') {
+                // Escurece toda a tela
+                ctx.fillStyle = 'rgba(0,0,0,0.75)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                // Cone com película transparente revelando a imagem
+                const ox = player.x;
+                const oy = player.y - (player.h * 0.58);
+                const beamLen = 230;
+                const nearHalf = 12;
+                const farHalf = 98;
+                const topY = Math.max(0, oy - beamLen);
+
+                // Película com opacidade reduzida dentro do cone (deixa imagem mais visível)
+                ctx.fillStyle = 'rgba(0,0,0,0.32)';
+                ctx.beginPath();
+                ctx.moveTo(ox - nearHalf, oy);
+                ctx.lineTo(ox + nearHalf, oy);
+                ctx.lineTo(ox + farHalf, topY);
+                ctx.lineTo(ox - farHalf, topY);
+                ctx.closePath();
+                ctx.fill();
+
+                // Glow suave do farol dentro do cone
+                const glow = ctx.createLinearGradient(ox, oy, ox, topY);
+                glow.addColorStop(0, 'rgba(255, 246, 180, 0.12)');
+                glow.addColorStop(1, 'rgba(255, 246, 180, 0.00)');
+                ctx.fillStyle = glow;
+                ctx.beginPath();
+                ctx.moveTo(ox - nearHalf, oy);
+                ctx.lineTo(ox + nearHalf, oy);
+                ctx.lineTo(ox + farHalf, topY);
+                ctx.lineTo(ox - farHalf, topY);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            // Redesenha a chegada por cima dos efeitos de neblina/noite.
+            drawFinishLineAndFlag(left, right, roadW);
+
+            // Invulnerabilidade piscando apos colisao
+            if (Date.now() < invulUntil && ((Date.now() / 120) % 2) > 1) {
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(player.x - 14, player.y - 20, 28, 40);
+            }
+
+            rafId = requestAnimationFrame(loop);
+        };
+
+        keyDownHandler = (e) => {
+            if (modal.classList.contains('hidden')) return;
+            if (e.key === 'ArrowLeft') { e.preventDefault(); keys.left = true; }
+            if (e.key === 'ArrowRight') { e.preventDefault(); keys.right = true; }
+            if (e.key === 'ArrowUp') { e.preventDefault(); keys.up = true; }
+            if (e.key === 'ArrowDown') { e.preventDefault(); keys.down = true; }
+        };
+        keyUpHandler = (e) => {
+            if (e.key === 'ArrowLeft') keys.left = false;
+            if (e.key === 'ArrowRight') keys.right = false;
+            if (e.key === 'ArrowUp') keys.up = false;
+            if (e.key === 'ArrowDown') keys.down = false;
+        };
+        window.addEventListener('keydown', keyDownHandler);
+        window.addEventListener('keyup', keyUpHandler);
+
+        if (this.els.enduroGiveUpBtn) {
+            this.els.enduroGiveUpBtn.onclick = () => finish(false);
+        }
+
+        updateHud();
+
+        const startRace = () => {
+            if (raceStarted || finished) return;
+            raceStarted = true;
+            this.enduroRaceAudio.currentTime = 0;
+            this.enduroRaceAudio.play().catch(() => {});
+            rafId = requestAnimationFrame(loop);
+            timerTick = setInterval(() => {
+                timeLeft -= 1;
+                updateHud();
+                if (timeLeft <= 0) {
+                    finish(true);
+                }
+            }, 1000);
+        };
+
+        stopEnduroSounds();
+        this.enduroStartAudio.currentTime = 0;
+        this.enduroStartAudio.play().catch(() => {});
+        this.enduroStartAudio.onended = () => startRace();
+        // Fallback para navegadores que não disparem onended.
+        startRaceTimer = setTimeout(() => startRace(), 4500);
+
+        const promise = new Promise((resolve) => {
+            resolvePromise = resolve;
+        });
+
+        this.enduroSession = {
+            cleanup: (won = false) => finish(won)
+        };
+
+        return promise;
+    }
+
+    runTRexBonusLevel() {
+        // T-REX Game: versão com sprites oficiais (estilo Chrome Dino)
+        const modal = this.els.trexBonusModal;
+        const canvas = this.els.trexCanvas;
+        const ctx = canvas.getContext('2d');
+
+        if (!modal || !canvas || !ctx) return Promise.resolve({ won: false, distance: 0 });
+
+        const makeImage = (src) => {
+            const img = new Image();
+            img.src = src;
+            return img;
+        };
+
+        const sprites = {
+            dinoRun1: makeImage('img/Assets/Dino/DinoRun1.png'),
+            dinoRun2: makeImage('img/Assets/Dino/DinoRun2.png'),
+            dinoJump: makeImage('img/Assets/Dino/DinoJump.png'),
+            dinoDuck1: makeImage('img/Assets/Dino/DinoDuck1.png'),
+            dinoDuck2: makeImage('img/Assets/Dino/DinoDuck2.png'),
+            dinoDead: makeImage('img/Assets/Dino/DinoDead.png'),
+            bird1: makeImage('img/Assets/Bird/Bird1.png'),
+            bird2: makeImage('img/Assets/Bird/Bird2.png'),
+            smallCactus1: makeImage('img/Assets/Cactus/SmallCactus1.png'),
+            smallCactus2: makeImage('img/Assets/Cactus/SmallCactus2.png'),
+            smallCactus3: makeImage('img/Assets/Cactus/SmallCactus3.png'),
+            largeCactus1: makeImage('img/Assets/Cactus/LargeCactus1.png'),
+            largeCactus2: makeImage('img/Assets/Cactus/LargeCactus2.png'),
+            largeCactus3: makeImage('img/Assets/Cactus/LargeCactus3.png'),
+            cloud: makeImage('img/Assets/Other/Cloud.png'),
+            track: makeImage('img/Assets/Other/Track.png'),
+            gameOver: makeImage('img/Assets/Other/GameOver.png'),
+            reset: makeImage('img/Assets/Other/Reset.png')
+        };
+
+        const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+        const fitSprite = (img, fallbackW, fallbackH, scale = 1) => {
+            const w = (img && img.naturalWidth ? img.naturalWidth : fallbackW) * scale;
+            const h = (img && img.naturalHeight ? img.naturalHeight : fallbackH) * scale;
+            return { w, h };
+        };
+
+        modal.classList.remove('hidden');
+        ctx.imageSmoothingEnabled = false;
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => {
+            resolvePromise = resolve;
+        });
+
+        const durationSec = 60;
+        let timeLeft = durationSec;
+        let raceStarted = false;
+        let finished = false;
+        let crashed = false;
+        let collisionLock = false;
+        let distanceMeter = 0;
+        let gameOverUntil = 0;
+
+        let rafId = null;
+        let timerTick = null;
+        let startRaceTimer = null;
+        let keyDownHandler = null;
+        let keyUpHandler = null;
+        let pointerJumpHandler = null;
+
+        const groundY = canvas.height - 46;
+        const dinoSize = fitSprite(sprites.dinoRun1, 88, 94, 0.82);
+
+        const player = {
+            x: 88,
+            y: groundY,
+            w: dinoSize.w,
+            h: dinoSize.h,
+            velocityY: 0,
+            jumpPower: 900,
+            gravity: 2400,
+            isJumping: false,
+            isDucking: false,
+            runFrame: 0,
+            runFrameAcc: 0,
+            duckFrame: 0,
+            duckFrameAcc: 0,
+            hitInsetX: 12,
+            hitInsetTop: 8,
+            hitInsetBottom: 8
+        };
+
+        const controls = {
+            left: false,
+            right: false,
+            down: false
+        };
+
+        const obstacles = [];
+        const clouds = [
+            { x: 200, y: 44, speed: 20 },
+            { x: 560, y: 66, speed: 16 }
+        ];
+
+        let trackOffset = 0;
+        let spawnCooldown = 0.95;
+        let spawnElapsed = 0;
+        let elapsedTime = 0;
+        let lastTs = 0;
+        let scoreBlink = false;
+
+        let gameSpeed = 360;
+        const maxGameSpeed = 760;
+        const speedGainPerSec = (maxGameSpeed - gameSpeed) / durationSec;
+        const playerMoveSpeed = 320;
+
+        const updateHud = () => {
+            if (this.els.trexDistance) {
+                this.els.trexDistance.textContent = `Distância: ${Math.floor(distanceMeter)}m`;
+            }
+            if (this.els.trexTimer) {
+                this.els.trexTimer.textContent = `Tempo: ${timeLeft}s`;
+            }
+        };
+
+        const playerHitbox = () => ({
+            left: player.x + player.hitInsetX,
+            right: player.x + player.w - player.hitInsetX,
+            top: player.y - player.h + player.hitInsetTop,
+            bottom: player.y - player.hitInsetBottom
+        });
+
+        const obstacleHitbox = (obs) => ({
+            left: obs.x + obs.hitInsetX,
+            right: obs.x + obs.w - obs.hitInsetX,
+            top: obs.y - obs.h + obs.hitInsetTop,
+            bottom: obs.y - obs.hitInsetBottom
+        });
+
+        const intersects = (a, b) => (
+            a.left < b.right &&
+            a.right > b.left &&
+            a.top < b.bottom &&
+            a.bottom > b.top
+        );
+
+        const spawnObstacle = () => {
+            const progress = Math.min(1, elapsedTime / durationSec);
+            const minObstacleGap = 250 + (progress * 140);
+            let rightMost = -Infinity;
+            obstacles.forEach((obs) => {
+                const rightEdge = obs.x + obs.w;
+                if (rightEdge > rightMost) {
+                    rightMost = rightEdge;
+                }
+            });
+
+            if (Number.isFinite(rightMost)) {
+                const freeDistance = canvas.width - rightMost;
+                if (freeDistance < minObstacleGap) {
+                    return false;
+                }
+            }
+
+            const canSpawnBird = elapsedTime > 7;
+            const spawnBird = canSpawnBird && Math.random() < 0.24;
+
+            if (spawnBird) {
+                const sprite = sprites.bird1;
+                const size = fitSprite(sprite, 92, 80, 0.68);
+                const lane = Math.random() < 0.5 ? 0 : 1;
+                const birdBaseY = lane === 0 ? (groundY - 36) : (groundY - 84);
+                obstacles.push({
+                    kind: 'bird',
+                    x: canvas.width + 12,
+                    y: birdBaseY,
+                    w: size.w,
+                    h: size.h,
+                    frame: 0,
+                    frameAcc: 0,
+                    hitInsetX: 10,
+                    hitInsetTop: 10,
+                    hitInsetBottom: 8
+                });
+            } else {
+                const isLarge = Math.random() < 0.45;
+                const sprite = isLarge
+                    ? pick([sprites.largeCactus1, sprites.largeCactus2, sprites.largeCactus3])
+                    : pick([sprites.smallCactus1, sprites.smallCactus2, sprites.smallCactus3]);
+                const size = fitSprite(sprite, isLarge ? 50 : 34, isLarge ? 100 : 70, isLarge ? 0.86 : 0.9);
+                obstacles.push({
+                    kind: 'cactus',
+                    sprite,
+                    x: canvas.width + 12,
+                    y: groundY + 1,
+                    w: size.w,
+                    h: size.h,
+                    hitInsetX: isLarge ? 10 : 8,
+                    hitInsetTop: 10,
+                    hitInsetBottom: 4
+                });
+            }
+
+            const minDelay = 0.78;
+            const maxDelay = 1.55 - (progress * 0.28);
+            spawnCooldown = minDelay + Math.random() * Math.max(0.26, maxDelay - minDelay);
+            spawnElapsed = 0;
+            return true;
+        };
+
+        const drawBackground = (dt) => {
+            ctx.fillStyle = '#f7f7f7';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            clouds.forEach((cloud) => {
+                cloud.x -= cloud.speed * dt;
+                if (cloud.x < -80) {
+                    cloud.x = canvas.width + Math.random() * 180;
+                    cloud.y = 36 + Math.random() * 64;
+                }
+                if (sprites.cloud.complete) {
+                    ctx.drawImage(sprites.cloud, cloud.x, cloud.y, 46, 14);
+                }
+            });
+
+            trackOffset = (trackOffset + (gameSpeed * dt)) % Math.max(1, sprites.track.naturalWidth || 2404);
+            const trackY = groundY + 4;
+            const trackW = sprites.track.naturalWidth || 2404;
+            const trackH = sprites.track.naturalHeight || 28;
+
+            if (sprites.track.complete) {
+                ctx.drawImage(sprites.track, -trackOffset, trackY, trackW, trackH);
+                ctx.drawImage(sprites.track, trackW - trackOffset, trackY, trackW, trackH);
+            } else {
+                ctx.strokeStyle = '#8f8f8f';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(0, groundY + 2);
+                ctx.lineTo(canvas.width, groundY + 2);
+                ctx.stroke();
+            }
+        };
+
+        const drawPlayer = () => {
+            let sprite = sprites.dinoRun1;
+            if (crashed) {
+                sprite = sprites.dinoDead;
+            } else if (player.isDucking) {
+                sprite = player.duckFrame === 0 ? sprites.dinoDuck1 : sprites.dinoDuck2;
+            } else if (player.isJumping) {
+                sprite = sprites.dinoJump;
+            } else if (player.runFrame === 1) {
+                sprite = sprites.dinoRun2;
+            }
+
+            if (sprite.complete) {
+                ctx.drawImage(sprite, player.x, player.y - player.h, player.w, player.h);
+            }
+        };
+
+        const drawObstacles = () => {
+            obstacles.forEach((obs) => {
+                if (obs.kind === 'bird') {
+                    const birdSprite = obs.frame === 0 ? sprites.bird1 : sprites.bird2;
+                    if (birdSprite.complete) {
+                        ctx.drawImage(birdSprite, obs.x, obs.y - obs.h, obs.w, obs.h);
+                    }
+                } else if (obs.sprite && obs.sprite.complete) {
+                    ctx.drawImage(obs.sprite, obs.x, obs.y - obs.h, obs.w, obs.h);
+                }
+            });
+        };
+
+        const drawScore = () => {
+            ctx.fillStyle = '#5e5e5e';
+            ctx.font = 'bold 18px monospace';
+            ctx.textAlign = 'right';
+            const score = String(Math.floor(distanceMeter)).padStart(5, '0');
+            const speedTag = String(Math.floor(gameSpeed / 8)).padStart(3, '0');
+            const label = scoreBlink ? `HI 00000  ${score}` : `HI 00000  ${speedTag}`;
+            ctx.fillText(label, canvas.width - 22, 28);
+        };
+
+        const drawGameOver = () => {
+            if (!crashed) return;
+            const overW = sprites.gameOver.naturalWidth || 191;
+            const overH = sprites.gameOver.naturalHeight || 11;
+            const resetW = sprites.reset.naturalWidth || 36;
+            const resetH = sprites.reset.naturalHeight || 32;
+            const ox = (canvas.width - overW) / 2;
+            const oy = groundY - 92;
+            const rx = (canvas.width - resetW) / 2;
+            const ry = oy + overH + 20;
+
+            if (sprites.gameOver.complete) {
+                ctx.drawImage(sprites.gameOver, ox, oy, overW, overH);
+            }
+            if (sprites.reset.complete) {
+                ctx.drawImage(sprites.reset, rx, ry, resetW, resetH);
+            }
+        };
+
+        const startCollisionSequence = () => {
+            if (collisionLock || finished) return;
+            collisionLock = true;
+            crashed = true;
+            raceStarted = false;
+            gameOverUntil = performance.now() + 950;
+            if (timerTick) {
+                clearInterval(timerTick);
+                timerTick = null;
+            }
+            if (this.trexRaceAudio) {
+                this.trexRaceAudio.pause();
+            }
+        };
+
+        const finish = (won) => {
+            if (finished) return;
+            finished = true;
+
+            if (timerTick) clearInterval(timerTick);
+            if (rafId) cancelAnimationFrame(rafId);
+            if (startRaceTimer) clearTimeout(startRaceTimer);
+            if (keyDownHandler) window.removeEventListener('keydown', keyDownHandler);
+            if (keyUpHandler) window.removeEventListener('keyup', keyUpHandler);
+            if (pointerJumpHandler) {
+                canvas.removeEventListener('pointerdown', pointerJumpHandler);
+            }
+
+            [this.trexStartAudio, this.trexRaceAudio].forEach((s) => {
+                if (!s) return;
+                s.pause();
+                try { s.currentTime = 0; } catch (_) {}
+            });
+
+            if (this.els.trexGiveUpBtn) {
+                this.els.trexGiveUpBtn.onclick = null;
+            }
+
+            modal.classList.add('hidden');
+            this.trexSession = null;
+            resolvePromise({ won, distance: Math.floor(distanceMeter) });
+        };
+
+        const loop = (ts) => {
+            if (finished) return;
+
+            if (!lastTs) lastTs = ts;
+            const dt = Math.min(0.05, Math.max(0.001, (ts - lastTs) / 1000));
+            lastTs = ts;
+
+            scoreBlink = (Math.floor(ts / 280) % 2) === 0;
+
+            if (raceStarted && !crashed) {
+                elapsedTime += dt;
+                gameSpeed = Math.min(maxGameSpeed, gameSpeed + (speedGainPerSec * dt));
+
+                if (controls.left && !controls.right) {
+                    player.x -= playerMoveSpeed * dt;
+                } else if (controls.right && !controls.left) {
+                    player.x += playerMoveSpeed * dt;
+                }
+                const minX = 28;
+                const maxX = canvas.width - player.w - 24;
+                player.x = Math.max(minX, Math.min(maxX, player.x));
+
+                player.velocityY += player.gravity * dt;
+                player.y += player.velocityY * dt;
+
+                if (player.y >= groundY) {
+                    player.y = groundY;
+                    player.velocityY = 0;
+                    player.isJumping = false;
+                    if (controls.down) {
+                        player.isDucking = true;
+                        player.duckFrameAcc += dt;
+                        if (player.duckFrameAcc >= 0.12) {
+                            player.duckFrame = player.duckFrame === 0 ? 1 : 0;
+                            player.duckFrameAcc = 0;
+                        }
+                    } else {
+                        player.isDucking = false;
+                        player.runFrameAcc += dt;
+                        if (player.runFrameAcc >= 0.115) {
+                            player.runFrame = player.runFrame === 0 ? 1 : 0;
+                            player.runFrameAcc = 0;
+                        }
+                    }
+                }
+
+                distanceMeter += gameSpeed * dt * 0.075;
+                spawnElapsed += dt;
+                if (spawnElapsed >= spawnCooldown) {
+                    const spawned = spawnObstacle();
+                    if (!spawned) {
+                        spawnElapsed = Math.max(spawnCooldown * 0.75, spawnElapsed - (dt * 0.3));
+                    }
+                }
+
+                const playerBox = playerHitbox();
+                for (let i = obstacles.length - 1; i >= 0; i--) {
+                    const obs = obstacles[i];
+                    obs.x -= gameSpeed * dt;
+
+                    if (obs.kind === 'bird') {
+                        obs.frameAcc += dt;
+                        if (obs.frameAcc >= 0.12) {
+                            obs.frame = obs.frame === 0 ? 1 : 0;
+                            obs.frameAcc = 0;
+                        }
+                    }
+
+                    if (obs.x + obs.w < -12) {
+                        obstacles.splice(i, 1);
+                        continue;
+                    }
+
+                    if (intersects(playerBox, obstacleHitbox(obs))) {
+                        startCollisionSequence();
+                        break;
+                    }
+                }
+            }
+
+            drawBackground(dt);
+            drawObstacles();
+            drawPlayer();
+            drawScore();
+            drawGameOver();
+
+            if (crashed && gameOverUntil && ts >= gameOverUntil) {
+                finish(false);
+                return;
+            }
+
+            rafId = requestAnimationFrame(loop);
+        };
+
+        const tryJump = () => {
+            if (modal.classList.contains('hidden') || !raceStarted || crashed) return;
+            if (!player.isJumping) {
+                player.velocityY = -player.jumpPower;
+                player.isJumping = true;
+            }
+        };
+
+        keyDownHandler = (e) => {
+            if (modal.classList.contains('hidden') || !raceStarted || crashed) return;
+            const isLeft = e.code === 'ArrowLeft' || e.code === 'KeyA';
+            const isRight = e.code === 'ArrowRight' || e.code === 'KeyD';
+            const isDown = e.code === 'ArrowDown' || e.code === 'KeyS';
+            const isJumpKey = e.code === 'Space'
+                || e.code === 'ArrowUp'
+                || e.code === 'KeyW'
+                || e.key === ' '
+                || e.key === 'Spacebar';
+
+            if (isLeft) {
+                e.preventDefault();
+                controls.left = true;
+            }
+            if (isRight) {
+                e.preventDefault();
+                controls.right = true;
+            }
+            if (isDown) {
+                e.preventDefault();
+                controls.down = true;
+            }
+            if (isJumpKey) {
+                e.preventDefault();
+                tryJump();
+            }
+        };
+
+        keyUpHandler = (e) => {
+            const isLeft = e.code === 'ArrowLeft' || e.code === 'KeyA';
+            const isRight = e.code === 'ArrowRight' || e.code === 'KeyD';
+            const isDown = e.code === 'ArrowDown' || e.code === 'KeyS';
+            if (isLeft) controls.left = false;
+            if (isRight) controls.right = false;
+            if (isDown) controls.down = false;
+        };
+
+        pointerJumpHandler = (e) => {
+            e.preventDefault();
+            tryJump();
+        };
+
+        window.addEventListener('keydown', keyDownHandler);
+        window.addEventListener('keyup', keyUpHandler);
+        canvas.addEventListener('pointerdown', pointerJumpHandler);
+        canvas.setAttribute('tabindex', '0');
+        canvas.focus();
+
+        if (this.els.trexGiveUpBtn) {
+            this.els.trexGiveUpBtn.onclick = () => finish(false);
+        }
+
+        updateHud();
+
+        const startRace = () => {
+            if (raceStarted || finished || crashed) return;
+            raceStarted = true;
+            lastTs = 0;
+            if (this.trexRaceAudio) {
+                this.trexRaceAudio.currentTime = 0;
+                this.trexRaceAudio.play().catch(() => {});
+            }
+
+            if (!rafId) {
+                rafId = requestAnimationFrame(loop);
+            }
+
+            timerTick = setInterval(() => {
+                if (!raceStarted || crashed || finished) return;
+                timeLeft -= 1;
+                updateHud();
+                if (timeLeft <= 0) {
+                    raceStarted = false;
+                    finish(true);
+                }
+            }, 1000);
+        };
+
+        [this.trexStartAudio, this.trexRaceAudio, this.trexVictoryAudio].forEach((s) => {
+            if (!s) return;
+            s.pause();
+            try { s.currentTime = 0; } catch (_) {}
+        });
+
+        if (!rafId) {
+            rafId = requestAnimationFrame(loop);
+        }
+
+        if (this.trexStartAudio) {
+            this.trexStartAudio.currentTime = 0;
+            this.trexStartAudio.play().catch(() => {});
+            this.trexStartAudio.onended = () => startRace();
+        }
+
+        startRaceTimer = setTimeout(() => startRace(), 4500);
+
+        this.trexSession = {
+            cleanup: (won = false) => finish(won)
+        };
+
+        return promise;
+    }
+
     /* ================================
        MÉTODOS PARA CAÇA NÍQUEL (SLOT MACHINE)
        ================================ */
@@ -1178,7 +2886,8 @@ export default class View {
     }
 
     showSlotMachine() {
-        // Abre o modal do caça níquel
+        // Abre o modal do caça níquel e pausa a música de fundo
+        this.pauseGameMusic();
         this.els.slotMachineModal.classList.remove('hidden');
         this.els.slotSpinBtn.disabled = false;
         this._ensureSlotTracks();
@@ -1198,18 +2907,115 @@ export default class View {
             if (!reel || reel.querySelector('.slot-track')) return;
 
             const symbolNodes = Array.from(reel.querySelectorAll('.slot-symbol'));
-            const baseSymbols = symbolNodes.map((node) => (node.textContent || '').trim()).filter(Boolean);
+            // Usa data-symbol para símbolos com HTML interno (BAR com spans, etc.)
+            const baseSymbols = symbolNodes.map((node) =>
+                (node.dataset?.symbol || node.textContent || '').trim()
+            ).filter(Boolean);
             const track = document.createElement('div');
             track.className = 'slot-track';
 
             symbolNodes.forEach((node) => track.appendChild(node));
             symbolNodes.forEach((node) => track.appendChild(node.cloneNode(true)));
+            // Cópias extras para garantir janela de 3 símbolos no limite da sequência
+            symbolNodes.slice(0, 2).forEach((node) => track.appendChild(node.cloneNode(true)));
 
             reel.appendChild(track);
             reel.dataset.baseSymbols = JSON.stringify(baseSymbols);
             reel.dataset.baseCount = String(baseSymbols.length || 1);
             reel.dataset.currentIndex = '0';
+            this._renderReelCylinder(reel, track, false);
         });
+    }
+
+    _readTrackTranslateY(track) {
+        const tf = window.getComputedStyle(track).transform;
+        if (!tf || tf === 'none') return 0;
+
+        try {
+            return new DOMMatrixReadOnly(tf).m42 || 0;
+        } catch (_) {
+            const match = tf.match(/matrix\(([^)]+)\)/);
+            if (!match) return 0;
+            const values = match[1].split(',').map((v) => Number(v.trim()));
+            return Number.isFinite(values[5]) ? values[5] : 0;
+        }
+    }
+
+    _renderReelCylinder(reel, track, isSpinning) {
+        if (!reel || !track) return;
+
+        const symbols = Array.from(track.querySelectorAll('.slot-symbol'));
+        const symbolH = 120;
+        const reelH = reel.clientHeight || 360;
+        const mid = reelH / 2;
+        const trackY = this._readTrackTranslateY(track);
+
+        symbols.forEach((sym, idx) => {
+            const centerY = (idx * symbolH) + (symbolH / 2) + trackY;
+            const norm = (centerY - mid) / mid;
+            const abs = Math.min(1.2, Math.abs(norm));
+            const rotateX = norm * 58;
+            const scaleX = Math.max(0.72, 1 - (abs * 0.24));
+            const scaleY = Math.max(0.82, 1 - (abs * 0.14));
+            const depth = Math.max(0, (1 - abs) * 26);
+            const opacity = Math.max(0.22, 1 - (abs * 0.62));
+            const centerBoost = Math.max(0, 1 - abs);
+
+            const blur = isSpinning ? (abs * 1.35) : (abs * 0.25);
+            const brightness = isSpinning
+                ? (1.1 - (abs * 0.18))
+                : (1.03 - (abs * 0.10));
+
+            const sideShade = (0.08 + (abs * 0.20)).toFixed(3);
+            const centerGlow = (0.10 + (centerBoost * 0.22)).toFixed(3);
+            const edgeWhite = Math.max(225, Math.min(248, Math.round(236 + (centerBoost * 12))));
+            const centerWhite = Math.max(238, Math.min(255, Math.round(246 + (centerBoost * 10))));
+
+            if (sym.classList.contains('bar')) {
+                const darkEdge = Math.max(12, Math.round(26 - (centerBoost * 6)));
+                const darkCenter = Math.max(18, Math.round(36 + (centerBoost * 10)));
+                sym.style.background = `linear-gradient(to right, rgb(${darkEdge}, ${darkEdge}, ${darkEdge}) 0%, rgb(${darkCenter}, ${darkCenter}, ${darkCenter}) 50%, rgb(${darkEdge}, ${darkEdge}, ${darkEdge}) 100%)`;
+            } else {
+                sym.style.background = `linear-gradient(to bottom, rgb(${edgeWhite}, ${edgeWhite}, ${edgeWhite}) 0%, rgb(${centerWhite}, ${centerWhite}, ${centerWhite}) 48%, rgb(${edgeWhite}, ${edgeWhite}, ${edgeWhite}) 100%)`;
+            }
+
+            sym.style.transform = `perspective(540px) rotateX(${rotateX.toFixed(2)}deg) scaleX(${scaleX.toFixed(3)}) scaleY(${scaleY.toFixed(3)}) translateZ(${depth.toFixed(2)}px)`;
+            sym.style.opacity = opacity.toFixed(3);
+            sym.style.filter = `blur(${blur.toFixed(2)}px) brightness(${brightness.toFixed(3)})`;
+            sym.style.boxShadow = `inset 18px 0 22px rgba(0,0,0,${sideShade}), inset -18px 0 22px rgba(0,0,0,${sideShade}), inset 0 0 22px rgba(255,255,255,${centerGlow})`;
+        });
+    }
+
+    _startReelCylinderFx(reel, track) {
+        if (!reel || !track) return;
+        this._stopReelCylinderFx(reel, track, false);
+        reel.classList.add('fx-active');
+
+        const tick = () => {
+            if (!reel.classList.contains('spinning')) {
+                this._renderReelCylinder(reel, track, false);
+                return;
+            }
+            this._renderReelCylinder(reel, track, true);
+            const rafId = requestAnimationFrame(tick);
+            this.reelFxRaf.set(reel, rafId);
+        };
+
+        tick();
+    }
+
+    _stopReelCylinderFx(reel, track, keepFxClass = false) {
+        const rafId = this.reelFxRaf.get(reel);
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+            this.reelFxRaf.delete(reel);
+        }
+        if (!keepFxClass) {
+            reel?.classList.remove('fx-active');
+        }
+        if (reel && track) {
+            this._renderReelCylinder(reel, track, false);
+        }
     }
 
     _getSlotResultsFromPositions(positions) {
@@ -1230,7 +3036,15 @@ export default class View {
     }
 
     hideSlotMachine() {
-        // Fecha o modal do caça níquel
+        // Fecha o modal do caça níquel, restaura áudio e música de fundo
+        this.stopSlotSpinSound();
+        [this.els.slotReel1, this.els.slotReel2, this.els.slotReel3].forEach((reel) => {
+            const track = reel?.querySelector('.slot-track');
+            if (!reel || !track) return;
+            this._stopReelCylinderFx(reel, track);
+            reel.classList.remove('spinning');
+        });
+        this.resumeGameMusic();
         this.els.slotMachineModal.classList.add('hidden');
         this.els.slotResult.innerHTML = '';
         this.els.slotResult.classList.add('hidden');
@@ -1261,31 +3075,48 @@ export default class View {
         // Armazena as posições para uso posterior
         this.lastSlotPositions = finalPositions;
 
+        this.startSlotSpinSound();
+
+        const SYMBOL_H = 120;
+
         reels.forEach((reel, index) => {
             const track = reel?.querySelector('.slot-track');
             if (!reel || !track) return;
 
-            const baseCount = Number(reel.dataset.baseCount || 5);
+            const baseCount = Number(reel.dataset.baseCount || 8);
+            // Centraliza o símbolo alvo na posição do meio do reel (payline)
+            const centering = baseCount * SYMBOL_H - SYMBOL_H;
             const loops = 2 + index;
             const targetIndex = (loops * baseCount) + finalPositions[index];
-            const targetOffset = targetIndex * 120;
+            const targetOffset = targetIndex * SYMBOL_H + centering;
 
+            reel.style.setProperty('--spin-jolt-speed', `${108 + (index * 16)}ms`);
+            reel.style.setProperty('--spin-cyl-speed', `${280 + (index * 45)}ms`);
             reel.classList.add('spinning');
+            this._startReelCylinderFx(reel, track);
             track.style.transition = `transform ${spinDurations[index]}ms cubic-bezier(0.16, 0.84, 0.32, 1)`;
             track.style.transform = `translateY(-${targetOffset}px)`;
 
             setTimeout(() => {
                 reel.classList.remove('spinning');
-                const finalOffset = finalPositions[index] * 120;
+                reel.style.removeProperty('--spin-jolt-speed');
+                reel.style.removeProperty('--spin-cyl-speed');
+                this.playSlotReelStopSound();
+                const finalOffset = finalPositions[index] * SYMBOL_H + centering;
                 track.style.transition = 'none';
                 track.style.transform = `translateY(-${finalOffset}px)`;
                 reel.dataset.currentIndex = String(finalPositions[index]);
 
                 requestAnimationFrame(() => {
                     track.style.transition = `transform ${spinDurations[index]}ms cubic-bezier(0.16, 0.84, 0.32, 1)`;
+                    this._stopReelCylinderFx(reel, track);
                 });
             }, spinDurations[index]);
         });
+
+        setTimeout(() => {
+            this.stopSlotSpinSound();
+        }, Math.max(...spinDurations) + 40);
 
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -1296,16 +3127,12 @@ export default class View {
     }
 
     showSlotResult(positions) {
-        // Exibe o resultado sem atualizar pontos (controle fica com o controller)
         const results = this._getSlotResultsFromPositions(positions);
 
         let message = '';
         let isJackpot = false;
 
-        // Verifica se todos 3 são iguais
         const allEqual = results[0] === results[1] && results[1] === results[2];
-        
-        // Conta quantos pares são iguais
         const pair1 = results[0] === results[1];
         const pair2 = results[1] === results[2];
         const pair3 = results[0] === results[2];
@@ -1313,75 +3140,58 @@ export default class View {
 
         if (allEqual) {
             isJackpot = true;
-
-            if (results[0] === '7️⃣') {
+            if (results[0] === '7') {
                 message = `🎉 JACKPOT! 7️⃣7️⃣7️⃣<br>+500 MOEDAS!`;
-            } else if (results[0] === '💎') {
-                message = `✨ 3 DIAMANTES!<br>+300 MOEDAS!`;
-            } else if (results[0] === '⭐') {
-                message = `⭐ 3 ESTRELAS!<br>+250 MOEDAS!`;
+            } else if (results[0] === 'BAR') {
+                message = `🔥 3× BAR!<br>+300 MOEDAS!`;
             } else {
-                message = `🍎 3 FRUTAS!<br>+150 MOEDAS!`;
+                message = `${results[0]}${results[1]}${results[2]} 3 IGUAIS!<br>+150 MOEDAS!`;
             }
-
-            // Toca som de vitória e anima moedas
             this.playCountingSound();
             setTimeout(() => this.createCoinAnimation(), 200);
+            this._flashWinReels();
         } else if (equalPairs === 1) {
-            // Exatamente 2 iguais
             message = `🎟️ 2 SÍMBOLOS IGUAIS!<br>+50 MOEDAS!`;
             this.playCountingSound();
         } else {
-            // Nenhum igual
             message = `❌ SEM SORTE!<br>TENTE NOVAMENTE!`;
         }
 
-        // Exibe resultado
         this.els.slotResult.innerHTML = message;
         this.els.slotResult.classList.remove('hidden', 'jackpot');
-        
         if (isJackpot) {
             this.els.slotResult.classList.add('jackpot');
         }
     }
 
+    _flashWinReels() {
+        const reels = [this.els.slotReel1, this.els.slotReel2, this.els.slotReel3];
+        const wrapper = this.els.slotReel1?.closest('.slot-reels-wrapper');
+        reels.forEach((r) => {
+            if (!r) return;
+            r.classList.add('reel-win');
+            setTimeout(() => r.classList.remove('reel-win'), 2200);
+        });
+        if (wrapper) {
+            wrapper.classList.add('payline-win');
+            setTimeout(() => wrapper.classList.remove('payline-win'), 2400);
+        }
+    }
+
     getPrizeFromPositions(positions) {
-        // Calcula o prêmio basado nas posições dos reels
         const results = this._getSlotResultsFromPositions(positions);
-
-        let prize = 0;
-
-        // Verifica se todos 3 são iguais
         const allEqual = results[0] === results[1] && results[1] === results[2];
-        
-        // Conta quantos pares são iguais
-        const pair1 = results[0] === results[1];
-        const pair2 = results[1] === results[2];
-        const pair3 = results[0] === results[2];
-        
-        // Conta pares iguais
-        const equalPairs = (pair1 ? 1 : 0) + (pair2 ? 1 : 0) + (pair3 ? 1 : 0);
+        const equalPairs = ((results[0] === results[1]) ? 1 : 0)
+                         + ((results[1] === results[2]) ? 1 : 0)
+                         + ((results[0] === results[2]) ? 1 : 0);
 
         if (allEqual) {
-            // 3 iguais
-            if (results[0] === '7️⃣') {
-                prize = 500;
-            } else if (results[0] === '💎') {
-                prize = 300;
-            } else if (results[0] === '⭐') {
-                prize = 250;
-            } else {
-                prize = 150;
-            }
-        } else if (equalPairs === 1) {
-            // Exatamente 2 iguais (1 par de iguais)
-            prize = 50;
-        } else {
-            // Nenhum igual
-            prize = 0;
+            if (results[0] === '7')   return 500;
+            if (results[0] === 'BAR') return 300;
+            return 150; // 3 frutas iguais
         }
-
-        return prize;
+        if (equalPairs === 1) return 50; // 2 iguais
+        return 0;
     }
 
     showSlotFinalSummary(spins, baseScore) {
@@ -1428,7 +3238,20 @@ export default class View {
                 }, stepDelay * (index + 1));
             });
 
-            const finishDelay = (stepDelay * (safeSpins.length + 1)) + 3000;
+            const countingEndDelay = stepDelay * (safeSpins.length + 1);
+            const finishDelay = countingEndDelay + 2500;
+
+            // Toca caixa registradora exatamente quando termina a contabilização das moedas
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try {
+                        this.cashRegisterAudio.currentTime = 0;
+                    } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, countingEndDelay);
+
             setTimeout(() => {
                 overlay.remove();
                 resolve(runningScore);
@@ -1436,62 +3259,350 @@ export default class View {
         });
     }
 
-    checkSlotResult(positions) {
-        // Verifica se ganhou e exibe resultado
-        const results = this._getSlotResultsFromPositions(positions);
+    showPacmanFinalSummary(baseScore, reward, cherryBonus = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeCherryBonus = Math.max(0, Number(cherryBonus) || 0);
 
-        let prize = 0;
-        let message = '';
-        let isJackpot = false;
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
 
-        // Verifica se todos 3 são iguais
-        const allEqual = results[0] === results[1] && results[1] === results[2];
-        
-        // Conta quantos pares são iguais
-        const pair1 = results[0] === results[1];
-        const pair2 = results[1] === results[2];
-        const pair3 = results[0] === results[2];
-        const equalPairs = (pair1 ? 1 : 0) + (pair2 ? 1 : 0) + (pair3 ? 1 : 0);
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO BÔNUS 👾</h3>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
 
-        if (allEqual) {
-            isJackpot = true;
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
 
-            if (results[0] === '7️⃣') {
-                prize = 500;
-                message = `🎉 JACKPOT! 7️⃣7️⃣7️⃣<br>+500 MOEDAS!`;
-            } else if (results[0] === '💎') {
-                prize = 300;
-                message = `✨ 3 DIAMANTES!<br>+300 MOEDAS!`;
-            } else if (results[0] === '⭐') {
-                prize = 250;
-                message = `⭐ 3 ESTRELAS!<br>+250 MOEDAS!`;
-            } else {
-                prize = 150;
-                message = `🍎 3 FRUTAS!<br>+150 MOEDAS!`;
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `
+                    <span>Nível completo: pellets + supervitaminas</span>
+                    <strong>+${safeReward}</strong>
+                `;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 700);
+
+            if (safeCherryBonus > 0) {
+                setTimeout(() => {
+                    const cherryRow = document.createElement('div');
+                    cherryRow.className = 'slot-summary-row';
+                    cherryRow.innerHTML = `
+                        <span>🍒 Cerejas coletadas</span>
+                        <strong>+${safeCherryBonus}</strong>
+                    `;
+                    listEl.appendChild(cherryRow);
+
+                    const oldScore2 = runningScore;
+                    runningScore += safeCherryBonus;
+                    totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                    this.animateScoreIncrease(oldScore2, runningScore);
+                }, 1300);
             }
 
-            // Toca som de vitória e anima moedas
-            this.playCountingSound();
-            setTimeout(() => this.createCoinAnimation(), 200);
-        } else if (equalPairs === 1) {
-            // Exatamente 2 iguais
-            prize = 50;
-            message = `🎟️ 2 SÍMBOLOS IGUAIS!<br>+50 MOEDAS!`;
-            this.playCountingSound();
-        } else {
-            // Nenhum igual
-            message = `❌ SEM SORTE!<br>TENTE NOVAMENTE!`;
-        }
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try {
+                        this.cashRegisterAudio.currentTime = 0;
+                    } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2000);
 
-        // Exibe resultado
-        this.els.slotResult.innerHTML = message;
-        this.els.slotResult.classList.remove('hidden', 'jackpot');
-        
-        if (isJackpot) {
-            this.els.slotResult.classList.add('jackpot');
-        }
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 4500);
+        });
+    }
 
-        // Retorna o prêmio para o controller
-        return { prize, message, isJackpot };
+    showEnduroFinalSummary(baseScore, reward, stagesCompleted = 4, carsPassed = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeStages = Math.max(0, Number(stagesCompleted) || 0);
+        const safeCarsPassed = Math.max(0, Number(carsPassed) || 0);
+        const trafficBonus = safeCarsPassed * 10;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO BÔNUS ENDURO 🏎️</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🧍‍♂️🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const rowStages = document.createElement('div');
+                rowStages.className = 'slot-summary-row';
+                rowStages.innerHTML = `
+                    <span>Estágios completos (Dia/Neblina/Gelo/Noite)</span>
+                    <strong>${safeStages}/4</strong>
+                `;
+                listEl.appendChild(rowStages);
+            }, 600);
+
+            setTimeout(() => {
+                const rowReward = document.createElement('div');
+                rowReward.className = 'slot-summary-row';
+                rowReward.innerHTML = `
+                    <span>Corrida concluída</span>
+                    <strong>+${safeReward}</strong>
+                `;
+                listEl.appendChild(rowReward);
+
+                const oldScore = runningScore;
+                runningScore += safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1250);
+
+            setTimeout(() => {
+                const rowTraffic = document.createElement('div');
+                rowTraffic.className = 'slot-summary-row';
+                rowTraffic.innerHTML = `
+                    <span>Carros ultrapassados (${safeCarsPassed} x 10)</span>
+                    <strong>+${trafficBonus}</strong>
+                `;
+                listEl.appendChild(rowTraffic);
+
+                const oldScore2 = runningScore;
+                runningScore += trafficBonus;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore2, runningScore);
+            }, 2000);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try {
+                        this.cashRegisterAudio.currentTime = 0;
+                    } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    showEnduroVictoryPopup(playerName = 'Piloto') {
+        const safeName = String(playerName || 'Piloto').trim() || 'Piloto';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VITÓRIA NO ENDURO! 🏁</h3>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, parabéns pela corrida perfeita!</p>
+            <img class="enduro-victory-img" src="img/f1.png" alt="Piloto levantando troféu">
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        return new Promise((resolve) => {
+            let done = false;
+
+            const cleanup = () => {
+                if (done) return;
+                done = true;
+                if (this.enduroVictoryAudio) {
+                    this.enduroVictoryAudio.pause();
+                    try {
+                        this.enduroVictoryAudio.currentTime = 0;
+                    } catch (_) {}
+                }
+                overlay.remove();
+                resolve();
+            };
+
+            if (this.enduroVictoryAudio) {
+                this.enduroVictoryAudio.pause();
+                try {
+                    this.enduroVictoryAudio.currentTime = 0;
+                } catch (_) {}
+                this.enduroVictoryAudio.play().catch(() => {});
+            }
+
+            // Exibe popup e som por 11 segundos antes da contabilidade.
+            setTimeout(cleanup, 11000);
+        });
+    }
+
+    showTRexVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🦖🏁</h3>
+            <img src="img/t-rex.png" alt="T-Rex Victory" style="max-width: 200px; max-height: 150px; margin: 20px auto; display: block; image-rendering: crisp-edges;">
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, completou um minuto inteiro no T-REX!</p>
+            <div style="font-size: 4rem; margin: 20px 0;">🎉</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        return new Promise((resolve) => {
+            let done = false;
+
+            const cleanup = () => {
+                if (done) return;
+                done = true;
+                if (this.trexVictoryAudio) {
+                    this.trexVictoryAudio.pause();
+                    try {
+                        this.trexVictoryAudio.currentTime = 0;
+                    } catch (_) {}
+                }
+                overlay.remove();
+                resolve();
+            };
+
+            if (this.trexVictoryAudio) {
+                this.trexVictoryAudio.pause();
+                try {
+                    this.trexVictoryAudio.currentTime = 0;
+                } catch (_) {}
+                this.trexVictoryAudio.play().catch(() => {});
+            }
+
+            // Exibe popup e som por 11 segundos antes da contabilidade.
+            setTimeout(cleanup, 11000);
+        });
+    }
+
+    showTRexFinalSummary(baseScore, reward, distance = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeDistance = Math.max(0, Number(distance) || 0);
+        const distanceBonus = Math.floor(safeDistance / 100) * 10;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO T-REX 🦖</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🧍‍♂️🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const rowDistance = document.createElement('div');
+                rowDistance.className = 'slot-summary-row';
+                rowDistance.innerHTML = `
+                    <span>Distância percorrida</span>
+                    <strong>${safeDistance}m</strong>
+                `;
+                listEl.appendChild(rowDistance);
+            }, 600);
+
+            setTimeout(() => {
+                const rowReward = document.createElement('div');
+                rowReward.className = 'slot-summary-row';
+                rowReward.innerHTML = `
+                    <span>Completou 1 minuto inteiro</span>
+                    <strong>+${safeReward}</strong>
+                `;
+                listEl.appendChild(rowReward);
+
+                const oldScore = runningScore;
+                runningScore += safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1250);
+
+            setTimeout(() => {
+                const rowDistance = document.createElement('div');
+                rowDistance.className = 'slot-summary-row';
+                rowDistance.innerHTML = `
+                    <span>Bônus de distância (${Math.floor(safeDistance / 100)} x 10)</span>
+                    <strong>+${distanceBonus}</strong>
+                `;
+                listEl.appendChild(rowDistance);
+
+                const oldScore2 = runningScore;
+                runningScore += distanceBonus;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore2, runningScore);
+            }, 2000);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try {
+                        this.cashRegisterAudio.currentTime = 0;
+                    } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    checkSlotResult(positions) {
+        // Delega para os métodos canônicos (mantido por compatibilidade)
+        const prize = this.getPrizeFromPositions(positions);
+        this.showSlotResult(positions);
+        return { prize, isJackpot: prize >= 150 };
+
     }
 }
