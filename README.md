@@ -1,51 +1,81 @@
-# Saga do Futuro
+<table>
+	<tr>
+		<td width="110" valign="middle">
+			<img src="sst/aula-11/img/FirjanSENAI-01.png" alt="Logo Firjan SENAI" width="96" />
+		</td>
+		<td valign="middle">
+			<h1>Saga do Futuro</h1>
+			<p>Quiz educativo gamificado para Seguranca no Trabalho em TI, com narrativa por eras, desafios interativos e ranking em tempo real.</p>
+		</td>
+	</tr>
+</table>
 
-Quiz educativo gamificado para Seguranca no Trabalho em TI, com narrativa por eras, mini-jogo de transicao e ranking global em tempo real.
+[![Status](https://img.shields.io/badge/Status-Em%20producao-1f883d?style=for-the-badge)](https://raphaelbarretopro.github.io/quiz/sst/aula-11/)
+[![Frontend](https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JavaScript-e34f26?style=for-the-badge&logo=html5&logoColor=white)](https://raphaelbarretopro.github.io/quiz/sst/aula-11/)
+[![Arquitetura](https://img.shields.io/badge/Arquitetura-MVC-0a66c2?style=for-the-badge)](#)
+[![Backend](https://img.shields.io/badge/Backend-Firebase%20Realtime%20Database-ffca28?style=for-the-badge&logo=firebase&logoColor=black)](#)
 
-Demo publica:
-https://raphaelbarretopro.github.io/quiz/sst/aula-11/
+**Demo publica:** https://raphaelbarretopro.github.io/quiz/sst/aula-11/
 
-## Visao geral
+---
 
-O projeto atual em producao esta em `sst/aula-11`. O fluxo principal e:
+## ![Bloco](https://img.shields.io/badge/Bloco%201-Tecnologias-0052cc?style=for-the-badge)
 
-1. Jogador informa nome e inicia jornada.
-2. Sistema carrega dados da aula via `data.json`.
-3. Em mudancas de tema, abre roleta + modal + Sokoban.
+- HTML5
+- CSS3
+- JavaScript (ES Modules)
+- Firebase Realtime Database
+- GitHub Pages (deploy)
+
+---
+
+## ![Bloco](https://img.shields.io/badge/Bloco%202-Visao%20do%20Projeto-0f766e?style=for-the-badge)
+
+O projeto em producao esta em `sst/aula-11` e segue o fluxo:
+
+1. Jogador informa nome e inicia a jornada.
+2. Sistema carrega os dados da aula via `data.json`.
+3. Em transicoes de tema, abre roleta + modal + Sokoban.
 4. Perguntas sao exibidas com feedback imediato.
-5. A cada 3 acertos seguidos, abre rodada de bonus (caca-niquel).
-6. Ao final, salva score no Firebase e mostra ranking.
+5. A cada 3 acertos seguidos, e liberada rodada bonus (caca-niquel).
+6. No encerramento, o score e salvo no Firebase e o ranking e atualizado.
 
-## Funcionalidades implementadas
+---
+
+## ![Bloco](https://img.shields.io/badge/Bloco%203-Funcionalidades-7c3aed?style=for-the-badge)
 
 - Arquitetura MVC com modulos ES.
 - 50 questoes no banco atual (`sst/aula-11/data.json`).
 - 5 tipos de questao: `multiple`, `boolean`, `combo`, `multi`, `drag`.
-- 4 eras/temas didaticos com troca dinamica de cor e background.
-- Transicoes de era com roleta e Sokoban.
+- 4 eras didaticas com troca dinamica de cor e background.
+- Transicoes com roleta e mini-jogo Sokoban.
 - Pontuacao em tempo real com animacoes e audio.
 - Bonus de caca-niquel por sequencia de acertos.
 - Ranking global com Firebase Realtime Database.
 - Painel lateral com Top 15 em tempo real.
-- Timer total de sessao e timer especifico para desafio Sokoban.
+- Timer total de sessao e timer especifico do Sokoban.
 - Layout responsivo para desktop e mobile.
 
-## Regras de jogo
+---
+
+## ![Bloco](https://img.shields.io/badge/Bloco%204-Regras%20do%20Jogo-b45309?style=for-the-badge)
 
 - Acerto: +100 pontos.
-- Erro: sem penalidade de pontos.
-- Desempate no ranking: menor tempo total da sessao.
-- Bonus: 3 acertos consecutivos liberam uma rodada de caca-niquel.
-- Cada rodada de bonus permite ate 3 giros.
+- Erro: sem penalidade.
+- Desempate no ranking: menor tempo total de sessao.
+- Bonus: 3 acertos consecutivos liberam 1 rodada de caca-niquel.
+- Cada rodada bonus permite ate 3 giros.
 
-Tempo maximo por desafio Sokoban (por era):
+Tempo maximo por desafio Sokoban:
 
 - `ACID`: 60s
 - `AGEN`: 50s
 - `PROT`: 40s
 - `NORM`: 30s
 
-## Estrutura do projeto
+---
+
+## ![Bloco](https://img.shields.io/badge/Bloco%205-Estrutura%20de%20Pastas-9333ea?style=for-the-badge)
 
 ```text
 quiz/
@@ -58,9 +88,6 @@ quiz/
 			data.json
 			FIREBASE-SETUP.md
 			audio/
-				Sonic.mp3
-				show.mp3
-				valendo.mp3
 			css/
 				style.css
 			img/
@@ -72,25 +99,28 @@ quiz/
 				ranking-manager.js
 				firebase-config.js
 		aula-12/
-			(vazio no momento)
 ```
 
-## Arquitetura
+---
+
+## ![Bloco](https://img.shields.io/badge/Bloco%206-Arquitetura%20MVC-0891b2?style=for-the-badge)
 
 | Camada | Arquivo | Responsabilidade |
 |---|---|---|
-| Model | `sst/aula-11/js/model.js` | Estado da sessao, carga de dados, regras de pontuacao, estado do Sokoban |
-| View | `sst/aula-11/js/view.js` | Renderizacao de UI, interacoes, efeitos visuais/sonoros, modais |
+| Model | `sst/aula-11/js/model.js` | Estado da sessao, carga de dados, regras de pontuacao e estado do Sokoban |
+| View | `sst/aula-11/js/view.js` | Renderizacao da interface, interacoes, efeitos visuais/sonoros e modais |
 | Controller | `sst/aula-11/js/controller.js` | Orquestracao do fluxo, timers, progresso, bonus e fim de jogo |
-| Servico | `sst/aula-11/js/ranking-manager.js` | Persistencia e leitura de ranking no Firebase |
+| Servico | `sst/aula-11/js/ranking-manager.js` | Persistencia e leitura do ranking no Firebase |
 
-## Como executar localmente
+---
 
-Como o app usa `fetch` para carregar `data.json`, execute via servidor HTTP local.
+## ![Bloco](https://img.shields.io/badge/Bloco%207-Execucao%20Local-166534?style=for-the-badge)
+
+Como o app usa `fetch` para carregar `data.json`, execute em servidor HTTP local.
 
 ### Opcao 1: Live Server (VS Code)
 
-1. Abra a pasta do repositorio no VS Code.
+1. Abra o repositorio no VS Code.
 2. Abra `sst/aula-11/index.html`.
 3. Execute com Live Server.
 
@@ -101,15 +131,17 @@ cd sst/aula-11
 python -m http.server 5500
 ```
 
-Abra no navegador:
+URL local:
 
 ```text
 http://localhost:5500
 ```
 
-## Ranking Firebase
+---
 
-O ranking global usa Firebase Realtime Database e salva:
+## ![Bloco](https://img.shields.io/badge/Bloco%208-Ranking%20Firebase-f59e0b?style=for-the-badge)
+
+Campos persistidos no ranking global:
 
 - `name`
 - `score`
@@ -120,20 +152,23 @@ O ranking global usa Firebase Realtime Database e salva:
 - `timestamp`
 - `date`
 
-Passo a passo completo:
-`sst/aula-11/FIREBASE-SETUP.md`
+Guia de configuracao:
 
-Arquivo de configuracao:
-`sst/aula-11/js/firebase-config.js`
+- `sst/aula-11/FIREBASE-SETUP.md`
+- `sst/aula-11/js/firebase-config.js`
 
-## Banco de questoes (`data.json`)
+---
 
-O arquivo `sst/aula-11/data.json` contem:
+## ![Bloco](https://img.shields.io/badge/Bloco%209-Banco%20de%20Questoes-334155?style=for-the-badge)
 
-- `lesson_info` com titulo e topicos (id, nome, descricao, cor, imagem, letras do Sokoban).
-- `questions` com os objetos de cada questao.
+Arquivo principal: `sst/aula-11/data.json`
 
-Campos usados por questao:
+Estrutura:
+
+- `lesson_info`: metadados da aula e temas (id, nome, descricao, cor, imagem, letras do Sokoban).
+- `questions`: lista de perguntas.
+
+Campos por questao:
 
 - `type`
 - `topics`
@@ -141,55 +176,59 @@ Campos usados por questao:
 - `answers` ou `options`
 - `correct`
 - `tip`
-- `trans` (opcional; dispara roleta + Sokoban para o proximo tema)
+- `trans` (opcional para transicoes de era)
 
-Transicoes configuradas atualmente:
+Transicoes atuais:
 
 - `ACID -> AGEN`
 - `AGEN -> PROT`
 - `PROT -> NORM`
 
-## Tipos de questao suportados
+---
 
-- `multiple`: escolha unica por botoes.
-- `boolean`: verdadeiro/falso (renderizado como escolha unica).
-- `combo`: select (`<select>`) com validacao por botao.
-- `multi`: multiplas respostas com checkbox.
-- `drag`: arrastar e soltar com zonas de destino.
-
-## Customizacoes comuns
+## ![Bloco](https://img.shields.io/badge/Bloco%2010-Customizacao-9f1239?style=for-the-badge)
 
 1. Alterar tema por era: editar `color` e `img_url` em `lesson_info.topics`.
-2. Alterar pontuacao por acerto: editar `pointsPerCorrect` em `sst/aula-11/js/model.js`.
-3. Adicionar perguntas: incluir novos objetos no array `questions`.
-4. Criar nova transicao entre eras: adicionar `trans` na questao desejada.
+2. Alterar pontuacao: editar `pointsPerCorrect` em `sst/aula-11/js/model.js`.
+3. Adicionar perguntas: inserir novos objetos no array `questions`.
+4. Criar nova transicao: adicionar `trans` na questao desejada.
 
-## Deploy
+---
 
-O projeto funciona em hospedagem estatica (exemplo: GitHub Pages), desde que a pagina inicial publicada seja:
+## ![Bloco](https://img.shields.io/badge/Bloco%2011-Deploy-1d4ed8?style=for-the-badge)
+
+Hospedagem estatica suportada (ex.: GitHub Pages), com entrada em:
 
 - `sst/aula-11/index.html`
 
-## Observacoes tecnicas
+---
 
-- O ranking depende do Firebase configurado corretamente.
+## ![Bloco](https://img.shields.io/badge/Bloco%2012-Observacoes%20Tecnicas-4b5563?style=for-the-badge)
+
+- O ranking depende de configuracao valida do Firebase.
 - Sem Firebase, o quiz continua funcional, mas sem persistencia global de ranking.
-- O arquivo `QUICK-START.md` existe como guia rapido, mas este README e a referencia completa.
+- `QUICK-START.md` pode ser usado como guia rapido.
 
-## Roadmap sugerido
+---
+
+## ![Bloco](https://img.shields.io/badge/Bloco%2013-Roadmap-f43f5e?style=for-the-badge)
 
 - Persistencia local de progresso (checkpoint da jornada).
-- Painel administrativo para editar `data.json` sem editar codigo.
+- Painel administrativo para editar `data.json` sem alterar codigo.
 - Relatorios por turma e exportacao estendida.
 - Cobertura de testes para regras de pontuacao e fluxo.
 - Modo offline com fallback local de ranking.
 
-## Licenca
+---
+
+## ![Bloco](https://img.shields.io/badge/Bloco%2014-Licenca-111827?style=for-the-badge)
 
 Consulte o arquivo `LICENSE`.
 
-## Creditos
+---
 
-Conteudo didatico e conducao pedagogica:
+## ![Bloco](https://img.shields.io/badge/Bloco%2015-Creditos-0369a1?style=for-the-badge)
+
+Conteudo didatico e conducao pedagogica:  
 Professor Raphael Barreto - Firjan SENAI.
 
