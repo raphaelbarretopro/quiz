@@ -83,8 +83,8 @@ export default class RankingManager {
             if (snapshot.exists()) {
                 snapshot.forEach(childSnapshot => {
                     const scoreData = childSnapshot.val();
-                    // Filtra por aula (compatibilidade com scores antigos que não têm 'lesson')
-                    if (!this.lessonId || scoreData.lesson === this.lessonId || !scoreData.lesson) {
+                    // Filtra APENAS scores da aula atual (se lessonId estiver definido)
+                    if (this.lessonId && scoreData.lesson === this.lessonId) {
                         scores.push(scoreData);
                     }
                 });
@@ -109,15 +109,17 @@ export default class RankingManager {
         this.rankingQuery = rankingQuery;
         onValue(rankingQuery, (snapshot) => {
             const scores = [];
+            
             if (snapshot.exists()) {
                 snapshot.forEach(childSnapshot => {
                     const scoreData = childSnapshot.val();
-                    // Filtra por aula (compatibilidade com scores antigos que não têm 'lesson')
-                    if (!this.lessonId || scoreData.lesson === this.lessonId || !scoreData.lesson) {
+                    // Filtra APENAS scores da aula atual (se lessonId estiver definido)
+                    if (this.lessonId && scoreData.lesson === this.lessonId) {
                         scores.push(scoreData);
                     }
                 });
             }
+            
             callback(this.sortScores(scores).slice(0, limit));
         });
 
