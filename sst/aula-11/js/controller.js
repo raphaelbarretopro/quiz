@@ -7,7 +7,7 @@ class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
-        this.ranking = new RankingManager();
+        this.ranking = new RankingManager(); // Será inicializado após carregar dados
         this.isReady = false;
         this.currentTargetTopic = null;
         this.startTime = null;
@@ -66,6 +66,10 @@ class Controller {
         // Carrega dados iniciais e libera a UI apenas se a carga for bem-sucedida.
         const success = await this.model.loadData();
         if(success) {
+            // Inicializa o RankingManager com a ID da aula carregada do data.json
+            const lessonId = this.model.getLessonId();
+            this.ranking.setLessonId(lessonId);
+            
             this.view.initUI(this.model.lessonInfo);
 
             // Mantém painel Top 15 da tela principal atualizado em tempo real.

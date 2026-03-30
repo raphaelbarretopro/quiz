@@ -12,9 +12,14 @@ import {
 import { database } from './firebase-config.js';
 
 export default class RankingManager {
-    constructor() {
+    constructor(lessonId = '') {
         this.isFirebaseReady = Boolean(database);
         this.rankingQuery = null;
+        this.lessonId = lessonId; // ID da aula (ex: "Aula-11")
+    }
+    
+    setLessonId(lessonId) {
+        this.lessonId = lessonId;
     }
 
     sortScores(scores = []) {
@@ -49,7 +54,8 @@ export default class RankingManager {
                 accuracy: Math.round((correctAnswers / totalQuestions) * 100),
                 gameTime: gameTime,
                 timestamp: timestamp,
-                date: new Date().toLocaleDateString('pt-BR')
+                date: new Date().toLocaleDateString('pt-BR'),
+                lesson: this.lessonId // Adiciona identificador da aula
             };
 
             // Salva com ID único baseado em timestamp + nome
@@ -76,7 +82,11 @@ export default class RankingManager {
 
             if (snapshot.exists()) {
                 snapshot.forEach(childSnapshot => {
-                    scores.push(childSnapshot.val());
+                    const scoreData = childSnapshot.val();
+                    // Filtra por aula (compatibilidade com scores antigos que não têm 'lesson')
+                    if (!this.lessonId || scoreData.lesson === this.lessonId || !scoreData.lesson) {
+                        scores.push(scoreData);
+                    }
                 });
             }
 
@@ -101,7 +111,11 @@ export default class RankingManager {
             const scores = [];
             if (snapshot.exists()) {
                 snapshot.forEach(childSnapshot => {
-                    scores.push(childSnapshot.val());
+                    const scoreData = childSnapshot.val();
+                    // Filtra por aula (compatibilidade com scores antigos que não têm 'lesson')
+                    if (!this.lessonId || scoreData.lesson === this.lessonId || !scoreData.lesson) {
+                        scores.push(scoreData);
+                    }
                 });
             }
             callback(this.sortScores(scores).slice(0, limit));

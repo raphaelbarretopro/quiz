@@ -50,6 +50,12 @@ export default class Model {
         return this.questions[this.curStep];
     }
 
+    getLessonId() {
+        // Retorna a ID da aula do arquivo data.json
+        if(!this.lessonInfo) return '';
+        return this.lessonInfo.id || '';
+    }
+
     getTopicData(topicId) {
         if(!this.lessonInfo) return null;
         // Busca metadados do tema/era pelo id.
