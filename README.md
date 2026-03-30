@@ -1,127 +1,86 @@
-<table>
-	<tr>
-		<td width="110" valign="middle">
-			<img src="sst/aula-11/img/FirjanSENAI-01.png" alt="Logo Firjan SENAI" width="96" />
-		</td>
-		<td valign="middle">
-			<h1>Saga do Futuro</h1>
-			<p>Quiz educativo gamificado para Seguranca no Trabalho em TI, com narrativa por eras, desafios interativos e ranking em tempo real.</p>
-		</td>
-	</tr>
-</table>
+# Saga do Futuro - Quiz SST
 
-[![Status](https://img.shields.io/badge/Status-Em%20producao-1f883d?style=for-the-badge)](https://raphaelbarretopro.github.io/quiz/sst/aula-11/)
-[![Frontend](https://img.shields.io/badge/Frontend-HTML5%20%7C%20CSS3%20%7C%20JavaScript-e34f26?style=for-the-badge&logo=html5&logoColor=white)](https://raphaelbarretopro.github.io/quiz/sst/aula-11/)
-[![Arquitetura](https://img.shields.io/badge/Arquitetura-MVC-0a66c2?style=for-the-badge)](#)
-[![Backend](https://img.shields.io/badge/Backend-Firebase%20Realtime%20Database-ffca28?style=for-the-badge&logo=firebase&logoColor=black)](#)
+Projeto de quiz educativo gamificado para Seguranca no Trabalho em TI, com narrativa por eras, desafios interativos, mini-games e ranking em tempo real.
 
-**Demo publica:** https://raphaelbarretopro.github.io/quiz/sst/aula-11/
+## Acesso Rapido
 
----
+- Aula 11 (index): [Abrir aula-11](./sst/aula-11/index.html)
+- Aula 12 (index): [Abrir aula-12](./sst/aula-12/index.html)
+- Demo publica (aula 11): [raphaelbarretopro.github.io/quiz/sst/aula-11](https://raphaelbarretopro.github.io/quiz/sst/aula-11/)
 
-## ![Bloco](https://img.shields.io/badge/Bloco%201-Tecnologias-0052cc?style=for-the-badge)
+## Tecnologias (Logo + Cor)
 
-- HTML5
-- CSS3
-- JavaScript (ES Modules)
-- Firebase Realtime Database
-- GitHub Pages (deploy)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Firebase Realtime Database](https://img.shields.io/badge/Firebase%20Realtime-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-121013?style=for-the-badge&logo=github&logoColor=white)
+![Google Fonts](https://img.shields.io/badge/Google%20Fonts-4285F4?style=for-the-badge&logo=googlefonts&logoColor=white)
+![Arquitetura MVC](https://img.shields.io/badge/Arquitetura-MVC-0A66C2?style=for-the-badge)
 
----
+## Cores do Projeto
 
-## ![Bloco](https://img.shields.io/badge/Bloco%202-Visao%20do%20Projeto-0f766e?style=for-the-badge)
+### Paleta Base (UI)
 
-O projeto em producao esta em `sst/aula-11` e segue o fluxo:
+- Primaria: `#00d4ff`
+- Borda neon: `#00e5ff`
+- Destaque ouro: `#ffd700`
+- Fundo base: `#050a10`
+- Painel: `rgba(10, 20, 30, 0.95)`
+- Texto: `#f0f0f0`
 
-1. Jogador informa nome e inicia a jornada.
-2. Sistema carrega os dados da aula via `data.json`.
-3. Em transicoes de tema, abre roleta + modal + Sokoban.
-4. Perguntas sao exibidas com feedback imediato.
-5. A cada 3 acertos seguidos, e liberada rodada bonus (caca-niquel).
-6. No encerramento, o score e salvo no Firebase e o ranking e atualizado.
+### Cores por Era (dados da aula)
 
----
+- ACID - Acidentes de Trabalho: `#e74c3c`
+- AGEN - Agentes Agressores: `#f1c40f`
+- PROT - EPI e EPC: `#3498db`
+- NORM - Normas e Regras: `#2ecc71`
 
-## ![Bloco](https://img.shields.io/badge/Bloco%203-Funcionalidades-7c3aed?style=for-the-badge)
+## Analise do Projeto
 
-- Arquitetura MVC com modulos ES.
-- 50 questoes no banco atual (`sst/aula-11/data.json`).
-- 5 tipos de questao: `multiple`, `boolean`, `combo`, `multi`, `drag`.
-- 4 eras didaticas com troca dinamica de cor e background.
-- Transicoes com roleta e mini-jogo Sokoban.
-- Pontuacao em tempo real com animacoes e audio.
-- Bonus de caca-niquel por sequencia de acertos.
-- Ranking global com Firebase Realtime Database.
-- Painel lateral com Top 15 em tempo real.
-- Timer total de sessao e timer especifico do Sokoban.
-- Layout responsivo para desktop e mobile.
+### Estrutura Geral
 
----
+- Projeto com duas versoes completas da aplicacao: `sst/aula-11` e `sst/aula-12`
+- Cada aula possui seu proprio `index.html`, `data.json`, assets, CSS e JavaScript modular
+- Ambas as aulas seguem arquitetura MVC com modulos ES
 
-## ![Bloco](https://img.shields.io/badge/Bloco%204-Regras%20do%20Jogo-b45309?style=for-the-badge)
+### Arquitetura
 
-- Acerto: +100 pontos.
-- Erro: sem penalidade.
-- Desempate no ranking: menor tempo total de sessao.
-- Bonus: 3 acertos consecutivos liberam 1 rodada de caca-niquel.
-- Cada rodada bonus permite ate 3 giros.
+- `js/model.js`: estado do jogo, carregamento de questoes, regras de pontuacao e Sokoban
+- `js/view.js`: renderizacao da interface, audio, mini-games e modais
+- `js/controller.js`: orquestracao do fluxo, timers, progresso, bonus e encerramento
+- `js/ranking-manager.js`: persistencia e leitura de ranking no Firebase Realtime
 
-Tempo maximo por desafio Sokoban:
+### Funcionalidades Principais
 
-- `ACID`: 60s
-- `AGEN`: 50s
-- `PROT`: 40s
-- `NORM`: 30s
+- 50 perguntas por aula (`data.json`)
+- Tipos de questao: `multiple`, `boolean`, `combo`, `multi`, `drag`
+- Roleta de eras + transicoes narrativas
+- Mini-game Sokoban entre mudancas de tema
+- Bonus estilo caca-niquel por sequencia de acertos
+- Bonus especiais inspirados em PAC-MAN, Enduro e T-Rex
+- Ranking Top 15 em tempo real por aula
+- Controle de tempo total da partida e tempo por desafio
+- Interface responsiva com efeitos visuais e trilhas sonoras
 
----
+### Diferencas Entre Aula-11 e Aula-12
 
-## ![Bloco](https://img.shields.io/badge/Bloco%205-Estrutura%20de%20Pastas-9333ea?style=for-the-badge)
+- IDs de aula distintas no `data.json`: `Aula-11` e `Aula-12`
+- Base de codigo praticamente igual entre as duas pastas
+- Diferenca identificada no `index.html`:
+  - Aula 11 deixa botoes de teste dos bonus comentados
+  - Aula 12 deixa esses botoes visiveis
 
-```text
-quiz/
-	LICENSE
-	QUICK-START.md
-	README.md
-	sst/
-		aula-11/
-			index.html
-			data.json
-			FIREBASE-SETUP.md
-			audio/
-			css/
-				style.css
-			img/
-				FirjanSENAI-01.png
-			js/
-				controller.js
-				model.js
-				view.js
-				ranking-manager.js
-				firebase-config.js
-		aula-12/
-```
+## Como Executar Localmente
 
----
-
-## ![Bloco](https://img.shields.io/badge/Bloco%206-Arquitetura%20MVC-0891b2?style=for-the-badge)
-
-| Camada | Arquivo | Responsabilidade |
-|---|---|---|
-| Model | `sst/aula-11/js/model.js` | Estado da sessao, carga de dados, regras de pontuacao e estado do Sokoban |
-| View | `sst/aula-11/js/view.js` | Renderizacao da interface, interacoes, efeitos visuais/sonoros e modais |
-| Controller | `sst/aula-11/js/controller.js` | Orquestracao do fluxo, timers, progresso, bonus e fim de jogo |
-| Servico | `sst/aula-11/js/ranking-manager.js` | Persistencia e leitura do ranking no Firebase |
-
----
-
-## ![Bloco](https://img.shields.io/badge/Bloco%207-Execucao%20Local-166534?style=for-the-badge)
-
-Como o app usa `fetch` para carregar `data.json`, execute em servidor HTTP local.
+Como o app usa `fetch` para carregar `data.json`, abra com servidor local HTTP.
 
 ### Opcao 1: Live Server (VS Code)
 
-1. Abra o repositorio no VS Code.
-2. Abra `sst/aula-11/index.html`.
+1. Abra o projeto no VS Code.
+2. Abra um dos arquivos:
+   - `sst/aula-11/index.html`
+   - `sst/aula-12/index.html`
 3. Execute com Live Server.
 
 ### Opcao 2: Python
@@ -131,104 +90,70 @@ cd sst/aula-11
 python -m http.server 5500
 ```
 
-URL local:
+ou
 
-```text
-http://localhost:5500
+```bash
+cd sst/aula-12
+python -m http.server 5500
 ```
 
----
+## Ranking e Firebase
 
-## ![Bloco](https://img.shields.io/badge/Bloco%208-Ranking%20Firebase-f59e0b?style=for-the-badge)
+- O ranking e opcional para funcionamento do quiz
+- Sem Firebase, o jogo continua operando localmente
+- Com Firebase, o Top 15 e atualizado em tempo real
+- Filtro por aula baseado em `lesson_info.id`
 
-Campos persistidos no ranking global:
+Guias de configuracao:
 
-- `name`
-- `score`
-- `correct`
-- `total`
-- `accuracy`
-- `gameTime`
-- `timestamp`
-- `date`
+- Aula 11: [FIREBASE-SETUP](./sst/aula-11/FIREBASE-SETUP.md)
+- Aula 12: [FIREBASE-SETUP](./sst/aula-12/FIREBASE-SETUP.md)
+- Filtro por aula: [LESSON_FILTER_SETUP aula-11](./sst/aula-11/LESSON_FILTER_SETUP.md)
 
-Guia de configuracao:
+## Estrutura de Pastas
 
-- `sst/aula-11/FIREBASE-SETUP.md`
-- `sst/aula-11/js/firebase-config.js`
+```text
+quiz/
+  LICENSE
+  QUICK-START.md
+  README.md
+  sst/
+    aula-11/
+      index.html
+      data.json
+      FIREBASE-SETUP.md
+      LESSON_FILTER_SETUP.md
+      audio/
+      css/
+        style.css
+      img/
+      js/
+        controller.js
+        model.js
+        view.js
+        ranking-manager.js
+        firebase-config.js
+    aula-12/
+      index.html
+      data.json
+      FIREBASE-SETUP.md
+      LESSON_FILTER_SETUP.md
+      audio/
+      css/
+        style.css
+      img/
+      js/
+        controller.js
+        model.js
+        view.js
+        ranking-manager.js
+        firebase-config.js
+```
 
----
+## Creditos
 
-## ![Bloco](https://img.shields.io/badge/Bloco%209-Banco%20de%20Questoes-334155?style=for-the-badge)
+Conteudo didatico e conducao pedagogica: Professor Raphael Barreto - Firjan SENAI.
 
-Arquivo principal: `sst/aula-11/data.json`
+## Licenca
 
-Estrutura:
-
-- `lesson_info`: metadados da aula e temas (id, nome, descricao, cor, imagem, letras do Sokoban).
-- `questions`: lista de perguntas.
-
-Campos por questao:
-
-- `type`
-- `topics`
-- `questions`
-- `answers` ou `options`
-- `correct`
-- `tip`
-- `trans` (opcional para transicoes de era)
-
-Transicoes atuais:
-
-- `ACID -> AGEN`
-- `AGEN -> PROT`
-- `PROT -> NORM`
-
----
-
-## ![Bloco](https://img.shields.io/badge/Bloco%2010-Customizacao-9f1239?style=for-the-badge)
-
-1. Alterar tema por era: editar `color` e `img_url` em `lesson_info.topics`.
-2. Alterar pontuacao: editar `pointsPerCorrect` em `sst/aula-11/js/model.js`.
-3. Adicionar perguntas: inserir novos objetos no array `questions`.
-4. Criar nova transicao: adicionar `trans` na questao desejada.
-
----
-
-## ![Bloco](https://img.shields.io/badge/Bloco%2011-Deploy-1d4ed8?style=for-the-badge)
-
-Hospedagem estatica suportada (ex.: GitHub Pages), com entrada em:
-
-- `sst/aula-11/index.html`
-
----
-
-## ![Bloco](https://img.shields.io/badge/Bloco%2012-Observacoes%20Tecnicas-4b5563?style=for-the-badge)
-
-- O ranking depende de configuracao valida do Firebase.
-- Sem Firebase, o quiz continua funcional, mas sem persistencia global de ranking.
-- `QUICK-START.md` pode ser usado como guia rapido.
-
----
-
-## ![Bloco](https://img.shields.io/badge/Bloco%2013-Roadmap-f43f5e?style=for-the-badge)
-
-- Persistencia local de progresso (checkpoint da jornada).
-- Painel administrativo para editar `data.json` sem alterar codigo.
-- Relatorios por turma e exportacao estendida.
-- Cobertura de testes para regras de pontuacao e fluxo.
-- Modo offline com fallback local de ranking.
-
----
-
-## ![Bloco](https://img.shields.io/badge/Bloco%2014-Licenca-111827?style=for-the-badge)
-
-Consulte o arquivo `LICENSE`.
-
----
-
-## ![Bloco](https://img.shields.io/badge/Bloco%2015-Creditos-0369a1?style=for-the-badge)
-
-Conteudo didatico e conducao pedagogica:  
-Professor Raphael Barreto - Firjan SENAI.
-
+Consulte [LICENSE](./LICENSE).
