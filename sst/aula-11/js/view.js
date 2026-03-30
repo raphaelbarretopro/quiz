@@ -182,6 +182,12 @@ export default class View {
         this.bgMusic.preload = 'auto';
         this.defaultMusicVolume = 0.35;
         this.bgMusic.volume = this.defaultMusicVolume;
+
+        this.sokobanMusic = new Audio('audio/apt.mp3');
+        this.sokobanMusic.loop = true;
+        this.sokobanMusic.preload = 'auto';
+        this.sokobanMusic.volume = this.defaultMusicVolume;
+
         this.musicEnabled = true;
     }
 
@@ -205,12 +211,35 @@ export default class View {
         if (this.bgMusic) {
             this.bgMusic.pause();
         }
+        if (this.sokobanMusic) {
+            this.sokobanMusic.pause();
+        }
     }
 
     resumeGameMusic() {
         // Retoma a música de fundo após mini-games terminarem
         if (this.bgMusic && this.musicEnabled) {
+            if (this.els.sokobanScreen && !this.els.sokobanScreen.classList.contains('hidden')) return;
             this.bgMusic.play().catch(() => {});
+        }
+    }
+
+    startSokobanMusic() {
+        if (!this.musicEnabled || !this.sokobanMusic) return;
+        if (this.bgMusic) this.bgMusic.pause();
+        try {
+            this.sokobanMusic.currentTime = 0;
+        } catch (_) {}
+        this.sokobanMusic.play().catch(() => {});
+    }
+
+    stopSokobanMusic(resetTime = true) {
+        if (!this.sokobanMusic) return;
+        this.sokobanMusic.pause();
+        if (resetTime) {
+            try {
+                this.sokobanMusic.currentTime = 0;
+            } catch (_) {}
         }
     }
 
@@ -235,12 +264,19 @@ export default class View {
                     // Desliga a música
                     this.musicEnabled = false;
                     this.bgMusic.pause();
+                    this.stopSokobanMusic(false);
                     this.els.musicToggle.textContent = 'LIGAR';
                     this.els.musicToggle.classList.add('music-off');
                 } else {
                     // Liga a música
                     this.musicEnabled = true;
-                    this.bgMusic.play().catch(() => {});
+                    if (this.els.sokobanScreen && !this.els.sokobanScreen.classList.contains('hidden')) {
+                        this.startSokobanMusic();
+                    } else if (this.els.trexBonusModal && !this.els.trexBonusModal.classList.contains('hidden')) {
+                        // Durante o T-REX, mantém apenas os áudios do mini-game.
+                    } else {
+                        this.bgMusic.play().catch(() => {});
+                    }
                     this.els.musicToggle.textContent = 'DESLIGAR';
                     this.els.musicToggle.classList.remove('music-off');
                 }
@@ -253,6 +289,9 @@ export default class View {
                 const volume = parseFloat(e.target.value);
                 if (this.bgMusic) {
                     this.bgMusic.volume = volume;
+                }
+                if (this.sokobanMusic) {
+                    this.sokobanMusic.volume = volume;
                 }
             });
         }
@@ -407,6 +446,7 @@ export default class View {
         this.els.introModal.classList.add('hidden');
         this.els.portalScreen.classList.add('hidden');
         this.els.sokobanScreen.classList.remove('hidden');
+        this.startSokobanMusic();
     }
 
     drawSokoban(level, player, boxes) {
@@ -437,6 +477,8 @@ export default class View {
         this.createCoinAnimation();
         setTimeout(() => {
             this.els.sokobanScreen.classList.add('hidden');
+            this.stopSokobanMusic();
+            this.resumeGameMusic();
             callback();
         }, 1500);
     }
@@ -1371,7 +1413,7 @@ export default class View {
         let mouthFrame = 0;
         let pelletTotal = pellets.size + powerPellets.size;
         let finished = false;
-        let timeLeft = 60;
+        let timeLeft = 120;
         let lives = 3;
         let powerUntil = 0;
         let respawnShieldUntil = 0;
@@ -1743,7 +1785,7 @@ export default class View {
             return died;
         };
 
-        const finish = (won) => {
+        const finish = (won, reason = won ? 'completed' : 'unknown') => {
             if (finished) return;
             finished = true;
 
@@ -1768,7 +1810,7 @@ export default class View {
 
             modal.classList.add('hidden');
             this.pacmanSession = null;
-            resolvePromise({ won, cherryBonus });
+            resolvePromise({ won, cherryBonus, reason });
         };
 
         const renderLoop = () => {
@@ -1801,6 +1843,14 @@ export default class View {
 
             consumeCell(player.x, player.y);
 
+            // Prioriza vitória imediata ao comer o último ponto.
+            // Evita perder no mesmo frame por colisão simultânea com fantasma.
+            if ((pellets.size + powerPellets.size) === 0) {
+                this.playSokobanWinSound();
+                finish(true);
+                return;
+            }
+
             ghostStepCounter += 1;
             if (ghostStepCounter % 3 === 0) {
                 ghosts.forEach(moveGhost);
@@ -1816,7 +1866,7 @@ export default class View {
                 this.pacmanDieAudio.play().catch(() => {});
 
                 if (lives <= 0) {
-                    finish(false);
+                    finish(false, 'credits');
                     return;
                 }
 
@@ -1837,10 +1887,6 @@ export default class View {
             }
 
             updateHud();
-            if ((pellets.size + powerPellets.size) === 0) {
-                this.playSokobanWinSound();
-                finish(true);
-            }
         };
 
         keyHandler = (e) => {
@@ -1853,7 +1899,7 @@ export default class View {
         window.addEventListener('keydown', keyHandler);
 
         if (this.els.pacmanGiveUpBtn) {
-            this.els.pacmanGiveUpBtn.onclick = () => finish(false);
+            this.els.pacmanGiveUpBtn.onclick = () => finish(false, 'giveup');
         }
 
         consumeCell(player.x, player.y);
@@ -1869,9 +1915,10 @@ export default class View {
             if (finished) return;
             moveTick = setInterval(onStep, 220);
             timerTick = setInterval(() => {
+                if (finished) return;
                 timeLeft -= 1;
                 updateHud();
-                if (timeLeft <= 0) finish(false);
+                if (timeLeft <= 0) finish(false, 'timeout');
             }, 1000);
         };
 
@@ -1884,7 +1931,7 @@ export default class View {
         });
 
         this.pacmanSession = {
-            cleanup: (won = false) => finish(won)
+            cleanup: (won = false) => finish(won, won ? 'completed' : 'interrupted')
         };
 
         return promise;
@@ -2093,7 +2140,6 @@ export default class View {
             if (startRaceTimer) clearTimeout(startRaceTimer);
             if (keyDownHandler) window.removeEventListener('keydown', keyDownHandler);
             if (keyUpHandler) window.removeEventListener('keyup', keyUpHandler);
-            if (pointerJumpHandler) canvas.removeEventListener('pointerdown', pointerJumpHandler);
             stopEnduroSounds();
 
             if (this.els.enduroGiveUpBtn) {
@@ -2331,6 +2377,9 @@ export default class View {
         const ctx = canvas.getContext('2d');
 
         if (!modal || !canvas || !ctx) return Promise.resolve({ won: false, distance: 0 });
+
+        // Garante que a trilha show pare antes do mini-game.
+        this.pauseGameMusic();
 
         const makeImage = (src) => {
             const img = new Image();
@@ -3060,6 +3109,55 @@ export default class View {
         }
     }
 
+    _generateSlotFinalPositions(reels) {
+        const counts = reels.map((reel) => Math.max(1, Number(reel?.dataset.baseCount || 5)));
+        const baseCount = Math.max(1, Math.min(...counts));
+
+        if (baseCount <= 1) {
+            return [0, 0, 0];
+        }
+
+        const pick = (max) => Math.floor(Math.random() * Math.max(1, max));
+        const roll = Math.random();
+
+        // Facilita a rodada: mais chances de 2 e 3 símbolos iguais.
+        if (roll < 0.18) {
+            const idx = pick(baseCount);
+            return [idx, idx, idx];
+        }
+
+        if (roll < 0.70) {
+            const pair = pick(baseCount);
+            let odd = pick(baseCount - 1);
+            if (odd >= pair) odd += 1;
+
+            const oddPos = pick(3);
+            if (oddPos === 0) return [odd, pair, pair];
+            if (oddPos === 1) return [pair, odd, pair];
+            return [pair, pair, odd];
+        }
+
+        // Restante: tentativa de rodada sem combinação.
+        if (baseCount >= 3) {
+            const a = pick(baseCount);
+            let b = pick(baseCount - 1);
+            if (b >= a) b += 1;
+
+            let c = pick(baseCount - 2);
+            const blocked = [a, b].sort((x, y) => x - y);
+            if (c >= blocked[0]) c += 1;
+            if (c >= blocked[1]) c += 1;
+
+            return [a, b, c];
+        }
+
+        // Fallback para casos raros com poucos símbolos.
+        const a = pick(baseCount);
+        const b = (a + 1) % baseCount;
+        const c = a;
+        return [a, b, c];
+    }
+
     spinSlotMachine() {
         // Anima os 3 reels e resolve quando o resultado final estiver disponível.
         this._ensureSlotTracks();
@@ -3067,10 +3165,7 @@ export default class View {
         const reels = [this.els.slotReel1, this.els.slotReel2, this.els.slotReel3];
         const spinDurations = [1100, 1400, 1700];
 
-        const finalPositions = reels.map((reel) => {
-            const count = Number(reel?.dataset.baseCount || 5);
-            return Math.floor(Math.random() * Math.max(1, count));
-        });
+        const finalPositions = this._generateSlotFinalPositions(reels);
 
         // Armazena as posições para uso posterior
         this.lastSlotPositions = finalPositions;

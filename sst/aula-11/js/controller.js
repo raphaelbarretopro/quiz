@@ -23,9 +23,10 @@ class Controller {
         this.lastAnswerWasCorrect = false;
         this.pacmanBonusReward = 1000;
         this.pacmanBonusActive = false;
-        this.pacmanTriggeredInCurrentStreak = false;
+        this.pacmanTriggeredByQuestionCount = false;
         this.enduroBonusReward = 1500;
         this.enduroBonusActive = false;
+        this.enduroTriggeredByQuestionCount = false;
         this.trexBonusReward = 2000;
         this.trexBonusActive = false;
         this.trexFinalTriggered = false;
@@ -86,8 +87,9 @@ class Controller {
         this.slotStreak = 0;
         this.lastAnswerWasCorrect = false;
         this.pacmanBonusActive = false;
-        this.pacmanTriggeredInCurrentStreak = false;
+        this.pacmanTriggeredByQuestionCount = false;
         this.enduroBonusActive = false;
+        this.enduroTriggeredByQuestionCount = false;
         this.trexBonusActive = false;
         this.trexFinalTriggered = false;
         this.slotSpinsUsed = 0;
@@ -306,7 +308,6 @@ class Controller {
         } else {
             this.correctStreak = 0;
             this.slotStreak = 0;
-            this.pacmanTriggeredInCurrentStreak = false;
             this.model.registerMistake(q);
             // Erro não pontua e também não desconta: mantém o score atual.
             this.view.updateScoreDisplay(this.model.playerScore);
@@ -320,18 +321,16 @@ class Controller {
         this.model.curStep++;
         
         if (this.model.curStep < this.model.questions.length) {
-            // Regra especial: 15 acertos seguidos desbloqueiam o bônus ENDURO.
-            if (this.correctStreak >= 15) {
-                this.correctStreak = 0;
-                this.slotStreak = 0;
-                this.pacmanTriggeredInCurrentStreak = false;
+            // Regra especial: ENDURO aparece ao responder 30 perguntas, independente de acerto.
+            if (!this.enduroTriggeredByQuestionCount && this.model.curStep >= 30) {
+                this.enduroTriggeredByQuestionCount = true;
                 await this.openEnduroBonusRound();
                 return;
             }
 
-            // Regra especial: PAC-MAN continua em 10 acertos, uma vez por streak.
-            if (this.correctStreak >= 10 && !this.pacmanTriggeredInCurrentStreak) {
-                this.pacmanTriggeredInCurrentStreak = true;
+            // Regra especial: PAC-MAN aparece ao responder 15 perguntas, independente de acerto.
+            if (!this.pacmanTriggeredByQuestionCount && this.model.curStep >= 15) {
+                this.pacmanTriggeredByQuestionCount = true;
                 await this.openPacmanBonusRound();
                 return;
             }
@@ -508,6 +507,18 @@ class Controller {
             );
             this.model.playerScore = finalScore;
             this.view.updateScoreDisplay(finalScore);
+        } else if (result.reason === 'timeout') {
+            this.view.showAlert(
+                '⏱️ Tempo Esgotado no PAC-MAN',
+                'O cronômetro do desafio PAC-MAN chegou a 0s antes de limpar todos os pontos.',
+                () => this.view.resumeGameMusic()
+            );
+        } else if (result.reason === 'giveup' || result.reason === 'interrupted') {
+            this.view.showAlert(
+                '⏸️ Desafio Interrompido',
+                'O desafio PAC-MAN foi interrompido antes da conclusão. Continue acertando para tentar novamente.',
+                () => this.view.resumeGameMusic()
+            );
         } else {
             this.view.showAlert(
                 '👻 Desafio Não Concluído',
