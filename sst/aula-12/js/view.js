@@ -529,11 +529,6 @@ export default class View {
             this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
             
-            // Normaliza as respostas corretas removendo espaços extras para comparação robusta
-            const normalizedCorrect = Array.isArray(q.correct)
-                ? q.correct.map(c => String(c).trim())
-                : [String(q.correct).trim()];
-            
             shuffledAnswers.forEach(a => {
                 const l = document.createElement('label');
                 l.className = "multi-opt";
@@ -563,10 +558,7 @@ export default class View {
 
             this.els.valBtn.onclick = () => {
                 const sel = Array.from(this.els.opts.querySelectorAll('input:checked')).map(i => String(i.value).trim());
-                // Valida se o usuário selecionou exatamente as respostas corretas (independente de ordem)
-                const isCor = sel.length === normalizedCorrect.length && sel.every(v => normalizedCorrect.includes(v)) && normalizedCorrect.every(v => sel.includes(v));
-                // Passa sempre as respostas normalizadas, garantindo que a comparação no controller funcione
-                answerHandler(isCor ? normalizedCorrect : sel, null);
+                answerHandler(sel, null);
             };
         }
         else if (q.type === "drag") {

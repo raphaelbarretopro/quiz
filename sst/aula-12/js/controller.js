@@ -288,17 +288,19 @@ class Controller {
     handleAnswer(selectedValue, btnElement) {
         if (this.hasTimedOut) return;
         const q = this.model.getCurrentQuestion();
-        // Normaliza respostas corretas para comparação robusta
-        const normalizedCorrect = Array.isArray(q.correct)
-            ? q.correct.map(v => String(v).trim())
-            : String(q.correct).trim();
-        const normalizedSelected = Array.isArray(selectedValue)
-            ? selectedValue.map(v => String(v).trim())
-            : String(selectedValue).trim();
-        // Compara resposta escolhida com a correta (inclui casos de array e valor simples, com normalização de espaços).
-        const isCorrect = Array.isArray(normalizedCorrect) && Array.isArray(normalizedSelected)
-            ? normalizedCorrect.length === normalizedSelected.length && normalizedCorrect.every(v => normalizedSelected.includes(v))
-            : JSON.stringify(normalizedSelected) === JSON.stringify(normalizedCorrect) || normalizedSelected === normalizedCorrect;
+        const normalizeAnswerValue = (value) => String(value ?? '')
+            .normalize('NFKC')
+            .trim()
+            .replace(/\s+/g, ' ')
+            .toLowerCase();
+        const normalizeAnswerList = (value) => {
+            const list = Array.isArray(value) ? value : [value];
+            return [...new Set(list.map(normalizeAnswerValue))].sort();
+        };
+
+        const isCorrect = Array.isArray(q.correct) || Array.isArray(selectedValue)
+            ? JSON.stringify(normalizeAnswerList(q.correct)) === JSON.stringify(normalizeAnswerList(selectedValue))
+            : normalizeAnswerValue(q.correct) === normalizeAnswerValue(selectedValue);
         this.lastAnswerWasCorrect = isCorrect;
 
         if (isCorrect) {
