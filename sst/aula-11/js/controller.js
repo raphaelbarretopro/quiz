@@ -40,6 +40,7 @@ class Controller {
 
         // Registra os handlers da interface com o contexto da instância.
         this.view.bindStart(this.handleStart.bind(this));
+        this.view.bindRankingPreview(this.handleShowRanking.bind(this));
         this.view.bindWheelStart(this.handleWheelStart.bind(this));
         this.view.bindWheelStop(this.handleWheelStop.bind(this));
         this.view.bindModalClose(this.handleModalClose.bind(this));
@@ -389,7 +390,7 @@ class Controller {
     async handleShowRanking() {
         // Busca e exibe ranking global
         const scores = await this.ranking.getTopScores(15);
-        this.view.showRankingModal(scores);
+        this.view.showRankingModal(scores, this.model.lessonInfo || {});
     }
 
     handleRankingModalClose() {

@@ -38,6 +38,8 @@
         </div>
     </div>
 
+    <button id="btn-preview-ranking" class="opt-btn ranking-hud-btn">RANKING GLOBAL</button>
+
     <!-- Player de trilha: permite ligar/desligar e ajustar volume. -->
     <div id="music-player" class="music-player">
         <span class="music-label">♫ TRILHA</span>
@@ -232,6 +234,17 @@
             <h2 id="ranking-modal-title" style="color: gold; font-family:'Orbitron'; margin-bottom: 20px; font-size: 1.8rem;">🏆 RANKING GLOBAL</h2>
             <div id="ranking-list" style="text-align: left; margin-bottom: 20px;"></div>
             <button id="ranking-modal-close" class="opt-btn" style="background: gold; color: #000; font-weight: bold; width: 200px;">VOLTAR</button>
+        </div>
+    </div>
+
+    <!-- Modal de Certificado -->
+    <div id="certificate-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88); z-index: 3200; display: flex; align-items: center; justify-content: center;">
+        <div class="certificate-paper">
+            <div id="certificate-content"></div>
+            <div class="certificate-actions">
+                <button id="certificate-print-btn" class="opt-btn certificate-print-btn">IMPRIMIR EM PDF</button>
+                <button id="certificate-modal-close" class="opt-btn certificate-close-btn">FECHAR CERTIFICADO</button>
+            </div>
         </div>
     </div>
 

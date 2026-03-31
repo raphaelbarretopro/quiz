@@ -11,6 +11,7 @@ export default class View {
             
             pNameInput: document.getElementById('p-name-input'),
             btnStart: document.getElementById('btn-start'),
+            btnPreviewRanking: document.getElementById('btn-preview-ranking'),
             
             spinBtn: document.getElementById('spin-btn'),
             stopBtn: document.getElementById('stop-btn'),
@@ -59,6 +60,10 @@ export default class View {
             rankingModal: document.getElementById('ranking-modal'),
             rankingList: document.getElementById('ranking-list'),
             rankingModalClose: document.getElementById('ranking-modal-close'),
+            certificateModal: document.getElementById('certificate-modal'),
+            certificateContent: document.getElementById('certificate-content'),
+            certificateModalClose: document.getElementById('certificate-modal-close'),
+            certificatePrintBtn: document.getElementById('certificate-print-btn'),
 
             // Elementos do Caça Níquel
             slotMachineModal: document.getElementById('slot-machine-modal'),
@@ -189,6 +194,22 @@ export default class View {
         this.sokobanMusic.volume = this.defaultMusicVolume;
 
         this.musicEnabled = true;
+
+        if (this.els.certificateModalClose) {
+            this.els.certificateModalClose.addEventListener('click', () => this.hideCertificateModal());
+        }
+
+        if (this.els.certificatePrintBtn) {
+            this.els.certificatePrintBtn.addEventListener('click', () => this.printCertificate());
+        }
+
+        if (this.els.certificateModal) {
+            this.els.certificateModal.addEventListener('click', (event) => {
+                if (event.target === this.els.certificateModal) {
+                    this.hideCertificateModal();
+                }
+            });
+        }
     }
 
     getSharedAudioContext() {
@@ -340,6 +361,10 @@ export default class View {
     }
 
     bindWheelStart(handler) { this.els.spinBtn.addEventListener('click', handler); }
+    bindRankingPreview(handler) {
+        if (!this.els.btnPreviewRanking) return;
+        this.els.btnPreviewRanking.addEventListener('click', handler);
+    }
     bindWheelStop(handler) { this.els.stopBtn.addEventListener('click', handler); }
     bindModalClose(handler) { this.els.btnModalClose.addEventListener('click', handler); }
     bindSokobanMove(handler) {
@@ -1237,7 +1262,7 @@ export default class View {
         this.els.rankingModalClose.addEventListener('click', handler);
     }
 
-    showRankingModal(scores) {
+    showRankingModal(scores, lessonInfo = {}) {
         // Abre o modal com o ranking global.
         this.els.rankingList.innerHTML = '';
 
@@ -1267,6 +1292,7 @@ export default class View {
             <th style="padding:10px; text-align:left; color:gold;">JOGADOR</th>
             <th style="padding:10px; text-align:center; color:gold;">💰</th>
             <th style="padding:10px; text-align:center; color:gold;">⏱</th>
+            <th style="padding:10px; text-align:center; color:gold;">📜</th>
             <th style="padding:10px; text-align:center; color:gold;">✓</th>
             <th style="padding:10px; text-align:center; color:gold;">%</th>
         `;
@@ -1282,9 +1308,10 @@ export default class View {
             row.style.cssText = `background: ${bgColor}; border-bottom: 1px solid rgba(255,255,255,0.1);`;
             row.innerHTML = `
                 <td style="padding:10px; color:gold; font-weight:bold;">${medal} ${index + 1}</td>
-                <td style="padding:10px; color:#f0f0f0;">${score.name}</td>
+                <td style="padding:10px; color:#f0f0f0;">${this.escapeHtml(score.name || '---')}</td>
                 <td style="padding:10px; text-align:center; color:#ffd700; font-weight:bold;">${score.score}</td>
                 <td style="padding:10px; text-align:center; color:#ffef9f;">${this.formatGameTime(score.gameTime)}</td>
+                <td style="padding:10px; text-align:center;"><button type="button" class="ranking-cert-link" data-rank-index="${index}">CERTIFICADO</button></td>
                 <td style="padding:10px; text-align:center; color:#2ecc71;">${score.correct}/${score.total}</td>
                 <td style="padding:10px; text-align:center; color:#00d4ff;">${score.accuracy}%</td>
             `;
@@ -1292,12 +1319,107 @@ export default class View {
         });
 
         this.els.rankingList.appendChild(table);
+        const safeLesson = {
+            title: lessonInfo?.title || '',
+            topics: Array.isArray(lessonInfo?.topics) ? lessonInfo.topics : []
+        };
+        this.els.rankingList.querySelectorAll('.ranking-cert-link').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const rankIndex = Number(btn.getAttribute('data-rank-index'));
+                const score = scores[rankIndex];
+                if (!score) return;
+                this.showCertificateModal(score, rankIndex, safeLesson);
+            });
+        });
         this.els.rankingModal.classList.remove('hidden');
     }
 
     hideRankingModal() {
         // Fecha o modal de ranking.
         this.els.rankingModal.classList.add('hidden');
+        this.hideCertificateModal();
+    }
+
+    showCertificateModal(score, rankIndex, lessonInfo) {
+        if (!this.els.certificateModal || !this.els.certificateContent) return;
+
+        const medal = this.getPodiumMedal(rankIndex);
+        const lessonTitle = this.escapeHtml(lessonInfo?.title || 'AULA NAO INFORMADA');
+        const playerName = this.escapeHtml(score?.name || 'JOGADOR');
+        const scoreValue = Number(score?.score || 0);
+        const gameTime = this.formatGameTime(score?.gameTime);
+        const areas = this.renderKnowledgeAreas(lessonInfo?.topics);
+
+        this.els.certificateContent.innerHTML = `
+            <div class="certificate-title">CERTIFICADO DE DESEMPENHO</div>
+
+            <p class="certificate-text">Certificamos que</p>
+            <p class="certificate-player">${playerName}</p>
+            <p class="certificate-text">concluiu esta jornada com os seguintes resultados:</p>
+
+            <div class="certificate-metrics">
+                <div><span>Moedas:</span> <strong>${scoreValue}</strong></div>
+                <div><span>Tempo:</span> <strong>${gameTime}</strong></div>
+                <div><span>Aula:</span> <strong>${lessonTitle}</strong></div>
+            </div>
+
+            ${medal ? `<div class="certificate-medal-wrap"><div class="certificate-medal-icon">${medal.icon}</div><div class="certificate-medal-label">${medal.label}</div></div>` : ''}
+
+            <div class="certificate-areas-box">
+                <div class="certificate-areas-title">Areas de conhecimentos desenvolvidas</div>
+                <ul class="certificate-areas-list">${areas}</ul>
+            </div>
+
+            <div class="certificate-signature-block">
+                <p class="certificate-signature-name">Raphael Barreto de Oliveira</p>
+                <div class="certificate-signature-line"></div>
+                <p class="certificate-signature-role">Instrutor de Cursos Especiais A</p>
+                <div class="certificate-signature-line"></div>
+                <p class="certificate-signature-org">SENAI - SAPUCAI</p>
+            </div>
+        `;
+
+        this.els.certificateModal.classList.remove('hidden');
+    }
+
+    hideCertificateModal() {
+        if (!this.els.certificateModal) return;
+        this.els.certificateModal.classList.add('hidden');
+    }
+
+    printCertificate() {
+        if (!this.els.certificateModal || this.els.certificateModal.classList.contains('hidden')) return;
+        window.print();
+    }
+
+    getPodiumMedal(rankIndex) {
+        const podium = [
+            { icon: '🥇', label: 'MEDALHA DE OURO' },
+            { icon: '🥈', label: 'MEDALHA DE PRATA' },
+            { icon: '🥉', label: 'MEDALHA DE BRONZE' }
+        ];
+        return podium[rankIndex] || null;
+    }
+
+    renderKnowledgeAreas(topics = []) {
+        if (!Array.isArray(topics) || topics.length === 0) {
+            return '<li>Areas de conhecimento nao informadas.</li>';
+        }
+
+        return topics.map((topic) => {
+            const name = this.escapeHtml(topic?.name || 'Area');
+            const desc = this.escapeHtml(topic?.desc || 'Descricao nao informada.');
+            return `<li><strong>${name}</strong>: ${desc}</li>`;
+        }).join('');
+    }
+
+    escapeHtml(value) {
+        return String(value ?? '')
+            .replaceAll('&', '&amp;')
+            .replaceAll('<', '&lt;')
+            .replaceAll('>', '&gt;')
+            .replaceAll('"', '&quot;')
+            .replaceAll("'", '&#39;');
     }
 
     formatGameTime(totalSeconds) {
