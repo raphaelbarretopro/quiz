@@ -9,7 +9,7 @@ import {
     ref,
     set
 } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js';
-import { database } from './firebase-config.js';
+import { database, ensureFirebaseAuth } from './firebase-config.js';
 
 export default class RankingManager {
     constructor(lessonId = '') {
@@ -20,6 +20,21 @@ export default class RankingManager {
     
     setLessonId(lessonId) {
         this.lessonId = lessonId;
+    }
+
+    async ensureAccess() {
+        if (!this.isFirebaseReady) {
+            console.warn('Firebase não está configurado. Ranking desabilitado.');
+            return false;
+        }
+
+        const user = await ensureFirebaseAuth();
+        if (!user) {
+            console.warn('Falha ao autenticar no Firebase. Ranking indisponível.');
+            return false;
+        }
+
+        return true;
     }
 
     sortScores(scores = []) {
@@ -39,8 +54,7 @@ export default class RankingManager {
     }
 
     async saveScore(playerName, score, correctAnswers, totalQuestions, gameTime = 0) {
-        if (!this.isFirebaseReady) {
-            console.warn('Firebase não está configurado. Ranking desabilitado.');
+        if (!(await this.ensureAccess())) {
             return false;
         }
 
@@ -71,8 +85,7 @@ export default class RankingManager {
     }
 
     async getTopScores(limit = 10) {
-        if (!this.isFirebaseReady) {
-            console.warn('Firebase não está configurado.');
+        if (!(await this.ensureAccess())) {
             return [];
         }
 
@@ -98,32 +111,34 @@ export default class RankingManager {
     }
 
     subscribeToTopScores(limit = 10, callback) {
-        if (!this.isFirebaseReady) {
-            console.warn('Firebase não está configurado.');
-            return null;
-        }
-
-        // Listener em tempo real para atualizações do ranking (ordenação local com desempate por tempo).
-        const rankingQuery = ref(database, 'scores');
-
-        this.rankingQuery = rankingQuery;
-        onValue(rankingQuery, (snapshot) => {
-            const scores = [];
-            
-            if (snapshot.exists()) {
-                snapshot.forEach(childSnapshot => {
-                    const scoreData = childSnapshot.val();
-                    // Filtra APENAS scores da aula atual (se lessonId estiver definido)
-                    if (this.lessonId && scoreData.lesson === this.lessonId) {
-                        scores.push(scoreData);
-                    }
-                });
+        this.ensureAccess().then((isAllowed) => {
+            if (!isAllowed) {
+                callback([]);
+                return;
             }
-            
-            callback(this.sortScores(scores).slice(0, limit));
+
+            // Listener em tempo real para atualizações do ranking (ordenação local com desempate por tempo).
+            const rankingQuery = ref(database, 'scores');
+            this.rankingQuery = rankingQuery;
+
+            onValue(rankingQuery, (snapshot) => {
+                const scores = [];
+
+                if (snapshot.exists()) {
+                    snapshot.forEach(childSnapshot => {
+                        const scoreData = childSnapshot.val();
+                        // Filtra APENAS scores da aula atual (se lessonId estiver definido)
+                        if (this.lessonId && scoreData.lesson === this.lessonId) {
+                            scores.push(scoreData);
+                        }
+                    });
+                }
+
+                callback(this.sortScores(scores).slice(0, limit));
+            });
         });
 
-        return rankingQuery;
+        return null;
     }
 
     unsubscribe() {
