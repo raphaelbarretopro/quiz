@@ -6,7 +6,7 @@
       "slug": "aula-11",
       "lesson_info": {
         "id": "Aula-11",
-        "title": "AULA 11 - GUARDIÕES DA PREVENÇÃO: SEGURANÇA NO TRABALHO EM TI",
+        "title": "AULA 11 - GUARDI�\"ES DA PREVEN�!ÒO: SEGURAN�!A NO TRABALHO EM TI",
         "topics": [
           {
             "id": "ACID",
@@ -175,7 +175,7 @@
             "Certificado de Aptidão Técnica"
           ],
           "correct": "Comunicação de Acidente de Trabalho",
-          "tip": "É o documento essencial para registro previdenciário."
+          "tip": "�0 o documento essencial para registro previdenciário."
         },
         {
           "type": "boolean",
@@ -605,7 +605,7 @@
           "questions": "[NAME], quais desses são exemplos de EPC?",
           "answers": [
             "Sinalização de emergência",
-            "Óculos de segurança",
+            "�\u001cculos de segurança",
             "Sistemas de ventilação",
             "Protetor auricular"
           ],
@@ -707,12 +707,12 @@
             "Máscara respiratória",
             "Luvas",
             "Protetor auricular",
-            "Óculos de segurança"
+            "�\u001cculos de segurança"
           ],
           "correct": [
             "Máscara respiratória",
             "Luvas",
-            "Óculos de segurança"
+            "�\u001cculos de segurança"
           ],
           "tip": "Protege contra inalação, contato dérmico e projeções nos olhos."
         },
@@ -953,7 +953,7 @@
             "O próprio aluno"
           ],
           "correct": "O empregador",
-          "tip": "É um custo da operação da empresa, nunca do trabalhador."
+          "tip": "�0 um custo da operação da empresa, nunca do trabalhador."
         },
         {
           "type": "boolean",
@@ -1032,7 +1032,7 @@
       "slug": "aula-12",
       "lesson_info": {
         "id": "Aula-12",
-        "title": "AULA 12 - GUARDIÕES DA PREVENÇÃO: SAÚDE, SEGURANÇA E MEIO AMBIENTE",
+        "title": "AULA 12 - GUARDI�\"ES DA PREVEN�!ÒO: SA�aDE, SEGURAN�!A E MEIO AMBIENTE",
         "topics": [
           {
             "id": "ACID",
@@ -2302,7 +2302,7 @@
             "Local"
           ],
           "correct": "Sustentável",
-          "tip": "É o conceito central da gestão ambiental moderna."
+          "tip": "�0 o conceito central da gestão ambiental moderna."
         },
         {
           "type": "multi",
@@ -2889,13 +2889,13 @@
           "topics": "NORM",
           "questions": "[NAME], o que compõe a responsabilidade socioambiental de uma empresa?",
           "answers": [
-            "Ética nos negócios",
+            "�0tica nos negócios",
             "Preservação da natureza",
             "Bem-estar da comunidade",
             "Maximizar lucro a qualquer custo"
           ],
           "correct": [
-            "Ética nos negócios",
+            "�0tica nos negócios",
             "Preservação da natureza",
             "Bem-estar da comunidade"
           ],
@@ -2912,7 +2912,7 @@
             "Plantar árvores de plástico"
           ],
           "correct": "Falsa aparência de ser sustentável",
-          "tip": "É uma prática enganosa que deve ser combatida."
+          "tip": "�0 uma prática enganosa que deve ser combatida."
         },
         {
           "type": "boolean",
@@ -3109,7 +3109,7 @@
           },
           {
             "id": "AGEN",
-            "name": "DEPENDÊNCIA QUÍMICA",
+            "name": "DEPEND�`NCIA QUÍMICA",
             "desc": "A dependência como doença crónica e as suas consequências biopsicossociais.",
             "color": "#f1c40f",
             "img_url": "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?auto=format&fit=crop&q=80&w=1600",
@@ -3135,7 +3135,7 @@
           },
           {
             "id": "NORM",
-            "name": "PREVENÇÃO E ÉTICA",
+            "name": "PREVEN�!ÒO E �0TICA",
             "desc": "Programas de prevenção, acolhimento e responsabilidades legais e éticas.",
             "color": "#2ecc71",
             "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600",
@@ -3387,7 +3387,7 @@
             "Uma escolha passageira"
           ],
           "correct": "Uma doença crónica",
-          "tip": "É catalogada no CID-10 e exige tratamento médico especializado."
+          "tip": "�0 catalogada no CID-10 e exige tratamento médico especializado."
         },
         {
           "type": "boolean",
@@ -3589,7 +3589,7 @@
             "Cansaço extremo"
           ],
           "correct": "Desejo intenso e súbito pelo uso",
-          "tip": "É um dos momentos de maior risco para a recaída."
+          "tip": "�0 um dos momentos de maior risco para a recaída."
         },
         {
           "type": "boolean",
@@ -3717,7 +3717,7 @@
             "Trabalhar de casa"
           ],
           "correct": "Estar fisicamente no trabalho, mas sem condições mentais",
-          "tip": "É um risco 'invisível' pois a pessoa parece estar a trabalhar."
+          "tip": "�0 um risco 'invisível' pois a pessoa parece estar a trabalhar."
         },
         {
           "type": "boolean",

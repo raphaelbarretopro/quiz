@@ -6,12 +6,12 @@
       "slug": "aula-11",
       "lesson_info": {
         "id": "Aula-11",
-        "title": "AULA 11 - GUARDIÕES DA PREVENÇÃO: SEGURANÇA NO TRABALHO EM TI",
+        "title": "AULA 11 - GUARDIÃ•ES DA PREVENÃ‡ÃƒO: SEGURANÃ‡A NO TRABALHO EM TI",
         "topics": [
           {
             "id": "ACID",
             "name": "ACIDENTES DE TRABALHO",
-            "desc": "Conceitos legais, tipos e características fundamentais dos acidentes.",
+            "desc": "Conceitos legais, tipos e caracterÃ­sticas fundamentais dos acidentes.",
             "color": "#e74c3c",
             "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -24,7 +24,7 @@
           {
             "id": "AGEN",
             "name": "AGENTES AGRESSORES",
-            "desc": "Riscos físicos, químicos e biológicos no ambiente laboral.",
+            "desc": "Riscos fÃ­sicos, quÃ­micos e biolÃ³gicos no ambiente laboral.",
             "color": "#f1c40f",
             "img_url": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -37,7 +37,7 @@
           {
             "id": "PROT",
             "name": "EPI E EPC",
-            "desc": "Equipamentos e hierarquia de proteção individual e coletiva.",
+            "desc": "Equipamentos e hierarquia de proteÃ§Ã£o individual e coletiva.",
             "color": "#3498db",
             "img_url": "https://images.unsplash.com/photo-1590102422318-674b463a0050?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -74,12 +74,12 @@
             "CLT Artigo 10"
           ],
           "correct": "Lei 8.213/91",
-          "tip": "A Lei 8.213/91 estabelece os planos de benefícios da Previdência Social."
+          "tip": "A Lei 8.213/91 estabelece os planos de benefÃ­cios da PrevidÃªncia Social."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "[NAME], a emissão da CAT é obrigatória apenas em acidentes com afastamento superior a 15 dias.",
+          "questions": "[NAME], a emissÃ£o da CAT Ã© obrigatÃ³ria apenas em acidentes com afastamento superior a 15 dias.",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -94,12 +94,12 @@
           "items": [
             {
               "id": "d1",
-              "txt": "Típico",
+              "txt": "TÃ­pico",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Doença Ocupacional",
+              "txt": "DoenÃ§a Ocupacional",
               "match": "z2"
             },
             {
@@ -116,28 +116,28 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Ocorre no exercício direto da atividade"
+              "label": "Ocorre no exercÃ­cio direto da atividade"
             },
             {
               "id": "z2",
-              "label": "Desencadeada pelas condições de trabalho"
+              "label": "Desencadeada pelas condiÃ§Ãµes de trabalho"
             },
             {
               "id": "z3",
-              "label": "Ocorre entre residência e trabalho"
+              "label": "Ocorre entre residÃªncia e trabalho"
             },
             {
               "id": "z4",
-              "label": "Vínculo entre atividade e dano"
+              "label": "VÃ­nculo entre atividade e dano"
             }
           ],
           "correct": "drag",
-          "tip": "Entender essas categorias ajuda na correta classificação legal."
+          "tip": "Entender essas categorias ajuda na correta classificaÃ§Ã£o legal."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "A [COMBO] é uma característica de eventos repentinos e sem aviso prévio.",
+          "questions": "A [COMBO] Ã© uma caracterÃ­stica de eventos repentinos e sem aviso prÃ©vio.",
           "options": [
             "Subitaneidade",
             "Cronicidade",
@@ -145,62 +145,62 @@
             "Intencionalidade"
           ],
           "correct": "Subitaneidade",
-          "tip": "Acidentes são eventos inesperados por definição."
+          "tip": "Acidentes sÃ£o eventos inesperados por definiÃ§Ã£o."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], quais são riscos frequentes especificamente em laboratórios de TI?",
+          "questions": "[NAME], quais sÃ£o riscos frequentes especificamente em laboratÃ³rios de TI?",
           "answers": [
-            "Choque elétrico",
+            "Choque elÃ©trico",
             "Postura inadequada",
             "Trabalho em minas",
             "Quedas por cabos"
           ],
           "correct": [
-            "Choque elétrico",
+            "Choque elÃ©trico",
             "Postura inadequada",
             "Quedas por cabos"
           ],
-          "tip": "Fiação e ergonomia são pontos críticos na área de TI."
+          "tip": "FiaÃ§Ã£o e ergonomia sÃ£o pontos crÃ­ticos na Ã¡rea de TI."
         },
         {
           "type": "multiple",
           "topics": "ACID",
           "questions": "[NAME], o que significa a sigla CAT?",
           "answers": [
-            "Comunicação de Acidente de Trabalho",
+            "ComunicaÃ§Ã£o de Acidente de Trabalho",
             "Controle Ambiental de Trabalho",
-            "Cadastro de Auxílio ao Trabalhador",
-            "Certificado de Aptidão Técnica"
+            "Cadastro de AuxÃ­lio ao Trabalhador",
+            "Certificado de AptidÃ£o TÃ©cnica"
           ],
-          "correct": "Comunicação de Acidente de Trabalho",
-          "tip": "É o documento essencial para registro previdenciário."
+          "correct": "ComunicaÃ§Ã£o de Acidente de Trabalho",
+          "tip": "Ã‰ o documento essencial para registro previdenciÃ¡rio."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "Doenças do trabalho são aquelas ligadas especificamente às condições do ambiente laboral.",
+          "questions": "DoenÃ§as do trabalho sÃ£o aquelas ligadas especificamente Ã s condiÃ§Ãµes do ambiente laboral.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Diferenciam-se das doenças profissionais que são inerentes à profissão."
+          "tip": "Diferenciam-se das doenÃ§as profissionais que sÃ£o inerentes Ã  profissÃ£o."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Combine as características dos acidentes:",
+          "questions": "Combine as caracterÃ­sticas dos acidentes:",
           "items": [
             {
               "id": "d1",
-              "txt": "Lesão",
+              "txt": "LesÃ£o",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Missão especial",
+              "txt": "MissÃ£o especial",
               "match": "z2"
             },
             {
@@ -210,30 +210,30 @@
             },
             {
               "id": "d4",
-              "txt": "Perturbação funcional",
+              "txt": "PerturbaÃ§Ã£o funcional",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Dano físico imediato"
+              "label": "Dano fÃ­sico imediato"
             },
             {
               "id": "z2",
-              "label": "Exercício do trabalho fora da sede"
+              "label": "ExercÃ­cio do trabalho fora da sede"
             },
             {
               "id": "z3",
-              "label": "Consequência máxima do acidente"
+              "label": "ConsequÃªncia mÃ¡xima do acidente"
             },
             {
               "id": "z4",
-              "label": "Redução da capacidade laboral"
+              "label": "ReduÃ§Ã£o da capacidade laboral"
             }
           ],
           "correct": "drag",
-          "tip": "Vários elementos compõem o quadro de um acidente laboral."
+          "tip": "VÃ¡rios elementos compÃµem o quadro de um acidente laboral."
         },
         {
           "type": "combo",
@@ -242,8 +242,8 @@
           "options": [
             "Trajeto",
             "Destino",
-            "Férias",
-            "Serviço"
+            "FÃ©rias",
+            "ServiÃ§o"
           ],
           "correct": "Trajeto",
           "tip": "Mesmo fora da empresa, o nexo com o trabalho persiste."
@@ -254,65 +254,65 @@
           "questions": "Quais danos podem resultar de um acidente, segundo a lei?",
           "answers": [
             "Morte",
-            "Perda de capacidade temporária",
+            "Perda de capacidade temporÃ¡ria",
             "Ganho salarial",
-            "Perturbação funcional"
+            "PerturbaÃ§Ã£o funcional"
           ],
           "correct": [
             "Morte",
-            "Perda de capacidade temporária",
-            "Perturbação funcional"
+            "Perda de capacidade temporÃ¡ria",
+            "PerturbaÃ§Ã£o funcional"
           ],
-          "tip": "A lei protege contra qualquer prejuízo à integridade do trabalhador."
+          "tip": "A lei protege contra qualquer prejuÃ­zo Ã  integridade do trabalhador."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], quem sofre uma queda durante a jornada de trabalho no laboratório sofre um acidente:",
+          "questions": "[NAME], quem sofre uma queda durante a jornada de trabalho no laboratÃ³rio sofre um acidente:",
           "answers": [
-            "Típico",
+            "TÃ­pico",
             "De trajeto",
             "De lazer",
-            "Doença profissional"
+            "DoenÃ§a profissional"
           ],
-          "correct": "Típico",
-          "tip": "Acidentes típicos ocorrem no local e horário de trabalho."
+          "correct": "TÃ­pico",
+          "tip": "Acidentes tÃ­picos ocorrem no local e horÃ¡rio de trabalho."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "A omissão da comunicação do acidente de trabalho não gera punição legal.",
+          "questions": "A omissÃ£o da comunicaÃ§Ã£o do acidente de trabalho nÃ£o gera puniÃ§Ã£o legal.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "A omissão é uma infração legal passível de multa.",
+          "tip": "A omissÃ£o Ã© uma infraÃ§Ã£o legal passÃ­vel de multa.",
           "trans": "AGEN"
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], agentes físicos são considerados o quê?",
+          "questions": "[NAME], agentes fÃ­sicos sÃ£o considerados o quÃª?",
           "answers": [
             "Formas de energia",
-            "Substâncias químicas",
-            "Seres microscópicos",
-            "Mobiliário"
+            "SubstÃ¢ncias quÃ­micas",
+            "Seres microscÃ³picos",
+            "MobiliÃ¡rio"
           ],
           "correct": "Formas de energia",
-          "tip": "Exemplos incluem ruído, calor e radiação."
+          "tip": "Exemplos incluem ruÃ­do, calor e radiaÃ§Ã£o."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "Ruídos acima de 85 dB podem causar perda auditiva permanente.",
+          "questions": "RuÃ­dos acima de 85 dB podem causar perda auditiva permanente.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Este é o limite de tolerância padrão para 8 horas de exposição."
+          "tip": "Este Ã© o limite de tolerÃ¢ncia padrÃ£o para 8 horas de exposiÃ§Ã£o."
         },
         {
           "type": "drag",
@@ -321,12 +321,12 @@
           "items": [
             {
               "id": "d1",
-              "txt": "Vírus",
+              "txt": "VÃ­rus",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Ruído",
+              "txt": "RuÃ­do",
               "match": "z2"
             },
             {
@@ -336,92 +336,92 @@
             },
             {
               "id": "d4",
-              "txt": "Radiação",
+              "txt": "RadiaÃ§Ã£o",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Biológico"
+              "label": "BiolÃ³gico"
             },
             {
               "id": "z2",
-              "label": "Físico"
+              "label": "FÃ­sico"
             },
             {
               "id": "z3",
-              "label": "Químico"
+              "label": "QuÃ­mico"
             },
             {
               "id": "z4",
-              "label": "Físico"
+              "label": "FÃ­sico"
             }
           ],
           "correct": "drag",
-          "tip": "A classificação correta define o método de proteção."
+          "tip": "A classificaÃ§Ã£o correta define o mÃ©todo de proteÃ§Ã£o."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "Substâncias como vapores de solda são consideradas agentes [COMBO].",
+          "questions": "SubstÃ¢ncias como vapores de solda sÃ£o consideradas agentes [COMBO].",
           "options": [
-            "Químicos",
-            "Físicos",
-            "Biológicos",
-            "Ergonômicos"
+            "QuÃ­micos",
+            "FÃ­sicos",
+            "BiolÃ³gicos",
+            "ErgonÃ´micos"
           ],
-          "correct": "Químicos",
-          "tip": "Penetram no organismo pelas vias respiratórias."
+          "correct": "QuÃ­micos",
+          "tip": "Penetram no organismo pelas vias respiratÃ³rias."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "[NAME], quais desses são exemplos de agentes biológicos em TI?",
+          "questions": "[NAME], quais desses sÃ£o exemplos de agentes biolÃ³gicos em TI?",
           "answers": [
-            "Bactérias em teclados",
-            "Radiação de telas",
+            "BactÃ©rias em teclados",
+            "RadiaÃ§Ã£o de telas",
             "Fungos no ar-condicionado",
-            "Ruído de servidores"
+            "RuÃ­do de servidores"
           ],
           "correct": [
-            "Bactérias em teclados",
+            "BactÃ©rias em teclados",
             "Fungos no ar-condicionado"
           ],
-          "tip": "Superfícies compartilhadas e má ventilação são focos biológicos."
+          "tip": "SuperfÃ­cies compartilhadas e mÃ¡ ventilaÃ§Ã£o sÃ£o focos biolÃ³gicos."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
           "questions": "[NAME], salas de servidores apresentam riscos principalmente de:",
           "answers": [
-            "Ruído e temperatura",
-            "Vírus e fungos",
+            "RuÃ­do e temperatura",
+            "VÃ­rus e fungos",
             "Poeira e neblina",
-            "Pressão e gravidade"
+            "PressÃ£o e gravidade"
           ],
-          "correct": "Ruído e temperatura",
-          "tip": "O maquinário gera barulho excessivo e calor/frio constante."
+          "correct": "RuÃ­do e temperatura",
+          "tip": "O maquinÃ¡rio gera barulho excessivo e calor/frio constante."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "Um teclado pode abrigar mais bactérias do que um assento sanitário.",
+          "questions": "Um teclado pode abrigar mais bactÃ©rias do que um assento sanitÃ¡rio.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Estudos indicam até 400 vezes mais bactérias devido à falta de higiene."
+          "tip": "Estudos indicam atÃ© 400 vezes mais bactÃ©rias devido Ã  falta de higiene."
         },
         {
           "type": "drag",
           "topics": "AGEN",
-          "questions": "Associe os agentes químicos à sua forma:",
+          "questions": "Associe os agentes quÃ­micos Ã  sua forma:",
           "items": [
             {
               "id": "d1",
-              "txt": "Aerossóis",
+              "txt": "AerossÃ³is",
               "match": "z1"
             },
             {
@@ -431,7 +431,7 @@
             },
             {
               "id": "d3",
-              "txt": "Poeira em eletrônicos",
+              "txt": "Poeira em eletrÃ´nicos",
               "match": "z3"
             },
             {
@@ -443,7 +443,7 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Névoas/Neblinas"
+              "label": "NÃ©voas/Neblinas"
             },
             {
               "id": "z2",
@@ -451,7 +451,7 @@
             },
             {
               "id": "z3",
-              "label": "Partículas Sólidas"
+              "label": "PartÃ­culas SÃ³lidas"
             },
             {
               "id": "z4",
@@ -459,54 +459,54 @@
             }
           ],
           "correct": "drag",
-          "tip": "Agentes químicos mudam de estado físico dependendo da fonte."
+          "tip": "Agentes quÃ­micos mudam de estado fÃ­sico dependendo da fonte."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "A exposição a campos [COMBO] é um risco físico comum em TI.",
+          "questions": "A exposiÃ§Ã£o a campos [COMBO] Ã© um risco fÃ­sico comum em TI.",
           "options": [
-            "Eletromagnéticos",
+            "EletromagnÃ©ticos",
             "Gravitacionais",
             "Sociais",
             "Emocionais"
           ],
-          "correct": "Eletromagnéticos",
+          "correct": "EletromagnÃ©ticos",
           "tip": "Fios e telas geram esses campos de energia."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "Quais doenças podem ser causadas por fungos em escritórios mal ventilados?",
+          "questions": "Quais doenÃ§as podem ser causadas por fungos em escritÃ³rios mal ventilados?",
           "answers": [
             "Alergias",
-            "Problemas respiratórios",
+            "Problemas respiratÃ³rios",
             "Surdez",
             "Fraturas"
           ],
           "correct": [
             "Alergias",
-            "Problemas respiratórios"
+            "Problemas respiratÃ³rios"
           ],
-          "tip": "Fungos afetam principalmente as vias aéreas e pele."
+          "tip": "Fungos afetam principalmente as vias aÃ©reas e pele."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "No laboratório da LogisTech, produtos de limpeza sem ventilação são riscos:",
+          "questions": "No laboratÃ³rio da LogisTech, produtos de limpeza sem ventilaÃ§Ã£o sÃ£o riscos:",
           "answers": [
-            "Químicos",
-            "Biológicos",
-            "Físicos",
-            "Não são riscos"
+            "QuÃ­micos",
+            "BiolÃ³gicos",
+            "FÃ­sicos",
+            "NÃ£o sÃ£o riscos"
           ],
-          "correct": "Químicos",
-          "tip": "Podem acumular vapores tóxicos no ambiente."
+          "correct": "QuÃ­micos",
+          "tip": "Podem acumular vapores tÃ³xicos no ambiente."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "Os limites de tolerância para exposição aos agentes são definidos nas NRs.",
+          "questions": "Os limites de tolerÃ¢ncia para exposiÃ§Ã£o aos agentes sÃ£o definidos nas NRs.",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -526,7 +526,7 @@
             "NR-1"
           ],
           "correct": "NR-6",
-          "tip": "A NR-6 define obrigações sobre Equipamentos de Proteção Individual."
+          "tip": "A NR-6 define obrigaÃ§Ãµes sobre Equipamentos de ProteÃ§Ã£o Individual."
         },
         {
           "type": "boolean",
@@ -542,11 +542,11 @@
         {
           "type": "drag",
           "topics": "PROT",
-          "questions": "Relacione o equipamento à sua finalidade:",
+          "questions": "Relacione o equipamento Ã  sua finalidade:",
           "items": [
             {
               "id": "d1",
-              "txt": "Pulseira antiestática",
+              "txt": "Pulseira antiestÃ¡tica",
               "match": "z1"
             },
             {
@@ -568,7 +568,7 @@
           "zones": [
             {
               "id": "z1",
-              "label": "EPI - Proteção de componentes"
+              "label": "EPI - ProteÃ§Ã£o de componentes"
             },
             {
               "id": "z2",
@@ -576,20 +576,20 @@
             },
             {
               "id": "z3",
-              "label": "EPC - Combate a incêndio"
+              "label": "EPC - Combate a incÃªndio"
             },
             {
               "id": "z4",
-              "label": "EPC - Segurança elétrica coletiva"
+              "label": "EPC - SeguranÃ§a elÃ©trica coletiva"
             }
           ],
           "correct": "drag",
-          "tip": "EPI é para o indivíduo; EPC é para todos."
+          "tip": "EPI Ã© para o indivÃ­duo; EPC Ã© para todos."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "Medidas de proteção [COMBO] devem ter prioridade sobre as individuais.",
+          "questions": "Medidas de proteÃ§Ã£o [COMBO] devem ter prioridade sobre as individuais.",
           "options": [
             "Coletiva",
             "Punitiva",
@@ -602,51 +602,51 @@
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "[NAME], quais desses são exemplos de EPC?",
+          "questions": "[NAME], quais desses sÃ£o exemplos de EPC?",
           "answers": [
-            "Sinalização de emergência",
-            "Óculos de segurança",
-            "Sistemas de ventilação",
+            "SinalizaÃ§Ã£o de emergÃªncia",
+            "Ã“culos de seguranÃ§a",
+            "Sistemas de ventilaÃ§Ã£o",
             "Protetor auricular"
           ],
           "correct": [
-            "Sinalização de emergência",
-            "Sistemas de ventilação"
+            "SinalizaÃ§Ã£o de emergÃªncia",
+            "Sistemas de ventilaÃ§Ã£o"
           ],
           "tip": "EPCs protegem todos no ambiente ao mesmo tempo."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], qual é o nível 1 na hierarquia?",
+          "questions": "[NAME], qual Ã© o nÃ­vel 1 na hierarquia?",
           "answers": [
-            "Eliminação do perigo",
+            "EliminaÃ§Ã£o do perigo",
             "Uso de EPI",
-            "Sinalização",
+            "SinalizaÃ§Ã£o",
             "Treinamento"
           ],
-          "correct": "Eliminação do perigo",
-          "tip": "A melhor proteção é remover o risco completamente."
+          "correct": "EliminaÃ§Ã£o do perigo",
+          "tip": "A melhor proteÃ§Ã£o Ã© remover o risco completamente."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "O EPI só deve ser adotado quando medidas coletivas forem insuficientes.",
+          "questions": "O EPI sÃ³ deve ser adotado quando medidas coletivas forem insuficientes.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "EPI é o último recurso na hierarquia de proteção."
+          "tip": "EPI Ã© o Ãºltimo recurso na hierarquia de proteÃ§Ã£o."
         },
         {
           "type": "drag",
           "topics": "PROT",
-          "questions": "Associe o EPI à região protegida:",
+          "questions": "Associe o EPI Ã  regiÃ£o protegida:",
           "items": [
             {
               "id": "d1",
-              "txt": "Abafador de ruído",
+              "txt": "Abafador de ruÃ­do",
               "match": "z1"
             },
             {
@@ -661,84 +661,84 @@
             },
             {
               "id": "d4",
-              "txt": "Máscara",
+              "txt": "MÃ¡scara",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Audição"
+              "label": "AudiÃ§Ã£o"
             },
             {
               "id": "z2",
-              "label": "Visão"
+              "label": "VisÃ£o"
             },
             {
               "id": "z3",
-              "label": "Cabeça"
+              "label": "CabeÃ§a"
             },
             {
               "id": "z4",
-              "label": "Vias aéreas"
+              "label": "Vias aÃ©reas"
             }
           ],
           "correct": "drag",
-          "tip": "Cada equipamento é específico para um tipo de risco."
+          "tip": "Cada equipamento Ã© especÃ­fico para um tipo de risco."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "O uso do EPI é [COMBO] pelo trabalhador após o fornecimento.",
+          "questions": "O uso do EPI Ã© [COMBO] pelo trabalhador apÃ³s o fornecimento.",
           "options": [
-            "Obrigatório",
+            "ObrigatÃ³rio",
             "Facultativo",
             "Proibido",
             "Pago"
           ],
-          "correct": "Obrigatório",
+          "correct": "ObrigatÃ³rio",
           "tip": "O trabalhador tem o dever legal de usar o equipamento."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "Para limpeza de equipamentos com sprays, quais proteções seriam ideais?",
+          "questions": "Para limpeza de equipamentos com sprays, quais proteÃ§Ãµes seriam ideais?",
           "answers": [
-            "Máscara respiratória",
+            "MÃ¡scara respiratÃ³ria",
             "Luvas",
             "Protetor auricular",
-            "Óculos de segurança"
+            "Ã“culos de seguranÃ§a"
           ],
           "correct": [
-            "Máscara respiratória",
+            "MÃ¡scara respiratÃ³ria",
             "Luvas",
-            "Óculos de segurança"
+            "Ã“culos de seguranÃ§a"
           ],
-          "tip": "Protege contra inalação, contato dérmico e projeções nos olhos."
+          "tip": "Protege contra inalaÃ§Ã£o, contato dÃ©rmico e projeÃ§Ãµes nos olhos."
         },
         {
           "type": "multiple",
           "topics": "PROT",
           "questions": "[NAME], qual EPC protege contra choques e surtos simultaneamente?",
           "answers": [
-            "Aterramento elétrico",
+            "Aterramento elÃ©trico",
             "Extintor",
-            "Corrimão",
+            "CorrimÃ£o",
             "Janela aberta"
           ],
-          "correct": "Aterramento elétrico",
+          "correct": "Aterramento elÃ©trico",
           "tip": "O aterramento drena o excesso de carga para o solo."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "A sinalização de emergência inclui placas luminosas e rotas de fuga.",
+          "questions": "A sinalizaÃ§Ã£o de emergÃªncia inclui placas luminosas e rotas de fuga.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Essencial para evacuação rápida em casos de sinistro.",
+          "tip": "Essencial para evacuaÃ§Ã£o rÃ¡pida em casos de sinistro.",
           "trans": "NORM"
         },
         {
@@ -746,24 +746,24 @@
           "topics": "NORM",
           "questions": "[NAME], o que significa a sigla CIPA?",
           "answers": [
-            "Comissão Interna de Prevenção de Acidentes",
-            "Conselho Internacional de Proteção Ambiental",
-            "Centro de Instrução de Profissionais Aprendizes",
+            "ComissÃ£o Interna de PrevenÃ§Ã£o de Acidentes",
+            "Conselho Internacional de ProteÃ§Ã£o Ambiental",
+            "Centro de InstruÃ§Ã£o de Profissionais Aprendizes",
             "Controle Interno de Perigos Administrativos"
           ],
-          "correct": "Comissão Interna de Prevenção de Acidentes",
-          "tip": "A NR-5 trata da organização da CIPA."
+          "correct": "ComissÃ£o Interna de PrevenÃ§Ã£o de Acidentes",
+          "tip": "A NR-5 trata da organizaÃ§Ã£o da CIPA."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "Apenas empresas industriais são obrigadas a cumprir as NRs.",
+          "questions": "Apenas empresas industriais sÃ£o obrigadas a cumprir as NRs.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Qualquer empresa com funcionários CLT deve seguir as NRs."
+          "tip": "Qualquer empresa com funcionÃ¡rios CLT deve seguir as NRs."
         },
         {
           "type": "drag",
@@ -802,7 +802,7 @@
             },
             {
               "id": "z3",
-              "label": "Proteção contra Incêndio"
+              "label": "ProteÃ§Ã£o contra IncÃªndio"
             },
             {
               "id": "z4",
@@ -815,20 +815,20 @@
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "O órgão responsável por fiscalizar as NRs é o [COMBO].",
+          "questions": "O Ã³rgÃ£o responsÃ¡vel por fiscalizar as NRs Ã© o [COMBO].",
           "options": [
-            "Ministério do Trabalho",
-            "Ministério da Saúde",
+            "MinistÃ©rio do Trabalho",
+            "MinistÃ©rio da SaÃºde",
             "Senai",
             "Prefeitura"
           ],
-          "correct": "Ministério do Trabalho",
-          "tip": "A fiscalização é feita por Auditores Fiscais do Trabalho."
+          "correct": "MinistÃ©rio do Trabalho",
+          "tip": "A fiscalizaÃ§Ã£o Ã© feita por Auditores Fiscais do Trabalho."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "[NAME], quais são deveres do trabalhador quanto à segurança?",
+          "questions": "[NAME], quais sÃ£o deveres do trabalhador quanto Ã  seguranÃ§a?",
           "answers": [
             "Usar EPI corretamente",
             "Participar de treinamentos",
@@ -840,25 +840,25 @@
             "Participar de treinamentos",
             "Colaborar com a CIPA"
           ],
-          "tip": "A segurança é uma via de mão dupla; o trabalhador deve agir."
+          "tip": "A seguranÃ§a Ã© uma via de mÃ£o dupla; o trabalhador deve agir."
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], qual o número de funcionários mínimo para uma empresa constituir CIPA?",
+          "questions": "[NAME], qual o nÃºmero de funcionÃ¡rios mÃ­nimo para uma empresa constituir CIPA?",
           "answers": [
             "Mais de 20",
             "Mais de 100",
-            "Qualquer número",
+            "Qualquer nÃºmero",
             "Apenas acima de 500"
           ],
           "correct": "Mais de 20",
-          "tip": "Abaixo disso, a empresa designa um responsável."
+          "tip": "Abaixo disso, a empresa designa um responsÃ¡vel."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "A NR-17 trata da adaptação das condições de trabalho ao ser humano.",
+          "questions": "A NR-17 trata da adaptaÃ§Ã£o das condiÃ§Ãµes de trabalho ao ser humano.",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -869,7 +869,7 @@
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Relacione as punições por descumprimento:",
+          "questions": "Relacione as puniÃ§Ãµes por descumprimento:",
           "items": [
             {
               "id": "d1",
@@ -878,7 +878,7 @@
             },
             {
               "id": "d2",
-              "txt": "Interdição",
+              "txt": "InterdiÃ§Ã£o",
               "match": "z2"
             },
             {
@@ -888,14 +888,14 @@
             },
             {
               "id": "d4",
-              "txt": "Responsabilização",
+              "txt": "ResponsabilizaÃ§Ã£o",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Sanção financeira"
+              "label": "SanÃ§Ã£o financeira"
             },
             {
               "id": "z2",
@@ -903,44 +903,44 @@
             },
             {
               "id": "z3",
-              "label": "Paralisação de obra"
+              "label": "ParalisaÃ§Ã£o de obra"
             },
             {
               "id": "z4",
-              "label": "Consequência criminal"
+              "label": "ConsequÃªncia criminal"
             }
           ],
           "correct": "drag",
-          "tip": "Ignorar a segurança custa caro para a empresa e sociedade."
+          "tip": "Ignorar a seguranÃ§a custa caro para a empresa e sociedade."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "Promover treinamentos periódicos é obrigação do [COMBO].",
+          "questions": "Promover treinamentos periÃ³dicos Ã© obrigaÃ§Ã£o do [COMBO].",
           "options": [
             "Empregador",
-            "Estagiário",
+            "EstagiÃ¡rio",
             "Governo",
             "Vizinho"
           ],
           "correct": "Empregador",
-          "tip": "A empresa deve garantir que o funcionário saiba se proteger."
+          "tip": "A empresa deve garantir que o funcionÃ¡rio saiba se proteger."
         },
         {
           "type": "multi",
           "topics": "NORM",
           "questions": "O que a NR-10 abrange especificamente?",
           "answers": [
-            "Instalações elétricas",
-            "Serviços com eletricidade",
-            "Combate a incêndio",
-            "Mobiliário"
+            "InstalaÃ§Ãµes elÃ©tricas",
+            "ServiÃ§os com eletricidade",
+            "Combate a incÃªndio",
+            "MobiliÃ¡rio"
           ],
           "correct": [
-            "Instalações elétricas",
-            "Serviços com eletricidade"
+            "InstalaÃ§Ãµes elÃ©tricas",
+            "ServiÃ§os com eletricidade"
           ],
-          "tip": "Vital para quem faz manutenção de hardware e redes."
+          "tip": "Vital para quem faz manutenÃ§Ã£o de hardware e redes."
         },
         {
           "type": "multiple",
@@ -950,21 +950,21 @@
             "O empregador",
             "O SENAI",
             "O sindicato",
-            "O próprio aluno"
+            "O prÃ³prio aluno"
           ],
           "correct": "O empregador",
-          "tip": "É um custo da operação da empresa, nunca do trabalhador."
+          "tip": "Ã‰ um custo da operaÃ§Ã£o da empresa, nunca do trabalhador."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "A segurança no trabalho é um compromisso com a vida, não apenas obrigação legal.",
+          "questions": "A seguranÃ§a no trabalho Ã© um compromisso com a vida, nÃ£o apenas obrigaÃ§Ã£o legal.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Proteção mútua gera um ambiente saudável para todos."
+          "tip": "ProteÃ§Ã£o mÃºtua gera um ambiente saudÃ¡vel para todos."
         },
         {
           "type": "drag",
@@ -973,7 +973,7 @@
           "items": [
             {
               "id": "d1",
-              "txt": "Medidas de proteção",
+              "txt": "Medidas de proteÃ§Ã£o",
               "match": "z1"
             },
             {
@@ -1007,11 +1007,11 @@
             },
             {
               "id": "z4",
-              "label": "Informar à Previdência"
+              "label": "Informar Ã  PrevidÃªncia"
             }
           ],
           "correct": "drag",
-          "tip": "A gestão de segurança é dever central da empresa."
+          "tip": "A gestÃ£o de seguranÃ§a Ã© dever central da empresa."
         },
         {
           "type": "combo",
@@ -1024,7 +1024,7 @@
             "5"
           ],
           "correct": "38",
-          "tip": "O corpo normativo é extenso e detalhado."
+          "tip": "O corpo normativo Ã© extenso e detalhado."
         }
       ]
     },
@@ -1032,12 +1032,12 @@
       "slug": "aula-12",
       "lesson_info": {
         "id": "Aula-12",
-        "title": "AULA 12 - GUARDIÕES DA PREVENÇÃO: SAÚDE, SEGURANÇA E MEIO AMBIENTE",
+        "title": "AULA 12 - GUARDIÃ•ES DA PREVENÃ‡ÃƒO: SAÃšDE, SEGURANÃ‡A E MEIO AMBIENTE",
         "topics": [
           {
             "id": "ACID",
             "name": "ACIDENTES DE TRABALHO",
-            "desc": "Simbologia, cores e interpretação dos riscos no ambiente laboral.",
+            "desc": "Simbologia, cores e interpretaÃ§Ã£o dos riscos no ambiente laboral.",
             "color": "#e67e22",
             "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -1050,7 +1050,7 @@
           {
             "id": "AGEN",
             "name": "AGENTES AGRESSORES",
-            "desc": "Procedimentos de verificação e sinalização de segurança.",
+            "desc": "Procedimentos de verificaÃ§Ã£o e sinalizaÃ§Ã£o de seguranÃ§a.",
             "color": "#f1c40f",
             "img_url": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -1063,7 +1063,7 @@
           {
             "id": "PROT",
             "name": "EPI E EPC",
-            "desc": "Prevenção, triângulo do fogo e utilização de extintores.",
+            "desc": "PrevenÃ§Ã£o, triÃ¢ngulo do fogo e utilizaÃ§Ã£o de extintores.",
             "color": "#e74c3c",
             "img_url": "https://images.unsplash.com/photo-1599700403969-f77b3aa74837?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -1076,7 +1076,7 @@
           {
             "id": "NORM",
             "name": "NORMAS E REGRAS",
-            "desc": "Gestão do estresse, vacinação e comportamento seguro.",
+            "desc": "GestÃ£o do estresse, vacinaÃ§Ã£o e comportamento seguro.",
             "color": "#2ecc71",
             "img_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -1092,7 +1092,7 @@
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], qual cor no Mapa de Riscos representa o risco Ergonômico?",
+          "questions": "[NAME], qual cor no Mapa de Riscos representa o risco ErgonÃ´mico?",
           "answers": [
             "Amarelo",
             "Verde",
@@ -1100,18 +1100,18 @@
             "Azul"
           ],
           "correct": "Amarelo",
-          "tip": "Amarelo indica riscos como postura inadequada ou esforço físico."
+          "tip": "Amarelo indica riscos como postura inadequada ou esforÃ§o fÃ­sico."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "[NAME], o tamanho do círculo no Mapa de Riscos indica a gravidade do perigo.",
+          "questions": "[NAME], o tamanho do cÃ­rculo no Mapa de Riscos indica a gravidade do perigo.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Círculos pequenos, médios ou grandes indicam a intensidade do risco."
+          "tip": "CÃ­rculos pequenos, mÃ©dios ou grandes indicam a intensidade do risco."
         },
         {
           "type": "drag",
@@ -1142,11 +1142,11 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Riscos Físicos"
+              "label": "Riscos FÃ­sicos"
             },
             {
               "id": "z2",
-              "label": "Riscos Químicos"
+              "label": "Riscos QuÃ­micos"
             },
             {
               "id": "z3",
@@ -1154,46 +1154,46 @@
             },
             {
               "id": "z4",
-              "label": "Riscos Biológicos"
+              "label": "Riscos BiolÃ³gicos"
             }
           ],
           "correct": "drag",
-          "tip": "A padronização das cores facilita a leitura rápida do ambiente."
+          "tip": "A padronizaÃ§Ã£o das cores facilita a leitura rÃ¡pida do ambiente."
         },
         {
           "type": "combo",
           "topics": "ACID",
           "questions": "O Mapa de Riscos deve ser afixado em local [COMBO] a todos os trabalhadores.",
           "options": [
-            "Visível",
+            "VisÃ­vel",
             "Fechado",
             "Escuro",
             "Restrito"
           ],
-          "correct": "Visível",
-          "tip": "A transparência da informação é crucial para a prevenção."
+          "correct": "VisÃ­vel",
+          "tip": "A transparÃªncia da informaÃ§Ã£o Ã© crucial para a prevenÃ§Ã£o."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "Quais itens abaixo compõem os Riscos Mecânicos (Azul)?",
+          "questions": "Quais itens abaixo compÃµem os Riscos MecÃ¢nicos (Azul)?",
           "answers": [
-            "Arranjo físico deficiente",
-            "Máquinas sem proteção",
-            "Bactérias",
-            "Iluminação inadequada"
+            "Arranjo fÃ­sico deficiente",
+            "MÃ¡quinas sem proteÃ§Ã£o",
+            "BactÃ©rias",
+            "IluminaÃ§Ã£o inadequada"
           ],
           "correct": [
-            "Arranjo físico deficiente",
-            "Máquinas sem proteção",
-            "Iluminação inadequada"
+            "Arranjo fÃ­sico deficiente",
+            "MÃ¡quinas sem proteÃ§Ã£o",
+            "IluminaÃ§Ã£o inadequada"
           ],
-          "tip": "O grupo azul foca em perigos físicos estruturais e mecânicos."
+          "tip": "O grupo azul foca em perigos fÃ­sicos estruturais e mecÃ¢nicos."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], quem é o principal responsável pela elaboração do Mapa de Riscos?",
+          "questions": "[NAME], quem Ã© o principal responsÃ¡vel pela elaboraÃ§Ã£o do Mapa de Riscos?",
           "answers": [
             "CIPA",
             "Dono da empresa",
@@ -1201,27 +1201,27 @@
             "Prefeitura"
           ],
           "correct": "CIPA",
-          "tip": "A CIPA elabora o mapa com a participação dos trabalhadores."
+          "tip": "A CIPA elabora o mapa com a participaÃ§Ã£o dos trabalhadores."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "O risco biológico é representado pela cor Marrom no mapa.",
+          "questions": "O risco biolÃ³gico Ã© representado pela cor Marrom no mapa.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Marrom alerta para vírus, bactérias e parasitas."
+          "tip": "Marrom alerta para vÃ­rus, bactÃ©rias e parasitas."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Relacione o risco à sua categoria específica:",
+          "questions": "Relacione o risco Ã  sua categoria especÃ­fica:",
           "items": [
             {
               "id": "d1",
-              "txt": "Ruído",
+              "txt": "RuÃ­do",
               "match": "z1"
             },
             {
@@ -1236,22 +1236,22 @@
             },
             {
               "id": "d4",
-              "txt": "Animais Peçonhentos",
+              "txt": "Animais PeÃ§onhentos",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Físico (Verde)"
+              "label": "FÃ­sico (Verde)"
             },
             {
               "id": "z2",
-              "label": "Químico (Vermelho)"
+              "label": "QuÃ­mico (Vermelho)"
             },
             {
               "id": "z3",
-              "label": "Ergonômico (Amarelo)"
+              "label": "ErgonÃ´mico (Amarelo)"
             },
             {
               "id": "z4",
@@ -1259,25 +1259,25 @@
             }
           ],
           "correct": "drag",
-          "tip": "Cada perigo tem uma classificação normativa rigorosa."
+          "tip": "Cada perigo tem uma classificaÃ§Ã£o normativa rigorosa."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "O risco [COMBO] engloba situações como levantamento de peso e estresse.",
+          "questions": "O risco [COMBO] engloba situaÃ§Ãµes como levantamento de peso e estresse.",
           "options": [
-            "Ergonômico",
-            "Químico",
-            "Mecânico",
-            "Elétrico"
+            "ErgonÃ´mico",
+            "QuÃ­mico",
+            "MecÃ¢nico",
+            "ElÃ©trico"
           ],
-          "correct": "Ergonômico",
-          "tip": "Fatores psicofisiológicos também são ergonômicos."
+          "correct": "ErgonÃ´mico",
+          "tip": "Fatores psicofisiolÃ³gicos tambÃ©m sÃ£o ergonÃ´micos."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], quais cores indicam riscos à saúde (Higiene Ocupacional)?",
+          "questions": "[NAME], quais cores indicam riscos Ã  saÃºde (Higiene Ocupacional)?",
           "answers": [
             "Verde",
             "Vermelho",
@@ -1289,25 +1289,25 @@
             "Vermelho",
             "Marrom"
           ],
-          "tip": "Físicos, químicos e biológicos são os pilares da higiene ocupacional."
+          "tip": "FÃ­sicos, quÃ­micos e biolÃ³gicos sÃ£o os pilares da higiene ocupacional."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "O círculo grande no Mapa de Risco significa:",
+          "questions": "O cÃ­rculo grande no Mapa de Risco significa:",
           "answers": [
             "Risco Grave",
-            "Risco Médio",
+            "Risco MÃ©dio",
             "Risco Leve",
             "Risco Inexistente"
           ],
           "correct": "Risco Grave",
-          "tip": "Círculos maiores exigem atenção e intervenção imediata."
+          "tip": "CÃ­rculos maiores exigem atenÃ§Ã£o e intervenÃ§Ã£o imediata."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "Um mesmo local de trabalho pode apresentar diversos círculos de cores diferentes.",
+          "questions": "Um mesmo local de trabalho pode apresentar diversos cÃ­rculos de cores diferentes.",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -1319,35 +1319,35 @@
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], qual tipo de inspeção é realizada sem data marcada?",
+          "questions": "[NAME], qual tipo de inspeÃ§Ã£o Ã© realizada sem data marcada?",
           "answers": [
             "Eventual",
-            "Periódica",
+            "PeriÃ³dica",
             "Oficial",
             "Especial"
           ],
           "correct": "Eventual",
-          "tip": "Inspeções eventuais não têm planejamento prévio ou periodicidade."
+          "tip": "InspeÃ§Ãµes eventuais nÃ£o tÃªm planejamento prÃ©vio ou periodicidade."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "Placas de sinalização de 'Proibição' devem ter obrigatoriamente a cor vermelha.",
+          "questions": "Placas de sinalizaÃ§Ã£o de 'ProibiÃ§Ã£o' devem ter obrigatoriamente a cor vermelha.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "O vermelho é a cor normativa para proibir ações ou identificar equipamentos de incêndio."
+          "tip": "O vermelho Ã© a cor normativa para proibir aÃ§Ãµes ou identificar equipamentos de incÃªndio."
         },
         {
           "type": "drag",
           "topics": "AGEN",
-          "questions": "Associe o tipo de inspeção à sua característica:",
+          "questions": "Associe o tipo de inspeÃ§Ã£o Ã  sua caracterÃ­stica:",
           "items": [
             {
               "id": "d1",
-              "txt": "Periódica",
+              "txt": "PeriÃ³dica",
               "match": "z1"
             },
             {
@@ -1377,37 +1377,37 @@
             },
             {
               "id": "z3",
-              "label": "Realizada por órgãos governamentais"
+              "label": "Realizada por Ã³rgÃ£os governamentais"
             },
             {
               "id": "z4",
-              "label": "Exige técnicos e aparelhos específicos"
+              "label": "Exige tÃ©cnicos e aparelhos especÃ­ficos"
             }
           ],
           "correct": "drag",
-          "tip": "A diversidade de inspeções garante uma cobertura 360º da segurança."
+          "tip": "A diversidade de inspeÃ§Ãµes garante uma cobertura 360Âº da seguranÃ§a."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "A sinalização de [COMBO] usa a cor azul para indicar uma ação obrigatória.",
+          "questions": "A sinalizaÃ§Ã£o de [COMBO] usa a cor azul para indicar uma aÃ§Ã£o obrigatÃ³ria.",
           "options": [
             "Aviso",
             "Alerta",
-            "Emergência",
+            "EmergÃªncia",
             "Perigo"
           ],
           "correct": "Aviso",
-          "tip": "Exemplo: 'Uso obrigatório de protetor auricular'."
+          "tip": "Exemplo: 'Uso obrigatÃ³rio de protetor auricular'."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "[NAME], quais são finalidades das inspeções de segurança?",
+          "questions": "[NAME], quais sÃ£o finalidades das inspeÃ§Ãµes de seguranÃ§a?",
           "answers": [
             "Identificar perigos",
             "Prevenir acidentes",
-            "Multar funcionários",
+            "Multar funcionÃ¡rios",
             "Verificar cumprimento de NRs"
           ],
           "correct": [
@@ -1415,12 +1415,12 @@
             "Prevenir acidentes",
             "Verificar cumprimento de NRs"
           ],
-          "tip": "O foco é preventivo e normativo, não meramente punitivo."
+          "tip": "O foco Ã© preventivo e normativo, nÃ£o meramente punitivo."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "As placas de 'Saída de Emergência' utilizam qual combinação de cores?",
+          "questions": "As placas de 'SaÃ­da de EmergÃªncia' utilizam qual combinaÃ§Ã£o de cores?",
           "answers": [
             "Fundo verde e escrita branca",
             "Fundo amarelo e escrita preta",
@@ -1428,23 +1428,23 @@
             "Fundo azul e escrita branca"
           ],
           "correct": "Fundo verde e escrita branca",
-          "tip": "Verde indica condições de segurança e rotas de fuga."
+          "tip": "Verde indica condiÃ§Ãµes de seguranÃ§a e rotas de fuga."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "Inspeções parciais focam em apenas alguns setores ou equipamentos específicos.",
+          "questions": "InspeÃ§Ãµes parciais focam em apenas alguns setores ou equipamentos especÃ­ficos.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "São úteis para áreas críticas de alto risco."
+          "tip": "SÃ£o Ãºteis para Ã¡reas crÃ­ticas de alto risco."
         },
         {
           "type": "drag",
           "topics": "AGEN",
-          "questions": "Relacione a cor da sinalização à sua função:",
+          "questions": "Relacione a cor da sinalizaÃ§Ã£o Ã  sua funÃ§Ã£o:",
           "items": [
             {
               "id": "d1",
@@ -1470,19 +1470,19 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Cuidado / Atenção"
+              "label": "Cuidado / AtenÃ§Ã£o"
             },
             {
               "id": "z2",
-              "label": "Segurança / Socorro"
+              "label": "SeguranÃ§a / Socorro"
             },
             {
               "id": "z3",
-              "label": "Parada / Proibição"
+              "label": "Parada / ProibiÃ§Ã£o"
             },
             {
               "id": "z4",
-              "label": "Ação Obrigatória"
+              "label": "AÃ§Ã£o ObrigatÃ³ria"
             }
           ],
           "correct": "drag",
@@ -1491,12 +1491,12 @@
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "A sinalização de [COMBO] indica perigo iminente ou alta tensão.",
+          "questions": "A sinalizaÃ§Ã£o de [COMBO] indica perigo iminente ou alta tensÃ£o.",
           "options": [
             "Alerta",
             "Salvamento",
             "Higiene",
-            "Orientação"
+            "OrientaÃ§Ã£o"
           ],
           "correct": "Alerta",
           "tip": "Geralmente triangular com bordas pretas."
@@ -1509,68 +1509,68 @@
             "Extintores",
             "Cabeamento de rede",
             "Ar-condicionado",
-            "Estoque de café"
+            "Estoque de cafÃ©"
           ],
           "correct": [
             "Extintores",
             "Cabeamento de rede",
             "Ar-condicionado"
           ],
-          "tip": "Manutenção preventiva evita incêndios e riscos elétricos."
+          "tip": "ManutenÃ§Ã£o preventiva evita incÃªndios e riscos elÃ©tricos."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], uma inspeção feita após um acidente grave é classificada como:",
+          "questions": "[NAME], uma inspeÃ§Ã£o feita apÃ³s um acidente grave Ã© classificada como:",
           "answers": [
             "Especial",
             "Rotineira",
             "Oficial",
-            "Periódica"
+            "PeriÃ³dica"
           ],
           "correct": "Especial",
-          "tip": "Exige análise técnica profunda das causas do ocorrido."
+          "tip": "Exige anÃ¡lise tÃ©cnica profunda das causas do ocorrido."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "O uso de símbolos na sinalização é facultativo se houver texto explicativo.",
+          "questions": "O uso de sÃ­mbolos na sinalizaÃ§Ã£o Ã© facultativo se houver texto explicativo.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Símbolos são essenciais para compreensão universal e rápida.",
+          "tip": "SÃ­mbolos sÃ£o essenciais para compreensÃ£o universal e rÃ¡pida.",
           "trans": "PROT"
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], quais são os elementos do Triângulo do Fogo?",
+          "questions": "[NAME], quais sÃ£o os elementos do TriÃ¢ngulo do Fogo?",
           "answers": [
-            "Combustível, Comburente e Calor",
-            "Água, Ar e Terra",
-            "Madeira, Gás e Faísca",
-            "Fumaça, Cinzas e Chama"
+            "CombustÃ­vel, Comburente e Calor",
+            "Ãgua, Ar e Terra",
+            "Madeira, GÃ¡s e FaÃ­sca",
+            "FumaÃ§a, Cinzas e Chama"
           ],
-          "correct": "Combustível, Comburente e Calor",
+          "correct": "CombustÃ­vel, Comburente e Calor",
           "tip": "Removendo um desses elementos, o fogo se apaga."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "Extintores de Água podem ser usados em equipamentos elétricos energizados.",
+          "questions": "Extintores de Ãgua podem ser usados em equipamentos elÃ©tricos energizados.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Água conduz eletricidade e pode causar choques fatais no operador."
+          "tip": "Ãgua conduz eletricidade e pode causar choques fatais no operador."
         },
         {
           "type": "drag",
           "topics": "PROT",
-          "questions": "Relacione a classe de incêndio ao material:",
+          "questions": "Relacione a classe de incÃªndio ao material:",
           "items": [
             {
               "id": "d1",
@@ -1596,19 +1596,19 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Sólidos que deixam cinzas (Papel, Madeira)"
+              "label": "SÃ³lidos que deixam cinzas (Papel, Madeira)"
             },
             {
               "id": "z2",
-              "label": "Líquidos Inflamáveis (Gasolina, Álcool)"
+              "label": "LÃ­quidos InflamÃ¡veis (Gasolina, Ãlcool)"
             },
             {
               "id": "z3",
-              "label": "Equipamentos Elétricos Energizados"
+              "label": "Equipamentos ElÃ©tricos Energizados"
             },
             {
               "id": "z4",
-              "label": "Metais Pirofóricos (Magnésio)"
+              "label": "Metais PirofÃ³ricos (MagnÃ©sio)"
             }
           ],
           "correct": "drag",
@@ -1617,37 +1617,37 @@
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "O extintor de [COMBO] é o mais indicado para centrais de servidores.",
+          "questions": "O extintor de [COMBO] Ã© o mais indicado para centrais de servidores.",
           "options": [
             "CO2",
-            "Água",
+            "Ãgua",
             "Espuma",
             "Areia"
           ],
           "correct": "CO2",
-          "tip": "O CO2 não deixa resíduos e não danifica eletrônicos."
+          "tip": "O CO2 nÃ£o deixa resÃ­duos e nÃ£o danifica eletrÃ´nicos."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "[NAME], quais são métodos de extinção de incêndio?",
+          "questions": "[NAME], quais sÃ£o mÃ©todos de extinÃ§Ã£o de incÃªndio?",
           "answers": [
             "Resfriamento",
             "Abafamento",
             "Isolamento",
-            "Alimentação"
+            "AlimentaÃ§Ã£o"
           ],
           "correct": [
             "Resfriamento",
             "Abafamento",
             "Isolamento"
           ],
-          "tip": "Cada método ataca um elemento do triângulo do fogo."
+          "tip": "Cada mÃ©todo ataca um elemento do triÃ¢ngulo do fogo."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "Incêndios em óleo de cozinha e gorduras pertencem a qual classe?",
+          "questions": "IncÃªndios em Ã³leo de cozinha e gorduras pertencem a qual classe?",
           "answers": [
             "Classe K",
             "Classe B",
@@ -1655,7 +1655,7 @@
             "Classe D"
           ],
           "correct": "Classe K",
-          "tip": "Classe 'K' vem de 'Kitchen' (Cozinha em inglês)."
+          "tip": "Classe 'K' vem de 'Kitchen' (Cozinha em inglÃªs)."
         },
         {
           "type": "boolean",
@@ -1666,26 +1666,26 @@
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Atacar a base corta a alimentação térmica do fogo."
+          "tip": "Atacar a base corta a alimentaÃ§Ã£o tÃ©rmica do fogo."
         },
         {
           "type": "drag",
           "topics": "PROT",
-          "questions": "Associe o agente extintor à sua ação principal:",
+          "questions": "Associe o agente extintor Ã  sua aÃ§Ã£o principal:",
           "items": [
             {
               "id": "d1",
-              "txt": "Água",
+              "txt": "Ãgua",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Pó Químico (PQS)",
+              "txt": "PÃ³ QuÃ­mico (PQS)",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Gás Carbônico (CO2)",
+              "txt": "GÃ¡s CarbÃ´nico (CO2)",
               "match": "z3"
             },
             {
@@ -1701,7 +1701,7 @@
             },
             {
               "id": "z2",
-              "label": "Interrupção da reação em cadeia"
+              "label": "InterrupÃ§Ã£o da reaÃ§Ã£o em cadeia"
             },
             {
               "id": "z3",
@@ -1709,46 +1709,46 @@
             },
             {
               "id": "z4",
-              "label": "Retirada do oxigênio"
+              "label": "Retirada do oxigÃªnio"
             }
           ],
           "correct": "drag",
-          "tip": "Entender a física do fogo ajuda no combate eficiente."
+          "tip": "Entender a fÃ­sica do fogo ajuda no combate eficiente."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "O PPCI é o Plano de [COMBO] e Combate a Incêndio.",
+          "questions": "O PPCI Ã© o Plano de [COMBO] e Combate a IncÃªndio.",
           "options": [
-            "Prevenção",
-            "Produção",
-            "Paralisação",
-            "Perseguição"
+            "PrevenÃ§Ã£o",
+            "ProduÃ§Ã£o",
+            "ParalisaÃ§Ã£o",
+            "PerseguiÃ§Ã£o"
           ],
-          "correct": "Prevenção",
-          "tip": "Prevenir é sempre a melhor estratégia contra o fogo."
+          "correct": "PrevenÃ§Ã£o",
+          "tip": "Prevenir Ã© sempre a melhor estratÃ©gia contra o fogo."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "Quais comportamentos são seguros em caso de incêndio?",
+          "questions": "Quais comportamentos sÃ£o seguros em caso de incÃªndio?",
           "answers": [
             "Manter a calma",
             "Usar elevadores",
-            "Caminhar agachado na fumaça",
+            "Caminhar agachado na fumaÃ§a",
             "Sair pela rota de fuga"
           ],
           "correct": [
             "Manter a calma",
-            "Caminhar agachado na fumaça",
+            "Caminhar agachado na fumaÃ§a",
             "Sair pela rota de fuga"
           ],
-          "tip": "Nunca use elevadores em incêndios; a energia pode cair."
+          "tip": "Nunca use elevadores em incÃªndios; a energia pode cair."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], um incêndio em um transformador energizado é de classe:",
+          "questions": "[NAME], um incÃªndio em um transformador energizado Ã© de classe:",
           "answers": [
             "Classe C",
             "Classe B",
@@ -1756,43 +1756,43 @@
             "Classe K"
           ],
           "correct": "Classe C",
-          "tip": "Todo equipamento ligado à rede elétrica é Classe C."
+          "tip": "Todo equipamento ligado Ã  rede elÃ©trica Ã© Classe C."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "O comburente mais comum na natureza é o Oxigênio.",
+          "questions": "O comburente mais comum na natureza Ã© o OxigÃªnio.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Sem oxigênio, a maioria das combustões para imediatamente.",
+          "tip": "Sem oxigÃªnio, a maioria das combustÃµes para imediatamente.",
           "trans": "NORM"
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], qual destes é um sintoma comum de estresse laboral excessivo?",
+          "questions": "[NAME], qual destes Ã© um sintoma comum de estresse laboral excessivo?",
           "answers": [
             "Irritabilidade e fadiga",
-            "Aumento da audição",
+            "Aumento da audiÃ§Ã£o",
             "Melhora no sono",
-            "Visão raio-x"
+            "VisÃ£o raio-x"
           ],
           "correct": "Irritabilidade e fadiga",
-          "tip": "O estresse afeta a saúde física e mental do trabalhador."
+          "tip": "O estresse afeta a saÃºde fÃ­sica e mental do trabalhador."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "A vacinação do trabalhador é considerada uma medida de prevenção primária.",
+          "questions": "A vacinaÃ§Ã£o do trabalhador Ã© considerada uma medida de prevenÃ§Ã£o primÃ¡ria.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Vacinas evitam a instalação de doenças no organismo."
+          "tip": "Vacinas evitam a instalaÃ§Ã£o de doenÃ§as no organismo."
         },
         {
           "type": "drag",
@@ -1801,12 +1801,12 @@
           "items": [
             {
               "id": "d1",
-              "txt": "Alimentação",
+              "txt": "AlimentaÃ§Ã£o",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Atividade Física",
+              "txt": "Atividade FÃ­sica",
               "match": "z2"
             },
             {
@@ -1823,7 +1823,7 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Combustível para o corpo"
+              "label": "CombustÃ­vel para o corpo"
             },
             {
               "id": "z2",
@@ -1831,45 +1831,45 @@
             },
             {
               "id": "z3",
-              "label": "Saúde mental e social"
+              "label": "SaÃºde mental e social"
             },
             {
               "id": "z4",
-              "label": "Recuperação biológica"
+              "label": "RecuperaÃ§Ã£o biolÃ³gica"
             }
           ],
           "correct": "drag",
-          "tip": "O equilíbrio entre vida pessoal e trabalho é fundamental."
+          "tip": "O equilÃ­brio entre vida pessoal e trabalho Ã© fundamental."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "A [COMBO] Laboral ajuda a prevenir lesões por movimentos repetitivos.",
+          "questions": "A [COMBO] Laboral ajuda a prevenir lesÃµes por movimentos repetitivos.",
           "options": [
-            "Ginástica",
+            "GinÃ¡stica",
             "Faxina",
-            "Música",
+            "MÃºsica",
             "Leitura"
           ],
-          "correct": "Ginástica",
+          "correct": "GinÃ¡stica",
           "tip": "Pausas curtas para alongamento reduzem dores em TI."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "[NAME], quais são as chamadas 'Vacinas do Trabalhador'?",
+          "questions": "[NAME], quais sÃ£o as chamadas 'Vacinas do Trabalhador'?",
           "answers": [
-            "Antitetânica",
+            "AntitetÃ¢nica",
             "Hepatite B",
             "Febre Amarela",
             "Vitamina C"
           ],
           "correct": [
-            "Antitetânica",
+            "AntitetÃ¢nica",
             "Hepatite B",
             "Febre Amarela"
           ],
-          "tip": "Protegem contra riscos biológicos e acidentes com perfurocortantes."
+          "tip": "Protegem contra riscos biolÃ³gicos e acidentes com perfurocortantes."
         },
         {
           "type": "multiple",
@@ -1877,28 +1877,28 @@
           "questions": "O conceito de 'Comportamento Seguro' baseia-se em:",
           "answers": [
             "Agir de forma consciente prevenindo riscos",
-            "Seguir normas apenas sob fiscalização",
-            "Confiar na própria sorte",
+            "Seguir normas apenas sob fiscalizaÃ§Ã£o",
+            "Confiar na prÃ³pria sorte",
             "Usar EPI apenas quando quiser"
           ],
           "correct": "Agir de forma consciente prevenindo riscos",
-          "tip": "Prevenção é uma atitude diária e voluntária."
+          "tip": "PrevenÃ§Ã£o Ã© uma atitude diÃ¡ria e voluntÃ¡ria."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "O sedentarismo é um fator de risco agravado pelo trabalho em escritórios de TI.",
+          "questions": "O sedentarismo Ã© um fator de risco agravado pelo trabalho em escritÃ³rios de TI.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Trabalhar muito tempo sentado exige compensação com exercícios."
+          "tip": "Trabalhar muito tempo sentado exige compensaÃ§Ã£o com exercÃ­cios."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Associe os benefícios da Qualidade de Vida:",
+          "questions": "Associe os benefÃ­cios da Qualidade de Vida:",
           "items": [
             {
               "id": "d1",
@@ -1917,22 +1917,22 @@
             },
             {
               "id": "d4",
-              "txt": "Prevenção",
+              "txt": "PrevenÃ§Ã£o",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Melhor aprendizado e saúde"
+              "label": "Melhor aprendizado e saÃºde"
             },
             {
               "id": "z2",
-              "label": "Menor absenteísmo"
+              "label": "Menor absenteÃ­smo"
             },
             {
               "id": "z3",
-              "label": "Menor custo com saúde pública"
+              "label": "Menor custo com saÃºde pÃºblica"
             },
             {
               "id": "z4",
@@ -1940,12 +1940,12 @@
             }
           ],
           "correct": "drag",
-          "tip": "Todos ganham quando há investimento em saúde."
+          "tip": "Todos ganham quando hÃ¡ investimento em saÃºde."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "O estresse crônico no trabalho pode levar à Síndrome de [COMBO].",
+          "questions": "O estresse crÃ´nico no trabalho pode levar Ã  SÃ­ndrome de [COMBO].",
           "options": [
             "Burnout",
             "Down",
@@ -1953,22 +1953,22 @@
             "Vira-lata"
           ],
           "correct": "Burnout",
-          "tip": "Esgotamento profissional é uma realidade séria."
+          "tip": "Esgotamento profissional Ã© uma realidade sÃ©ria."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "Quais atitudes promovem saúde mental no ambiente de TI?",
+          "questions": "Quais atitudes promovem saÃºde mental no ambiente de TI?",
           "answers": [
-            "Respeitar horários de descanso",
-            "Boa comunicação com colegas",
-            "Beber 5 litros de café",
-            "Organização de tarefas"
+            "Respeitar horÃ¡rios de descanso",
+            "Boa comunicaÃ§Ã£o com colegas",
+            "Beber 5 litros de cafÃ©",
+            "OrganizaÃ§Ã£o de tarefas"
           ],
           "correct": [
-            "Respeitar horários de descanso",
-            "Boa comunicação com colegas",
-            "Organização de tarefas"
+            "Respeitar horÃ¡rios de descanso",
+            "Boa comunicaÃ§Ã£o com colegas",
+            "OrganizaÃ§Ã£o de tarefas"
           ],
           "tip": "Ambiente organizado e respeitoso diminui a ansiedade."
         },
@@ -1977,29 +1977,29 @@
           "topics": "NORM",
           "questions": "[NAME], a ergonomia cognitiva em TI trata de:",
           "answers": [
-            "Carga mental e tomada de decisão",
+            "Carga mental e tomada de decisÃ£o",
             "Altura da cadeira",
             "Tipo de teclado",
             "Cor da parede"
           ],
-          "correct": "Carga mental e tomada de decisão",
-          "tip": "TI exige alto processamento mental; o foco aqui é a mente."
+          "correct": "Carga mental e tomada de decisÃ£o",
+          "tip": "TI exige alto processamento mental; o foco aqui Ã© a mente."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "Ergonomia de conscientização visa educar o trabalhador sobre posturas corretas.",
+          "questions": "Ergonomia de conscientizaÃ§Ã£o visa educar o trabalhador sobre posturas corretas.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "O conhecimento é a primeira barreira contra lesões."
+          "tip": "O conhecimento Ã© a primeira barreira contra lesÃµes."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Relacione os perigos da má postura:",
+          "questions": "Relacione os perigos da mÃ¡ postura:",
           "items": [
             {
               "id": "d1",
@@ -2025,7 +2025,7 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Dor por inclinação excessiva da cabeça"
+              "label": "Dor por inclinaÃ§Ã£o excessiva da cabeÃ§a"
             },
             {
               "id": "z2",
@@ -2041,12 +2041,12 @@
             }
           ],
           "correct": "drag",
-          "tip": "Pequenos ajustes no setup evitam grandes problemas crônicos."
+          "tip": "Pequenos ajustes no setup evitam grandes problemas crÃ´nicos."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "A prevenção é um compromisso com a [COMBO].",
+          "questions": "A prevenÃ§Ã£o Ã© um compromisso com a [COMBO].",
           "options": [
             "Vida",
             "Empresa",
@@ -2054,7 +2054,7 @@
             "Multa"
           ],
           "correct": "Vida",
-          "tip": "Trabalhar com segurança é garantir o seu futuro."
+          "tip": "Trabalhar com seguranÃ§a Ã© garantir o seu futuro."
         }
       ]
     },
@@ -2067,7 +2067,7 @@
           {
             "id": "ACID",
             "name": "QUALIDADE AMBIENTAL",
-            "desc": "O impacto humano, poluição e o papel do trabalhador.",
+            "desc": "O impacto humano, poluiÃ§Ã£o e o papel do trabalhador.",
             "color": "#27ae60",
             "img_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -2079,8 +2079,8 @@
           },
           {
             "id": "AGEN",
-            "name": "RESÍDUOS E E-WASTE",
-            "desc": "Gestão de lixo eletrónico e ciclo de vida dos produtos.",
+            "name": "RESÃDUOS E E-WASTE",
+            "desc": "GestÃ£o de lixo eletrÃ³nico e ciclo de vida dos produtos.",
             "color": "#2980b9",
             "img_url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -2093,7 +2093,7 @@
           {
             "id": "PROT",
             "name": "RECURSOS E ENERGIA",
-            "desc": "Uso racional de energia e fontes renováveis na TI.",
+            "desc": "Uso racional de energia e fontes renovÃ¡veis na TI.",
             "color": "#f1c40f",
             "img_url": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -2106,7 +2106,7 @@
           {
             "id": "NORM",
             "name": "SUSTENTABILIDADE",
-            "desc": "Economia circular, políticas públicas e responsabilidade socioambiental.",
+            "desc": "Economia circular, polÃ­ticas pÃºblicas e responsabilidade socioambiental.",
             "color": "#16a085",
             "img_url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -2122,20 +2122,20 @@
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], qual é o principal papel do trabalhador nas normas ambientais?",
+          "questions": "[NAME], qual Ã© o principal papel do trabalhador nas normas ambientais?",
           "answers": [
             "Cumprir procedimentos e reportar falhas",
-            "Ignorar as regras se a produção for alta",
-            "Delegar a responsabilidade apenas à CIPA",
+            "Ignorar as regras se a produÃ§Ã£o for alta",
+            "Delegar a responsabilidade apenas Ã  CIPA",
             "Pagar multas ambientais da empresa"
           ],
           "correct": "Cumprir procedimentos e reportar falhas",
-          "tip": "A sustentabilidade começa com a responsabilidade individual no dia a dia."
+          "tip": "A sustentabilidade comeÃ§a com a responsabilidade individual no dia a dia."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "O aquecimento global é causado apenas por fenómenos naturais, sem influência humana.",
+          "questions": "O aquecimento global Ã© causado apenas por fenÃ³menos naturais, sem influÃªncia humana.",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -2155,7 +2155,7 @@
             },
             {
               "id": "d2",
-              "txt": "Poluição",
+              "txt": "PoluiÃ§Ã£o",
               "match": "z2"
             },
             {
@@ -2176,11 +2176,11 @@
             },
             {
               "id": "z2",
-              "label": "Degradação por agentes nocivos"
+              "label": "DegradaÃ§Ã£o por agentes nocivos"
             },
             {
               "id": "z3",
-              "label": "Elemento da natureza útil ao homem"
+              "label": "Elemento da natureza Ãºtil ao homem"
             },
             {
               "id": "z4",
@@ -2188,70 +2188,70 @@
             }
           ],
           "correct": "drag",
-          "tip": "Entender estes termos ajuda na aplicação de práticas sustentáveis."
+          "tip": "Entender estes termos ajuda na aplicaÃ§Ã£o de prÃ¡ticas sustentÃ¡veis."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "A [COMBO] ambiental é a capacidade de um sistema suportar as atividades sem se degradar.",
+          "questions": "A [COMBO] ambiental Ã© a capacidade de um sistema suportar as atividades sem se degradar.",
           "options": [
-            "Resiliência",
-            "Produção",
-            "Lentidão",
+            "ResiliÃªncia",
+            "ProduÃ§Ã£o",
+            "LentidÃ£o",
             "Economia"
           ],
-          "correct": "Resiliência",
+          "correct": "ResiliÃªncia",
           "tip": "Sistemas resilientes recuperam-se de impactos externos."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], quais destes são pilares da sustentabilidade (Triple Bottom Line)?",
+          "questions": "[NAME], quais destes sÃ£o pilares da sustentabilidade (Triple Bottom Line)?",
           "answers": [
             "Social",
             "Ambiental",
-            "Económico",
-            "Político"
+            "EconÃ³mico",
+            "PolÃ­tico"
           ],
           "correct": [
             "Social",
             "Ambiental",
-            "Económico"
+            "EconÃ³mico"
           ],
-          "tip": "A sustentabilidade exige equilíbrio entre estas três áreas."
+          "tip": "A sustentabilidade exige equilÃ­brio entre estas trÃªs Ã¡reas."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], o que caracteriza a poluição atmosférica?",
+          "questions": "[NAME], o que caracteriza a poluiÃ§Ã£o atmosfÃ©rica?",
           "answers": [
-            "Presença de substâncias nocivas no ar",
-            "Apenas o som alto de máquinas",
-            "Uso de água para arrefecimento",
-            "Plantar árvores na empresa"
+            "PresenÃ§a de substÃ¢ncias nocivas no ar",
+            "Apenas o som alto de mÃ¡quinas",
+            "Uso de Ã¡gua para arrefecimento",
+            "Plantar Ã¡rvores na empresa"
           ],
-          "correct": "Presença de substâncias nocivas no ar",
-          "tip": "Emissões industriais e de transportes são as principais fontes."
+          "correct": "PresenÃ§a de substÃ¢ncias nocivas no ar",
+          "tip": "EmissÃµes industriais e de transportes sÃ£o as principais fontes."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "A poluição visual e sonora não são consideradas problemas ambientais.",
+          "questions": "A poluiÃ§Ã£o visual e sonora nÃ£o sÃ£o consideradas problemas ambientais.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Ambas afetam o bem-estar e a saúde da população e fauna."
+          "tip": "Ambas afetam o bem-estar e a saÃºde da populaÃ§Ã£o e fauna."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Combine o tipo de poluição ao seu impacto:",
+          "questions": "Combine o tipo de poluiÃ§Ã£o ao seu impacto:",
           "items": [
             {
               "id": "d1",
-              "txt": "Hídrica",
+              "txt": "HÃ­drica",
               "match": "z1"
             },
             {
@@ -2261,7 +2261,7 @@
             },
             {
               "id": "d3",
-              "txt": "Atmosférica",
+              "txt": "AtmosfÃ©rica",
               "match": "z3"
             },
             {
@@ -2273,7 +2273,7 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Contaminação de rios e mares"
+              "label": "ContaminaÃ§Ã£o de rios e mares"
             },
             {
               "id": "z2",
@@ -2285,59 +2285,59 @@
             },
             {
               "id": "z4",
-              "label": "Resíduos de urânio"
+              "label": "ResÃ­duos de urÃ¢nio"
             }
           ],
           "correct": "drag",
-          "tip": "Cada forma de poluição exige uma estratégia de mitigação diferente."
+          "tip": "Cada forma de poluiÃ§Ã£o exige uma estratÃ©gia de mitigaÃ§Ã£o diferente."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "O desenvolvimento [COMBO] atende às necessidades atuais sem comprometer o futuro.",
+          "questions": "O desenvolvimento [COMBO] atende Ã s necessidades atuais sem comprometer o futuro.",
           "options": [
-            "Sustentável",
+            "SustentÃ¡vel",
             "Acelerado",
             "Individual",
             "Local"
           ],
-          "correct": "Sustentável",
-          "tip": "É o conceito central da gestão ambiental moderna."
+          "correct": "SustentÃ¡vel",
+          "tip": "Ã‰ o conceito central da gestÃ£o ambiental moderna."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "Quais são as principais ameaças à qualidade ambiental hoje?",
+          "questions": "Quais sÃ£o as principais ameaÃ§as Ã  qualidade ambiental hoje?",
           "answers": [
             "Desmatamento",
             "Perda de biodiversidade",
             "Reflorestamento",
-            "Mudanças climáticas"
+            "MudanÃ§as climÃ¡ticas"
           ],
           "correct": [
             "Desmatamento",
             "Perda de biodiversidade",
-            "Mudanças climáticas"
+            "MudanÃ§as climÃ¡ticas"
           ],
-          "tip": "Ações preventivas são urgentes para reverter estes quadros."
+          "tip": "AÃ§Ãµes preventivas sÃ£o urgentes para reverter estes quadros."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], quem sofre mais com a degradação ambiental?",
+          "questions": "[NAME], quem sofre mais com a degradaÃ§Ã£o ambiental?",
           "answers": [
-            "Toda a sociedade e gerações futuras",
+            "Toda a sociedade e geraÃ§Ãµes futuras",
             "Apenas os donos de empresas",
             "Apenas quem mora no campo",
-            "Ninguém, o planeta recupera-se"
+            "NinguÃ©m, o planeta recupera-se"
           ],
-          "correct": "Toda a sociedade e gerações futuras",
-          "tip": "O impacto ambiental é global e transgeracional."
+          "correct": "Toda a sociedade e geraÃ§Ãµes futuras",
+          "tip": "O impacto ambiental Ã© global e transgeracional."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "O profissional de TI pode ajudar na qualidade ambiental através da otimização de sistemas.",
+          "questions": "O profissional de TI pode ajudar na qualidade ambiental atravÃ©s da otimizaÃ§Ã£o de sistemas.",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -2351,24 +2351,24 @@
           "topics": "AGEN",
           "questions": "[NAME], o que define o termo e-waste?",
           "answers": [
-            "Resíduos de equipamentos eletrónicos",
-            "Restos de comida do refeitório",
+            "ResÃ­duos de equipamentos eletrÃ³nicos",
+            "Restos de comida do refeitÃ³rio",
             "Papel impresso em excesso",
             "Lixo radioativo industrial"
           ],
-          "correct": "Resíduos de equipamentos eletrónicos",
-          "tip": "Teclados, monitores e baterias são exemplos comuns."
+          "correct": "ResÃ­duos de equipamentos eletrÃ³nicos",
+          "tip": "Teclados, monitores e baterias sÃ£o exemplos comuns."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "Equipamentos eletrónicos contêm metais pesados tóxicos como chumbo e mercúrio.",
+          "questions": "Equipamentos eletrÃ³nicos contÃªm metais pesados tÃ³xicos como chumbo e mercÃºrio.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "O descarte incorreto contamina o solo e a água."
+          "tip": "O descarte incorreto contamina o solo e a Ã¡gua."
         },
         {
           "type": "drag",
@@ -2411,24 +2411,24 @@
             },
             {
               "id": "z4",
-              "label": "Transformar em matéria-prima"
+              "label": "Transformar em matÃ©ria-prima"
             }
           ],
           "correct": "drag",
-          "tip": "A ordem dos Rs indica a prioridade de ação."
+          "tip": "A ordem dos Rs indica a prioridade de aÃ§Ã£o."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "O tempo de [COMBO] do plástico pode passar de 400 anos.",
+          "questions": "O tempo de [COMBO] do plÃ¡stico pode passar de 400 anos.",
           "options": [
-            "Decomposição",
-            "Produção",
+            "DecomposiÃ§Ã£o",
+            "ProduÃ§Ã£o",
             "Consumo",
             "Limpeza"
           ],
-          "correct": "Decomposição",
-          "tip": "Reduzir o uso de plásticos é vital para os oceanos."
+          "correct": "DecomposiÃ§Ã£o",
+          "tip": "Reduzir o uso de plÃ¡sticos Ã© vital para os oceanos."
         },
         {
           "type": "multi",
@@ -2445,31 +2445,31 @@
             "Placas de circuito",
             "Monitores CRT"
           ],
-          "tip": "Estes itens possuem componentes químicos perigosos."
+          "tip": "Estes itens possuem componentes quÃ­micos perigosos."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "O que é Logística Reversa?",
+          "questions": "O que Ã© LogÃ­stica Reversa?",
           "answers": [
             "Retorno do produto ao fabricante para descarte",
             "Entregar encomendas com drones",
             "Vender produtos usados na internet",
-            "Mandar lixo para outros países"
+            "Mandar lixo para outros paÃ­ses"
           ],
           "correct": "Retorno do produto ao fabricante para descarte",
-          "tip": "O fabricante é co-responsável pelo ciclo de vida do produto."
+          "tip": "O fabricante Ã© co-responsÃ¡vel pelo ciclo de vida do produto."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "A reciclagem de eletrónicos permite recuperar metais preciosos como ouro e prata.",
+          "questions": "A reciclagem de eletrÃ³nicos permite recuperar metais preciosos como ouro e prata.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Isso reduz a necessidade de novas minerações agressivas."
+          "tip": "Isso reduz a necessidade de novas mineraÃ§Ãµes agressivas."
         },
         {
           "type": "drag",
@@ -2500,11 +2500,11 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Papel / Papelão"
+              "label": "Papel / PapelÃ£o"
             },
             {
               "id": "z2",
-              "label": "Plástico"
+              "label": "PlÃ¡stico"
             },
             {
               "id": "z3",
@@ -2516,86 +2516,86 @@
             }
           ],
           "correct": "drag",
-          "tip": "Separar corretamente é o primeiro passo para a reciclagem."
+          "tip": "Separar corretamente Ã© o primeiro passo para a reciclagem."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "A [COMBO] planejada é a estratégia de criar produtos que estragam rápido.",
+          "questions": "A [COMBO] planejada Ã© a estratÃ©gia de criar produtos que estragam rÃ¡pido.",
           "options": [
-            "Obsolescência",
+            "ObsolescÃªncia",
             "Tecnologia",
-            "Inteligência",
+            "InteligÃªncia",
             "Garantia"
           ],
-          "correct": "Obsolescência",
-          "tip": "Esta prática gera volumes gigantescos de lixo eletrónico."
+          "correct": "ObsolescÃªncia",
+          "tip": "Esta prÃ¡tica gera volumes gigantescos de lixo eletrÃ³nico."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "Quais são benefícios da gestão correta de resíduos?",
+          "questions": "Quais sÃ£o benefÃ­cios da gestÃ£o correta de resÃ­duos?",
           "answers": [
-            "Preservação de recursos",
-            "Geração de empregos",
-            "Aumento da poluição",
-            "Redução de custos industriais"
+            "PreservaÃ§Ã£o de recursos",
+            "GeraÃ§Ã£o de empregos",
+            "Aumento da poluiÃ§Ã£o",
+            "ReduÃ§Ã£o de custos industriais"
           ],
           "correct": [
-            "Preservação de recursos",
-            "Geração de empregos",
-            "Redução de custos industriais"
+            "PreservaÃ§Ã£o de recursos",
+            "GeraÃ§Ã£o de empregos",
+            "ReduÃ§Ã£o de custos industriais"
           ],
-          "tip": "O lixo bem gerido torna-se uma oportunidade económica."
+          "tip": "O lixo bem gerido torna-se uma oportunidade econÃ³mica."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
           "questions": "[NAME], onde deve deitar pilhas usadas?",
           "answers": [
-            "Em pontos de recolha específicos",
+            "Em pontos de recolha especÃ­ficos",
             "No lixo comum",
-            "No lixo reciclável de papel",
+            "No lixo reciclÃ¡vel de papel",
             "Enterrar no quintal"
           ],
-          "correct": "Em pontos de recolha específicos",
-          "tip": "Nunca deite baterias no lixo doméstico."
+          "correct": "Em pontos de recolha especÃ­ficos",
+          "tip": "Nunca deite baterias no lixo domÃ©stico."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "O e-waste é atualmente o fluxo de lixo que mais cresce no mundo.",
+          "questions": "O e-waste Ã© atualmente o fluxo de lixo que mais cresce no mundo.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "A rápida troca de gadgets impulsiona este crescimento.",
+          "tip": "A rÃ¡pida troca de gadgets impulsiona este crescimento.",
           "trans": "PROT"
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], qual destas fontes de energia é considerada limpa e renovável?",
+          "questions": "[NAME], qual destas fontes de energia Ã© considerada limpa e renovÃ¡vel?",
           "answers": [
             "Energia Solar",
-            "Carvão Mineral",
-            "Petróleo",
-            "Gás Natural"
+            "CarvÃ£o Mineral",
+            "PetrÃ³leo",
+            "GÃ¡s Natural"
           ],
           "correct": "Energia Solar",
-          "tip": "Fontes renováveis não se esgotam e poluem menos."
+          "tip": "Fontes renovÃ¡veis nÃ£o se esgotam e poluem menos."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "Data centers consomem uma quantidade insignificante de energia elétrica.",
+          "questions": "Data centers consomem uma quantidade insignificante de energia elÃ©trica.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Data centers estão entre os maiores consumidores de energia do mundo."
+          "tip": "Data centers estÃ£o entre os maiores consumidores de energia do mundo."
         },
         {
           "type": "drag",
@@ -2609,7 +2609,7 @@
             },
             {
               "id": "d2",
-              "txt": "Petróleo",
+              "txt": "PetrÃ³leo",
               "match": "z2"
             },
             {
@@ -2619,78 +2619,78 @@
             },
             {
               "id": "d4",
-              "txt": "Carvão",
+              "txt": "CarvÃ£o",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Renovável (Eólica)"
+              "label": "RenovÃ¡vel (EÃ³lica)"
             },
             {
               "id": "z2",
-              "label": "Não Renovável (Fóssil)"
+              "label": "NÃ£o RenovÃ¡vel (FÃ³ssil)"
             },
             {
               "id": "z3",
-              "label": "Renovável (Fotovoltaica)"
+              "label": "RenovÃ¡vel (Fotovoltaica)"
             },
             {
               "id": "z4",
-              "label": "Não Renovável (Mineral)"
+              "label": "NÃ£o RenovÃ¡vel (Mineral)"
             }
           ],
           "correct": "drag",
-          "tip": "A transição energética foca em sair dos fósseis para os renováveis."
+          "tip": "A transiÃ§Ã£o energÃ©tica foca em sair dos fÃ³sseis para os renovÃ¡veis."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "A [COMBO] energética foca em fazer mais com menos eletricidade.",
+          "questions": "A [COMBO] energÃ©tica foca em fazer mais com menos eletricidade.",
           "options": [
-            "Eficiência",
+            "EficiÃªncia",
             "Escassez",
             "Perda",
             "Demanda"
           ],
-          "correct": "Eficiência",
-          "tip": "Lâmpadas LED e processadores modernos são exemplos de eficiência."
+          "correct": "EficiÃªncia",
+          "tip": "LÃ¢mpadas LED e processadores modernos sÃ£o exemplos de eficiÃªncia."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "[NAME], como reduzir o consumo de energia no laboratório de TI?",
+          "questions": "[NAME], como reduzir o consumo de energia no laboratÃ³rio de TI?",
           "answers": [
             "Desligar monitores ao sair",
-            "Usar modo de suspensão",
+            "Usar modo de suspensÃ£o",
             "Deixar servidores vazios ligados",
             "Limpar filtros do ar-condicionado"
           ],
           "correct": [
             "Desligar monitores ao sair",
-            "Usar modo de suspensão",
+            "Usar modo de suspensÃ£o",
             "Limpar filtros do ar-condicionado"
           ],
-          "tip": "Pequenos hábitos geram grandes economias na fatura e no ambiente."
+          "tip": "Pequenos hÃ¡bitos geram grandes economias na fatura e no ambiente."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "Qual é a principal fonte da matriz elétrica brasileira?",
+          "questions": "Qual Ã© a principal fonte da matriz elÃ©trica brasileira?",
           "answers": [
-            "Hidrelétrica",
+            "HidrelÃ©trica",
             "Nuclear",
-            "Eólica",
+            "EÃ³lica",
             "Solar"
           ],
-          "correct": "Hidrelétrica",
-          "tip": "Embora renovável, a construção de usinas causa grandes impactos locais."
+          "correct": "HidrelÃ©trica",
+          "tip": "Embora renovÃ¡vel, a construÃ§Ã£o de usinas causa grandes impactos locais."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "A energia eólica gera eletricidade através da força do vento.",
+          "questions": "A energia eÃ³lica gera eletricidade atravÃ©s da forÃ§a do vento.",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -2701,7 +2701,7 @@
         {
           "type": "drag",
           "topics": "PROT",
-          "questions": "Associe os vilões do consumo em TI:",
+          "questions": "Associe os vilÃµes do consumo em TI:",
           "items": [
             {
               "id": "d1",
@@ -2727,7 +2727,7 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Controle térmico constante"
+              "label": "Controle tÃ©rmico constante"
             },
             {
               "id": "z2",
@@ -2739,7 +2739,7 @@
             },
             {
               "id": "z4",
-              "label": "Picos de calor na fusão"
+              "label": "Picos de calor na fusÃ£o"
             }
           ],
           "correct": "drag",
@@ -2748,75 +2748,75 @@
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "Fontes [COMBO] de energia são aquelas que não se esgotam na escala humana.",
+          "questions": "Fontes [COMBO] de energia sÃ£o aquelas que nÃ£o se esgotam na escala humana.",
           "options": [
-            "Renováveis",
+            "RenovÃ¡veis",
             "Finitas",
             "Sujas",
             "Caras"
           ],
-          "correct": "Renováveis",
-          "tip": "Sol, vento e biomassa são exemplos."
+          "correct": "RenovÃ¡veis",
+          "tip": "Sol, vento e biomassa sÃ£o exemplos."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "Quais são impactos de fontes não renováveis (fósseis)?",
+          "questions": "Quais sÃ£o impactos de fontes nÃ£o renovÃ¡veis (fÃ³sseis)?",
           "answers": [
-            "Emissão de CO2",
+            "EmissÃ£o de CO2",
             "Aquecimento Global",
-            "Chuva Ácida",
+            "Chuva Ãcida",
             "Reflorestamento"
           ],
           "correct": [
-            "Emissão de CO2",
+            "EmissÃ£o de CO2",
             "Aquecimento Global",
-            "Chuva Ácida"
+            "Chuva Ãcida"
           ],
-          "tip": "A queima de combustíveis fósseis é a maior vilã do clima."
+          "tip": "A queima de combustÃ­veis fÃ³sseis Ã© a maior vilÃ£ do clima."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], qual dispositivo ajuda a evitar desperdício de energia em salas vazias?",
+          "questions": "[NAME], qual dispositivo ajuda a evitar desperdÃ­cio de energia em salas vazias?",
           "answers": [
-            "Sensores de presença",
+            "Sensores de presenÃ§a",
             "Deixar a luz ligada",
             "Pintar as paredes de preto",
             "Usar cortinas grossas"
           ],
-          "correct": "Sensores de presença",
-          "tip": "A automação simples é uma grande aliada da sustentabilidade."
+          "correct": "Sensores de presenÃ§a",
+          "tip": "A automaÃ§Ã£o simples Ã© uma grande aliada da sustentabilidade."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "A água é um recurso infinito e não precisamos de nos preocupar com o seu uso.",
+          "questions": "A Ã¡gua Ã© um recurso infinito e nÃ£o precisamos de nos preocupar com o seu uso.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "A água potável é escassa e essencial; o uso racional é obrigatório.",
+          "tip": "A Ã¡gua potÃ¡vel Ã© escassa e essencial; o uso racional Ã© obrigatÃ³rio.",
           "trans": "NORM"
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], o que é Economia Circular?",
+          "questions": "[NAME], o que Ã© Economia Circular?",
           "answers": [
-            "Modelo onde resíduos viram novos recursos",
+            "Modelo onde resÃ­duos viram novos recursos",
             "Gastar dinheiro apenas com produtos novos",
             "Dar voltas no shopping",
-            "Vender tudo e não comprar nada"
+            "Vender tudo e nÃ£o comprar nada"
           ],
-          "correct": "Modelo onde resíduos viram novos recursos",
-          "tip": "O objetivo é eliminar o desperdício e a poluição desde o design."
+          "correct": "Modelo onde resÃ­duos viram novos recursos",
+          "tip": "O objetivo Ã© eliminar o desperdÃ­cio e a poluiÃ§Ã£o desde o design."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "Empresas com certificação ISO 14001 possuem um sistema de gestão ambiental.",
+          "questions": "Empresas com certificaÃ§Ã£o ISO 14001 possuem um sistema de gestÃ£o ambiental.",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -2853,7 +2853,7 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Critérios Ambientais, Sociais e Governança"
+              "label": "CritÃ©rios Ambientais, Sociais e GovernanÃ§a"
             },
             {
               "id": "z2",
@@ -2861,7 +2861,7 @@
             },
             {
               "id": "z3",
-              "label": "Partes interessadas no negócio"
+              "label": "Partes interessadas no negÃ³cio"
             },
             {
               "id": "z4",
@@ -2874,7 +2874,7 @@
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "O [COMBO] ambiental ocorre quando há danos à fauna, flora ou saúde humana.",
+          "questions": "O [COMBO] ambiental ocorre quando hÃ¡ danos Ã  fauna, flora ou saÃºde humana.",
           "options": [
             "Crime",
             "Sucesso",
@@ -2887,48 +2887,48 @@
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "[NAME], o que compõe a responsabilidade socioambiental de uma empresa?",
+          "questions": "[NAME], o que compÃµe a responsabilidade socioambiental de uma empresa?",
           "answers": [
-            "Ética nos negócios",
-            "Preservação da natureza",
+            "Ã‰tica nos negÃ³cios",
+            "PreservaÃ§Ã£o da natureza",
             "Bem-estar da comunidade",
             "Maximizar lucro a qualquer custo"
           ],
           "correct": [
-            "Ética nos negócios",
-            "Preservação da natureza",
+            "Ã‰tica nos negÃ³cios",
+            "PreservaÃ§Ã£o da natureza",
             "Bem-estar da comunidade"
           ],
-          "tip": "Empresas modernas buscam lucro com propósito e respeito."
+          "tip": "Empresas modernas buscam lucro com propÃ³sito e respeito."
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "O que é 'Greenwashing'?",
+          "questions": "O que Ã© 'Greenwashing'?",
           "answers": [
-            "Falsa aparência de ser sustentável",
-            "Lavar servidores com água",
+            "Falsa aparÃªncia de ser sustentÃ¡vel",
+            "Lavar servidores com Ã¡gua",
             "Pintar a empresa de verde",
-            "Plantar árvores de plástico"
+            "Plantar Ã¡rvores de plÃ¡stico"
           ],
-          "correct": "Falsa aparência de ser sustentável",
-          "tip": "É uma prática enganosa que deve ser combatida."
+          "correct": "Falsa aparÃªncia de ser sustentÃ¡vel",
+          "tip": "Ã‰ uma prÃ¡tica enganosa que deve ser combatida."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "Políticas públicas ambientais servem para regular e incentivar práticas sustentáveis.",
+          "questions": "PolÃ­ticas pÃºblicas ambientais servem para regular e incentivar prÃ¡ticas sustentÃ¡veis.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Exemplos incluem leis de resíduos sólidos e incentivos a energias limpas."
+          "tip": "Exemplos incluem leis de resÃ­duos sÃ³lidos e incentivos a energias limpas."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Associe os benefícios de ser um profissional 'Verde':",
+          "questions": "Associe os benefÃ­cios de ser um profissional 'Verde':",
           "items": [
             {
               "id": "d1",
@@ -2947,7 +2947,7 @@
             },
             {
               "id": "d4",
-              "txt": "Visão",
+              "txt": "VisÃ£o",
               "match": "z4"
             }
           ],
@@ -2958,19 +2958,19 @@
             },
             {
               "id": "z2",
-              "label": "Redução de desperdícios na empresa"
+              "label": "ReduÃ§Ã£o de desperdÃ­cios na empresa"
             },
             {
               "id": "z3",
-              "label": "Consciência de dever cumprido"
+              "label": "ConsciÃªncia de dever cumprido"
             },
             {
               "id": "z4",
-              "label": "Compreensão sistémica do mundo"
+              "label": "CompreensÃ£o sistÃ©mica do mundo"
             }
           ],
           "correct": "drag",
-          "tip": "Sustentabilidade é uma competência técnica e comportamental."
+          "tip": "Sustentabilidade Ã© uma competÃªncia tÃ©cnica e comportamental."
         },
         {
           "type": "combo",
@@ -2979,57 +2979,57 @@
           "options": [
             "Carbono",
             "Areia",
-            "Água",
+            "Ãgua",
             "Papel"
           ],
           "correct": "Carbono",
-          "tip": "Reduzir a pegada de carbono é uma meta global para 2050."
+          "tip": "Reduzir a pegada de carbono Ã© uma meta global para 2050."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "Quais ações de TI ajudam na economia circular?",
+          "questions": "Quais aÃ§Ãµes de TI ajudam na economia circular?",
           "answers": [
             "Upgrade de componentes em vez de trocar o PC",
-            "Doação de equipamentos antigos",
+            "DoaÃ§Ã£o de equipamentos antigos",
             "Reciclagem de metais",
             "Comprar o modelo novo todo ano"
           ],
           "correct": [
             "Upgrade de componentes em vez de trocar o PC",
-            "Doação de equipamentos antigos",
+            "DoaÃ§Ã£o de equipamentos antigos",
             "Reciclagem de metais"
           ],
-          "tip": "Prolongar a vida útil do hardware é a melhor estratégia."
+          "tip": "Prolongar a vida Ãºtil do hardware Ã© a melhor estratÃ©gia."
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], qual é o objetivo da Agenda 2030 da ONU?",
+          "questions": "[NAME], qual Ã© o objetivo da Agenda 2030 da ONU?",
           "answers": [
-            "17 objetivos para o desenvolvimento sustentável",
-            "Colonizar Marte até 2030",
+            "17 objetivos para o desenvolvimento sustentÃ¡vel",
+            "Colonizar Marte atÃ© 2030",
             "Acabar com todos os computadores",
-            "Criar uma moeda única global"
+            "Criar uma moeda Ãºnica global"
           ],
-          "correct": "17 objetivos para o desenvolvimento sustentável",
+          "correct": "17 objetivos para o desenvolvimento sustentÃ¡vel",
           "tip": "Os ODS orientam governos e empresas em todo o mundo."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "O profissional de TI do futuro deve ignorar o impacto ambiental para focar no código.",
+          "questions": "O profissional de TI do futuro deve ignorar o impacto ambiental para focar no cÃ³digo.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "O 'Green Coding' e a infraestrutura sustentável são o novo padrão."
+          "tip": "O 'Green Coding' e a infraestrutura sustentÃ¡vel sÃ£o o novo padrÃ£o."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Combine as ações com as responsabilidades:",
+          "questions": "Combine as aÃ§Ãµes com as responsabilidades:",
           "items": [
             {
               "id": "d1",
@@ -3067,24 +3067,24 @@
             },
             {
               "id": "z4",
-              "label": "Cobrar práticas éticas"
+              "label": "Cobrar prÃ¡ticas Ã©ticas"
             }
           ],
           "correct": "drag",
-          "tip": "A sustentabilidade é uma responsabilidade partilhada por todos."
+          "tip": "A sustentabilidade Ã© uma responsabilidade partilhada por todos."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "A sustentabilidade é um [COMBO] com as gerações futuras.",
+          "questions": "A sustentabilidade Ã© um [COMBO] com as geraÃ§Ãµes futuras.",
           "options": [
             "Compromisso",
             "Atraso",
-            "Negócio",
-            "Mistério"
+            "NegÃ³cio",
+            "MistÃ©rio"
           ],
           "correct": "Compromisso",
-          "tip": "Deixar um planeta habitável é o nosso maior legado."
+          "tip": "Deixar um planeta habitÃ¡vel Ã© o nosso maior legado."
         }
       ]
     },
@@ -3097,7 +3097,7 @@
           {
             "id": "ACID",
             "name": "SUBSTÃ‚NCIAS PSICOATIVAS",
-            "desc": "Classificação e efeitos de drogas depressoras, estimulantes e perturbadoras.",
+            "desc": "ClassificaÃ§Ã£o e efeitos de drogas depressoras, estimulantes e perturbadoras.",
             "color": "#e74c3c",
             "img_url": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -3109,8 +3109,8 @@
           },
           {
             "id": "AGEN",
-            "name": "DEPENDÊNCIA QUÍMICA",
-            "desc": "A dependência como doença crónica e as suas consequências biopsicossociais.",
+            "name": "DEPENDÃŠNCIA QUÃMICA",
+            "desc": "A dependÃªncia como doenÃ§a crÃ³nica e as suas consequÃªncias biopsicossociais.",
             "color": "#f1c40f",
             "img_url": "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -3123,7 +3123,7 @@
           {
             "id": "PROT",
             "name": "IMPACTOS NO TRABALHO",
-            "desc": "Riscos ocupacionais, quedas de desempenho e segurança da equipa.",
+            "desc": "Riscos ocupacionais, quedas de desempenho e seguranÃ§a da equipa.",
             "color": "#3498db",
             "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -3135,8 +3135,8 @@
           },
           {
             "id": "NORM",
-            "name": "PREVENÇÃO E ÉTICA",
-            "desc": "Programas de prevenção, acolhimento e responsabilidades legais e éticas.",
+            "name": "PREVENÃ‡ÃƒO E Ã‰TICA",
+            "desc": "Programas de prevenÃ§Ã£o, acolhimento e responsabilidades legais e Ã©ticas.",
             "color": "#2ecc71",
             "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600",
             "sokoban": [
@@ -3152,7 +3152,7 @@
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], como são classificadas as substâncias que diminuem a atividade do sistema nervoso?",
+          "questions": "[NAME], como sÃ£o classificadas as substÃ¢ncias que diminuem a atividade do sistema nervoso?",
           "answers": [
             "Depressoras",
             "Estimulantes",
@@ -3160,32 +3160,32 @@
             "Aceleradoras"
           ],
           "correct": "Depressoras",
-          "tip": "O álcool e os ansiolíticos são exemplos de substâncias depressoras."
+          "tip": "O Ã¡lcool e os ansiolÃ­ticos sÃ£o exemplos de substÃ¢ncias depressoras."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "[NAME], a nicotina presente no tabaco é considerada uma substância estimulante.",
+          "questions": "[NAME], a nicotina presente no tabaco Ã© considerada uma substÃ¢ncia estimulante.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Ela aumenta a frequência cardíaca e a pressão arterial."
+          "tip": "Ela aumenta a frequÃªncia cardÃ­aca e a pressÃ£o arterial."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Relacione o tipo de substância ao seu efeito principal:",
+          "questions": "Relacione o tipo de substÃ¢ncia ao seu efeito principal:",
           "items": [
             {
               "id": "d1",
-              "txt": "Álcool",
+              "txt": "Ãlcool",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Cocaína",
+              "txt": "CocaÃ­na",
               "match": "z2"
             },
             {
@@ -3210,7 +3210,7 @@
             },
             {
               "id": "z3",
-              "label": "Perturbadora (Alucinação)"
+              "label": "Perturbadora (AlucinaÃ§Ã£o)"
             },
             {
               "id": "z4",
@@ -3218,12 +3218,12 @@
             }
           ],
           "correct": "drag",
-          "tip": "Cada droga altera o comportamento de forma específica no cérebro."
+          "tip": "Cada droga altera o comportamento de forma especÃ­fica no cÃ©rebro."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "Substâncias [COMBO] alteram a perceção da realidade e podem causar alucinações.",
+          "questions": "SubstÃ¢ncias [COMBO] alteram a perceÃ§Ã£o da realidade e podem causar alucinaÃ§Ãµes.",
           "options": [
             "Perturbadoras",
             "Depressoras",
@@ -3231,57 +3231,57 @@
             "Inertes"
           ],
           "correct": "Perturbadoras",
-          "tip": "Drogas como maconha (em altas doses) e êxtase enquadram-se aqui."
+          "tip": "Drogas como maconha (em altas doses) e Ãªxtase enquadram-se aqui."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], quais destes são efeitos comuns do uso de álcool?",
+          "questions": "[NAME], quais destes sÃ£o efeitos comuns do uso de Ã¡lcool?",
           "answers": [
-            "Diminuição de reflexos",
-            "Falso senso de segurança",
-            "Melhora da visão",
-            "Sonolência"
+            "DiminuiÃ§Ã£o de reflexos",
+            "Falso senso de seguranÃ§a",
+            "Melhora da visÃ£o",
+            "SonolÃªncia"
           ],
           "correct": [
-            "Diminuição de reflexos",
-            "Falso senso de segurança",
-            "Sonolência"
+            "DiminuiÃ§Ã£o de reflexos",
+            "Falso senso de seguranÃ§a",
+            "SonolÃªncia"
           ],
-          "tip": "O álcool compromete gravemente a capacidade de operar máquinas."
+          "tip": "O Ã¡lcool compromete gravemente a capacidade de operar mÃ¡quinas."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "O tabagismo é considerado pela OMS como a principal causa de:",
+          "questions": "O tabagismo Ã© considerado pela OMS como a principal causa de:",
           "answers": [
-            "Morte evitável no mundo",
+            "Morte evitÃ¡vel no mundo",
             "Ganho de peso",
-            "Melhora da memória",
+            "Melhora da memÃ³ria",
             "Sucesso profissional"
           ],
-          "correct": "Morte evitável no mundo",
-          "tip": "O tabaco está ligado a diversos tipos de cancro e doenças cardíacas."
+          "correct": "Morte evitÃ¡vel no mundo",
+          "tip": "O tabaco estÃ¡ ligado a diversos tipos de cancro e doenÃ§as cardÃ­acas."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "Drogas estimulantes podem mascarar o cansaço, levando o trabalhador ao esgotamento.",
+          "questions": "Drogas estimulantes podem mascarar o cansaÃ§o, levando o trabalhador ao esgotamento.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "O corpo ultrapassa os seus limites sem que o cérebro perceba o risco."
+          "tip": "O corpo ultrapassa os seus limites sem que o cÃ©rebro perceba o risco."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Associe a substância à sua categoria normativa:",
+          "questions": "Associe a substÃ¢ncia Ã  sua categoria normativa:",
           "items": [
             {
               "id": "d1",
-              "txt": "Álcool",
+              "txt": "Ãlcool",
               "match": "z1"
             },
             {
@@ -3303,33 +3303,33 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Lícita (Permitida)"
+              "label": "LÃ­cita (Permitida)"
             },
             {
               "id": "z2",
-              "label": "Ilícita (Proibida)"
+              "label": "IlÃ­cita (Proibida)"
             },
             {
               "id": "z3",
-              "label": "Lícita (Restrita)"
+              "label": "LÃ­cita (Restrita)"
             },
             {
               "id": "z4",
-              "label": "Ilícita (Extremamente Nociva)"
+              "label": "IlÃ­cita (Extremamente Nociva)"
             }
           ],
           "correct": "drag",
-          "tip": "Ser lícita não significa que seja segura para o ambiente de trabalho."
+          "tip": "Ser lÃ­cita nÃ£o significa que seja segura para o ambiente de trabalho."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "O uso de [COMBO] aumenta o risco de acidentes devido à falsa sensação de alerta.",
+          "questions": "O uso de [COMBO] aumenta o risco de acidentes devido Ã  falsa sensaÃ§Ã£o de alerta.",
           "options": [
             "Rebitas",
             "Calmantes",
             "Vitaminas",
-            "Água"
+            "Ãgua"
           ],
           "correct": "Rebitas",
           "tip": "Muito comuns em motoristas, causam picos de energia seguidos de queda brusca."
@@ -3337,19 +3337,19 @@
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "Quais são substâncias depressoras do Sistema Nervoso Central?",
+          "questions": "Quais sÃ£o substÃ¢ncias depressoras do Sistema Nervoso Central?",
           "answers": [
             "Morfina",
             "Inalantes",
-            "Cafeína",
-            "Heroína"
+            "CafeÃ­na",
+            "HeroÃ­na"
           ],
           "correct": [
             "Morfina",
             "Inalantes",
-            "Heroína"
+            "HeroÃ­na"
           ],
-          "tip": "Estas drogas 'desligam' ou retardam as funções cerebrais."
+          "tip": "Estas drogas 'desligam' ou retardam as funÃ§Ãµes cerebrais."
         },
         {
           "type": "multiple",
@@ -3357,9 +3357,9 @@
           "questions": "[NAME], o efeito 'rebote' ocorre quando:",
           "answers": [
             "O efeito da droga passa e os sintomas negativos voltam piores",
-            "A pessoa sente-se melhor após o uso",
-            "A droga não faz efeito",
-            "A pessoa fica imune à substância"
+            "A pessoa sente-se melhor apÃ³s o uso",
+            "A droga nÃ£o faz efeito",
+            "A pessoa fica imune Ã  substÃ¢ncia"
           ],
           "correct": "O efeito da droga passa e os sintomas negativos voltam piores",
           "tip": "Ã‰ um ciclo perigoso que leva ao aumento da dose."
@@ -3367,62 +3367,62 @@
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "Substâncias psicoativas podem ser de origem natural ou sintética.",
+          "questions": "SubstÃ¢ncias psicoativas podem ser de origem natural ou sintÃ©tica.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Sintéticas são criadas em laboratório, como o êxtase.",
+          "tip": "SintÃ©ticas sÃ£o criadas em laboratÃ³rio, como o Ãªxtase.",
           "trans": "AGEN"
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], segundo a OMS, a dependência química é:",
+          "questions": "[NAME], segundo a OMS, a dependÃªncia quÃ­mica Ã©:",
           "answers": [
-            "Uma doença crónica",
+            "Uma doenÃ§a crÃ³nica",
             "Falta de vontade",
-            "Um desvio de caráter",
+            "Um desvio de carÃ¡ter",
             "Uma escolha passageira"
           ],
-          "correct": "Uma doença crónica",
-          "tip": "É catalogada no CID-10 e exige tratamento médico especializado."
+          "correct": "Uma doenÃ§a crÃ³nica",
+          "tip": "Ã‰ catalogada no CID-10 e exige tratamento mÃ©dico especializado."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "A síndrome de abstinência ocorre quando o dependente interrompe o uso da substância.",
+          "questions": "A sÃ­ndrome de abstinÃªncia ocorre quando o dependente interrompe o uso da substÃ¢ncia.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Gera sintomas físicos e psicológicos muitas vezes severos."
+          "tip": "Gera sintomas fÃ­sicos e psicolÃ³gicos muitas vezes severos."
         },
         {
           "type": "drag",
           "topics": "AGEN",
-          "questions": "Relacione os conceitos de dependência:",
+          "questions": "Relacione os conceitos de dependÃªncia:",
           "items": [
             {
               "id": "d1",
-              "txt": "Tolerância",
+              "txt": "TolerÃ¢ncia",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Compulsão",
+              "txt": "CompulsÃ£o",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Abstinência",
+              "txt": "AbstinÃªncia",
               "match": "z3"
             },
             {
               "id": "d4",
-              "txt": "Recaída",
+              "txt": "RecaÃ­da",
               "match": "z4"
             }
           ],
@@ -3433,24 +3433,24 @@
             },
             {
               "id": "z2",
-              "label": "Desejo incontrolável de usar"
+              "label": "Desejo incontrolÃ¡vel de usar"
             },
             {
               "id": "z3",
-              "label": "Sofrimento físico ao parar"
+              "label": "Sofrimento fÃ­sico ao parar"
             },
             {
               "id": "z4",
-              "label": "Retorno ao uso após sobriedade"
+              "label": "Retorno ao uso apÃ³s sobriedade"
             }
           ],
           "correct": "drag",
-          "tip": "Estes sinais indicam a instalação do quadro de dependência."
+          "tip": "Estes sinais indicam a instalaÃ§Ã£o do quadro de dependÃªncia."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "A dependência química afeta a saúde física, mental e [COMBO].",
+          "questions": "A dependÃªncia quÃ­mica afeta a saÃºde fÃ­sica, mental e [COMBO].",
           "options": [
             "Social",
             "Financeira",
@@ -3458,79 +3458,79 @@
             "Espacial"
           ],
           "correct": "Social",
-          "tip": "Relacionamentos e convívio familiar são os primeiros a sofrer."
+          "tip": "Relacionamentos e convÃ­vio familiar sÃ£o os primeiros a sofrer."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "[NAME], quais são fatores que podem levar à dependência?",
+          "questions": "[NAME], quais sÃ£o fatores que podem levar Ã  dependÃªncia?",
           "answers": [
-            "Genética",
+            "GenÃ©tica",
             "Ambiente social",
             "Problemas emocionais",
             "Praticar desporto"
           ],
           "correct": [
-            "Genética",
+            "GenÃ©tica",
             "Ambiente social",
             "Problemas emocionais"
           ],
-          "tip": "A dependência é multifatorial e complexa."
+          "tip": "A dependÃªncia Ã© multifatorial e complexa."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "O que caracteriza o uso nocivo de uma substância?",
+          "questions": "O que caracteriza o uso nocivo de uma substÃ¢ncia?",
           "answers": [
-            "Uso que já causa danos à saúde ou ao trabalho",
+            "Uso que jÃ¡ causa danos Ã  saÃºde ou ao trabalho",
             "Uso apenas em festas",
             "Experimentar uma vez",
             "Usar medicamentos prescritos"
           ],
-          "correct": "Uso que já causa danos à saúde ou ao trabalho",
+          "correct": "Uso que jÃ¡ causa danos Ã  saÃºde ou ao trabalho",
           "tip": "Mesmo sem ser dependente, o uso pode ser prejudicial."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "A dependência química tem cura definitiva e rápida.",
+          "questions": "A dependÃªncia quÃ­mica tem cura definitiva e rÃ¡pida.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Não há 'cura', mas sim tratamento e controle contínuo (sobriedade)."
+          "tip": "NÃ£o hÃ¡ 'cura', mas sim tratamento e controle contÃ­nuo (sobriedade)."
         },
         {
           "type": "drag",
           "topics": "AGEN",
-          "questions": "Associe as consequências do uso crónico:",
+          "questions": "Associe as consequÃªncias do uso crÃ³nico:",
           "items": [
             {
               "id": "d1",
-              "txt": "Fígado",
+              "txt": "FÃ­gado",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Pulmão",
+              "txt": "PulmÃ£o",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Cérebro",
+              "txt": "CÃ©rebro",
               "match": "z3"
             },
             {
               "id": "d4",
-              "txt": "Coração",
+              "txt": "CoraÃ§Ã£o",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Cirrose Hepática"
+              "label": "Cirrose HepÃ¡tica"
             },
             {
               "id": "z2",
@@ -3538,20 +3538,20 @@
             },
             {
               "id": "z3",
-              "label": "Perda de neurónios e memória"
+              "label": "Perda de neurÃ³nios e memÃ³ria"
             },
             {
               "id": "z4",
-              "label": "Hipertensão e Enfarte"
+              "label": "HipertensÃ£o e Enfarte"
             }
           ],
           "correct": "drag",
-          "tip": "O corpo inteiro sofre os danos das substâncias tóxicas."
+          "tip": "O corpo inteiro sofre os danos das substÃ¢ncias tÃ³xicas."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "O tratamento da dependência deve ser realizado por uma equipa [COMBO].",
+          "questions": "O tratamento da dependÃªncia deve ser realizado por uma equipa [COMBO].",
           "options": [
             "Multidisciplinar",
             "Individual",
@@ -3559,42 +3559,42 @@
             "Religiosa"
           ],
           "correct": "Multidisciplinar",
-          "tip": "Envolve médicos, psicólogos, assistentes sociais e família."
+          "tip": "Envolve mÃ©dicos, psicÃ³logos, assistentes sociais e famÃ­lia."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "Quais são sinais comportamentais de dependência no trabalho?",
+          "questions": "Quais sÃ£o sinais comportamentais de dependÃªncia no trabalho?",
           "answers": [
             "Faltas frequentes",
-            "Mudanças bruscas de humor",
+            "MudanÃ§as bruscas de humor",
             "Aumento da pontualidade",
             "Isolamento"
           ],
           "correct": [
             "Faltas frequentes",
-            "Mudanças bruscas de humor",
+            "MudanÃ§as bruscas de humor",
             "Isolamento"
           ],
-          "tip": "Fique atento a mudanças drásticas no padrão do colega."
+          "tip": "Fique atento a mudanÃ§as drÃ¡sticas no padrÃ£o do colega."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
           "questions": "[NAME], o termo 'fissura' refere-se a:",
           "answers": [
-            "Desejo intenso e súbito pelo uso",
+            "Desejo intenso e sÃºbito pelo uso",
             "Uma ferida na pele",
-            "Um erro de programação",
-            "Cansaço extremo"
+            "Um erro de programaÃ§Ã£o",
+            "CansaÃ§o extremo"
           ],
-          "correct": "Desejo intenso e súbito pelo uso",
-          "tip": "É um dos momentos de maior risco para a recaída."
+          "correct": "Desejo intenso e sÃºbito pelo uso",
+          "tip": "Ã‰ um dos momentos de maior risco para a recaÃ­da."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "A família do dependente também adoece emocionalmente (codependência).",
+          "questions": "A famÃ­lia do dependente tambÃ©m adoece emocionalmente (codependÃªncia).",
           "answers": [
             "Verdadeiro",
             "Falso"
@@ -3606,28 +3606,28 @@
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], qual o maior risco do uso de substâncias em profissionais de TI?",
+          "questions": "[NAME], qual o maior risco do uso de substÃ¢ncias em profissionais de TI?",
           "answers": [
-            "Erros críticos e acidentes elétricos",
-            "Aumento da velocidade de digitação",
-            "Melhor compreensão de algoritmos",
-            "Ficar imune a vírus de PC"
+            "Erros crÃ­ticos e acidentes elÃ©tricos",
+            "Aumento da velocidade de digitaÃ§Ã£o",
+            "Melhor compreensÃ£o de algoritmos",
+            "Ficar imune a vÃ­rus de PC"
           ],
           "correct": [
-            "Erros críticos e acidentes elétricos"
+            "Erros crÃ­ticos e acidentes elÃ©tricos"
           ],
-          "tip": "A falta de atenção em manutenção de hardware pode ser fatal."
+          "tip": "A falta de atenÃ§Ã£o em manutenÃ§Ã£o de hardware pode ser fatal."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "O uso de álcool aumenta a produtividade devido ao relaxamento inicial.",
+          "questions": "O uso de Ã¡lcool aumenta a produtividade devido ao relaxamento inicial.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "O relaxamento é seguido por perda de foco e erros de lógica."
+          "tip": "O relaxamento Ã© seguido por perda de foco e erros de lÃ³gica."
         },
         {
           "type": "drag",
@@ -3636,12 +3636,12 @@
           "items": [
             {
               "id": "d1",
-              "txt": "Absenteísmo",
+              "txt": "AbsenteÃ­smo",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Presenteísmo",
+              "txt": "PresenteÃ­smo",
               "match": "z2"
             },
             {
@@ -3651,7 +3651,7 @@
             },
             {
               "id": "d4",
-              "txt": "Segurança",
+              "txt": "SeguranÃ§a",
               "match": "z4"
             }
           ],
@@ -3674,12 +3674,12 @@
             }
           ],
           "correct": "drag",
-          "tip": "O impacto vai muito além da saúde do indivíduo."
+          "tip": "O impacto vai muito alÃ©m da saÃºde do indivÃ­duo."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "O uso de substâncias no turno da noite afeta gravemente o ciclo do [COMBO].",
+          "questions": "O uso de substÃ¢ncias no turno da noite afeta gravemente o ciclo do [COMBO].",
           "options": [
             "Sono",
             "Trabalho",
@@ -3687,12 +3687,12 @@
             "Carro"
           ],
           "correct": "Sono",
-          "tip": "Impedir o sono natural gera fadiga crónica e riscos elevados."
+          "tip": "Impedir o sono natural gera fadiga crÃ³nica e riscos elevados."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "[NAME], quais são custos indiretos do uso de drogas para a empresa?",
+          "questions": "[NAME], quais sÃ£o custos indiretos do uso de drogas para a empresa?",
           "answers": [
             "Rotatividade de pessoal",
             "Custos com processos judiciais",
@@ -3704,45 +3704,45 @@
             "Custos com processos judiciais",
             "Danos a equipamentos"
           ],
-          "tip": "As perdas financeiras para as organizações são bilionárias."
+          "tip": "As perdas financeiras para as organizaÃ§Ãµes sÃ£o bilionÃ¡rias."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "O presenteísmo em usuários de drogas significa:",
+          "questions": "O presenteÃ­smo em usuÃ¡rios de drogas significa:",
           "answers": [
-            "Estar fisicamente no trabalho, mas sem condições mentais",
+            "Estar fisicamente no trabalho, mas sem condiÃ§Ãµes mentais",
             "Dar presentes aos colegas",
             "Estar sempre adiantado",
             "Trabalhar de casa"
           ],
-          "correct": "Estar fisicamente no trabalho, mas sem condições mentais",
-          "tip": "É um risco 'invisível' pois a pessoa parece estar a trabalhar."
+          "correct": "Estar fisicamente no trabalho, mas sem condiÃ§Ãµes mentais",
+          "tip": "Ã‰ um risco 'invisÃ­vel' pois a pessoa parece estar a trabalhar."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "Acidentes com eletricidade em TI são mais prováveis sob efeito de depressores.",
+          "questions": "Acidentes com eletricidade em TI sÃ£o mais provÃ¡veis sob efeito de depressores.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "A lentidão na resposta impede reações rápidas de segurança."
+          "tip": "A lentidÃ£o na resposta impede reaÃ§Ãµes rÃ¡pidas de seguranÃ§a."
         },
         {
           "type": "drag",
           "topics": "PROT",
-          "questions": "Associe o efeito ao risco na área técnica:",
+          "questions": "Associe o efeito ao risco na Ã¡rea tÃ©cnica:",
           "items": [
             {
               "id": "d1",
-              "txt": "Tremor nas mãos",
+              "txt": "Tremor nas mÃ£os",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Visão turva",
+              "txt": "VisÃ£o turva",
               "match": "z2"
             },
             {
@@ -3752,7 +3752,7 @@
             },
             {
               "id": "d4",
-              "txt": "Lentidão",
+              "txt": "LentidÃ£o",
               "match": "z4"
             }
           ],
@@ -3767,141 +3767,141 @@
             },
             {
               "id": "z3",
-              "label": "Conflitos em suporte técnico"
+              "label": "Conflitos em suporte tÃ©cnico"
             },
             {
               "id": "z4",
-              "label": "Atraso em prazos críticos"
+              "label": "Atraso em prazos crÃ­ticos"
             }
           ],
           "correct": "drag",
-          "tip": "Funções de TI exigem precisão e estabilidade emocional."
+          "tip": "FunÃ§Ãµes de TI exigem precisÃ£o e estabilidade emocional."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "Um trabalhador sob efeito de drogas coloca em risco a segurança da [COMBO].",
+          "questions": "Um trabalhador sob efeito de drogas coloca em risco a seguranÃ§a da [COMBO].",
           "options": [
             "Equipa",
             "Sua casa",
             "Internet",
-            "Máquina"
+            "MÃ¡quina"
           ],
           "correct": "Equipa",
-          "tip": "Segurança no trabalho é uma responsabilidade coletiva."
+          "tip": "SeguranÃ§a no trabalho Ã© uma responsabilidade coletiva."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "Quais atitudes do colega podem indicar problemas com substâncias?",
+          "questions": "Quais atitudes do colega podem indicar problemas com substÃ¢ncias?",
           "answers": [
-            "Empréstimos de dinheiro constantes",
-            "Hálito etílico",
-            "Uso frequente de colírios",
+            "EmprÃ©stimos de dinheiro constantes",
+            "HÃ¡lito etÃ­lico",
+            "Uso frequente de colÃ­rios",
             "Falar sobre desporto"
           ],
           "correct": [
-            "Empréstimos de dinheiro constantes",
-            "Hálito etílico",
-            "Uso frequente de colírios"
+            "EmprÃ©stimos de dinheiro constantes",
+            "HÃ¡lito etÃ­lico",
+            "Uso frequente de colÃ­rios"
           ],
           "tip": "Pequenos sinais somados podem indicar a necessidade de ajuda."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], o uso de drogas ilícitas no ambiente de trabalho pode resultar em:",
+          "questions": "[NAME], o uso de drogas ilÃ­citas no ambiente de trabalho pode resultar em:",
           "answers": [
             "Dispensa por justa causa",
-            "Promoção automática",
-            "Aumento de férias",
+            "PromoÃ§Ã£o automÃ¡tica",
+            "Aumento de fÃ©rias",
             "Curso gratuito de TI"
           ],
           "correct": "Dispensa por justa causa",
-          "tip": "A CLT prevê o mau procedimento e embriaguez em serviço."
+          "tip": "A CLT prevÃª o mau procedimento e embriaguez em serviÃ§o."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "A maioria dos acidentes de trabalho com óbito envolve o uso de alguma substância.",
+          "questions": "A maioria dos acidentes de trabalho com Ã³bito envolve o uso de alguma substÃ¢ncia.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Dados estatísticos confirmam a perigosa relação entre drogas e fatalidades.",
+          "tip": "Dados estatÃ­sticos confirmam a perigosa relaÃ§Ã£o entre drogas e fatalidades.",
           "trans": "NORM"
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], a prevenção secundária foca em:",
+          "questions": "[NAME], a prevenÃ§Ã£o secundÃ¡ria foca em:",
           "answers": [
-            "Identificar e tratar precocemente quem já usa",
+            "Identificar e tratar precocemente quem jÃ¡ usa",
             "Evitar que a pessoa experimente",
             "Reabilitar o dependente grave",
-            "Punir o usuário com multas"
+            "Punir o usuÃ¡rio com multas"
           ],
-          "correct": "Identificar e tratar precocemente quem já usa",
-          "tip": "O objetivo é impedir que o uso se torne dependência."
+          "correct": "Identificar e tratar precocemente quem jÃ¡ usa",
+          "tip": "O objetivo Ã© impedir que o uso se torne dependÃªncia."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "Empresas devem ver a dependência como questão de saúde e não apenas punição.",
+          "questions": "Empresas devem ver a dependÃªncia como questÃ£o de saÃºde e nÃ£o apenas puniÃ§Ã£o.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Acolhimento e encaminhamento para tratamento são condutas éticas."
+          "tip": "Acolhimento e encaminhamento para tratamento sÃ£o condutas Ã©ticas."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Relacione os níveis de prevenção:",
+          "questions": "Relacione os nÃ­veis de prevenÃ§Ã£o:",
           "items": [
             {
               "id": "d1",
-              "txt": "Primária",
+              "txt": "PrimÃ¡ria",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Secundária",
+              "txt": "SecundÃ¡ria",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Terciária",
+              "txt": "TerciÃ¡ria",
               "match": "z3"
             },
             {
               "id": "d4",
-              "txt": "Estratégica",
+              "txt": "EstratÃ©gica",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Educação e Informação para todos"
+              "label": "EducaÃ§Ã£o e InformaÃ§Ã£o para todos"
             },
             {
               "id": "z2",
-              "label": "Apoio ao usuário inicial"
+              "label": "Apoio ao usuÃ¡rio inicial"
             },
             {
               "id": "z3",
-              "label": "Tratamento e Reabilitação"
+              "label": "Tratamento e ReabilitaÃ§Ã£o"
             },
             {
               "id": "z4",
-              "label": "Política da empresa sobre drogas"
+              "label": "PolÃ­tica da empresa sobre drogas"
             }
           ],
           "correct": "drag",
-          "tip": "Uma política completa atua em todas estas frentes."
+          "tip": "Uma polÃ­tica completa atua em todas estas frentes."
         },
         {
           "type": "combo",
@@ -3909,34 +3909,34 @@
           "questions": "O [COMBO] profissional deve ser mantido ao abordar um colega com problemas.",
           "options": [
             "Sigilo",
-            "Escândalo",
+            "EscÃ¢ndalo",
             "Medo",
             "Julgamento"
           ],
           "correct": "Sigilo",
-          "tip": "A privacidade do trabalhador é um direito legal e ético."
+          "tip": "A privacidade do trabalhador Ã© um direito legal e Ã©tico."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "[NAME], o que deve conter num programa de prevenção na empresa?",
+          "questions": "[NAME], o que deve conter num programa de prevenÃ§Ã£o na empresa?",
           "answers": [
             "Palestras educativas",
             "Canal de acolhimento",
-            "Testagem aleatória (se prevista)",
-            "Demissão sumária sem conversa"
+            "Testagem aleatÃ³ria (se prevista)",
+            "DemissÃ£o sumÃ¡ria sem conversa"
           ],
           "correct": [
             "Palestras educativas",
             "Canal de acolhimento",
-            "Testagem aleatória (se prevista)"
+            "Testagem aleatÃ³ria (se prevista)"
           ],
-          "tip": "Programas eficazes são baseados em suporte e regras claras."
+          "tip": "Programas eficazes sÃ£o baseados em suporte e regras claras."
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "Qual a melhor forma de ajudar um colega com sinais de dependência?",
+          "questions": "Qual a melhor forma de ajudar um colega com sinais de dependÃªncia?",
           "answers": [
             "Conversar de forma privada e sugerir ajuda profissional",
             "Fazer piadas para descontrair",
@@ -3949,18 +3949,18 @@
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "O SESMT e a CIPA devem atuar juntos na prevenção de drogas.",
+          "questions": "O SESMT e a CIPA devem atuar juntos na prevenÃ§Ã£o de drogas.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "A união de forças aumenta o alcance das campanhas preventivas."
+          "tip": "A uniÃ£o de forÃ§as aumenta o alcance das campanhas preventivas."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Associe as responsabilidades éticas:",
+          "questions": "Associe as responsabilidades Ã©ticas:",
           "items": [
             {
               "id": "d1",
@@ -3979,7 +3979,7 @@
             },
             {
               "id": "d4",
-              "txt": "Do Usuário",
+              "txt": "Do UsuÃ¡rio",
               "match": "z4"
             }
           ],
@@ -3990,11 +3990,11 @@
             },
             {
               "id": "z2",
-              "label": "Oferecer suporte e benefícios"
+              "label": "Oferecer suporte e benefÃ­cios"
             },
             {
               "id": "z3",
-              "label": "Não ser conivente e apoiar"
+              "label": "NÃ£o ser conivente e apoiar"
             },
             {
               "id": "z4",
@@ -4002,50 +4002,50 @@
             }
           ],
           "correct": "drag",
-          "tip": "A rede de apoio é fundamental para o sucesso da reabilitação."
+          "tip": "A rede de apoio Ã© fundamental para o sucesso da reabilitaÃ§Ã£o."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "A prevenção no trabalho é um compromisso ético com a [COMBO].",
+          "questions": "A prevenÃ§Ã£o no trabalho Ã© um compromisso Ã©tico com a [COMBO].",
           "options": [
             "Vida",
-            "Produção",
-            "Máquina",
+            "ProduÃ§Ã£o",
+            "MÃ¡quina",
             "Multa"
           ],
           "correct": "Vida",
-          "tip": "O foco principal será sempre o ser humano e a sua integridade."
+          "tip": "O foco principal serÃ¡ sempre o ser humano e a sua integridade."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "Quais são direitos do trabalhador em tratamento?",
+          "questions": "Quais sÃ£o direitos do trabalhador em tratamento?",
           "answers": [
-            "Não ser discriminado",
-            "Acesso a auxílio-doença (se necessário)",
-            "Manutenção do sigilo médico",
+            "NÃ£o ser discriminado",
+            "Acesso a auxÃ­lio-doenÃ§a (se necessÃ¡rio)",
+            "ManutenÃ§Ã£o do sigilo mÃ©dico",
             "Trabalhar sob efeito de drogas"
           ],
           "correct": [
-            "Não ser discriminado",
-            "Acesso a auxílio-doença (se necessário)",
-            "Manutenção do sigilo médico"
+            "NÃ£o ser discriminado",
+            "Acesso a auxÃ­lio-doenÃ§a (se necessÃ¡rio)",
+            "ManutenÃ§Ã£o do sigilo mÃ©dico"
           ],
           "tip": "A lei protege o trabalhador doente para que ele possa recuperar-se."
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], programas de qualidade de vida ajudam na prevenção porque:",
+          "questions": "[NAME], programas de qualidade de vida ajudam na prevenÃ§Ã£o porque:",
           "answers": [
             "Reduzem o estresse, um gatilho para o uso",
             "Fazem as pessoas trabalharem mais",
-            "Aumentam o salário",
-            "Dão mais tempo livre"
+            "Aumentam o salÃ¡rio",
+            "DÃ£o mais tempo livre"
           ],
           "correct": "Reduzem o estresse, um gatilho para o uso",
-          "tip": "Saúde mental equilibrada é a melhor barreira contra as drogas."
+          "tip": "SaÃºde mental equilibrada Ã© a melhor barreira contra as drogas."
         },
         {
           "type": "boolean",
@@ -4056,26 +4056,26 @@
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Manter boas relações interpessoais é uma medida protetiva."
+          "tip": "Manter boas relaÃ§Ãµes interpessoais Ã© uma medida protetiva."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Combine os benefícios de um ambiente livre de drogas:",
+          "questions": "Combine os benefÃ­cios de um ambiente livre de drogas:",
           "items": [
             {
               "id": "d1",
-              "txt": "Segurança",
+              "txt": "SeguranÃ§a",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Confiança",
+              "txt": "ConfianÃ§a",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Saúde",
+              "txt": "SaÃºde",
               "match": "z3"
             },
             {
@@ -4091,32 +4091,32 @@
             },
             {
               "id": "z2",
-              "label": "Equipa mais unida e fiável"
+              "label": "Equipa mais unida e fiÃ¡vel"
             },
             {
               "id": "z3",
-              "label": "Trabalhadores mais saudáveis"
+              "label": "Trabalhadores mais saudÃ¡veis"
             },
             {
               "id": "z4",
-              "label": "Crescimento profissional sólido"
+              "label": "Crescimento profissional sÃ³lido"
             }
           ],
           "correct": "drag",
-          "tip": "Um ambiente saudável beneficia a todos, sem exceção."
+          "tip": "Um ambiente saudÃ¡vel beneficia a todos, sem exceÃ§Ã£o."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "Dizer [COMBO] às drogas é escolher um futuro profissional brilhante.",
+          "questions": "Dizer [COMBO] Ã s drogas Ã© escolher um futuro profissional brilhante.",
           "options": [
-            "Não",
+            "NÃ£o",
             "Sim",
             "Talvez",
             "Depois"
           ],
-          "correct": "Não",
-          "tip": "A prevenção é a ferramenta mais poderosa que você possui."
+          "correct": "NÃ£o",
+          "tip": "A prevenÃ§Ã£o Ã© a ferramenta mais poderosa que vocÃª possui."
         }
       ]
     },

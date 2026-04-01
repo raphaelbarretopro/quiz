@@ -484,6 +484,95 @@
       }
     }
 
+    function mojibakeScore(text) {
+      const value = String(text || '');
+      const matches = value.match(/Ã.|Â|â€|â€™|â€œ|�|\u001c/g);
+      return matches ? matches.length : 0;
+    }
+
+    function decodeLatin1Utf8(text) {
+      try {
+        // Conversão clássica de strings latin1 interpretadas incorretamente como utf8
+        return decodeURIComponent(escape(text));
+      } catch (error) {
+        return text;
+      }
+    }
+
+    function tryRepairMojibakeString(text) {
+      const original = String(text || '');
+      const originalScore = mojibakeScore(original);
+      if (!originalScore) {
+        return { value: original, changed: false };
+      }
+
+      const once = decodeLatin1Utf8(original);
+      const onceScore = mojibakeScore(once);
+      if (onceScore < originalScore) {
+        return { value: once, changed: once !== original };
+      }
+
+      return { value: original, changed: false };
+    }
+
+    function repairMojibakeInObject(node, path = '') {
+      const fixes = [];
+
+      if (typeof node === 'string') {
+        const repaired = tryRepairMojibakeString(node);
+        if (repaired.changed) {
+          fixes.push(`${path || 'string'} reparado de mojibake`);
+        }
+        return { value: repaired.value, fixes };
+      }
+
+      if (Array.isArray(node)) {
+        const arr = [];
+        node.forEach((item, index) => {
+          const result = repairMojibakeInObject(item, `${path}[${index}]`);
+          arr.push(result.value);
+          fixes.push(...result.fixes);
+        });
+        return { value: arr, fixes };
+      }
+
+      if (node && typeof node === 'object') {
+        const obj = node;
+        Object.keys(obj).forEach((key) => {
+          const childPath = path ? `${path}.${key}` : key;
+          const result = repairMojibakeInObject(obj[key], childPath);
+          obj[key] = result.value;
+          fixes.push(...result.fixes);
+        });
+        return { value: obj, fixes };
+      }
+
+      return { value: node, fixes };
+    }
+
+    function findMojibakePaths(node, path = '', output = []) {
+      if (typeof node === 'string') {
+        if (mojibakeScore(node) > 0) {
+          output.push(path || 'string');
+        }
+        return output;
+      }
+
+      if (Array.isArray(node)) {
+        node.forEach((item, index) => findMojibakePaths(item, `${path}[${index}]`, output));
+        return output;
+      }
+
+      if (node && typeof node === 'object') {
+        Object.keys(node).forEach((key) => {
+          const childPath = path ? `${path}.${key}` : key;
+          findMojibakePaths(node[key], childPath, output);
+        });
+      }
+
+      return output;
+    }
+
     function getStrictModeEnabled() {
       return Boolean(strictModeEl?.checked);
     }
@@ -517,6 +606,9 @@
 
     function autoFixLessonEntry(lesson) {
       const fixes = [];
+
+      const textRepair = repairMojibakeInObject(lesson);
+      fixes.push(...textRepair.fixes);
 
       // Normaliza sokoban para exatamente 4 letras maiúsculas
       const topics = lesson?.lesson_info?.topics;
@@ -805,6 +897,16 @@
       if (autoFixes.length) {
         lessonJsonEl.value = prettyJson(lessonEntry);
       }
+
+      const mojibakePaths = findMojibakePaths(lessonEntry);
+      if (mojibakePaths.length) {
+        const sample = mojibakePaths.slice(0, 6).join(', ');
+        throw new Error(
+          `Texto com encoding quebrado detectado em: ${sample}. ` +
+          'Regenere o JSON em UTF-8 (sem caracteres Ã/Â/�) antes de inserir.'
+        );
+      }
+
       validateLessonEntry(lessonEntry, { strictMode: getStrictModeEnabled() });
       importedLesson = lessonEntry;
       renderLessonSummary(lessonEntry);
