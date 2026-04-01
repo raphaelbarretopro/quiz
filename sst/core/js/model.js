@@ -11,6 +11,7 @@ export default class Model {
         // Dados carregados do arquivo JSON.
         this.lessonInfo = null;
         this.questions = [];
+        this.lessonSlug = '';
         this.sokobanActive = false;
         
         // Estado base do tabuleiro Sokoban (1 = parede, 2 = alvo, 0 = vazio).
@@ -104,9 +105,11 @@ export default class Model {
                     if (!selectedLesson) continue;
                     this.lessonInfo = selectedLesson.lesson_info;
                     this.questions = selectedLesson.questions;
+                    this.lessonSlug = String(selectedLesson.slug || '').trim().toLowerCase();
                 } else {
                     this.lessonInfo = data.lesson_info;
                     this.questions = data.questions;
+                    this.lessonSlug = String(candidate.slug || this.getRequestedLessonSlug() || '').trim().toLowerCase();
                 }
 
                 return true;
@@ -130,6 +133,10 @@ export default class Model {
         return this.lessonInfo.id || '';
     }
 
+    getLessonSlug() {
+        return this.lessonSlug || this.getRequestedLessonSlug() || '';
+    }
+
     getTopicData(topicId) {
         if(!this.lessonInfo) return null;
         const topics = Array.isArray(this.lessonInfo.topics) ? this.lessonInfo.topics : [];
@@ -145,10 +152,43 @@ export default class Model {
         return found || topics[0] || null;
     }
 
-    resetSokoban(topicId) {
-        // Define letras das caixas conforme tema atual; usa fallback padrão.
+    normalizeSokobanLetters(source, fallback = ["P", "L", "A", "Y"]) {
+        const letters = Array.isArray(source)
+            ? source
+            : String(source || '').split('');
+
+        const normalized = letters
+            .map((char) => String(char || '').trim().toUpperCase().slice(0, 1))
+            .filter(Boolean)
+            .slice(0, 4);
+
+        const fallbackLetters = Array.isArray(fallback) ? fallback : ["P", "L", "A", "Y"];
+        while (normalized.length < 4) {
+            normalized.push(String(fallbackLetters[normalized.length] || 'X'));
+        }
+
+        return normalized;
+    }
+
+    getSokobanLetters(topicId) {
+        // Novo padrão: 1 configuração por aula em lesson_info.sokoban.
+        const lessonLevel = this.lessonInfo?.sokoban;
+        if (lessonLevel !== undefined && lessonLevel !== null && String(lessonLevel).trim() !== '') {
+            return this.normalizeSokobanLetters(lessonLevel);
+        }
+
+        // Compatibilidade: fallback para formato antigo por tópico.
         const topic = this.getTopicData(topicId);
-        const letters = topic && topic.sokoban ? topic.sokoban : ["P", "L", "A", "Y"];
+        if (topic && topic.sokoban) {
+            return this.normalizeSokobanLetters(topic.sokoban);
+        }
+
+        return this.normalizeSokobanLetters(["P", "L", "A", "Y"]);
+    }
+
+    resetSokoban(topicId) {
+        // Define letras das caixas com prioridade para o padrão por aula.
+        const letters = this.getSokobanLetters(topicId);
         
         // Reposiciona jogador e caixas para o estado inicial.
         this.sP = { x: 1, y: 9 };
@@ -159,24 +199,41 @@ export default class Model {
     }
 
     movePlayer(dx, dy) {
-        if (!this.sokobanActive) return false;
+        if (!this.sokobanActive) {
+            return { won: false, moved: false, lifeLost: false, reason: 'inactive' };
+        }
+
         let nx = this.sP.x + dx, ny = this.sP.y + dy;
         
         // Bloqueia movimento para fora do grid ou contra paredes.
-        if (ny < 0 || ny > 10 || nx < 0 || nx > 10 || this.sLevel[ny][nx] === 1) return false;
+        if (ny < 0 || ny > 10 || nx < 0 || nx > 10 || this.sLevel[ny][nx] === 1) {
+            return { won: false, moved: false, lifeLost: false, reason: 'blocked-wall' };
+        }
         
         let bIdx = this.sB.findIndex(b => b.x === nx && b.y === ny);
         if (bIdx !== -1) {
             let bnx = nx + dx, bny = ny + dy;
             // Só permite empurrar caixa para célula livre e válida.
-            if (bny < 0 || bny > 10 || bnx < 0 || bnx > 10 || this.sLevel[bny][bnx] === 1 || this.sB.some(b => b.x === bnx && b.y === bny)) return false;
+            if (bny < 0 || bny > 10 || bnx < 0 || bnx > 10 || this.sLevel[bny][bnx] === 1) {
+                return { won: false, moved: false, lifeLost: true, reason: 'push-into-block' };
+            }
+
+            if (this.sB.some(b => b.x === bnx && b.y === bny)) {
+                return { won: false, moved: false, lifeLost: false, reason: 'push-into-box' };
+            }
+
             this.sB[bIdx].x = bnx; 
             this.sB[bIdx].y = bny;
         }
         this.sP.x = nx; 
         this.sP.y = ny;
         
-        return this.checkSokobanWin();
+        return {
+            won: this.checkSokobanWin(),
+            moved: true,
+            lifeLost: false,
+            reason: 'ok'
+        };
     }
 
     checkSokobanWin() {

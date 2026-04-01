@@ -423,7 +423,8 @@
           <h3>Regras de Validação</h3>
           <ul class="meta-list">
             <li><strong>lesson_info.id</strong>, <strong>lesson_info.title</strong> e <strong>topics</strong> são obrigatórios.</li>
-            <li><strong>topics</strong> precisa ter itens com <strong>id</strong>, <strong>name</strong>, <strong>desc</strong>, <strong>color</strong>, <strong>img_url</strong> e <strong>sokoban</strong>.</li>
+            <li><strong>topics</strong> precisa ter itens com <strong>id</strong>, <strong>name</strong>, <strong>desc</strong>, <strong>color</strong> e <strong>img_url</strong>.</li>
+            <li><strong>lesson_info.sokoban</strong> (4 letras) é o padrão novo; <strong>topics[].sokoban</strong> segue aceito por compatibilidade.</li>
             <li><strong>questions</strong> precisa existir e não pode ser vazio.</li>
             <li>O slug pode ser informado manualmente ou derivado de <strong>lesson_info.id</strong>.</li>
             <li>Os tipos suportados são: <strong>multiple</strong>, <strong>boolean</strong>, <strong>combo</strong>, <strong>multi</strong> e <strong>drag</strong>.</li>
@@ -587,6 +588,21 @@
         .replace(/^-+|-+$/g, '');
     }
 
+    function normalizeSokobanLetters(raw, fallback = ['P', 'L', 'A', 'Y']) {
+      const source = Array.isArray(raw) ? raw : String(raw || '').split('');
+      const letters = source
+        .map((value) => String(value || '').trim().toUpperCase().slice(0, 1))
+        .filter(Boolean)
+        .slice(0, 4);
+
+      const fallbackLetters = Array.isArray(fallback) ? fallback : ['P', 'L', 'A', 'Y'];
+      while (letters.length < 4) {
+        letters.push(String(fallbackLetters[letters.length] || 'X'));
+      }
+
+      return letters;
+    }
+
     function inferLessonEntry(rawLesson, manualSlug) {
       const slug = String(manualSlug || rawLesson?.slug || slugifyLessonId(rawLesson?.lesson_info?.id)).trim();
       if (!slug) {
@@ -610,19 +626,32 @@
       const textRepair = repairMojibakeInObject(lesson);
       fixes.push(...textRepair.fixes);
 
-      // Normaliza sokoban para exatamente 4 letras maiúsculas
+      // Novo padrão: um único Sokoban por aula em lesson_info.sokoban.
       const topics = lesson?.lesson_info?.topics;
+      const lessonInfo = lesson?.lesson_info || {};
+      const firstLegacyTopic = Array.isArray(topics)
+        ? topics.find((topic) => Array.isArray(topic?.sokoban) && topic.sokoban.length)
+        : null;
+
+      if (lessonInfo.sokoban === undefined || lessonInfo.sokoban === null || String(lessonInfo.sokoban).trim() === '') {
+        lessonInfo.sokoban = normalizeSokobanLetters(firstLegacyTopic?.sokoban || ['P', 'L', 'A', 'Y']);
+        fixes.push('lesson_info.sokoban criado com 4 letras (padrão novo)');
+      } else {
+        const normalizedLessonSokoban = normalizeSokobanLetters(lessonInfo.sokoban);
+        if (JSON.stringify(normalizedLessonSokoban) !== JSON.stringify(lessonInfo.sokoban)) {
+          lessonInfo.sokoban = normalizedLessonSokoban;
+          fixes.push('lesson_info.sokoban normalizado para 4 letras');
+        }
+      }
+
+      // Compatibilidade: se existir sokoban legado por tópico, apenas normaliza.
       if (Array.isArray(topics)) {
         topics.forEach((topic, i) => {
-          if (!Array.isArray(topic.sokoban)) {
-            topic.sokoban = ['A', 'B', 'C', 'D'];
-            fixes.push(`topics[${i}].sokoban criado com letras padrão`);
-          } else if (topic.sokoban.length !== 4) {
-            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            const original = topic.sokoban.map((s) => String(s).toUpperCase().slice(0, 1)).filter(Boolean);
-            while (original.length < 4) original.push(letters[original.length % 26]);
-            topic.sokoban = original.slice(0, 4);
-            fixes.push(`topics[${i}].sokoban ajustado para 4 itens`);
+          if (topic?.sokoban === undefined || topic?.sokoban === null) return;
+          const normalizedTopicSokoban = normalizeSokobanLetters(topic.sokoban, lessonInfo.sokoban);
+          if (JSON.stringify(normalizedTopicSokoban) !== JSON.stringify(topic.sokoban)) {
+            topic.sokoban = normalizedTopicSokoban;
+            fixes.push(`topics[${i}].sokoban normalizado para legado`);
           }
         });
       }
@@ -744,11 +773,26 @@
             throw new Error(`${path}.${field} é obrigatório.`);
           }
         });
-
-        if (!Array.isArray(topic?.sokoban) || topic.sokoban.length !== 4) {
-          throw new Error(`${path}.sokoban deve ter exatamente 4 itens.`);
-        }
       });
+    }
+
+    function validateLessonSokoban(lessonInfo) {
+      const lessonLetters = lessonInfo?.sokoban;
+      if (Array.isArray(lessonLetters) && lessonLetters.length === 4) {
+        return true;
+      }
+
+      // Compatibilidade com formato antigo (por tópico).
+      const topics = lessonInfo?.topics;
+      const hasLegacyFormat = Array.isArray(topics)
+        && topics.length > 0
+        && topics.every((topic) => Array.isArray(topic?.sokoban) && topic.sokoban.length === 4);
+
+      if (hasLegacyFormat) {
+        return true;
+      }
+
+      throw new Error('Defina lesson_info.sokoban com 4 letras (padrão novo) ou mantenha topics[].sokoban no formato legado.');
     }
 
     function validateQuestions(questions, options = {}) {
@@ -830,6 +874,7 @@
       }
 
       validateTopics(lessonEntry.lesson_info.topics);
+      validateLessonSokoban(lessonEntry.lesson_info);
       validateQuestions(lessonEntry.questions, options);
       return true;
     }
@@ -871,6 +916,7 @@
         <li><strong>ID:</strong> ${lessonEntry.lesson_info.id}</li>
         <li><strong>Título:</strong> ${lessonEntry.lesson_info.title}</li>
         <li><strong>Tópicos:</strong> ${lessonEntry.lesson_info.topics.length} (${topics})</li>
+        <li><strong>Sokoban da aula:</strong> ${(Array.isArray(lessonEntry.lesson_info.sokoban) ? lessonEntry.lesson_info.sokoban : []).join('')}</li>
         <li><strong>Perguntas:</strong> ${lessonEntry.questions.length}</li>
       `;
     }
@@ -1044,7 +1090,7 @@
       const aulaId = lessonLabel ? `Aula-${lessonLabel}` : 'Aula-X';
       const aulaTitle = lessonLabel ? `AULA ${lessonLabel} -` : 'AULA X -';
 
-      return `Atue como Especialista em Design Instrucional e Gamificação em TI.\n\nVocê deve gerar EXCLUSIVAMENTE um JSON válido para o motor de quiz, sem markdown e sem texto extra.\n\nREGRAS OBRIGATÓRIAS:\n- Estrutura exata: {\"lesson_info\": {...}, \"questions\": [...]}\n- lesson_info.id deve ser ${aulaId}\n- lesson_info.title deve iniciar com \"${aulaTitle}\"\n- Até 4 tópicos em lesson_info.topics, ignorando itens de avaliação diagnóstica e atividade\n- Cada tópico exige: id, name, desc (máx 10 palavras), color (hex), img_url (Unsplash com ?auto=format&fit=crop&q=80&w=1600), sokoban (4 letras maiúsculas)\n- Gerar exatamente 50 perguntas\n- Alternar OBRIGATORIAMENTE os tipos nesta ordem e repetir: multiple, boolean, drag, combo, multi\n- Campo questions deve usar [NAME] quando falar com aluno\n- Em perguntas combo, usar [COMBO] na lacuna\n- Chaves obrigatórias por pergunta: type, topics, questions, correct, tip\n- Para multiple, boolean e multi usar answers\n- Para combo usar options\n- Para drag usar 4 items (d1..d4) e 4 zones (z1..z4), e correct = \"drag\"\n- Em multi, correct deve ser array de strings\n- Regra trans: apenas a ÚLTIMA pergunta de cada tópico (exceto último tópico) deve ter trans com o id do próximo tópico\n- Distribuição equilibrada das perguntas entre os tópicos\n\nCONTEÚDO DA AULA (PDF EXTRAÍDO):\n${materialText}`;
+      return `Atue como Especialista em Design Instrucional e Gamificação em TI.\n\nVocê deve gerar EXCLUSIVAMENTE um JSON válido para o motor de quiz, sem markdown e sem texto extra.\n\nREGRAS OBRIGATÓRIAS:\n- Estrutura exata: {\"lesson_info\": {...}, \"questions\": [...]}\n- lesson_info.id deve ser ${aulaId}\n- lesson_info.title deve iniciar com \"${aulaTitle}\"\n- Até 4 tópicos em lesson_info.topics, ignorando itens de avaliação diagnóstica e atividade\n- lesson_info.sokoban deve conter exatamente 4 letras maiúsculas\n- Cada tópico exige: id, name, desc (máx 10 palavras), color (hex), img_url (Unsplash com ?auto=format&fit=crop&q=80&w=1600)\n- Gerar exatamente 50 perguntas\n- Alternar OBRIGATORIAMENTE os tipos nesta ordem e repetir: multiple, boolean, drag, combo, multi\n- Campo questions deve usar [NAME] quando falar com aluno\n- Em perguntas combo, usar [COMBO] na lacuna\n- Chaves obrigatórias por pergunta: type, topics, questions, correct, tip\n- Para multiple, boolean e multi usar answers\n- Para combo usar options\n- Para drag usar 4 items (d1..d4) e 4 zones (z1..z4), e correct = \"drag\"\n- Em multi, correct deve ser array de strings\n- Regra trans: apenas a ÚLTIMA pergunta de cada tópico (exceto último tópico) deve ter trans com o id do próximo tópico\n- Distribuição equilibrada das perguntas entre os tópicos\n\nCONTEÚDO DA AULA (PDF EXTRAÍDO):\n${materialText}`;
     }
 
     function getNormalizedProvider() {

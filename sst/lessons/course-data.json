@@ -13,53 +13,35 @@
             "name": "ACIDENTES DE TRABALHO",
             "desc": "Conceitos legais, tipos e características fundamentais dos acidentes.",
             "color": "#e74c3c",
-            "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "C",
-              "A",
-              "T",
-              "X"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
             "name": "AGENTES AGRESSORES",
             "desc": "Riscos físicos, químicos e biológicos no ambiente laboral.",
             "color": "#f1c40f",
-            "img_url": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "R",
-              "I",
-              "S",
-              "K"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
             "name": "EPI E EPC",
             "desc": "Equipamentos e hierarquia de proteção individual e coletiva.",
             "color": "#3498db",
-            "img_url": "https://images.unsplash.com/photo-1590102422318-674b463a0050?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "L",
-              "U",
-              "V",
-              "A"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1590102422318-674b463a0050?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
             "name": "NORMAS E REGRAS",
             "desc": "Obrigatoriedades das NRs e responsabilidades de cada parte.",
             "color": "#2ecc71",
-            "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "C",
-              "I",
-              "P",
-              "A"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600"
           }
+        ],
+        "sokoban": [
+          "C",
+          "A",
+          "T",
+          "X"
         ]
       },
       "questions": [
@@ -1039,53 +1021,35 @@
             "name": "ACIDENTES DE TRABALHO",
             "desc": "Simbologia, cores e interpretação dos riscos no ambiente laboral.",
             "color": "#e67e22",
-            "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "M",
-              "A",
-              "P",
-              "A"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
             "name": "AGENTES AGRESSORES",
             "desc": "Procedimentos de verificação e sinalização de segurança.",
             "color": "#f1c40f",
-            "img_url": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "I",
-              "N",
-              "S",
-              "P"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
             "name": "EPI E EPC",
             "desc": "Prevenção, triângulo do fogo e utilização de extintores.",
             "color": "#e74c3c",
-            "img_url": "https://images.unsplash.com/photo-1599700403969-f77b3aa74837?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "F",
-              "O",
-              "G",
-              "O"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1599700403969-f77b3aa74837?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
             "name": "NORMAS E REGRAS",
             "desc": "Gestão do estresse, vacinação e comportamento seguro.",
             "color": "#2ecc71",
-            "img_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "V",
-              "I",
-              "D",
-              "A"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1600"
           }
+        ],
+        "sokoban": [
+          "M",
+          "A",
+          "P",
+          "A"
         ]
       },
       "questions": [
@@ -2069,53 +2033,35 @@
             "name": "QUALIDADE AMBIENTAL",
             "desc": "O impacto humano, poluição e o papel do trabalhador.",
             "color": "#27ae60",
-            "img_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "M",
-              "E",
-              "I",
-              "O"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
             "name": "RESÍDUOS E E-WASTE",
             "desc": "Gestão de lixo eletrónico e ciclo de vida dos produtos.",
             "color": "#2980b9",
-            "img_url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "L",
-              "I",
-              "X",
-              "O"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
             "name": "RECURSOS E ENERGIA",
             "desc": "Uso racional de energia e fontes renováveis na TI.",
             "color": "#f1c40f",
-            "img_url": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "S",
-              "O",
-              "L",
-              "A"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
             "name": "SUSTENTABILIDADE",
             "desc": "Economia circular, políticas públicas e responsabilidade socioambiental.",
             "color": "#16a085",
-            "img_url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "E",
-              "C",
-              "O",
-              "S"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1600"
           }
+        ],
+        "sokoban": [
+          "M",
+          "E",
+          "I",
+          "O"
         ]
       },
       "questions": [
@@ -3099,53 +3045,35 @@
             "name": "SUBSTÂNCIAS PSICOATIVAS",
             "desc": "Classificação e efeitos de drogas depressoras, estimulantes e perturbadoras.",
             "color": "#e74c3c",
-            "img_url": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "D",
-              "O",
-              "S",
-              "E"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
             "name": "DEPENDÊNCIA QUÍMICA",
             "desc": "A dependência como doença crónica e as suas consequências biopsicossociais.",
             "color": "#f1c40f",
-            "img_url": "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "C",
-              "I",
-              "D",
-              "X"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
             "name": "IMPACTOS NO TRABALHO",
             "desc": "Riscos ocupacionais, quedas de desempenho e segurança da equipa.",
             "color": "#3498db",
-            "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "F",
-              "O",
-              "C",
-              "O"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
             "name": "PREVENÇÃO E ÉTICA",
             "desc": "Programas de prevenção, acolhimento e responsabilidades legais e éticas.",
             "color": "#2ecc71",
-            "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "E",
-              "T",
-              "I",
-              "C"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600"
           }
+        ],
+        "sokoban": [
+          "D",
+          "O",
+          "S",
+          "E"
         ]
       },
       "questions": [
@@ -4131,53 +4059,35 @@
             "name": "O SER SOCIAL",
             "desc": "Indivíduo, sociedade, direitos e responsabilidades no ambiente de trabalho.",
             "color": "#3498db",
-            "img_url": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "S",
-              "E",
-              "R",
-              "X"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
             "name": "SAÚDE SEXUAL",
             "desc": "Bem-estar físico, mental e social relacionado com a sexualidade.",
             "color": "#e74c3c",
-            "img_url": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "V",
-              "I",
-              "D",
-              "A"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
             "name": "AUTOCONHECIMENTO",
             "desc": "Perceção de si, inteligência emocional e metas profissionais SMART.",
             "color": "#f1c40f",
-            "img_url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "M",
-              "E",
-              "T",
-              "A"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
             "name": "CANAIS DE APOIO",
             "desc": "Direitos humanos, combate à violência e recursos de suporte.",
             "color": "#2ecc71",
-            "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600",
-            "sokoban": [
-              "A",
-              "P",
-              "O",
-              "I"
-            ]
+            "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600"
           }
+        ],
+        "sokoban": [
+          "S",
+          "E",
+          "R",
+          "X"
         ]
       },
       "questions": [

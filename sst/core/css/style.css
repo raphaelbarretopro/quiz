@@ -12,6 +12,7 @@
     --hud-width: 300px;
     --hud-right: 20px;
     --hud-gap: 12px;
+    --score-panel-height: 144px;
     --ranking-btn-height: 54px;
     --music-player-height: 92px;
     /* Imagem dinâmica */
@@ -189,6 +190,54 @@ label,
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 3550;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(1px);
+}
+
+#slot-machine-modal,
+#pacman-bonus-modal,
+#enduro-bonus-modal,
+#trex-bonus-modal {
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(1px);
+}
+
+.sokoban-bonus-container,
+.slot-machine-container,
+.pacman-bonus-container,
+.enduro-bonus-container,
+.trex-bonus-container {
+    width: min(920px, 95vw);
+    max-height: 95vh;
+    overflow-y: auto;
+    border-radius: 22px;
+    padding: 18px 20px 16px;
+    text-align: center;
+    background: linear-gradient(155deg, #070b1e, #101b3a);
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.35), inset 0 0 28px rgba(0, 70, 130, 0.26);
+}
+
+.sokoban-bonus-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sokoban-hud {
+    margin: 4px 0 10px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 215, 120, 0.6);
+    background: rgba(22, 10, 6, 0.55);
+    color: #ffef9f;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.6px;
 }
 
 #sokoban-controls {
@@ -569,6 +618,7 @@ label,
     border-radius: 15px;
     padding: 15px 25px;
     box-sizing: border-box;
+    height: var(--score-panel-height);
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.58), inset 0 0 18px rgba(255, 215, 0, 0.2);
     backdrop-filter: blur(10px);
 }
@@ -576,11 +626,11 @@ label,
 .top15-panel {
     /* Ranking na mesma coluna direita e mesma largura do painel de pontos. */
     position: fixed;
-    top: calc(20px + 126px + var(--hud-gap));
+    top: calc(20px + var(--score-panel-height) + var(--hud-gap));
     right: var(--hud-right);
     z-index: 1000;
     width: var(--hud-width);
-    max-height: calc(100vh - (20px + 126px + var(--hud-gap)) - (20px + var(--music-player-height) + var(--hud-gap) + var(--ranking-btn-height) + var(--hud-gap)));
+    max-height: calc(100vh - (20px + var(--score-panel-height) + var(--hud-gap)) - (20px + var(--music-player-height) + var(--hud-gap) + var(--ranking-btn-height) + var(--hud-gap)));
     overflow: hidden;
     background: rgba(0, 0, 0, 0.30);
     border: 2px solid rgba(255, 215, 0, 0.9);
@@ -806,7 +856,7 @@ label,
         transform-origin: top center;
     }
 
-    #btn-reset-sokoban {
+    #btn-giveup-sokoban {
         margin-top: 8px !important;
     }
 
@@ -834,8 +884,8 @@ label,
     }
 
     .top15-panel {
-        top: calc(50px + 126px + var(--hud-gap));
-        max-height: calc(100vh - (50px + 126px + var(--hud-gap)) - (20px + var(--music-player-height) + var(--hud-gap) + var(--ranking-btn-height) + var(--hud-gap)));
+        top: calc(50px + var(--score-panel-height) + var(--hud-gap));
+        max-height: calc(100vh - (50px + var(--score-panel-height) + var(--hud-gap)) - (20px + var(--music-player-height) + var(--hud-gap) + var(--ranking-btn-height) + var(--hud-gap)));
     }
 }
 
@@ -1527,17 +1577,11 @@ label,
 
 /* Fundo do modal: roxo/magenta escuro com spots de luz como no referencial */
 #slot-machine-modal {
-    background:
-        radial-gradient(ellipse at 16% 52%, rgba(170, 30, 255, 0.60) 0%, transparent 42%),
-        radial-gradient(ellipse at 84% 52%, rgba(255, 20, 190, 0.55) 0%, transparent 42%),
-        radial-gradient(ellipse at 50% 90%, rgba(60, 0, 140, 0.45) 0%, transparent 50%),
-        #040012;
+    background: rgba(0, 0, 0, 0.82);
 }
 
 .slot-machine-container {
     position: relative;
-    width: 95%;
-    max-width: 760px;
     text-align: center;
     z-index: 1;
 }
@@ -1966,23 +2010,11 @@ label,
    ================================ */
 
 #pacman-bonus-modal {
-    background:
-        radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.28), transparent 42%),
-        radial-gradient(circle at 82% 22%, rgba(255, 198, 0, 0.22), transparent 42%),
-        radial-gradient(circle at 50% 85%, rgba(255, 65, 160, 0.18), transparent 52%),
-        rgba(5, 8, 20, 0.96);
+    background: rgba(0, 0, 0, 0.82);
 }
 
 .pacman-bonus-container {
-    width: min(720px, 95vw);
-    max-height: 95vh;
-    overflow-y: auto;
     background: linear-gradient(145deg, #070b1e, #0d1534);
-    border: 2px solid #00d4ff;
-    border-radius: 22px;
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.35), inset 0 0 30px rgba(0, 80, 150, 0.28);
-    padding: 18px 20px 16px;
-    text-align: center;
 }
 
 .pacman-title {
@@ -2009,6 +2041,16 @@ label,
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     color: #ffef9f;
+}
+
+.pacman-board-wrap,
+.enduro-board-wrap,
+.trex-board-wrap {
+    min-height: 442px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .pacman-board-wrap {
@@ -2119,23 +2161,12 @@ label,
    ================================ */
 
 #enduro-bonus-modal {
-    background:
-        radial-gradient(circle at 16% 16%, rgba(0, 178, 255, 0.24), transparent 40%),
-        radial-gradient(circle at 84% 18%, rgba(255, 182, 32, 0.20), transparent 42%),
-        radial-gradient(circle at 50% 90%, rgba(48, 255, 164, 0.14), transparent 52%),
-        rgba(6, 8, 18, 0.96);
+    background: rgba(0, 0, 0, 0.82);
 }
 
 .enduro-bonus-container {
-    width: min(720px, 95vw);
-    max-height: 95vh;
-    overflow-y: auto;
     background: linear-gradient(155deg, #080f24, #0f1e3f);
-    border: 2px solid #00b9ff;
-    border-radius: 22px;
-    box-shadow: 0 0 30px rgba(0, 185, 255, 0.35), inset 0 0 28px rgba(0, 65, 130, 0.28);
-    padding: 18px 20px 16px;
-    text-align: center;
+    border-color: #00b9ff;
 }
 
 .enduro-title {
@@ -2204,15 +2235,9 @@ label,
 
 /* T-REX Bonus Game Styling */
 .trex-bonus-container {
-    width: min(920px, 95vw);
-    max-height: 95vh;
-    overflow-y: auto;
     background: linear-gradient(155deg, #2d2d2d, #1a1a1a);
     border: 3px solid #ffa500;
-    border-radius: 22px;
     box-shadow: 0 0 30px rgba(255, 165, 0, 0.4), inset 0 0 28px rgba(139, 69, 19, 0.25);
-    padding: 18px 20px 16px;
-    text-align: center;
 }
 
 .trex-title {
@@ -2253,9 +2278,11 @@ label,
 
 #trex-canvas {
     display: block;
-    width: 100%;
+    width: min(92vw, 800px);
     max-width: 800px;
-    height: 300px;
+    aspect-ratio: 8 / 3;
+    height: auto;
+    max-height: 300px;
     margin: 0 auto;
     border-radius: 10px;
     background: #f5f5f5;
@@ -2288,7 +2315,24 @@ label,
     transform: translateY(-2px);
 }
 
+.sokoban-test-btn {
+    background: linear-gradient(180deg, #2a4f2f, #1c3520);
+    border-color: #8be083;
+    color: #e9ffdf;
+    box-shadow: 0 0 10px rgba(139, 224, 131, 0.4);
+}
+
+.sokoban-test-btn:hover {
+    filter: brightness(1.12);
+}
+
 @media (max-width: 900px) {
+    .pacman-board-wrap,
+    .enduro-board-wrap,
+    .trex-board-wrap {
+        min-height: 310px;
+    }
+
     .trex-hud {
         font-size: 0.85rem;
     }
@@ -2302,8 +2346,7 @@ label,
     }
 
     #trex-canvas {
-        width: 100%;
+        width: min(92vw, 600px);
         max-width: 600px;
-        height: 225px;
     }
 }

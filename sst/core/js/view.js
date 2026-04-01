@@ -16,12 +16,9 @@ export default class View {
             spinBtn: document.getElementById('spin-btn'),
             stopBtn: document.getElementById('stop-btn'),
             wheel: document.getElementById('wheel'),
-            
-            btnUp: document.getElementById('btn-up'),
-            btnDown: document.getElementById('btn-down'),
-            btnLeft: document.getElementById('btn-left'),
-            btnRight: document.getElementById('btn-right'),
-            btnResetSokoban: document.getElementById('btn-reset-sokoban'),
+
+            btnGiveUpSokoban: document.getElementById('btn-giveup-sokoban'),
+            sokobanLives: document.getElementById('sokoban-lives'),
             sokobanGrid: document.getElementById('sokoban-grid'),
             
             modalTitle: document.getElementById('modal-title'),
@@ -54,7 +51,6 @@ export default class View {
             top15Body: document.getElementById('top15-body'),
             musicToggle: document.getElementById('music-toggle'),
             musicVolume: document.getElementById('music-volume'),
-            firjanLogo: document.getElementById('firjan-logo'),
 
             // Modal de Ranking
             rankingModal: document.getElementById('ranking-modal'),
@@ -87,6 +83,7 @@ export default class View {
             pacmanTestBtn: document.getElementById('pacman-test-btn'),
             enduroTestBtn: document.getElementById('enduro-test-btn'),
             trexTestBtn: document.getElementById('trex-test-btn'),
+            sokobanTestBtn: document.getElementById('sokoban-test-btn'),
 
             // Bonus especial estilo ENDURO
             enduroBonusModal: document.getElementById('enduro-bonus-modal'),
@@ -100,6 +97,7 @@ export default class View {
             trexCanvas: document.getElementById('trex-canvas'),
             trexDistance: document.getElementById('trex-distance'),
             trexTimer: document.getElementById('trex-timer'),
+            trexLives: document.getElementById('trex-lives'),
             trexGiveUpBtn: document.getElementById('trex-giveup-btn')
         };
 
@@ -107,7 +105,6 @@ export default class View {
         this.spinTimer = null;
         this.dragsFixed = 0;
         this.audioContext = null;
-        this.questionCount = 0;
         this.lastSlotPositions = [0, 0, 0];
         this.slotSpinSoundTimer = null;
         this.reelFxRaf = new Map();
@@ -391,7 +388,10 @@ export default class View {
             if (e.key === "ArrowRight") { e.preventDefault(); handler(1, 0); }
         });
     }
-    bindSokobanReset(handler) { this.els.btnResetSokoban.addEventListener('click', handler); }
+    bindSokobanGiveUp(handler) {
+        if (!this.els.btnGiveUpSokoban) return;
+        this.els.btnGiveUpSokoban.addEventListener('click', handler);
+    }
     bindNext(handler) { this.els.nextBtn.addEventListener('click', handler); }
     bindPacmanTest(handler) {
         // Mantém compatibilidade quando não houver botão de teste do PACMAN no HTML.
@@ -411,14 +411,18 @@ export default class View {
         this.els.trexTestBtn.addEventListener('click', handler);
     }
 
+    bindSokobanTest(handler) {
+        // Mantém compatibilidade quando não houver botão de teste do SOKOBAN no HTML.
+        if (!this.els.sokobanTestBtn) return;
+        this.els.sokobanTestBtn.addEventListener('click', handler);
+    }
+
     showPortal() {
         this.els.quizScreen.classList.add('hidden');
         this.els.portalScreen.classList.remove('hidden');
         this.els.spinBtn.classList.remove('hidden');
         this.els.stopBtn.classList.add('hidden');
         this.els.stopBtn.innerText = "PARAR AGORA!";
-        // Oculta a logo Firjan ao sair da tela inicial.
-        if (this.els.firjanLogo) this.els.firjanLogo.classList.add('hidden');
     }
 
     _ratchetTick() {
@@ -472,7 +476,6 @@ export default class View {
         // Adiciona voltas extras (1800deg = 5 voltas) para efeito visual
         this.els.wheel.style.transform = `rotate(${targetAngle + 1800}deg)`;
         this.playCountingSound();
-        this.createCoinAnimation();
         
         setTimeout(() => {
             this.els.modalTitle.innerText = "NOVO TEMA: " + topicData.name;
@@ -487,6 +490,17 @@ export default class View {
         this.els.portalScreen.classList.add('hidden');
         this.els.sokobanScreen.classList.remove('hidden');
         this.startSokobanMusic();
+    }
+
+    hideSokoban() {
+        this.els.sokobanScreen.classList.add('hidden');
+        this.stopSokobanMusic();
+        this.resumeGameMusic();
+    }
+
+    updateSokobanLives(lives) {
+        if (!this.els.sokobanLives) return;
+        this.els.sokobanLives.textContent = `Vidas: ${Math.max(0, Number(lives) || 0)}`;
     }
 
     drawSokoban(level, player, boxes) {
@@ -535,7 +549,6 @@ export default class View {
         this.els.nextBtn.classList.add('hidden'); 
         this.els.valBtn.classList.add('hidden');
         this.els.quizScreen.classList.remove('hidden');
-        if (this.els.firjanLogo) this.els.firjanLogo.classList.add('hidden');
         
         const safeTopicData = topicData || {
             id: 'UNKNOWN',
@@ -1175,10 +1188,11 @@ export default class View {
         this.playCountingSound();
     }
 
-    animateScoreIncrease(oldScore, newScore) {
+    animateScoreIncrease(oldScore, newScore, options = {}) {
         // Anima o aumento de pontos com som e moedas caindo.
+        const coinMultiplier = Number(options?.coinMultiplier ?? 1);
         this.playCountingSound();
-        this.createCoinAnimation();
+        this.createCoinAnimation(coinMultiplier);
         
         // Anima o número crescendo
         const scoreValue = this.els.scoreValue;
@@ -1210,9 +1224,10 @@ export default class View {
         }, 600);
     }
 
-    createCoinAnimation() {
+    createCoinAnimation(multiplier = 1) {
         // Cria animação de moedas caindo estilo caça-níqueis alinhadas à janela de perguntas.
-        const count = 30; // Número de moedas
+        const safeMultiplier = Number.isFinite(multiplier) ? Math.max(0, multiplier) : 1;
+        const count = Math.max(1, Math.round(30 * safeMultiplier)); // Número de moedas
         const coinGold = '#ffd700';
         
         // Obtém posição do container de perguntas
@@ -2630,6 +2645,8 @@ export default class View {
         let finished = false;
         let crashed = false;
         let collisionLock = false;
+        let lives = 3;
+        let invulUntil = 0;
         let distanceMeter = 0;
         let gameOverUntil = 0;
 
@@ -2692,6 +2709,9 @@ export default class View {
             }
             if (this.els.trexTimer) {
                 this.els.trexTimer.textContent = `Tempo: ${timeLeft}s`;
+            }
+            if (this.els.trexLives) {
+                this.els.trexLives.textContent = `Vidas: ${Math.max(0, lives)}`;
             }
         };
 
@@ -2814,6 +2834,10 @@ export default class View {
         };
 
         const drawPlayer = () => {
+            if (performance.now() < invulUntil && (Math.floor(performance.now() / 90) % 2) === 0) {
+                return;
+            }
+
             let sprite = sprites.dinoRun1;
             if (crashed) {
                 sprite = sprites.dinoDead;
@@ -2875,16 +2899,44 @@ export default class View {
         const startCollisionSequence = () => {
             if (collisionLock || finished) return;
             collisionLock = true;
-            crashed = true;
-            raceStarted = false;
-            gameOverUntil = performance.now() + 950;
-            if (timerTick) {
-                clearInterval(timerTick);
-                timerTick = null;
+
+            lives -= 1;
+            updateHud();
+
+            if (lives <= 0) {
+                crashed = true;
+                raceStarted = false;
+                gameOverUntil = performance.now() + 950;
+                if (timerTick) {
+                    clearInterval(timerTick);
+                    timerTick = null;
+                }
+                if (this.trexRaceAudio) {
+                    this.trexRaceAudio.pause();
+                }
+                collisionLock = false;
+                return;
             }
+
+            player.x = 88;
+            player.y = groundY;
+            player.velocityY = 0;
+            player.isJumping = false;
+            player.isDucking = false;
+            invulUntil = performance.now() + 1100;
+
             if (this.trexRaceAudio) {
                 this.trexRaceAudio.pause();
+                setTimeout(() => {
+                    if (!finished && raceStarted && !crashed) {
+                        this.trexRaceAudio.play().catch(() => {});
+                    }
+                }, 180);
             }
+
+            setTimeout(() => {
+                collisionLock = false;
+            }, 180);
         };
 
         const finish = (won) => {
@@ -2988,7 +3040,8 @@ export default class View {
                         continue;
                     }
 
-                    if (intersects(playerBox, obstacleHitbox(obs))) {
+                    if (performance.now() >= invulUntil && intersects(playerBox, obstacleHitbox(obs))) {
+                        obstacles.splice(i, 1);
                         startCollisionSequence();
                         break;
                     }
@@ -3124,16 +3177,6 @@ export default class View {
     /* ================================
        MÉTODOS PARA CAÇA NÍQUEL (SLOT MACHINE)
        ================================ */
-
-    shouldShowSlotMachine() {
-        // Retorna true se deve mostrar o caça níquel (a cada 5-10 questões)
-        const minQuestions = 5;
-        const maxQuestions = 10;
-        const range = maxQuestions - minQuestions;
-        const randomTrigger = minQuestions + Math.floor(Math.random() * range);
-        
-        return this.questionCount % randomTrigger === 0 && this.questionCount > 0;
-    }
 
     showSlotMachine() {
         // Abre o modal do caça níquel e pausa a música de fundo
@@ -3683,6 +3726,7 @@ export default class View {
 
     showEnduroVictoryPopup(playerName = 'Piloto') {
         const safeName = String(playerName || 'Piloto').trim() || 'Piloto';
+        const enduroVictoryImg = this.resolveAssetPath('img/f1.png');
 
         const overlay = document.createElement('div');
         overlay.className = 'slot-summary-overlay enduro-victory-overlay';
@@ -3692,7 +3736,7 @@ export default class View {
         card.innerHTML = `
             <h3 class="slot-summary-title">VITÓRIA NO ENDURO! 🏁</h3>
             <p class="enduro-victory-text"><strong>${safeName}</strong>, parabéns pela corrida perfeita!</p>
-            <img class="enduro-victory-img" src="img/f1.png" alt="Piloto levantando troféu">
+            <img class="enduro-victory-img" src="${enduroVictoryImg}" alt="Piloto levantando troféu" onerror="this.style.display='none'">
         `;
 
         overlay.appendChild(card);
@@ -3729,6 +3773,7 @@ export default class View {
 
     showTRexVictoryPopup(playerName = 'Jogador') {
         const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+        const trexVictoryImg = this.resolveAssetPath('img/t-rex.png');
 
         const overlay = document.createElement('div');
         overlay.className = 'slot-summary-overlay enduro-victory-overlay';
@@ -3737,7 +3782,7 @@ export default class View {
         card.className = 'slot-summary-card enduro-victory-card';
         card.innerHTML = `
             <h3 class="slot-summary-title">VOCÊ VENCEU! 🦖🏁</h3>
-            <img src="img/t-rex.png" alt="T-Rex Victory" style="max-width: 200px; max-height: 150px; margin: 20px auto; display: block; image-rendering: crisp-edges;">
+            <img src="${trexVictoryImg}" alt="T-Rex Victory" style="max-width: 200px; max-height: 150px; margin: 20px auto; display: block; image-rendering: crisp-edges;" onerror="this.style.display='none'">
             <p class="enduro-victory-text"><strong>${safeName}</strong>, completou um minuto inteiro no T-REX!</p>
             <div style="font-size: 4rem; margin: 20px 0;">🎉</div>
         `;

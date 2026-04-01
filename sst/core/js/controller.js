@@ -1,6 +1,9 @@
 import Model from './model.js';
 import View from './view.js';
 import RankingManager from './ranking-manager.js';
+import { getAllGameIds, getGameById } from './game/game-registry.js';
+import { buildRandomGameSchedule } from './game/game-scheduler.js';
+import { getLessonGameScheduleConfig } from './game/lesson-game-config.js';
 
 // Controller: coordena o fluxo entre dados (Model) e interface (View).
 class Controller {
@@ -23,13 +26,17 @@ class Controller {
         this.lastAnswerWasCorrect = false;
         this.pacmanBonusReward = 100;
         this.pacmanBonusActive = false;
-        this.pacmanTriggeredByQuestionCount = false;
         this.enduroBonusReward = 100;
         this.enduroBonusActive = false;
-        this.enduroTriggeredByQuestionCount = false;
         this.trexBonusReward = 100;
+        this.sokobanBonusReward = 100;
         this.trexBonusActive = false;
-        this.trexFinalTriggered = false;
+        this.activeBonusGameId = null;
+        this.sokobanResolve = null;
+        this.sokobanMaxLives = 3;
+        this.sokobanLives = this.sokobanMaxLives;
+        this.availableGameIds = getAllGameIds();
+        this.gameSchedule = [];
         this.slotMaxSpins = 3;
         this.slotSpinsUsed = 0;
         this.slotIsActive = false;
@@ -45,11 +52,12 @@ class Controller {
         this.view.bindWheelStop(this.handleWheelStop.bind(this));
         this.view.bindModalClose(this.handleModalClose.bind(this));
         this.view.bindSokobanMove(this.handleSokobanMove.bind(this));
-        this.view.bindSokobanReset(this.handleSokobanReset.bind(this));
+        this.view.bindSokobanGiveUp(this.handleSokobanGiveUp.bind(this));
         this.view.bindNext(this.handleNext.bind(this));
         this.view.bindPacmanTest(this.handlePacmanTest.bind(this));
         this.view.bindEnduroTest(this.handleEnduroTest.bind(this));
         this.view.bindTRexTest(this.handleTRexTest.bind(this));
+        this.view.bindSokobanTest(this.handleSokobanTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -92,11 +100,16 @@ class Controller {
         this.slotStreak = 0;
         this.lastAnswerWasCorrect = false;
         this.pacmanBonusActive = false;
-        this.pacmanTriggeredByQuestionCount = false;
         this.enduroBonusActive = false;
-        this.enduroTriggeredByQuestionCount = false;
         this.trexBonusActive = false;
-        this.trexFinalTriggered = false;
+        this.activeBonusGameId = null;
+        const lessonSlug = this.model.getLessonSlug();
+        const scheduleConfig = getLessonGameScheduleConfig(lessonSlug);
+        this.gameSchedule = buildRandomGameSchedule(
+            this.model.questions.length,
+            this.availableGameIds,
+            scheduleConfig
+        );
         this.slotSpinsUsed = 0;
         this.slotIsActive = false;
         this.slotSpinInProgress = false;
@@ -195,8 +208,8 @@ class Controller {
         this.view.els.portalScreen.classList.add('hidden');
         this.view.els.quizScreen.classList.add('hidden');
 
-        // Se o timeout ocorreu no Sokoban, reinicia somente o mini-jogo com novo timer.
-        if (this.currentTargetTopic) {
+        // Se o timeout ocorreu no Sokoban bônus em andamento, reinicia apenas o mini-jogo.
+        if (this.model.sokobanActive) {
             this.model.sokobanActive = true;
             this.view.showSokoban();
             this.handleSokobanReset();
@@ -210,10 +223,9 @@ class Controller {
     renderStep() {
         const q = this.model.getCurrentQuestion();
         
-        // Em transições de tema, força a etapa da roleta + Sokoban antes da pergunta.
+        // Em transições de tema, exibe roleta + popup e segue para o quiz.
         if (q.trans && !this.isReady) {
             this.currentTargetTopic = q.trans;
-            this.gameDurationMs = this.getSokobanDurationMsByTopic(this.currentTargetTopic);
             this.view.setTimerVisibility(false);
             this.view.showPortal();
             return;
@@ -221,6 +233,7 @@ class Controller {
         
         // Renderiza a pergunta da etapa atual com o tema correspondente.
         const topicData = this.model.getTopicData(q.topics);
+        this.view.els.portalScreen.classList.add('hidden');
         this.view.renderQuestion(
             q,
             topicData,
@@ -248,20 +261,25 @@ class Controller {
 
     handleModalClose() {
         if (this.hasTimedOut) return;
-        // Ao fechar o modal da era, inicia o mini-jogo de transição.
-        this.view.showSokoban();
-        this.model.sokobanActive = true;
-        this.handleSokobanReset();
+        // Ao fechar o modal da era, volta direto para a sequência de questões.
+        this.isReady = true;
+        this.view.els.introModal.classList.add('hidden');
+        this.view.els.portalScreen.classList.add('hidden');
+        this.renderStep();
     }
 
     handleSokobanReset() {
         if (this.hasTimedOut) return;
-        // Reiniciar o mini-jogo também reinicia o cronômetro da etapa Sokoban.
+        // Inicia a rodada Sokoban com o cronômetro da etapa.
         if (this.model.sokobanActive) {
             this.view.setTimerVisibility(true);
             this.startGameTimeout();
             this.timerStarted = true;
         }
+
+        this.sokobanLives = this.sokobanMaxLives;
+        this.view.updateSokobanLives(this.sokobanLives);
+
         // Reinicia estado e redesenha o tabuleiro Sokoban.
         this.model.resetSokoban(this.currentTargetTopic);
         this.view.drawSokoban(this.model.sLevel, this.model.sP, this.model.sB);
@@ -270,20 +288,60 @@ class Controller {
     handleSokobanMove(dx, dy) {
         if (this.hasTimedOut) return;
         // Aplica movimento, atualiza o grid e verifica vitória da etapa.
-        const hasWon = this.model.movePlayer(dx, dy);
+        const moveResult = this.model.movePlayer(dx, dy);
+
+        if (moveResult.lifeLost) {
+            this.sokobanLives -= 1;
+            this.view.updateSokobanLives(this.sokobanLives);
+
+            // Ao colidir empurrando caixa contra bloco, volta o tabuleiro ao estado inicial da rodada.
+            this.model.resetSokoban(this.currentTargetTopic);
+            this.view.drawSokoban(this.model.sLevel, this.model.sP, this.model.sB);
+
+            if (this.sokobanLives > 0) {
+                this.view.showAlert(
+                    '💥 Vida perdida',
+                    `Você empurrou a caixa contra o bloco. Vidas restantes: ${this.sokobanLives}. O estágio foi reiniciado.`
+                );
+                return;
+            }
+        }
+
+        if (this.sokobanLives <= 0 && this.model.sokobanActive) {
+            this.finishSokobanRound(false, 'no-lives');
+            return;
+        }
+
         this.view.drawSokoban(this.model.sLevel, this.model.sP, this.model.sB);
         
-        if (hasWon && this.model.sokobanActive) {
-            this.model.sokobanActive = false;
-            // Ao concluir o Sokoban, o timer desta tarefa é encerrado.
-            this.clearGameTimeout();
-            this.timerStarted = false;
-            this.view.setTimerVisibility(false);
+        if (moveResult.won && this.model.sokobanActive) {
             this.view.sokobanComplete(() => {
-                this.isReady = true;
-                this.renderStep();
+                this.finishSokobanRound(true, 'completed');
             });
         }
+    }
+
+    handleSokobanGiveUp() {
+        if (this.hasTimedOut || !this.model.sokobanActive) return;
+        this.finishSokobanRound(false, 'giveup');
+    }
+
+    finishSokobanRound(won, reason = 'interrupted') {
+        this.model.sokobanActive = false;
+        this.clearGameTimeout();
+        this.timerStarted = false;
+        this.view.setTimerVisibility(false);
+        this.view.hideSokoban();
+
+        if (this.activeBonusGameId === 'sokoban' && this.sokobanResolve) {
+            const resolve = this.sokobanResolve;
+            this.sokobanResolve = null;
+            resolve({ won, reason });
+            return;
+        }
+
+        this.isReady = true;
+        this.renderStep();
     }
 
     handleAnswer(selectedValue, btnElement) {
@@ -308,7 +366,13 @@ class Controller {
         if (result.pointsAwarded > 0) {
             const oldScore = this.model.playerScore;
             const newScore = this.model.addScore(result.pointsAwarded);
-            this.view.animateScoreIncrease(oldScore, newScore);
+            const isPartialMultiOrDrag =
+                !result.isCorrect &&
+                (q?.type === 'multi' || q?.type === 'drag') &&
+                Number(result.totalItems || 0) > 1;
+            this.view.animateScoreIncrease(oldScore, newScore, {
+                coinMultiplier: isPartialMultiOrDrag ? 0.5 : 1
+            });
         } else {
             // Sem acertos válidos: mantém o score atual.
             this.view.updateScoreDisplay(this.model.playerScore);
@@ -384,22 +448,13 @@ class Controller {
         // Avança no fluxo; ao final, exibe tela de encerramento.
         if (this.hasTimedOut) return;
         this.model.curStep++;
+
+        const ranScheduledGame = await this.tryRunScheduledGame();
+        if (ranScheduledGame) {
+            return;
+        }
         
         if (this.model.curStep < this.model.questions.length) {
-            // Regra especial: ENDURO aparece ao responder 30 perguntas, independente de acerto.
-            if (!this.enduroTriggeredByQuestionCount && this.model.curStep >= 30) {
-                this.enduroTriggeredByQuestionCount = true;
-                await this.openEnduroBonusRound();
-                return;
-            }
-
-            // Regra especial: PAC-MAN aparece ao responder 15 perguntas, independente de acerto.
-            if (!this.pacmanTriggeredByQuestionCount && this.model.curStep >= 15) {
-                this.pacmanTriggeredByQuestionCount = true;
-                await this.openPacmanBonusRound();
-                return;
-            }
-
             // Regra: abre caça-níquel ao atingir 3 acertos consecutivos (contador dedicado).
             if (this.slotStreak >= 3) {
                 this.slotStreak = 0;
@@ -408,15 +463,33 @@ class Controller {
                 this.renderStep();
             }
         } else {
-            // Bônus especial: T-REX Game roda uma única vez após a última pergunta (índice 49).
-            if (!this.trexFinalTriggered) {
-                this.trexFinalTriggered = true;
-                await this.openTRexBonusRound();
-                return;
-            }
-
             await this.finalizeQuiz();
         }
+    }
+
+    async tryRunScheduledGame() {
+        if (!Array.isArray(this.gameSchedule) || !this.gameSchedule.length) {
+            return false;
+        }
+
+        const entry = this.gameSchedule.find(
+            (item) => !item.used && Number(item.position) === Number(this.model.curStep)
+        );
+
+        if (!entry) return false;
+
+        entry.used = true;
+        await this.runScheduledGameById(entry.gameId);
+
+        if (this.hasTimedOut) return true;
+
+        if (this.model.curStep >= this.model.questions.length) {
+            await this.finalizeQuiz();
+        } else {
+            this.renderStep();
+        }
+
+        return true;
     }
 
     async finalizeQuiz() {
@@ -454,10 +527,6 @@ class Controller {
     handleRankingModalClose() {
         // Fecha modal de ranking
         this.view.hideRankingModal();
-    }
-
-    bindSlotMachineResult() {
-        // Mantido por compatibilidade: fluxo migrou para openSlotRound().
     }
 
     openSlotRound() {
@@ -541,136 +610,99 @@ class Controller {
         this.view.els.slotSpinBtn.textContent = `GIRAR (${remaining}) 🎰`;
     }
 
+    isAnyBonusGameActive() {
+        return this.pacmanBonusActive || this.enduroBonusActive || this.trexBonusActive || Boolean(this.activeBonusGameId);
+    }
+
+    getBonusRewardByGameId(gameId) {
+        if (gameId === 'pacman') return this.pacmanBonusReward;
+        if (gameId === 'enduro') return this.enduroBonusReward;
+        if (gameId === 'trex') return this.trexBonusReward;
+        if (gameId === 'sokoban') return this.sokobanBonusReward;
+        return 0;
+    }
+
+    getSokobanTopicForBonus() {
+        const currentQuestion = this.model.getCurrentQuestion();
+        const topicId = Array.isArray(currentQuestion?.topics)
+            ? currentQuestion.topics[0]
+            : currentQuestion?.topics;
+
+        const resolved = this.model.getTopicData(topicId);
+        if (resolved?.id) return resolved.id;
+
+        const fallback = this.model.lessonInfo?.topics?.[0]?.id;
+        return fallback || 'ACID';
+    }
+
+    runSokobanBonusRound() {
+        return new Promise((resolve) => {
+            if (this.hasTimedOut) {
+                resolve({ won: false, reason: 'interrupted' });
+                return;
+            }
+
+            this.currentTargetTopic = this.getSokobanTopicForBonus();
+            this.gameDurationMs = this.getSokobanDurationMsByTopic(this.currentTargetTopic);
+            this.model.sokobanActive = true;
+            this.view.showSokoban();
+
+            this.sokobanResolve = resolve;
+            this.handleSokobanReset();
+        });
+    }
+
+    async runScheduledGameById(gameId) {
+        const selectedGame = getGameById(gameId);
+        if (!selectedGame || this.hasTimedOut) return;
+
+        this.activeBonusGameId = gameId;
+        this.pacmanBonusActive = gameId === 'pacman';
+        this.enduroBonusActive = gameId === 'enduro';
+        this.trexBonusActive = gameId === 'trex';
+
+        try {
+            await selectedGame.run({
+                model: this.model,
+                view: this.view,
+                reward: this.getBonusRewardByGameId(gameId),
+                hasTimedOut: () => this.hasTimedOut,
+                runSokobanBonusRound: this.runSokobanBonusRound.bind(this)
+            });
+        } finally {
+            this.activeBonusGameId = null;
+            this.pacmanBonusActive = false;
+            this.enduroBonusActive = false;
+            this.trexBonusActive = false;
+        }
+    }
+
     async handlePacmanTest() {
         if (this.hasTimedOut) return;
-        if (this.slotIsActive || this.slotSpinInProgress || this.pacmanBonusActive || this.enduroBonusActive) return;
-        await this.openPacmanBonusRound();
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('pacman');
+        if (!this.hasTimedOut) this.renderStep();
     }
 
     async handleEnduroTest() {
         if (this.hasTimedOut) return;
-        if (this.slotIsActive || this.slotSpinInProgress || this.pacmanBonusActive || this.enduroBonusActive) return;
-        await this.openEnduroBonusRound();
-    }
-
-    async openPacmanBonusRound() {
-        if (this.pacmanBonusActive || this.hasTimedOut) return;
-
-        this.pacmanBonusActive = true;
-        const result = await this.view.runPacmanBonusLevel();
-
-        if (this.hasTimedOut) {
-            this.pacmanBonusActive = false;
-            return;
-        }
-
-        if (result.won) {
-            const finalScore = await this.view.showPacmanFinalSummary(
-                this.model.playerScore,
-                this.pacmanBonusReward,
-                result.cherryBonus
-            );
-            this.model.playerScore = finalScore;
-            this.view.updateScoreDisplay(finalScore);
-        } else if (result.reason === 'timeout') {
-            this.view.showAlert(
-                '⏱️ Tempo Esgotado no PAC-MAN',
-                'O cronômetro do desafio PAC-MAN chegou a 0s antes de limpar todos os pontos.',
-                () => this.view.resumeGameMusic()
-            );
-        } else if (result.reason === 'giveup' || result.reason === 'interrupted') {
-            this.view.showAlert(
-                '⏸️ Desafio Interrompido',
-                'O desafio PAC-MAN foi interrompido antes da conclusão. Continue acertando para tentar novamente.',
-                () => this.view.resumeGameMusic()
-            );
-        } else {
-            this.view.showAlert(
-                '👻 Desafio Não Concluído',
-                'Você esgotou os 3 créditos do desafio especial desta vez. Continue acertando para tentar novamente!',
-                () => this.view.resumeGameMusic()
-            );
-        }
-
-        this.pacmanBonusActive = false;
-        this.renderStep();
-    }
-
-    async openEnduroBonusRound() {
-        if (this.enduroBonusActive || this.hasTimedOut) return;
-
-        this.enduroBonusActive = true;
-        const result = await this.view.runEnduroBonusLevel();
-
-        if (this.hasTimedOut) {
-            this.enduroBonusActive = false;
-            return;
-        }
-
-        if (result.won) {
-            await this.view.showEnduroVictoryPopup(this.model.playerName);
-            const finalScore = await this.view.showEnduroFinalSummary(
-                this.model.playerScore,
-                this.enduroBonusReward,
-                result.stagesCompleted,
-                result.carsPassed
-            );
-            this.model.playerScore = finalScore;
-            this.view.updateScoreDisplay(finalScore);
-        } else {
-            this.view.showAlert(
-                '🏎️ Corrida Interrompida',
-                'Você esgotou os 3 carros nesta corrida do ENDURO. Continue acertando para liberar uma nova tentativa!',
-                () => this.view.resumeGameMusic()
-            );
-        }
-
-        this.enduroBonusActive = false;
-        this.renderStep();
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('enduro');
+        if (!this.hasTimedOut) this.renderStep();
     }
 
     async handleTRexTest() {
         if (this.hasTimedOut) return;
-        if (this.slotIsActive || this.slotSpinInProgress || this.pacmanBonusActive || this.enduroBonusActive || this.trexBonusActive) return;
-        await this.openTRexBonusRound();
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('trex');
+        if (!this.hasTimedOut) this.renderStep();
     }
 
-    async openTRexBonusRound() {
-        if (this.trexBonusActive || this.hasTimedOut) return;
-
-        this.trexBonusActive = true;
-        const result = await this.view.runTRexBonusLevel();
-
-        if (this.hasTimedOut) {
-            this.trexBonusActive = false;
-            return;
-        }
-
-        if (result.won) {
-            await this.view.showTRexVictoryPopup(this.model.playerName);
-            const finalScore = await this.view.showTRexFinalSummary(
-                this.model.playerScore,
-                this.trexBonusReward,
-                result.distance
-            );
-            this.model.playerScore = finalScore;
-            this.view.updateScoreDisplay(finalScore);
-        } else {
-            this.view.showAlert(
-                '🦖 Jogo Interrompido',
-                'Você foi colidido e o desafio T-REX foi interrompido. Continue acertando as perguntas para liberar uma nova tentativa!',
-                () => this.view.resumeGameMusic()
-            );
-        }
-
-        this.trexBonusActive = false;
-
-        if (this.model.curStep >= this.model.questions.length) {
-            await this.finalizeQuiz();
-            return;
-        }
-
-        this.renderStep();
+    async handleSokobanTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('sokoban');
+        if (!this.hasTimedOut) this.renderStep();
     }
 }
 
