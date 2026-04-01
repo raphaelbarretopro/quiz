@@ -103,15 +103,17 @@
             <div id="fb-area" style="margin-top:15px; font-weight:bold; font-size:1.1rem;"></div>
             <button id="val-btn" class="opt-btn hidden" style="background:var(--primary); color:#000; font-weight:bold;">VALIDAR RESPOSTA</button>
             <button id="next-btn" class="opt-btn hidden">AVANÇAR ➔</button>
-            
+            <!--
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:10px;">
                 <button id="pacman-test-btn" class="opt-btn pacman-test-btn">TESTAR PACMAN 👾</button>
                 <button id="enduro-test-btn" class="opt-btn enduro-test-btn">TESTAR ENDURO 🏎️</button>
                 <button id="trex-test-btn" class="opt-btn trex-test-btn">TESTAR T-REX 🦖</button>
                 <button id="sokoban-test-btn" class="opt-btn sokoban-test-btn">TESTAR SOKOBAN 📦</button>
+                <button id="mario-test-btn" class="opt-btn mario-test-btn" style="grid-column: span 2;">TESTAR MARIO 🍄</button>
+                <button id="space-test-btn" class="opt-btn space-test-btn" style="grid-column: span 2;">TESTAR SPACE 🚀</button>
             </div>
+        -->
 
-            
             <div id="question-counter" class="question-counter">QUESTÃO 1/50</div>
         </div>
         
@@ -212,6 +214,50 @@
 
             <div class="enduro-actions">
                 <button id="enduro-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo MARIO (Runner Game) -->
+    <div id="mario-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3700; display: flex; align-items: center; justify-content: center;">
+        <div class="mario-bonus-container">
+            <h2 class="mario-title">🍄 MARIO LIBERADO!</h2>
+            <p class="mario-subtitle">Desafio bônus sorteado nesta aula. Desvie dos canos pelo máximo de tempo e ganhe <strong>+100 pontos</strong> ao completar 1 minuto.</p>
+
+            <div class="mario-hud">
+                <span id="mario-distance">Distância: 0m</span>
+                <span id="mario-timer">Tempo: 60s</span>
+                <span id="mario-lives">Vidas: 3</span>
+            </div>
+
+            <div class="mario-board-wrap">
+                <canvas id="mario-canvas" width="800" height="300" aria-label="Mini-game bônus estilo Mario Runner"></canvas>
+            </div>
+
+            <div class="mario-actions">
+                <button id="mario-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo SPACE INVADERS -->
+    <div id="space-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3710; display: flex; align-items: center; justify-content: center;">
+        <div class="space-bonus-container">
+            <h2 class="space-title">🚀 SPACE INVADERS LIBERADO!</h2>
+            <p class="space-subtitle">Desafio bônus sorteado nesta aula. Destrua os invasores e sobreviva por <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="space-hud">
+                <span id="space-score">Pontos: 0</span>
+                <span id="space-timer">Tempo: 60s</span>
+                <span id="space-lives">Vidas: ❤️❤️❤️</span>
+            </div>
+
+            <div class="space-board-wrap">
+                <canvas id="space-canvas" width="800" height="500" aria-label="Mini-game bônus estilo Space Invaders"></canvas>
+            </div>
+
+            <div class="space-actions">
+                <button id="space-giveup-btn" class="slot-btn-close">DESISTIR</button>
             </div>
         </div>
     </div>

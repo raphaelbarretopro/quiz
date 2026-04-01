@@ -98,7 +98,25 @@ export default class View {
             trexDistance: document.getElementById('trex-distance'),
             trexTimer: document.getElementById('trex-timer'),
             trexLives: document.getElementById('trex-lives'),
-            trexGiveUpBtn: document.getElementById('trex-giveup-btn')
+            trexGiveUpBtn: document.getElementById('trex-giveup-btn'),
+
+            // Bonus especial estilo MARIO
+            marioBonusModal: document.getElementById('mario-bonus-modal'),
+            marioCanvas: document.getElementById('mario-canvas'),
+            marioDistance: document.getElementById('mario-distance'),
+            marioTimer: document.getElementById('mario-timer'),
+            marioLives: document.getElementById('mario-lives'),
+            marioGiveUpBtn: document.getElementById('mario-giveup-btn'),
+            marioTestBtn: document.getElementById('mario-test-btn'),
+
+            // Bonus especial estilo SPACE INVADERS
+            spaceBonusModal: document.getElementById('space-bonus-modal'),
+            spaceCanvas: document.getElementById('space-canvas'),
+            spaceScore: document.getElementById('space-score'),
+            spaceTimer: document.getElementById('space-timer'),
+            spaceLives: document.getElementById('space-lives'),
+            spaceGiveUpBtn: document.getElementById('space-giveup-btn'),
+            spaceTestBtn: document.getElementById('space-test-btn')
         };
 
         this.rot = 0;
@@ -113,6 +131,8 @@ export default class View {
         this.pacmanSession = null;
         this.enduroSession = null;
         this.trexSession = null;
+        this.marioSession = null;
+        this.spaceSession = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
         this.correctAnswerAudio.preload = 'auto';
@@ -175,6 +195,23 @@ export default class View {
         this.trexVictoryAudio = new Audio(this.resolveAssetPath('audio/voz-t-rex.mp3'));
         this.trexVictoryAudio.preload = 'auto';
         this.trexVictoryAudio.volume = 0.9;
+
+        this.marioStartAudio = new Audio(this.resolveAssetPath('audio/largada.mp3'));
+        this.marioStartAudio.preload = 'auto';
+        this.marioStartAudio.volume = 0.9;
+
+        this.marioRaceAudio = new Audio(this.resolveAssetPath('audio/mario_musica.mp3'));
+        this.marioRaceAudio.preload = 'auto';
+        this.marioRaceAudio.loop = true;
+        this.marioRaceAudio.volume = 0.55;
+
+        this.marioFallAudio = new Audio(this.resolveAssetPath('audio/Mario_Fall.mp3'));
+        this.marioFallAudio.preload = 'auto';
+        this.marioFallAudio.volume = 0.9;
+
+        this.marioWinsAudio = new Audio(this.resolveAssetPath('audio/Mario_Wins.mp3'));
+        this.marioWinsAudio.preload = 'auto';
+        this.marioWinsAudio.volume = 0.9;
 
         this.countingCue = new Audio(this.resolveAssetPath('audio/valendo.mp3'));
         this.countingCue.preload = 'auto';
@@ -415,6 +452,17 @@ export default class View {
         // Mantém compatibilidade quando não houver botão de teste do SOKOBAN no HTML.
         if (!this.els.sokobanTestBtn) return;
         this.els.sokobanTestBtn.addEventListener('click', handler);
+    }
+
+    bindMarioTest(handler) {
+        // Mantém compatibilidade quando não houver botão de teste do MARIO no HTML.
+        if (!this.els.marioTestBtn) return;
+        this.els.marioTestBtn.addEventListener('click', handler);
+    }
+
+    bindSpaceTest(handler) {
+        if (!this.els.spaceTestBtn) return;
+        this.els.spaceTestBtn.addEventListener('click', handler);
     }
 
     showPortal() {
@@ -1531,6 +1579,1318 @@ export default class View {
         return `${min}:${sec}`;
     }
 
+    // ─────────────────────────────────────────────────────────────────────────
+    // MARIO BONUS GAME
+    // ─────────────────────────────────────────────────────────────────────────
+
+    runSpaceBonusLevel() {
+        const modal = this.els.spaceBonusModal;
+        const canvas = this.els.spaceCanvas;
+        if (!modal || !canvas) return Promise.resolve({ won: false, score: 0 });
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return Promise.resolve({ won: false, score: 0 });
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.spaceSession && this.spaceSession.cleanup) {
+            this.spaceSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        // ── ASSET PATHS ──────────────────────────────────────────────────────
+        const spaceBase = new URL('./space/src/assets/', import.meta.url).href;
+        const IMG_SPACESHIP     = spaceBase + 'images/spaceship.png';
+        const IMG_ENGINE        = spaceBase + 'images/engine.png';
+        const IMG_ENGINE_SPRITES = spaceBase + 'images/engine_sprites.png';
+        const IMG_INVADER       = spaceBase + 'images/invader.png';
+
+        // ── CANVAS CONSTANTS ─────────────────────────────────────────────────
+        const W = canvas.width;   // 800
+        const H = canvas.height;  // 500
+        const INITIAL_FRAMES = 8;
+        const GAME_DURATION = 60;
+
+        // ── STATE ────────────────────────────────────────────────────────────
+        let timeLeft = GAME_DURATION;
+        let lives = 3;
+        let score = 0;
+        let level = 1;
+        let finished = false;
+        let invulUntil = 0;
+        let lastTs = 0;
+        let rafId = null;
+        let timerTick = null;
+        let invaderShootInterval = null;
+        let shootCooldown = 0;
+
+        // ── AUDIO ────────────────────────────────────────────────────────────
+        const audioBase = spaceBase + 'audios/';
+        const makeAudio = (file, vol = 0.5) => {
+            const a = new Audio(audioBase + file);
+            a.preload = 'auto';
+            a.volume = vol;
+            return a;
+        };
+        const shootSounds = Array.from({ length: 5 }, () => makeAudio('shoot.mp3', 0.5));
+        const hitSounds   = Array.from({ length: 5 }, () => makeAudio('hit.mp3', 0.2));
+        const explosionSnd = makeAudio('explosion.mp3', 0.2);
+        const nextLevelSnd = makeAudio('next_level.mp3', 0.4);
+        let shootIdx = 0, hitIdx = 0;
+
+        const playShoot    = () => { const s = shootSounds[shootIdx]; s.currentTime = 0; s.play().catch(() => {}); shootIdx = (shootIdx + 1) % 5; };
+        const playHit      = () => { const s = hitSounds[hitIdx]; s.currentTime = 0; s.play().catch(() => {}); hitIdx = (hitIdx + 1) % 5; };
+        const playExplosion = () => { explosionSnd.currentTime = 0; explosionSnd.play().catch(() => {}); };
+        const playNextLevel = () => { nextLevelSnd.currentTime = 0; nextLevelSnd.play().catch(() => {}); };
+
+        // ── IMAGES ───────────────────────────────────────────────────────────
+        const loadImg = (src) => { const img = new Image(); img.src = src; return img; };
+        const spaceshipImg     = loadImg(IMG_SPACESHIP);
+        const engineImg        = loadImg(IMG_ENGINE);
+        const engineSpritesImg = loadImg(IMG_ENGINE_SPRITES);
+        const invaderImg       = loadImg(IMG_INVADER);
+
+        // ── STARS ────────────────────────────────────────────────────────────
+        const stars = Array.from({ length: 100 }, () => ({
+            x: Math.random() * W,
+            y: Math.random() * H,
+            r: Math.random() * 2 + 0.5,
+            vy: Math.random() * 2 + 0.5
+        }));
+
+        // ── PLAYER ───────────────────────────────────────────────────────────
+        const PLAYER_W = 96, PLAYER_H = 96;
+        const player = {
+            x: W / 2 - PLAYER_W / 2,
+            y: H - PLAYER_H - 30,
+            w: PLAYER_W,
+            h: PLAYER_H,
+            vel: 6,
+            sx: 0,
+            framesCounter: INITIAL_FRAMES,
+            alive: true
+        };
+
+        // ── PROJECTILES ───────────────────────────────────────────────────────
+        const playerProjectiles = [];
+        const invaderProjectiles = [];
+
+        // ── PARTICLES ────────────────────────────────────────────────────────
+        let particles = [];
+
+        const spawnParticles = (x, y, color, n = 12) => {
+            for (let i = 0; i < n; i++) {
+                particles.push({
+                    x, y,
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: (Math.random() - 0.5) * 4,
+                    r: Math.random() * 3 + 1,
+                    color,
+                    opacity: 1
+                });
+            }
+        };
+
+        // ── OBSTACLES ────────────────────────────────────────────────────────
+        const makeObstacles = () => [
+            { x: W / 4 - 50,     y: H - 150, w: 100, h: 20, color: 'crimson' },
+            { x: 3 * W / 4 - 50, y: H - 150, w: 100, h: 20, color: 'crimson' }
+        ];
+        let obstacles = makeObstacles();
+
+        // ── GRID ─────────────────────────────────────────────────────────────
+        const makeGrid = (rows, cols, velBoost = 0) => {
+            const invaders = [];
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    invaders.push({
+                        x: c * 55 + 30,
+                        y: r * 38 + 60,
+                        w: 40,
+                        h: 29.6,
+                        vel: 1 + velBoost
+                    });
+                }
+            }
+            return { invaders, direction: 'right', moveDown: false, boost: 0.1 };
+        };
+
+        let grid = makeGrid(
+            Math.floor(Math.random() * 4) + 2,   // 2–5 rows
+            Math.floor(Math.random() * 4) + 5    // 5–8 cols
+        );
+
+        // ── HUD ───────────────────────────────────────────────────────────────
+        const updateHud = () => {
+            if (this.els.spaceScore) this.els.spaceScore.textContent = `Pontos: ${score}`;
+            if (this.els.spaceTimer) this.els.spaceTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.spaceLives) this.els.spaceLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        // ── KEYS ─────────────────────────────────────────────────────────────
+        const keys = { left: false, right: false, shoot: false };
+        let keyDownHandler = null, keyUpHandler = null;
+
+        // ── CLEANUP / FINISH ─────────────────────────────────────────────────
+        const stopSounds = () => {
+            [...shootSounds, ...hitSounds, explosionSnd, nextLevelSnd].forEach((s) => {
+                s.pause();
+                try { s.currentTime = 0; } catch (_) {}
+            });
+        };
+
+        const finish = (won = false) => {
+            if (finished) return;
+            finished = true;
+            if (timerTick)           { clearInterval(timerTick); timerTick = null; }
+            if (invaderShootInterval){ clearInterval(invaderShootInterval); invaderShootInterval = null; }
+            if (rafId)               { cancelAnimationFrame(rafId); rafId = null; }
+            if (keyDownHandler)      { document.removeEventListener('keydown', keyDownHandler); keyDownHandler = null; }
+            if (keyUpHandler)        { document.removeEventListener('keyup', keyUpHandler); keyUpHandler = null; }
+            stopSounds();
+            modal.classList.add('hidden');
+            resolvePromise({ won, score });
+        };
+
+        if (this.els.spaceGiveUpBtn) {
+            this.els.spaceGiveUpBtn.onclick = () => finish(false);
+        }
+
+        // ── KEYBOARD ─────────────────────────────────────────────────────────
+        keyDownHandler = (e) => {
+            if (e.key === 'ArrowLeft'  || e.key === 'a' || e.key === 'A') { keys.left  = true; e.preventDefault(); }
+            if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { keys.right = true; e.preventDefault(); }
+            if (e.key === 'ArrowUp'    || e.key === ' ' || e.key === 'Enter') { keys.shoot = true; e.preventDefault(); }
+        };
+        keyUpHandler = (e) => {
+            if (e.key === 'ArrowLeft'  || e.key === 'a' || e.key === 'A') keys.left  = false;
+            if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') keys.right = false;
+            if (e.key === 'ArrowUp'    || e.key === ' ' || e.key === 'Enter') keys.shoot = false;
+        };
+        document.addEventListener('keydown', keyDownHandler);
+        document.addEventListener('keyup', keyUpHandler);
+
+        // ── INVADER SHOOT INTERVAL ────────────────────────────────────────────
+        const invaderShoot = () => {
+            if (!grid.invaders.length || finished) return;
+            const inv = grid.invaders[Math.floor(Math.random() * grid.invaders.length)];
+            invaderProjectiles.push({ x: inv.x + inv.w / 2 - 1, y: inv.y + inv.h, w: 2, h: 20, vy: 8 });
+        };
+        invaderShootInterval = setInterval(() => { if (!finished) invaderShoot(); }, 1000);
+
+        // ── TIMER ─────────────────────────────────────────────────────────────
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) finish(true);
+        }, 1000);
+
+        // ── UPDATE ────────────────────────────────────────────────────────────
+        const updateGrid = () => {
+            const reachedRight = grid.invaders.some((inv) => inv.x + inv.w >= W - 10);
+            const reachedLeft  = grid.invaders.some((inv) => inv.x <= 10);
+
+            if (reachedRight)      { grid.direction = 'left';  grid.moveDown = true; }
+            else if (reachedLeft)  { grid.direction = 'right'; grid.moveDown = true; }
+
+            if (!player.alive) grid.moveDown = false;
+
+            grid.invaders.forEach((inv) => {
+                if (grid.moveDown) { inv.y += inv.h; inv.vel += grid.boost; }
+                if (grid.direction === 'right') inv.x += inv.vel;
+                else inv.x -= inv.vel;
+            });
+            grid.moveDown = false;
+        };
+
+        const update = () => {
+            // Stars
+            stars.forEach((s) => {
+                s.y += s.vy;
+                if (s.y > H) { s.y = 0; s.x = Math.random() * W; }
+            });
+
+            // Player
+            if (player.alive) {
+                if (keys.left  && player.x > 0)            player.x -= player.vel;
+                if (keys.right && player.x + player.w < W) player.x += player.vel;
+
+                // Engine sprite animation
+                if (player.framesCounter === 0) {
+                    player.sx = player.sx >= 96 ? 0 : player.sx + 48;
+                    player.framesCounter = INITIAL_FRAMES;
+                }
+                player.framesCounter--;
+
+                // Shoot
+                if (keys.shoot && shootCooldown <= 0) {
+                    playerProjectiles.push({ x: player.x + player.w / 2 - 1, y: player.y + 2, w: 2, h: 20, vy: -10 });
+                    playShoot();
+                    shootCooldown = 18;
+                }
+            }
+            if (shootCooldown > 0) shootCooldown--;
+
+            // Move projectiles
+            for (let i = playerProjectiles.length - 1; i >= 0; i--) {
+                playerProjectiles[i].y += playerProjectiles[i].vy;
+                if (playerProjectiles[i].y < -25) playerProjectiles.splice(i, 1);
+            }
+            for (let i = invaderProjectiles.length - 1; i >= 0; i--) {
+                invaderProjectiles[i].y += invaderProjectiles[i].vy;
+                if (invaderProjectiles[i].y > H + 25) invaderProjectiles.splice(i, 1);
+            }
+
+            // Grid movement
+            updateGrid();
+
+            // Player projectile vs invaders
+            outer: for (let pi = playerProjectiles.length - 1; pi >= 0; pi--) {
+                const p = playerProjectiles[pi];
+                for (let ii = grid.invaders.length - 1; ii >= 0; ii--) {
+                    const inv = grid.invaders[ii];
+                    if (p.x >= inv.x && p.x <= inv.x + inv.w &&
+                        p.y >= inv.y && p.y <= inv.y + inv.h) {
+                        spawnParticles(inv.x + inv.w / 2, inv.y + inv.h / 2, '#ff8800');
+                        playHit();
+                        grid.invaders.splice(ii, 1);
+                        playerProjectiles.splice(pi, 1);
+                        score += 10;
+                        updateHud();
+                        continue outer;
+                    }
+                }
+            }
+
+            // Player projectile vs obstacles
+            for (let pi = playerProjectiles.length - 1; pi >= 0; pi--) {
+                const p = playerProjectiles[pi];
+                for (const ob of obstacles) {
+                    if (p.x >= ob.x && p.x <= ob.x + ob.w &&
+                        p.y + p.h >= ob.y && p.y <= ob.y + ob.h) {
+                        playerProjectiles.splice(pi, 1);
+                        break;
+                    }
+                }
+            }
+
+            // Invader projectile vs player
+            if (player.alive && performance.now() >= invulUntil) {
+                for (let pi = invaderProjectiles.length - 1; pi >= 0; pi--) {
+                    const p = invaderProjectiles[pi];
+                    if (p.x >= player.x + 20 && p.x <= player.x + player.w - 20 &&
+                        p.y + p.h >= player.y + 22 && p.y + p.h <= player.y + player.h - 8) {
+                        invaderProjectiles.splice(pi, 1);
+                        playExplosion();
+                        spawnParticles(player.x + player.w / 2, player.y + player.h / 2, '#00d4ff', 20);
+                        lives--;
+                        updateHud();
+                        if (lives <= 0) {
+                            player.alive = false;
+                            finish(false);
+                            return;
+                        }
+                        invulUntil = performance.now() + 2500;
+                        break;
+                    }
+                }
+            }
+
+            // Invader projectile vs obstacles
+            for (let pi = invaderProjectiles.length - 1; pi >= 0; pi--) {
+                const p = invaderProjectiles[pi];
+                for (const ob of obstacles) {
+                    if (p.x >= ob.x && p.x <= ob.x + ob.w &&
+                        p.y >= ob.y && p.y <= ob.y + ob.h) {
+                        invaderProjectiles.splice(pi, 1);
+                        break;
+                    }
+                }
+            }
+
+            // Invaders reached player zone => game over
+            if (grid.invaders.some((inv) => inv.y + inv.h >= player.y)) {
+                finish(false);
+                return;
+            }
+
+            // All invaders destroyed => next level
+            if (grid.invaders.length === 0 && !finished) {
+                level++;
+                playNextLevel();
+                const velBoost = (level - 1) * 0.25;
+                grid = makeGrid(
+                    Math.floor(Math.random() * 4) + 2,
+                    Math.floor(Math.random() * 4) + 5,
+                    velBoost
+                );
+                obstacles = makeObstacles();
+                playerProjectiles.length = 0;
+                invaderProjectiles.length = 0;
+            }
+
+            // Particles
+            particles.forEach((p) => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.opacity = Math.max(0, p.opacity - 0.009);
+            });
+            particles = particles.filter((p) => p.opacity > 0);
+        };
+
+        // ── DRAW ──────────────────────────────────────────────────────────────
+        const draw = () => {
+            // Background
+            ctx.fillStyle = '#000011';
+            ctx.fillRect(0, 0, W, H);
+
+            // Stars
+            ctx.fillStyle = '#ffffff';
+            stars.forEach((s) => {
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Invaders
+            grid.invaders.forEach((inv) => {
+                ctx.drawImage(invaderImg, inv.x, inv.y, inv.w, inv.h);
+            });
+
+            // Obstacles
+            obstacles.forEach((ob) => {
+                ctx.fillStyle = ob.color;
+                ctx.fillRect(ob.x, ob.y, ob.w, ob.h);
+            });
+
+            // Projectiles
+            ctx.fillStyle = '#00d4ff';
+            playerProjectiles.forEach((p) => ctx.fillRect(p.x, p.y, p.w, p.h));
+            ctx.fillStyle = '#ff4444';
+            invaderProjectiles.forEach((p) => ctx.fillRect(p.x, p.y, p.w, p.h));
+
+            // Player (with invulnerability flicker)
+            if (player.alive) {
+                const isInvul = performance.now() < invulUntil;
+                if (!isInvul || Math.floor(performance.now() / 100) % 2 === 0) {
+                    ctx.drawImage(engineSpritesImg, player.sx, 0, 48, 48,
+                        player.x, player.y + player.h - 10, player.w, player.h);
+                    ctx.drawImage(engineImg, player.x, player.y + player.h - 10, player.w, 32);
+                    ctx.drawImage(spaceshipImg, player.x, player.y, player.w, player.h);
+                }
+            }
+
+            // Particles
+            particles.forEach((p) => {
+                ctx.save();
+                ctx.globalAlpha = p.opacity;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                ctx.restore();
+            });
+
+            // On-canvas HUD
+            ctx.font = 'bold 14px Orbitron, monospace';
+            ctx.fillStyle = '#00d4ff';
+            ctx.textAlign = 'left';
+            ctx.fillText(`SCORE: ${score}`, 10, 22);
+            ctx.textAlign = 'center';
+            ctx.fillText(`LV ${level}`, W / 2, 22);
+            ctx.textAlign = 'right';
+            ctx.fillStyle = '#ff4444';
+            ctx.fillText('♥'.repeat(Math.max(0, lives)), W - 10, 22);
+            ctx.textAlign = 'left';
+        };
+
+        // ── GAME LOOP ─────────────────────────────────────────────────────────
+        const gameLoop = (ts) => {
+            if (finished) return;
+            lastTs = ts;
+            update();
+            draw();
+            rafId = requestAnimationFrame(gameLoop);
+        };
+
+        updateHud();
+        rafId = requestAnimationFrame(gameLoop);
+
+        this.spaceSession = { cleanup: (won = false) => finish(won) };
+
+        return promise;
+    }
+
+    runMarioBonusLevel() {
+        const modal = this.els.marioBonusModal;
+        const canvas = this.els.marioCanvas;
+        if (!modal || !canvas) return Promise.resolve({ won: false, distance: 0 });
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return Promise.resolve({ won: false, distance: 0 });
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+        ctx.imageSmoothingEnabled = false;
+
+        if (this.marioSession && this.marioSession.cleanup) {
+            this.marioSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        // ── CONSTANTS ────────────────────────────────────────────────────────
+        const W = canvas.width;   // 800
+        const H = canvas.height;  // 300
+        const GROUND_TOP = H - 48; // top of green ground strip
+
+        // ── STATE ────────────────────────────────────────────────────────────
+        const durationSec = 60;
+        let timeLeft = durationSec;
+        let lives = 3;
+        let invulUntil = 0;
+        let finished = false;
+        let raceStarted = false;
+        let distanceMeter = 0;
+        let gameSpeed = 260;
+        const maxGameSpeed = 560;
+        const speedGainPerSec = (maxGameSpeed - gameSpeed) / durationSec;
+
+        let rafId = null;
+        let timerTick = null;
+        let startRaceTimer = null;
+        let deathTimer = null;
+        let keyDownHandler = null;
+        let keyUpHandler = null;
+        let lastTs = 0;
+
+        // ── MARIO ────────────────────────────────────────────────────────────
+        const MARIO_W = 38;
+        const MARIO_H = 50;
+
+        const player = {
+            x: 110,
+            y: GROUND_TOP,           // bottom edge sits on ground
+            vy: 0,
+            isJumping: false,
+            isDead: false,
+            runFrame: 0,
+            runFrameAcc: 0,
+            jumpForce: -820,
+            gravity: 2100
+        };
+
+        const keys = { left: false, right: false };
+        const moveSpeedX = 340;
+
+        // ── PIPES ────────────────────────────────────────────────────────────
+        const pipes = [];
+        let spawnElapsed = 1.1; // first pipe arrives quickly
+
+        // ── CLOUDS ───────────────────────────────────────────────────────────
+        const clouds = [
+            { x: 140, y: 50, w: 90, speed: 22 },
+            { x: 380, y: 34, w: 115, speed: 15 },
+            { x: 640, y: 62, w: 72, speed: 28 },
+        ];
+
+        // ── GROUND TILE OFFSET ───────────────────────────────────────────────
+        let groundOffset = 0;
+
+        const makeImage = (src) => {
+            const img = new Image();
+            img.src = src;
+            return img;
+        };
+
+        const boardWrap = canvas.parentElement;
+        if (boardWrap) {
+            boardWrap.style.position = 'relative';
+        }
+
+        const marioRunSprite = document.createElement('img');
+        marioRunSprite.src = this.resolveAssetPath('img/mario.gif');
+        marioRunSprite.alt = 'Mario running';
+        marioRunSprite.setAttribute('aria-hidden', 'true');
+        marioRunSprite.style.position = 'absolute';
+        marioRunSprite.style.left = '0px';
+        marioRunSprite.style.top = '0px';
+        marioRunSprite.style.width = '58px';
+        marioRunSprite.style.height = '64px';
+        marioRunSprite.style.pointerEvents = 'none';
+        marioRunSprite.style.zIndex = '6';
+        marioRunSprite.style.imageRendering = 'pixelated';
+        marioRunSprite.style.display = 'none';
+        if (boardWrap) boardWrap.appendChild(marioRunSprite);
+        const marioGameOverSprite = makeImage(this.resolveAssetPath('img/Assets/Other/GameOver.png'));
+        const isSpriteLoaded = (img) => img && img.complete && img.naturalWidth > 0 && img.naturalHeight > 0;
+
+        // ── DRAWING HELPERS ──────────────────────────────────────────────────
+
+        // Pixel-art Mario using a colour-indexed grid
+        // Each cell = SCALE canvas pixels; '.' = transparent
+        const SCALE = 2.6;
+        const MARIO_PALETTE = {
+            r: '#cc1100', // red  (hat, shirt)
+            h: '#3b2000', // dark brown (hair, shoes)
+            f: '#ffb880', // face/skin
+            o: '#2244cc', // blue overalls
+            m: '#1a0800', // dark mustache
+            y: '#ffee44', // yellow buckle
+            w: '#ffffff', // white eyes
+        };
+
+        // Running frame 1 (left leg forward)
+        const MARIO_RUN1 = [
+            '....rrrrrr......',
+            '...rrrrrrrrrr...',
+            '...rrhhhrrrrr...',
+            '...rrhhhhhrrr...',
+            '....ffffffff....',
+            '...hfffffffr....',
+            '..fffffffffff...',
+            '..fmmmmfffffhh..',
+            '..fffmmmmfffff..',
+            '..rrrr.rrrrr....',
+            '..roooooo.rrrr..',
+            '..rooooooooor...',
+            '...ooooooooo....',
+            '..royyoooooor...',
+            '..rrrroooorrr...',
+            '..rroooooorr....',
+            '...roo...orrr...',
+            '...hhh...hhh....',
+            '..hhhh...hhhh...',
+        ];
+
+        // Running frame 2 (right leg forward, mirrored slightly)
+        const MARIO_RUN2 = [
+            '....rrrrrr......',
+            '...rrrrrrrrrr...',
+            '...rrhhhrrrrr...',
+            '...rrhhhhhrrr...',
+            '....ffffffff....',
+            '...hfffffffr....',
+            '..fffffffffff...',
+            '..fmmmmfffffhh..',
+            '..fffmmmmfffff..',
+            '..rrrr.rrrrr....',
+            '..roooooo.rrrr..',
+            '..rooooooooor...',
+            '...ooooooooo....',
+            '..royyoooooor...',
+            '..rrrroooorrr...',
+            '..rroooooorr....',
+            '...orrr..roo....',
+            '...hhh...hhh....',
+            '..hhhh...hhhh...',
+        ];
+
+        // Jump frame
+        const MARIO_JUMP = [
+            '....rrrrrr......',
+            '...rrrrrrrrrr...',
+            '...rrhhhrrrrr...',
+            '...rrhhhhhrrr...',
+            '....ffffffff....',
+            '...hfffffffr....',
+            '..fffffffffff...',
+            '..fmmmmfffffhh..',
+            '..fffmmmmfffff..',
+            '..rrrr.rrrrr....',
+            '..roooooorrrrr..',
+            '..rooooooooor...',
+            '...ooooooooo....',
+            '..royyoooooor...',
+            '...rhh..hhrr....',
+            '..rhhh..hhhr....',
+            '..hhhh..hhhh....',
+        ];
+
+        const drawMarioSprite = (pixels, drawX, drawY) => {
+            const cols = pixels[0].length;
+            pixels.forEach((row, ri) => {
+                for (let ci = 0; ci < row.length; ci++) {
+                    const key = row[ci];
+                    if (key === '.' || !MARIO_PALETTE[key]) continue;
+                    ctx.fillStyle = MARIO_PALETTE[key];
+                    ctx.fillRect(
+                        Math.floor(drawX + ci * SCALE),
+                        Math.floor(drawY + ri * SCALE),
+                        Math.ceil(SCALE),
+                        Math.ceil(SCALE)
+                    );
+                }
+            });
+        };
+
+        const drawMario = () => {
+            const isInvul = Date.now() < invulUntil;
+            if (isInvul && Math.floor(Date.now() / 120) % 2 === 0) return;
+
+            if (!player.isDead && isSpriteLoaded(marioRunSprite)) {
+                // GIF is rendered as DOM element to keep animation frames alive.
+                return;
+            }
+
+            if (player.isDead) {
+                if (marioGameOverSprite && marioGameOverSprite.complete && marioGameOverSprite.naturalWidth > 0) {
+                    const deadH = 62;
+                    const deadW = (marioGameOverSprite.naturalWidth / marioGameOverSprite.naturalHeight) * deadH;
+                    ctx.drawImage(
+                        marioGameOverSprite,
+                        Math.floor(player.x - deadW / 2),
+                        Math.floor(player.y - deadH),
+                        Math.ceil(deadW),
+                        Math.ceil(deadH)
+                    );
+                    return;
+                }
+            }
+
+            if (isSpriteLoaded(marioRunSprite)) {
+                const drawH = 64;
+                const drawW = (marioRunSprite.naturalWidth / marioRunSprite.naturalHeight) * drawH;
+                ctx.drawImage(
+                    marioRunSprite,
+                    Math.floor(player.x - drawW / 2),
+                    Math.floor(player.y - drawH),
+                    Math.ceil(drawW),
+                    Math.ceil(drawH)
+                );
+                return;
+            }
+
+            const pixelW = 16 * SCALE;
+            const pixelH = 19 * SCALE;
+            const drawX = player.x - pixelW / 2;
+            const drawY = player.y - pixelH;
+
+            const sprite = player.isJumping ? MARIO_JUMP
+                : (player.runFrame === 0 ? MARIO_RUN1 : MARIO_RUN2);
+
+            drawMarioSprite(sprite, drawX, drawY);
+        };
+
+        const updateMarioActor = () => {
+            if (!marioRunSprite) return;
+            const loaded = isSpriteLoaded(marioRunSprite);
+            const shouldShow = loaded && !player.isDead;
+            if (!shouldShow) {
+                marioRunSprite.style.display = 'none';
+                return;
+            }
+
+            const canvasRect = canvas.getBoundingClientRect();
+            const scaleX = canvasRect.width / W;
+            const scaleY = canvasRect.height / H;
+            const drawH = 64;
+            const drawW = (marioRunSprite.naturalWidth / marioRunSprite.naturalHeight) * drawH;
+            const drawX = player.x - drawW / 2;
+            const drawY = player.y - drawH;
+
+            marioRunSprite.style.display = 'block';
+            marioRunSprite.style.width = `${Math.max(1, drawW * scaleX)}px`;
+            marioRunSprite.style.height = `${Math.max(1, drawH * scaleY)}px`;
+            marioRunSprite.style.left = `${drawX * scaleX}px`;
+            marioRunSprite.style.top = `${drawY * scaleY}px`;
+            marioRunSprite.style.opacity = (Date.now() < invulUntil && Math.floor(Date.now() / 120) % 2 === 0) ? '0' : '1';
+            marioRunSprite.style.transform = keys.left && !keys.right ? 'scaleX(-1)' : 'scaleX(1)';
+            marioRunSprite.style.transformOrigin = 'center';
+        };
+
+        // Pixel-art cloud
+        const drawCloud = (cx, cy, cw) => {
+            const ch = cw * 0.45;
+            ctx.fillStyle = '#ffffff';
+            // Top bumps
+            ctx.beginPath();
+            ctx.arc(cx + cw * 0.28, cy + ch * 0.30, ch * 0.44, 0, Math.PI * 2);
+            ctx.arc(cx + cw * 0.55, cy + ch * 0.20, ch * 0.52, 0, Math.PI * 2);
+            ctx.arc(cx + cw * 0.78, cy + ch * 0.30, ch * 0.38, 0, Math.PI * 2);
+            ctx.fill();
+            // Base rect
+            ctx.fillRect(cx + cw * 0.10, cy + ch * 0.40, cw * 0.80, ch * 0.60);
+        };
+
+        // Green pipe (classic Mario style)
+        const drawPipe = (pipe) => {
+            const capH = 18;
+            const bodyW = pipe.w - 10;
+            const capX = pipe.x - pipe.w / 2;
+            const bodyX = pipe.x - bodyW / 2;
+            const pipeTop = pipe.y - pipe.h;
+
+            // Body (dark green)
+            ctx.fillStyle = '#2e8b1a';
+            ctx.fillRect(bodyX, pipeTop, bodyW, pipe.h);
+
+            // Body highlight
+            ctx.fillStyle = '#3caa22';
+            ctx.fillRect(bodyX + 4, pipeTop, bodyW * 0.28, pipe.h);
+
+            // Body shade line
+            ctx.fillStyle = '#1a6010';
+            ctx.fillRect(bodyX + bodyW - 5, pipeTop, 5, pipe.h);
+
+            // Cap (darker green, wider)
+            ctx.fillStyle = '#236814';
+            ctx.fillRect(capX, pipeTop, pipe.w, capH);
+
+            // Cap highlight
+            ctx.fillStyle = '#30991c';
+            ctx.fillRect(capX + 3, pipeTop + 2, pipe.w * 0.30, capH - 4);
+
+            // Cap bottom shade
+            ctx.fillStyle = '#1a5010';
+            ctx.fillRect(capX, pipeTop + capH - 4, pipe.w, 4);
+
+            // Cap top shine
+            ctx.fillStyle = '#4edd26';
+            ctx.fillRect(capX + 5, pipeTop + 3, 8, 4);
+        };
+
+        // Pixel-art ground
+        const drawGround = () => {
+            // Green top
+            ctx.fillStyle = '#3ea520';
+            ctx.fillRect(0, GROUND_TOP, W, 16);
+
+            // Green tile stripe detail
+            ctx.fillStyle = '#50c828';
+            const tileW = 48;
+            const offset = (groundOffset % tileW);
+            for (let tx = -tileW + offset; tx < W + tileW; tx += tileW) {
+                ctx.fillRect(tx, GROUND_TOP, tileW - 2, 6);
+            }
+
+            // Brown soil
+            ctx.fillStyle = '#8b5e2a';
+            ctx.fillRect(0, GROUND_TOP + 16, W, H - GROUND_TOP - 16);
+
+            // Brown darker stripe
+            ctx.fillStyle = '#6b4218';
+            ctx.fillRect(0, GROUND_TOP + 20, W, 4);
+        };
+
+        // ── HUD UPDATE ───────────────────────────────────────────────────────
+        const updateHud = () => {
+            if (this.els.marioDistance) {
+                this.els.marioDistance.textContent = `Distância: ${Math.floor(distanceMeter)}m`;
+            }
+            if (this.els.marioTimer) {
+                this.els.marioTimer.textContent = `Tempo: ${timeLeft}s`;
+            }
+            if (this.els.marioLives) {
+                this.els.marioLives.textContent = `Vidas: ${Math.max(0, lives)}`;
+            }
+        };
+
+        // ── JUMP SOUND (synthesised boing) ──────────────────────────────────
+        const playJumpSound = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(340, now);
+            osc.frequency.exponentialRampToValueAtTime(680, now + 0.06);
+            osc.frequency.exponentialRampToValueAtTime(520, now + 0.12);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(0.28, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + 0.2);
+        };
+
+        // ── COLLISION HIT SOUND ──────────────────────────────────────────────
+        const playHitSound = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(260, now);
+            osc.frequency.exponentialRampToValueAtTime(80, now + 0.22);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(0.32, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + 0.30);
+        };
+
+        // ── FINISH ────────────────────────────────────────────────────────────
+        const stopMarioSounds = () => {
+            [this.marioStartAudio, this.marioRaceAudio, this.marioFallAudio, this.marioWinsAudio].forEach((s) => {
+                if (!s) return;
+                s.pause();
+                try { s.currentTime = 0; } catch (_) {}
+            });
+        };
+
+        const finish = (won) => {
+            if (finished) return;
+            finished = true;
+
+            if (timerTick) clearInterval(timerTick);
+            if (rafId) cancelAnimationFrame(rafId);
+            if (startRaceTimer) clearTimeout(startRaceTimer);
+            if (deathTimer) clearTimeout(deathTimer);
+            if (keyDownHandler) window.removeEventListener('keydown', keyDownHandler, true);
+            if (keyUpHandler) window.removeEventListener('keyup', keyUpHandler, true);
+
+            stopMarioSounds();
+
+            if (this.els.marioGiveUpBtn) {
+                this.els.marioGiveUpBtn.onclick = null;
+            }
+
+            if (marioRunSprite && marioRunSprite.parentNode) {
+                marioRunSprite.parentNode.removeChild(marioRunSprite);
+            }
+
+            modal.classList.add('hidden');
+            this.marioSession = null;
+            resolvePromise({ won, distance: Math.floor(distanceMeter) });
+        };
+
+        // ── GAME LOOP ────────────────────────────────────────────────────────
+        const loop = (ts) => {
+            if (finished) return;
+            if (!lastTs) lastTs = ts;
+            const dt = Math.min(0.05, (ts - lastTs) / 1000);
+            lastTs = ts;
+
+            if (!raceStarted) {
+                rafId = requestAnimationFrame(loop);
+                return;
+            }
+
+            // Speed ramp
+            gameSpeed = Math.min(maxGameSpeed, gameSpeed + speedGainPerSec * dt);
+
+            // Distance
+            distanceMeter += gameSpeed * dt / 10;
+
+            // Ground scroll offset
+            groundOffset += gameSpeed * dt;
+
+            // Clouds scroll
+            clouds.forEach((c) => {
+                c.x -= c.speed * dt;
+                if (c.x + c.w < 0) c.x = W + c.w * 0.5;
+            });
+
+            // Player physics
+            const moveX = (keys.right ? 1 : 0) - (keys.left ? 1 : 0);
+            player.x += moveX * moveSpeedX * dt;
+
+            player.x = Math.max(MARIO_W / 2, Math.min(W - MARIO_W / 2, player.x));
+            player.y = Math.min(GROUND_TOP, player.y);
+
+            if (player.isJumping && !player.isDead) {
+                player.vy += player.gravity * dt;
+                player.y += player.vy * dt;
+                if (player.y >= GROUND_TOP) {
+                    player.y = GROUND_TOP;
+                    player.vy = 0;
+                    player.isJumping = false;
+                }
+            }
+
+            // Run animation
+            if (!player.isJumping && !player.isDead) {
+                player.runFrameAcc += dt * (gameSpeed / 200);
+                if (player.runFrameAcc >= 1) {
+                    player.runFrameAcc = 0;
+                    player.runFrame = 1 - player.runFrame;
+                }
+            }
+
+            // Pipe spawn
+            spawnElapsed += dt;
+            const spawnInterval = Math.max(0.7, 2.2 - gameSpeed / 500);
+            if (spawnElapsed >= spawnInterval) {
+                spawnElapsed = 0;
+                const h = 55 + Math.floor(Math.random() * 60); // 55–115px
+                const w = 48;
+                pipes.push({ x: W + w, y: GROUND_TOP, w, h });
+            }
+
+            // Move pipes
+            for (let i = pipes.length - 1; i >= 0; i--) {
+                pipes[i].x -= gameSpeed * dt;
+                if (pipes[i].x < -pipes[i].w) {
+                    pipes.splice(i, 1);
+                }
+            }
+
+            // Collision (AABB with inset to feel fair)
+            const inset = 6;
+            const pLeft  = player.x - MARIO_W / 2 + inset;
+            const pRight = player.x + MARIO_W / 2 - inset;
+            const pTop   = player.y - MARIO_H + inset;
+            const pBot   = player.y;
+
+            for (let i = 0; i < pipes.length; i++) {
+                const pipe = pipes[i];
+                const pipeLeft   = pipe.x - pipe.w / 2;
+                const pipeRight  = pipe.x + pipe.w / 2;
+                const pipeTop    = pipe.y - pipe.h;
+
+                const hit = pRight > pipeLeft && pLeft < pipeRight &&
+                            pBot > pipeTop && pTop < pipe.y;
+
+                if (hit && Date.now() >= invulUntil && !player.isDead) {
+                    lives -= 1;
+                    invulUntil = Date.now() + 1600;
+                    playHitSound();
+                    pipes.splice(i, 1);
+
+                    // Bounce player back slightly
+                    player.x = Math.max(80, player.x - 30);
+
+                    if (lives <= 0) {
+                        player.isDead = true;
+                        if (this.marioFallAudio) {
+                            this.marioFallAudio.pause();
+                            try { this.marioFallAudio.currentTime = 0; } catch (_) {}
+                            this.marioFallAudio.play().catch(() => {});
+                        }
+                        if (deathTimer) clearTimeout(deathTimer);
+                        deathTimer = setTimeout(() => finish(false), 850);
+                        return;
+                    }
+                    break;
+                }
+            }
+
+            updateHud();
+
+            // ── RENDER ──────────────────────────────────────────────────────
+
+            // Sky gradient
+            const skyGrad = ctx.createLinearGradient(0, 0, 0, GROUND_TOP);
+            skyGrad.addColorStop(0, '#5c94fc');
+            skyGrad.addColorStop(1, '#8ab4ff');
+            ctx.fillStyle = skyGrad;
+            ctx.fillRect(0, 0, W, GROUND_TOP);
+
+            // Clouds
+            clouds.forEach((c) => drawCloud(c.x, c.y, c.w));
+
+            // Ground
+            drawGround();
+
+            // Pipes
+            pipes.forEach(drawPipe);
+
+            // Mario GIF overlay
+            updateMarioActor();
+
+            // Mario
+            drawMario();
+
+            // Invulnerability shield ring
+            if (Date.now() < invulUntil && Math.floor(Date.now() / 120) % 2 === 0) {
+                ctx.strokeStyle = 'rgba(255,255,180,0.85)';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.ellipse(player.x, player.y - MARIO_H / 2, MARIO_W * 0.65, MARIO_H * 0.6, 0, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            // Life icons (mushrooms) bottom left
+            for (let i = 0; i < Math.max(0, lives); i++) {
+                const mx = 18 + i * 24;
+                const my = H - 14;
+                // Mushroom cap
+                ctx.fillStyle = '#cc1100';
+                ctx.beginPath();
+                ctx.arc(mx, my - 7, 8, Math.PI, 0);
+                ctx.fill();
+                // White dots
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(mx - 4, my - 9, 2, 0, Math.PI * 2);
+                ctx.arc(mx + 4, my - 9, 2, 0, Math.PI * 2);
+                ctx.fill();
+                // Stalk
+                ctx.fillStyle = '#ffddaa';
+                ctx.fillRect(mx - 5, my - 2, 10, 8);
+            }
+
+            rafId = requestAnimationFrame(loop);
+        };
+
+        // ── INPUT ─────────────────────────────────────────────────────────────
+        const tryJump = () => {
+            if (!player.isJumping && raceStarted && !finished && !player.isDead) {
+                player.isJumping = true;
+                player.vy = player.jumpForce;
+                playJumpSound();
+            }
+        };
+
+        const isArrowLeft = (e) => e.code === 'ArrowLeft' || e.key === 'ArrowLeft';
+        const isArrowRight = (e) => e.code === 'ArrowRight' || e.key === 'ArrowRight';
+        const isJumpKey = (e) => e.code === 'Enter' || e.key === 'Enter';
+
+        keyDownHandler = (e) => {
+            if (modal.classList.contains('hidden')) return;
+            if (isArrowLeft(e)) {
+                e.preventDefault();
+                keys.left = true;
+            }
+            if (isArrowRight(e)) {
+                e.preventDefault();
+                keys.right = true;
+            }
+            if (isJumpKey(e)) {
+                e.preventDefault();
+                tryJump();
+            }
+        };
+
+        keyUpHandler = (e) => {
+            if (isArrowLeft(e)) keys.left = false;
+            if (isArrowRight(e)) keys.right = false;
+        };
+
+        window.addEventListener('keydown', keyDownHandler, true);
+        window.addEventListener('keyup', keyUpHandler, true);
+
+        if (this.els.marioGiveUpBtn) {
+            this.els.marioGiveUpBtn.onclick = () => finish(false);
+        }
+
+        updateHud();
+        rafId = requestAnimationFrame(loop);
+
+        // ── START SEQUENCE ───────────────────────────────────────────────────
+        const startRace = () => {
+            if (raceStarted || finished) return;
+            raceStarted = true;
+
+            if (this.marioRaceAudio) {
+                this.marioRaceAudio.currentTime = 0;
+                this.marioRaceAudio.play().catch(() => {});
+            }
+
+            timerTick = setInterval(() => {
+                if (finished) return;
+                timeLeft -= 1;
+                updateHud();
+                if (timeLeft <= 0) finish(true);
+            }, 1000);
+        };
+
+        stopMarioSounds();
+
+        if (this.marioStartAudio) {
+            this.marioStartAudio.currentTime = 0;
+            this.marioStartAudio.play().catch(() => {});
+            this.marioStartAudio.onended = () => startRace();
+        }
+
+        startRaceTimer = setTimeout(() => startRace(), 4500);
+
+        this.marioSession = {
+            cleanup: (won = false) => finish(won)
+        };
+
+        return promise;
+    }
+
+    showSpaceVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🚀🏆</h3>
+            <div style="font-size:5rem; margin: 16px 0;">🎉🚀🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, sobreviveu 1 minuto no SPACE INVADERS!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        return new Promise((resolve) => {
+            let done = false;
+            const cleanup = () => {
+                if (done) return;
+                done = true;
+                overlay.remove();
+                resolve();
+            };
+            setTimeout(cleanup, 5000);
+        });
+    }
+
+    showSpaceFinalSummary(baseScore, reward, invaderScore = 0) {
+        const safeBase    = Number(baseScore) || 0;
+        const safeReward  = Math.max(0, Number(reward) || 0);
+        const safeInvScore = Math.max(0, Number(invaderScore) || 0);
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO SPACE 🚀</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🚀🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl  = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Invasores destruídos</span><strong>${safeInvScore} pts</strong>`;
+                listEl.appendChild(row);
+            }, 600);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Completou 1 minuto inteiro</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1250);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5000);
+        });
+    }
+
+    showMarioVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🍄🏁</h3>
+            <div style="font-size:5rem; margin: 16px 0;">🎉🍄🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, completou um minuto inteiro no MARIO!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        return new Promise((resolve) => {
+            let done = false;
+
+            const cleanup = () => {
+                if (done) return;
+                done = true;
+                if (this.marioWinsAudio) {
+                    this.marioWinsAudio.pause();
+                    try { this.marioWinsAudio.currentTime = 0; } catch (_) {}
+                }
+                overlay.remove();
+                resolve();
+            };
+
+            setTimeout(cleanup, 8000);
+        });
+    }
+
+    showMarioFinalSummary(baseScore, reward, distance = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeDistance = Math.max(0, Number(distance) || 0);
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO MARIO 🍄</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🏃🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl  = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Distância percorrida</span><strong>${safeDistance}m</strong>`;
+                listEl.appendChild(row);
+            }, 600);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Completou 1 minuto inteiro</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1250);
+
+            setTimeout(() => {
+                if (this.marioWinsAudio) {
+                    this.marioWinsAudio.pause();
+                    try { this.marioWinsAudio.currentTime = 0; } catch (_) {}
+                    this.marioWinsAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
     runPacmanBonusLevel() {
         const modal = this.els.pacmanBonusModal;
         const canvas = this.els.pacmanCanvas;
@@ -2574,7 +3934,10 @@ export default class View {
         this.enduroStartAudio.onended = () => startRace();
         // Fallback para navegadores que não disparem onended.
         startRaceTimer = setTimeout(() => startRace(), 4500);
-
+            if (e.key === 'ArrowLeft') keys.left = false;
+            if (e.key === 'ArrowRight') keys.right = false;
+            if (e.key === 'ArrowUp') keys.up = false;
+            if (e.key === 'ArrowDown') keys.down = false;
         const promise = new Promise((resolve) => {
             resolvePromise = resolve;
         });

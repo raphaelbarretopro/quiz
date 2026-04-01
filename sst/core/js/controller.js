@@ -30,7 +30,11 @@ class Controller {
         this.enduroBonusActive = false;
         this.trexBonusReward = 100;
         this.sokobanBonusReward = 100;
+        this.marioBonusReward = 100;
         this.trexBonusActive = false;
+        this.marioBonusActive = false;
+        this.spaceBonusReward = 100;
+        this.spaceBonusActive = false;
         this.activeBonusGameId = null;
         this.sokobanResolve = null;
         this.sokobanMaxLives = 3;
@@ -58,6 +62,8 @@ class Controller {
         this.view.bindEnduroTest(this.handleEnduroTest.bind(this));
         this.view.bindTRexTest(this.handleTRexTest.bind(this));
         this.view.bindSokobanTest(this.handleSokobanTest.bind(this));
+        this.view.bindMarioTest(this.handleMarioTest.bind(this));
+        this.view.bindSpaceTest(this.handleSpaceTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -619,6 +625,8 @@ class Controller {
         if (gameId === 'enduro') return this.enduroBonusReward;
         if (gameId === 'trex') return this.trexBonusReward;
         if (gameId === 'sokoban') return this.sokobanBonusReward;
+        if (gameId === 'mario') return this.marioBonusReward;
+        if (gameId === 'space') return this.spaceBonusReward;
         return 0;
     }
 
@@ -660,6 +668,8 @@ class Controller {
         this.pacmanBonusActive = gameId === 'pacman';
         this.enduroBonusActive = gameId === 'enduro';
         this.trexBonusActive = gameId === 'trex';
+        this.marioBonusActive = gameId === 'mario';
+        this.spaceBonusActive = gameId === 'space';
 
         try {
             await selectedGame.run({
@@ -674,6 +684,8 @@ class Controller {
             this.pacmanBonusActive = false;
             this.enduroBonusActive = false;
             this.trexBonusActive = false;
+            this.marioBonusActive = false;
+            this.spaceBonusActive = false;
         }
     }
 
@@ -702,6 +714,20 @@ class Controller {
         if (this.hasTimedOut) return;
         if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
         await this.runScheduledGameById('sokoban');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleMarioTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('mario');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleSpaceTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('space');
         if (!this.hasTimedOut) this.renderStep();
     }
 }
