@@ -9,17 +9,108 @@ import {
     ref,
     set
 } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js';
-import { database } from './firebase-config.js';
+import { database, databaseURL, ensureFirebaseAuth } from './firebase-config.js';
 
 export default class RankingManager {
     constructor(lessonId = '') {
         this.isFirebaseReady = Boolean(database);
         this.rankingQuery = null;
+        this.rankingFallbackTimer = null;
         this.lessonId = lessonId; // ID da aula (ex: "Aula-11")
     }
     
     setLessonId(lessonId) {
         this.lessonId = lessonId;
+    }
+
+    normalizeLessonId(value) {
+        return String(value ?? '')
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, '');
+    }
+
+    extractPlayerName(scoreData = {}, fallbackKey = '') {
+        const preferredName = scoreData?.name ?? scoreData?.playerName ?? scoreData?.nome ?? scoreData?.player;
+        const safeName = String(preferredName ?? '').trim();
+        if (safeName) return safeName;
+
+        const keyNamePart = String(fallbackKey || '').split('_').slice(1).join('_').replace(/_/g, ' ').trim();
+        return keyNamePart;
+    }
+
+    normalizeScoreData(scoreData = {}, fallbackKey = '') {
+        return {
+            ...scoreData,
+            name: this.extractPlayerName(scoreData, fallbackKey)
+        };
+    }
+
+    getScoresFromSnapshot(snapshot) {
+        const scores = [];
+        if (!snapshot?.exists()) return scores;
+
+        snapshot.forEach((childSnapshot) => {
+            const scoreData = this.normalizeScoreData(childSnapshot.val(), childSnapshot.key);
+            if (this.matchesCurrentLesson(scoreData)) {
+                scores.push(scoreData);
+            }
+        });
+
+        return scores;
+    }
+
+    async getScoresViaRest() {
+        if (!databaseURL) return [];
+
+        try {
+            const response = await fetch(`${databaseURL.replace(/\/$/, '')}/scores.json`, { cache: 'no-store' });
+            if (!response.ok) return [];
+
+            const data = await response.json();
+            if (!data || typeof data !== 'object') return [];
+
+            const scores = [];
+            Object.entries(data).forEach(([key, value]) => {
+                const scoreData = this.normalizeScoreData(value || {}, key);
+                if (this.matchesCurrentLesson(scoreData)) {
+                    scores.push(scoreData);
+                }
+            });
+
+            return scores;
+        } catch (error) {
+            console.error('Erro ao buscar ranking via REST:', error);
+            return [];
+        }
+    }
+
+    matchesCurrentLesson(scoreData = {}) {
+        if (!this.lessonId) return true;
+
+        const currentLesson = this.normalizeLessonId(this.lessonId);
+        const scoreLesson = this.normalizeLessonId(scoreData?.lesson ?? scoreData?.lessonId ?? scoreData?.aula);
+        return currentLesson === scoreLesson;
+    }
+
+    async ensureAccess() {
+        if (!this.isFirebaseReady) {
+            console.warn('Firebase não está configurado. Ranking desabilitado.');
+            return false;
+        }
+
+        // A autenticação anônima é opcional para cenários com regras públicas de leitura/escrita.
+        // Se falhar, mantém o ranking funcional para não bloquear o TOP 15.
+        try {
+            const user = await ensureFirebaseAuth();
+            if (!user) {
+                console.warn('Falha ao autenticar anonimamente. Prosseguindo com acesso público ao ranking.');
+            }
+        } catch (error) {
+            console.warn('Erro ao validar autenticação anônima. Prosseguindo com acesso público ao ranking.', error);
+        }
+
+        return true;
     }
 
     sortScores(scores = []) {
@@ -39,8 +130,7 @@ export default class RankingManager {
     }
 
     async saveScore(playerName, score, correctAnswers, totalQuestions, gameTime = 0) {
-        if (!this.isFirebaseReady) {
-            console.warn('Firebase não está configurado. Ranking desabilitado.');
+        if (!(await this.ensureAccess())) {
             return false;
         }
 
@@ -71,65 +161,70 @@ export default class RankingManager {
     }
 
     async getTopScores(limit = 10) {
-        if (!this.isFirebaseReady) {
-            console.warn('Firebase não está configurado.');
-            return [];
-        }
+        await this.ensureAccess();
 
+        let scores = [];
         try {
-            const snapshot = await get(ref(database, 'scores'));
-            const scores = [];
-
-            if (snapshot.exists()) {
-                snapshot.forEach(childSnapshot => {
-                    const scoreData = childSnapshot.val();
-                    // Filtra APENAS scores da aula atual (se lessonId estiver definido)
-                    if (this.lessonId && scoreData.lesson === this.lessonId) {
-                        scores.push(scoreData);
-                    }
-                });
+            if (this.isFirebaseReady) {
+                const snapshot = await get(ref(database, 'scores'));
+                scores = this.getScoresFromSnapshot(snapshot);
             }
-
-            return this.sortScores(scores).slice(0, limit);
         } catch (error) {
             console.error('Erro ao buscar ranking:', error);
-            return [];
         }
+
+        if (scores.length === 0) {
+            const restScores = await this.getScoresViaRest();
+            if (restScores.length > 0) {
+                scores = restScores;
+            }
+        }
+
+        return this.sortScores(scores).slice(0, limit);
     }
 
     subscribeToTopScores(limit = 10, callback) {
-        if (!this.isFirebaseReady) {
-            console.warn('Firebase não está configurado.');
-            return null;
-        }
+        this.ensureAccess().then(async () => {
+            const emitFallback = async () => {
+                const scores = this.sortScores(await this.getScoresViaRest()).slice(0, limit);
+                callback(scores);
+            };
 
-        // Listener em tempo real para atualizações do ranking (ordenação local com desempate por tempo).
-        const rankingQuery = ref(database, 'scores');
-
-        this.rankingQuery = rankingQuery;
-        onValue(rankingQuery, (snapshot) => {
-            const scores = [];
-            
-            if (snapshot.exists()) {
-                snapshot.forEach(childSnapshot => {
-                    const scoreData = childSnapshot.val();
-                    // Filtra APENAS scores da aula atual (se lessonId estiver definido)
-                    if (this.lessonId && scoreData.lesson === this.lessonId) {
-                        scores.push(scoreData);
-                    }
-                });
+            if (!this.isFirebaseReady) {
+                await emitFallback();
+                if (!this.rankingFallbackTimer) {
+                    this.rankingFallbackTimer = setInterval(emitFallback, 12000);
+                }
+                return;
             }
-            
-            callback(this.sortScores(scores).slice(0, limit));
+
+            // Listener em tempo real para atualizações do ranking (ordenação local com desempate por tempo).
+            const rankingQuery = ref(database, 'scores');
+            this.rankingQuery = rankingQuery;
+
+            onValue(rankingQuery, (snapshot) => {
+                const scores = this.getScoresFromSnapshot(snapshot);
+                callback(this.sortScores(scores).slice(0, limit));
+            }, async (error) => {
+                console.error('Erro no listener em tempo real do ranking:', error);
+                await emitFallback();
+                if (!this.rankingFallbackTimer) {
+                    this.rankingFallbackTimer = setInterval(emitFallback, 12000);
+                }
+            });
         });
 
-        return rankingQuery;
+        return null;
     }
 
     unsubscribe() {
         if (this.rankingQuery) {
             off(this.rankingQuery);
             this.rankingQuery = null;
+        }
+        if (this.rankingFallbackTimer) {
+            clearInterval(this.rankingFallbackTimer);
+            this.rankingFallbackTimer = null;
         }
     }
 
