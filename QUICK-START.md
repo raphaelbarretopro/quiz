@@ -1,4 +1,4 @@
-# ⚡ Quick Start - Saga do Futuro
+# ⚡ Quick Start - Quiz Dinâmico
 
 ## 🚀 Iniciar em 3 Passos
 
@@ -7,7 +7,7 @@ Acesse: **`sst/index.html`** em seu navegador
 
 ### 2️⃣ (OPCIONAL) Configurar Ranking
 Para ativar ranking compartilhado entre alunos:
-- Abra: **`FIREBASE-SETUP.md`**
+- Abra: **`sst/FIREBASE-SETUP.md`**
 - Siga os passos (leva ~5 minutos)
 
 ### 3️⃣ Jogar! 
@@ -34,17 +34,17 @@ Para ativar ranking compartilhado entre alunos:
 ## ❓ Dúvidas Frequentes
 
 ### "O ranking não funciona!"
-- Complete o setup do Firebase em **FIREBASE-SETUP.md**
-- Verifique se as credenciais estão em `js/firebase-config.js`
+- Complete o setup do Firebase em **sst/FIREBASE-SETUP.md**
+- Verifique se as credenciais estão em `sst/core/js/firebase-config.js`
 - Abra console (F12) e procure por erros
 
 ### "Como adicionar mais perguntas?"
-- Edite arquivo `data.json`
-- Adicione novos objetos no array `questions`
-- Segue o padrão dos existentes
+- Edite o arquivo único `sst/lessons/course-data.json`
+- Localize a aula pelo `slug` e adicione novos objetos no array `questions`
+- Siga o padrão dos existentes
 
 ### "Como mudar pontos por acerto?"
-- Abra `js/model.js`
+- Abra `sst/core/js/model.js`
 - Procure por `this.pointsPerCorrect = 100`
 - Mude o número
 
@@ -57,9 +57,10 @@ Para ativar ranking compartilhado entre alunos:
 ## 📚 Documentação Completa
 
 - **README.md** - Guia completo do projeto
-- **FIREBASE-SETUP.md** - Setup detalhado Firebase
-- **sst/data.json** - Banco de dados de perguntas
-- **sst/js/controller.js** - Lógica principal
+- **sst/FIREBASE-SETUP.md** - Setup detalhado Firebase
+- **sst/LESSON_FILTER_SETUP.md** - Filtro do ranking por aula
+- **sst/lessons/course-data.json** - Conteúdo de todas as aulas
+- **sst/core/js/controller.js** - Lógica principal
 
 ---
 

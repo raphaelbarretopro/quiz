@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Importador de Aulas - Quiz SST</title>
+  <style>
+    :root {
+      --bg: #07111b;
+      --panel: rgba(10, 20, 32, 0.94);
+      --panel-2: rgba(15, 30, 44, 0.96);
+      --text: #eef6ff;
+      --muted: #a9bfd1;
+      --accent: #56d4ff;
+      --accent-2: #7ef0c2;
+      --danger: #ff7b7b;
+      --success: #63e29f;
+      --warning: #ffd36d;
+      --border: rgba(120, 210, 255, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(55, 140, 255, 0.22), transparent 28%),
+        radial-gradient(circle at top right, rgba(40, 215, 160, 0.16), transparent 24%),
+        linear-gradient(180deg, #07111b 0%, #04080f 100%);
+      padding: 24px;
+    }
+
+    main {
+      width: min(1380px, 100%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      margin-bottom: 18px;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 0 40px rgba(40, 120, 255, 0.12);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 900px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 0 28px rgba(18, 46, 80, 0.22);
+    }
+
+    .panel h2,
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+    }
+
+    .panel p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    label {
+      display: block;
+      margin: 0 0 6px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    textarea,
+    input[type="text"],
+    input[type="file"] {
+      width: 100%;
+      border: 1px solid rgba(126, 202, 255, 0.22);
+      background: var(--panel-2);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 300px;
+      resize: vertical;
+      line-height: 1.45;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.92rem;
+    }
+
+    .small-textarea {
+      min-height: 160px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      color: #042032;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      min-width: 180px;
+    }
+
+    button.secondary {
+      color: var(--text);
+      background: linear-gradient(135deg, #1a3243, #0d2534);
+      border: 1px solid rgba(126, 202, 255, 0.2);
+    }
+
+    button.warn {
+      background: linear-gradient(135deg, #ffd26f, #ffb85d);
+      color: #2b1a00;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .status {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      white-space: pre-wrap;
+      line-height: 1.45;
+      min-height: 74px;
+    }
+
+    .status.success {
+      border-color: rgba(99, 226, 159, 0.35);
+      background: rgba(99, 226, 159, 0.09);
+    }
+
+    .status.error {
+      border-color: rgba(255, 123, 123, 0.35);
+      background: rgba(255, 123, 123, 0.09);
+    }
+
+    .status.warning {
+      border-color: rgba(255, 211, 109, 0.35);
+      background: rgba(255, 211, 109, 0.09);
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .meta-list li {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hint {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .checkbox-row input {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (max-width: 1080px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 14px;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <h1>Importador de Aulas</h1>
+      <p>
+        Ferramenta gráfica para colar o JSON de uma nova aula, validar a estrutura esperada e inserir essa aula no
+        <strong>course-data.json</strong> no formato atual do projeto. Se o navegador suportar File System Access API,
+        também é possível salvar direto no arquivo local.
+      </p>
+    </section>
+
+    <section class="grid">
+      <div class="stack">
+        <article class="panel">
+          <h2>1. Base do Curso</h2>
+          <p>Carregue o course-data atual do projeto ou selecione um arquivo local.</p>
+
+          <div class="actions">
+            <button id="btn-load-project">Carregar course-data do projeto</button>
+            <button id="btn-open-file" class="secondary">Abrir arquivo local</button>
+          </div>
+
+          <div class="stack" style="margin-top: 14px;">
+            <div>
+              <label for="course-json">course-data.json</label>
+              <textarea id="course-json" class="small-textarea" spellcheck="false"></textarea>
+            </div>
+            <div class="hint">A ferramenta mantém o formato com identação de 2 espaços.</div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2>2. Nova Aula</h2>
+          <p>Cole aqui o JSON da aula nova no formato antigo (lesson_info + questions) ou o objeto completo da aula.</p>
+
+          <div class="stack">
+            <div>
+              <label for="lesson-json">JSON da nova aula</label>
+              <textarea id="lesson-json" spellcheck="false"></textarea>
+            </div>
+
+            <div class="two-col">
+              <div>
+                <label for="slug-input">Slug da aula</label>
+                <input id="slug-input" type="text" placeholder="Ex.: aula-14">
+              </div>
+              <div>
+                <label for="file-input">Ou carregar arquivo JSON</label>
+                <input id="file-input" type="file" accept="application/json,.json">
+              </div>
+            </div>
+
+            <label class="checkbox-row">
+              <input id="replace-existing" type="checkbox">
+              Substituir a aula se o slug já existir
+            </label>
+
+            <div class="actions">
+              <button id="btn-validate">Validar nova aula</button>
+              <button id="btn-merge" class="warn">Inserir no course-data</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="stack">
+        <article class="panel">
+          <h3>Status</h3>
+          <div id="status-box" class="status">Aguardando carregamento do course-data e colagem da nova aula.</div>
+        </article>
+
+        <article class="panel">
+          <h3>Resumo da Aula</h3>
+          <ul id="lesson-summary" class="meta-list">
+            <li>Nenhuma aula validada ainda.</li>
+          </ul>
+        </article>
+
+        <article class="panel">
+          <h3>Resultado</h3>
+          <p>Depois da mescla, use uma das opções abaixo para persistir o arquivo atualizado.</p>
+          <div class="actions">
+            <button id="btn-download" class="secondary" disabled>Baixar JSON atualizado</button>
+            <button id="btn-save" disabled>Salvar no arquivo local</button>
+          </div>
+          <div class="hint" style="margin-top: 12px;">
+            O botão "Salvar no arquivo local" funciona apenas em navegadores com suporte à File System Access API,
+            como Chromium/Edge recentes.
+          </div>
+        </article>
+
+        <article class="panel">
+          <h3>Regras de Validação</h3>
+          <ul class="meta-list">
+            <li><strong>lesson_info.id</strong>, <strong>lesson_info.title</strong> e <strong>topics</strong> são obrigatórios.</li>
+            <li><strong>topics</strong> precisa ter itens com <strong>id</strong>, <strong>name</strong>, <strong>desc</strong>, <strong>color</strong>, <strong>img_url</strong> e <strong>sokoban</strong>.</li>
+            <li><strong>questions</strong> precisa existir e não pode ser vazio.</li>
+            <li>O slug pode ser informado manualmente ou derivado de <strong>lesson_info.id</strong>.</li>
+            <li>Os tipos suportados são: <strong>multiple</strong>, <strong>boolean</strong>, <strong>combo</strong>, <strong>multi</strong> e <strong>drag</strong>.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const courseJsonEl = document.getElementById('course-json');
+    const lessonJsonEl = document.getElementById('lesson-json');
+    const slugInputEl = document.getElementById('slug-input');
+    const replaceExistingEl = document.getElementById('replace-existing');
+    const statusBoxEl = document.getElementById('status-box');
+    const lessonSummaryEl = document.getElementById('lesson-summary');
+    const fileInputEl = document.getElementById('file-input');
+    const downloadBtnEl = document.getElementById('btn-download');
+    const saveBtnEl = document.getElementById('btn-save');
+
+    let lastMergedJson = '';
+    let importedLesson = null;
+    let openedFileHandle = null;
+
+    const supportedQuestionTypes = new Set(['multiple', 'boolean', 'combo', 'multi', 'drag']);
+
+    function setStatus(message, tone = '') {
+      statusBoxEl.className = `status ${tone}`.trim();
+      statusBoxEl.textContent = message;
+    }
+
+    function prettyJson(value) {
+      return `${JSON.stringify(value, null, 2)}\n`;
+    }
+
+    function parseJson(text, label) {
+      try {
+        return JSON.parse(text);
+      } catch (error) {
+        throw new Error(`${label}: JSON inválido. ${error.message}`);
+      }
+    }
+
+    function slugifyLessonId(lessonId) {
+      return String(lessonId || '')
+        .trim()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
+    function inferLessonEntry(rawLesson, manualSlug) {
+      const slug = String(manualSlug || rawLesson?.slug || slugifyLessonId(rawLesson?.lesson_info?.id)).trim();
+      if (!slug) {
+        throw new Error('Não foi possível determinar o slug da aula. Informe manualmente.');
+      }
+
+      if (rawLesson?.lesson_info && Array.isArray(rawLesson?.questions)) {
+        return {
+          slug,
+          lesson_info: rawLesson.lesson_info,
+          questions: rawLesson.questions
+        };
+      }
+
+      throw new Error('A nova aula deve conter pelo menos lesson_info e questions.');
+    }
+
+    function validateTopics(topics) {
+      if (!Array.isArray(topics) || !topics.length) {
+        throw new Error('lesson_info.topics deve existir e conter ao menos 1 tópico.');
+      }
+
+      topics.forEach((topic, index) => {
+        const path = `topics[${index}]`;
+        ['id', 'name', 'desc', 'color', 'img_url'].forEach((field) => {
+          if (!String(topic?.[field] || '').trim()) {
+            throw new Error(`${path}.${field} é obrigatório.`);
+          }
+        });
+
+        if (!Array.isArray(topic?.sokoban) || topic.sokoban.length !== 4) {
+          throw new Error(`${path}.sokoban deve ter exatamente 4 itens.`);
+        }
+      });
+    }
+
+    function validateQuestions(questions) {
+      if (!Array.isArray(questions) || !questions.length) {
+        throw new Error('questions deve existir e conter ao menos 1 pergunta.');
+      }
+
+      questions.forEach((question, index) => {
+        const path = `questions[${index}]`;
+        ['type', 'topics', 'questions', 'correct', 'tip'].forEach((field) => {
+          if (question?.[field] === undefined || question?.[field] === null || question?.[field] === '') {
+            throw new Error(`${path}.${field} é obrigatório.`);
+          }
+        });
+
+        if (!supportedQuestionTypes.has(question.type)) {
+          throw new Error(`${path}.type inválido: ${question.type}.`);
+        }
+
+        if (['multiple', 'boolean', 'multi'].includes(question.type)) {
+          if (!Array.isArray(question.answers) || !question.answers.length) {
+            throw new Error(`${path}.answers deve ser um array não vazio.`);
+          }
+        }
+
+        if (question.type === 'combo') {
+          if (!Array.isArray(question.options) || !question.options.length) {
+            throw new Error(`${path}.options deve ser um array não vazio.`);
+          }
+        }
+
+        if (question.type === 'drag') {
+          if (!Array.isArray(question.items) || !question.items.length) {
+            throw new Error(`${path}.items deve ser um array não vazio.`);
+          }
+          if (!Array.isArray(question.zones) || !question.zones.length) {
+            throw new Error(`${path}.zones deve ser um array não vazio.`);
+          }
+        }
+      });
+    }
+
+    function validateLessonEntry(lessonEntry) {
+      if (!String(lessonEntry?.slug || '').trim()) {
+        throw new Error('slug da aula é obrigatório.');
+      }
+
+      if (!lessonEntry?.lesson_info || typeof lessonEntry.lesson_info !== 'object') {
+        throw new Error('lesson_info é obrigatório.');
+      }
+
+      if (!String(lessonEntry.lesson_info?.id || '').trim()) {
+        throw new Error('lesson_info.id é obrigatório.');
+      }
+
+      if (!String(lessonEntry.lesson_info?.title || '').trim()) {
+        throw new Error('lesson_info.title é obrigatório.');
+      }
+
+      validateTopics(lessonEntry.lesson_info.topics);
+      validateQuestions(lessonEntry.questions);
+      return true;
+    }
+
+    function validateCourseData(courseData) {
+      if (!courseData || typeof courseData !== 'object') {
+        throw new Error('course-data deve ser um objeto JSON.');
+      }
+
+      if (!Array.isArray(courseData.lessons)) {
+        throw new Error('course-data.lessons deve ser um array.');
+      }
+
+      const seenSlugs = new Set();
+      const seenLessonIds = new Set();
+
+      courseData.lessons.forEach((lessonEntry, index) => {
+        validateLessonEntry(lessonEntry);
+
+        if (seenSlugs.has(lessonEntry.slug)) {
+          throw new Error(`Slug duplicado em course-data.lessons[${index}]: ${lessonEntry.slug}.`);
+        }
+
+        if (seenLessonIds.has(lessonEntry.lesson_info.id)) {
+          throw new Error(`lesson_info.id duplicado em course-data.lessons[${index}]: ${lessonEntry.lesson_info.id}.`);
+        }
+
+        seenSlugs.add(lessonEntry.slug);
+        seenLessonIds.add(lessonEntry.lesson_info.id);
+      });
+
+      return true;
+    }
+
+    function renderLessonSummary(lessonEntry) {
+      const topics = lessonEntry.lesson_info.topics.map((topic) => topic.name).join(', ');
+      lessonSummaryEl.innerHTML = `
+        <li><strong>Slug:</strong> ${lessonEntry.slug}</li>
+        <li><strong>ID:</strong> ${lessonEntry.lesson_info.id}</li>
+        <li><strong>Título:</strong> ${lessonEntry.lesson_info.title}</li>
+        <li><strong>Tópicos:</strong> ${lessonEntry.lesson_info.topics.length} (${topics})</li>
+        <li><strong>Perguntas:</strong> ${lessonEntry.questions.length}</li>
+      `;
+    }
+
+    async function loadProjectCourseData() {
+      const response = await fetch('../lessons/course-data.json', { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error('Não foi possível carregar ../lessons/course-data.json');
+      }
+
+      const json = await response.json();
+      validateCourseData(json);
+      courseJsonEl.value = prettyJson(json);
+      lastMergedJson = courseJsonEl.value;
+      downloadBtnEl.disabled = true;
+      saveBtnEl.disabled = !('showSaveFilePicker' in window);
+      setStatus('course-data carregado do projeto com sucesso.', 'success');
+    }
+
+    function getValidatedLessonFromUI() {
+      const rawLesson = parseJson(lessonJsonEl.value, 'Nova aula');
+      const lessonEntry = inferLessonEntry(rawLesson, slugInputEl.value);
+      validateLessonEntry(lessonEntry);
+      importedLesson = lessonEntry;
+      renderLessonSummary(lessonEntry);
+      return lessonEntry;
+    }
+
+    function mergeLessonIntoCourse() {
+      const courseData = parseJson(courseJsonEl.value, 'course-data');
+      validateCourseData(courseData);
+
+      const lessonEntry = getValidatedLessonFromUI();
+      const existingIndex = courseData.lessons.findIndex((lesson) => lesson.slug === lessonEntry.slug);
+      const conflictingIdIndex = courseData.lessons.findIndex(
+        (lesson) => lesson.lesson_info.id === lessonEntry.lesson_info.id && lesson.slug !== lessonEntry.slug
+      );
+
+      if (existingIndex >= 0 && !replaceExistingEl.checked) {
+        throw new Error(`Já existe uma aula com o slug ${lessonEntry.slug}. Marque a opção de substituição ou use outro slug.`);
+      }
+
+      if (conflictingIdIndex >= 0) {
+        throw new Error(
+          `Já existe uma aula com lesson_info.id ${lessonEntry.lesson_info.id} no slug ${courseData.lessons[conflictingIdIndex].slug}.`
+        );
+      }
+
+      if (existingIndex >= 0) {
+        courseData.lessons[existingIndex] = lessonEntry;
+      } else {
+        courseData.lessons.push(lessonEntry);
+      }
+
+      lastMergedJson = prettyJson(courseData);
+      courseJsonEl.value = lastMergedJson;
+      downloadBtnEl.disabled = false;
+      saveBtnEl.disabled = !('showSaveFilePicker' in window);
+
+      const actionLabel = existingIndex >= 0 ? 'substituída' : 'inserida';
+      setStatus(`Aula ${lessonEntry.slug} ${actionLabel} com sucesso no course-data.`, 'success');
+    }
+
+    async function openCourseDataFile() {
+      if (!('showOpenFilePicker' in window)) {
+        setStatus('Seu navegador não suporta abertura direta de arquivo. Use o campo de texto ou Chrome/Edge recentes.', 'warning');
+        return;
+      }
+
+      const [fileHandle] = await window.showOpenFilePicker({
+        multiple: false,
+        types: [
+          {
+            description: 'Arquivos JSON',
+            accept: { 'application/json': ['.json'] }
+          }
+        ]
+      });
+
+      openedFileHandle = fileHandle;
+      const file = await fileHandle.getFile();
+      const text = await file.text();
+      const json = parseJson(text, 'Arquivo local');
+      validateCourseData(json);
+      courseJsonEl.value = prettyJson(json);
+      lastMergedJson = courseJsonEl.value;
+      setStatus(`Arquivo local carregado: ${file.name}`, 'success');
+    }
+
+    async function saveToLocalFile() {
+      if (!lastMergedJson) {
+        setStatus('Nenhum course-data atualizado disponível para salvar.', 'warning');
+        return;
+      }
+
+      if (!('showSaveFilePicker' in window)) {
+        setStatus('Seu navegador não suporta salvamento direto. Use o botão de download.', 'warning');
+        return;
+      }
+
+      const handle = await window.showSaveFilePicker({
+        suggestedName: 'course-data.json',
+        types: [
+          {
+            description: 'Arquivos JSON',
+            accept: { 'application/json': ['.json'] }
+          }
+        ]
+      });
+
+      const writable = await handle.createWritable();
+      await writable.write(lastMergedJson);
+      await writable.close();
+      setStatus('Arquivo salvo com sucesso no disco local.', 'success');
+    }
+
+    function downloadMergedCourse() {
+      if (!lastMergedJson) {
+        setStatus('Nenhum course-data atualizado disponível para download.', 'warning');
+        return;
+      }
+
+      const blob = new Blob([lastMergedJson], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'course-data.json';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+      setStatus('Download do course-data atualizado iniciado.', 'success');
+    }
+
+    document.getElementById('btn-load-project').addEventListener('click', async () => {
+      try {
+        await loadProjectCourseData();
+      } catch (error) {
+        setStatus(error.message, 'error');
+      }
+    });
+
+    document.getElementById('btn-open-file').addEventListener('click', async () => {
+      try {
+        await openCourseDataFile();
+      } catch (error) {
+        setStatus(error.message, 'error');
+      }
+    });
+
+    document.getElementById('btn-validate').addEventListener('click', () => {
+      try {
+        const lessonEntry = getValidatedLessonFromUI();
+        setStatus(`Aula ${lessonEntry.slug} validada com sucesso.`, 'success');
+      } catch (error) {
+        setStatus(error.message, 'error');
+      }
+    });
+
+    document.getElementById('btn-merge').addEventListener('click', () => {
+      try {
+        mergeLessonIntoCourse();
+      } catch (error) {
+        setStatus(error.message, 'error');
+      }
+    });
+
+    fileInputEl.addEventListener('change', async (event) => {
+      const [file] = event.target.files || [];
+      if (!file) return;
+
+      const text = await file.text();
+      lessonJsonEl.value = text;
+      setStatus(`Arquivo de aula carregado: ${file.name}`, 'success');
+    });
+
+    downloadBtnEl.addEventListener('click', downloadMergedCourse);
+    saveBtnEl.addEventListener('click', async () => {
+      try {
+        await saveToLocalFile();
+      } catch (error) {
+        setStatus(error.message, 'error');
+      }
+    });
+
+    if (!('showSaveFilePicker' in window)) {
+      saveBtnEl.disabled = true;
+    }
+  </script>
+</body>
+</html>

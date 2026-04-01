@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz SST - Selecione a Aula</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at 20% 20%, #184e77 0%, #0d1b2a 45%, #05090f 100%);
+            color: #f4f8ff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            width: min(92vw, 520px);
+            background: rgba(8, 14, 24, 0.86);
+            border: 1px solid rgba(119, 180, 255, 0.6);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 0 28px rgba(31, 111, 235, 0.35);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 1.4rem;
+        }
+
+        p {
+            margin: 0 0 18px;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .tool-link {
+            margin-top: 12px;
+            display: block;
+            text-align: center;
+            color: #b8dfff;
+            opacity: 0.92;
+        }
+
+        a {
+            text-decoration: none;
+            color: #03131f;
+            background: linear-gradient(135deg, #7fd6ff, #7af0c2);
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        a:hover {
+            filter: brightness(1.05);
+        }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <h1>Quiz SST</h1>
+        <p>Escolha a aula para iniciar no app unificado.</p>
+        <div class="grid">
+            <a href="core/index.html?aula=aula-11">Abrir Aula 11</a>
+            <a href="core/index.html?aula=aula-12">Abrir Aula 12</a>
+            <a href="core/index.html?aula=aula-13">Abrir Aula 13</a>
+        </div>
+        <a class="tool-link" href="tools/lesson-importer.html">Abrir importador de aulas</a>
+    </main>
+</body>
+</html>

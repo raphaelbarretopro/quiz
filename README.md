@@ -1,12 +1,14 @@
-# Saga do Futuro - Quiz SST
+# Quis Dinâmico - Quiz SST
 
 Projeto de quiz educativo gamificado para Seguranca no Trabalho em TI, com narrativa por eras, desafios interativos, mini-games e ranking em tempo real.
 
 ## Acesso Rapido
 
-- Aula 11 (index): [Abrir aula-11](./sst/aula-11/index.html)
-- Aula 12 (index): [Abrir aula-12](./sst/aula-12/index.html)
-- Demo publica (aula 11): [raphaelbarretopro.github.io/quiz/sst/aula-11](https://raphaelbarretopro.github.io/quiz/sst/aula-11/)
+- Launcher geral: [Abrir sst/index.html](./sst/index.html)
+- App unificado (aula 11): [Abrir](./sst/core/index.html?aula=aula-11)
+- App unificado (aula 12): [Abrir](./sst/core/index.html?aula=aula-12)
+- App unificado (aula 13): [Abrir](./sst/core/index.html?aula=aula-13)
+- Importador grafico de aulas: [Abrir](./sst/tools/lesson-importer.html)
 
 ## Tecnologias (Logo + Cor)
 
@@ -40,16 +42,17 @@ Projeto de quiz educativo gamificado para Seguranca no Trabalho em TI, com narra
 
 ### Estrutura Geral
 
-- Projeto com duas versoes completas da aplicacao: `sst/aula-11` e `sst/aula-12`
-- Cada aula possui seu proprio `index.html`, `data.json`, assets, CSS e JavaScript modular
-- Ambas as aulas seguem arquitetura MVC com modulos ES
+- Arquitetura unificada com nucleo compartilhado em `sst/core`
+- Conteudo de todas as aulas concentrado em `sst/lessons/course-data.json`
+- Aplicacao continua em arquitetura MVC com modulos ES
 
 ### Arquitetura
 
-- `js/model.js`: estado do jogo, carregamento de questoes, regras de pontuacao e Sokoban
-- `js/view.js`: renderizacao da interface, audio, mini-games e modais
-- `js/controller.js`: orquestracao do fluxo, timers, progresso, bonus e encerramento
-- `js/ranking-manager.js`: persistencia e leitura de ranking no Firebase Realtime
+- `sst/core/js/model.js`: estado do jogo, carregamento dinamico por `?aula=`, regras e Sokoban
+- `sst/core/js/view.js`: renderizacao da interface, audio, mini-games e modais
+- `sst/core/js/controller.js`: orquestracao do fluxo, timers, progresso, bonus e encerramento
+- `sst/core/js/ranking-manager.js`: persistencia e leitura de ranking no Firebase Realtime
+- `sst/lessons/course-data.json`: banco unico com todas as aulas e metadados
 
 ### Funcionalidades Principais
 
@@ -63,13 +66,14 @@ Projeto de quiz educativo gamificado para Seguranca no Trabalho em TI, com narra
 - Controle de tempo total da partida e tempo por desafio
 - Interface responsiva com efeitos visuais e trilhas sonoras
 
-### Diferencas Entre Aula-11 e Aula-12
+### Diferencas Entre Aulas
 
-- IDs de aula distintas no `data.json`: `Aula-11` e `Aula-12`
-- Base de codigo praticamente igual entre as duas pastas
-- Diferenca identificada no `index.html`:
-  - Aula 11 deixa botoes de teste dos bonus comentados
-  - Aula 12 deixa esses botoes visiveis
+- As diferencas ficam concentradas no `course-data.json` em `sst/lessons`
+- IDs de aula atuais:
+  - `Aula-11`
+  - `Aula-12`
+  - `Aula-13`
+- Motor, assets, CSS e JavaScript sao compartilhados no `core`
 
 ## Como Executar Localmente
 
@@ -79,23 +83,25 @@ Como o app usa `fetch` para carregar `data.json`, abra com servidor local HTTP.
 
 1. Abra o projeto no VS Code.
 2. Abra um dos arquivos:
-   - `sst/aula-11/index.html`
-   - `sst/aula-12/index.html`
+  - `sst/index.html` (recomendado)
+  - `sst/core/index.html?aula=aula-11`
+  - `sst/core/index.html?aula=aula-12`
+  - `sst/core/index.html?aula=aula-13`
 3. Execute com Live Server.
 
 ### Opcao 2: Python
 
 ```bash
-cd sst/aula-11
+cd sst
 python -m http.server 5500
 ```
 
-ou
+Depois, abra no navegador:
 
-```bash
-cd sst/aula-12
-python -m http.server 5500
-```
+- `http://localhost:5500/sst/` (launcher)
+- `http://localhost:5500/sst/core/index.html?aula=aula-11`
+- `http://localhost:5500/sst/core/index.html?aula=aula-12`
+- `http://localhost:5500/sst/core/index.html?aula=aula-13`
 
 ## Ranking e Firebase
 
@@ -106,9 +112,8 @@ python -m http.server 5500
 
 Guias de configuracao:
 
-- Aula 11: [FIREBASE-SETUP](./sst/aula-11/FIREBASE-SETUP.md)
-- Aula 12: [FIREBASE-SETUP](./sst/aula-12/FIREBASE-SETUP.md)
-- Filtro por aula: [LESSON_FILTER_SETUP aula-11](./sst/aula-11/LESSON_FILTER_SETUP.md)
+- Firebase: [FIREBASE-SETUP](./sst/FIREBASE-SETUP.md)
+- Filtro por aula: [LESSON_FILTER_SETUP](./sst/LESSON_FILTER_SETUP.md)
 
 ## Estrutura de Pastas
 
@@ -118,37 +123,47 @@ quiz/
   QUICK-START.md
   README.md
   sst/
-    aula-11/
+    index.html
+    core/
       index.html
-      data.json
-      FIREBASE-SETUP.md
-      LESSON_FILTER_SETUP.md
-      audio/
       css/
         style.css
-      img/
       js/
         controller.js
         model.js
         view.js
         ranking-manager.js
         firebase-config.js
-    aula-12/
-      index.html
-      data.json
-      FIREBASE-SETUP.md
-      LESSON_FILTER_SETUP.md
-      audio/
-      css/
-        style.css
-      img/
-      js/
-        controller.js
-        model.js
-        view.js
-        ranking-manager.js
-        firebase-config.js
+      assets/
+        audio/
+        img/
+    lessons/
+      course-data.json
+    FIREBASE-SETUP.md
+    LESSON_FILTER_SETUP.md
 ```
+
+## Como criar nova aula
+
+1. Abra [sst/tools/lesson-importer.html](./sst/tools/lesson-importer.html) para colar o JSON da nova aula, validar a estrutura e gerar o `course-data.json` atualizado.
+2. Se preferir editar manualmente, adicione um novo item em `lessons` com `slug` unico (ex.: `aula-14`) e `lesson_info.id` unico (ex.: `Aula-14`).
+3. Adicione o link no `sst/index.html` apontando para `core/index.html?aula=aula-14`.
+4. Nao duplique `css`, `js`, `audio` ou `img`: tudo fica no `sst/core`.
+
+### Validacao grafica
+
+- A ferramenta valida `slug`, `lesson_info.id`, `lesson_info.title`, `topics` e `questions`.
+- Tambem verifica conflitos de `slug` e de `lesson_info.id` antes de inserir a nova aula.
+- O arquivo final continua no mesmo padrao do projeto: JSON valido com identacao de 2 espacos.
+- Em navegadores Chromium/Edge recentes, a ferramenta permite salvar o JSON atualizado direto no disco; nos demais casos, basta baixar o arquivo gerado.
+
+### Geracao por PDF
+
+- O importador agora possui modo de geracao por PDF + IA em `sst/tools/lesson-importer.html`.
+- Fluxo: anexar PDF da aula (conteudo), extrair texto e gerar automaticamente o JSON da nova aula.
+- No modo estrito, a validacao exige exatamente 50 perguntas com alternancia fixa de tipos: `multiple`, `boolean`, `drag`, `combo`, `multi`.
+- A chave de API e informada apenas na tela local do navegador e nao e persistida no projeto.
+- Para Gemini, use o preset da tela (provedor `gemini`) e informe sua chave; o importador envia para a API no formato nativo do Google.
 
 ## Creditos
 
