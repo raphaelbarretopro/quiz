@@ -1,0 +1,544 @@
+{
+  "lesson_info": {
+    "id": "Aula-13",
+    "title": "AULA 13 - GUARDIÕES DO FUTURO: SUSTENTABILIDADE E QUALIDADE AMBIENTAL",
+    "topics": [
+      {
+        "id": "ACID",
+        "name": "QUALIDADE AMBIENTAL",
+        "desc": "O impacto humano, poluição e o papel do trabalhador.",
+        "color": "#27ae60",
+        "img_url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1600",
+        "sokoban": ["M", "E", "I", "O"]
+      },
+      {
+        "id": "AGEN",
+        "name": "RESÍDUOS E E-WASTE",
+        "desc": "Gestão de lixo eletrónico e ciclo de vida dos produtos.",
+        "color": "#2980b9",
+        "img_url": "https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=1600",
+        "sokoban": ["L", "I", "X", "O"]
+      },
+      {
+        "id": "PROT",
+        "name": "RECURSOS E ENERGIA",
+        "desc": "Uso racional de energia e fontes renováveis na TI.",
+        "color": "#f1c40f",
+        "img_url": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=1600",
+        "sokoban": ["S", "O", "L", "A"]
+      },
+      {
+        "id": "NORM",
+        "name": "SUSTENTABILIDADE",
+        "desc": "Economia circular, políticas públicas e responsabilidade socioambiental.",
+        "color": "#16a085",
+        "img_url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1600",
+        "sokoban": ["E", "C", "O", "S"]
+      }
+    ]
+  },
+  "questions": [
+    {
+      "type": "multiple",
+      "topics": "ACID",
+      "questions": "[NAME], qual é o principal papel do trabalhador nas normas ambientais?",
+      "answers": ["Cumprir procedimentos e reportar falhas", "Ignorar as regras se a produção for alta", "Delegar a responsabilidade apenas à CIPA", "Pagar multas ambientais da empresa"],
+      "correct": "Cumprir procedimentos e reportar falhas",
+      "tip": "A sustentabilidade começa com a responsabilidade individual no dia a dia."
+    },
+    {
+      "type": "boolean",
+      "topics": "ACID",
+      "questions": "O aquecimento global é causado apenas por fenómenos naturais, sem influência humana.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Falso",
+      "tip": "A atividade industrial e o consumo de energia aceleram o efeito estufa."
+    },
+    {
+      "type": "drag",
+      "topics": "ACID",
+      "questions": "Relacione os conceitos de Qualidade Ambiental:",
+      "items": [
+        { "id": "d1", "txt": "Biodiversidade", "match": "z1" },
+        { "id": "d2", "txt": "Poluição", "match": "z2" },
+        { "id": "d3", "txt": "Recurso Natural", "match": "z3" },
+        { "id": "d4", "txt": "Ecossistema", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Variedade de formas de vida" },
+        { "id": "z2", "label": "Degradação por agentes nocivos" },
+        { "id": "z3", "label": "Elemento da natureza útil ao homem" },
+        { "id": "z4", "label": "Conjunto de seres e ambiente" }
+      ],
+      "correct": "drag",
+      "tip": "Entender estes termos ajuda na aplicação de práticas sustentáveis."
+    },
+    {
+      "type": "combo",
+      "topics": "ACID",
+      "questions": "A [COMBO] ambiental é a capacidade de um sistema suportar as atividades sem se degradar.",
+      "options": ["Resiliência", "Produção", "Lentidão", "Economia"],
+      "correct": "Resiliência",
+      "tip": "Sistemas resilientes recuperam-se de impactos externos."
+    },
+    {
+      "type": "multi",
+      "topics": "ACID",
+      "questions": "[NAME], quais destes são pilares da sustentabilidade (Triple Bottom Line)?",
+      "answers": ["Social", "Ambiental", "Económico", "Político"],
+      "correct": ["Social", "Ambiental", "Económico"],
+      "tip": "A sustentabilidade exige equilíbrio entre estas três áreas."
+    },
+    {
+      "type": "multiple",
+      "topics": "ACID",
+      "questions": "[NAME], o que caracteriza a poluição atmosférica?",
+      "answers": ["Presença de substâncias nocivas no ar", "Apenas o som alto de máquinas", "Uso de água para arrefecimento", "Plantar árvores na empresa"],
+      "correct": "Presença de substâncias nocivas no ar",
+      "tip": "Emissões industriais e de transportes são as principais fontes."
+    },
+    {
+      "type": "boolean",
+      "topics": "ACID",
+      "questions": "A poluição visual e sonora não são consideradas problemas ambientais.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Falso",
+      "tip": "Ambas afetam o bem-estar e a saúde da população e fauna."
+    },
+    {
+      "type": "drag",
+      "topics": "ACID",
+      "questions": "Combine o tipo de poluição ao seu impacto:",
+      "items": [
+        { "id": "d1", "txt": "Hídrica", "match": "z1" },
+        { "id": "d2", "txt": "Do Solo", "match": "z2" },
+        { "id": "d3", "txt": "Atmosférica", "match": "z3" },
+        { "id": "d4", "txt": "Radioativa", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Contaminação de rios e mares" },
+        { "id": "z2", "label": "Uso de pesticidas e lixo" },
+        { "id": "z3", "label": "Gases de efeito estufa" },
+        { "id": "z4", "label": "Resíduos de urânio" }
+      ],
+      "correct": "drag",
+      "tip": "Cada forma de poluição exige uma estratégia de mitigação diferente."
+    },
+    {
+      "type": "combo",
+      "topics": "ACID",
+      "questions": "O desenvolvimento [COMBO] atende às necessidades atuais sem comprometer o futuro.",
+      "options": ["Sustentável", "Acelerado", "Individual", "Local"],
+      "correct": "Sustentável",
+      "tip": "É o conceito central da gestão ambiental moderna."
+    },
+    {
+      "type": "multi",
+      "topics": "ACID",
+      "questions": "Quais são as principais ameaças à qualidade ambiental hoje?",
+      "answers": ["Desmatamento", "Perda de biodiversidade", "Reflorestamento", "Mudanças climáticas"],
+      "correct": ["Desmatamento", "Perda de biodiversidade", "Mudanças climáticas"],
+      "tip": "Ações preventivas são urgentes para reverter estes quadros."
+    },
+    {
+      "type": "multiple",
+      "topics": "ACID",
+      "questions": "[NAME], quem sofre mais com a degradação ambiental?",
+      "answers": ["Toda a sociedade e gerações futuras", "Apenas os donos de empresas", "Apenas quem mora no campo", "Ninguém, o planeta recupera-se"],
+      "correct": "Toda a sociedade e gerações futuras",
+      "tip": "O impacto ambiental é global e transgeracional."
+    },
+    {
+      "type": "boolean",
+      "topics": "ACID",
+      "questions": "O profissional de TI pode ajudar na qualidade ambiental através da otimização de sistemas.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Verdadeiro",
+      "tip": "Sistemas eficientes consomem menos energia e hardware.",
+      "trans": "AGEN"
+    },
+    {
+      "type": "multiple",
+      "topics": "AGEN",
+      "questions": "[NAME], o que define o termo e-waste?",
+      "answers": ["Resíduos de equipamentos eletrónicos", "Restos de comida do refeitório", "Papel impresso em excesso", "Lixo radioativo industrial"],
+      "correct": "Resíduos de equipamentos eletrónicos",
+      "tip": "Teclados, monitores e baterias são exemplos comuns."
+    },
+    {
+      "type": "boolean",
+      "topics": "AGEN",
+      "questions": "Equipamentos eletrónicos contêm metais pesados tóxicos como chumbo e mercúrio.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Verdadeiro",
+      "tip": "O descarte incorreto contamina o solo e a água."
+    },
+    {
+      "type": "drag",
+      "topics": "AGEN",
+      "questions": "Relacione os 5 Rs da sustentabilidade:",
+      "items": [
+        { "id": "d1", "txt": "Recusar", "match": "z1" },
+        { "id": "d2", "txt": "Reduzir", "match": "z2" },
+        { "id": "d3", "txt": "Reutilizar", "match": "z3" },
+        { "id": "d4", "txt": "Reciclar", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Produtos que agridem o ambiente" },
+        { "id": "z2", "label": "Diminuir o consumo" },
+        { "id": "z3", "label": "Dar nova vida ao objeto" },
+        { "id": "z4", "label": "Transformar em matéria-prima" }
+      ],
+      "correct": "drag",
+      "tip": "A ordem dos Rs indica a prioridade de ação."
+    },
+    {
+      "type": "combo",
+      "topics": "AGEN",
+      "questions": "O tempo de [COMBO] do plástico pode passar de 400 anos.",
+      "options": ["Decomposição", "Produção", "Consumo", "Limpeza"],
+      "correct": "Decomposição",
+      "tip": "Reduzir o uso de plásticos é vital para os oceanos."
+    },
+    {
+      "type": "multi",
+      "topics": "AGEN",
+      "questions": "[NAME], quais componentes de TI devem ter descarte especial?",
+      "answers": ["Baterias", "Placas de circuito", "Monitores CRT", "Cabos de rede"],
+      "correct": ["Baterias", "Placas de circuito", "Monitores CRT"],
+      "tip": "Estes itens possuem componentes químicos perigosos."
+    },
+    {
+      "type": "multiple",
+      "topics": "AGEN",
+      "questions": "O que é Logística Reversa?",
+      "answers": ["Retorno do produto ao fabricante para descarte", "Entregar encomendas com drones", "Vender produtos usados na internet", "Mandar lixo para outros países"],
+      "correct": "Retorno do produto ao fabricante para descarte",
+      "tip": "O fabricante é co-responsável pelo ciclo de vida do produto."
+    },
+    {
+      "type": "boolean",
+      "topics": "AGEN",
+      "questions": "A reciclagem de eletrónicos permite recuperar metais preciosos como ouro e prata.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Verdadeiro",
+      "tip": "Isso reduz a necessidade de novas minerações agressivas."
+    },
+    {
+      "type": "drag",
+      "topics": "AGEN",
+      "questions": "Associe as cores da coleta seletiva:",
+      "items": [
+        { "id": "d1", "txt": "Azul", "match": "z1" },
+        { "id": "d2", "txt": "Vermelho", "match": "z2" },
+        { "id": "d3", "txt": "Verde", "match": "z3" },
+        { "id": "d4", "txt": "Amarelo", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Papel / Papelão" },
+        { "id": "z2", "label": "Plástico" },
+        { "id": "z3", "label": "Vidro" },
+        { "id": "z4", "label": "Metal" }
+      ],
+      "correct": "drag",
+      "tip": "Separar corretamente é o primeiro passo para a reciclagem."
+    },
+    {
+      "type": "combo",
+      "topics": "AGEN",
+      "questions": "A [COMBO] planejada é a estratégia de criar produtos que estragam rápido.",
+      "options": ["Obsolescência", "Tecnologia", "Inteligência", "Garantia"],
+      "correct": "Obsolescência",
+      "tip": "Esta prática gera volumes gigantescos de lixo eletrónico."
+    },
+    {
+      "type": "multi",
+      "topics": "AGEN",
+      "questions": "Quais são benefícios da gestão correta de resíduos?",
+      "answers": ["Preservação de recursos", "Geração de empregos", "Aumento da poluição", "Redução de custos industriais"],
+      "correct": ["Preservação de recursos", "Geração de empregos", "Redução de custos industriais"],
+      "tip": "O lixo bem gerido torna-se uma oportunidade económica."
+    },
+    {
+      "type": "multiple",
+      "topics": "AGEN",
+      "questions": "[NAME], onde deve deitar pilhas usadas?",
+      "answers": ["Em pontos de recolha específicos", "No lixo comum", "No lixo reciclável de papel", "Enterrar no quintal"],
+      "correct": "Em pontos de recolha específicos",
+      "tip": "Nunca deite baterias no lixo doméstico."
+    },
+    {
+      "type": "boolean",
+      "topics": "AGEN",
+      "questions": "O e-waste é atualmente o fluxo de lixo que mais cresce no mundo.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Verdadeiro",
+      "tip": "A rápida troca de gadgets impulsiona este crescimento.",
+      "trans": "PROT"
+    },
+    {
+      "type": "multiple",
+      "topics": "PROT",
+      "questions": "[NAME], qual destas fontes de energia é considerada limpa e renovável?",
+      "answers": ["Energia Solar", "Carvão Mineral", "Petróleo", "Gás Natural"],
+      "correct": "Energia Solar",
+      "tip": "Fontes renováveis não se esgotam e poluem menos."
+    },
+    {
+      "type": "boolean",
+      "topics": "PROT",
+      "questions": "Data centers consomem uma quantidade insignificante de energia elétrica.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Falso",
+      "tip": "Data centers estão entre os maiores consumidores de energia do mundo."
+    },
+    {
+      "type": "drag",
+      "topics": "PROT",
+      "questions": "Relacione o recurso ao seu tipo:",
+      "items": [
+        { "id": "d1", "txt": "Vento", "match": "z1" },
+        { "id": "d2", "txt": "Petróleo", "match": "z2" },
+        { "id": "d3", "txt": "Sol", "match": "z3" },
+        { "id": "d4", "txt": "Carvão", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Renovável (Eólica)" },
+        { "id": "z2", "label": "Não Renovável (Fóssil)" },
+        { "id": "z3", "label": "Renovável (Fotovoltaica)" },
+        { "id": "z4", "label": "Não Renovável (Mineral)" }
+      ],
+      "correct": "drag",
+      "tip": "A transição energética foca em sair dos fósseis para os renováveis."
+    },
+    {
+      "type": "combo",
+      "topics": "PROT",
+      "questions": "A [COMBO] energética foca em fazer mais com menos eletricidade.",
+      "options": ["Eficiência", "Escassez", "Perda", "Demanda"],
+      "correct": "Eficiência",
+      "tip": "Lâmpadas LED e processadores modernos são exemplos de eficiência."
+    },
+    {
+      "type": "multi",
+      "topics": "PROT",
+      "questions": "[NAME], como reduzir o consumo de energia no laboratório de TI?",
+      "answers": ["Desligar monitores ao sair", "Usar modo de suspensão", "Deixar servidores vazios ligados", "Limpar filtros do ar-condicionado"],
+      "correct": ["Desligar monitores ao sair", "Usar modo de suspensão", "Limpar filtros do ar-condicionado"],
+      "tip": "Pequenos hábitos geram grandes economias na fatura e no ambiente."
+    },
+    {
+      "type": "multiple",
+      "topics": "PROT",
+      "questions": "Qual é a principal fonte da matriz elétrica brasileira?",
+      "answers": ["Hidrelétrica", "Nuclear", "Eólica", "Solar"],
+      "correct": "Hidrelétrica",
+      "tip": "Embora renovável, a construção de usinas causa grandes impactos locais."
+    },
+    {
+      "type": "boolean",
+      "topics": "PROT",
+      "questions": "A energia eólica gera eletricidade através da força do vento.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Verdadeiro",
+      "tip": "É uma das fontes que mais cresce no Brasil."
+    },
+    {
+      "type": "drag",
+      "topics": "PROT",
+      "questions": "Associe os vilões do consumo em TI:",
+      "items": [
+        { "id": "d1", "txt": "Ar-condicionado", "match": "z1" },
+        { "id": "d2", "txt": "Servidores", "match": "z2" },
+        { "id": "d3", "txt": "Monitores antigos", "match": "z3" },
+        { "id": "d4", "txt": "Impressoras laser", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Controle térmico constante" },
+        { "id": "z2", "label": "Processamento 24/7" },
+        { "id": "z3", "label": "Tecnologia de tubo ineficiente" },
+        { "id": "z4", "label": "Picos de calor na fusão" }
+      ],
+      "correct": "drag",
+      "tip": "Identificar onde se gasta mais permite agir melhor."
+    },
+    {
+      "type": "combo",
+      "topics": "PROT",
+      "questions": "Fontes [COMBO] de energia são aquelas que não se esgotam na escala humana.",
+      "options": ["Renováveis", "Finitas", "Sujas", "Caras"],
+      "correct": "Renováveis",
+      "tip": "Sol, vento e biomassa são exemplos."
+    },
+    {
+      "type": "multi",
+      "topics": "PROT",
+      "questions": "Quais são impactos de fontes não renováveis (fósseis)?",
+      "answers": ["Emissão de CO2", "Aquecimento Global", "Chuva Ácida", "Reflorestamento"],
+      "correct": ["Emissão de CO2", "Aquecimento Global", "Chuva Ácida"],
+      "tip": "A queima de combustíveis fósseis é a maior vilã do clima."
+    },
+    {
+      "type": "multiple",
+      "topics": "PROT",
+      "questions": "[NAME], qual dispositivo ajuda a evitar desperdício de energia em salas vazias?",
+      "answers": ["Sensores de presença", "Deixar a luz ligada", "Pintar as paredes de preto", "Usar cortinas grossas"],
+      "correct": "Sensores de presença",
+      "tip": "A automação simples é uma grande aliada da sustentabilidade."
+    },
+    {
+      "type": "boolean",
+      "topics": "PROT",
+      "questions": "A água é um recurso infinito e não precisamos de nos preocupar com o seu uso.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Falso",
+      "tip": "A água potável é escassa e essencial; o uso racional é obrigatório.",
+      "trans": "NORM"
+    },
+    {
+      "type": "multiple",
+      "topics": "NORM",
+      "questions": "[NAME], o que é Economia Circular?",
+      "answers": ["Modelo onde resíduos viram novos recursos", "Gastar dinheiro apenas com produtos novos", "Dar voltas no shopping", "Vender tudo e não comprar nada"],
+      "correct": "Modelo onde resíduos viram novos recursos",
+      "tip": "O objetivo é eliminar o desperdício e a poluição desde o design."
+    },
+    {
+      "type": "boolean",
+      "topics": "NORM",
+      "questions": "Empresas com certificação ISO 14001 possuem um sistema de gestão ambiental.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Verdadeiro",
+      "tip": "Esta norma internacional atesta o compromisso com o meio ambiente."
+    },
+    {
+      "type": "drag",
+      "topics": "NORM",
+      "questions": "Relacione os conceitos de sustentabilidade corporativa:",
+      "items": [
+        { "id": "d1", "txt": "ESG", "match": "z1" },
+        { "id": "d2", "txt": "Compliance", "match": "z2" },
+        { "id": "d3", "txt": "Stakeholders", "match": "z3" },
+        { "id": "d4", "txt": "Green IT", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Critérios Ambientais, Sociais e Governança" },
+        { "id": "z2", "label": "Estar em conformidade com leis" },
+        { "id": "z3", "label": "Partes interessadas no negócio" },
+        { "id": "z4", "label": "TI Verde focada em sustentabilidade" }
+      ],
+      "correct": "drag",
+      "tip": "Estes termos dominam o mercado de trabalho atual."
+    },
+    {
+      "type": "combo",
+      "topics": "NORM",
+      "questions": "O [COMBO] ambiental ocorre quando há danos à fauna, flora ou saúde humana.",
+      "options": ["Crime", "Sucesso", "Trabalho", "Direito"],
+      "correct": "Crime",
+      "tip": "Leis severas punem empresas que negligenciam o meio ambiente."
+    },
+    {
+      "type": "multi",
+      "topics": "NORM",
+      "questions": "[NAME], o que compõe a responsabilidade socioambiental de uma empresa?",
+      "answers": ["Ética nos negócios", "Preservação da natureza", "Bem-estar da comunidade", "Maximizar lucro a qualquer custo"],
+      "correct": ["Ética nos negócios", "Preservação da natureza", "Bem-estar da comunidade"],
+      "tip": "Empresas modernas buscam lucro com propósito e respeito."
+    },
+    {
+      "type": "multiple",
+      "topics": "NORM",
+      "questions": "O que é 'Greenwashing'?",
+      "answers": ["Falsa aparência de ser sustentável", "Lavar servidores com água", "Pintar a empresa de verde", "Plantar árvores de plástico"],
+      "correct": "Falsa aparência de ser sustentável",
+      "tip": "É uma prática enganosa que deve ser combatida."
+    },
+    {
+      "type": "boolean",
+      "topics": "NORM",
+      "questions": "Políticas públicas ambientais servem para regular e incentivar práticas sustentáveis.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Verdadeiro",
+      "tip": "Exemplos incluem leis de resíduos sólidos e incentivos a energias limpas."
+    },
+    {
+      "type": "drag",
+      "topics": "NORM",
+      "questions": "Associe os benefícios de ser um profissional 'Verde':",
+      "items": [
+        { "id": "d1", "txt": "Diferencial", "match": "z1" },
+        { "id": "d2", "txt": "Economia", "match": "z2" },
+        { "id": "d3", "txt": "Ética", "match": "z3" },
+        { "id": "d4", "txt": "Visão", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Destaque no mercado de trabalho" },
+        { "id": "z2", "label": "Redução de desperdícios na empresa" },
+        { "id": "z3", "label": "Consciência de dever cumprido" },
+        { "id": "z4", "label": "Compreensão sistémica do mundo" }
+      ],
+      "correct": "drag",
+      "tip": "Sustentabilidade é uma competência técnica e comportamental."
+    },
+    {
+      "type": "combo",
+      "topics": "NORM",
+      "questions": "A pegada de [COMBO] mede o impacto das nossas atividades no clima.",
+      "options": ["Carbono", "Areia", "Água", "Papel"],
+      "correct": "Carbono",
+      "tip": "Reduzir a pegada de carbono é uma meta global para 2050."
+    },
+    {
+      "type": "multi",
+      "topics": "NORM",
+      "questions": "Quais ações de TI ajudam na economia circular?",
+      "answers": ["Upgrade de componentes em vez de trocar o PC", "Doação de equipamentos antigos", "Reciclagem de metais", "Comprar o modelo novo todo ano"],
+      "correct": ["Upgrade de componentes em vez de trocar o PC", "Doação de equipamentos antigos", "Reciclagem de metais"],
+      "tip": "Prolongar a vida útil do hardware é a melhor estratégia."
+    },
+    {
+      "type": "multiple",
+      "topics": "NORM",
+      "questions": "[NAME], qual é o objetivo da Agenda 2030 da ONU?",
+      "answers": ["17 objetivos para o desenvolvimento sustentável", "Colonizar Marte até 2030", "Acabar com todos os computadores", "Criar uma moeda única global"],
+      "correct": "17 objetivos para o desenvolvimento sustentável",
+      "tip": "Os ODS orientam governos e empresas em todo o mundo."
+    },
+    {
+      "type": "boolean",
+      "topics": "NORM",
+      "questions": "O profissional de TI do futuro deve ignorar o impacto ambiental para focar no código.",
+      "answers": ["Verdadeiro", "Falso"],
+      "correct": "Falso",
+      "tip": "O 'Green Coding' e a infraestrutura sustentável são o novo padrão."
+    },
+    {
+      "type": "drag",
+      "topics": "NORM",
+      "questions": "Combine as ações com as responsabilidades:",
+      "items": [
+        { "id": "d1", "txt": "Empresa", "match": "z1" },
+        { "id": "d2", "txt": "Trabalhador", "match": "z2" },
+        { "id": "d3", "txt": "Governo", "match": "z3" },
+        { "id": "d4", "txt": "Cliente", "match": "z4" }
+      ],
+      "zones": [
+        { "id": "z1", "label": "Oferecer estrutura de descarte" },
+        { "id": "z2", "label": "Separar e descartar corretamente" },
+        { "id": "z3", "label": "Fiscalizar e criar leis" },
+        { "id": "z4", "label": "Cobrar práticas éticas" }
+      ],
+      "correct": "drag",
+      "tip": "A sustentabilidade é uma responsabilidade partilhada por todos."
+    },
+    {
+      "type": "combo",
+      "topics": "NORM",
+      "questions": "A sustentabilidade é um [COMBO] com as gerações futuras.",
+      "options": ["Compromisso", "Atraso", "Negócio", "Mistério"],
+      "correct": "Compromisso",
+      "tip": "Deixar um planeta habitável é o nosso maior legado."
+    }
+  ]
+}
