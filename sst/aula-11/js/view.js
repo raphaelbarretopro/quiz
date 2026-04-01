@@ -1344,7 +1344,7 @@ export default class View {
         if (!this.els.certificateModal || !this.els.certificateContent) return;
 
         const medal = this.getPodiumMedal(rankIndex);
-        const lessonTitle = this.escapeHtml(lessonInfo?.title || 'AULA NAO INFORMADA');
+        const lessonTitle = this.escapeHtml(lessonInfo?.title || 'AULA NÃO INFORMADA');
         const playerName = this.escapeHtml(score?.name || 'JOGADOR');
         const scoreValue = Number(score?.score || 0);
         const gameTime = this.formatGameTime(score?.gameTime);
