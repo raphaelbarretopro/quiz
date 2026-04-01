@@ -21,13 +21,13 @@ class Controller {
         this.correctStreak = 0;
         this.slotStreak = 0;
         this.lastAnswerWasCorrect = false;
-        this.pacmanBonusReward = 1000;
+        this.pacmanBonusReward = 100;
         this.pacmanBonusActive = false;
         this.pacmanTriggeredByQuestionCount = false;
-        this.enduroBonusReward = 1500;
+        this.enduroBonusReward = 100;
         this.enduroBonusActive = false;
         this.enduroTriggeredByQuestionCount = false;
-        this.trexBonusReward = 2000;
+        this.trexBonusReward = 100;
         this.trexBonusActive = false;
         this.trexFinalTriggered = false;
         this.slotMaxSpins = 3;
@@ -289,37 +289,95 @@ class Controller {
     handleAnswer(selectedValue, btnElement) {
         if (this.hasTimedOut) return;
         const q = this.model.getCurrentQuestion();
-        const normalizeAnswerValue = (value) => String(value ?? '')
-            .normalize('NFKC')
-            .trim()
-            .replace(/\s+/g, ' ')
-            .toLowerCase();
-        const normalizeAnswerList = (value) => {
-            const list = Array.isArray(value) ? value : [value];
-            return [...new Set(list.map(normalizeAnswerValue))].sort();
-        };
+        if (q?.type === 'combo' && this.normalizeAnswerValue(selectedValue) === '') {
+            return;
+        }
+        const result = this.evaluateAnswer(q, selectedValue);
+        this.lastAnswerWasCorrect = result.isCorrect;
 
-        const isCorrect = Array.isArray(q.correct) || Array.isArray(selectedValue)
-            ? JSON.stringify(normalizeAnswerList(q.correct)) === JSON.stringify(normalizeAnswerList(selectedValue))
-            : normalizeAnswerValue(q.correct) === normalizeAnswerValue(selectedValue);
-        this.lastAnswerWasCorrect = isCorrect;
-
-        if (isCorrect) {
+        if (result.isCorrect) {
             this.model.stats.correct++;
             this.correctStreak++;
             this.slotStreak++;
-            const oldScore = this.model.playerScore;
-            const newScore = this.model.addScore(this.model.pointsPerCorrect);
-            this.view.animateScoreIncrease(oldScore, newScore);
-            this.view.showFeedback(true, q.tip, this.model.playerName, btnElement, q);
         } else {
             this.correctStreak = 0;
             this.slotStreak = 0;
             this.model.registerMistake(q);
-            // Erro não pontua e também não desconta: mantém o score atual.
-            this.view.updateScoreDisplay(this.model.playerScore);
-            this.view.showFeedback(false, q.tip, this.model.playerName, btnElement, q);
         }
+
+        if (result.pointsAwarded > 0) {
+            const oldScore = this.model.playerScore;
+            const newScore = this.model.addScore(result.pointsAwarded);
+            this.view.animateScoreIncrease(oldScore, newScore);
+        } else {
+            // Sem acertos válidos: mantém o score atual.
+            this.view.updateScoreDisplay(this.model.playerScore);
+        }
+
+        this.view.showFeedback(result.isCorrect, q.tip, this.model.playerName, btnElement, q, result);
+    }
+
+    normalizeAnswerValue(value) {
+        return String(value ?? '')
+            .normalize('NFKC')
+            .trim()
+            .replace(/\s+/g, ' ')
+            .toLowerCase();
+    }
+
+    normalizeAnswerList(value) {
+        const list = Array.isArray(value) ? value : [value];
+        return [...new Set(list.map((item) => this.normalizeAnswerValue(item)).filter(Boolean))].sort();
+    }
+
+    evaluateAnswer(q, selectedValue) {
+        const pointsPerItem = this.model.pointsPerCorrect;
+
+        if (q.type === 'multi') {
+            const correctAnswers = this.normalizeAnswerList(q.correct);
+            const selectedAnswers = this.normalizeAnswerList(selectedValue);
+            const correctSet = new Set(correctAnswers);
+            const selectedSet = new Set(selectedAnswers);
+            const correctCount = [...selectedSet].filter((answer) => correctSet.has(answer)).length;
+            const totalItems = correctAnswers.length;
+
+            return {
+                isCorrect: totalItems > 0 && correctCount === totalItems && selectedSet.size === correctSet.size,
+                pointsAwarded: correctCount * pointsPerItem,
+                correctCount,
+                totalItems
+            };
+        }
+
+        if (q.type === 'drag') {
+            const assignments = selectedValue && typeof selectedValue === 'object' && !Array.isArray(selectedValue)
+                ? selectedValue
+                : {};
+            const items = Array.isArray(q.items) ? q.items : [];
+            const correctCount = items.filter((item) => {
+                const assignedZone = assignments[item.id];
+                return this.normalizeAnswerValue(assignedZone) === this.normalizeAnswerValue(item.match);
+            }).length;
+            const totalItems = items.length;
+
+            return {
+                isCorrect: totalItems > 0 && correctCount === totalItems,
+                pointsAwarded: correctCount * pointsPerItem,
+                correctCount,
+                totalItems
+            };
+        }
+
+        const isCorrect = Array.isArray(q.correct) || Array.isArray(selectedValue)
+            ? JSON.stringify(this.normalizeAnswerList(q.correct)) === JSON.stringify(this.normalizeAnswerList(selectedValue))
+            : this.normalizeAnswerValue(q.correct) === this.normalizeAnswerValue(selectedValue);
+
+        return {
+            isCorrect,
+            pointsAwarded: isCorrect ? pointsPerItem : 0,
+            correctCount: isCorrect ? 1 : 0,
+            totalItems: 1
+        };
     }
 
     async handleNext() {

@@ -572,7 +572,13 @@ export default class View {
             this.els.qTxt.appendChild(sel);
             this.els.qTxt.append(parts[1] || "");
             
-            this.els.valBtn.classList.remove('hidden');
+            this.els.valBtn.classList.add('hidden');
+            this.els.valBtn.disabled = true;
+            sel.addEventListener('change', () => {
+                const hasSelection = String(sel.value || '').trim() !== '';
+                this.els.valBtn.disabled = !hasSelection;
+                this.els.valBtn.classList.toggle('hidden', !hasSelection);
+            });
             this.els.valBtn.onclick = () => answerHandler(sel.value, null);
         } 
         else if (q.type === "multi") {
@@ -594,12 +600,14 @@ export default class View {
                 l.appendChild(span);
                 this.els.opts.appendChild(l);
             });
-            this.els.valBtn.classList.remove('hidden');
+            this.els.valBtn.classList.add('hidden');
             this.els.valBtn.disabled = true;
 
             const updateMultiValidateState = () => {
                 const checkedCount = this.els.opts.querySelectorAll('input:checked').length;
-                this.els.valBtn.disabled = checkedCount === 0;
+                const hasSelection = checkedCount > 0;
+                this.els.valBtn.disabled = !hasSelection;
+                this.els.valBtn.classList.toggle('hidden', !hasSelection);
             };
 
             this.els.opts.querySelectorAll('input[type="checkbox"]').forEach((input) => {
@@ -635,8 +643,32 @@ export default class View {
     renderDrag(q, answerHandler) {
         this.els.dragDrop.innerHTML = `<div class="drag-pool" id="drag-pool"></div><div class="drop-zones" id="drop-zones"></div>`;
         this.dragsFixed = 0;
-        let dragFailed = false;
         const shuffledItems = this.shuffle([...q.items]);
+
+        const updateZoneState = () => {
+            document.querySelectorAll('.target-zone').forEach((zone) => {
+                const hasCard = Boolean(zone.querySelector('.drag-card'));
+                zone.style.background = hasCard ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.1)';
+            });
+        };
+
+        const getAssignments = () => {
+            const assignments = {};
+            document.querySelectorAll('.target-zone').forEach((zone) => {
+                const card = zone.querySelector('.drag-card');
+                if (card) {
+                    assignments[card.id] = zone.dataset.match;
+                }
+            });
+            return assignments;
+        };
+
+        const updateDragValidateState = () => {
+            const placedCards = Object.keys(getAssignments()).length;
+            const canValidate = placedCards === q.items.length;
+            this.els.valBtn.disabled = !canValidate;
+            this.els.valBtn.classList.toggle('hidden', !canValidate);
+        };
         
         shuffledItems.forEach(item => {
             const div = document.createElement('div'); 
@@ -656,46 +688,79 @@ export default class View {
         
         document.querySelectorAll('.target-zone').forEach(zone => {
             zone.ondragover = (e) => { e.preventDefault(); zone.style.background = "rgba(0,212,255,0.2)"; };
-            zone.ondragleave = () => { zone.style.background = "rgba(255,255,255,0.1)"; };
+            zone.ondragleave = () => updateZoneState();
             zone.ondrop = (e) => {
-                if (dragFailed) return;
+                e.preventDefault();
                 const id = e.dataTransfer.getData("text");
-                const item = q.items.find(i => i.id === id);
-                if (!item) return;
-                // Valida o vínculo item -> zona pelo id de correspondência.
-                if (item.match === zone.dataset.match) {
-                    zone.appendChild(document.getElementById(id)); 
-                    zone.style.background = "#2ecc71";
-                    this.dragsFixed++;
-                    if (this.dragsFixed === q.items.length) { 
-                        answerHandler(q.correct, null); 
-                    }
-                } else {
-                    dragFailed = true;
-                    answerHandler({ __dragdropWrong: true }, null);
+                const card = document.getElementById(id);
+                if (!card) return;
+
+                const currentCard = zone.querySelector('.drag-card');
+                if (currentCard && currentCard.id !== id) {
+                    updateZoneState();
+                    return;
                 }
+
+                zone.appendChild(card);
+                updateZoneState();
+                updateDragValidateState();
             };
         });
+
+        this.els.valBtn.classList.add('hidden');
+        this.els.valBtn.disabled = true;
+        this.els.valBtn.onclick = () => {
+            const assignments = getAssignments();
+            if (Object.keys(assignments).length !== q.items.length) return;
+            answerHandler(assignments, null);
+        };
+
+        updateZoneState();
+        updateDragValidateState();
     }
 
-    showFeedback(isCorrect, tip, playerName, btnElement, questionData = null) {
+    showFeedback(isCorrect, tip, playerName, btnElement, questionData = null, answerResult = null) {
+        const isPartial = !isCorrect && Number(answerResult?.pointsAwarded || 0) > 0 && Number(answerResult?.totalItems || 0) > 1;
+        const tipFrame = `
+            <div class="feedback-tip-frame">
+                <span class="feedback-tip-label">Dica de feedback</span>
+                <div class="feedback-tip-text">${tip}</div>
+            </div>
+        `;
+
         if (isCorrect) {
-            this.els.fbArea.innerHTML = `<span style="color:#2ecc71">✓ Excelente análise, ${playerName}!</span><br><small style="color:#ccc">${tip}</small>`;
+            this.els.fbArea.innerHTML = `
+                <span class="feedback-title" style="color:#2ecc71">✓ Excelente análise, ${playerName}!</span>
+                ${tipFrame}
+            `;
             if (btnElement) btnElement.style.background = "#2ecc71";
+            this.els.nextBtn.classList.remove('hidden');
+            this.els.valBtn.classList.add('hidden');
+        } else if (isPartial) {
+            const correctCount = Number(answerResult?.correctCount || 0);
+            const totalItems = Number(answerResult?.totalItems || 0);
+            const pointsAwarded = Number(answerResult?.pointsAwarded || 0);
+
+            this.els.fbArea.innerHTML = `
+                <span class="feedback-title" style="color:#ffd166">△ Acerto parcial, ${playerName}.</span>
+                ${tipFrame}
+                <div class="correct-answer-box"><b>Pontuação:</b> ${correctCount}/${totalItems} itens corretos, +${pointsAwarded} pontos</div>
+            `;
+            this.lockQuestionAfterError(questionData, btnElement);
             this.els.nextBtn.classList.remove('hidden');
             this.els.valBtn.classList.add('hidden');
         } else {
             if (btnElement) btnElement.style.background = "#ff4b4b";
             if (questionData?.type === 'drag') {
                 this.els.fbArea.innerHTML = `
-                    <span style="color:#ff8f8f">✗ Resposta incorreta, ${playerName}.</span><br>
-                    <small style="color:#ccc">${tip}</small>
+                    <span class="feedback-title" style="color:#ff8f8f">✗ Resposta incorreta, ${playerName}.</span>
+                    ${tipFrame}
                 `;
             } else {
                 const correctAnswer = this.formatCorrectAnswer(questionData);
                 this.els.fbArea.innerHTML = `
-                    <span style="color:#ff8f8f">✗ Resposta incorreta, ${playerName}.</span><br>
-                    <small style="color:#ccc">${tip}</small><br>
+                    <span class="feedback-title" style="color:#ff8f8f">✗ Resposta incorreta, ${playerName}.</span>
+                    ${tipFrame}
                     <div class="correct-answer-box"><b>Resposta correta:</b> ${correctAnswer}</div>
                 `;
             }
@@ -747,35 +812,32 @@ export default class View {
         if (q.type === 'drag') {
             const zones = Array.from(this.els.dragDrop.querySelectorAll('.target-zone'));
             const cards = Array.from(this.els.dragDrop.querySelectorAll('.drag-card'));
-
-            const zoneByMatch = new Map(zones.map((zone) => [zone.dataset.match, zone]));
             zones.forEach((zone) => {
-                zone.innerHTML = '';
-                zone.style.background = 'rgba(255,255,255,0.12)';
-            });
-
-            // Mostra a solução no próprio grid de drop para economizar espaço na tela.
-            q.items.forEach((item) => {
-                const targetZone = zoneByMatch.get(item.match);
-                const card = document.getElementById(item.id) || cards.find((c) => c.id === item.id);
-                if (!targetZone || !card) return;
-                card.draggable = false;
-                card.classList.add('locked-option');
-                card.style.pointerEvents = 'none';
-                targetZone.appendChild(card);
+                zone.classList.remove('is-correct');
+                zone.classList.add('locked-option');
+                zone.style.pointerEvents = 'none';
             });
 
             cards.forEach((card) => {
                 card.draggable = false;
+                card.classList.remove('is-correct');
                 card.classList.add('locked-option');
                 card.style.pointerEvents = 'none';
             });
 
-            const zonesLocked = this.els.dragDrop.querySelectorAll('.target-zone');
-            zonesLocked.forEach((zone) => {
-                zone.classList.add('locked-option');
-                zone.style.pointerEvents = 'none';
+            q.items.forEach((item) => {
+                const card = document.getElementById(item.id) || cards.find((c) => c.id === item.id);
+                if (!card) return;
+
+                const parentZone = card.parentElement;
+                if (!parentZone || !parentZone.classList.contains('target-zone')) return;
+
+                if (parentZone.dataset.match === item.match) {
+                    card.classList.add('is-correct');
+                    parentZone.classList.add('is-correct');
+                }
             });
+
             return;
         }
 
@@ -3496,7 +3558,6 @@ export default class View {
     showPacmanFinalSummary(baseScore, reward, cherryBonus = 0) {
         const safeBase = Number(baseScore) || 0;
         const safeReward = Math.max(0, Number(reward) || 0);
-        const safeCherryBonus = Math.max(0, Number(cherryBonus) || 0);
 
         const overlay = document.createElement('div');
         overlay.className = 'slot-summary-overlay';
@@ -3533,23 +3594,6 @@ export default class View {
                 this.animateScoreIncrease(oldScore, runningScore);
             }, 700);
 
-            if (safeCherryBonus > 0) {
-                setTimeout(() => {
-                    const cherryRow = document.createElement('div');
-                    cherryRow.className = 'slot-summary-row';
-                    cherryRow.innerHTML = `
-                        <span>🍒 Cerejas coletadas</span>
-                        <strong>+${safeCherryBonus}</strong>
-                    `;
-                    listEl.appendChild(cherryRow);
-
-                    const oldScore2 = runningScore;
-                    runningScore += safeCherryBonus;
-                    totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
-                    this.animateScoreIncrease(oldScore2, runningScore);
-                }, 1300);
-            }
-
             setTimeout(() => {
                 if (this.cashRegisterAudio) {
                     this.cashRegisterAudio.pause();
@@ -3572,8 +3616,6 @@ export default class View {
         const safeBase = Number(baseScore) || 0;
         const safeReward = Math.max(0, Number(reward) || 0);
         const safeStages = Math.max(0, Number(stagesCompleted) || 0);
-        const safeCarsPassed = Math.max(0, Number(carsPassed) || 0);
-        const trafficBonus = safeCarsPassed * 10;
 
         const overlay = document.createElement('div');
         overlay.className = 'slot-summary-overlay';
@@ -3620,21 +3662,6 @@ export default class View {
                 totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
                 this.animateScoreIncrease(oldScore, runningScore);
             }, 1250);
-
-            setTimeout(() => {
-                const rowTraffic = document.createElement('div');
-                rowTraffic.className = 'slot-summary-row';
-                rowTraffic.innerHTML = `
-                    <span>Carros ultrapassados (${safeCarsPassed} x 10)</span>
-                    <strong>+${trafficBonus}</strong>
-                `;
-                listEl.appendChild(rowTraffic);
-
-                const oldScore2 = runningScore;
-                runningScore += trafficBonus;
-                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
-                this.animateScoreIncrease(oldScore2, runningScore);
-            }, 2000);
 
             setTimeout(() => {
                 if (this.cashRegisterAudio) {
@@ -3751,7 +3778,6 @@ export default class View {
         const safeBase = Number(baseScore) || 0;
         const safeReward = Math.max(0, Number(reward) || 0);
         const safeDistance = Math.max(0, Number(distance) || 0);
-        const distanceBonus = Math.floor(safeDistance / 100) * 10;
 
         const overlay = document.createElement('div');
         overlay.className = 'slot-summary-overlay';
@@ -3798,21 +3824,6 @@ export default class View {
                 totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
                 this.animateScoreIncrease(oldScore, runningScore);
             }, 1250);
-
-            setTimeout(() => {
-                const rowDistance = document.createElement('div');
-                rowDistance.className = 'slot-summary-row';
-                rowDistance.innerHTML = `
-                    <span>Bônus de distância (${Math.floor(safeDistance / 100)} x 10)</span>
-                    <strong>+${distanceBonus}</strong>
-                `;
-                listEl.appendChild(rowDistance);
-
-                const oldScore2 = runningScore;
-                runningScore += distanceBonus;
-                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
-                this.animateScoreIncrease(oldScore2, runningScore);
-            }, 2000);
 
             setTimeout(() => {
                 if (this.cashRegisterAudio) {

@@ -33,7 +33,7 @@ export default class Model {
 
     getRequestedLessonSlug() {
         const params = new URLSearchParams(window.location.search);
-        const byParam = String(params.get('aula') || params.get('lesson') || '').trim().toLowerCase();
+        const byParam = String(params.get('cod') || params.get('aula') || params.get('lesson') || '').trim().toLowerCase();
         if (byParam) return byParam;
 
         const pathMatch = window.location.pathname.match(/\/(aula-[a-z0-9-]+)(?:\/|$)/i);
