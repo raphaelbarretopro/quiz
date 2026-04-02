@@ -35,6 +35,10 @@ class Controller {
         this.marioBonusActive = false;
         this.spaceBonusReward = 100;
         this.spaceBonusActive = false;
+        this.snakeBonusReward = 100;
+        this.snakeBonusActive = false;
+        this.memoryBonusReward = 100;
+        this.memoryBonusActive = false;
         this.activeBonusGameId = null;
         this.sokobanResolve = null;
         this.sokobanMaxLives = 3;
@@ -64,6 +68,8 @@ class Controller {
         this.view.bindSokobanTest(this.handleSokobanTest.bind(this));
         this.view.bindMarioTest(this.handleMarioTest.bind(this));
         this.view.bindSpaceTest(this.handleSpaceTest.bind(this));
+        this.view.bindSnakeTest(this.handleSnakeTest.bind(this));
+        this.view.bindMemoryTest(this.handleMemoryTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -630,6 +636,8 @@ class Controller {
             || this.trexBonusActive
             || this.marioBonusActive
             || this.spaceBonusActive
+            || this.snakeBonusActive
+                || this.memoryBonusActive
             || Boolean(this.activeBonusGameId);
     }
 
@@ -640,6 +648,8 @@ class Controller {
         if (gameId === 'sokoban') return this.sokobanBonusReward;
         if (gameId === 'mario') return this.marioBonusReward;
         if (gameId === 'space') return this.spaceBonusReward;
+        if (gameId === 'snake') return this.snakeBonusReward;
+        if (gameId === 'memory') return this.memoryBonusReward;
         return 0;
     }
 
@@ -683,6 +693,8 @@ class Controller {
         this.trexBonusActive = gameId === 'trex';
         this.marioBonusActive = gameId === 'mario';
         this.spaceBonusActive = gameId === 'space';
+        this.snakeBonusActive = gameId === 'snake';
+        this.memoryBonusActive = gameId === 'memory';
 
         try {
             await selectedGame.run({
@@ -699,6 +711,8 @@ class Controller {
             this.trexBonusActive = false;
             this.marioBonusActive = false;
             this.spaceBonusActive = false;
+            this.snakeBonusActive = false;
+            this.memoryBonusActive = false;
         }
     }
 
@@ -741,6 +755,20 @@ class Controller {
         if (this.hasTimedOut) return;
         if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
         await this.runScheduledGameById('space');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleSnakeTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('snake');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleMemoryTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('memory');
         if (!this.hasTimedOut) this.renderStep();
     }
 }

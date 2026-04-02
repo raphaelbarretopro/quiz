@@ -116,7 +116,25 @@ export default class View {
             spaceTimer: document.getElementById('space-timer'),
             spaceLives: document.getElementById('space-lives'),
             spaceGiveUpBtn: document.getElementById('space-giveup-btn'),
-            spaceTestBtn: document.getElementById('space-test-btn')
+            spaceTestBtn: document.getElementById('space-test-btn'),
+
+            // Bonus especial estilo SNAKE
+            snakeBonusModal: document.getElementById('snake-bonus-modal'),
+            snakeCanvas: document.getElementById('snake-canvas'),
+            snakeScore: document.getElementById('snake-score'),
+            snakeTimer: document.getElementById('snake-timer'),
+            snakeLives: document.getElementById('snake-lives'),
+            snakeGiveUpBtn: document.getElementById('snake-giveup-btn'),
+            snakeTestBtn: document.getElementById('snake-test-btn'),
+
+            // Bonus especial estilo MEMÓRIA
+            memoryBonusModal: document.getElementById('memory-bonus-modal'),
+            memoryGrid: document.getElementById('memory-grid'),
+            memoryPairs: document.getElementById('memory-pairs'),
+            memoryTimer: document.getElementById('memory-timer'),
+            memoryLives: document.getElementById('memory-lives'),
+            memoryGiveUpBtn: document.getElementById('memory-giveup-btn'),
+            memoryTestBtn: document.getElementById('memory-test-btn')
         };
 
         this.rot = 0;
@@ -133,6 +151,8 @@ export default class View {
         this.trexSession = null;
         this.marioSession = null;
         this.spaceSession = null;
+        this.snakeSession = null;
+        this.memorySession = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
         this.correctAnswerAudio.preload = 'auto';
@@ -463,6 +483,16 @@ export default class View {
     bindSpaceTest(handler) {
         if (!this.els.spaceTestBtn) return;
         this.els.spaceTestBtn.addEventListener('click', handler);
+    }
+
+    bindSnakeTest(handler) {
+        if (!this.els.snakeTestBtn) return;
+        this.els.snakeTestBtn.addEventListener('click', handler);
+    }
+
+    bindMemoryTest(handler) {
+        if (!this.els.memoryTestBtn) return;
+        this.els.memoryTestBtn.addEventListener('click', handler);
     }
 
     showPortal() {
@@ -5272,4 +5302,766 @@ export default class View {
         return { prize, isJackpot: prize >= 150 };
 
     }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // SNAKE BONUS GAME
+    // ─────────────────────────────────────────────────────────────────────────
+
+    runSnakeBonusLevel() {
+        const modal = this.els.snakeBonusModal;
+        const canvas = this.els.snakeCanvas;
+        if (!modal || !canvas) return Promise.resolve({ won: false, applesEaten: 0, reason: 'no_canvas' });
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return Promise.resolve({ won: false, applesEaten: 0, reason: 'no_ctx' });
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.snakeSession && this.snakeSession.cleanup) {
+            this.snakeSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        // ── CONSTANTS ───────────────────────────────────────────────────────
+        const COLS = 20;
+        const ROWS = 20;
+        const CELL = Math.floor(canvas.width / COLS); // 25px
+        const GAME_DURATION = 60;
+        const INITIAL_SPEED = 160;
+        const MIN_SPEED = 75;
+
+        // ── STATE ────────────────────────────────────────────────────────────
+        let lives = 3;
+        let applesEaten = 0;
+        let timeLeft = GAME_DURATION;
+        let finished = false;
+        let speed = INITIAL_SPEED;
+        let snake = [];
+        let dir = { x: 1, y: 0 };
+        let nextDir = { x: 1, y: 0 };
+        let apple = null;
+        let moveInterval = null;
+        let timerTick = null;
+        let keyHandler = null;
+        let respawnTimer = null;
+        let isRespawning = false;
+
+        // ── HELPERS ──────────────────────────────────────────────────────────
+        const randomApple = () => {
+            let pos;
+            let tries = 0;
+            do {
+                pos = { x: Math.floor(Math.random() * COLS), y: Math.floor(Math.random() * ROWS) };
+                tries++;
+            } while (tries < 200 && snake.some(seg => seg.x === pos.x && seg.y === pos.y));
+            return pos;
+        };
+
+        const initSnake = () => {
+            const cx = Math.floor(COLS / 2);
+            const cy = Math.floor(ROWS / 2);
+            snake = [
+                { x: cx, y: cy },
+                { x: cx - 1, y: cy },
+                { x: cx - 2, y: cy }
+            ];
+            dir = { x: 1, y: 0 };
+            nextDir = { x: 1, y: 0 };
+            apple = randomApple();
+        };
+
+        // ── AUDIO ────────────────────────────────────────────────────────────
+        const playEatSound = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            [0, 0.06].forEach((delay, i) => {
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(i === 0 ? 660 : 880, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.22, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.08);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.1);
+            });
+        };
+
+        const playDeathSound = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(380, now);
+            osc.frequency.exponentialRampToValueAtTime(80, now + 0.45);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(0.28, now + 0.015);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + 0.55);
+        };
+
+        const playTickSound = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(1200, now);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(0.035, now + 0.004);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.025);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + 0.03);
+        };
+
+        // ── HUD ──────────────────────────────────────────────────────────────
+        const updateHud = () => {
+            if (this.els.snakeScore) this.els.snakeScore.textContent = `🍎 ${applesEaten}`;
+            if (this.els.snakeTimer) this.els.snakeTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.snakeLives) this.els.snakeLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        // ── DRAW ──────────────────────────────────────────────────────────────
+        const draw = () => {
+            const W = canvas.width;
+            const H = canvas.height;
+
+            // Background
+            ctx.fillStyle = '#000a00';
+            ctx.fillRect(0, 0, W, H);
+
+            // Subtle grid
+            ctx.strokeStyle = 'rgba(74, 222, 128, 0.07)';
+            ctx.lineWidth = 0.5;
+            for (let x = 0; x <= COLS; x++) {
+                ctx.beginPath();
+                ctx.moveTo(x * CELL, 0);
+                ctx.lineTo(x * CELL, H);
+                ctx.stroke();
+            }
+            for (let y = 0; y <= ROWS; y++) {
+                ctx.beginPath();
+                ctx.moveTo(0, y * CELL);
+                ctx.lineTo(W, y * CELL);
+                ctx.stroke();
+            }
+
+            // Apple
+            if (apple) {
+                const ax = apple.x * CELL + CELL / 2;
+                const ay = apple.y * CELL + CELL / 2;
+                const r = CELL / 2 - 2;
+                ctx.fillStyle = '#ef4444';
+                ctx.beginPath();
+                ctx.arc(ax, ay, r, 0, Math.PI * 2);
+                ctx.fill();
+                // Shine
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.35)';
+                ctx.beginPath();
+                ctx.arc(ax - r * 0.32, ay - r * 0.3, r * 0.36, 0, Math.PI * 2);
+                ctx.fill();
+                // Stem
+                ctx.strokeStyle = '#4ade80';
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(ax + 1, ay - r);
+                ctx.quadraticCurveTo(ax + r * 0.5, ay - r * 1.5, ax + r * 0.8, ay - r * 1.2);
+                ctx.stroke();
+            }
+
+            // Snake
+            snake.forEach((seg, idx) => {
+                const sx = seg.x * CELL + 1;
+                const sy = seg.y * CELL + 1;
+                const sw = CELL - 2;
+                const rad = idx === 0 ? 6 : (idx === snake.length - 1 ? 4 : 3);
+
+                if (isRespawning && Math.floor(Date.now() / 150) % 2 === 0) {
+                    ctx.globalAlpha = 0.35;
+                }
+
+                if (idx === 0) {
+                    // Head — bright green
+                    ctx.fillStyle = '#22d363';
+                    ctx.beginPath();
+                    if (ctx.roundRect) {
+                        ctx.roundRect(sx, sy, sw, sw, rad);
+                    } else {
+                        ctx.rect(sx, sy, sw, sw);
+                    }
+                    ctx.fill();
+
+                    // Eyes
+                    ctx.fillStyle = '#000';
+                    const eyeR = 2.5;
+                    let e1x, e1y, e2x, e2y;
+                    if (dir.x === 1)  { e1x = sx + sw * 0.72; e1y = sy + sw * 0.24; e2x = sx + sw * 0.72; e2y = sy + sw * 0.74; }
+                    else if (dir.x === -1) { e1x = sx + sw * 0.28; e1y = sy + sw * 0.24; e2x = sx + sw * 0.28; e2y = sy + sw * 0.74; }
+                    else if (dir.y === -1) { e1x = sx + sw * 0.24; e1y = sy + sw * 0.28; e2x = sx + sw * 0.74; e2y = sy + sw * 0.28; }
+                    else              { e1x = sx + sw * 0.24; e1y = sy + sw * 0.72; e2x = sx + sw * 0.74; e2y = sy + sw * 0.72; }
+                    ctx.beginPath();
+                    ctx.arc(e1x, e1y, eyeR, 0, Math.PI * 2);
+                    ctx.arc(e2x, e2y, eyeR, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Pupils shine
+                    ctx.fillStyle = '#ffffff';
+                    ctx.beginPath();
+                    ctx.arc(e1x + 0.8, e1y - 0.8, 1, 0, Math.PI * 2);
+                    ctx.arc(e2x + 0.8, e2y - 0.8, 1, 0, Math.PI * 2);
+                    ctx.fill();
+                } else {
+                    const bodyLightness = idx % 2 === 0 ? '#15803d' : '#16a34a';
+                    ctx.fillStyle = idx === snake.length - 1 ? '#14532d' : bodyLightness;
+                    ctx.beginPath();
+                    const inset = idx === snake.length - 1 ? 2 : 0;
+                    if (ctx.roundRect) {
+                        ctx.roundRect(sx + inset, sy + inset, sw - inset * 2, sw - inset * 2, rad);
+                    } else {
+                        ctx.rect(sx + inset, sy + inset, sw - inset * 2, sw - inset * 2);
+                    }
+                    ctx.fill();
+                }
+
+                ctx.globalAlpha = 1;
+            });
+
+            // On-canvas mini HUD
+            ctx.font = `bold ${Math.max(10, CELL * 0.52)}px Orbitron, monospace`;
+            ctx.fillStyle = 'rgba(0,0,0,0.55)';
+            ctx.fillRect(0, 0, W, CELL - 2);
+            ctx.fillStyle = '#4ade80';
+            ctx.textAlign = 'left';
+            ctx.fillText(`🍎 ${applesEaten}`, 6, CELL - 6);
+            ctx.textAlign = 'right';
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText(`⏱ ${timeLeft}s`, W - 6, CELL - 6);
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#ff6b6b';
+            ctx.fillText('❤️'.repeat(Math.max(0, lives)), W / 2, CELL - 6);
+            ctx.textAlign = 'left';
+        };
+
+        // ── STEP (game tick) ─────────────────────────────────────────────────
+        const step = () => {
+            if (finished || isRespawning) return;
+
+            // Apply buffered direction (prevent reversing into self)
+            if (!(nextDir.x === -dir.x && nextDir.y === -dir.y)) {
+                dir = { ...nextDir };
+            }
+
+            const head = snake[0];
+            const nx = head.x + dir.x;
+            const ny = head.y + dir.y;
+
+            const hitWall = nx < 0 || ny < 0 || nx >= COLS || ny >= ROWS;
+            const hitSelf = snake.slice(1, -1).some(seg => seg.x === nx && seg.y === ny);
+
+            if (hitWall || hitSelf) {
+                playDeathSound();
+                lives--;
+                updateHud();
+                draw();
+
+                if (lives <= 0) {
+                    if (moveInterval) { clearInterval(moveInterval); moveInterval = null; }
+                    setTimeout(() => finish(false, 'no_lives'), 500);
+                    return;
+                }
+
+                // Respawn with flash
+                isRespawning = true;
+                if (moveInterval) { clearInterval(moveInterval); moveInterval = null; }
+                respawnTimer = setTimeout(() => {
+                    if (finished) return;
+                    isRespawning = false;
+                    initSnake();
+                    speed = INITIAL_SPEED;
+                    draw();
+                    moveInterval = setInterval(step, speed);
+                }, 900);
+                return;
+            }
+
+            const newHead = { x: nx, y: ny };
+            snake.unshift(newHead);
+
+            if (apple && nx === apple.x && ny === apple.y) {
+                applesEaten++;
+                playEatSound();
+                apple = randomApple();
+                updateHud();
+                // Speed up slightly
+                const newSpeed = Math.max(MIN_SPEED, speed - 4);
+                if (newSpeed !== speed) {
+                    speed = newSpeed;
+                    if (moveInterval) { clearInterval(moveInterval); moveInterval = null; }
+                    moveInterval = setInterval(step, speed);
+                }
+            } else {
+                snake.pop();
+            }
+
+            playTickSound();
+            draw();
+        };
+
+        // ── FINISH ────────────────────────────────────────────────────────────
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+
+            if (timerTick)    { clearInterval(timerTick);  timerTick = null; }
+            if (moveInterval) { clearInterval(moveInterval); moveInterval = null; }
+            if (respawnTimer) { clearTimeout(respawnTimer); respawnTimer = null; }
+            if (keyHandler)   { document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+
+            modal.classList.add('hidden');
+            resolvePromise({ won, applesEaten, reason });
+        };
+
+        // ── INPUT ─────────────────────────────────────────────────────────────
+        keyHandler = (e) => {
+            if (modal.classList.contains('hidden')) return;
+            const k = e.key;
+            if (k === 'ArrowUp'    || k === 'w' || k === 'W') { nextDir = { x: 0,  y: -1 }; e.preventDefault(); }
+            if (k === 'ArrowDown'  || k === 's' || k === 'S') { nextDir = { x: 0,  y:  1 }; e.preventDefault(); }
+            if (k === 'ArrowLeft'  || k === 'a' || k === 'A') { nextDir = { x: -1, y:  0 }; e.preventDefault(); }
+            if (k === 'ArrowRight' || k === 'd' || k === 'D') { nextDir = { x:  1, y:  0 }; e.preventDefault(); }
+        };
+        document.addEventListener('keydown', keyHandler);
+
+        if (this.els.snakeGiveUpBtn) {
+            this.els.snakeGiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        // ── TIMER ─────────────────────────────────────────────────────────────
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            draw();
+            if (timeLeft <= 0) finish(true, 'completed');
+        }, 1000);
+
+        // ── INIT ──────────────────────────────────────────────────────────────
+        initSnake();
+        updateHud();
+        draw();
+        moveInterval = setInterval(step, speed);
+
+        this.snakeSession = { cleanup: (won = false) => finish(won) };
+
+        return promise;
+    }
+
+    showSnakeVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🐍🏆</h3>
+            <div style="font-size:4.5rem; margin:16px 0; line-height:1.2;">🎉🐍🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, sobreviveu 1 minuto completo no SNAKE!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        // Victory fanfare (synthesized)
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            const notes = [523.25, 659.25, 783.99, 1046.5];
+            notes.forEach((freq, i) => {
+                const delay = i * 0.13;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                const now = ac.currentTime;
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.22, now + delay + 0.015);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.28);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.32);
+            });
+        }
+
+        return new Promise((resolve) => {
+            let done = false;
+            const cleanup = () => {
+                if (done) return;
+                done = true;
+                overlay.remove();
+                resolve();
+            };
+            setTimeout(cleanup, 6000);
+        });
+    }
+
+    showSnakeFinalSummary(baseScore, reward, applesEaten = 0) {
+        const safeBase      = Number(baseScore) || 0;
+        const safeReward    = Math.max(0, Number(reward) || 0);
+        const safeApples    = Math.max(0, Number(applesEaten) || 0);
+        const appleBonus    = safeApples * 5;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO SNAKE 🐍</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🐍🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl  = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Maçãs comidas (×5 pts)</span><strong>+${appleBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 600);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Sobreviveu 1 minuto inteiro</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += appleBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1250);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // MEMORY BONUS GAME
+    // ─────────────────────────────────────────────────────────────────────────
+    runMemoryBonusLevel() {
+        const modal = this.els.memoryBonusModal;
+        const grid = this.els.memoryGrid;
+        if (!modal || !grid) return Promise.resolve({ won: false, pairsMatched: 0, reason: 'no_element' });
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.memorySession && this.memorySession.cleanup) {
+            this.memorySession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        // ── CONSTANTS ───────────────────────────────────────────────────────
+        // Mesmas frutas-base do caça-níquel para manter identidade visual.
+        const EMOJIS = ['🍒', '🍋', '🍊', '🍇', '🍉', '🍑'];
+        const TOTAL_PAIRS = EMOJIS.length;
+        const GAME_DURATION = 60;
+
+        // ── STATE ────────────────────────────────────────────────────────────
+        let lives = 6;
+        let pairsMatched = 0;
+        let timeLeft = GAME_DURATION;
+        let finished = false;
+        let flippedCards = [];
+        let locked = false;
+        let timerTick = null;
+
+        // ── AUDIO ────────────────────────────────────────────────────────────
+        const playFlipSound = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(800, now);
+            osc.frequency.exponentialRampToValueAtTime(1200, now + 0.05);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(0.15, now + 0.005);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + 0.1);
+        };
+
+        const playMatchSound = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            [0, 0.09].forEach((delay, i) => {
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(i === 0 ? 880 : 1108, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.22, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.15);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.18);
+            });
+        };
+
+        const playWrongSound = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(220, now);
+            osc.frequency.exponentialRampToValueAtTime(110, now + 0.35);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(0.18, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + 0.45);
+        };
+
+        // ── HUD ──────────────────────────────────────────────────────────────
+        const updateHud = () => {
+            if (this.els.memoryPairs) this.els.memoryPairs.textContent = `Pares: ${pairsMatched}/${TOTAL_PAIRS}`;
+            if (this.els.memoryTimer) this.els.memoryTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.memoryLives) this.els.memoryLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        // ── BUILD GRID ────────────────────────────────────────────────────────
+        const symbols = [...EMOJIS, ...EMOJIS].sort(() => Math.random() - 0.5);
+        grid.innerHTML = '';
+        symbols.forEach((emoji) => {
+            const card = document.createElement('div');
+            card.className = 'memory-card';
+            card.dataset.symbol = emoji;
+            card.innerHTML = `
+                <div class="memory-card-inner">
+                    <div class="memory-card-front">❓</div>
+                    <div class="memory-card-back">${emoji}</div>
+                </div>
+            `;
+            card.addEventListener('click', () => onCardClick(card));
+            grid.appendChild(card);
+        });
+
+        // ── CARD CLICK ────────────────────────────────────────────────────────
+        const onCardClick = (card) => {
+            if (locked || finished) return;
+            if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+
+            playFlipSound();
+            card.classList.add('flipped');
+            flippedCards.push(card);
+
+            if (flippedCards.length < 2) return;
+
+            locked = true;
+            const [cardA, cardB] = flippedCards;
+            flippedCards = [];
+
+            if (cardA.dataset.symbol === cardB.dataset.symbol) {
+                // Match!
+                setTimeout(() => {
+                    playMatchSound();
+                    cardA.classList.add('matched');
+                    cardB.classList.add('matched');
+                    pairsMatched++;
+                    updateHud();
+                    locked = false;
+                    if (pairsMatched === TOTAL_PAIRS) {
+                        setTimeout(() => finish(true, 'completed'), 400);
+                    }
+                }, 300);
+            } else {
+                // No match
+                setTimeout(() => {
+                    playWrongSound();
+                    cardA.classList.add('wrong');
+                    cardB.classList.add('wrong');
+                    setTimeout(() => {
+                        cardA.classList.remove('flipped', 'wrong');
+                        cardB.classList.remove('flipped', 'wrong');
+                        locked = false;
+                        lives--;
+                        updateHud();
+                        if (lives <= 0) finish(false, 'no_lives');
+                    }, 400);
+                }, 600);
+            }
+        };
+
+        // ── FINISH ────────────────────────────────────────────────────────────
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+            if (timerTick) { clearInterval(timerTick); timerTick = null; }
+            modal.classList.add('hidden');
+            resolvePromise({ won, pairsMatched, reason });
+        };
+
+        // ── GIVE UP BUTTON ────────────────────────────────────────────────────
+        if (this.els.memoryGiveUpBtn) {
+            this.els.memoryGiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        // ── TIMER ─────────────────────────────────────────────────────────────
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) finish(false, 'timeout');
+        }, 1000);
+
+        // ── INIT ──────────────────────────────────────────────────────────────
+        updateHud();
+        this.memorySession = { cleanup: (won = false) => finish(won) };
+        return promise;
+    }
+
+    showMemoryVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🧠🏆</h3>
+            <div style="font-size:4.5rem; margin:16px 0; line-height:1.2;">🎉🧠🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, encontrou todos os pares no JOGO DA MEMÓRIA!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        // Victory fanfare (synthesized — ascending arpeggio)
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            const notes = [523.25, 659.25, 783.99, 1046.5];
+            notes.forEach((freq, i) => {
+                const delay = i * 0.13;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                const now = ac.currentTime;
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.22, now + delay + 0.015);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.28);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.32);
+            });
+        }
+
+        return new Promise((resolve) => {
+            let done = false;
+            const cleanup = () => {
+                if (done) return;
+                done = true;
+                overlay.remove();
+                resolve();
+            };
+            setTimeout(cleanup, 6000);
+        });
+    }
+
+    showMemoryFinalSummary(baseScore, reward, pairsMatched = 0) {
+        const safeBase      = Number(baseScore) || 0;
+        const safeReward    = Math.max(0, Number(reward) || 0);
+        const safePairs     = Math.max(0, Number(pairsMatched) || 0);
+        const pairsBonus    = safePairs * 10;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO MEMÓRIA 🧠</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🧠🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl  = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Pares encontrados (×10 pts)</span><strong>+${pairsBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 600);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Completou todos os pares</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += pairsBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1250);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
 }
