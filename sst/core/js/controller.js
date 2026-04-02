@@ -134,6 +134,7 @@ class Controller {
         this.view.updateTimerDisplay(this.gameDurationMs / 1000);
         this.view.updateTotalTimeDisplay(0);
         this.view.setTotalTimeVisibility(true);
+        this.view.updateStreakHud(0, 1, true);
         this.startTotalTimer();
         this.view.setTimerVisibility(false);
         this.view.els.startScreen.classList.add('hidden');
@@ -383,6 +384,8 @@ class Controller {
         const adjustedPoints = result.isCorrect
             ? Math.round(result.pointsAwarded * streakMultiplier)
             : result.pointsAwarded;
+
+        this.view.updateStreakHud(this.correctStreak, streakMultiplier, true);
 
         if (adjustedPoints > 0) {
             const oldScore = this.model.playerScore;

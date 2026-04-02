@@ -111,6 +111,93 @@ label,
     text-shadow: 0 0 8px rgba(0, 229, 255, 0.45);
 }
 
+.streak-popup {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.86);
+    z-index: 2400;
+    min-width: 320px;
+    text-align: center;
+    pointer-events: none;
+    padding: 18px 24px;
+    border-radius: 18px;
+    border: 2px solid rgba(255, 213, 120, 0.95);
+    background: radial-gradient(circle at 50% 20%, rgba(255, 201, 92, 0.2), rgba(28, 12, 0, 0.94) 55%);
+    box-shadow: 0 0 28px rgba(255, 166, 0, 0.52), inset 0 0 18px rgba(255, 225, 160, 0.24);
+    opacity: 0;
+}
+
+.streak-popup.show {
+    animation: streakPopIn 260ms cubic-bezier(0.2, 0.9, 0.2, 1) forwards, streakPulse 900ms ease-in-out 280ms;
+}
+
+.streak-popup.hide {
+    animation: streakPopOut 260ms ease-in forwards;
+}
+
+.streak-popup-title {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    color: #ffd98a;
+    opacity: 0.92;
+}
+
+.streak-popup-value {
+    font-family: var(--font-title);
+    font-size: 3.1rem;
+    line-height: 1;
+    color: #fff3ce;
+    text-shadow: 0 0 12px rgba(255, 210, 100, 0.72);
+    margin: 3px 0;
+}
+
+.streak-popup-multiplier {
+    display: inline-block;
+    margin-top: 4px;
+    font-family: var(--font-title);
+    font-size: 1.25rem;
+    color: #111;
+    background: linear-gradient(90deg, #ffd05f, #ff9f2f);
+    border-radius: 999px;
+    padding: 3px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 14px rgba(255, 175, 68, 0.6);
+}
+
+@keyframes streakPopIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes streakPopOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -56%) scale(0.86);
+    }
+}
+
+@keyframes streakPulse {
+    0%,
+    100% {
+        box-shadow: 0 0 28px rgba(255, 166, 0, 0.52), inset 0 0 18px rgba(255, 225, 160, 0.24);
+    }
+    50% {
+        box-shadow: 0 0 36px rgba(255, 188, 84, 0.74), inset 0 0 24px rgba(255, 235, 180, 0.34);
+    }
+}
+
 /* Estrutura visual da roleta. */
 .wheel-container {
     position: relative;

@@ -51,6 +51,9 @@ export default class View {
             top15Body: document.getElementById('top15-body'),
             musicToggle: document.getElementById('music-toggle'),
             musicVolume: document.getElementById('music-volume'),
+            streakHud: document.getElementById('streak-hud'),
+            streakHudLabel: document.getElementById('streak-hud-label'),
+            streakHudMultiplier: document.getElementById('streak-hud-multiplier'),
 
             // Modal de Ranking
             rankingModal: document.getElementById('ranking-modal'),
@@ -419,6 +422,16 @@ export default class View {
         if(lessonInfo.topics.length > 0) {
             this.applyTheme(lessonInfo.topics[0]);
         }
+
+        this.updateStreakHud(0, 1, false);
+    }
+
+    updateStreakHud(streak = 0, multiplier = 1, visible = true) {
+        if (!this.els.streakHud || !this.els.streakHudLabel || !this.els.streakHudMultiplier) return;
+
+        this.els.streakHudLabel.textContent = `🔥 SEQUÊNCIA: ${Math.max(0, Number(streak) || 0)}`;
+        this.els.streakHudMultiplier.textContent = `${(Number(multiplier) || 1).toFixed(1)}x`;
+        this.els.streakHud.classList.toggle('hidden', !visible);
     }
 
     applyTheme(topicData) {
@@ -689,6 +702,9 @@ export default class View {
         else if (q.type === "multi") {
             this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
+            const maxSelectable = Array.isArray(q.correct)
+                ? Math.max(1, new Set(q.correct.map((value) => String(value).trim())).size)
+                : 1;
             
             shuffledAnswers.forEach(a => {
                 const l = document.createElement('label');
@@ -711,12 +727,23 @@ export default class View {
             const updateMultiValidateState = () => {
                 const checkedCount = this.els.opts.querySelectorAll('input:checked').length;
                 const hasSelection = checkedCount > 0;
-                this.els.valBtn.disabled = !hasSelection;
+                const canValidate = checkedCount === maxSelectable;
+                this.els.valBtn.disabled = !canValidate;
                 this.els.valBtn.classList.toggle('hidden', !hasSelection);
             };
 
             this.els.opts.querySelectorAll('input[type="checkbox"]').forEach((input) => {
-                input.addEventListener('change', updateMultiValidateState);
+                input.addEventListener('change', () => {
+                    const checkedCount = this.els.opts.querySelectorAll('input:checked').length;
+                    if (input.checked && checkedCount > maxSelectable) {
+                        input.checked = false;
+                        this.showAlert(
+                            '⚠️ Limite de seleção',
+                            `Esta questão permite selecionar apenas ${maxSelectable} alternativa(s).`
+                        );
+                    }
+                    updateMultiValidateState();
+                });
             });
 
             this.els.valBtn.onclick = () => {
@@ -832,15 +859,10 @@ export default class View {
                 <div class="feedback-tip-text">${tip}</div>
             </div>
         `;
-        const safeMultiplier = Number(streakMultiplier) || 1;
-        const streakBadge = (isCorrect && safeMultiplier > 1)
-            ? `<div style="display:inline-block;margin:6px 0 2px;padding:4px 14px;background:linear-gradient(90deg,#ff6b00,#ffcc00);color:#000;font-weight:bold;font-size:0.85rem;border-radius:20px;letter-spacing:1px;">🔥 SEQUÊNCIA ${correctStreak} — ${safeMultiplier.toFixed(1)}×</div>`
-            : '';
 
         if (isCorrect) {
             this.els.fbArea.innerHTML = `
                 <span class="feedback-title" style="color:#2ecc71">✓ Excelente análise, ${playerName}!</span>
-                ${streakBadge}
                 ${tipFrame}
             `;
             if (btnElement) btnElement.style.background = "#2ecc71";
@@ -1039,6 +1061,7 @@ export default class View {
     }
 
     showEndScreen(stats, playerName, totalScore = 0, onShowRanking, totalGameTime = 0) {
+        this.updateStreakHud(0, 1, false);
         this.els.quizScreen.innerHTML = `
             <h2 style="font-family:'Audiowide'; color:gold;">🏆 JORNADA CONCLUÍDA: ${playerName}</h2>
             <div style="background:rgba(255,215,0,0.1); border:2px solid gold; padding:20px; border-radius:15px; margin-bottom:20px;">
@@ -2747,7 +2770,7 @@ export default class View {
 
         const isArrowLeft = (e) => e.code === 'ArrowLeft' || e.key === 'ArrowLeft';
         const isArrowRight = (e) => e.code === 'ArrowRight' || e.key === 'ArrowRight';
-        const isJumpKey = (e) => e.code === 'Enter' || e.key === 'Enter';
+        const isJumpKey = (e) => e.code === 'ArrowUp' || e.key === 'ArrowUp' || e.code === 'Tab' || e.key === 'Tab';
 
         keyDownHandler = (e) => {
             if (modal.classList.contains('hidden')) return;
