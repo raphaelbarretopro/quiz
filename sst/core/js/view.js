@@ -51,9 +51,10 @@ export default class View {
             top15Body: document.getElementById('top15-body'),
             musicToggle: document.getElementById('music-toggle'),
             musicVolume: document.getElementById('music-volume'),
-            streakHud: document.getElementById('streak-hud'),
-            streakHudLabel: document.getElementById('streak-hud-label'),
-            streakHudMultiplier: document.getElementById('streak-hud-multiplier'),
+            streakHud: document.getElementById('streak-popup'),
+            streakHudLabel: document.getElementById('streak-popup-value'),
+            streakHudMultiplier: document.getElementById('streak-popup-multiplier'),
+            streakOverlay: document.getElementById('streak-overlay'),
 
             // Modal de Ranking
             rankingModal: document.getElementById('ranking-modal'),
@@ -165,6 +166,7 @@ export default class View {
         this.snakeSession = null;
         this.memorySession = null;
         this.lordeHeroSession = null;
+        this.streakPopupHideTimer = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
         this.correctAnswerAudio.preload = 'auto';
@@ -429,9 +431,53 @@ export default class View {
     updateStreakHud(streak = 0, multiplier = 1, visible = true) {
         if (!this.els.streakHud || !this.els.streakHudLabel || !this.els.streakHudMultiplier) return;
 
-        this.els.streakHudLabel.textContent = `🔥 SEQUÊNCIA: ${Math.max(0, Number(streak) || 0)}`;
+        const normalizedStreak = Math.max(0, Number(streak) || 0);
+
+        if (this.streakPopupHideTimer) {
+            clearTimeout(this.streakPopupHideTimer);
+            this.streakPopupHideTimer = null;
+        }
+
+        if (!visible || normalizedStreak < 1) {
+            this.els.streakHud.classList.remove('show', 'hide');
+            this.els.streakHud.classList.add('hidden');
+            if (this.els.streakOverlay) {
+                this.els.streakOverlay.classList.remove('show', 'hide');
+                this.els.streakOverlay.classList.add('hidden');
+            }
+            return;
+        }
+
+        this.els.streakHudLabel.textContent = `${normalizedStreak}`;
         this.els.streakHudMultiplier.textContent = `${(Number(multiplier) || 1).toFixed(1)}x`;
-        this.els.streakHud.classList.toggle('hidden', !visible);
+
+        this.els.streakHud.classList.remove('hidden', 'hide', 'show');
+        if (this.els.streakOverlay) {
+            this.els.streakOverlay.classList.remove('hidden', 'hide', 'show');
+            void this.els.streakOverlay.offsetWidth;
+            this.els.streakOverlay.classList.add('show');
+        }
+        // Força reinício das animações para cada acerto.
+        void this.els.streakHud.offsetWidth;
+        this.els.streakHud.classList.add('show');
+
+        this.streakPopupHideTimer = setTimeout(() => {
+            this.els.streakHud.classList.remove('show');
+            this.els.streakHud.classList.add('hide');
+            if (this.els.streakOverlay) {
+                this.els.streakOverlay.classList.remove('show');
+                this.els.streakOverlay.classList.add('hide');
+            }
+
+            setTimeout(() => {
+                this.els.streakHud.classList.add('hidden');
+                this.els.streakHud.classList.remove('hide');
+                if (this.els.streakOverlay) {
+                    this.els.streakOverlay.classList.add('hidden');
+                    this.els.streakOverlay.classList.remove('hide');
+                }
+            }, 260);
+        }, 2600);
     }
 
     applyTheme(topicData) {
@@ -726,10 +772,9 @@ export default class View {
 
             const updateMultiValidateState = () => {
                 const checkedCount = this.els.opts.querySelectorAll('input:checked').length;
-                const hasSelection = checkedCount > 0;
                 const canValidate = checkedCount === maxSelectable;
                 this.els.valBtn.disabled = !canValidate;
-                this.els.valBtn.classList.toggle('hidden', !hasSelection);
+                this.els.valBtn.classList.toggle('hidden', !canValidate);
             };
 
             this.els.opts.querySelectorAll('input[type="checkbox"]').forEach((input) => {
@@ -776,12 +821,19 @@ export default class View {
         this.els.dragDrop.innerHTML = `<div class="drag-pool" id="drag-pool"></div><div class="drop-zones" id="drop-zones"></div>`;
         this.dragsFixed = 0;
         const shuffledItems = this.shuffle([...q.items]);
+        const dragPoolEl = document.getElementById('drag-pool');
 
         const updateZoneState = () => {
             document.querySelectorAll('.target-zone').forEach((zone) => {
                 const hasCard = Boolean(zone.querySelector('.drag-card'));
                 zone.style.background = hasCard ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.1)';
             });
+        };
+
+        const updateDragPoolVisibility = () => {
+            if (!dragPoolEl) return;
+            const hasCardsInPool = Boolean(dragPoolEl.querySelector('.drag-card'));
+            dragPoolEl.classList.toggle('hidden', !hasCardsInPool);
         };
 
         const getAssignments = () => {
@@ -809,7 +861,7 @@ export default class View {
             div.draggable = true; 
             div.id = item.id;
             div.ondragstart = (e) => e.dataTransfer.setData("text", e.target.id);
-            document.getElementById('drag-pool').appendChild(div);
+            dragPoolEl.appendChild(div);
         });
         
         q.zones.forEach(z => {
@@ -835,6 +887,7 @@ export default class View {
 
                 zone.appendChild(card);
                 updateZoneState();
+                updateDragPoolVisibility();
                 updateDragValidateState();
             };
         });
@@ -848,6 +901,7 @@ export default class View {
         };
 
         updateZoneState();
+        updateDragPoolVisibility();
         updateDragValidateState();
     }
 

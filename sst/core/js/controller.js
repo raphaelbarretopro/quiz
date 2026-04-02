@@ -385,7 +385,7 @@ class Controller {
             ? Math.round(result.pointsAwarded * streakMultiplier)
             : result.pointsAwarded;
 
-        this.view.updateStreakHud(this.correctStreak, streakMultiplier, true);
+        this.view.updateStreakHud(this.correctStreak, streakMultiplier, result.isCorrect);
 
         if (adjustedPoints > 0) {
             const oldScore = this.model.playerScore;

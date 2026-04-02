@@ -10,48 +10,45 @@
 <body>
   
     
-    <!-- Painel de pontuação fixo no canto superior direito -->
-    <div id="score-panel" class="score-panel">
-        <div class="score-display">
-            <div class="score-meta">
-                <span id="score-player" class="score-player">JOGADOR</span>
-                <span class="score-label">💰 MOEDAS</span>
-                
+    <!-- Coluna retrátil da direita (pontuação, ranking e trilha) -->
+    <div id="hud-right-panel" class="hud-right-panel" aria-hidden="true">
+        <div class="hud-right-panel-inner">
+            <div id="score-panel" class="score-panel">
+                <div class="score-display">
+                    <div class="score-meta">
+                        <span id="score-player" class="score-player">JOGADOR</span>
+                        <span class="score-label">💰 MOEDAS</span>
+                    </div>
+                    <div class="score-value" id="score-value">0</div>
+                    <div id="timer-display" class="timer-display hidden">⏱ 01:00</div>
+                    <div id="total-time-display" class="total-time-display hidden">🕒 TOTAL 00:00</div>
+                </div>
             </div>
-            <div class="score-value" id="score-value">0</div>
-            <div id="timer-display" class="timer-display hidden">⏱ 01:00</div>
-            <div id="total-time-display" class="total-time-display hidden">🕒 TOTAL 00:00</div>
+
+            <div id="top15-panel" class="top15-panel">
+                <h3 class="top15-title">🏆 TOP 15</h3>
+                <div class="top15-head">
+                    <span>#</span>
+                    <span>Jogador</span>
+                    <span>Moedas</span>
+                    <span>Time</span>
+                </div>
+                <div id="top15-body" class="top15-body">
+                    <p class="top15-empty">Carregando ranking...</p>
+                </div>
+            </div>
+
+            <button id="btn-preview-ranking" class="opt-btn ranking-hud-btn">RANKING GLOBAL</button>
+
+            <!-- Player de trilha: permite ligar/desligar e ajustar volume. -->
+            <div id="music-player" class="music-player">
+                <span class="music-label">♫ TRILHA</span>
+                <button id="music-toggle" class="music-toggle-btn">DESLIGAR</button>
+                <input id="music-volume" class="music-volume" type="range" min="0" max="1" step="0.01" value="0.35" aria-label="Volume da trilha">
+            </div>
         </div>
     </div>
-
-    <!-- Top 15 fixo abaixo da pontuação -->
-    <div id="top15-panel" class="top15-panel">
-        <h3 class="top15-title">🏆 TOP 15</h3>
-        <div class="top15-head">
-            <span>#</span>
-            <span>Jogador</span>
-            <span>Moedas</span>
-            <span>Time</span>
-        </div>
-        <div id="top15-body" class="top15-body">
-            <p class="top15-empty">Carregando ranking...</p>
-        </div>
-    </div>
-
-    <button id="btn-preview-ranking" class="opt-btn ranking-hud-btn">RANKING GLOBAL</button>
-
-    <div id="streak-popup" class="streak-popup hidden" aria-live="polite">
-        <div class="streak-popup-title">SEQUÊNCIA</div>
-        <div id="streak-popup-value" class="streak-popup-value">1</div>
-        <div id="streak-popup-multiplier" class="streak-popup-multiplier">1.0x</div>
-    </div>
-
-    <!-- Player de trilha: permite ligar/desligar e ajustar volume. -->
-    <div id="music-player" class="music-player">
-        <span class="music-label">♫ TRILHA</span>
-        <button id="music-toggle" class="music-toggle-btn">DESLIGAR</button>
-        <input id="music-volume" class="music-volume" type="range" min="0" max="1" step="0.01" value="0.35" aria-label="Volume da trilha">
-    </div>
+    <button id="hud-right-toggle-btn" class="hud-right-toggle-btn" aria-label="Abrir painel da direita" title="Pontuação e ranking"><span class="hud-right-arrow">&#10094;</span></button>
 
     <!-- Container para animação de moedas -->
     <div id="coins-container" class="coins-container"></div>
@@ -79,18 +76,6 @@
             <button id="stop-btn" class="opt-btn hidden" style="background: #ff0000;">PARAR AGORA!</button>
         </div>
 
-        <!-- Mini-jogo Sokoban: etapa intermediária antes das perguntas. -->
-        <div id="sokoban-screen" class="hidden">
-            <div class="sokoban-bonus-container">
-                <h2 id="sokoban-title">📦 EMPURRE AS CAIXAS PARA FORMAR O PRÓXIMO TEMA</h2>
-                <div class="sokoban-hud">
-                    <span id="sokoban-lives">Vidas: 3</span>
-                </div>
-                <div id="sokoban-grid"></div>
-                <button id="btn-giveup-sokoban" class="opt-btn" style="width: auto; padding: 10px 40px; margin-top: 15px; background: #6b1f1f;">DESISTIR</button>
-            </div>
-        </div>
-
         <!-- Modal de introdução: apresenta a era sorteada e seu contexto. -->
         <div id="intro-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
             <div style="background: #111; border: 3px solid var(--primary); padding: 30px; width: 85%; max-width: 500px; border-radius: 20px; text-align: center;">
@@ -103,15 +88,15 @@
         <!-- Tela principal do quiz: pergunta, opções e feedback da resposta. -->
         <div id="quiz-screen" class="hidden">
             <div id="era-tag" style="background:var(--primary); color:#000; padding:10px 12px; border-radius:5px; font-weight:bold; margin-bottom:8px; display:inline-block;"></div>
-            <p id="q-txt" style="font-size:1.3rem; margin-bottom:15px; font-weight:500;"></p>
-            <div id="opts" style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;"></div>
+            <p id="q-txt" style="font-size:1.5rem; margin-bottom:20px; font-weight:500; line-height:1.45;"></p>
+            <div id="opts" style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;"></div>
             <div id="drag-drop-container" class="drag-area hidden"></div>
-            <div id="fb-area" style="margin-top:15px; font-weight:bold; font-size:1.1rem;"></div>
-            <button id="val-btn" class="opt-btn hidden" style="background:var(--primary); color:#000; font-weight:bold;">VALIDAR RESPOSTA</button>
-            <button id="next-btn" class="opt-btn hidden">AVANÇAR ➔</button>
+            <button id="val-btn" class="opt-btn hidden action-btn" style="background:var(--primary); color:#000; font-weight:bold;">VALIDAR RESPOSTA</button>
+            <button id="next-btn" class="opt-btn hidden action-btn">AVANÇAR ➔</button>
+            <div id="fb-area"></div>
           
              <!--
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:10px;">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px;">
                 <button id="pacman-test-btn" class="opt-btn pacman-test-btn">TESTAR PACMAN 👾</button>
                 <button id="enduro-test-btn" class="opt-btn enduro-test-btn">TESTAR ENDURO 🏎️</button>
                 <button id="trex-test-btn" class="opt-btn trex-test-btn">TESTAR T-REX 🦖</button>
@@ -125,6 +110,14 @@
         -->
 
             <div id="question-counter" class="question-counter">QUESTÃO 1/50</div>
+
+            <div id="streak-overlay" class="streak-overlay hidden"></div>
+            <div id="streak-popup" class="streak-popup hidden" aria-live="polite">
+                <div class="streak-popup-title">SEQUÊNCIA</div>
+                <div id="streak-popup-value" class="streak-popup-value">1</div>
+                <div id="streak-popup-multiplier" class="streak-popup-multiplier">1.0x</div>
+                <div class="streak-popup-desc">acertos seguidos = pontos multiplicados</div>
+            </div>
         </div>
         
         
@@ -183,6 +176,18 @@
                 <button id="slot-spin-btn" class="slot-btn-spin">GIRAR! 🎰</button>
                 <button id="slot-close-btn" class="slot-btn-close">SAIR</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Mini-jogo Sokoban: tela de bônus intermediária antes das perguntas. -->
+    <div id="sokoban-screen" class="hidden">
+        <div class="sokoban-bonus-container">
+            <h2 id="sokoban-title">📦 EMPURRE AS CAIXAS PARA FORMAR O PRÓXIMO TEMA</h2>
+            <div class="sokoban-hud">
+                <span id="sokoban-lives">Vidas: 3</span>
+            </div>
+            <div id="sokoban-grid"></div>
+            <button id="btn-giveup-sokoban" class="opt-btn" style="width: auto; padding: 10px 40px; margin-top: 15px; background: #6b1f1f;">DESISTIR</button>
         </div>
     </div>
 
@@ -380,7 +385,62 @@
         </div>
     </div>
 
+    <!-- Painel lateral de regras -->
+    <div id="rules-panel" class="rules-panel" aria-hidden="true">
+        <div class="rules-panel-inner">
+            <h3 class="rules-panel-title">📋 COMO JOGAR</h3>
+            <ul class="rules-list">
+                <li>🎯 Responda questões para acumular <strong>moedas</strong></li>
+                <li>✅ Cada resposta certa vale <strong>200 moedas</strong></li>
+                <li>🔥 Acertos seguidos aumentam o <strong>multiplicador</strong> de pontos (até 2×)</li>
+                <li>🎰 A cada 5 acertos seguidos você ganha uma <strong>rodada bônus</strong></li>
+                <li>🏆 Ao final, sua <strong>precisão</strong> gera até +3 000 moedas extras</li>
+                <li>⏱ O <strong>tempo total</strong> é critério de desempate no ranking</li>
+                <li>🎮 <strong>Mini-jogos bônus</strong> surgem ao longo da trilha — complete-os para mais pontos!</li>
+                <li>💡 Nas questões de <strong>múltipla escolha</strong>, marque exatamente a quantidade indicada de respostas corretas</li>
+            </ul>
+            <div class="rules-panel-footer">
+                Desenvolvido pelo Instrutor<br>
+                <strong>Raphael Barreto</strong><br>
+                SENAI SAPUCAÍ
+            </div>
+        </div>
+    </div>
+    <button id="rules-toggle-btn" class="rules-toggle-btn" aria-label="Abrir regras do jogo" title="Regras do jogo"><span class="rules-arrow">&#10095;</span></button>
+
     <!-- Controlador principal da aplicação (arquitetura MVC em módulos ES). -->
     <script type="module" src="js/controller.js"></script>
+    <script>
+        (function() {
+            const body = document.body;
+
+            const leftPanel = document.getElementById('rules-panel');
+            const leftBtn = document.getElementById('rules-toggle-btn');
+
+            const rightPanel = document.getElementById('hud-right-panel');
+            const rightBtn = document.getElementById('hud-right-toggle-btn');
+
+            const updateBodyLayoutState = function() {
+                body.classList.toggle('left-panel-open', leftPanel.classList.contains('open'));
+                body.classList.toggle('right-panel-open', rightPanel.classList.contains('open'));
+            };
+
+            leftBtn.addEventListener('click', function() {
+                const isOpen = leftPanel.classList.toggle('open');
+                leftBtn.classList.toggle('open', isOpen);
+                leftPanel.setAttribute('aria-hidden', String(!isOpen));
+                updateBodyLayoutState();
+            });
+
+            rightBtn.addEventListener('click', function() {
+                const isOpen = rightPanel.classList.toggle('open');
+                rightBtn.classList.toggle('open', isOpen);
+                rightPanel.setAttribute('aria-hidden', String(!isOpen));
+                updateBodyLayoutState();
+            });
+
+            updateBodyLayoutState();
+        })();
+    </script>
 </body>
 </html>
