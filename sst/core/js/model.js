@@ -4,7 +4,7 @@ export default class Model {
         this.playerName = "";
         this.curStep = 0;
         this.playerScore = 0;
-        this.pointsPerCorrect = 100;
+        this.pointsPerCorrect = 200;
         this.pointsPerMistake = 0;
         this.stats = { correct: 0, mistakes: [] };
         

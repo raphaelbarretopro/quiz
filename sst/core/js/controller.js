@@ -54,6 +54,8 @@ class Controller {
         this.slotRoundId = 0;
         this.slotRoundSpins = [];
         this.slotRoundBaseScore = 0;
+        this.isFinalizingQuiz = false;
+        this.hasFinalizedQuiz = false;
 
         // Registra os handlers da interface com o contexto da instância.
         this.view.bindStart(this.handleStart.bind(this));
@@ -108,6 +110,8 @@ class Controller {
         this.correctStreak = 0;
         this.slotStreak = 0;
         this.lastAnswerWasCorrect = false;
+        this.isFinalizingQuiz = false;
+        this.hasFinalizedQuiz = false;
         this.pacmanBonusActive = false;
         this.enduroBonusActive = false;
         this.trexBonusActive = false;
@@ -372,9 +376,17 @@ class Controller {
             this.model.registerMistake(q);
         }
 
-        if (result.pointsAwarded > 0) {
+        // Multiplicador de sequência: a cada 5 acertos consecutivos +0.1×, máx 2.0×
+        const streakMultiplier = result.isCorrect
+            ? Math.min(2.0, 1.0 + Math.floor(this.correctStreak / 5) * 0.1)
+            : 1.0;
+        const adjustedPoints = result.isCorrect
+            ? Math.round(result.pointsAwarded * streakMultiplier)
+            : result.pointsAwarded;
+
+        if (adjustedPoints > 0) {
             const oldScore = this.model.playerScore;
-            const newScore = this.model.addScore(result.pointsAwarded);
+            const newScore = this.model.addScore(adjustedPoints);
             const isPartialMultiOrDrag =
                 !result.isCorrect &&
                 (q?.type === 'multi' || q?.type === 'drag') &&
@@ -387,7 +399,7 @@ class Controller {
             this.view.updateScoreDisplay(this.model.playerScore);
         }
 
-        this.view.showFeedback(result.isCorrect, q.tip, this.model.playerName, btnElement, q, result);
+        this.view.showFeedback(result.isCorrect, q.tip, this.model.playerName, btnElement, q, result, streakMultiplier, this.correctStreak);
     }
 
     normalizeAnswerValue(value) {
@@ -455,7 +467,7 @@ class Controller {
 
     async handleNext() {
         // Avança no fluxo; ao final, exibe tela de encerramento.
-        if (this.hasTimedOut) return;
+        if (this.hasTimedOut || this.isFinalizingQuiz || this.hasFinalizedQuiz) return;
         this.model.curStep++;
 
         const ranScheduledGame = await this.tryRunScheduledGame();
@@ -464,8 +476,8 @@ class Controller {
         }
         
         if (this.model.curStep < this.model.questions.length) {
-            // Regra: abre caça-níquel ao atingir 3 acertos consecutivos (contador dedicado).
-            if (this.slotStreak >= 3) {
+            // Regra: abre caça-níquel ao atingir 5 acertos consecutivos (contador dedicado).
+            if (this.slotStreak >= 5) {
                 this.slotStreak = 0;
                 this.openSlotRound();
             } else {
@@ -502,6 +514,11 @@ class Controller {
     }
 
     async finalizeQuiz() {
+        if (this.isFinalizingQuiz || this.hasFinalizedQuiz) {
+            return;
+        }
+
+        this.isFinalizingQuiz = true;
         this.clearGameTimeout();
         this.stopTotalTimer();
         this.timerStarted = false;
@@ -509,22 +526,39 @@ class Controller {
         const gameTime = this.getElapsedGameSeconds();
         this.view.updateTotalTimeDisplay(gameTime);
 
-        await this.ranking.saveScore(
-            this.model.playerName,
-            this.model.playerScore,
-            this.model.stats.correct,
-            this.model.questions.length,
-            gameTime
-        );
+        // Bônus de taxa de acerto (quadrático, máx 3000 pts a 100%)
+        const correct = this.model.stats.correct;
+        const total = this.model.questions.length;
+        const accuracy = total > 0 ? correct / total : 0;
+        const accuracyBonus = Math.round(Math.pow(accuracy, 2) * 3000);
 
-        this.view.showEndScreen(
-            this.model.stats,
-            this.model.playerName,
-            this.model.playerScore,
-            this.handleShowRanking.bind(this),
-            gameTime
-        );
-        this.view.setTimerVisibility(false);
+        if (accuracyBonus > 0) {
+            const baseScore = this.model.playerScore;
+            this.model.playerScore = baseScore + accuracyBonus;
+            await this.view.showAccuracyBonusSummary(baseScore, accuracyBonus, correct, total);
+        }
+
+        try {
+            await this.ranking.saveScore(
+                this.model.playerName,
+                this.model.playerScore,
+                this.model.stats.correct,
+                this.model.questions.length,
+                gameTime
+            );
+
+            this.view.showEndScreen(
+                this.model.stats,
+                this.model.playerName,
+                this.model.playerScore,
+                this.handleShowRanking.bind(this),
+                gameTime
+            );
+            this.view.setTimerVisibility(false);
+            this.hasFinalizedQuiz = true;
+        } finally {
+            this.isFinalizingQuiz = false;
+        }
     }
 
     async handleShowRanking() {

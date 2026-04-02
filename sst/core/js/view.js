@@ -824,7 +824,7 @@ export default class View {
         updateDragValidateState();
     }
 
-    showFeedback(isCorrect, tip, playerName, btnElement, questionData = null, answerResult = null) {
+    showFeedback(isCorrect, tip, playerName, btnElement, questionData = null, answerResult = null, streakMultiplier = 1, correctStreak = 0) {
         const isPartial = !isCorrect && Number(answerResult?.pointsAwarded || 0) > 0 && Number(answerResult?.totalItems || 0) > 1;
         const tipFrame = `
             <div class="feedback-tip-frame">
@@ -832,10 +832,15 @@ export default class View {
                 <div class="feedback-tip-text">${tip}</div>
             </div>
         `;
+        const safeMultiplier = Number(streakMultiplier) || 1;
+        const streakBadge = (isCorrect && safeMultiplier > 1)
+            ? `<div style="display:inline-block;margin:6px 0 2px;padding:4px 14px;background:linear-gradient(90deg,#ff6b00,#ffcc00);color:#000;font-weight:bold;font-size:0.85rem;border-radius:20px;letter-spacing:1px;">🔥 SEQUÊNCIA ${correctStreak} — ${safeMultiplier.toFixed(1)}×</div>`
+            : '';
 
         if (isCorrect) {
             this.els.fbArea.innerHTML = `
                 <span class="feedback-title" style="color:#2ecc71">✓ Excelente análise, ${playerName}!</span>
+                ${streakBadge}
                 ${tipFrame}
             `;
             if (btnElement) btnElement.style.background = "#2ecc71";
@@ -978,6 +983,59 @@ export default class View {
         }
 
         return String(q.correct ?? '-');
+    }
+
+    showAccuracyBonusSummary(baseScore, accuracyBonus, correct, total) {
+        const safeBase   = Number(baseScore) || 0;
+        const safeBonus  = Math.max(0, Number(accuracyBonus) || 0);
+        const pct        = total > 0 ? Math.round((correct / total) * 100) : 0;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">BÔNUS DE PRECISÃO 🎯</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🎯🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl  = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Taxa de acerto: ${correct}/${total} (${pct}%)</span><strong>+${safeBonus}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += safeBonus;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 700);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try { this.cashRegisterAudio.currentTime = 0; } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2000);
+
+            setTimeout(() => {
+                overlay.remove();
+                resolve();
+            }, 4500);
+        });
     }
 
     showEndScreen(stats, playerName, totalScore = 0, onShowRanking, totalGameTime = 0) {
@@ -4901,11 +4959,11 @@ export default class View {
         if (allEqual) {
             isJackpot = true;
             if (results[0] === '7') {
-                message = `🎉 JACKPOT! 7️⃣7️⃣7️⃣<br>+500 MOEDAS!`;
+                message = `🎉 JACKPOT! 7️⃣7️⃣7️⃣<br>+200 MOEDAS!`;
             } else if (results[0] === 'BAR') {
-                message = `🔥 3× BAR!<br>+300 MOEDAS!`;
+                message = `🔥 3× BAR!<br>+150 MOEDAS!`;
             } else {
-                message = `${results[0]}${results[1]}${results[2]} 3 IGUAIS!<br>+150 MOEDAS!`;
+                message = `${results[0]}${results[1]}${results[2]} 3 IGUAIS!<br>+100 MOEDAS!`;
             }
             this.playCountingSound();
             setTimeout(() => this.createCoinAnimation(), 200);
@@ -4946,9 +5004,9 @@ export default class View {
                          + ((results[0] === results[2]) ? 1 : 0);
 
         if (allEqual) {
-            if (results[0] === '7')   return 500;
-            if (results[0] === 'BAR') return 300;
-            return 150; // 3 frutas iguais
+            if (results[0] === '7')   return 200;
+            if (results[0] === 'BAR') return 150;
+            return 100; // 3 frutas iguais
         }
         if (equalPairs === 1) return 50; // 2 iguais
         return 0;
