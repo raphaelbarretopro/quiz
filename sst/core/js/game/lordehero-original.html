@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorde Hero</title>
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #2d2d2d;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: hidden;
+}
+
+h1 {
+  position: relative;
+  left: 1.5rem;
+  font-family: "New Rocker", system-ui;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 2.25em;
+  translate: 0 -0.25em;
+  text-shadow:
+    0 -1px 0 #fff,
+    0 1px 0 #2e2e2e,
+    0 2px 0 #2c2c2c,
+    0 3px 0 #2a2a2a,
+    0 4px 0 #282828,
+    0 5px 0 #262626,
+    0 6px 0 #242424,
+    0 7px 0 #222,
+    0 8px 0 #202020,
+    0 9px 0 #1e1e1e,
+    0 10px 0 #1c1c1c,
+    0 11px 0 #1a1a1a,
+    0 12px 0 #181818,
+    0 13px 0 #161616,
+    0 14px 0 #141414,
+    0 15px 0 #121212,
+    0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-family: "New Rocker", system-ui;
+  font-size: 2.7em;
+  top: 0.6em;
+  left: 30%;
+  align-self: center;
+  width: 40%;
+  background: transparent;
+  z-index: 9;
+}
+
+.topBtns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-shrink: 0;
+}
+
+button {
+  font-family: "New Rocker", system-ui;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#startBtn {
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #008b00;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #008b0088;
+  margin-top: 0.5rem;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#startBtn:hover {
+  background-color: #2a2a2a;
+  transform: scale(1.05);
+}
+
+#pauseBtn {
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #444;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+#pauseBtn:hover {
+  background-color: #666;
+}
+
+#restartBtn {
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  background-color: #1a1a1a;
+  color: #fb1000;
+  border: 1px solid #fb1000;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #fb100088;
+  margin-top: 0.5rem;
+}
+
+#restartBtn:hover {
+  background-color: #666;
+}
+
+#infoBtn {
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  background-color: #1a1a1a;
+  color: #ffcc00;
+  border: 1px solid #8b8000;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #8b800088;
+  margin-top: 0.5rem;
+}
+
+#infoBtn:hover {
+  background-color: #2a2a2a;
+  transform: scale(1.05);
+}
+
+#configBtn {
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  background-color: #1a1a1a;
+  color: #00d9ff;
+  border: 1px solid #005f6a;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #00d9ff88;
+  margin-top: 0.5rem;
+}
+
+#configBtn:hover {
+  background-color: #2a2a2a;
+  transform: scale(1.05);
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 0.82rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: solid 0 #008273;
+}
+
+.icon svg {
+  display: block;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  fill: #111;
+  transition: fill 33ms ease;
+  filter: drop-shadow(1px 1px 2px #9cffec) drop-shadow(1px 1px #9cffec)
+    drop-shadow(-1px -1px #111);
+}
+
+.icon:hover svg {
+  fill: rgba(5, 15, 36, 1);
+  filter: drop-shadow(1px 1px 2px #9cffec) drop-shadow(1px 1px #9cffec)
+    drop-shadow(-1px -1px rgba(0, 130, 115, 1));
+}
+
+.icon:active svg {
+  fill: #fff;
+  filter: drop-shadow(1px 1px 2px #9cffec) drop-shadow(1px 1px #9cffec)
+    drop-shadow(-1px -1px #000);
+}
+
+.slider {
+  appearance: none;
+  width: 180px;
+  height: calc(1em - 2px);
+  background: linear-gradient(90deg, rgb(98 255 235) 48%, rgba(0, 0, 0, 1) 48%);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  filter: drop-shadow(-1px -1px rgba(0, 130, 115, 1))
+    drop-shadow(1px 1px rgba(0, 130, 115, 1))
+    drop-shadow(0px 1px rgba(0, 130, 115, 1))
+    drop-shadow(1px 0px rgba(0, 130, 115, 1))
+    drop-shadow(0px -1px rgba(0, 130, 115, 1))
+    drop-shadow(-1px 0px rgba(0, 130, 115, 1));
+}
+
+.slider::-webkit-slider-runnable-track {
+  height: 1em;
+  background: transparent;
+  border-radius: 3px;
+  border: solid 2px #fff;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(90deg, rgb(98 255 235) 48%, rgba(0, 0, 0, 1) 48%);
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+  margin-top: -6px;
+}
+
+.slider:hover::-webkit-slider-thumb {
+  transform: scale(1.22);
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(
+    circle,
+    rgba(166, 255, 237, 1) 0%,
+    rgba(156, 255, 236, 1) 43%,
+    rgba(31, 255, 218, 1) 69%,
+    rgba(0, 130, 115, 1) 84%,
+    rgba(0, 0, 0, 1) 97%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-size: contain;
+  border: 0.25em solid rgba(0, 130, 115, 1);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  translate: 0 -0.5em;
+}
+
+.slider::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background: radial-gradient(
+    circle,
+    rgba(166, 255, 237, 1) 0%,
+    rgba(156, 255, 236, 1) 43%,
+    rgba(31, 255, 218, 1) 69%,
+    rgba(0, 130, 115, 1) 84%,
+    rgba(0, 0, 0, 1) 97%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-size: contain;
+  border: none;
+  border-radius: 50%;
+  translate: 0 -0.5em;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.level-options {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.level-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.92);
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  filter: drop-shadow(-1px -1px rgba(0, 130, 115, 1))
+    drop-shadow(1px 1px rgba(0, 130, 115, 1))
+    drop-shadow(0px 1px rgba(0, 130, 115, 1))
+    drop-shadow(1px 0px rgba(0, 130, 115, 1))
+    drop-shadow(0px -1px rgba(0, 130, 115, 1))
+    drop-shadow(-1px 0px rgba(0, 130, 115, 1));
+}
+
+.level-options label:has(input[type="radio"]:checked) {
+  background-color: rgba(0, 0, 0, 0.52);
+  border: 1px solid #00d9ff44;
+}
+
+.level-options input[type="radio"] {
+  appearance: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: radial-gradient(
+    circle,
+    rgba(166, 255, 237, 1) 0%,
+    rgba(156, 255, 236, 1) 43%,
+    rgba(31, 255, 218, 1) 69%,
+    rgba(0, 130, 115, 1) 84%,
+    rgba(0, 0, 0, 1) 97%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  background-size: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.level-options input[type="radio"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: rgba(98, 255, 235, 1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.25s ease-in-out;
+}
+
+.level-options input[type="radio"]:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+  background-color: #ff6577;
+}
+
+.level-options input[type="radio"]:checked {
+  box-shadow: 0 0 0 3px rgba(98, 255, 235, 0.4);
+  border-color: #a6ffed;
+}
+
+.level-options span {
+  color: #a6ffed;
+  font-weight: bold;
+  text-shadow: 0 0 3px rgba(98, 255, 235, 0.6);
+  user-select: none;
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+}
+
+.popover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#configPopover {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  width: fit-content;
+  background: rgba(24, 24, 24, 0.95);
+  border-radius: 12px;
+  border: 1px solid #00d9ff44;
+  box-shadow: 0 0 12px #00d9ff55;
+  color: white;
+  font-family: "New Rocker", system-ui;
+  z-index: 999;
+  display: none;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.popover {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 400px;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  background: rgba(10, 10, 10, 0.85);
+  border: 2px solid #ffcc00;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ffcc00aa;
+  backdrop-filter: blur(10px);
+  color: #fff;
+  padding: 1.5rem;
+  display: none;
+}
+
+.popover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.popover-content h2 {
+  font-family: "New Rocker", system-ui;
+  color: #f9ff00;
+  text-shadow: 0 0 5px #ff6a00;
+  margin-top: 0;
+}
+
+.popover-content p {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #ddd;
+}
+
+.popover-content button {
+  margin-top: 1rem;
+  background-color: #8b0000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.popover-content button:hover {
+  background-color: #aa0000;
+}
+
+.hidden {
+  display: none;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(5, 80px);
+  grid-template-rows: 400px 50px;
+  gap: 0;
+  margin-top: 1rem;
+  perspective: 800px;
+  perspective-origin: center top;
+  transform-style: preserve-3d;
+  padding-bottom: 0.5em;
+}
+
+@keyframes changeColor {
+  0% { filter: hue-rotate(0deg) }
+  25% { filter: hue-rotate(-18deg) }
+  50% { filter: hue-rotate(0deg) }
+  75% { filter: hue-rotate(18deg) }
+  100% { filter: hue-rotate(0deg) }
+}
+
+.lane {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 0px,
+      transparent 0px,
+      transparent 10vh
+    ),
+    linear-gradient(to bottom, #00000028, #4444442f);
+  background-size: 100% 10vh;
+  background-position-y: 0;
+  animation: changeColor 5s infinite linear;
+  border-left: 1px solid #44444444;
+  border-right: 1px solid #44444444;
+  position: relative;
+  transform-origin: top center;
+  transform: rotateX(46deg);
+  overflow: visible;
+  translate: 0 0.25rem;
+  z-index: -9;
+  box-shadow: 0 0 5px #000;
+}
+
+.lane::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: -9;
+}
+
+.lane-lightning {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  animation: laneLightningFade 220ms ease-out forwards;
+}
+
+.lane-lightning::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 2%;
+  width: 7px;
+  height: 96%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--bolt-color) 55%, white),
+    var(--bolt-color) 35%,
+    color-mix(in srgb, var(--bolt-color) 75%, black)
+  );
+  filter: blur(0.4px) drop-shadow(0 0 8px var(--bolt-color));
+  clip-path: polygon(50% 0%, 63% 9%, 44% 20%, 60% 33%, 40% 45%, 58% 58%, 39% 70%, 56% 82%, 42% 91%, 50% 100%, 36% 89%, 49% 78%, 33% 67%, 51% 55%, 34% 43%, 53% 31%, 37% 19%, 56% 8%);
+}
+
+.lane-lightning::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 7%;
+  width: 52px;
+  height: 20px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--bolt-color) 75%, white) 0%, var(--bolt-color) 45%, transparent 80%);
+  filter: drop-shadow(0 0 10px var(--bolt-color));
+}
+
+@keyframes laneLightningFade {
+  0% {
+    opacity: 0;
+    transform: scaleY(0.75);
+  }
+  20% {
+    opacity: 1;
+    transform: scaleY(1.04);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleY(1);
+  }
+}
+
+.note {
+  width: 60px;
+  height: 30px;
+  border-radius: 50%;
+  box-shadow: 0 1px 0 white,0 2px 0 white,0 -1px 1px white,0 -1px 0 white,1px 0 0 white,-1px 0 0 white;
+  position: absolute;
+  left: 10px;
+  transform: translateZ(0) rotateX(39deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform: scale(0.8);
+  transition: opacity 550ms ease-in-out;
+}
+
+.key {
+  background: transparent;
+  text-align: center;
+  line-height: calc(50px + 1.28rem);
+  font-size: 1.25rem;
+  min-width: calc(50px + 1.28rem);
+  height: auto;
+  font-family: "New Rocker", system-ui;
+  border-radius: 50%;
+  user-select: none;
+  cursor: pointer;
+  border: 1px solid #888;
+  opacity: 0.7;
+  transform: rotateX(95deg);
+  align-self: center;
+  z-index: 99;
+  margin-bottom: 0.98rem;
+}
+
+[data-key="a"] {
+  transform: rotateX(55deg) translate(-4.5em, -0.82rem) scale(0.87) !important;
+  color: #6aff00;
+  background: #6AFF0018;
+  position: absolute;
+  border-bottom: solid 2px #6aff00;
+  bottom: 0;
+  left: 0.82rem;
+}
+
+[data-key="s"] {
+  transform: rotateX(55deg) translate(-2.25em, -0.82rem) scale(0.87) !important;
+  color: #ff0e00;
+  border-bottom: solid 2px #ff0e00;
+  background: #ff0e0018;
+  position: absolute;
+  bottom: 0;
+  left: calc(25% - 0.82rem);
+}
+
+[data-key="j"] {
+  transform: rotateX(55deg) translate(0em, -0.82rem) scale(0.87) !important;
+  color: #f9ff00;
+  border-bottom: solid 2px #f9ff00;
+  background: #f9ff0018;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 25px - 0.72rem);
+}
+
+[data-key="k"] {
+  transform: rotateX(55deg) translate(2.25em, -0.82rem) scale(0.87) !important;
+  color: #006aff;
+  border-bottom: solid 2px #006aff;
+  background: #006aff18;
+  position: absolute;
+  bottom: 0;
+  right: calc(25% - 0.82rem);
+}
+
+[data-key="l"] {
+  transform: rotateX(55deg) translate(4.5em, -0.82rem) scale(0.87) !important;
+  color: #ff6a00;
+  border-bottom: solid 2px #ff6a00;
+  background: #ff6a0018;
+  position: absolute;
+  bottom: 0;
+  right: 0.82rem;
+}
+
+.note.hit {
+  animation: hitFlash 250ms ease-in-out;
+}
+
+.note.miss {
+  animation: missFlash 0.2s ease-out;
+}
+
+@keyframes hitFlash {
+  0% { transform: scale(0.8) matrix(0.9, 0, 0, 1.4, 0, 0); opacity: 1; filter: brightness(1.4) }
+  100% { transform: scale(0.8) matrix(0.9, 0, 0, 1.4, 0, 0); opacity: 1; filter: brightness(1.6) }
+}
+
+@keyframes missFlash {
+  0% { transform: translateY(0) matrix(0.9, 0, 0, 1.4, 0, 0); opacity: 1; filter: grayscale(55%) scale(0.8) }
+  100% { transform: translateY(15px) matrix(0.9, 0, 0, 1.4, 0, 0); opacity: 0; filter: grayscale(100%) scale(0.8) }
+}
+
+.hud {
+  position: fixed;
+  top: 1rem;
+  font-size: 1.1rem;
+  font-family: "Segoe UI", sans-serif;
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #444;
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.hit-feedback {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+  pointer-events: none !important;
+  z-index: 1000 !important;
+  text-shadow: 0 0 10px rgba(0,0,0,0.8) !important;
+  background-color: transparent !important;
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.hud.left {
+  left: 1rem;
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  translate: -25vw 0;
+}
+
+.hud.right {
+  right: 1rem;
+  text-align: right;
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  translate: 25vw 0;
+}
+
+.hud span {
+  font-weight: bold;
+  color: gold;
+}
+  </style>
+</head>
+<body>
+  <h1>Lorde Hero 🤴🎸</h1>
+  <div class="topBtns">
+    <button id="startBtn">▶️ Play Lorde Hero</button>
+    <button id="pauseBtn" style="display: none;">⏸️ Pause</button>
+    <button id="restartBtn" style="display: none;">🔁 Restart</button>
+    <button id="infoBtn">ℹ️ Info</button>
+
+    <div class="popover-wrapper">
+      <button id="configBtn">⚙️ Configurations</button>
+      <div id="configPopover">
+        <p><strong>Volume</strong></p>
+        <div class="volume-container">
+          <div class="icon">
+            <svg viewBox="0 0 512 512" width="100" title="volume-mute">
+              <path d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zM461.64 256l45.64-45.64c6.3-6.3 6.3-16.52 0-22.82l-22.82-22.82c-6.3-6.3-16.52-6.3-22.82 0L416 210.36l-45.64-45.64c-6.3-6.3-16.52-6.3-22.82 0l-22.82 22.82c-6.3 6.3-6.3 16.52 0 22.82L370.36 256l-45.63 45.63c-6.3 6.3-6.3 16.52 0 22.82l22.82 22.82c6.3 6.3 16.52 6.3 22.82 0L416 301.64l45.64 45.64c6.3 6.3 16.52 6.3 22.82 0l22.82-22.82c6.3-6.3 6.3-16.52 0-22.82L461.64 256z" />
+            </svg>
+          </div>
+
+          <input id="impRange" type="range" min="0" max="50" value="0" class="slider" />
+
+          <div class="icon">
+            <svg viewBox="0 0 576 512" width="100" title="volume-up">
+              <path d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zm233.32-51.08c-11.17-7.33-26.18-4.24-33.51 6.95-7.34 11.17-4.22 26.18 6.95 33.51 66.27 43.49 105.82 116.6 105.82 195.58 0 78.98-39.55 152.09-105.82 195.58-11.17 7.32-14.29 22.34-6.95 33.5 7.04 10.71 21.93 14.56 33.51 6.95C528.27 439.58 576 351.33 576 256S528.27 72.43 448.35 19.97zM480 256c0-63.53-32.06-121.94-85.77-156.24-11.19-7.14-26.03-3.82-33.12 7.46s-3.78 26.21 7.41 33.36C408.27 165.97 432 209.11 432 256s-23.73 90.03-63.48 115.42c-11.19 7.14-14.5 22.07-7.41 33.36 6.51 10.36 21.12 15.14 33.12 7.46C447.94 377.94 480 319.54 480 256zm-141.77-76.87c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 228.28 336 241.63 336 256c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.86z" />
+            </svg>
+          </div>
+        </div>
+
+        <p><strong>Level</strong></p>
+        <label>
+          <div class="level-options">
+            <label><input type="radio" name="level" /> <span>Easy</span></label>
+            <label><input type="radio" name="level" /> <span>Medium</span></label>
+            <label><input type="radio" name="level" checked /> <span>Hard</span></label>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div id="infoPopover" class="popover hidden">
+    <div class="popover-content">
+      <h2>🎸 About Lorde Hero</h2>
+      <p>
+        An anthem of resistance echoes through the castle halls... <br>
+        <strong>Lorde Hero</strong> 👑🎸 is a dark rhythm game where you, the Sovereign of Sound,
+        lead your guild against the forces of technocratic oppression. <br><br>
+        Command sacred riffs using <strong>A, S, J, K, L</strong> ⚔️🎶 and free the Kingdom of Forca!<br><br>
+        Prepare for epic solos 🐉🔥, crumbling castles 🏰, and the might of the Star Power ⚡⭐.
+      </p>
+      <button id="closePopover">✖ Fechar</button>
+    </div>
+  </div>
+
+  <h3>&nbsp;</h3>
+  <div class="game" id="game">
+    <div class="hud left">
+      <div class="combo">🔥Combo: <span id="combo">0</span>🔗</div>
+      <div class="score">🏆Score: <span id="score">00</span>⭐</div>
+    </div>
+
+    <div class="hud right">
+      <div class="multiplier">Multiplier: <span id="multiplier">x1</span>🚀</div>
+    </div>
+
+    <div class="lane" data-lane="0"></div>
+    <div class="lane" data-lane="1"></div>
+    <div class="lane" data-lane="2"></div>
+    <div class="lane" data-lane="3"></div>
+    <div class="lane" data-lane="4"></div>
+
+    <div class="key" data-key="a">A</div>
+    <div class="key" data-key="s">S</div>
+    <div class="key" data-key="j">J</div>
+    <div class="key" data-key="k">K</div>
+    <div class="key" data-key="l">L</div>
+  </div>
+
+  <script>
+// === CONFIG GLOBAL ===
+const keys = ['a', 's', 'j', 'k', 'l'];
+const noteColors = ['#6aff00', '#ff0e00', '#f9ff00', '#006aff', '#ff6a00'];
+const noteFrequencies = {
+  a: 261.63,
+  s: 293.66,
+  j: 329.63,
+  k: 349.23,
+  l: 390.88
+};
+const activeNotes = [[], [], [], [], []];
+const lanes = Array.from(document.querySelectorAll('.lane'));
+
+const levelRadios = document.querySelectorAll('input[name="level"]');
+
+const levelConfig = {
+  easy: ['a', 's', 'j'],
+  medium: ['a', 's', 'j', 'k'],
+  hard: ['a', 's', 'j', 'k', 'l']
+};
+
+const keyStates = {
+  a: false,
+  s: false,
+  j: false,
+  k: false,
+  l: false
+};
+
+document.addEventListener('keydown', (event) => {
+  const key = event.key.toLowerCase();
+  if (keyStates[key] !== undefined && !keyStates[key]) {
+    keyStates[key] = true;
+
+    const keyElement = document.querySelector(`[data-key="${key}"]`);
+    if (keyElement) {
+      const baseTransform = keyElement.style.transform.replace(/scale\([^)]*\)/g, '') || '';
+      keyElement.style.transform = `${baseTransform} scale(0.95)`.trim();
+      keyElement.style.boxShadow = `0 0 15px ${keyElement.style.color || '#fff'}`;
+    }
+  }
+});
+
+document.addEventListener('keyup', (event) => {
+  const key = event.key.toLowerCase();
+  if (keyStates[key] !== undefined) {
+    keyStates[key] = false;
+
+    const keyElement = document.querySelector(`[data-key="${key}"]`);
+    if (keyElement) {
+      const baseTransform = keyElement.style.transform.replace(/scale\([^)]*\)/g, '') || '';
+      keyElement.style.transform = `${baseTransform} scale(0.87)`.trim();
+      keyElement.style.boxShadow = 'none';
+    }
+  }
+});
+
+function updateLanesByLevel(level) {
+  const keysToShow = levelConfig[level];
+
+  let additionalTransform = '';
+  if (level === 'easy') {
+    additionalTransform = 'skewX(4deg) translateX(1em)';
+  } else if (level === 'medium') {
+    additionalTransform = 'skewX(2deg) translateX(0.5em)';
+  } else if (level === 'hard') {
+    additionalTransform = 'skewX(0deg) translateX(0px)';
+  }
+
+  lanes.forEach((lane, index) => {
+    const key = keys[index];
+    lane.style.transform = `rotateX(46deg) ${additionalTransform}`;
+    lane.style.opacity = keysToShow.includes(key) ? '1' : '0';
+  });
+
+  const keyDivs = document.querySelectorAll('.key');
+  keyDivs.forEach((keyDiv) => {
+    const key = keyDiv.dataset.key;
+
+    keyDiv.style.alignContent = 'center';
+    keyDiv.style.justifyContent = 'center';
+    keyDiv.style.alignItems = 'center';
+    keyDiv.style.alignSelf = 'end';
+
+    if (level === 'easy') {
+      if (keyDiv.dataset.key === 'a') keyDiv.style.translate = '3.4em 0';
+      if (keyDiv.dataset.key === 's') keyDiv.style.translate = '3.4em 0';
+      if (keyDiv.dataset.key === 'j') keyDiv.style.translate = '3.4em 0';
+    } else if (level === 'medium') {
+      keyDiv.style.translate = '1.5em 0';
+    } else if (level === 'hard') {
+      keyDiv.style.translate = '0 0';
+    }
+
+    keyDiv.style.display = keysToShow.includes(key) ? 'flex' : 'none';
+  });
+}
+
+levelRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (radio.checked) {
+      const selectedLevel = radio.nextElementSibling.textContent.toLowerCase();
+      updateLanesByLevel(selectedLevel);
+    }
+  });
+});
+
+const checkedRadio = document.querySelector('input[name="level"]:checked');
+if (checkedRadio) {
+  const initialLevel = checkedRadio.nextElementSibling.textContent.toLowerCase();
+  updateLanesByLevel(initialLevel);
+}
+
+const startBtn = document.getElementById('startBtn');
+let intervalId = null;
+
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+let gameStarted = false;
+let paused = false;
+const pauseBtn = document.getElementById('pauseBtn');
+const comboDisplay = document.getElementById('combo');
+const scoreDisplay = document.getElementById('score');
+const multiplierDisplay = document.getElementById('multiplier');
+let combo = 0;
+let multiplier = 1;
+let score = 0;
+
+let backgroundOffset = 0;
+const backgroundSpeed = 2;
+const restartBtn = document.getElementById('restartBtn');
+const infoBtn = document.getElementById('infoBtn');
+const infoPopover = document.getElementById('infoPopover');
+const closePopover = document.getElementById('closePopover');
+
+infoBtn.addEventListener('click', () => {
+  infoPopover.style.display = 'block';
+});
+
+closePopover.addEventListener('click', () => {
+  infoPopover.style.display = 'none';
+});
+
+const configBtn = document.querySelector('#configBtn');
+const configPopover = document.querySelector('#configPopover');
+
+configBtn.addEventListener('click', (event) => {
+  event.stopPropagation();
+  const isVisible = configPopover.style.display === 'block';
+  configPopover.style.display = isVisible ? 'none' : 'block';
+});
+
+configPopover.addEventListener('click', (event) => {
+  event.stopPropagation();
+});
+
+document.addEventListener('click', () => {
+  configPopover.style.display = 'none';
+});
+
+let masterVolume = 0.5;
+const heroMusic = new Audio('../../assets/audio/hero.mp3');
+heroMusic.loop = true;
+heroMusic.preload = 'auto';
+
+function updateHeroMusicVolume() {
+  heroMusic.volume = Math.max(0, Math.min(1, 0.55 * masterVolume));
+}
+
+updateHeroMusicVolume();
+
+function playSound(freq) {
+  if (!audioCtx || audioCtx.state === 'closed') return;
+
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+
+  osc.type = 'sine';
+  osc.frequency.value = freq;
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+
+  osc.start();
+  const volume = 0.2 * masterVolume;
+  gain.gain.setValueAtTime(volume, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+  osc.stop(audioCtx.currentTime + 0.4);
+}
+
+function createNote(laneElement, speed = 2, color = 'white') {
+  const el = document.createElement('div');
+  const baseColor = color;
+  el.classList.add('note');
+  el.style.backgroundColor = `${color}`;
+  el.style.transformOrigin = 'top center';
+  laneElement.appendChild(el);
+
+  let y = -20;
+  el.style.opacity = '0';
+  setTimeout(() => {
+    el.style.opacity = '1';
+  }, 10);
+
+  function update() {
+    y += speed;
+    const color = baseColor;
+    const minY = -20;
+    const maxY = 400;
+    const minScale = 1.0;
+    const maxScale = 1.4;
+
+    let ratio = (y - minY) / (maxY - minY);
+    ratio = Math.min(Math.max(ratio, 0), 1);
+    const rtt = minScale + (maxScale - minScale) * ratio;
+
+    el.style.top = y + 'px';
+    el.style.transform = `matrix(0.9, 0, 0, ${rtt.toFixed(3)}, 0, 0) scale(0.82)`;
+
+    const bright = c => `${c}cc`;
+    const glow1 = c => `${c}88`;
+    const glow2 = c => `${c}cc`;
+    const glow3 = c => `${c}ff`;
+
+    el.style.boxShadow = `0px 1px 0 white,0px 2px 0 white,0px -1px 1px white,0px -1px 0 white,1px 0px 0 white,-1px 0px 0 white,
+      0px 1px 0 ${bright(color)},
+      0px 2px 0 ${bright(color)},
+      0px -1px 1px ${bright(color)},
+      0px -1px 0 ${bright(color)},
+      1px 0px 0 ${bright(color)},
+      -1px 0px 0 ${bright(color)},
+      0 -1px 2px ${glow1(color)},
+      0 -2px 5px ${glow2(color)},
+      0 -4px 10px ${glow2(color)},
+      0 ${rtt}px 20px ${glow3(color)}
+    `;
+
+    el.parentElement.lastElementChild.style.background = color;
+  }
+
+  function isHittable() {
+    return y >= 345 && y <= 395;
+  }
+
+  function getHitAccuracy() {
+    const perfectZone = 370;
+    const distance = Math.abs(y - perfectZone);
+
+    if (distance <= 7.1) return 'great';
+    if (distance <= 16.2) return 'perfect';
+    if (distance <= 22.9) return 'good';
+    return 'miss';
+  }
+
+  function isMissed() {
+    return y > 400;
+  }
+
+  function destroy() {
+    el.remove();
+  }
+
+  return {
+    update,
+    isHittable,
+    isMissed,
+    destroy,
+    element: el,
+    getHitAccuracy
+  };
+}
+
+function spawnRandomNote() {
+  const checkedRadio = document.querySelector('input[name="level"]:checked');
+  const level = checkedRadio?.nextElementSibling?.textContent.toLowerCase() || 'medium';
+
+  let maxIndex = 5;
+  if (level === 'easy') {
+    maxIndex = 3;
+    lanes.forEach(elm => {
+      elm.style.transform = 'rotateX(46deg) skewX(4deg) translateX(1em)';
+    });
+  } else if (level === 'medium') {
+    maxIndex = 4;
+    lanes.forEach(elm => {
+      elm.style.transform = 'rotateX(46deg) skewX(2deg) translateX(0.5em)';
+    });
+  }
+
+  const index = Math.floor(Math.random() * maxIndex);
+  const lane = lanes[index];
+  const color = noteColors[index];
+  const note = createNote(lane, 2, color);
+  activeNotes[index].push(note);
+}
+
+function gameLoop() {
+  if (paused) return;
+
+  backgroundOffset += backgroundSpeed;
+  lanes.forEach(lane => {
+    lane.style.backgroundPositionY = `${backgroundOffset}px`;
+  });
+
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    if (keyStates[key]) {
+      const laneNotes = activeNotes[i];
+      if (laneNotes.length > 0) {
+        const note = laneNotes[0];
+        if (note.isHittable()) {
+          const accuracy = note.getHitAccuracy();
+
+          if (accuracy !== 'miss') {
+            note.element.classList.add('hit');
+            setTimeout(note.destroy, 100);
+            laneNotes.shift();
+            combo++;
+            updateMultiplier();
+
+            let points = 0;
+            switch (accuracy) {
+              case 'perfect': points = 5 * multiplier; break;
+              case 'great': points = 3 * multiplier; break;
+              case 'good': points = 2 * multiplier; break;
+            }
+            score += points;
+
+            showHitFeedback(accuracy, i);
+            updateHUD();
+
+            const freq = noteFrequencies[key];
+            if (freq) playSound(freq);
+          }
+        }
+      }
+    }
+  }
+
+  for (let i = 0; i < 5; i++) {
+    activeNotes[i] = activeNotes[i].filter(note => {
+      note.update();
+      if (note.isMissed()) {
+        note.element.classList.add('miss');
+
+        multiplier = 1;
+        combo = 0;
+        updateHUD();
+
+        note.element.addEventListener('animationend', () => {
+          note.element.style.display = 'none';
+        });
+        setTimeout(() => {
+          note.destroy();
+        }, 300);
+        return false;
+      }
+      return true;
+    });
+  }
+
+  requestAnimationFrame(gameLoop);
+}
+
+function handleKeyPress(event) {
+  const key = event.key.toLowerCase();
+  const index = keys.indexOf(key);
+  if (key === 'p') document.querySelector('#pauseBtn').click();
+  if (index === -1) return;
+
+  const laneNotes = activeNotes[index];
+  if (laneNotes.length === 0) return;
+
+  const note = laneNotes[0];
+  if (note.isHittable()) {
+    const accuracy = note.getHitAccuracy();
+
+    if (accuracy !== 'miss') {
+      note.element.classList.add('hit');
+      setTimeout(note.destroy, 100);
+      laneNotes.shift();
+      combo++;
+      updateMultiplier();
+
+      let points = 0;
+      switch (accuracy) {
+        case 'perfect': points = 5 * multiplier; break;
+        case 'great': points = 3 * multiplier; break;
+        case 'good': points = 2 * multiplier; break;
+      }
+      score += points;
+
+      showHitFeedback(accuracy, index);
+      updateHUD();
+
+      const freq = noteFrequencies[key];
+      if (freq) playSound(freq);
+    }
+  }
+}
+
+function updateMultiplier() {
+  if (combo >= 25) {
+    multiplier = 4;
+  } else if (combo >= 15) {
+    multiplier = 3;
+  } else if (combo >= 7) {
+    multiplier = 2;
+  } else {
+    multiplier = 1;
+  }
+}
+
+function emitState() {
+  window.parent.postMessage({
+    type: 'lorde-hero:update',
+    score,
+    combo,
+    multiplier
+  }, '*');
+}
+
+function updateHUD() {
+  comboDisplay.textContent = combo;
+  multiplierDisplay.textContent = `x${multiplier}`;
+  scoreDisplay.textContent = score.toString().padStart(2, '0');
+  emitState();
+}
+
+function triggerLaneLightning(laneIndex) {
+  const lane = lanes[laneIndex];
+  if (!lane) return;
+
+  const lightning = document.createElement('div');
+  lightning.className = 'lane-lightning';
+  lightning.style.setProperty('--bolt-color', noteColors[laneIndex] || '#ffffff');
+  lane.appendChild(lightning);
+
+  lightning.addEventListener('animationend', () => {
+    lightning.remove();
+  });
+}
+
+function showHitFeedback(accuracy, laneIndex) {
+  triggerLaneLightning(laneIndex);
+
+  const feedbackElement = document.createElement('div');
+  feedbackElement.className = 'hit-feedback';
+
+  switch (accuracy) {
+    case 'perfect':
+      feedbackElement.textContent = 'PERFECT! ⭐';
+      feedbackElement.style.color = '#FFD700';
+      break;
+    case 'great':
+      feedbackElement.textContent = 'GREAT! 🔥';
+      feedbackElement.style.color = '#FF6B35';
+      break;
+    case 'good':
+      feedbackElement.textContent = 'GOOD! ✨';
+      feedbackElement.style.color = '#4ECDC4';
+      break;
+  }
+
+  const lane = lanes[laneIndex];
+  lane.appendChild(feedbackElement);
+
+  setTimeout(() => {
+    feedbackElement.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+    feedbackElement.style.opacity = '0';
+    feedbackElement.style.transform = 'translate(-50%, -70%)';
+
+    setTimeout(() => {
+      if (feedbackElement.parentNode) {
+        feedbackElement.parentNode.removeChild(feedbackElement);
+      }
+    }, 500);
+  }, 100);
+}
+
+startBtn.addEventListener('click', () => {
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+
+  if (!gameStarted) {
+    intervalId = setInterval(spawnRandomNote, 700);
+
+    gameLoop();
+    gameStarted = true;
+    heroMusic.currentTime = 0;
+    heroMusic.play().catch(() => {});
+    startBtn.style.display = 'none';
+    pauseBtn.style.display = 'inline-block';
+    restartBtn.style.display = 'inline-block';
+  }
+});
+
+restartBtn.addEventListener('click', () => {
+  paused = false;
+  gameStarted = false;
+  clearInterval(intervalId);
+
+  for (let i = 0; i < 5; i++) {
+    activeNotes[i].forEach(note => note.destroy());
+    activeNotes[i] = [];
+  }
+
+  combo = 0;
+  multiplier = 1;
+  score = 0;
+  updateHUD();
+
+  backgroundOffset = 0;
+  lanes.forEach(lane => {
+    lane.style.backgroundPositionY = '0px';
+  });
+
+  startBtn.style.display = 'inline-block';
+  pauseBtn.style.display = 'none';
+  restartBtn.style.display = 'none';
+  pauseBtn.textContent = '⏸️ Pause';
+
+  lanes.forEach(e => {
+    e.style.animationPlayState = 'running';
+  });
+
+  heroMusic.pause();
+  heroMusic.currentTime = 0;
+});
+
+pauseBtn.addEventListener('click', () => {
+  paused = !paused;
+
+  if (paused) {
+    pauseBtn.textContent = '▶️ Continue';
+    clearInterval(intervalId);
+    lanes.forEach(e => {
+      e.style.animationPlayState = 'paused';
+    });
+    heroMusic.pause();
+  } else {
+    pauseBtn.textContent = '⏸️ Pause';
+    intervalId = setInterval(spawnRandomNote, 700);
+    gameLoop();
+    lanes.forEach(e => {
+      e.style.animationPlayState = 'running';
+    });
+    heroMusic.play().catch(() => {});
+  }
+});
+
+document.addEventListener('keydown', () => {
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+}, { once: true });
+
+document.addEventListener('keydown', handleKeyPress);
+const slider = document.querySelector('.slider');
+
+function updateSliderBackground(slider) {
+  const percent =
+    ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+
+  slider.style.background = `linear-gradient(90deg, rgb(98, 255, 235) ${percent}%, rgba(0, 0, 0, 1) ${percent}%)`;
+
+  masterVolume = slider.value / slider.max;
+  updateHeroMusicVolume();
+}
+
+updateSliderBackground(slider);
+slider.addEventListener('input', () => updateSliderBackground(slider));
+
+document
+  .querySelector('[title="volume-mute"]')
+  .addEventListener('click', () => {
+    slider.value = 0;
+    updateSliderBackground(slider);
+  });
+
+document.querySelector('[title="volume-up"]').addEventListener('click', () => {
+  slider.value = slider.max;
+  updateSliderBackground(slider);
+});
+
+slider.value = slider.max / 2;
+updateSliderBackground(slider);
+updateHUD();
+
+window.addEventListener('beforeunload', () => {
+  heroMusic.pause();
+  heroMusic.currentTime = 0;
+});
+  </script>
+</body>
+</html>

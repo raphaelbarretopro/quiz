@@ -103,7 +103,7 @@
             <div id="fb-area" style="margin-top:15px; font-weight:bold; font-size:1.1rem;"></div>
             <button id="val-btn" class="opt-btn hidden" style="background:var(--primary); color:#000; font-weight:bold;">VALIDAR RESPOSTA</button>
             <button id="next-btn" class="opt-btn hidden">AVANÇAR ➔</button>
-          <!--
+          
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:10px;">
                 <button id="pacman-test-btn" class="opt-btn pacman-test-btn">TESTAR PACMAN 👾</button>
                 <button id="enduro-test-btn" class="opt-btn enduro-test-btn">TESTAR ENDURO 🏎️</button>
@@ -113,8 +113,9 @@
                 <button id="space-test-btn" class="opt-btn space-test-btn" style="grid-column: span 2;">TESTAR SPACE 🚀</button>
                 <button id="snake-test-btn" class="opt-btn snake-test-btn" style="grid-column: span 2;">TESTAR SNAKE 🐍</button>
                 <button id="memory-test-btn" class="opt-btn memory-test-btn" style="grid-column: span 2;">TESTAR MEMÓRIA 🧠</button>
+                <button id="lordehero-test-btn" class="opt-btn lordehero-test-btn" style="grid-column: span 2;">TESTAR LORDE HERO 🤴🎸</button>
             </div>
-            -->
+            
 
             <div id="question-counter" class="question-counter">QUESTÃO 1/50</div>
         </div>
@@ -327,6 +328,27 @@
 
             <div class="memory-actions">
                 <button id="memory-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo LORDE HERO -->
+    <div id="lordehero-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3740; display: flex; align-items: center; justify-content: center;">
+        <div class="lordehero-bonus-container">
+            <h2 class="lordehero-title">🤴🎸 LORDE HERO LIBERADO!</h2>
+            <p class="lordehero-subtitle">Desafio bônus sorteado nesta aula. Alcance <strong>120 pontos</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="lordehero-hud">
+                <span id="lordehero-score">Score: 0</span>
+                <span id="lordehero-timer">Tempo: 60s</span>
+            </div>
+
+            <div class="lordehero-board-wrap">
+                <iframe id="lordehero-iframe" title="Mini-game bônus Lorde Hero" loading="eager"></iframe>
+            </div>
+
+            <div class="lordehero-actions">
+                <button id="lordehero-giveup-btn" class="slot-btn-close">DESISTIR</button>
             </div>
         </div>
     </div>

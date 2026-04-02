@@ -39,6 +39,8 @@ class Controller {
         this.snakeBonusActive = false;
         this.memoryBonusReward = 100;
         this.memoryBonusActive = false;
+        this.lordeHeroBonusReward = 100;
+        this.lordeHeroBonusActive = false;
         this.activeBonusGameId = null;
         this.sokobanResolve = null;
         this.sokobanMaxLives = 3;
@@ -70,6 +72,7 @@ class Controller {
         this.view.bindSpaceTest(this.handleSpaceTest.bind(this));
         this.view.bindSnakeTest(this.handleSnakeTest.bind(this));
         this.view.bindMemoryTest(this.handleMemoryTest.bind(this));
+        this.view.bindLordeHeroTest(this.handleLordeHeroTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -637,7 +640,8 @@ class Controller {
             || this.marioBonusActive
             || this.spaceBonusActive
             || this.snakeBonusActive
-                || this.memoryBonusActive
+            || this.memoryBonusActive
+            || this.lordeHeroBonusActive
             || Boolean(this.activeBonusGameId);
     }
 
@@ -650,6 +654,7 @@ class Controller {
         if (gameId === 'space') return this.spaceBonusReward;
         if (gameId === 'snake') return this.snakeBonusReward;
         if (gameId === 'memory') return this.memoryBonusReward;
+        if (gameId === 'lordehero') return this.lordeHeroBonusReward;
         return 0;
     }
 
@@ -695,6 +700,7 @@ class Controller {
         this.spaceBonusActive = gameId === 'space';
         this.snakeBonusActive = gameId === 'snake';
         this.memoryBonusActive = gameId === 'memory';
+        this.lordeHeroBonusActive = gameId === 'lordehero';
 
         try {
             await selectedGame.run({
@@ -713,6 +719,7 @@ class Controller {
             this.spaceBonusActive = false;
             this.snakeBonusActive = false;
             this.memoryBonusActive = false;
+            this.lordeHeroBonusActive = false;
         }
     }
 
@@ -769,6 +776,13 @@ class Controller {
         if (this.hasTimedOut) return;
         if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
         await this.runScheduledGameById('memory');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleLordeHeroTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('lordehero');
         if (!this.hasTimedOut) this.renderStep();
     }
 }

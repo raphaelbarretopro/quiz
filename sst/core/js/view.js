@@ -134,7 +134,15 @@ export default class View {
             memoryTimer: document.getElementById('memory-timer'),
             memoryLives: document.getElementById('memory-lives'),
             memoryGiveUpBtn: document.getElementById('memory-giveup-btn'),
-            memoryTestBtn: document.getElementById('memory-test-btn')
+            memoryTestBtn: document.getElementById('memory-test-btn'),
+
+            // Bonus especial estilo LORDE HERO
+            lordeHeroBonusModal: document.getElementById('lordehero-bonus-modal'),
+            lordeHeroIframe: document.getElementById('lordehero-iframe'),
+            lordeHeroTimer: document.getElementById('lordehero-timer'),
+            lordeHeroScore: document.getElementById('lordehero-score'),
+            lordeHeroGiveUpBtn: document.getElementById('lordehero-giveup-btn'),
+            lordeHeroTestBtn: document.getElementById('lordehero-test-btn')
         };
 
         this.rot = 0;
@@ -153,6 +161,7 @@ export default class View {
         this.spaceSession = null;
         this.snakeSession = null;
         this.memorySession = null;
+        this.lordeHeroSession = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
         this.correctAnswerAudio.preload = 'auto';
@@ -493,6 +502,11 @@ export default class View {
     bindMemoryTest(handler) {
         if (!this.els.memoryTestBtn) return;
         this.els.memoryTestBtn.addEventListener('click', handler);
+    }
+
+    bindLordeHeroTest(handler) {
+        if (!this.els.lordeHeroTestBtn) return;
+        this.els.lordeHeroTestBtn.addEventListener('click', handler);
     }
 
     showPortal() {
@@ -6063,5 +6077,213 @@ export default class View {
             }, 5400);
         });
     }
+        getLordeHeroGameUrl() {
+            const base = new URL('./game/lordehero-original.html', import.meta.url);
+            base.searchParams.set('v', String(Date.now()));
+            return base.toString();
+        }
+
+        runLordeHeroBonusLevel() {
+                const modal = this.els.lordeHeroBonusModal;
+                const iframe = this.els.lordeHeroIframe;
+                if (!modal || !iframe) {
+                        return Promise.resolve({ won: false, score: 0, maxCombo: 0, reason: 'no_element' });
+                }
+
+                this.pauseGameMusic();
+                modal.classList.remove('hidden');
+
+                if (this.lordeHeroSession && this.lordeHeroSession.cleanup) {
+                        this.lordeHeroSession.cleanup(false);
+                }
+
+                let resolvePromise = null;
+                const promise = new Promise((resolve) => {
+                        resolvePromise = resolve;
+                });
+
+                const GAME_DURATION = 60;
+                const WIN_SCORE = 120;
+
+                let finished = false;
+                let timeLeft = GAME_DURATION;
+                let timerTick = null;
+                let currentScore = 0;
+                let maxCombo = 0;
+
+                if (this.els.lordeHeroTimer) {
+                        this.els.lordeHeroTimer.textContent = `Tempo: ${timeLeft}s`;
+                }
+                if (this.els.lordeHeroScore) {
+                        this.els.lordeHeroScore.textContent = `Score: ${currentScore}`;
+                }
+
+                const onMessage = (event) => {
+                        if (event.source !== iframe.contentWindow) return;
+                        const payload = event.data || {};
+                        if (payload.type !== 'lorde-hero:update') return;
+
+                        currentScore = Math.max(0, Number(payload.score) || 0);
+                        maxCombo = Math.max(0, Number(payload.maxCombo) || 0);
+
+                        if (this.els.lordeHeroScore) {
+                                this.els.lordeHeroScore.textContent = `Score: ${currentScore}`;
+                        }
+                };
+
+                const finish = (won, reason = 'interrupted') => {
+                        if (finished) return;
+                        finished = true;
+
+                        if (timerTick) {
+                                clearInterval(timerTick);
+                                timerTick = null;
+                        }
+
+                        window.removeEventListener('message', onMessage);
+                        modal.classList.add('hidden');
+                        iframe.src = 'about:blank';
+
+                        resolvePromise({
+                                won,
+                                score: currentScore,
+                                maxCombo,
+                                reason
+                        });
+                };
+
+                if (this.els.lordeHeroGiveUpBtn) {
+                        this.els.lordeHeroGiveUpBtn.onclick = () => finish(false, 'giveup');
+                }
+
+                window.addEventListener('message', onMessage);
+
+                iframe.src = this.getLordeHeroGameUrl();
+
+                timerTick = setInterval(() => {
+                        if (finished) return;
+                        timeLeft -= 1;
+
+                        if (this.els.lordeHeroTimer) {
+                                this.els.lordeHeroTimer.textContent = `Tempo: ${Math.max(0, timeLeft)}s`;
+                        }
+
+                        if (timeLeft <= 0) {
+                                const won = currentScore >= WIN_SCORE;
+                                finish(won, won ? 'completed' : 'low_score');
+                        }
+                }, 1000);
+
+                this.lordeHeroSession = { cleanup: (won = false) => finish(won) };
+
+                return promise;
+        }
+
+        showLordeHeroVictoryPopup(playerName = 'Jogador') {
+                const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+                const overlay = document.createElement('div');
+                overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+                const card = document.createElement('div');
+                card.className = 'slot-summary-card enduro-victory-card';
+                card.innerHTML = `
+                        <h3 class="slot-summary-title">VOCÊ VENCEU! 🤴🎸🏆</h3>
+                        <div style="font-size:4.5rem; margin:16px 0; line-height:1.2;">🎉🤴🎸🎉</div>
+                        <p class="enduro-victory-text"><strong>${safeName}</strong>, concluiu o desafio LORDE HERO com maestria!</p>
+                `;
+
+                overlay.appendChild(card);
+                document.body.appendChild(overlay);
+
+                const ac = this.getSharedAudioContext();
+                if (ac) {
+                        const notes = [392.0, 523.25, 659.25, 783.99];
+                        notes.forEach((freq, i) => {
+                                const delay = i * 0.12;
+                                const osc = ac.createOscillator();
+                                const gain = ac.createGain();
+                                const now = ac.currentTime;
+                                osc.type = 'triangle';
+                                osc.frequency.setValueAtTime(freq, now + delay);
+                                gain.gain.setValueAtTime(0.001, now + delay);
+                                gain.gain.exponentialRampToValueAtTime(0.2, now + delay + 0.015);
+                                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.28);
+                                osc.connect(gain);
+                                gain.connect(ac.destination);
+                                osc.start(now + delay);
+                                osc.stop(now + delay + 0.32);
+                        });
+                }
+
+                return new Promise((resolve) => {
+                        setTimeout(() => {
+                                overlay.remove();
+                                resolve();
+                        }, 4500);
+                });
+        }
+
+        showLordeHeroFinalSummary(baseScore, reward, rawScore = 0, maxCombo = 0) {
+                const safeBase = Number(baseScore) || 0;
+                const safeReward = Math.max(0, Number(reward) || 0);
+                const safeRawScore = Math.max(0, Number(rawScore) || 0);
+                const safeMaxCombo = Math.max(0, Number(maxCombo) || 0);
+                const comboBonus = safeMaxCombo * 2;
+
+                const overlay = document.createElement('div');
+                overlay.className = 'slot-summary-overlay';
+
+                const card = document.createElement('div');
+                card.className = 'slot-summary-card';
+                card.innerHTML = `
+                        <h3 class="slot-summary-title">TOTAL DO DESAFIO LORDE HERO 🤴🎸</h3>
+                        <div class="enduro-trophy-hero" aria-hidden="true">🤴🎸🏆</div>
+                        <div class="slot-summary-list"></div>
+                        <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+                `;
+
+                overlay.appendChild(card);
+                document.body.appendChild(overlay);
+
+                const listEl = card.querySelector('.slot-summary-list');
+                const totalEl = card.querySelector('.slot-summary-total');
+
+                return new Promise((resolve) => {
+                        let runningScore = safeBase;
+
+                        setTimeout(() => {
+                                const rowScore = document.createElement('div');
+                                rowScore.className = 'slot-summary-row';
+                                rowScore.innerHTML = `<span>Pontuação no Lorde Hero</span><strong>+${safeRawScore}</strong>`;
+                                listEl.appendChild(rowScore);
+                        }, 550);
+
+                        setTimeout(() => {
+                                const rowCombo = document.createElement('div');
+                                rowCombo.className = 'slot-summary-row';
+                                rowCombo.innerHTML = `<span>Maior combo (×2)</span><strong>+${comboBonus}</strong>`;
+                                listEl.appendChild(rowCombo);
+                        }, 1150);
+
+                        setTimeout(() => {
+                                const rowReward = document.createElement('div');
+                                rowReward.className = 'slot-summary-row';
+                                rowReward.innerHTML = `<span>Concluiu o desafio</span><strong>+${safeReward}</strong>`;
+                                listEl.appendChild(rowReward);
+
+                                const oldScore = runningScore;
+                                runningScore += safeRawScore + comboBonus + safeReward;
+                                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                                this.animateScoreIncrease(oldScore, runningScore);
+                        }, 1800);
+
+                        setTimeout(() => {
+                                overlay.remove();
+                                this.resumeGameMusic();
+                                resolve(runningScore);
+                        }, 5600);
+                });
+        }
 
 }

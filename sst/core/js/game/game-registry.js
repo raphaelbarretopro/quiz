@@ -6,8 +6,9 @@ import marioGame from './mario-game.js';
 import spaceGame from './space-game.js';
 import snakeGame from './snake-game.js';
 import memoryGame from './memory-game.js';
+import lordeHeroGame from './lordehero-game.js';
 
-const games = [pacmanGame, enduroGame, tRexGame, sokobanGame, marioGame, spaceGame, snakeGame, memoryGame];
+const games = [pacmanGame, enduroGame, tRexGame, sokobanGame, marioGame, spaceGame, snakeGame, memoryGame, lordeHeroGame];
 
 export const gameRegistry = Object.fromEntries(games.map((game) => [game.id, game]));
 
