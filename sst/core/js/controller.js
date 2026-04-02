@@ -68,13 +68,7 @@ class Controller {
     }
 
     getSokobanDurationMsByTopic(topicId) {
-        const byTopic = {
-            ACID: 60000,
-            AGEN: 50000,
-            PROT: 40000,
-            NORM: 30000
-        };
-        return byTopic[topicId] || 60000;
+        return 30000;
     }
 
     async init() {
@@ -543,6 +537,18 @@ class Controller {
         this.slotSpinInProgress = false;
         this.slotRoundSpins = [];
         this.slotRoundBaseScore = this.model.playerScore;
+
+        // Planeja os resultados da rodada: sempre 1 par (2 iguais) e, nas rodadas pares,
+        // também garante um jackpot (3 iguais) em um giro diferente.
+        const pairSlot = Math.floor(Math.random() * this.slotMaxSpins);
+        const spinPlan = Array.from({ length: this.slotMaxSpins }, () => 'random');
+        spinPlan[pairSlot] = 'pair';
+        if (this.slotRoundId % 2 === 0) {
+            const others = spinPlan.map((_, i) => i).filter(i => i !== pairSlot);
+            spinPlan[others[Math.floor(Math.random() * others.length)]] = 'jackpot';
+        }
+        this.slotRoundPlan = spinPlan;
+
         this.view.showSlotMachine();
         this.view.els.slotSpinBtn.disabled = false;
         this.updateSlotSpinButtonLabel();
@@ -556,12 +562,14 @@ class Controller {
 
             // Conta o giro no clique para não ultrapassar o limite.
             this.slotSpinInProgress = true;
+            const spinIndex = this.slotSpinsUsed;
             this.slotSpinsUsed++;
             this.view.els.slotSpinBtn.disabled = true;
             this.updateSlotSpinButtonLabel();
 
             try {
-                const finalPositions = await this.view.spinSlotMachine();
+                const outcome = (this.slotRoundPlan || [])[spinIndex] || 'random';
+                const finalPositions = await this.view.spinSlotMachine(outcome);
 
                 // Se a rodada já mudou/encerrou, encerra sem mexer no fluxo.
                 if (!this.slotIsActive || this.slotRoundId !== activeRoundId) {
@@ -617,7 +625,12 @@ class Controller {
     }
 
     isAnyBonusGameActive() {
-        return this.pacmanBonusActive || this.enduroBonusActive || this.trexBonusActive || Boolean(this.activeBonusGameId);
+        return this.pacmanBonusActive
+            || this.enduroBonusActive
+            || this.trexBonusActive
+            || this.marioBonusActive
+            || this.spaceBonusActive
+            || Boolean(this.activeBonusGameId);
     }
 
     getBonusRewardByGameId(gameId) {

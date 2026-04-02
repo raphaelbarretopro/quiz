@@ -25,23 +25,23 @@ function uniqueRandomFromRange(start, end, usedPositions = new Set()) {
 
 function buildRanges(totalQuestions, slots) {
     if (slots <= 1) {
-        return [[Math.max(1, Math.floor(totalQuestions / 2)), totalQuestions]];
+        return [[Math.max(0, Math.floor(totalQuestions / 2)), totalQuestions - 1]];
     }
 
     if (slots === 2) {
         const middle = Math.floor(totalQuestions / 2);
         return [
-            [Math.max(1, Math.floor(middle / 2)), middle],
-            [middle + 1, totalQuestions]
+            [Math.max(0, Math.floor(middle / 2)), middle - 1],
+            [middle, totalQuestions - 1]
         ];
     }
 
-    const firstEnd = Math.max(1, Math.floor(totalQuestions / 3));
+    const firstEnd = Math.max(0, Math.floor(totalQuestions / 3));
     const secondEnd = Math.max(firstEnd + 1, Math.floor((totalQuestions * 2) / 3));
     return [
-        [Math.max(1, Math.floor(firstEnd / 2)), firstEnd],
+        [Math.max(0, Math.floor(firstEnd / 2)), firstEnd],
         [firstEnd + 1, secondEnd],
-        [secondEnd + 1, totalQuestions]
+        [secondEnd + 1, totalQuestions - 1]
     ];
 }
 
@@ -50,10 +50,10 @@ function normalizeRangeValue(value, totalQuestions) {
     if (!Number.isFinite(numeric)) return null;
 
     if (numeric > 0 && numeric <= 1) {
-        return Math.max(1, Math.min(totalQuestions, Math.round(numeric * totalQuestions)));
+        return Math.max(0, Math.min(totalQuestions - 1, Math.round(numeric * (totalQuestions - 1))));
     }
 
-    return Math.max(1, Math.min(totalQuestions, Math.round(numeric)));
+    return Math.max(0, Math.min(totalQuestions - 1, Math.round(numeric)));
 }
 
 function buildConfiguredRanges(totalQuestions, configuredRanges = [], fallbackSlots = 3) {
@@ -104,10 +104,10 @@ export function buildRandomGameSchedule(totalQuestions, availableGameIds = [], c
     const schedule = [];
 
     for (let index = 0; index < slots; index++) {
-        const [start, end] = ranges[index] || [1, total];
+        const [start, end] = ranges[index] || [0, total - 1];
         const position = uniqueRandomFromRange(start, end, usedPositions)
-            ?? uniqueRandomFromRange(1, total, usedPositions)
-            ?? total;
+            ?? uniqueRandomFromRange(0, total - 1, usedPositions)
+            ?? (total - 1);
 
         usedPositions.add(position);
         schedule.push({

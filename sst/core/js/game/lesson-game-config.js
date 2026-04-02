@@ -1,13 +1,15 @@
-const AVAILABLE_GAMES = ['pacman', 'enduro', 'trex', 'sokoban'];
+const AVAILABLE_GAMES = ['pacman', 'enduro', 'trex', 'sokoban', 'mario', 'space'];
 
 const DEFAULT_GAME_SCHEDULE_CONFIG = {
-    slots: 3,
+    slots: 5,
     gamePool: AVAILABLE_GAMES,
-    // Aceita faixas absolutas (ex.: 12) ou percentuais (ex.: 0.25 = 25% da prova).
+    // Posições 0-indexed exatas: 9 (10ª), 19 (20ª), 29 (30ª), 39 (40ª), 49 (50ª questão)
     positionRanges: [
-        { start: 0.12, end: 0.28 },
-        { start: 0.40, end: 0.62 },
-        { start: 0.74, end: 0.95 }
+        { start: 8, end: 10 },
+        { start: 18, end: 20 },
+        { start: 28, end: 30 },
+        { start: 38, end: 40 },
+        { start: 48, end: 49 }
     ],
     allowRepeatGames: false
 };

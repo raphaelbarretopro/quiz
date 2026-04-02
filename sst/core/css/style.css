@@ -1586,6 +1586,12 @@ label,
     position: relative;
     text-align: center;
     z-index: 1;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.slot-machine-container::-webkit-scrollbar {
+    display: none;
 }
 
 /* Lens flare esquerda */

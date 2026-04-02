@@ -2812,6 +2812,13 @@ export default class View {
         overlay.appendChild(card);
         document.body.appendChild(overlay);
 
+        // Toca o som de vitória imediatamente quando o popup aparece
+        if (this.marioWinsAudio) {
+            this.marioWinsAudio.pause();
+            try { this.marioWinsAudio.currentTime = 0; } catch (_) {}
+            this.marioWinsAudio.play().catch(() => {});
+        }
+
         return new Promise((resolve) => {
             let done = false;
 
@@ -2874,14 +2881,6 @@ export default class View {
                 totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
                 this.animateScoreIncrease(oldScore, runningScore);
             }, 1250);
-
-            setTimeout(() => {
-                if (this.marioWinsAudio) {
-                    this.marioWinsAudio.pause();
-                    try { this.marioWinsAudio.currentTime = 0; } catch (_) {}
-                    this.marioWinsAudio.play().catch(() => {});
-                }
-            }, 2900);
 
             setTimeout(() => {
                 overlay.remove();
@@ -3934,10 +3933,7 @@ export default class View {
         this.enduroStartAudio.onended = () => startRace();
         // Fallback para navegadores que não disparem onended.
         startRaceTimer = setTimeout(() => startRace(), 4500);
-            if (e.key === 'ArrowLeft') keys.left = false;
-            if (e.key === 'ArrowRight') keys.right = false;
-            if (e.key === 'ArrowUp') keys.up = false;
-            if (e.key === 'ArrowDown') keys.down = false;
+
         const promise = new Promise((resolve) => {
             resolvePromise = resolve;
         });
@@ -4716,7 +4712,7 @@ export default class View {
         }
     }
 
-    _generateSlotFinalPositions(reels) {
+    _generateSlotFinalPositions(reels, forcedOutcome = 'random') {
         const counts = reels.map((reel) => Math.max(1, Number(reel?.dataset.baseCount || 5)));
         const baseCount = Math.max(1, Math.min(...counts));
 
@@ -4725,6 +4721,24 @@ export default class View {
         }
 
         const pick = (max) => Math.floor(Math.random() * Math.max(1, max));
+
+        // Resultado forçado: jackpot (3 iguais)
+        if (forcedOutcome === 'jackpot') {
+            const idx = pick(baseCount);
+            return [idx, idx, idx];
+        }
+
+        // Resultado forçado: par (2 iguais, 1 diferente)
+        if (forcedOutcome === 'pair') {
+            const pair = pick(baseCount);
+            let odd = pick(baseCount - 1);
+            if (odd >= pair) odd += 1;
+            const oddPos = pick(3);
+            if (oddPos === 0) return [odd, pair, pair];
+            if (oddPos === 1) return [pair, odd, pair];
+            return [pair, pair, odd];
+        }
+
         const roll = Math.random();
 
         // Facilita a rodada: mais chances de 2 e 3 símbolos iguais.
@@ -4765,14 +4779,14 @@ export default class View {
         return [a, b, c];
     }
 
-    spinSlotMachine() {
+    spinSlotMachine(forcedOutcome = 'random') {
         // Anima os 3 reels e resolve quando o resultado final estiver disponível.
         this._ensureSlotTracks();
 
         const reels = [this.els.slotReel1, this.els.slotReel2, this.els.slotReel3];
         const spinDurations = [1100, 1400, 1700];
 
-        const finalPositions = this._generateSlotFinalPositions(reels);
+        const finalPositions = this._generateSlotFinalPositions(reels, forcedOutcome);
 
         // Armazena as posições para uso posterior
         this.lastSlotPositions = finalPositions;
