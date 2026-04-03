@@ -322,14 +322,57 @@ export default class View {
         return this.resolveAssetPath(normalized);
     }
 
+    isAnyMiniGameActive() {
+        const isVisible = (el) => el && !el.classList.contains('hidden');
+        return Boolean(
+            (this.els.sokobanScreen && !this.els.sokobanScreen.classList.contains('hidden')) ||
+            isVisible(this.els.slotMachineModal) ||
+            isVisible(this.els.pacmanBonusModal) ||
+            isVisible(this.els.enduroBonusModal) ||
+            isVisible(this.els.trexBonusModal) ||
+            isVisible(this.els.marioBonusModal) ||
+            isVisible(this.els.spaceBonusModal) ||
+            isVisible(this.els.snakeBonusModal) ||
+            isVisible(this.els.memoryBonusModal) ||
+            isVisible(this.els.lordeHeroBonusModal)
+        );
+    }
+
+    stopMiniGameAudioTracks(resetTime = true) {
+        const tracks = [
+            this.pacmanStartAudio,
+            this.pacmanEatAudio,
+            this.pacmanDieAudio,
+            this.pacmanVitaminAudio,
+            this.pacmanEndingPowerAudio,
+            this.enduroStartAudio,
+            this.enduroRaceAudio,
+            this.trexStartAudio,
+            this.trexRaceAudio,
+            this.trexVictoryAudio,
+            this.marioStartAudio,
+            this.marioRaceAudio,
+            this.marioFallAudio,
+            this.marioWinsAudio,
+            this.enduroVictoryAudio,
+            this.sokobanMusic
+        ];
+
+        tracks.forEach((track) => {
+            if (!track) return;
+            track.pause();
+            if (resetTime) {
+                try { track.currentTime = 0; } catch (_) {}
+            }
+        });
+    }
+
     pauseGameMusic() {
         // Pausa a música de fundo durante mini-games
         if (this.bgMusic) {
             this.bgMusic.pause();
         }
-        if (this.sokobanMusic) {
-            this.sokobanMusic.pause();
-        }
+        this.stopMiniGameAudioTracks(false);
     }
 
     resumeGameMusic() {
@@ -380,7 +423,7 @@ export default class View {
                     // Desliga a música
                     this.musicEnabled = false;
                     this.bgMusic.pause();
-                    this.stopSokobanMusic(false);
+                    this.stopMiniGameAudioTracks(false);
                     this.els.musicToggle.textContent = 'LIGAR';
                     this.els.musicToggle.classList.add('music-off');
                 } else {
@@ -388,8 +431,8 @@ export default class View {
                     this.musicEnabled = true;
                     if (this.els.sokobanScreen && !this.els.sokobanScreen.classList.contains('hidden')) {
                         this.startSokobanMusic();
-                    } else if (this.els.trexBonusModal && !this.els.trexBonusModal.classList.contains('hidden')) {
-                        // Durante o T-REX, mantém apenas os áudios do mini-game.
+                    } else if (this.isAnyMiniGameActive()) {
+                        // Durante mini-games, mantém apenas os áudios do próprio jogo.
                     } else {
                         this.bgMusic.play().catch(() => {});
                     }
@@ -831,6 +874,7 @@ export default class View {
 
         this.applyTheme(safeTopicData);
         this.els.eraTag.innerText = `MODALIDADE: ${safeTopicData.name}`;
+        const displayPlayerName = String(playerName || '').trim().split(/\s+/)[0] || 'ALUNO';
         const questionNumber = `QUESTÃO ${currentStep + 1}/${totalQuestions}`;
         if (this.els.questionCounter) {
             this.els.questionCounter.textContent = questionNumber;
@@ -849,7 +893,7 @@ export default class View {
         // Fluxo de renderização muda conforme o tipo da questão.
         if (q.type === "combo") {
             const parts = q.questions.split("[COMBO]");
-            this.els.qTxt.innerHTML = parts[0].replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = parts[0].replace("[NAME]", displayPlayerName);
             const sel = document.createElement('select');
             sel.className = "combo-box";
             let comboAnswered = false;
@@ -878,7 +922,7 @@ export default class View {
             };
         } 
         else if (q.type === "multi") {
-            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", displayPlayerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
             const maxSelectable = Array.isArray(q.correct)
                 ? Math.max(1, new Set(q.correct.map((value) => String(value).trim())).size)
@@ -929,14 +973,14 @@ export default class View {
             };
         }
         else if (q.type === "drag") {
-            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", displayPlayerName);
             this.els.opts.classList.add('hidden'); 
             this.els.dragDrop.classList.remove('hidden');
             this.els.quizScreen.classList.add('is-drag-question');
             this.renderDrag(q, answerHandler);
         }
         else {
-            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
+            this.els.qTxt.innerHTML = q.questions.replace("[NAME]", displayPlayerName);
             const shuffledAnswers = this.shuffle([...q.answers]);
             
             shuffledAnswers.forEach(a => {
@@ -1063,14 +1107,14 @@ export default class View {
             const correctCount = Number(answerResult?.correctCount || 0);
             const totalItems = Number(answerResult?.totalItems || 0);
             const pointsAwarded = Number(answerResult?.pointsAwarded || 0);
-            const correctAnswer = this.formatCorrectAnswer(questionData);
+            const isDragQuestion = questionData?.type === 'drag';
 
             this.els.fbArea.innerHTML = `
                 ${buildTipFrame(`
                     <span class="feedback-inline-status feedback-inline-status-partial">△ Acerto parcial, ${playerName}.</span>
                     <span>${tip}</span>
                     <div class="correct-answer-box feedback-answer-inside"><b>Pontuação:</b> ${correctCount}/${totalItems} itens corretos, +${pointsAwarded} pontos</div>
-                    <div class="correct-answer-box feedback-answer-inside"><b>Resposta correta:</b> ${correctAnswer}</div>
+                    ${isDragQuestion ? '' : `<div class="correct-answer-box feedback-answer-inside"><b>Resposta correta:</b> ${this.formatCorrectAnswer(questionData)}</div>`}
                 `)}
             `;
             this.els.fbArea.classList.add('has-feedback');
@@ -1080,16 +1124,15 @@ export default class View {
             this.els.valBtn.classList.add('hidden');
         } else {
             if (btnElement) btnElement.style.background = "#ff4b4b";
-            const correctAnswer = this.formatCorrectAnswer(questionData);
             if (questionData?.type === 'drag') {
                 this.els.fbArea.innerHTML = `
                     ${buildTipFrame(`
                         <span class="feedback-inline-status">✗ Resposta incorreta, ${playerName}.</span>
                         <span>${tip}</span>
-                        <div class="correct-answer-box feedback-answer-inside"><b>Resposta correta:</b> ${correctAnswer}</div>
                     `)}
                 `;
             } else {
+                const correctAnswer = this.formatCorrectAnswer(questionData);
                 this.els.fbArea.innerHTML = `
                     ${buildTipFrame(`
                         <span class="feedback-inline-status">✗ Resposta incorreta, ${playerName}.</span>

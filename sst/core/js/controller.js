@@ -152,7 +152,7 @@ class Controller {
         this.view.setGoogleAuthSuccessState(identity.displayName, identity.email);
 
         this.model.playerName = identity.displayName;
-        this.view.setScorePlayerName(identity.scoreLabel);
+        this.view.setScorePlayerName(identity.firstName);
         this.subscribeTop15Realtime();
     }
 
@@ -218,7 +218,7 @@ class Controller {
         // Inicia a sessão do jogador e passa para o primeiro passo da jornada.
         const identity = this.getGoogleIdentity(this.authUser);
         this.model.playerName = identity.displayName;
-        this.view.setScorePlayerName(identity.scoreLabel);
+        this.view.setScorePlayerName(identity.firstName);
         // Tempo total da sessão (independente do timer do Sokoban).
         this.startTime = Date.now();
         this.hasTimedOut = false;
@@ -352,7 +352,7 @@ class Controller {
 
     renderStep() {
         const q = this.model.getCurrentQuestion();
-        
+
         // Em transições de tema, exibe roleta + popup e segue para o quiz.
         if (q.trans && !this.isReady) {
             this.currentTargetTopic = q.trans;
@@ -360,9 +360,14 @@ class Controller {
             this.view.showPortal();
             return;
         }
-        
+
+        // Se a questão é de transição, prioriza o tema sorteado pela roleta ao voltar para o quiz.
+        const effectiveTopicId = q.trans
+            ? (this.currentTargetTopic || q.trans || q.topics)
+            : q.topics;
+
         // Renderiza a pergunta da etapa atual com o tema correspondente.
-        const topicData = this.model.getTopicData(q.topics);
+        const topicData = this.model.getTopicData(effectiveTopicId);
         this.view.els.portalScreen.classList.add('hidden');
         this.view.renderQuestion(
             q,
@@ -383,9 +388,10 @@ class Controller {
     handleWheelStop() {
         if (this.hasTimedOut) return;
         // Converte o tópico-alvo para índice e anima a roleta até o setor correto.
-        const topicIndex = this.model.lessonInfo.topics.findIndex(t => t.id === this.currentTargetTopic);
+        const rawIndex = this.model.lessonInfo.topics.findIndex(t => t.id === this.currentTargetTopic);
+        const topicIndex = rawIndex >= 0 ? rawIndex : 0;
         const topicData = this.model.getTopicData(this.currentTargetTopic);
-        
+
         this.view.stopSpin(topicIndex, this.model.lessonInfo.topics.length, topicData);
     }
 
