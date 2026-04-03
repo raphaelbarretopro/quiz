@@ -1,6 +1,7 @@
 import Model from './model.js';
 import View from './view.js';
 import RankingManager from './ranking-manager.js';
+import { restoreGoogleAuthSession, signInWithGoogle, subscribeToGoogleAuthState } from './firebase-config.js';
 import { getAllGameIds, getGameById } from './game/game-registry.js';
 import { buildRandomGameSchedule } from './game/game-scheduler.js';
 import { getLessonGameScheduleConfig } from './game/lesson-game-config.js';
@@ -56,9 +57,14 @@ class Controller {
         this.slotRoundBaseScore = 0;
         this.isFinalizingQuiz = false;
         this.hasFinalizedQuiz = false;
+        this.authUser = null;
+        this.authUnsubscribe = null;
+        this.rankingRealtimeSubscribed = false;
 
         // Registra os handlers da interface com o contexto da instância.
         this.view.bindStart(this.handleStart.bind(this));
+        this.view.bindGoogleLogin(this.handleGoogleLogin.bind(this));
+        this.view.bindLoginModal(this.handleGoogleLogin.bind(this));
         this.view.bindRankingPreview(this.handleShowRanking.bind(this));
         this.view.bindWheelStart(this.handleWheelStart.bind(this));
         this.view.bindWheelStop(this.handleWheelStop.bind(this));
@@ -91,18 +97,111 @@ class Controller {
             this.ranking.setLessonId(lessonId);
             
             this.view.initUI(this.model.lessonInfo);
+            this.view.setGoogleAuthRequiredState();
 
-            // Mantém painel Top 15 da tela principal atualizado em tempo real.
-            this.ranking.subscribeToTopScores(15, (scores) => {
-                this.view.renderTop15Panel(scores);
+            const restoredUser = await restoreGoogleAuthSession();
+            if (restoredUser) {
+                this.applyAuthenticatedUser(restoredUser);
+            }
+
+            if (this.authUnsubscribe) {
+                this.authUnsubscribe();
+                this.authUnsubscribe = null;
+            }
+
+            this.authUnsubscribe = subscribeToGoogleAuthState((user) => {
+                if (user) {
+                    this.applyAuthenticatedUser(user);
+                } else {
+                    this.handleSignedOutUser();
+                }
             });
         }
     }
 
+    subscribeTop15Realtime() {
+        if (this.rankingRealtimeSubscribed) return;
+        this.rankingRealtimeSubscribed = true;
+        this.ranking.subscribeToTopScores(15, (scores) => {
+            this.view.renderTop15Panel(scores);
+        });
+    }
+
+    applyAuthenticatedUser(user) {
+        this.authUser = user || null;
+        if (!this.authUser) return;
+
+        const displayName = String(this.authUser.displayName || this.authUser.email || 'ALUNO').trim();
+        this.view.setGoogleAuthSuccessState(displayName, this.authUser.email || '');
+
+        this.model.playerName = displayName;
+        this.view.setScorePlayerName(displayName);
+        this.subscribeTop15Realtime();
+    }
+
+    handleSignedOutUser() {
+        this.authUser = null;
+        this.ranking.unsubscribe();
+        this.rankingRealtimeSubscribed = false;
+        this.view.renderTop15Panel([]);
+        this.view.setGoogleAuthRequiredState();
+    }
+
+    getGoogleAuthFriendlyError(error) {
+        const code = String(error?.code || '').toLowerCase();
+        const message = String(error?.message || '');
+
+        if (code === 'auth/api-key-not-valid.-please-pass-a-valid-api-key.' || code === 'auth/api-key-not-valid' || message.includes('api key not valid')) {
+            return 'Falha de configuração do Firebase: API key inválida. Verifique o firebaseConfig no projeto e as restrições da chave no Google Cloud.';
+        }
+
+        if (code === 'auth/unauthorized-domain') {
+            return 'Domínio não autorizado no Firebase Authentication. Adicione este domínio em Authentication > Settings > Authorized domains.';
+        }
+
+        if (code === 'auth/operation-not-allowed') {
+            return 'Login Google não habilitado no Firebase. Ative o provedor Google em Authentication > Sign-in method.';
+        }
+
+        if (code === 'auth/popup-closed-by-user') {
+            return 'Login cancelado. Feche esta mensagem e tente novamente.';
+        }
+
+        if (code === 'auth/network-request-failed') {
+            return 'Falha de rede ao autenticar. Verifique a conexão e tente novamente.';
+        }
+
+        return 'Não foi possível autenticar com Google. Verifique Firebase Authentication, domínios autorizados e API key.';
+    }
+
+    async handleGoogleLogin() {
+        this.view.setGoogleAuthLoadingState();
+
+        try {
+            const user = await signInWithGoogle();
+            if (user) {
+                this.applyAuthenticatedUser(user);
+                return;
+            }
+
+            // Fluxo redirect: aguardará recarga da página.
+            this.view.setGoogleAuthLoadingState('Redirecionando para login do Google...');
+        } catch (error) {
+            console.error('Falha no login com Google:', error);
+            this.view.setGoogleAuthRequiredState(this.getGoogleAuthFriendlyError(error));
+        }
+    }
+
     handleStart(name) {
+        if (!this.authUser) {
+            this.view.showAlert('Login obrigatório', 'Faça login com Google para acessar o quiz.');
+            return;
+        }
+
         // Inicia a sessão do jogador e passa para o primeiro passo da jornada.
-        this.model.playerName = name;
-        this.view.setScorePlayerName(name);
+        const resolvedName = String(this.authUser.displayName || this.authUser.email || name).trim();
+        this.model.playerName = resolvedName;
+        this.view.setScorePlayerName(resolvedName);
         // Tempo total da sessão (independente do timer do Sokoban).
         this.startTime = Date.now();
         this.hasTimedOut = false;

@@ -99,18 +99,13 @@ export default class RankingManager {
             return false;
         }
 
-        // A autenticação anônima é opcional para cenários com regras públicas de leitura/escrita.
-        // Se falhar, mantém o ranking funcional para não bloquear o TOP 15.
         try {
             const user = await ensureFirebaseAuth();
-            if (!user) {
-                console.warn('Falha ao autenticar anonimamente. Prosseguindo com acesso público ao ranking.');
-            }
+            return Boolean(user);
         } catch (error) {
-            console.warn('Erro ao validar autenticação anônima. Prosseguindo com acesso público ao ranking.', error);
+            console.warn('Erro ao validar autenticação Google para ranking.', error);
+            return false;
         }
-
-        return true;
     }
 
     sortScores(scores = []) {
@@ -161,7 +156,8 @@ export default class RankingManager {
     }
 
     async getTopScores(limit = 10) {
-        await this.ensureAccess();
+        const hasAccess = await this.ensureAccess();
+        if (!hasAccess) return [];
 
         let scores = [];
         try {
@@ -184,7 +180,12 @@ export default class RankingManager {
     }
 
     subscribeToTopScores(limit = 10, callback) {
-        this.ensureAccess().then(async () => {
+        this.ensureAccess().then(async (hasAccess) => {
+            if (!hasAccess) {
+                callback([]);
+                return;
+            }
+
             const emitFallback = async () => {
                 const scores = this.sortScores(await this.getScoresViaRest()).slice(0, limit);
                 callback(scores);

@@ -2,7 +2,16 @@ export default class View {
     constructor() {
         // Cache centralizado dos elementos da interface para evitar buscas repetidas no DOM.
         this.els = {
+            // Modal de login
+            loginModalBackdrop: document.getElementById('login-modal-backdrop'),
+            btnLoginGoogle: document.getElementById('btn-login-google'),
+            
             mainTitle: document.getElementById('main-title'),
+            startMotivationText: document.getElementById('start-motivation-text'),
+            startKnowledge: document.getElementById('start-knowledge'),
+            startKnowledgeList: document.getElementById('start-knowledge-list'),
+            btnGoogleLogin: document.getElementById('btn-google-login'),
+            authStatus: document.getElementById('auth-status'),
             startScreen: document.getElementById('start-screen'),
             portalScreen: document.getElementById('portal-screen'),
             sokobanScreen: document.getElementById('sokoban-screen'),
@@ -39,6 +48,10 @@ export default class View {
             fbModalTitle: document.getElementById('fb-modal-title'),
             fbModalText: document.getElementById('fb-modal-text'),
             fbModalBtn: document.getElementById('fb-modal-btn'),
+
+            // Painel HUD da direita
+            hudRightPanel: document.getElementById('hud-right-panel'),
+            columnHintOverlay: document.getElementById('column-hint-overlay'),
 
             // Painel de pontos
             scorePanel: document.getElementById('score-panel'),
@@ -403,8 +416,33 @@ export default class View {
     initUI(lessonInfo) {
         // Atualiza Título
         this.els.mainTitle.innerText = lessonInfo.title;
-        this.els.btnStart.innerText = "INICIAR JORNADA";
-        this.els.btnStart.disabled = false;
+        if (this.els.startMotivationText) {
+            this.els.startMotivationText.innerText = 'Olá querido aluno, hoje iremos estudar sobre o seguinte tema:';
+        }
+        if (this.els.startKnowledgeList) {
+            this.els.startKnowledgeList.innerHTML = '';
+            const topics = Array.isArray(lessonInfo.topics) ? lessonInfo.topics : [];
+
+            if (!topics.length) {
+                const li = document.createElement('li');
+                li.textContent = 'Areas de conhecimento em atualizacao.';
+                this.els.startKnowledgeList.appendChild(li);
+            } else {
+                topics.forEach((topic) => {
+                    const li = document.createElement('li');
+                    const strong = document.createElement('strong');
+                    const name = String(topic?.name || '').trim().toUpperCase();
+                    const desc = String(topic?.desc || '').trim();
+
+                    strong.textContent = name ? `${name}: ` : 'TOPICO: ';
+                    li.appendChild(strong);
+                    li.appendChild(document.createTextNode(desc || 'Conteudo da area em atualizacao.'));
+                    this.els.startKnowledgeList.appendChild(li);
+                });
+            }
+        }
+        this.els.btnStart.innerText = 'AGUARDE...';
+        this.els.btnStart.disabled = true;
 
         // Constrói a Roleta Dinamicamente
         this.els.wheel.innerHTML = '';
@@ -495,6 +533,89 @@ export default class View {
             handler(name);
             this.startBackgroundMusic(true);
         });
+    }
+
+    bindGoogleLogin(handler) {
+        if (!this.els.btnGoogleLogin) return;
+        this.els.btnGoogleLogin.addEventListener('click', handler);
+    }
+
+    bindLoginModal(handler) {
+        if (!this.els.btnLoginGoogle) return;
+        this.els.btnLoginGoogle.addEventListener('click', handler);
+    }
+
+    showLoginModal() {
+        if (this.els.loginModalBackdrop) {
+            this.els.loginModalBackdrop.classList.remove('hidden');
+        }
+    }
+
+    hideLoginModal() {
+        if (this.els.loginModalBackdrop) {
+            this.els.loginModalBackdrop.classList.add('hidden');
+        }
+    }
+
+    setGoogleAuthRequiredState(message = 'Faça login com sua conta Google para iniciar o quiz.') {
+        // Mostrar modal de login
+        this.showLoginModal();
+
+        // Esconder coluna direita e balões informativos
+        if (this.els.hudRightPanel) this.els.hudRightPanel?.classList.add('auth-required-hidden');
+        if (this.els.columnHintOverlay) this.els.columnHintOverlay?.classList.add('auth-required-hidden');
+
+        if (this.els.authStatus) this.els.authStatus.textContent = message;
+
+        if (this.els.btnGoogleLogin) {
+            this.els.btnGoogleLogin.disabled = false;
+            this.els.btnGoogleLogin.classList.remove('hidden');
+            this.els.btnGoogleLogin.textContent = 'ENTRAR COM GOOGLE';
+        }
+
+        if (this.els.pNameInput) {
+            this.els.pNameInput.value = '';
+            this.els.pNameInput.placeholder = 'SEU NOME';
+            this.els.pNameInput.readOnly = true;
+        }
+
+        if (this.els.btnStart) {
+            this.els.btnStart.disabled = true;
+            this.els.btnStart.textContent = 'AGUARDE...';
+        }
+    }
+
+    setGoogleAuthLoadingState(message = 'Abrindo login do Google...') {
+        if (this.els.authStatus) this.els.authStatus.textContent = message;
+        if (this.els.btnGoogleLogin) {
+            this.els.btnGoogleLogin.disabled = true;
+            this.els.btnGoogleLogin.textContent = 'CONECTANDO...';
+        }
+    }
+
+    setGoogleAuthSuccessState(displayName = 'ALUNO', email = '') {
+        // Esconder modal de login
+        this.hideLoginModal();
+
+        // Mostrar coluna direita e balões informativos
+        if (this.els.hudRightPanel) this.els.hudRightPanel?.classList.remove('auth-required-hidden');
+        if (this.els.columnHintOverlay) this.els.columnHintOverlay?.classList.remove('auth-required-hidden');
+
+        if (this.els.authStatus) {
+            this.els.authStatus.textContent = email ? `Logado com Google: ${email}` : `Logado com Google: ${displayName}`;
+        }
+
+        if (this.els.btnGoogleLogin) this.els.btnGoogleLogin.classList.add('hidden');
+
+        if (this.els.pNameInput) {
+            this.els.pNameInput.value = String(displayName || 'ALUNO').toUpperCase();
+            this.els.pNameInput.readOnly = true;
+        }
+
+        if (this.els.btnStart) {
+            this.els.btnStart.disabled = false;
+            this.els.btnStart.textContent = 'INICIAR JORNADA';
+        }
     }
 
     bindWheelStart(handler) { this.els.spinBtn.addEventListener('click', handler); }

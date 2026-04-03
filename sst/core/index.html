@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Dinâmico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Oxanium:wght@400;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Oxanium:wght@400;600;700;800&family=Orbitron:wght@500;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  
-    
+
+    <!-- Modal de login - aparece sobre tudo até autenticar -->
+    <div id="login-modal-backdrop" class="login-modal-backdrop">
+        <div class="login-modal-container">
+            <h1 class="login-modal-title">Quiz do Conhecimento</h1>
+            <p class="login-modal-subtitle">Faça seu login com o google para entrar</p>
+            
+            <button id="btn-login-google" class="btn-login-google">
+                <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                ENTRAR COM GOOGLE
+            </button>
+
+            <img src="assets/img/logo_quiz.png" alt="Logo Quiz" class="login-modal-logo">
+        </div>
+    </div>
+
     <!-- Coluna retrátil da direita (pontuação, ranking e trilha) -->
     <div id="hud-right-panel" class="hud-right-panel" aria-hidden="true">
         <div class="hud-right-panel-inner">
@@ -44,24 +67,56 @@
             <div id="music-player" class="music-player">
                 <span class="music-label">♫ TRILHA</span>
                 <button id="music-toggle" class="music-toggle-btn">DESLIGAR</button>
-                <input id="music-volume" class="music-volume" type="range" min="0" max="1" step="0.01" value="0.35" aria-label="Volume da trilha">
+                <input id="music-volume" class="music-volume" type="range" min="0" max="1" step="0.01" value="0.35"
+                    aria-label="Volume da trilha">
             </div>
         </div>
     </div>
-    <button id="hud-right-toggle-btn" class="hud-right-toggle-btn" aria-label="Abrir painel da direita" title="Pontuação e ranking"><span class="hud-right-arrow">&#10094;</span></button>
+    <button id="hud-right-toggle-btn" class="hud-right-toggle-btn" aria-label="Abrir painel da direita"
+        title="Pontuação e ranking"><span class="hud-right-arrow">&#10094;</span></button>
+
+    <div id="column-hint-overlay" class="column-hint-overlay" aria-hidden="true">
+        <div class="column-hint-backdrop"></div>
+        <button id="column-hint-close" class="column-hint-close" type="button"
+            aria-label="Fechar dicas laterais">&times;</button>
+        <div class="column-hint-bubble column-hint-bubble-left" role="dialog" aria-label="Dica sobre a coluna esquerda">
+            <span class="column-hint-kicker">Coluna esquerda</span>
+            <strong>Regras e instruções</strong>
+            <p>Use esta seta para abrir um resumo rapido de como jogar, pontuar e aproveitar os bonus.</p>
+        </div>
+        <div class="column-hint-bubble column-hint-bubble-right" role="dialog" aria-label="Dica sobre a coluna direita">
+            <span class="column-hint-kicker">Coluna direita</span>
+            <strong>Pontuacao e ranking</strong>
+            <p>Aqui voce acompanha moedas, tempo total, ranking global e controla a trilha sonora.</p>
+        </div>
+    </div>
 
     <!-- Container para animação de moedas -->
     <div id="coins-container" class="coins-container"></div>
-    
+
     <div id="game-container">
         <!-- Tela inicial: coleta o nome do jogador e aguarda a carga dos dados da aula. -->
         <div id="start-screen">
-            <h2 id="main-title" style="font-family:'Audiowide'; color: var(--primary);">Carregando Dados da Aula...</h2>
+            <h2 id="main-title">Carregando Dados da Aula...</h2>
             <p>Domine o conhecimento e avance na sua jornada.</p>
-            <input type="text" id="p-name-input" placeholder="SEU NOME" autofocus>
-            <br><br>
-            <button id="btn-start" class="opt-btn" style="width: 300px; background: var(--primary); color: #000; font-weight: bold;" disabled>AGUARDE...</button>
-            <p>Desenvolvido por Raphael Barreto | Firjan SENAI</p>
+            <div id="start-motivation-card" class="start-motivation-card">
+                <p id="start-motivation-text" class="start-motivation-text">Olá querido aluno, hoje iremos estudar sobre o seguinte tema:</p>
+                <div id="start-knowledge" class="start-knowledge">
+                    <div class="start-knowledge-title">Áreas de conhecimentos:</div>
+                    <ul id="start-knowledge-list" class="start-knowledge-list">
+                        <li>Carregando áreas de conhecimento...</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="start-action-group">
+                <button id="btn-google-login" class="opt-btn" style="width: 300px; background: #ffffff; color: #111; font-weight: 800;">ENTRAR COM GOOGLE</button>
+                <p id="auth-status" class="auth-status">Faça login com sua conta Google para iniciar o quiz.</p>
+                <input type="text" id="p-name-input" placeholder="SEU NOME" autofocus>
+                <button id="btn-start" class="opt-btn"
+                    style="width: 300px; background: var(--primary); color: #000; font-weight: bold;"
+                    disabled>AGUARDE...</button>
+            </div>
+
         </div>
 
         <!-- Tela da roleta: define o tema/era que será jogado. -->
@@ -70,32 +125,38 @@
             <div class="wheel-container">
                 <div class="wheel-marker"></div>
                 <div id="wheel">
-                    </div>
+                </div>
             </div>
             <button id="spin-btn" class="opt-btn">GIRAR ROLETA</button>
             <button id="stop-btn" class="opt-btn hidden" style="background: #ff0000;">PARAR AGORA!</button>
         </div>
 
         <!-- Modal de introdução: apresenta a era sorteada e seu contexto. -->
-        <div id="intro-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
-            <div style="background: #111; border: 3px solid var(--primary); padding: 30px; width: 85%; max-width: 500px; border-radius: 20px; text-align: center;">
+        <div id="intro-modal" class="hidden"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+            <div
+                style="background: #111; border: 3px solid var(--primary); padding: 30px; width: 85%; max-width: 500px; border-radius: 20px; text-align: center;">
                 <h2 id="modal-title" style="color:var(--primary); font-family:'Orbitron';"></h2>
                 <p id="modal-text" style="font-size: 1.1rem; margin: 20px 0;"></p>
-                <button id="btn-modal-close" class="opt-btn" style="background:var(--primary); color:#000; font-weight:bold;">ENTENDIDO, AO QUIZ</button>
+                <button id="btn-modal-close" class="opt-btn"
+                    style="background:var(--primary); color:#000; font-weight:bold;">ENTENDIDO, VAMOS AO QUIZ!</button>
             </div>
         </div>
 
         <!-- Tela principal do quiz: pergunta, opções e feedback da resposta. -->
         <div id="quiz-screen" class="hidden">
-            <div id="era-tag" style="background:var(--primary); color:#000; padding:10px 12px; border-radius:5px; font-weight:bold; margin-bottom:8px; display:inline-block;"></div>
+            <div id="era-tag"
+                style="background:var(--primary); color:#000; padding:10px 12px; border-radius:5px; font-weight:bold; margin-bottom:8px; display:inline-block;">
+            </div>
             <p id="q-txt" style="font-size:1.5rem; margin-bottom:20px; font-weight:500; line-height:1.45;"></p>
             <div id="opts" style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;"></div>
             <div id="drag-drop-container" class="drag-area hidden"></div>
-            <button id="val-btn" class="opt-btn hidden action-btn" style="background:var(--primary); color:#000; font-weight:bold;">VALIDAR RESPOSTA</button>
+            <button id="val-btn" class="opt-btn hidden action-btn"
+                style="background:var(--primary); color:#000; font-weight:bold;">VALIDAR RESPOSTA</button>
             <button id="next-btn" class="opt-btn hidden action-btn">AVANÇAR ➔</button>
             <div id="fb-area"></div>
-          
-             <!--
+
+            <!--
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px;">
                 <button id="pacman-test-btn" class="opt-btn pacman-test-btn">TESTAR PACMAN 👾</button>
                 <button id="enduro-test-btn" class="opt-btn enduro-test-btn">TESTAR ENDURO 🏎️</button>
@@ -119,20 +180,24 @@
                 <div class="streak-popup-desc">acertos seguidos = pontos multiplicados</div>
             </div>
         </div>
-        
-        
+
+
     </div>
     <!-- Modal customizado de feedback: substitui alertas nativos com cores dinâmicas do tópico. -->
-    <div id="feedback-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; align-items: center; justify-content: center;">
-        <div style="background: #111; border: 3px solid var(--primary); padding: 30px; width: 85%; max-width: 430px; border-radius: 20px; text-align: center; box-shadow: 0 0 30px var(--primary);">
+    <div id="feedback-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 2000; display: flex; align-items: center; justify-content: center;">
+        <div
+            style="background: #111; border: 3px solid var(--primary); padding: 30px; width: 85%; max-width: 430px; border-radius: 20px; text-align: center; box-shadow: 0 0 30px var(--primary);">
             <h2 id="fb-modal-title" style="color: var(--primary); font-family:'Orbitron'; margin-bottom: 12px;"></h2>
             <p id="fb-modal-text" style="font-size: 1.05rem; margin: 16px 0; color: #f0f0f0; line-height: 1.6;"></p>
-            <button id="fb-modal-btn" class="opt-btn" style="background: var(--primary); color: #000; font-weight: bold; width: 200px; margin-top: 8px;">OK</button>
+            <button id="fb-modal-btn" class="opt-btn"
+                style="background: var(--primary); color: #000; font-weight: bold; width: 200px; margin-top: 8px;">OK</button>
         </div>
     </div>
 
     <!-- Modal Caça Níquel -->
-    <div id="slot-machine-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2500; display: flex; align-items: center; justify-content: center;">
+    <div id="slot-machine-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2500; display: flex; align-items: center; justify-content: center;">
         <div class="slot-machine-container">
             <h2 class="slot-title">🎰 TURBINA SUAS MOEDAS!</h2>
             <div class="slot-machine-body">
@@ -146,14 +211,16 @@
                         <div class="slot-symbol fruit" data-symbol="🍇">🍇</div>
                         <div class="slot-symbol fruit" data-symbol="🍉">🍉</div>
                         <div class="slot-symbol fruit" data-symbol="🍑">🍑</div>
-                        <div class="slot-symbol bar" data-symbol="BAR"><span>BAR</span><span>BAR</span><span>BAR</span></div>
+                        <div class="slot-symbol bar" data-symbol="BAR"><span>BAR</span><span>BAR</span><span>BAR</span>
+                        </div>
                         <div class="slot-symbol seven" data-symbol="7">7</div>
                     </div>
                     <div class="slot-reel" id="reel-2">
                         <div class="slot-symbol fruit" data-symbol="🍋">🍋</div>
                         <div class="slot-symbol fruit" data-symbol="🍒">🍒</div>
                         <div class="slot-symbol fruit" data-symbol="🍉">🍉</div>
-                        <div class="slot-symbol bar" data-symbol="BAR"><span>BAR</span><span>BAR</span><span>BAR</span></div>
+                        <div class="slot-symbol bar" data-symbol="BAR"><span>BAR</span><span>BAR</span><span>BAR</span>
+                        </div>
                         <div class="slot-symbol fruit" data-symbol="🍊">🍊</div>
                         <div class="slot-symbol seven" data-symbol="7">7</div>
                         <div class="slot-symbol fruit" data-symbol="🍇">🍇</div>
@@ -164,7 +231,8 @@
                         <div class="slot-symbol fruit" data-symbol="🍇">🍇</div>
                         <div class="slot-symbol seven" data-symbol="7">7</div>
                         <div class="slot-symbol fruit" data-symbol="🍒">🍒</div>
-                        <div class="slot-symbol bar" data-symbol="BAR"><span>BAR</span><span>BAR</span><span>BAR</span></div>
+                        <div class="slot-symbol bar" data-symbol="BAR"><span>BAR</span><span>BAR</span><span>BAR</span>
+                        </div>
                         <div class="slot-symbol fruit" data-symbol="🍉">🍉</div>
                         <div class="slot-symbol fruit" data-symbol="🍑">🍑</div>
                         <div class="slot-symbol fruit" data-symbol="🍋">🍋</div>
@@ -187,15 +255,18 @@
                 <span id="sokoban-lives">Vidas: 3</span>
             </div>
             <div id="sokoban-grid"></div>
-            <button id="btn-giveup-sokoban" class="opt-btn" style="width: auto; padding: 10px 40px; margin-top: 15px; background: #6b1f1f;">DESISTIR</button>
+            <button id="btn-giveup-sokoban" class="opt-btn"
+                style="width: auto; padding: 10px 40px; margin-top: 15px; background: #6b1f1f;">DESISTIR</button>
         </div>
     </div>
 
     <!-- Modal Bônus Especial: desafio estilo PAC-MAN -->
-    <div id="pacman-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3600; display: flex; align-items: center; justify-content: center;">
+    <div id="pacman-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3600; display: flex; align-items: center; justify-content: center;">
         <div class="pacman-bonus-container">
             <h2 class="pacman-title">👾 BÔNUS ESPECIAL LIBERADO!</h2>
-            <p class="pacman-subtitle">Desafio bônus sorteado nesta aula. Complete o nível e ganhe <strong>+100 pontos</strong>.</p>
+            <p class="pacman-subtitle">Desafio bônus sorteado nesta aula. Complete o nível e ganhe <strong>+100
+                    pontos</strong>.</p>
 
             <div class="pacman-hud">
                 <span id="pacman-pellets">Moedas: 0/0</span>
@@ -213,10 +284,12 @@
     </div>
 
     <!-- Modal Bônus Especial: desafio estilo ENDURO (Atari) -->
-    <div id="enduro-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3650; display: flex; align-items: center; justify-content: center;">
+    <div id="enduro-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3650; display: flex; align-items: center; justify-content: center;">
         <div class="enduro-bonus-container">
             <h2 class="enduro-title">🏎️ ENDURO LIBERADO!</h2>
-            <p class="enduro-subtitle">Desafio bônus sorteado nesta aula. Sobreviva até o fim, complete os estágios <strong>Dia, Neblina, Gelo e Noite</strong> e ganhe <strong>+100 pontos</strong>.</p>
+            <p class="enduro-subtitle">Desafio bônus sorteado nesta aula. Sobreviva até o fim, complete os estágios
+                <strong>Dia, Neblina, Gelo e Noite</strong> e ganhe <strong>+100 pontos</strong>.</p>
 
             <div class="enduro-hud">
                 <span id="enduro-status">Estágio: DIA | Carros: 3</span>
@@ -234,10 +307,12 @@
     </div>
 
     <!-- Modal Bônus Especial: desafio estilo MARIO (Runner Game) -->
-    <div id="mario-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3700; display: flex; align-items: center; justify-content: center;">
+    <div id="mario-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3700; display: flex; align-items: center; justify-content: center;">
         <div class="mario-bonus-container">
             <h2 class="mario-title">🍄 MARIO LIBERADO!</h2>
-            <p class="mario-subtitle">Desafio bônus sorteado nesta aula. Desvie dos canos pelo máximo de tempo e ganhe <strong>+100 pontos</strong> ao completar 1 minuto.</p>
+            <p class="mario-subtitle">Desafio bônus sorteado nesta aula. Desvie dos canos pelo máximo de tempo e ganhe
+                <strong>+100 pontos</strong> ao completar 1 minuto.</p>
 
             <div class="mario-hud">
                 <span id="mario-distance">Distância: 0m</span>
@@ -246,7 +321,8 @@
             </div>
 
             <div class="mario-board-wrap">
-                <canvas id="mario-canvas" width="800" height="300" aria-label="Mini-game bônus estilo Mario Runner"></canvas>
+                <canvas id="mario-canvas" width="800" height="300"
+                    aria-label="Mini-game bônus estilo Mario Runner"></canvas>
             </div>
 
             <div class="mario-actions">
@@ -256,10 +332,12 @@
     </div>
 
     <!-- Modal Bônus Especial: desafio estilo SPACE INVADERS -->
-    <div id="space-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3710; display: flex; align-items: center; justify-content: center;">
+    <div id="space-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3710; display: flex; align-items: center; justify-content: center;">
         <div class="space-bonus-container">
             <h2 class="space-title">🚀 SPACE INVADERS LIBERADO!</h2>
-            <p class="space-subtitle">Desafio bônus sorteado nesta aula. Destrua os invasores e sobreviva por <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="space-subtitle">Desafio bônus sorteado nesta aula. Destrua os invasores e sobreviva por <strong>1
+                    minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="space-hud">
                 <span id="space-score">Pontos: 0</span>
@@ -268,7 +346,8 @@
             </div>
 
             <div class="space-board-wrap">
-                <canvas id="space-canvas" width="800" height="500" aria-label="Mini-game bônus estilo Space Invaders"></canvas>
+                <canvas id="space-canvas" width="800" height="500"
+                    aria-label="Mini-game bônus estilo Space Invaders"></canvas>
             </div>
 
             <div class="space-actions">
@@ -278,10 +357,12 @@
     </div>
 
     <!-- Modal Bônus Especial: desafio estilo T-REX (Chrome Dinosaur Game) -->
-    <div id="trex-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3700; display: flex; align-items: center; justify-content: center;">
+    <div id="trex-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3700; display: flex; align-items: center; justify-content: center;">
         <div class="trex-bonus-container">
             <h2 class="trex-title">🦖 T-REX LIBERADO!</h2>
-            <p class="trex-subtitle">Desafio bônus sorteado nesta aula. Desvie dos obstáculos pelo máximo de tempo e ganhe <strong>+100 pontos</strong> ao completar 1 minuto.</p>
+            <p class="trex-subtitle">Desafio bônus sorteado nesta aula. Desvie dos obstáculos pelo máximo de tempo e
+                ganhe <strong>+100 pontos</strong> ao completar 1 minuto.</p>
 
             <div class="trex-hud">
                 <span id="trex-distance">Distância: 0m</span>
@@ -290,7 +371,8 @@
             </div>
 
             <div class="trex-board-wrap">
-                <canvas id="trex-canvas" width="800" height="300" aria-label="Mini-game bônus estilo T-Rex Chrome"></canvas>
+                <canvas id="trex-canvas" width="800" height="300"
+                    aria-label="Mini-game bônus estilo T-Rex Chrome"></canvas>
             </div>
 
             <div class="trex-actions">
@@ -300,10 +382,12 @@
     </div>
 
     <!-- Modal Bônus Especial: desafio estilo SNAKE -->
-    <div id="snake-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3720; display: flex; align-items: center; justify-content: center;">
+    <div id="snake-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3720; display: flex; align-items: center; justify-content: center;">
         <div class="snake-bonus-container">
             <h2 class="snake-title">🐍 SNAKE LIBERADO!</h2>
-            <p class="snake-subtitle">Desafio bônus sorteado nesta aula. Controle a cobra, coma as maçãs e sobreviva por <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="snake-subtitle">Desafio bônus sorteado nesta aula. Controle a cobra, coma as maçãs e sobreviva por
+                <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="snake-hud">
                 <span id="snake-score">🍎 0</span>
@@ -323,10 +407,12 @@
     </div>
 
     <!-- Modal Bônus Especial: desafio estilo MEMÓRIA -->
-    <div id="memory-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3730; display: flex; align-items: center; justify-content: center;">
+    <div id="memory-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3730; display: flex; align-items: center; justify-content: center;">
         <div class="memory-bonus-container">
             <h2 class="memory-title">🧠 JOGO DA MEMÓRIA LIBERADO!</h2>
-            <p class="memory-subtitle">Desafio bônus sorteado nesta aula. Encontre todos os pares em <strong>1 minuto</strong> com no máximo <strong>6 erros</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="memory-subtitle">Desafio bônus sorteado nesta aula. Encontre todos os pares em <strong>1
+                    minuto</strong> com no máximo <strong>6 erros</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="memory-hud">
                 <span id="memory-pairs">Pares: 0/6</span>
@@ -345,10 +431,12 @@
     </div>
 
     <!-- Modal Bônus Especial: desafio estilo LORDE HERO -->
-    <div id="lordehero-bonus-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3740; display: flex; align-items: center; justify-content: center;">
+    <div id="lordehero-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3740; display: flex; align-items: center; justify-content: center;">
         <div class="lordehero-bonus-container">
             <h2 class="lordehero-title">🤴🎸 LORDE HERO LIBERADO!</h2>
-            <p class="lordehero-subtitle">Desafio bônus sorteado nesta aula. Alcance <strong>120 pontos</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="lordehero-subtitle">Desafio bônus sorteado nesta aula. Alcance <strong>120 pontos</strong> em
+                <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="lordehero-hud">
                 <span id="lordehero-score">Score: 0</span>
@@ -366,16 +454,22 @@
     </div>
 
     <!-- Modal de Ranking Global -->
-    <div id="ranking-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; display: flex; align-items: center; justify-content: center;">
-        <div style="background: #111; border: 3px solid gold; padding: 30px; width: 90%; max-height: 80vh; max-width: 600px; border-radius: 20px; text-align: center; box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); overflow-y: auto;">
-            <h2 id="ranking-modal-title" style="color: gold; font-family:'Orbitron'; margin-bottom: 20px; font-size: 1.8rem;">🏆 RANKING GLOBAL</h2>
-            <div id="ranking-list" style="text-align: left; margin-bottom: 20px;"></div>
-            <button id="ranking-modal-close" class="opt-btn" style="background: gold; color: #000; font-weight: bold; width: 200px;">VOLTAR</button>
+    <div id="ranking-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 3000; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; gap: 20px; box-sizing: border-box;">
+        <div class="ranking-modal-card"
+            style="background: #111; border: 3px solid gold; padding: 30px; width: min(600px, 100%); border-radius: 20px; text-align: center; box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); display: flex; flex-direction: column; overflow: hidden;">
+            <h2 id="ranking-modal-title"
+                style="color: gold; font-family:'Orbitron'; margin-bottom: 20px; font-size: 1.8rem;">🏆 RANKING GLOBAL
+            </h2>
+            <div id="ranking-list" class="ranking-modal-body" style="text-align: left;"></div>
         </div>
+        <button id="ranking-modal-close" class="opt-btn"
+            style="background: gold; color: #000; font-weight: bold; width: 200px; flex-shrink: 0;">VOLTAR</button>
     </div>
 
     <!-- Modal de Certificado -->
-    <div id="certificate-modal" class="hidden" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88); z-index: 3200; display: flex; align-items: center; justify-content: center;">
+    <div id="certificate-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88); z-index: 3200; display: flex; align-items: center; justify-content: center;">
         <div class="certificate-paper">
             <div id="certificate-content"></div>
             <div class="certificate-actions">
@@ -397,21 +491,28 @@
                 <li>🏆 Ao final, sua <strong>precisão</strong> gera até +3 000 moedas extras</li>
                 <li>⏱ O <strong>tempo total</strong> é critério de desempate no ranking</li>
                 <li>🎮 <strong>Mini-jogos bônus</strong> surgem ao longo da trilha — complete-os para mais pontos!</li>
-                <li>💡 Nas questões de <strong>múltipla escolha</strong>, marque exatamente a quantidade indicada de respostas corretas</li>
+                <li>💡 Nas questões de <strong>múltipla escolha</strong>, marque exatamente a quantidade indicada de
+                    respostas corretas</li>
             </ul>
+            <div class="rules-panel-logo-wrap">
+                <img src="assets/img/logo_quiz.png" alt="Logo Quiz" class="rules-panel-logo">
+            </div>
             <div class="rules-panel-footer">
-                Desenvolvido pelo Instrutor<br>
-                <strong>Raphael Barreto</strong><br>
-                SENAI SAPUCAÍ
+                Desenvolvido por<br>
+                <strong>Raphael Barreto</strong>
+                SENAI | SAPUCAÍ
+                <br>
+                © Copyright 2026
             </div>
         </div>
     </div>
-    <button id="rules-toggle-btn" class="rules-toggle-btn" aria-label="Abrir regras do jogo" title="Regras do jogo"><span class="rules-arrow">&#10095;</span></button>
+    <button id="rules-toggle-btn" class="rules-toggle-btn" aria-label="Abrir regras do jogo"
+        title="Regras do jogo"><span class="rules-arrow">&#10095;</span></button>
 
     <!-- Controlador principal da aplicação (arquitetura MVC em módulos ES). -->
     <script type="module" src="js/controller.js"></script>
     <script>
-        (function() {
+        (function () {
             const body = document.body;
 
             const leftPanel = document.getElementById('rules-panel');
@@ -420,27 +521,64 @@
             const rightPanel = document.getElementById('hud-right-panel');
             const rightBtn = document.getElementById('hud-right-toggle-btn');
 
-            const updateBodyLayoutState = function() {
+            const columnHintOverlay = document.getElementById('column-hint-overlay');
+            const columnHintClose = document.getElementById('column-hint-close');
+            let columnHintTimer = null;
+
+            const updateBodyLayoutState = function () {
                 body.classList.toggle('left-panel-open', leftPanel.classList.contains('open'));
                 body.classList.toggle('right-panel-open', rightPanel.classList.contains('open'));
             };
 
-            leftBtn.addEventListener('click', function() {
+            const closeColumnHints = function () {
+                if (!columnHintOverlay.classList.contains('active')) return;
+                window.clearTimeout(columnHintTimer);
+                columnHintTimer = null;
+                columnHintOverlay.classList.remove('active');
+                columnHintOverlay.setAttribute('aria-hidden', 'true');
+                body.classList.remove('column-hints-active');
+            };
+
+            const openColumnHints = function () {
+                columnHintOverlay.setAttribute('aria-hidden', 'false');
+                columnHintOverlay.classList.add('active');
+                body.classList.add('column-hints-active');
+                window.clearTimeout(columnHintTimer);
+                columnHintTimer = window.setTimeout(closeColumnHints, 8000);
+            };
+
+            leftBtn.addEventListener('click', function () {
                 const isOpen = leftPanel.classList.toggle('open');
                 leftBtn.classList.toggle('open', isOpen);
                 leftPanel.setAttribute('aria-hidden', String(!isOpen));
                 updateBodyLayoutState();
             });
 
-            rightBtn.addEventListener('click', function() {
+            rightBtn.addEventListener('click', function () {
                 const isOpen = rightPanel.classList.toggle('open');
                 rightBtn.classList.toggle('open', isOpen);
                 rightPanel.setAttribute('aria-hidden', String(!isOpen));
                 updateBodyLayoutState();
             });
 
+            columnHintClose.addEventListener('click', closeColumnHints);
+
+            columnHintOverlay.addEventListener('click', function (event) {
+                if (event.target === columnHintOverlay || event.target.classList.contains('column-hint-backdrop')) {
+                    closeColumnHints();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    closeColumnHints();
+                }
+            });
+
             updateBodyLayoutState();
+            window.setTimeout(openColumnHints, 450);
         })();
     </script>
 </body>
+
 </html>
