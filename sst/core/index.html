@@ -576,7 +576,11 @@
             });
 
             updateBodyLayoutState();
-            window.setTimeout(openColumnHints, 450);
+
+            // Expõe função globalmente para ser chamada após login do Google
+            window.__openColumnHints = function () {
+                window.setTimeout(openColumnHints, 450);
+            };
         })();
     </script>
 </body>

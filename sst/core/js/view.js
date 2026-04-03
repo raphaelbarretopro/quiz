@@ -601,6 +601,11 @@ export default class View {
         if (this.els.hudRightPanel) this.els.hudRightPanel?.classList.remove('auth-required-hidden');
         if (this.els.columnHintOverlay) this.els.columnHintOverlay?.classList.remove('auth-required-hidden');
 
+        // Abrir balões apenas após login concluído e popup fechado
+        if (typeof window.__openColumnHints === 'function') {
+            window.__openColumnHints();
+        }
+
         if (this.els.authStatus) {
             this.els.authStatus.textContent = email ? `Logado com Google: ${email}` : `Logado com Google: ${displayName}`;
         }

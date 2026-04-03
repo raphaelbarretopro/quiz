@@ -3649,7 +3649,7 @@ label,
     width: min(200px, 80%);
     height: auto;
     margin-top: 16px;
-    filter: drop-shadow(0 0 12px rgba(0, 229, 255, 0.5));
+    
 }
 
 /* Esconder elementos até autenticação */
