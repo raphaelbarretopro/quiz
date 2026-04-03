@@ -6,14 +6,20 @@ Projeto web de quiz educativo gamificado para Segurança no Trabalho em TI, com 
 
 - Launcher: [sst/index.html](./sst/index.html)
 - Importador de aulas: [sst/tools/lesson-importer.html](./sst/tools/lesson-importer.html)
+- Produção (GitHub Pages): https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-13
 
 ## Links de Acesso por Aula
 
-- Aula 11: [sst/core/index.html?aula=aula-11](./sst/core/index.html?aula=aula-11)
-- Aula 12: [sst/core/index.html?aula=aula-12](./sst/core/index.html?aula=aula-12)
-- Aula 13: [sst/core/index.html?aula=aula-13](./sst/core/index.html?aula=aula-13)
-- Aula 14: [sst/core/index.html?aula=aula-14](./sst/core/index.html?aula=aula-14)
-- Aula 15: [sst/core/index.html?aula=aula-15](./sst/core/index.html?aula=aula-15)
+- Aula 11: [sst/core/index.html?cod=aula-11](./sst/core/index.html?cod=aula-11)
+- Aula 12: [sst/core/index.html?cod=aula-12](./sst/core/index.html?cod=aula-12)
+- Aula 13: [sst/core/index.html?cod=aula-13](./sst/core/index.html?cod=aula-13)
+- Aula 14: [sst/core/index.html?cod=aula-14](./sst/core/index.html?cod=aula-14)
+- Aula 15: [sst/core/index.html?cod=aula-15](./sst/core/index.html?cod=aula-15)
+
+### Links de Produção (GitHub Pages)
+
+- Aula 13: https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-13
+- Aula 14: https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-14
 
 ## Tecnologias Utilizadas
 
@@ -28,7 +34,7 @@ Projeto web de quiz educativo gamificado para Segurança no Trabalho em TI, com 
 
 - Arquitetura MVC
 - Conteúdo centralizado em JSON único: [sst/lessons/course-data.json](./sst/lessons/course-data.json)
-- Filtro por aula via query string (`?aula=aula-xx`)
+- Filtro por aula via query string (`?cod=aula-xx`)
 
 ### Banco e Serviços
 
@@ -102,11 +108,11 @@ python -m http.server 5500
 Depois abra:
 
 - `http://localhost:5500/sst/`
-- `http://localhost:5500/sst/core/index.html?aula=aula-11`
-- `http://localhost:5500/sst/core/index.html?aula=aula-12`
-- `http://localhost:5500/sst/core/index.html?aula=aula-13`
-- `http://localhost:5500/sst/core/index.html?aula=aula-14`
-- `http://localhost:5500/sst/core/index.html?aula=aula-15`
+- `http://localhost:5500/sst/core/index.html?cod=aula-11`
+- `http://localhost:5500/sst/core/index.html?cod=aula-12`
+- `http://localhost:5500/sst/core/index.html?cod=aula-13`
+- `http://localhost:5500/sst/core/index.html?cod=aula-14`
+- `http://localhost:5500/sst/core/index.html?cod=aula-15`
 
 ## Criação de Novas Aulas
 
