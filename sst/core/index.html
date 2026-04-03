@@ -18,13 +18,21 @@
         <div class="login-modal-container">
             <h1 class="login-modal-title">Quiz do Conhecimento</h1>
             <p class="login-modal-subtitle">Faça seu login com o google para entrar</p>
-            
+
             <button id="btn-login-google" class="btn-login-google">
                 <svg class="google-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    <path
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                        fill="#4285F4" />
+                    <path
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                        fill="#34A853" />
+                    <path
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                        fill="#FBBC05" />
+                    <path
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                        fill="#EA4335" />
                 </svg>
                 ENTRAR COM GOOGLE
             </button>
@@ -98,20 +106,21 @@
         <!-- Tela inicial: coleta o nome do jogador e aguarda a carga dos dados da aula. -->
         <div id="start-screen">
             <h2 id="main-title">Carregando Dados da Aula...</h2>
-            <p>Domine o conhecimento e avance na sua jornada.</p>
+            
             <div id="start-motivation-card" class="start-motivation-card">
-                <p id="start-motivation-text" class="start-motivation-text">Olá querido aluno, hoje iremos estudar sobre o seguinte tema:</p>
+                <p id="start-motivation-text" class="start-motivation-text">Olá aluno, hoje iremos estudar sobre o
+                    seguinte tema:</p>
                 <div id="start-knowledge" class="start-knowledge">
-                    <div class="start-knowledge-title">Áreas de conhecimentos:</div>
                     <ul id="start-knowledge-list" class="start-knowledge-list">
                         <li>Carregando áreas de conhecimento...</li>
                     </ul>
                 </div>
             </div>
             <div class="start-action-group">
-                <button id="btn-google-login" class="opt-btn" style="width: 300px; background: #ffffff; color: #111; font-weight: 800;">ENTRAR COM GOOGLE</button>
+                <button id="btn-google-login" class="opt-btn"
+                    style="width: 300px; background: #ffffff; color: #111; font-weight: 800;">ENTRAR COM GOOGLE</button>
                 <p id="auth-status" class="auth-status">Faça login com sua conta Google para iniciar o quiz.</p>
-                <input type="text" id="p-name-input" placeholder="SEU NOME" autofocus>
+                <input type="text" id="p-name-input" placeholder="SEU NOME" style="display:none">
                 <button id="btn-start" class="opt-btn"
                     style="width: 300px; background: var(--primary); color: #000; font-weight: bold;"
                     disabled>AGUARDE...</button>
@@ -289,7 +298,8 @@
         <div class="enduro-bonus-container">
             <h2 class="enduro-title">🏎️ ENDURO LIBERADO!</h2>
             <p class="enduro-subtitle">Desafio bônus sorteado nesta aula. Sobreviva até o fim, complete os estágios
-                <strong>Dia, Neblina, Gelo e Noite</strong> e ganhe <strong>+100 pontos</strong>.</p>
+                <strong>Dia, Neblina, Gelo e Noite</strong> e ganhe <strong>+100 pontos</strong>.
+            </p>
 
             <div class="enduro-hud">
                 <span id="enduro-status">Estágio: DIA | Carros: 3</span>
@@ -312,7 +322,8 @@
         <div class="mario-bonus-container">
             <h2 class="mario-title">🍄 MARIO LIBERADO!</h2>
             <p class="mario-subtitle">Desafio bônus sorteado nesta aula. Desvie dos canos pelo máximo de tempo e ganhe
-                <strong>+100 pontos</strong> ao completar 1 minuto.</p>
+                <strong>+100 pontos</strong> ao completar 1 minuto.
+            </p>
 
             <div class="mario-hud">
                 <span id="mario-distance">Distância: 0m</span>
@@ -387,7 +398,8 @@
         <div class="snake-bonus-container">
             <h2 class="snake-title">🐍 SNAKE LIBERADO!</h2>
             <p class="snake-subtitle">Desafio bônus sorteado nesta aula. Controle a cobra, coma as maçãs e sobreviva por
-                <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+                <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.
+            </p>
 
             <div class="snake-hud">
                 <span id="snake-score">🍎 0</span>
@@ -436,7 +448,8 @@
         <div class="lordehero-bonus-container">
             <h2 class="lordehero-title">🤴🎸 LORDE HERO LIBERADO!</h2>
             <p class="lordehero-subtitle">Desafio bônus sorteado nesta aula. Alcance <strong>120 pontos</strong> em
-                <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+                <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.
+            </p>
 
             <div class="lordehero-hud">
                 <span id="lordehero-score">Score: 0</span>

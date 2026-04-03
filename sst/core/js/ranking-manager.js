@@ -42,7 +42,10 @@ export default class RankingManager {
     normalizeScoreData(scoreData = {}, fallbackKey = '') {
         return {
             ...scoreData,
-            name: this.extractPlayerName(scoreData, fallbackKey)
+            name: this.extractPlayerName(scoreData, fallbackKey),
+            playerUid: String(scoreData?.playerUid || scoreData?.uid || '').trim(),
+            playerEmail: String(scoreData?.playerEmail || scoreData?.email || '').trim(),
+            playerAlias: String(scoreData?.playerAlias || scoreData?.alias || '').trim()
         };
     }
 
@@ -124,7 +127,7 @@ export default class RankingManager {
         });
     }
 
-    async saveScore(playerName, score, correctAnswers, totalQuestions, gameTime = 0) {
+    async saveScore(playerName, score, correctAnswers, totalQuestions, gameTime = 0, identity = {}) {
         if (!(await this.ensureAccess())) {
             return false;
         }
@@ -140,7 +143,10 @@ export default class RankingManager {
                 gameTime: gameTime,
                 timestamp: timestamp,
                 date: new Date().toLocaleDateString('pt-BR'),
-                lesson: this.lessonId // Adiciona identificador da aula
+                lesson: this.lessonId, // Adiciona identificador da aula
+                playerUid: String(identity?.uid || '').trim(),
+                playerEmail: String(identity?.email || '').trim().toLowerCase(),
+                playerAlias: String(identity?.alias || '').trim()
             };
 
             // Salva com ID único baseado em timestamp + nome

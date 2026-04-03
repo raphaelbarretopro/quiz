@@ -88,6 +88,23 @@ class Controller {
         return 30000;
     }
 
+    getGoogleIdentity(user = null) {
+        const safeUser = user || {};
+        const displayName = String(safeUser.displayName || safeUser.email || 'ALUNO').trim();
+        const nameParts = displayName.split(/\s+/).filter(Boolean);
+        const firstName = nameParts[0] || 'ALUNO';
+        const lastInitial = nameParts.length > 1 ? `${nameParts[nameParts.length - 1][0].toUpperCase()}.` : '';
+        const scoreLabel = lastInitial ? `${firstName} ${lastInitial}` : firstName;
+
+        return {
+            displayName,
+            firstName,
+            scoreLabel,
+            email: String(safeUser.email || '').trim(),
+            uid: String(safeUser.uid || '').trim()
+        };
+    }
+
     async init() {
         // Carrega dados iniciais e libera a UI apenas se a carga for bem-sucedida.
         const success = await this.model.loadData();
@@ -131,11 +148,11 @@ class Controller {
         this.authUser = user || null;
         if (!this.authUser) return;
 
-        const displayName = String(this.authUser.displayName || this.authUser.email || 'ALUNO').trim();
-        this.view.setGoogleAuthSuccessState(displayName, this.authUser.email || '');
+        const identity = this.getGoogleIdentity(this.authUser);
+        this.view.setGoogleAuthSuccessState(identity.displayName, identity.email);
 
-        this.model.playerName = displayName;
-        this.view.setScorePlayerName(displayName);
+        this.model.playerName = identity.displayName;
+        this.view.setScorePlayerName(identity.scoreLabel);
         this.subscribeTop15Realtime();
     }
 
@@ -199,9 +216,9 @@ class Controller {
         }
 
         // Inicia a sessão do jogador e passa para o primeiro passo da jornada.
-        const resolvedName = String(this.authUser.displayName || this.authUser.email || name).trim();
-        this.model.playerName = resolvedName;
-        this.view.setScorePlayerName(resolvedName);
+        const identity = this.getGoogleIdentity(this.authUser);
+        this.model.playerName = identity.displayName;
+        this.view.setScorePlayerName(identity.scoreLabel);
         // Tempo total da sessão (independente do timer do Sokoban).
         this.startTime = Date.now();
         this.hasTimedOut = false;
@@ -641,12 +658,18 @@ class Controller {
         }
 
         try {
+            const identity = this.getGoogleIdentity(this.authUser);
             await this.ranking.saveScore(
                 this.model.playerName,
                 this.model.playerScore,
                 this.model.stats.correct,
                 this.model.questions.length,
-                gameTime
+                gameTime,
+                {
+                    uid: identity.uid,
+                    email: identity.email,
+                    alias: identity.scoreLabel
+                }
             );
 
             this.view.showEndScreen(

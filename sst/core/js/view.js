@@ -416,9 +416,6 @@ export default class View {
     initUI(lessonInfo) {
         // Atualiza Título
         this.els.mainTitle.innerText = lessonInfo.title;
-        if (this.els.startMotivationText) {
-            this.els.startMotivationText.innerText = 'Olá querido aluno, hoje iremos estudar sobre o seguinte tema:';
-        }
         if (this.els.startKnowledgeList) {
             this.els.startKnowledgeList.innerHTML = '';
             const topics = Array.isArray(lessonInfo.topics) ? lessonInfo.topics : [];
@@ -528,9 +525,7 @@ export default class View {
 
     bindStart(handler) {
         this.els.btnStart.addEventListener('click', () => {
-            const name = this.els.pNameInput.value.trim();
-            if (name.length < 3) { this.showAlert("Atenção!", "Digite seu nome completo (mínimo 3 letras)."); return; }
-            handler(name);
+            handler('');
             this.startBackgroundMusic(true);
         });
     }
@@ -573,12 +568,6 @@ export default class View {
             this.els.btnGoogleLogin.textContent = 'ENTRAR COM GOOGLE';
         }
 
-        if (this.els.pNameInput) {
-            this.els.pNameInput.value = '';
-            this.els.pNameInput.placeholder = 'SEU NOME';
-            this.els.pNameInput.readOnly = true;
-        }
-
         if (this.els.btnStart) {
             this.els.btnStart.disabled = true;
             this.els.btnStart.textContent = 'AGUARDE...';
@@ -606,16 +595,17 @@ export default class View {
             window.__openColumnHints();
         }
 
+        // Atualizar texto motivacional com o primeiro nome do aluno
+        if (this.els.startMotivationText) {
+            const firstName = String(displayName || 'aluno').split(' ')[0];
+            this.els.startMotivationText.innerText = `Olá ${firstName}, hoje iremos estudar as seguintes áreas de conhecimentos:`;
+        }
+
         if (this.els.authStatus) {
             this.els.authStatus.textContent = email ? `Logado com Google: ${email}` : `Logado com Google: ${displayName}`;
         }
 
         if (this.els.btnGoogleLogin) this.els.btnGoogleLogin.classList.add('hidden');
-
-        if (this.els.pNameInput) {
-            this.els.pNameInput.value = String(displayName || 'ALUNO').toUpperCase();
-            this.els.pNameInput.readOnly = true;
-        }
 
         if (this.els.btnStart) {
             this.els.btnStart.disabled = false;
@@ -819,7 +809,9 @@ export default class View {
         this.els.opts.innerHTML = ""; 
         this.els.dragDrop.innerHTML = ""; 
         this.els.fbArea.innerText = "";
+        this.els.fbArea.classList.remove('has-feedback');
         this.els.quizScreen.classList.remove('is-drag-question');
+        this.els.quizScreen.classList.remove('drag-feedback-visible');
         
         this.els.dragDrop.classList.add('hidden'); 
         this.els.opts.classList.remove('hidden');
@@ -849,12 +841,18 @@ export default class View {
         this.els.valBtn = newValBtn;
         this.els.valBtn.disabled = false;
 
+        // Mantém o botão Avançar após a área de feedback para aparecer abaixo da resposta correta.
+        if (this.els.nextBtn && this.els.fbArea && this.els.fbArea.parentNode === this.els.nextBtn.parentNode) {
+            this.els.fbArea.insertAdjacentElement('afterend', this.els.nextBtn);
+        }
+
         // Fluxo de renderização muda conforme o tipo da questão.
         if (q.type === "combo") {
             const parts = q.questions.split("[COMBO]");
             this.els.qTxt.innerHTML = parts[0].replace("[NAME]", playerName);
             const sel = document.createElement('select');
             sel.className = "combo-box";
+            let comboAnswered = false;
             
             const shuffledOptions = this.shuffle([...q.options]);
             
@@ -865,11 +863,19 @@ export default class View {
             this.els.valBtn.classList.add('hidden');
             this.els.valBtn.disabled = true;
             sel.addEventListener('change', () => {
+                if (comboAnswered || sel.disabled) return;
                 const hasSelection = String(sel.value || '').trim() !== '';
                 this.els.valBtn.disabled = !hasSelection;
                 this.els.valBtn.classList.toggle('hidden', !hasSelection);
             });
-            this.els.valBtn.onclick = () => answerHandler(sel.value, null);
+            this.els.valBtn.onclick = () => {
+                if (comboAnswered) return;
+                comboAnswered = true;
+                sel.disabled = true;
+                this.els.valBtn.disabled = true;
+                this.els.valBtn.classList.add('hidden');
+                answerHandler(sel.value, null);
+            };
         } 
         else if (q.type === "multi") {
             this.els.qTxt.innerHTML = q.questions.replace("[NAME]", playerName);
@@ -1033,18 +1039,23 @@ export default class View {
 
     showFeedback(isCorrect, tip, playerName, btnElement, questionData = null, answerResult = null, streakMultiplier = 1, correctStreak = 0) {
         const isPartial = !isCorrect && Number(answerResult?.pointsAwarded || 0) > 0 && Number(answerResult?.totalItems || 0) > 1;
-        const tipFrame = `
+        const buildTipFrame = (content) => `
             <div class="feedback-tip-frame">
                 <span class="feedback-tip-label">Dica de feedback</span>
-                <div class="feedback-tip-text">${tip}</div>
+                <div class="feedback-tip-text">${content}</div>
             </div>
         `;
+        const tipFrame = buildTipFrame(tip);
 
         if (isCorrect) {
             this.els.fbArea.innerHTML = `
-                <span class="feedback-title" style="color:#2ecc71">✓ Excelente análise, ${playerName}!</span>
-                ${tipFrame}
+                ${buildTipFrame(`
+                    <span class="feedback-inline-status feedback-inline-status-success">✓ Excelente análise, ${playerName}!</span>
+                    <span>${tip}</span>
+                `)}
             `;
+            this.els.fbArea.classList.add('has-feedback');
+            if (questionData?.type === 'drag') this.els.quizScreen.classList.add('drag-feedback-visible');
             if (btnElement) btnElement.style.background = "#2ecc71";
             this.els.nextBtn.classList.remove('hidden');
             this.els.valBtn.classList.add('hidden');
@@ -1052,34 +1063,51 @@ export default class View {
             const correctCount = Number(answerResult?.correctCount || 0);
             const totalItems = Number(answerResult?.totalItems || 0);
             const pointsAwarded = Number(answerResult?.pointsAwarded || 0);
+            const correctAnswer = this.formatCorrectAnswer(questionData);
 
             this.els.fbArea.innerHTML = `
-                <span class="feedback-title" style="color:#ffd166">△ Acerto parcial, ${playerName}.</span>
-                ${tipFrame}
-                <div class="correct-answer-box"><b>Pontuação:</b> ${correctCount}/${totalItems} itens corretos, +${pointsAwarded} pontos</div>
+                ${buildTipFrame(`
+                    <span class="feedback-inline-status feedback-inline-status-partial">△ Acerto parcial, ${playerName}.</span>
+                    <span>${tip}</span>
+                    <div class="correct-answer-box feedback-answer-inside"><b>Pontuação:</b> ${correctCount}/${totalItems} itens corretos, +${pointsAwarded} pontos</div>
+                    <div class="correct-answer-box feedback-answer-inside"><b>Resposta correta:</b> ${correctAnswer}</div>
+                `)}
             `;
+            this.els.fbArea.classList.add('has-feedback');
+            if (questionData?.type === 'drag') this.els.quizScreen.classList.add('drag-feedback-visible');
             this.lockQuestionAfterError(questionData, btnElement);
             this.els.nextBtn.classList.remove('hidden');
             this.els.valBtn.classList.add('hidden');
         } else {
             if (btnElement) btnElement.style.background = "#ff4b4b";
+            const correctAnswer = this.formatCorrectAnswer(questionData);
             if (questionData?.type === 'drag') {
                 this.els.fbArea.innerHTML = `
-                    <span class="feedback-title" style="color:#ff8f8f">✗ Resposta incorreta, ${playerName}.</span>
-                    ${tipFrame}
+                    ${buildTipFrame(`
+                        <span class="feedback-inline-status">✗ Resposta incorreta, ${playerName}.</span>
+                        <span>${tip}</span>
+                        <div class="correct-answer-box feedback-answer-inside"><b>Resposta correta:</b> ${correctAnswer}</div>
+                    `)}
                 `;
             } else {
-                const correctAnswer = this.formatCorrectAnswer(questionData);
                 this.els.fbArea.innerHTML = `
-                    <span class="feedback-title" style="color:#ff8f8f">✗ Resposta incorreta, ${playerName}.</span>
-                    ${tipFrame}
-                    <div class="correct-answer-box"><b>Resposta correta:</b> ${correctAnswer}</div>
+                    ${buildTipFrame(`
+                        <span class="feedback-inline-status">✗ Resposta incorreta, ${playerName}.</span>
+                        <span>${tip}</span>
+                        <div class="correct-answer-box feedback-answer-inside"><b>Resposta correta:</b> ${correctAnswer}</div>
+                    `)}
                 `;
             }
+            this.els.fbArea.classList.add('has-feedback');
+            if (questionData?.type === 'drag') this.els.quizScreen.classList.add('drag-feedback-visible');
             this.playErrorSound();
             this.lockQuestionAfterError(questionData, btnElement);
             this.els.nextBtn.classList.remove('hidden');
             this.els.valBtn.classList.add('hidden');
+        }
+
+        if (this.els.nextBtn && this.els.fbArea && this.els.fbArea.parentNode === this.els.nextBtn.parentNode) {
+            this.els.fbArea.insertAdjacentElement('afterend', this.els.nextBtn);
         }
     }
 
@@ -1697,6 +1725,7 @@ export default class View {
             const row = document.createElement('div');
             row.className = 'top15-row';
             const medal = ['🥇', '🥈', '🥉'][index] || '';
+            const displayName = this.getRankingDisplayName(score);
 
             if (index < 3) {
                 row.classList.add('is-podium');
@@ -1704,7 +1733,7 @@ export default class View {
 
             row.innerHTML = `
                 <span class="top15-pos">${index + 1}</span>
-                <span class="top15-name">${medal ? `<span class="top15-medal">${medal}</span>` : ''}${score.name || '---'}</span>
+                <span class="top15-name">${medal ? `<span class="top15-medal">${medal}</span>` : ''}${this.escapeHtml(displayName)}</span>
                 <span class="top15-score">${score.score || 0}</span>
                 <span class="top15-time">${this.formatGameTime(score.gameTime)}</span>
             `;
@@ -1759,11 +1788,12 @@ export default class View {
             const isTop3 = index < 3;
             const bgColor = isTop3 ? `rgba(255,215,0,${0.1 - index * 0.02})` : 'rgba(255,255,255,0.02)';
             const medal = ['🥇', '🥈', '🥉'][index] || '▫️';
+            const displayName = this.getRankingDisplayName(score);
 
             row.style.cssText = `background: ${bgColor}; border-bottom: 1px solid rgba(255,255,255,0.1);`;
             row.innerHTML = `
                 <td style="padding:10px; color:gold; font-weight:bold;">${medal} ${index + 1}</td>
-                <td style="padding:10px; color:#f0f0f0;">${this.escapeHtml(score.name || '---')}</td>
+                <td style="padding:10px; color:#f0f0f0;">${this.escapeHtml(displayName)}</td>
                 <td style="padding:10px; text-align:center; color:#ffd700; font-weight:bold;">${score.score}</td>
                 <td style="padding:10px; text-align:center; color:#ffef9f;">${this.formatGameTime(score.gameTime)}</td>
                 <td style="padding:10px; text-align:center;"><button type="button" class="ranking-cert-link" data-rank-index="${index}">CERTIFICADO</button></td>
@@ -1793,6 +1823,19 @@ export default class View {
         // Fecha o modal de ranking.
         this.els.rankingModal.classList.add('hidden');
         this.hideCertificateModal();
+    }
+
+    getRankingDisplayName(score = {}) {
+        const alias = String(score?.playerAlias || '').trim();
+        if (alias) return alias;
+
+        const fullName = String(score?.name || '').trim();
+        if (!fullName) return '---';
+
+        const parts = fullName.split(/\s+/).filter(Boolean);
+        const firstName = parts[0] || '---';
+        const lastInitial = parts.length > 1 ? `${parts[parts.length - 1][0].toUpperCase()}.` : '';
+        return lastInitial ? `${firstName} ${lastInitial}` : firstName;
     }
 
     showCertificateModal(score, rankIndex, lessonInfo) {
