@@ -10,7 +10,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js';
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyAK_huw0DJnjI-ZcjxAeCffGyLdtxw_dcc',
+    apiKey: 'AIzaSyAjUFm2PxaVkavjYjsWE9F9_EZdJ3IFy4U',
     authDomain: 'quiz-sst.firebaseapp.com',
     databaseURL: 'https://quiz-sst-default-rtdb.firebaseio.com',
     projectId: 'quiz-sst',
