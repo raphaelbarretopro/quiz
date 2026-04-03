@@ -21,6 +21,7 @@ Plataforma de quiz gamificado para treinamento em Seguranca no Trabalho em TI, c
 - Aula 13: [sst/core/index.html?cod=aula-13](./sst/core/index.html?cod=aula-13)
 - Aula 14: [sst/core/index.html?cod=aula-14](./sst/core/index.html?cod=aula-14)
 - Aula 15: [sst/core/index.html?cod=aula-15](./sst/core/index.html?cod=aula-15)
+- Aula 15: [sst/core/index.html?cod=aula-16](./sst/core/index.html?cod=aula-16)
 
 ## Novas Funcionalidades e Melhorias
 
