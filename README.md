@@ -1,14 +1,20 @@
-# Quiz SST - Plataforma de Quiz Gamificado
+# Quiz SST
 
-Projeto web de quiz educativo gamificado para Segurança no Trabalho em TI, com arquitetura MVC, conteúdo por aula em arquivo único e painel de importação/validação para expansão do curso.
+Plataforma de quiz gamificado para treinamento em Seguranca no Trabalho em TI, com autenticacao Google, ranking em tempo real, trilha sonora dinamica e mini-games de bonus integrados ao fluxo pedagogico.
 
-## Acesso Rápido
+![Status](https://img.shields.io/badge/status-em%20producao-2e7d32)
+![Arquitetura](https://img.shields.io/badge/arquitetura-MVC-1565c0)
+![Aulas](https://img.shields.io/badge/aulas-11%20a%2015-6a1b9a)
+![Rota](https://img.shields.io/badge/url-cod%3Daula--xx-00897b)
 
-- Launcher: [sst/index.html](./sst/index.html)
+## Acesso Rapido
+
+- Launcher local: [sst/index.html](./sst/index.html)
+- App principal local: [sst/core/index.html](./sst/core/index.html)
 - Importador de aulas: [sst/tools/lesson-importer.html](./sst/tools/lesson-importer.html)
-- Produção (GitHub Pages): https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-13
+- Producao (GitHub Pages): https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-13
 
-## Links de Acesso por Aula
+## Links por Aula
 
 - Aula 11: [sst/core/index.html?cod=aula-11](./sst/core/index.html?cod=aula-11)
 - Aula 12: [sst/core/index.html?cod=aula-12](./sst/core/index.html?cod=aula-12)
@@ -16,53 +22,91 @@ Projeto web de quiz educativo gamificado para Segurança no Trabalho em TI, com 
 - Aula 14: [sst/core/index.html?cod=aula-14](./sst/core/index.html?cod=aula-14)
 - Aula 15: [sst/core/index.html?cod=aula-15](./sst/core/index.html?cod=aula-15)
 
-### Links de Produção (GitHub Pages)
+## Novas Funcionalidades e Melhorias
 
-- Aula 13: https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-13
-- Aula 14: https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-14
+- Autenticacao Google obrigatoria para iniciar a jornada.
+- Ranking Top 15 com sincronizacao em tempo real por aula.
+- Correcao do fluxo da roleta para manter o tema sorteado ao retornar ao quiz.
+- Gestao de audio padronizada para mini-games: pausa da trilha base e retomada segura.
+- Botao GIRAR ROLETA e PARAR AGORA com estilo visual modernizado e responsivo.
+- Certificado de conclusao com impressao direta.
+- Painel retratil lateral com moedas, tempo total, ranking e controle de trilha.
+- Modo bonus com caca-niquel para acelerar ganho de moedas.
 
-## Tecnologias Utilizadas
+## Tecnologias (Logos + Cores)
 
 ### Front-end
 
-- HTML5
-- CSS3
-- JavaScript ES Modules
-- UI responsiva com animações CSS
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES%20Modules-F7DF1E?logo=javascript&logoColor=111)
 
-### Arquitetura e Organização
+### Arquitetura e Dados
 
-- Arquitetura MVC
-- Conteúdo centralizado em JSON único: [sst/lessons/course-data.json](./sst/lessons/course-data.json)
-- Filtro por aula via query string (`?cod=aula-xx`)
+![MVC](https://img.shields.io/badge/Arquitetura-MVC-1e88e5)
+![JSON](https://img.shields.io/badge/Conteudo-course--data.json-43a047)
+![URL%20Params](https://img.shields.io/badge/URL-cod%20%7C%20aula%20%7C%20lesson-00897b)
 
-### Banco e Serviços
+### Firebase e Servicos
 
-- Firebase Realtime Database (ranking)
-- Firebase Authentication (login anônimo)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=222)
+![Realtime%20Database](https://img.shields.io/badge/Realtime-Database-f4511e)
+![Google%20Auth](https://img.shields.io/badge/Auth-Google%20Sign--In-1a73e8?logo=google&logoColor=white)
 
-### APIs Web usadas no app
+### APIs Web e Ferramentas
 
-- Fetch API
-- Drag and Drop API (questões `drag`)
-- Blob API (download de JSON)
-- URLSearchParams
-- File System Access API (quando suportada)
-- Web Audio API / HTMLAudioElement
+![Fetch](https://img.shields.io/badge/API-Fetch-1976d2)
+![Drag%20Drop](https://img.shields.io/badge/API-Drag%20and%20Drop-00acc1)
+![Web%20Audio](https://img.shields.io/badge/API-Web%20Audio-8e24aa)
+![PDF.js](https://img.shields.io/badge/PDF.js-ff0000?logo=mozilla&logoColor=white)
+![GitHub%20Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222?logo=githubpages&logoColor=white)
 
-### Ferramentas de Conteúdo (Importador)
+## Paleta Visual Base
 
-- PDF.js (extração de texto de PDF)
-- Integração com APIs de IA:
-  - Gemini API (preset nativo)
-  - OpenAI-compatible APIs
-  - GitHub Models (preset dedicado)
+![Neon Border](https://img.shields.io/badge/Neon%20Border-00E5FF-00E5FF)
+![Primary](https://img.shields.io/badge/Primary-00D4FF-00D4FF)
+![Gold](https://img.shields.io/badge/Gold-FFD700-FFD700)
+![Background](https://img.shields.io/badge/Background-050A10-050A10)
+![Panel](https://img.shields.io/badge/Panel-0A141E-0A141E)
 
-### Ambiente e Publicação
+## Principais Recursos
 
-- VS Code + Live Server
-- Python HTTP Server (`python -m http.server`)
-- GitHub + GitHub Pages
+- Fluxo guiado por roleta com temas por topico.
+- Tipos de questao: multiple, boolean, drag, combo e multi.
+- HUD em tempo real com moedas, cronometro e tempo total.
+- Feedback visual e sonoro por acerto/erro.
+- Ranking por aula com desempate por menor tempo.
+- Certificado com dados da aula e desempenho do aluno.
+- Compatibilidade com estrutura unica de conteudo no course-data.json.
+
+## Mini-games Integrados
+
+| Mini-game | ID | Objetivo |
+|---|---|---|
+| Pac-Man | pacman | Coletar itens no tempo para bonus |
+| Enduro | enduro | Sobreviver a estagios da corrida |
+| T-Rex | trex | Desviar de obstaculos em corrida infinita |
+| Sokoban | sokoban | Empurrar caixas para compor palavra-chave |
+| Mario | mario | Runner/plataforma para bonus |
+| Space | space | Shooter espacial com iframe dedicado |
+| Snake | snake | Crescer sem colidir |
+| Memory | memory | Encontrar pares com limite de vidas |
+| Lorde Hero | lordehero | Bonus especial com integracao dedicada |
+
+## Parametros de URL
+
+Parametro recomendado:
+
+- `?cod=aula-13`
+
+Compatibilidade mantida:
+
+- `?aula=aula-13`
+- `?lesson=aula-13`
+
+Exemplo em producao:
+
+- https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-14
 
 ## Estrutura do Projeto
 
@@ -76,12 +120,26 @@ quiz/
     core/
       index.html
       css/
+        style.css
       js/
         controller.js
         model.js
         view.js
         ranking-manager.js
         firebase-config.js
+        game/
+          game-registry.js
+          game-scheduler.js
+          lesson-game-config.js
+          pacman-game.js
+          enduro-game.js
+          trex-game.js
+          sokoban-game.js
+          mario-game.js
+          space-game.js
+          snake-game.js
+          memory-game.js
+          lordehero-game.js
     lessons/
       course-data.json
     tools/
@@ -92,14 +150,14 @@ quiz/
 
 ## Como Executar Localmente
 
-Como o projeto usa `fetch`, rode com servidor HTTP local.
+Como o projeto usa fetch para carregar dados e ranking, execute com servidor HTTP.
 
-### Opção 1 - Live Server (VS Code)
+### Opcao 1 - Live Server (VS Code)
 
-1. Abra o projeto no VS Code.
-2. Execute o arquivo [sst/index.html](./sst/index.html) com Live Server.
+1. Abra a pasta do projeto no VS Code.
+2. Execute [sst/index.html](./sst/index.html) com Live Server.
 
-### Opção 2 - Python
+### Opcao 2 - Python
 
 ```bash
 python -m http.server 5500
@@ -107,39 +165,42 @@ python -m http.server 5500
 
 Depois abra:
 
-- `http://localhost:5500/sst/`
-- `http://localhost:5500/sst/core/index.html?cod=aula-11`
-- `http://localhost:5500/sst/core/index.html?cod=aula-12`
-- `http://localhost:5500/sst/core/index.html?cod=aula-13`
-- `http://localhost:5500/sst/core/index.html?cod=aula-14`
-- `http://localhost:5500/sst/core/index.html?cod=aula-15`
+- http://localhost:5500/sst/
+- http://localhost:5500/sst/core/index.html?cod=aula-11
+- http://localhost:5500/sst/core/index.html?cod=aula-12
+- http://localhost:5500/sst/core/index.html?cod=aula-13
+- http://localhost:5500/sst/core/index.html?cod=aula-14
+- http://localhost:5500/sst/core/index.html?cod=aula-15
 
-## Criação de Novas Aulas
+## Conteudo e Expansao de Aulas
 
-Fluxo recomendado:
+Arquivo central de conteudo:
+
+- [sst/lessons/course-data.json](./sst/lessons/course-data.json)
+
+Fluxo recomendado para novas aulas:
 
 1. Abrir [sst/tools/lesson-importer.html](./sst/tools/lesson-importer.html).
-2. Gerar/colar JSON da nova aula.
-3. Validar estrutura e consistência.
-4. Inserir no [sst/lessons/course-data.json](./sst/lessons/course-data.json).
+2. Extrair texto (opcional) via PDF.js.
+3. Gerar/ajustar JSON da aula.
+4. Validar estrutura e consistencia.
+5. Inserir a nova lesson no course-data.json.
 
-Validações principais do importador:
+## Firebase, Login e Ranking
 
-- `slug` e `lesson_info.id` únicos.
-- Estrutura de `topics` e `questions`.
-- Suporte aos tipos: `multiple`, `boolean`, `drag`, `combo`, `multi`.
-- Modo estrito com 50 perguntas e alternância de tipos.
+- Login Google e sessao restaurada automaticamente.
+- Ranking salvo no Realtime Database com filtro por `lesson`.
+- Fallback de leitura por REST quando necessario.
 
-## Firebase e Ranking
+Guias:
 
-- O quiz funciona sem Firebase, mas o ranking em nuvem depende da configuração correta.
-- Guia: [sst/FIREBASE-SETUP.md](./sst/FIREBASE-SETUP.md)
-- Filtro por aula: [sst/LESSON_FILTER_SETUP.md](./sst/LESSON_FILTER_SETUP.md)
+- [sst/FIREBASE-SETUP.md](./sst/FIREBASE-SETUP.md)
+- [sst/LESSON_FILTER_SETUP.md](./sst/LESSON_FILTER_SETUP.md)
 
-## Créditos
+## Creditos
 
-Conteúdo didático e condução pedagógica: Professor Raphael Barreto - Firjan SENAI.
+Conteudo didatico e conducao pedagogica: Professor Raphael Barreto - Firjan SENAI.
 
-## Licença
+## Licenca
 
 Consulte [LICENSE](./LICENSE).
