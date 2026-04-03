@@ -5059,6 +5059,883 @@
           "tip": "Seja o protagonista da sua própria história."
         }
       ]
-    }
+    },
+    {
+    "slug": "aula-16",
+    "lesson_info": {
+        "id": "Aula-16",
+        "title": "AULA 16 - RACIOCÍNIO LÓGICO: FUNDAMENTOS, PRINCÍPIOS E SEQUÊNCIAS",
+        "topics": [
+            {
+                "id": "ACID",
+                "name": "FUNDAMENTOS DA LÓGICA",
+                "desc": "Conceitos essenciais de proposições e a lógica no mundo da TI.",
+                "color": "#8e44ad",
+                "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+            },
+            {
+                "id": "AGEN",
+                "name": "PRINCÍPIOS BÁSICOS",
+                "desc": "Os pilares: Identidade, Não Contradição e Terceiro Excluído.",
+                "color": "#2980b9",
+                "img_url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=1600"
+            },
+            {
+                "id": "PROT",
+                "name": "SEQUÊNCIAS LÓGICAS",
+                "desc": "Padrões aplicados em figuras, palavras e progressões numéricas.",
+                "color": "#27ae60",
+                "img_url": "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?auto=format&fit=crop&q=80&w=1600"
+            },
+            {
+                "id": "NORM",
+                "name": "APLICAÇÃO EM TI",
+                "desc": "Resolução de problemas, algoritmos e importância computacional.",
+                "color": "#e67e22",
+                "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+            }
+        ],
+        "sokoban": [
+            "B",
+            "Y",
+            "T",
+            "E"
+        ]
+    },
+    "questions": [
+        {
+            "type": "multiple",
+            "topics": "ACID",
+            "questions": "[NAME], qual é a definição principal de Lógica?",
+            "answers": [
+                "Ciência do raciocínio correto",
+                "Estudo de hardwares",
+                "Criação de interfaces",
+                "Mapeamento de redes"
+            ],
+            "correct": "Ciência do raciocínio correto",
+            "tip": "A lógica estuda princípios para distinguir argumentos válidos de inválidos."
+        },
+        {
+            "type": "boolean",
+            "topics": "ACID",
+            "questions": "[NAME], na Tecnologia da Informação, a lógica está presente em estruturas condicionais como 'if/else'.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "tip": "Essas estruturas usam valores lógicos para guiar as decisões do algoritmo."
+        },
+        {
+            "type": "combo",
+            "topics": "ACID",
+            "questions": "O raciocínio [COMBO] parte de uma regra geral para uma conclusão particular.",
+            "options": [
+                "Dedutivo",
+                "Indutivo",
+                "Abdutivo",
+                "Intuitivo"
+            ],
+            "correct": "Dedutivo",
+            "tip": "Exemplo: Se todo PC usa energia, e isto é um PC, ele precisa de energia."
+        },
+        {
+            "type": "multi",
+            "topics": "ACID",
+            "questions": "[NAME], quais opções abaixo representam raciocínios estudados na lógica?",
+            "answers": [
+                "Dedutivo",
+                "Abdutivo",
+                "Criativo",
+                "Indutivo"
+            ],
+            "correct": [
+                "Dedutivo",
+                "Abdutivo",
+                "Indutivo"
+            ],
+            "tip": "Estes são os três tipos clássicos de inferência lógica."
+        },
+        {
+            "type": "drag",
+            "topics": "ACID",
+            "questions": "[NAME], relacione o tipo de raciocínio com sua característica:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "Indutivo",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "Abdutivo",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Do particular para o geral"
+                },
+                {
+                    "id": "z2",
+                    "label": "Busca a melhor explicação"
+                }
+            ],
+            "correct": "drag",
+            "tip": "Indutivo analisa repetições passadas, e abdutivo formula hipóteses para causas."
+        },
+        {
+            "type": "multiple",
+            "topics": "ACID",
+            "questions": "Qual destas frases é considerada uma Proposição, [NAME]?",
+            "answers": [
+                "Que horas são?",
+                "Abra o arquivo agora.",
+                "O número 7 é ímpar.",
+                "Que dia maravilhoso!"
+            ],
+            "correct": "O número 7 é ímpar.",
+            "tip": "Proposições são sentenças declarativas que podem ser avaliadas como V ou F."
+        },
+        {
+            "type": "boolean",
+            "topics": "ACID",
+            "questions": "[NAME], uma proposição pode ser simultaneamente verdadeira e falsa.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "Uma proposição só pode assumir um único valor lógico por vez."
+        },
+        {
+            "type": "combo",
+            "topics": "ACID",
+            "questions": "Na eletrônica digital, o valor lógico 'falso' é representado pelo bit [COMBO].",
+            "options": [
+                "0",
+                "1",
+                "2",
+                "Null"
+            ],
+            "correct": "0",
+            "tip": "O sistema binário usa 0 para Falso e 1 para Verdadeiro."
+        },
+        {
+            "type": "multi",
+            "topics": "ACID",
+            "questions": "[NAME], selecione apenas as frases que NÃO são proposições:",
+            "answers": [
+                "Instale o antivírus agora!",
+                "1 TB equivale a 1024 GB.",
+                "Quantos GB de RAM tem o PC?",
+                "Python é uma linguagem."
+            ],
+            "correct": [
+                "Instale o antivírus agora!",
+                "Quantos GB de RAM tem o PC?"
+            ],
+            "tip": "Ordens (imperativas) e perguntas não assumem valor lógico."
+        },
+        {
+            "type": "drag",
+            "topics": "ACID",
+            "questions": "[NAME], classifique as sentenças:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "O Linux é gratuito.",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "Qual o seu IP?",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Proposição"
+                },
+                {
+                    "id": "z2",
+                    "label": "Não Proposição"
+                }
+            ],
+            "correct": "drag",
+            "tip": "Declarações fechadas são proposições; interrogações não."
+        },
+        {
+            "type": "multiple",
+            "topics": "ACID",
+            "questions": "Como é chamada a proposição que contém apenas uma única afirmação?",
+            "answers": [
+                "Composta",
+                "Simples",
+                "Direta",
+                "Unitária"
+            ],
+            "correct": "Simples",
+            "tip": "Elas são representadas por letras minúsculas (p, q, r)."
+        },
+        {
+            "type": "boolean",
+            "topics": "ACID",
+            "questions": "[NAME], a frase '1 byte = 8 bits' é uma proposição verdadeira.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "tip": "Trata-se de uma definição técnica correta na área de computação."
+        },
+        {
+            "type": "combo",
+            "topics": "ACID",
+            "questions": "Proposições compostas combinam afirmações usando [COMBO] lógicos, como 'e' e 'ou'.",
+            "options": [
+                "Conectivos",
+                "Indicadores",
+                "Ponteiros",
+                "Sinais"
+            ],
+            "correct": "Conectivos",
+            "tip": "Eles permitem criar expressões complexas em códigos e algoritmos.",
+            "trans": "AGEN"
+        },
+        {
+            "type": "multi",
+            "topics": "AGEN",
+            "questions": "[NAME], quais são os três princípios básicos da Lógica Clássica?",
+            "answers": [
+                "Identidade",
+                "Não Contradição",
+                "Abstração",
+                "Terceiro Excluído"
+            ],
+            "correct": [
+                "Identidade",
+                "Não Contradição",
+                "Terceiro Excluído"
+            ],
+            "tip": "Eles formam o alicerce para que sistemas rodem sem ambiguidade."
+        },
+        {
+            "type": "drag",
+            "topics": "AGEN",
+            "questions": "Relacione o princípio com a sua definição formal:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "p = p",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "p ou não-p",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Identidade"
+                },
+                {
+                    "id": "z2",
+                    "label": "Terceiro Excluído"
+                }
+            ],
+            "correct": "drag",
+            "tip": "A Identidade foca na igualdade, o Terceiro Excluído na ausência de opções intermediárias."
+        },
+        {
+            "type": "multiple",
+            "topics": "AGEN",
+            "questions": "[NAME], o que afirma o Princípio da Identidade?",
+            "answers": [
+                "Uma coisa é idêntica a si mesma",
+                "Duas coisas podem ser iguais",
+                "Tudo muda com o tempo",
+                "Algo pode ser V e F"
+            ],
+            "correct": "Uma coisa é idêntica a si mesma",
+            "tip": "É a garantia de consistência de uma variável em código enquanto não for alterada."
+        },
+        {
+            "type": "boolean",
+            "topics": "AGEN",
+            "questions": "O Princípio da Não Contradição diz que uma afirmação pode ser Verdadeira e Falsa sob as mesmas circunstâncias.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "É impossível que seja V e F ao mesmo tempo."
+        },
+        {
+            "type": "combo",
+            "topics": "AGEN",
+            "questions": "[NAME], o Terceiro Excluído diz que toda proposição é V ou F, sem [COMBO] opção.",
+            "options": [
+                "Terceira",
+                "Primeira",
+                "Dupla",
+                "Geral"
+            ],
+            "correct": "Terceira",
+            "tip": "Isso reflete a natureza binária da computação (0 ou 1)."
+        },
+        {
+            "type": "multi",
+            "topics": "AGEN",
+            "questions": "Onde o Princípio da Não Contradição se aplica na TI?",
+            "answers": [
+                "Variáveis simultaneamente V e F",
+                "Condições 'if' em programação",
+                "Equipamento online/offline",
+                "Constraints NOT NULL em BD"
+            ],
+            "correct": [
+                "Condições 'if' em programação",
+                "Equipamento online/offline",
+                "Constraints NOT NULL em BD"
+            ],
+            "tip": "Ele impede inconsistências, como um sistema estar online e offline ao mesmo tempo."
+        },
+        {
+            "type": "drag",
+            "topics": "AGEN",
+            "questions": "Associe a situação de TI ao princípio correspondente, [NAME]:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "CNPJ existe ou não existe no banco.",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "O IP identifica sempre o mesmo PC.",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Terceiro Excluído"
+                },
+                {
+                    "id": "z2",
+                    "label": "Identidade"
+                }
+            ],
+            "correct": "drag",
+            "tip": "Existir ou não existir ilustra o Terceiro Excluído; constância do IP mostra a Identidade."
+        },
+        {
+            "type": "multiple",
+            "topics": "AGEN",
+            "questions": "Um equipamento de rede não pode estar ligado e desligado simultaneamente. Isso exemplifica qual princípio?",
+            "answers": [
+                "Não Contradição",
+                "Identidade",
+                "Terceiro Excluído",
+                "Dedução"
+            ],
+            "correct": "Não Contradição",
+            "tip": "Dois estados opostos não podem coexistir ao mesmo tempo no mesmo objeto."
+        },
+        {
+            "type": "boolean",
+            "topics": "AGEN",
+            "questions": "[NAME], no sistema binário, o bit deve obrigatoriamente ser 0 ou 1, existindo o 'meio bit'.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "Na computação digital não existe estado fracionado; é uma lógica de Terceiro Excluído."
+        },
+        {
+            "type": "combo",
+            "topics": "AGEN",
+            "questions": "No código, a variável x é idêntica ao valor atribuído até que seja [COMBO].",
+            "options": [
+                "Modificada",
+                "Apagada",
+                "Excluída",
+                "Copiada"
+            ],
+            "correct": "Modificada",
+            "tip": "Isto reflete diretamente o Princípio da Identidade."
+        },
+        {
+            "type": "multi",
+            "topics": "AGEN",
+            "questions": "Segundo o material, os princípios garantem que sistemas computacionais funcionem de forma:",
+            "answers": [
+                "Previsível",
+                "Consistente",
+                "Ambígua",
+                "Sem ambiguidade"
+            ],
+            "correct": [
+                "Previsível",
+                "Consistente",
+                "Sem ambiguidade"
+            ],
+            "tip": "Computadores dependem da clareza absoluta da lógica clássica."
+        },
+        {
+            "type": "drag",
+            "topics": "AGEN",
+            "questions": "[NAME], ligue as expressões às suas representações teóricas:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "p e não-p é impossível",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "A coisa é idêntica a si",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Não Contradição"
+                },
+                {
+                    "id": "z2",
+                    "label": "Identidade"
+                }
+            ],
+            "correct": "drag",
+            "tip": "P e Não-P representam a contradição que é vedada pela lógica clássica."
+        },
+        {
+            "type": "multiple",
+            "topics": "AGEN",
+            "questions": "Qual restrição de Banco de Dados foi citada para evitar contradições e valores nulos onde não deve haver?",
+            "answers": [
+                "NOT NULL",
+                "FOREIGN KEY",
+                "UNIQUE",
+                "DEFAULT"
+            ],
+            "correct": "NOT NULL",
+            "tip": "O NOT NULL assegura a presença de dados, garantindo a integridade pretendida.",
+            "trans": "PROT"
+        },
+        {
+            "type": "boolean",
+            "topics": "PROT",
+            "questions": "[NAME], sequências lógicas consistem num conjunto ordenado de elementos sem nenhum padrão definido.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "Toda sequência lógica, por definição, segue uma regra de formação identificável."
+        },
+        {
+            "type": "combo",
+            "topics": "PROT",
+            "questions": "Na área de TI, reconhecer padrões é essencial para criar [COMBO].",
+            "options": [
+                "Algoritmos",
+                "Gabinetes",
+                "Cabos",
+                "Monitores"
+            ],
+            "correct": "Algoritmos",
+            "tip": "A capacidade analítica permite criar instruções repetitivas de forma eficiente."
+        },
+        {
+            "type": "multi",
+            "topics": "PROT",
+            "questions": "Quais os tipos de sequências abordadas na aula de hoje, [NAME]?",
+            "answers": [
+                "Figuras",
+                "Palavras",
+                "Números",
+                "Sentimentos"
+            ],
+            "correct": [
+                "Figuras",
+                "Palavras",
+                "Números"
+            ],
+            "tip": "Esses três tipos testam diferentes capacidades cognitivas."
+        },
+        {
+            "type": "drag",
+            "topics": "PROT",
+            "questions": "Relacione o tipo de padrão com a sua característica:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "Geométrica",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "Aritmétrica",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Multiplicação"
+                },
+                {
+                    "id": "z2",
+                    "label": "Soma"
+                }
+            ],
+            "correct": "drag",
+            "tip": "Aritmética soma valores; Geométrica multiplica o termo por uma razão."
+        },
+        {
+            "type": "multiple",
+            "topics": "PROT",
+            "questions": "[NAME], qual é o próximo termo da sequência: 2, 4, 8, 16...?",
+            "answers": [
+                "32",
+                "24",
+                "64",
+                "20"
+            ],
+            "correct": "32",
+            "tip": "O padrão é multiplicar cada termo por 2."
+        },
+        {
+            "type": "boolean",
+            "topics": "PROT",
+            "questions": "Nas sequências de figuras, padrões de espelhamento são chamados de Reflexão.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "tip": "Isso pode ocorrer de forma horizontal ou vertical, comum no design de interfaces."
+        },
+        {
+            "type": "combo",
+            "topics": "PROT",
+            "questions": "A sequência Fibonacci soma sempre os [COMBO] anteriores para formar o próximo número.",
+            "options": [
+                "Dois",
+                "Três",
+                "Quatro",
+                "Cinco"
+            ],
+            "correct": "Dois",
+            "tip": "Ex: 1, 1, 2, 3, 5, 8..."
+        },
+        {
+            "type": "multi",
+            "topics": "PROT",
+            "questions": "Quais são os passos recomendados na metodologia de resolução de sequências?",
+            "answers": [
+                "Compreender",
+                "Planejar",
+                "Executar",
+                "Ignorar"
+            ],
+            "correct": [
+                "Compreender",
+                "Planejar",
+                "Executar"
+            ],
+            "tip": "O quarto passo seria 'Verificar', evitando que erros passem despercebidos."
+        },
+        {
+            "type": "drag",
+            "topics": "PROT",
+            "questions": "Associe a ação ao seu respectivo passo da resolução metodológica:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "Substituir e checar",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "Ler com atenção",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Verificar"
+                },
+                {
+                    "id": "z2",
+                    "label": "Compreender"
+                }
+            ],
+            "correct": "drag",
+            "tip": "Compreender é sempre o passo inicial; Verificar é a etapa final de confirmação."
+        },
+        {
+            "type": "multiple",
+            "topics": "PROT",
+            "questions": "Na sequência de palavras 'Byte, Kilobyte, Megabyte', qual é o próximo padrão semântico esperado?",
+            "answers": [
+                "Gigabyte",
+                "Terabyte",
+                "Nanobyte",
+                "Bit"
+            ],
+            "correct": "Gigabyte",
+            "tip": "Representa a escala crescente das unidades de medida de armazenamento."
+        },
+        {
+            "type": "boolean",
+            "topics": "PROT",
+            "questions": "[NAME], a sequência 1, 4, 9, 16, 25... é um exemplo prático de progressão em Fibonacci.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "Esta é a sequência dos Quadrados Perfeitos (1², 2², 3², 4², etc)."
+        },
+        {
+            "type": "combo",
+            "topics": "PROT",
+            "questions": "Sequências que combinam duas regras alternadas (ex: +3, -1) são chamadas de sequências [COMBO].",
+            "options": [
+                "Alternadas",
+                "Sincrônicas",
+                "Estáticas",
+                "Contínuas"
+            ],
+            "correct": "Alternadas",
+            "tip": "O foco altera a cada passo do termo.",
+            "trans": "NORM"
+        },
+        {
+            "type": "multi",
+            "topics": "NORM",
+            "questions": "[NAME], segundo a aula, em quais rotinas práticas o raciocínio lógico é importante para o profissional de TI?",
+            "answers": [
+                "Escrever códigos",
+                "Consultas a Banco de Dados",
+                "Análise de Segurança de Rede",
+                "Montagem de cadeiras"
+            ],
+            "correct": [
+                "Escrever códigos",
+                "Consultas a Banco de Dados",
+                "Análise de Segurança de Rede"
+            ],
+            "tip": "A lógica rege todo processamento e diagnóstico técnico da computação."
+        },
+        {
+            "type": "drag",
+            "topics": "NORM",
+            "questions": "Relacione o setor de TI com o uso do Raciocínio Lógico associado, [NAME]:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "Loops e condicionais",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "Filtragem com AND/OR",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Programação"
+                },
+                {
+                    "id": "z2",
+                    "label": "Banco de Dados"
+                }
+            ],
+            "correct": "drag",
+            "tip": "Na programação usamos os fluxos de controle; em dados, filtramos registros."
+        },
+        {
+            "type": "multiple",
+            "topics": "NORM",
+            "questions": "A citação 'A lógica é o começo da sabedoria, não o seu fim' pertence a qual autor de referência da aula?",
+            "answers": [
+                "George Pólya",
+                "Aristóteles",
+                "Bruno Villar",
+                "Alan Turing"
+            ],
+            "correct": "George Pólya",
+            "tip": "Ele escreveu sobre métodos para a resolução de problemas."
+        },
+        {
+            "type": "boolean",
+            "topics": "NORM",
+            "questions": "[NAME], a metodologia de quatro etapas (compreender, planejar, executar, verificar) só serve para exercícios de figuras.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "Este método pode ser utilizado amplamente na programação e diagnóstico de falhas."
+        },
+        {
+            "type": "combo",
+            "topics": "NORM",
+            "questions": "Em Segurança da Informação, usamos a lógica para encontrar padrões [COMBO] nas redes.",
+            "options": [
+                "Anômalos",
+                "Perfeitos",
+                "Circulares",
+                "Inertes"
+            ],
+            "correct": "Anômalos",
+            "tip": "Qualquer comportamento fora do comum (padrão quebrado) pode indicar uma ameaça."
+        },
+        {
+            "type": "multi",
+            "topics": "NORM",
+            "questions": "[NAME], quais temas serão estudados nos 'Próximos Passos' indicados pelo professor?",
+            "answers": [
+                "Conectivos lógicos",
+                "Tabelas-verdade",
+                "História da Grécia Antiga",
+                "Lógica complexa em TI"
+            ],
+            "correct": [
+                "Conectivos lógicos",
+                "Tabelas-verdade",
+                "Lógica complexa em TI"
+            ],
+            "tip": "Esses temas ampliam o uso de proposições simples para formar programas robustos."
+        },
+        {
+            "type": "drag",
+            "topics": "NORM",
+            "questions": "Relacione o nível cognitivo ativado ao seu objetivo educacional da Aula 16:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "Ativa conhecimentos prévios",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "Testa predição",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Avaliação Diagnóstica"
+                },
+                {
+                    "id": "z2",
+                    "label": "Sequência Lógica"
+                }
+            ],
+            "correct": "drag",
+            "tip": "O diagnóstico foca na sondagem e a predição atua na busca por padrões novos."
+        },
+        {
+            "type": "multiple",
+            "topics": "NORM",
+            "questions": "No livro 'Raciocínio Lógico Facilitado' de Bruno Villar, a lógica organiza o pensamento para construir:",
+            "answers": [
+                "Conclusões confiáveis",
+                "Dúvidas persistentes",
+                "Diagramas coloridos",
+                "Sentimentos"
+            ],
+            "correct": "Conclusões confiáveis",
+            "tip": "A meta é que, com base nas premissas exatas, a decisão final seja precisa e não baseada em palpites."
+        },
+        {
+            "type": "boolean",
+            "topics": "NORM",
+            "questions": "[NAME], tentar 'chutar' a resposta sem entender a regra de formação é a prática recomendada por profissionais de TI.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "O método de quatro etapas de Pólya combate os chutes através do raciocínio metódico."
+        },
+        {
+            "type": "combo",
+            "topics": "NORM",
+            "questions": "A resolução estruturada de problemas utiliza a lógica [COMBO] desde o diagnóstico até a correção final.",
+            "options": [
+                "Computacional",
+                "Biológica",
+                "Química",
+                "Atômica"
+            ],
+            "correct": "Computacional",
+            "tip": "Este é o core-business de um desenvolvedor."
+        },
+        {
+            "type": "multi",
+            "topics": "NORM",
+            "questions": "Para finalizar e fixar este conteúdo, [NAME], o que deve ser feito a seguir?",
+            "answers": [
+                "Rever conceitos",
+                "Praticar sequências",
+                "Observar no dia a dia",
+                "Deletar anotações"
+            ],
+            "correct": [
+                "Rever conceitos",
+                "Praticar sequências",
+                "Observar no dia a dia"
+            ],
+            "tip": "São as orientações dadas no encerramento da aula para fixar a aprendizagem."
+        },
+        {
+            "type": "drag",
+            "topics": "NORM",
+            "questions": "Associe a fase de verificação do diagnóstico na prática:",
+            "items": [
+                {
+                    "id": "i1",
+                    "txt": "O sistema responde?",
+                    "match": "z1"
+                },
+                {
+                    "id": "i2",
+                    "txt": "O loop funciona?",
+                    "match": "z2"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Redes"
+                },
+                {
+                    "id": "z2",
+                    "label": "Programação"
+                }
+            ],
+            "correct": "drag",
+            "tip": "As áreas aplicam a mesma base lógica para fins distintos: conectividade e código."
+        }
+    ]
+}
   ]
 }

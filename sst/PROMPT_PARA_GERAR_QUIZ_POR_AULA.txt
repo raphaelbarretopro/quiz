@@ -1,0 +1,177 @@
+Contexto: 
+Atua como um Especialista em Design Instrucional e Desenvolvedor Full-stack. Preciso que transformes o conteúdo da aula anexa (PDF/Texto) em um novo objeto JSON para ser inserido no meu arquivo de curso.
+
+Diretrizes Estruturais:
+Estrutura de Tópicos: Cria 4 tópicos (ACID, AGEN, PROT, NORM) baseados no conteúdo anexo. Cada um deve ter um id, name, desc (curto), color (hexadecimal vibrante) e uma img_url do Unsplash relacionada.
+
+Sokoban: Cria um array sokoban com 4 letras que formem uma palavra-chave central desta aula (ex: para Redes seria ["H", "U", "B", "S"]).
+Questões (Obrigatório): Gera um total de 50 questões distribuídas obrigatoriamente pelos seguintes tipos:
+multiple: Escolha única.
+boolean: Verdadeiro ou Falso.
+combo: Frase com lacuna [COMBO] para preencher.
+multi: Múltipla seleção (várias corretas).
+drag: Arrastar e soltar (Relacionar items com zones).
+Personalização e Feedback:
+Todas as perguntas (onde aplicável) devem usar a tag [NAME] para se referir ao aluno.
+Cada questão deve ter um campo tip com uma explicação pedagógica curta.
+A última questão de cada tópico deve ter o campo trans indicando o ID do próximo tópico.
+Formato de Saída:
+Fornece apenas o código JSON do novo objeto que será inserido no array lessons, seguindo exatamente este padrão:
+JSON
+
+{
+  "slug": "aula-X",
+  "lesson_info": { ... },
+  "questions": [ ... ]
+
+}
+
+Exemplo de código final:
+{
+    "slug": "aula-14",
+    "lesson_info": {
+        "id": "Aula-14",
+        "title": "AULA 14 - GUARDIÕES DA SAÚDE: IMPACTOS DE SUBSTÂNCIAS NO TRABALHO",
+        "topics": [
+            {
+                "id": "ACID",
+                "name": "SUBSTÂNCIAS PSICOATIVAS",
+                "desc": "Classificação e efeitos de drogas depressoras, estimulantes e perturbadoras.",
+                "color": "#e74c3c",
+                "img_url": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=1600"
+            },
+            {
+                "id": "AGEN",
+                "name": "DEPENDÊNCIA QUÍMICA",
+                "desc": "A dependência como doença crónica e as suas consequências biopsicossociais.",
+                "color": "#f1c40f",
+                "img_url": "https://images.unsplash.com/photo-1520223297779-95bbd1ea79b7?auto=format&fit=crop&q=80&w=1600"
+            },
+            {
+                "id": "PROT",
+                "name": "IMPACTOS NO TRABALHO",
+                "desc": "Riscos ocupacionais, quedas de desempenho e segurança da equipa.",
+                "color": "#3498db",
+                "img_url": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=1600"
+            },
+            {
+                "id": "NORM",
+                "name": "PREVENÇÃO E ÉTICA",
+                "desc": "Programas de prevenção, acolhimento e responsabilidades legais e éticas.",
+                "color": "#2ecc71",
+                "img_url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1600"
+            }
+        ],
+        "sokoban": [
+            "D",
+            "O",
+            "S",
+            "E"
+        ]
+    },
+    "questions": [
+        {
+            "type": "multiple",
+            "topics": "ACID",
+            "questions": "[NAME], como são classificadas as substâncias que diminuem a atividade do sistema nervoso?",
+            "answers": [
+                "Depressoras",
+                "Estimulantes",
+                "Perturbadoras",
+                "Aceleradoras"
+            ],
+            "correct": "Depressoras",
+            "tip": "O álcool e os ansiolíticos são exemplos de substâncias depressoras."
+        },
+        {
+            "type": "boolean",
+            "topics": "ACID",
+            "questions": "[NAME], a nicotina presente no tabaco é considerada uma substância estimulante.",
+            "answers": [
+                "Verdadeiro",
+                "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "tip": "Ela aumenta a frequência cardíaca e a pressão arterial."
+        },
+        {
+            "type": "drag",
+            "topics": "ACID",
+            "questions": "Relacione o tipo de substância ao seu efeito principal:",
+            "items": [
+                {
+                    "id": "d1",
+                    "txt": "Álcool",
+                    "match": "z1"
+                },
+                {
+                    "id": "d2",
+                    "txt": "Cocaína",
+                    "match": "z2"
+                },
+                {
+                    "id": "d3",
+                    "txt": "LSD",
+                    "match": "z3"
+                },
+                {
+                    "id": "d4",
+                    "txt": "Anfetaminas",
+                    "match": "z4"
+                }
+            ],
+            "zones": [
+                {
+                    "id": "z1",
+                    "label": "Depressora (Reduz reflexos)"
+                },
+                {
+                    "id": "z2",
+                    "label": "Estimulante (Euforia)"
+                },
+                {
+                    "id": "z3",
+                    "label": "Perturbadora (Alucinação)"
+                },
+                {
+                    "id": "z4",
+                    "label": "Estimulante (Alerta)"
+                }
+            ],
+            "correct": "drag",
+            "tip": "Cada droga altera o comportamento de forma específica no cérebro."
+        },
+        {
+            "type": "combo",
+            "topics": "ACID",
+            "questions": "Substâncias [COMBO] alteram a perceção da realidade e podem causar alucinações.",
+            "options": [
+                "Perturbadoras",
+                "Depressoras",
+                "Lentas",
+                "Inertes"
+            ],
+            "correct": "Perturbadoras",
+            "tip": "Drogas como maconha (em altas doses) e êxtase enquadram-se aqui."
+        },
+        {
+            "type": "multi",
+            "topics": "ACID",
+            "questions": "[NAME], quais destes são efeitos comuns do uso de álcool?",
+            "answers": [
+                "Diminuição de reflexos",
+                "Falso senso de segurança",
+                "Melhora da visão",
+                "Sonolência"
+            ],
+            "correct": [
+                "Diminuição de reflexos",
+                "Falso senso de segurança",
+                "Sonolência"
+            ],
+            "tip": "O álcool compromete gravemente a capacidade de operar máquinas."
+        }
+    ]
+}
+
+Após a leitura, solicite que o usuário anexe o arquivo PDF para geração do JSON
