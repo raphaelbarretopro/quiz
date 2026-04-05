@@ -178,7 +178,16 @@ export default class View {
             tetrisTimer: document.getElementById('tetris-timer'),
             tetrisLives: document.getElementById('tetris-lives'),
             tetrisGiveUpBtn: document.getElementById('tetris-giveup-btn'),
-            tetrisTestBtn: document.getElementById('tetris-test-btn')
+            tetrisTestBtn: document.getElementById('tetris-test-btn'),
+
+            // Bonus especial estilo 2048
+            game2048BonusModal: document.getElementById('game2048-bonus-modal'),
+            game2048Board: document.getElementById('game2048-board'),
+            game2048Score: document.getElementById('game2048-score'),
+            game2048Timer: document.getElementById('game2048-timer'),
+            game2048Lives: document.getElementById('game2048-lives'),
+            game2048GiveUpBtn: document.getElementById('game2048-giveup-btn'),
+            game2048TestBtn: document.getElementById('game2048-test-btn')
         };
 
         this.rot = 0;
@@ -200,6 +209,7 @@ export default class View {
         this.lordeHeroSession = null;
         this.froggerSession = null;
         this.tetrisSession = null;
+        this.game2048Session = null;
         this.streakPopupHideTimer = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
@@ -357,7 +367,8 @@ export default class View {
             isVisible(this.els.memoryBonusModal) ||
             isVisible(this.els.lordeHeroBonusModal) ||
             isVisible(this.els.froggerBonusModal) ||
-            isVisible(this.els.tetrisBonusModal)
+            isVisible(this.els.tetrisBonusModal) ||
+            isVisible(this.els.game2048BonusModal)
         );
     }
 
@@ -758,6 +769,11 @@ export default class View {
     bindTetrisTest(handler) {
         if (!this.els.tetrisTestBtn) return;
         this.els.tetrisTestBtn.addEventListener('click', handler);
+    }
+
+    bindGame2048Test(handler) {
+        if (!this.els.game2048TestBtn) return;
+        this.els.game2048TestBtn.addEventListener('click', handler);
     }
 
     showPortal() {
@@ -7594,6 +7610,373 @@ export default class View {
                 totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
                 this.animateScoreIncrease(oldScore, runningScore);
             }, 1300);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try { this.cashRegisterAudio.currentTime = 0; } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    runGame2048BonusLevel() {
+        const modal = this.els.game2048BonusModal;
+        const boardEl = this.els.game2048Board;
+
+        if (!modal || !boardEl) {
+            return Promise.resolve({ won: false, reason: 'no_board', score: 0, maxTile: 0 });
+        }
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.game2048Session && this.game2048Session.cleanup) {
+            this.game2048Session.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        const SIZE = 4;
+        const TARGET_TILE = 256;
+        const GAME_DURATION = 60;
+        const tilePalette = {
+            0: { bg: 'rgba(255, 237, 213, 0.10)', color: 'transparent' },
+            2: { bg: '#fef3c7', color: '#7c2d12' },
+            4: { bg: '#fde68a', color: '#7c2d12' },
+            8: { bg: '#fdba74', color: '#431407' },
+            16: { bg: '#fb923c', color: '#431407' },
+            32: { bg: '#f97316', color: '#fff7ed' },
+            64: { bg: '#ea580c', color: '#fff7ed' },
+            128: { bg: '#c2410c', color: '#fff7ed' },
+            256: { bg: '#9a3412', color: '#fff7ed' },
+            512: { bg: '#7c2d12', color: '#fff7ed' },
+            1024: { bg: '#581c87', color: '#fdf4ff' },
+            2048: { bg: '#4c1d95', color: '#fdf4ff' }
+        };
+
+        let board = Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
+        let score = 0;
+        let lives = 3;
+        let timeLeft = GAME_DURATION;
+        let finished = false;
+        let timerTick = null;
+        let keyHandler = null;
+
+        const playTone = (frequency = 440, duration = 0.08, type = 'triangle', gainValue = 0.07) => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(frequency, now);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(gainValue, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + duration + 0.02);
+        };
+
+        const getEmptyCells = () => {
+            const cells = [];
+            for (let row = 0; row < SIZE; row++) {
+                for (let col = 0; col < SIZE; col++) {
+                    if (board[row][col] === 0) cells.push({ row, col });
+                }
+            }
+            return cells;
+        };
+
+        const addRandomTile = () => {
+            const empty = getEmptyCells();
+            if (!empty.length) return false;
+            const pick = empty[Math.floor(Math.random() * empty.length)];
+            board[pick.row][pick.col] = Math.random() < 0.9 ? 2 : 4;
+            return true;
+        };
+
+        const getMaxTile = () => Math.max(...board.flat());
+
+        const canMove = () => {
+            if (getEmptyCells().length) return true;
+            for (let row = 0; row < SIZE; row++) {
+                for (let col = 0; col < SIZE; col++) {
+                    const value = board[row][col];
+                    if (row + 1 < SIZE && board[row + 1][col] === value) return true;
+                    if (col + 1 < SIZE && board[row][col + 1] === value) return true;
+                }
+            }
+            return false;
+        };
+
+        const resetBoard = () => {
+            board = Array.from({ length: SIZE }, () => Array(SIZE).fill(0));
+            addRandomTile();
+            addRandomTile();
+        };
+
+        const updateHud = () => {
+            if (this.els.game2048Score) this.els.game2048Score.textContent = `Pontos: ${score}`;
+            if (this.els.game2048Timer) this.els.game2048Timer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.game2048Lives) this.els.game2048Lives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        const renderBoard = () => {
+            boardEl.innerHTML = '';
+            for (let row = 0; row < SIZE; row++) {
+                for (let col = 0; col < SIZE; col++) {
+                    const value = board[row][col];
+                    const cell = document.createElement('div');
+                    cell.className = `game2048-cell${value ? '' : ' is-empty'}`;
+                    const style = tilePalette[value] || tilePalette[2048];
+                    cell.style.background = style.bg;
+                    cell.style.color = style.color;
+                    cell.style.fontSize = value >= 1024 ? '0.9rem' : value >= 128 ? '1rem' : '1.25rem';
+                    cell.textContent = value ? String(value) : '';
+                    boardEl.appendChild(cell);
+                }
+            }
+        };
+
+        const collapseLine = (line) => {
+            const compact = line.filter(Boolean);
+            let gained = 0;
+            const merged = [];
+
+            for (let index = 0; index < compact.length; index++) {
+                const current = compact[index];
+                const next = compact[index + 1];
+                if (next && current === next) {
+                    const mergedValue = current * 2;
+                    merged.push(mergedValue);
+                    gained += mergedValue;
+                    index++;
+                } else {
+                    merged.push(current);
+                }
+            }
+
+            while (merged.length < SIZE) merged.push(0);
+            return { line: merged, gained };
+        };
+
+        const cloneBoard = () => board.map((row) => [...row]);
+
+        const boardsEqual = (a, b) => a.every((row, rowIndex) => row.every((value, colIndex) => value === b[rowIndex][colIndex]));
+
+        const move = (direction) => {
+            const original = cloneBoard();
+            let gained = 0;
+
+            if (direction === 'left' || direction === 'right') {
+                for (let row = 0; row < SIZE; row++) {
+                    const source = direction === 'left' ? [...board[row]] : [...board[row]].reverse();
+                    const collapsed = collapseLine(source);
+                    gained += collapsed.gained;
+                    board[row] = direction === 'left' ? collapsed.line : collapsed.line.reverse();
+                }
+            } else {
+                for (let col = 0; col < SIZE; col++) {
+                    const column = [];
+                    for (let row = 0; row < SIZE; row++) column.push(board[row][col]);
+                    const source = direction === 'up' ? column : column.reverse();
+                    const collapsed = collapseLine(source);
+                    const target = direction === 'up' ? collapsed.line : collapsed.line.reverse();
+                    gained += collapsed.gained;
+                    for (let row = 0; row < SIZE; row++) board[row][col] = target[row];
+                }
+            }
+
+            const moved = !boardsEqual(original, board);
+            return { moved, gained };
+        };
+
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+            if (timerTick) { clearInterval(timerTick); timerTick = null; }
+            if (keyHandler) { document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+            if (this.els.game2048GiveUpBtn) this.els.game2048GiveUpBtn.onclick = null;
+            modal.classList.add('hidden');
+            resolvePromise({ won, reason, score, maxTile: getMaxTile() });
+        };
+
+        const loseLife = () => {
+            lives--;
+            updateHud();
+            playTone(180, 0.16, 'sawtooth', 0.12);
+            if (lives <= 0) {
+                finish(false, 'no_lives');
+                return;
+            }
+            resetBoard();
+            renderBoard();
+        };
+
+        keyHandler = (event) => {
+            if (finished || modal.classList.contains('hidden')) return;
+
+            let direction = null;
+            if (event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A') direction = 'left';
+            if (event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') direction = 'right';
+            if (event.key === 'ArrowUp' || event.key === 'w' || event.key === 'W') direction = 'up';
+            if (event.key === 'ArrowDown' || event.key === 's' || event.key === 'S') direction = 'down';
+            if (!direction) return;
+
+            event.preventDefault();
+            const result = move(direction);
+            if (!result.moved) {
+                playTone(210, 0.05, 'square', 0.04);
+                return;
+            }
+
+            score += result.gained;
+            addRandomTile();
+            updateHud();
+            renderBoard();
+
+            const maxTile = getMaxTile();
+            if (result.gained > 0) {
+                playTone(Math.min(880, 260 + maxTile), 0.08, 'triangle', 0.08);
+            } else {
+                playTone(320, 0.05, 'square', 0.05);
+            }
+
+            if (maxTile >= TARGET_TILE) {
+                finish(true, 'completed');
+                return;
+            }
+
+            if (!canMove()) {
+                loseLife();
+            }
+        };
+        document.addEventListener('keydown', keyHandler);
+
+        if (this.els.game2048GiveUpBtn) {
+            this.els.game2048GiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) finish(false, 'timeout');
+        }, 1000);
+
+        resetBoard();
+        updateHud();
+        renderBoard();
+
+        this.game2048Session = { cleanup: (won = false) => finish(won) };
+        return promise;
+    }
+
+    showGame2048VictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🔢✨</h3>
+            <div style="font-size:4.2rem; margin:16px 0; line-height:1.2;">🎉🔢🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, alcançou o bloco 256 no 2048!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            [440, 554.37, 659.25, 880].forEach((freq, index) => {
+                const delay = index * 0.08;
+                const now = ac.currentTime;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.12, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.2);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.24);
+            });
+        }
+
+        return new Promise((resolve) => {
+            setTimeout(() => { overlay.remove(); resolve(); }, 5200);
+        });
+    }
+
+    showGame2048FinalSummary(baseScore, reward, rawScore = 0, maxTile = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeRawScore = Math.max(0, Number(rawScore) || 0);
+        const safeMaxTile = Math.max(0, Number(maxTile) || 0);
+        const tileBonus = safeMaxTile >= 256 ? 80 : Math.floor(safeMaxTile / 4);
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO 2048 🔢</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🔢🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Pontuação no 2048</span><strong>+${safeRawScore}</strong>`;
+                listEl.appendChild(row);
+            }, 550);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Maior bloco alcançado (${safeMaxTile})</span><strong>+${tileBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 1150);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Concluiu o desafio</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += safeRawScore + tileBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1800);
 
             setTimeout(() => {
                 if (this.cashRegisterAudio) {

@@ -46,6 +46,8 @@ class Controller {
         this.froggerBonusActive = false;
         this.tetrisBonusReward = 100;
         this.tetrisBonusActive = false;
+        this.game2048BonusReward = 100;
+        this.game2048BonusActive = false;
         this.activeBonusGameId = null;
         this.sokobanResolve = null;
         this.sokobanMaxLives = 3;
@@ -87,6 +89,7 @@ class Controller {
         this.view.bindLordeHeroTest(this.handleLordeHeroTest.bind(this));
         this.view.bindFroggerTest(this.handleFroggerTest.bind(this));
         this.view.bindTetrisTest(this.handleTetrisTest.bind(this));
+        this.view.bindGame2048Test(this.handleGame2048Test.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -815,6 +818,7 @@ class Controller {
             || this.lordeHeroBonusActive
             || this.froggerBonusActive
             || this.tetrisBonusActive
+            || this.game2048BonusActive
             || Boolean(this.activeBonusGameId);
     }
 
@@ -830,6 +834,7 @@ class Controller {
         if (gameId === 'lordehero') return this.lordeHeroBonusReward;
         if (gameId === 'frogger') return this.froggerBonusReward;
         if (gameId === 'tetris') return this.tetrisBonusReward;
+        if (gameId === 'game2048') return this.game2048BonusReward;
         return 0;
     }
 
@@ -878,6 +883,7 @@ class Controller {
         this.lordeHeroBonusActive = gameId === 'lordehero';
         this.froggerBonusActive = gameId === 'frogger';
         this.tetrisBonusActive = gameId === 'tetris';
+        this.game2048BonusActive = gameId === 'game2048';
 
         try {
             await selectedGame.run({
@@ -899,6 +905,7 @@ class Controller {
             this.lordeHeroBonusActive = false;
             this.froggerBonusActive = false;
             this.tetrisBonusActive = false;
+            this.game2048BonusActive = false;
         }
     }
 
@@ -976,6 +983,13 @@ class Controller {
         if (this.hasTimedOut) return;
         if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
         await this.runScheduledGameById('tetris');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleGame2048Test() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('game2048');
         if (!this.hasTimedOut) this.renderStep();
     }
 }

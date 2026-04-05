@@ -178,6 +178,7 @@
                 <button id="lordehero-test-btn" class="opt-btn lordehero-test-btn">TESTAR LORDE HERO 🤴🎸</button>
                 <button id="frogger-test-btn" class="opt-btn frogger-test-btn">TESTAR FROGGER 🐸</button>
                 <button id="tetris-test-btn" class="opt-btn tetris-test-btn">TESTAR TETRIS 🧱</button>
+                <button id="game2048-test-btn" class="opt-btn game2048-test-btn">TESTAR 2048 🔢</button>
             </div>
             
 
@@ -513,6 +514,30 @@
             <div class="tetris-actions">
                 <p class="tetris-controls">⬅➡ mover | ⬇ descer | ⬆ girar | Espaço queda rápida</p>
                 <button id="tetris-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo 2048 -->
+    <div id="game2048-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3770; display: flex; align-items: center; justify-content: center;">
+        <div class="game2048-bonus-container">
+            <h2 class="game2048-title">🔢 2048 LIBERADO!</h2>
+            <p class="game2048-subtitle">Desafio bônus sorteado nesta aula. Alcance o bloco <strong>256</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="game2048-hud">
+                <span id="game2048-score">Pontos: 0</span>
+                <span id="game2048-timer">Tempo: 60s</span>
+                <span id="game2048-lives">Vidas: ❤️❤️❤️</span>
+            </div>
+
+            <div class="game2048-board-wrap">
+                <div id="game2048-board" aria-label="Mini-game bônus estilo 2048"></div>
+            </div>
+
+            <div class="game2048-actions">
+                <p class="game2048-controls">⬆⬇⬅➡ ou W A S D para mover e combinar blocos</p>
+                <button id="game2048-giveup-btn" class="slot-btn-close">DESISTIR</button>
             </div>
         </div>
     </div>
