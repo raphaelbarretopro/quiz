@@ -52,6 +52,10 @@ class Controller {
         this.flappyBirdBonusActive = false;
         this.arkanoidBonusReward = 100;
         this.arkanoidBonusActive = false;
+        this.asteroidsBonusReward = 100;
+        this.asteroidsBonusActive = false;
+        this.minesweeperBonusReward = 100;
+        this.minesweeperBonusActive = false;
         this.activeBonusGameId = null;
         this.sokobanResolve = null;
         this.sokobanMaxLives = 3;
@@ -96,6 +100,8 @@ class Controller {
         this.view.bindGame2048Test(this.handleGame2048Test.bind(this));
         this.view.bindFlappyBirdTest(this.handleFlappyBirdTest.bind(this));
         this.view.bindArkanoidTest(this.handleArkanoidTest.bind(this));
+        this.view.bindAsteroidsTest(this.handleAsteroidsTest.bind(this));
+        this.view.bindMinesweeperTest(this.handleMinesweeperTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -827,6 +833,8 @@ class Controller {
             || this.game2048BonusActive
             || this.flappyBirdBonusActive
             || this.arkanoidBonusActive
+            || this.asteroidsBonusActive
+            || this.minesweeperBonusActive
             || Boolean(this.activeBonusGameId);
     }
 
@@ -845,6 +853,8 @@ class Controller {
         if (gameId === 'game2048') return this.game2048BonusReward;
         if (gameId === 'flappybird') return this.flappyBirdBonusReward;
         if (gameId === 'arkanoid') return this.arkanoidBonusReward;
+        if (gameId === 'asteroids') return this.asteroidsBonusReward;
+        if (gameId === 'minesweeper') return this.minesweeperBonusReward;
         return 0;
     }
 
@@ -896,6 +906,8 @@ class Controller {
         this.game2048BonusActive = gameId === 'game2048';
         this.flappyBirdBonusActive = gameId === 'flappybird';
         this.arkanoidBonusActive = gameId === 'arkanoid';
+        this.asteroidsBonusActive = gameId === 'asteroids';
+        this.minesweeperBonusActive = gameId === 'minesweeper';
 
         try {
             await selectedGame.run({
@@ -920,6 +932,8 @@ class Controller {
             this.game2048BonusActive = false;
             this.flappyBirdBonusActive = false;
             this.arkanoidBonusActive = false;
+            this.asteroidsBonusActive = false;
+            this.minesweeperBonusActive = false;
         }
     }
 
@@ -1018,6 +1032,20 @@ class Controller {
         if (this.hasTimedOut) return;
         if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
         await this.runScheduledGameById('arkanoid');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleAsteroidsTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('asteroids');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleMinesweeperTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('minesweeper');
         if (!this.hasTimedOut) this.renderStep();
     }
 }

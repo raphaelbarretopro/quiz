@@ -205,7 +205,25 @@ export default class View {
             arkanoidTimer: document.getElementById('arkanoid-timer'),
             arkanoidLives: document.getElementById('arkanoid-lives'),
             arkanoidGiveUpBtn: document.getElementById('arkanoid-giveup-btn'),
-            arkanoidTestBtn: document.getElementById('arkanoid-test-btn')
+            arkanoidTestBtn: document.getElementById('arkanoid-test-btn'),
+
+            // Bonus especial estilo ASTEROIDS
+            asteroidsBonusModal: document.getElementById('asteroids-bonus-modal'),
+            asteroidsCanvas: document.getElementById('asteroids-canvas'),
+            asteroidsScore: document.getElementById('asteroids-score'),
+            asteroidsTimer: document.getElementById('asteroids-timer'),
+            asteroidsLives: document.getElementById('asteroids-lives'),
+            asteroidsGiveUpBtn: document.getElementById('asteroids-giveup-btn'),
+            asteroidsTestBtn: document.getElementById('asteroids-test-btn'),
+
+            // Bonus especial estilo MINESWEEPER
+            minesweeperBonusModal: document.getElementById('minesweeper-bonus-modal'),
+            minesweeperBoard: document.getElementById('minesweeper-board'),
+            minesweeperScore: document.getElementById('minesweeper-score'),
+            minesweeperTimer: document.getElementById('minesweeper-timer'),
+            minesweeperLives: document.getElementById('minesweeper-lives'),
+            minesweeperGiveUpBtn: document.getElementById('minesweeper-giveup-btn'),
+            minesweeperTestBtn: document.getElementById('minesweeper-test-btn')
         };
 
         this.rot = 0;
@@ -230,6 +248,8 @@ export default class View {
         this.game2048Session = null;
         this.flappybirdSession = null;
         this.arkanoidSession = null;
+        this.asteroidsSession = null;
+        this.minesweeperSession = null;
         this.streakPopupHideTimer = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
@@ -390,7 +410,9 @@ export default class View {
             isVisible(this.els.tetrisBonusModal) ||
             isVisible(this.els.game2048BonusModal) ||
             isVisible(this.els.flappybirdBonusModal) ||
-            isVisible(this.els.arkanoidBonusModal)
+            isVisible(this.els.arkanoidBonusModal) ||
+            isVisible(this.els.asteroidsBonusModal) ||
+            isVisible(this.els.minesweeperBonusModal)
         );
     }
 
@@ -806,6 +828,16 @@ export default class View {
     bindArkanoidTest(handler) {
         if (!this.els.arkanoidTestBtn) return;
         this.els.arkanoidTestBtn.addEventListener('click', handler);
+    }
+
+    bindAsteroidsTest(handler) {
+        if (!this.els.asteroidsTestBtn) return;
+        this.els.asteroidsTestBtn.addEventListener('click', handler);
+    }
+
+    bindMinesweeperTest(handler) {
+        if (!this.els.minesweeperTestBtn) return;
+        this.els.minesweeperTestBtn.addEventListener('click', handler);
     }
 
     showPortal() {
@@ -9141,6 +9173,968 @@ export default class View {
 
                 const oldScore = runningScore;
                 runningScore += brickBonus + comboBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1800);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try { this.cashRegisterAudio.currentTime = 0; } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    runAsteroidsBonusLevel() {
+        const modal = this.els.asteroidsBonusModal;
+        const canvas = this.els.asteroidsCanvas;
+
+        if (!modal || !canvas) {
+            return Promise.resolve({ won: false, reason: 'no_canvas', asteroidsDestroyed: 0, bestCombo: 0 });
+        }
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            return Promise.resolve({ won: false, reason: 'no_ctx', asteroidsDestroyed: 0, bestCombo: 0 });
+        }
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.asteroidsSession && this.asteroidsSession.cleanup) {
+            this.asteroidsSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        const GAME_DURATION = 60;
+        const TARGET_ASTEROIDS = 18;
+        const SHIP_TURN_SPEED = 3.8;
+        const SHIP_ACCELERATION = 210;
+        const SHIP_FRICTION = 0.988;
+        const BULLET_SPEED = 460;
+        const BULLET_LIFE = 1.35;
+        const MAX_BULLETS = 7;
+        const FIRE_COOLDOWN = 0.16;
+
+        let lives = 3;
+        let timeLeft = GAME_DURATION;
+        let asteroidsDestroyed = 0;
+        let combo = 0;
+        let bestCombo = 0;
+        let finished = false;
+        let rafId = null;
+        let timerTick = null;
+        let keyDownHandler = null;
+        let keyUpHandler = null;
+        let pointerDownHandler = null;
+        let lastTs = 0;
+        let fireCooldownLeft = 0;
+        let invuln = 0;
+
+        const pressed = {
+            left: false,
+            right: false,
+            thrust: false,
+            fire: false
+        };
+
+        const ship = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            angle: -Math.PI / 2,
+            vx: 0,
+            vy: 0,
+            radius: 14
+        };
+
+        let bullets = [];
+        let asteroids = [];
+        let particles = [];
+
+        const playTone = (frequency = 440, duration = 0.07, type = 'square', gainValue = 0.08) => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(frequency, now);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(gainValue, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + duration + 0.02);
+        };
+
+        const rand = (min, max) => min + Math.random() * (max - min);
+
+        const wrap = (obj) => {
+            if (obj.x < 0) obj.x += canvas.width;
+            if (obj.x > canvas.width) obj.x -= canvas.width;
+            if (obj.y < 0) obj.y += canvas.height;
+            if (obj.y > canvas.height) obj.y -= canvas.height;
+        };
+
+        const spawnAsteroid = (size = 3, x = null, y = null) => {
+            const angle = rand(0, Math.PI * 2);
+            const speed = rand(26, 74) * (size === 3 ? 1 : size === 2 ? 1.2 : 1.35);
+            const radius = size === 3 ? rand(30, 42) : size === 2 ? rand(20, 28) : rand(12, 18);
+
+            const asteroid = {
+                x: x ?? rand(0, canvas.width),
+                y: y ?? rand(0, canvas.height),
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
+                radius,
+                size,
+                rot: rand(-1.2, 1.2),
+                angle: rand(0, Math.PI * 2),
+                vertices: Array.from({ length: 10 }, (_, i) => {
+                    const base = (Math.PI * 2 * i) / 10;
+                    return { a: base, r: radius * rand(0.72, 1.08) };
+                })
+            };
+
+            asteroids.push(asteroid);
+        };
+
+        const spawnInitialAsteroids = () => {
+            asteroids = [];
+            let attempts = 0;
+            while (asteroids.length < 5 && attempts < 90) {
+                attempts++;
+                const x = rand(0, canvas.width);
+                const y = rand(0, canvas.height);
+                const dx = x - ship.x;
+                const dy = y - ship.y;
+                if (Math.hypot(dx, dy) < 130) continue;
+                spawnAsteroid(3, x, y);
+            }
+            while (asteroids.length < 5) spawnAsteroid(3);
+        };
+
+        const resetShip = () => {
+            ship.x = canvas.width / 2;
+            ship.y = canvas.height / 2;
+            ship.vx = 0;
+            ship.vy = 0;
+            ship.angle = -Math.PI / 2;
+            invuln = 2.1;
+        };
+
+        const updateHud = () => {
+            if (this.els.asteroidsScore) this.els.asteroidsScore.textContent = `Asteroides: ${asteroidsDestroyed}/${TARGET_ASTEROIDS}`;
+            if (this.els.asteroidsTimer) this.els.asteroidsTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.asteroidsLives) this.els.asteroidsLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        const emitParticles = (x, y, count = 12, color = '#67e8f9') => {
+            for (let i = 0; i < count; i++) {
+                const angle = rand(0, Math.PI * 2);
+                const speed = rand(40, 210);
+                particles.push({
+                    x,
+                    y,
+                    vx: Math.cos(angle) * speed,
+                    vy: Math.sin(angle) * speed,
+                    life: rand(0.25, 0.75),
+                    maxLife: rand(0.25, 0.75),
+                    color
+                });
+            }
+        };
+
+        const fire = () => {
+            if (fireCooldownLeft > 0 || bullets.length >= MAX_BULLETS) return;
+            const sx = Math.cos(ship.angle);
+            const sy = Math.sin(ship.angle);
+            bullets.push({
+                x: ship.x + sx * (ship.radius + 2),
+                y: ship.y + sy * (ship.radius + 2),
+                vx: ship.vx + sx * BULLET_SPEED,
+                vy: ship.vy + sy * BULLET_SPEED,
+                life: BULLET_LIFE
+            });
+            fireCooldownLeft = FIRE_COOLDOWN;
+            playTone(720, 0.045, 'triangle', 0.08);
+        };
+
+        const splitAsteroid = (asteroid) => {
+            if (asteroid.size <= 1) return;
+            const newSize = asteroid.size - 1;
+            spawnAsteroid(newSize, asteroid.x + rand(-6, 6), asteroid.y + rand(-6, 6));
+            spawnAsteroid(newSize, asteroid.x + rand(-6, 6), asteroid.y + rand(-6, 6));
+        };
+
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+            if (timerTick) { clearInterval(timerTick); timerTick = null; }
+            if (keyDownHandler) { document.removeEventListener('keydown', keyDownHandler); keyDownHandler = null; }
+            if (keyUpHandler) { document.removeEventListener('keyup', keyUpHandler); keyUpHandler = null; }
+            if (pointerDownHandler) { canvas.removeEventListener('pointerdown', pointerDownHandler); pointerDownHandler = null; }
+            if (this.els.asteroidsGiveUpBtn) this.els.asteroidsGiveUpBtn.onclick = null;
+            modal.classList.add('hidden');
+            resolvePromise({ won, reason, asteroidsDestroyed, bestCombo });
+        };
+
+        const loseLife = () => {
+            if (invuln > 0) return;
+            lives--;
+            combo = 0;
+            updateHud();
+            emitParticles(ship.x, ship.y, 24, '#fb7185');
+            playTone(180, 0.14, 'sawtooth', 0.12);
+            if (lives <= 0) {
+                finish(false, 'no_lives');
+                return;
+            }
+            resetShip();
+        };
+
+        const drawStars = () => {
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < 42; i++) {
+                const x = (i * 97) % canvas.width;
+                const y = (i * 173) % canvas.height;
+                const alpha = 0.25 + ((i % 7) * 0.08);
+                ctx.fillStyle = `rgba(186, 230, 253, ${Math.min(0.85, alpha).toFixed(2)})`;
+                ctx.fillRect(x, y, 2, 2);
+            }
+        };
+
+        const drawShip = () => {
+            const blink = invuln > 0 && Math.floor(invuln * 10) % 2 === 0;
+            if (blink) return;
+
+            const s = ship;
+            const nose = { x: s.x + Math.cos(s.angle) * (s.radius + 4), y: s.y + Math.sin(s.angle) * (s.radius + 4) };
+            const left = { x: s.x + Math.cos(s.angle + 2.35) * s.radius, y: s.y + Math.sin(s.angle + 2.35) * s.radius };
+            const right = { x: s.x + Math.cos(s.angle - 2.35) * s.radius, y: s.y + Math.sin(s.angle - 2.35) * s.radius };
+
+            ctx.strokeStyle = '#67e8f9';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(nose.x, nose.y);
+            ctx.lineTo(left.x, left.y);
+            ctx.lineTo(right.x, right.y);
+            ctx.closePath();
+            ctx.stroke();
+
+            if (pressed.thrust) {
+                const flame = { x: s.x - Math.cos(s.angle) * (s.radius + rand(5, 13)), y: s.y - Math.sin(s.angle) * (s.radius + rand(5, 13)) };
+                ctx.strokeStyle = '#fbbf24';
+                ctx.beginPath();
+                ctx.moveTo(left.x * 0.75 + right.x * 0.25, left.y * 0.75 + right.y * 0.25);
+                ctx.lineTo(flame.x, flame.y);
+                ctx.lineTo(right.x * 0.75 + left.x * 0.25, right.y * 0.75 + left.y * 0.25);
+                ctx.stroke();
+            }
+        };
+
+        const drawAsteroids = () => {
+            ctx.strokeStyle = '#cbd5e1';
+            ctx.lineWidth = 2;
+            asteroids.forEach((a) => {
+                ctx.beginPath();
+                a.vertices.forEach((v, idx) => {
+                    const px = a.x + Math.cos(v.a + a.angle) * v.r;
+                    const py = a.y + Math.sin(v.a + a.angle) * v.r;
+                    if (idx === 0) ctx.moveTo(px, py);
+                    else ctx.lineTo(px, py);
+                });
+                ctx.closePath();
+                ctx.stroke();
+            });
+        };
+
+        const drawBullets = () => {
+            ctx.fillStyle = '#f8fafc';
+            bullets.forEach((b) => {
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, 2.2, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        };
+
+        const drawParticles = () => {
+            particles.forEach((p) => {
+                const alpha = Math.max(0, p.life / p.maxLife);
+                ctx.fillStyle = p.color.replace(')', `, ${alpha.toFixed(2)})`).replace('rgb', 'rgba');
+                ctx.fillRect(p.x, p.y, 2, 2);
+            });
+        };
+
+        const drawHudOverlay = () => {
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.55)';
+            ctx.fillRect(12, 12, canvas.width - 24, 36);
+            ctx.font = 'bold 14px Orbitron, sans-serif';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#ecfeff';
+            ctx.textAlign = 'left';
+            ctx.fillText(`☄️ ${asteroidsDestroyed}/${TARGET_ASTEROIDS}`, 20, 30);
+            ctx.textAlign = 'center';
+            ctx.fillText(`Combo ${bestCombo}`, canvas.width / 2, 30);
+            ctx.textAlign = 'right';
+            ctx.fillText(`⏱ ${timeLeft}s`, canvas.width - 20, 30);
+            ctx.textAlign = 'left';
+        };
+
+        const draw = () => {
+            drawStars();
+            drawAsteroids();
+            drawShip();
+            drawBullets();
+            drawParticles();
+            drawHudOverlay();
+        };
+
+        const update = (dt) => {
+            if (pressed.left) ship.angle -= SHIP_TURN_SPEED * dt;
+            if (pressed.right) ship.angle += SHIP_TURN_SPEED * dt;
+
+            if (pressed.thrust) {
+                ship.vx += Math.cos(ship.angle) * SHIP_ACCELERATION * dt;
+                ship.vy += Math.sin(ship.angle) * SHIP_ACCELERATION * dt;
+                playTone(130, 0.025, 'sawtooth', 0.012);
+            }
+
+            ship.vx *= SHIP_FRICTION;
+            ship.vy *= SHIP_FRICTION;
+            ship.x += ship.vx * dt;
+            ship.y += ship.vy * dt;
+            wrap(ship);
+
+            if (fireCooldownLeft > 0) fireCooldownLeft -= dt;
+            if (pressed.fire) fire();
+
+            bullets.forEach((b) => {
+                b.x += b.vx * dt;
+                b.y += b.vy * dt;
+                b.life -= dt;
+                wrap(b);
+            });
+            bullets = bullets.filter((b) => b.life > 0);
+
+            asteroids.forEach((a) => {
+                a.x += a.vx * dt;
+                a.y += a.vy * dt;
+                a.angle += a.rot * dt;
+                wrap(a);
+            });
+
+            particles.forEach((p) => {
+                p.x += p.vx * dt;
+                p.y += p.vy * dt;
+                p.vx *= 0.98;
+                p.vy *= 0.98;
+                p.life -= dt;
+            });
+            particles = particles.filter((p) => p.life > 0);
+
+            for (let bIndex = bullets.length - 1; bIndex >= 0; bIndex--) {
+                const bullet = bullets[bIndex];
+                for (let aIndex = asteroids.length - 1; aIndex >= 0; aIndex--) {
+                    const asteroid = asteroids[aIndex];
+                    const dx = bullet.x - asteroid.x;
+                    const dy = bullet.y - asteroid.y;
+                    if ((dx * dx + dy * dy) > (asteroid.radius * asteroid.radius)) continue;
+
+                    bullets.splice(bIndex, 1);
+                    asteroids.splice(aIndex, 1);
+                    emitParticles(asteroid.x, asteroid.y, 14, 'rgba(103, 232, 249, 1)');
+                    splitAsteroid(asteroid);
+
+                    asteroidsDestroyed++;
+                    combo++;
+                    bestCombo = Math.max(bestCombo, combo);
+                    updateHud();
+                    playTone(620 + Math.min(220, combo * 14), 0.055, 'triangle', 0.09);
+
+                    if (asteroidsDestroyed >= TARGET_ASTEROIDS) {
+                        finish(true, 'completed');
+                        return;
+                    }
+
+                    if (asteroids.length < 3) {
+                        spawnAsteroid(3);
+                    }
+                    break;
+                }
+            }
+
+            if (invuln > 0) {
+                invuln -= dt;
+            } else {
+                for (let i = 0; i < asteroids.length; i++) {
+                    const asteroid = asteroids[i];
+                    const dx = ship.x - asteroid.x;
+                    const dy = ship.y - asteroid.y;
+                    if ((dx * dx + dy * dy) <= ((ship.radius + asteroid.radius - 1) ** 2)) {
+                        loseLife();
+                        break;
+                    }
+                }
+            }
+        };
+
+        const loop = (ts) => {
+            if (finished) return;
+            const dt = lastTs === 0 ? 0 : Math.min((ts - lastTs) / 1000, 0.04);
+            lastTs = ts;
+            update(dt);
+            draw();
+            rafId = requestAnimationFrame(loop);
+        };
+
+        keyDownHandler = (event) => {
+            if (finished || modal.classList.contains('hidden')) return;
+            const key = event.key;
+
+            if (key === 'ArrowLeft' || key === 'a' || key === 'A') {
+                pressed.left = true;
+                event.preventDefault();
+                return;
+            }
+
+            if (key === 'ArrowRight' || key === 'd' || key === 'D') {
+                pressed.right = true;
+                event.preventDefault();
+                return;
+            }
+
+            if (key === 'ArrowUp' || key === 'w' || key === 'W') {
+                pressed.thrust = true;
+                event.preventDefault();
+                return;
+            }
+
+            if (key === ' ' || key === 'Enter') {
+                pressed.fire = true;
+                fire();
+                event.preventDefault();
+            }
+        };
+
+        keyUpHandler = (event) => {
+            const key = event.key;
+            if (key === 'ArrowLeft' || key === 'a' || key === 'A') pressed.left = false;
+            if (key === 'ArrowRight' || key === 'd' || key === 'D') pressed.right = false;
+            if (key === 'ArrowUp' || key === 'w' || key === 'W') pressed.thrust = false;
+            if (key === ' ' || key === 'Enter') pressed.fire = false;
+        };
+
+        pointerDownHandler = (event) => {
+            event.preventDefault();
+            fire();
+        };
+
+        document.addEventListener('keydown', keyDownHandler);
+        document.addEventListener('keyup', keyUpHandler);
+        canvas.addEventListener('pointerdown', pointerDownHandler);
+
+        if (this.els.asteroidsGiveUpBtn) {
+            this.els.asteroidsGiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) finish(false, 'timeout');
+        }, 1000);
+
+        resetShip();
+        spawnInitialAsteroids();
+        updateHud();
+        draw();
+        rafId = requestAnimationFrame(loop);
+
+        this.asteroidsSession = { cleanup: (won = false) => finish(won) };
+        return promise;
+    }
+
+    showAsteroidsVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! ☄️✨</h3>
+            <div style="font-size:4.2rem; margin:16px 0; line-height:1.2;">🎉☄️🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, destruiu os asteroides e venceu o desafio!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            [392, 493.88, 659.25, 880].forEach((freq, index) => {
+                const delay = index * 0.08;
+                const now = ac.currentTime;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.12, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.2);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.24);
+            });
+        }
+
+        return new Promise((resolve) => {
+            setTimeout(() => { overlay.remove(); resolve(); }, 5200);
+        });
+    }
+
+    showAsteroidsFinalSummary(baseScore, reward, asteroidsDestroyed = 0, bestCombo = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeDestroyed = Math.max(0, Number(asteroidsDestroyed) || 0);
+        const safeBestCombo = Math.max(0, Number(bestCombo) || 0);
+        const asteroidBonus = safeDestroyed * 10;
+        const comboBonus = safeBestCombo * 10;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO ASTEROIDS ☄️</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">☄️🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Asteroides destruídos (×10 pts)</span><strong>+${asteroidBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 550);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Melhor combo (${safeBestCombo})</span><strong>+${comboBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 1150);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Concluiu o desafio</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += asteroidBonus + comboBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1800);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try { this.cashRegisterAudio.currentTime = 0; } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    runMinesweeperBonusLevel() {
+        const modal = this.els.minesweeperBonusModal;
+        const boardEl = this.els.minesweeperBoard;
+
+        if (!modal || !boardEl) {
+            return Promise.resolve({ won: false, reason: 'no_board', safeRevealed: 0, flagsUsed: 0 });
+        }
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.minesweeperSession && this.minesweeperSession.cleanup) {
+            this.minesweeperSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        const GRID_SIZE = 8;
+        const TOTAL_CELLS = GRID_SIZE * GRID_SIZE;
+        const MINE_COUNT = 10;
+        const TARGET_SAFE = TOTAL_CELLS - MINE_COUNT;
+        const GAME_DURATION = 60;
+        const MAX_LIVES = 3;
+
+        let lives = MAX_LIVES;
+        let timeLeft = GAME_DURATION;
+        let safeRevealed = 0;
+        let flagsUsed = 0;
+        let finished = false;
+        let timerTick = null;
+        let boardClickHandler = null;
+        let boardContextHandler = null;
+
+        const board = Array.from({ length: TOTAL_CELLS }, () => ({
+            mine: false,
+            flagged: false,
+            revealed: false,
+            neighbors: 0,
+            element: null
+        }));
+
+        const playTone = (frequency = 440, duration = 0.08, type = 'triangle', gainValue = 0.1) => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(frequency, now);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(gainValue, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + duration + 0.02);
+        };
+
+        const neighborsOf = (index) => {
+            const row = Math.floor(index / GRID_SIZE);
+            const col = index % GRID_SIZE;
+            const neighbors = [];
+
+            for (let dr = -1; dr <= 1; dr++) {
+                for (let dc = -1; dc <= 1; dc++) {
+                    if (dr === 0 && dc === 0) continue;
+                    const nr = row + dr;
+                    const nc = col + dc;
+                    if (nr < 0 || nr >= GRID_SIZE || nc < 0 || nc >= GRID_SIZE) continue;
+                    neighbors.push(nr * GRID_SIZE + nc);
+                }
+            }
+
+            return neighbors;
+        };
+
+        const updateHud = () => {
+            if (this.els.minesweeperScore) this.els.minesweeperScore.textContent = `Seguras: ${safeRevealed}/${TARGET_SAFE}`;
+            if (this.els.minesweeperTimer) this.els.minesweeperTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.minesweeperLives) this.els.minesweeperLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        const renderCell = (index) => {
+            const cell = board[index];
+            const el = cell.element;
+            if (!el) return;
+
+            el.className = 'minesweeper-cell';
+            el.removeAttribute('data-neighbors');
+            el.textContent = '';
+
+            if (!cell.revealed) {
+                if (cell.flagged) {
+                    el.classList.add('flagged');
+                    el.textContent = '🚩';
+                }
+                return;
+            }
+
+            el.classList.add('revealed');
+            if (cell.mine) {
+                el.classList.add('mine');
+                el.textContent = '💣';
+                return;
+            }
+
+            if (cell.neighbors > 0) {
+                el.setAttribute('data-neighbors', String(cell.neighbors));
+                el.textContent = String(cell.neighbors);
+            }
+        };
+
+        const revealRecursive = (startIndex) => {
+            const stack = [startIndex];
+            while (stack.length > 0) {
+                const idx = stack.pop();
+                const cell = board[idx];
+                if (!cell || cell.revealed || cell.flagged) continue;
+
+                cell.revealed = true;
+                safeRevealed++;
+                renderCell(idx);
+
+                if (cell.neighbors !== 0) continue;
+                const neighbors = neighborsOf(idx);
+                for (let i = 0; i < neighbors.length; i++) {
+                    const nextIndex = neighbors[i];
+                    const nextCell = board[nextIndex];
+                    if (!nextCell || nextCell.revealed || nextCell.mine || nextCell.flagged) continue;
+                    stack.push(nextIndex);
+                }
+            }
+        };
+
+        const revealAllMines = () => {
+            for (let i = 0; i < board.length; i++) {
+                if (!board[i].mine) continue;
+                board[i].revealed = true;
+                renderCell(i);
+            }
+        };
+
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+            if (timerTick) { clearInterval(timerTick); timerTick = null; }
+            if (boardClickHandler) { boardEl.removeEventListener('click', boardClickHandler); boardClickHandler = null; }
+            if (boardContextHandler) { boardEl.removeEventListener('contextmenu', boardContextHandler); boardContextHandler = null; }
+            if (this.els.minesweeperGiveUpBtn) this.els.minesweeperGiveUpBtn.onclick = null;
+            modal.classList.add('hidden');
+            resolvePromise({ won, reason, safeRevealed, flagsUsed });
+        };
+
+        const placeMines = () => {
+            let placed = 0;
+            while (placed < MINE_COUNT) {
+                const idx = Math.floor(Math.random() * TOTAL_CELLS);
+                if (board[idx].mine) continue;
+                board[idx].mine = true;
+                placed++;
+            }
+        };
+
+        const computeNeighbors = () => {
+            for (let i = 0; i < board.length; i++) {
+                if (board[i].mine) continue;
+                board[i].neighbors = neighborsOf(i).reduce((acc, nIdx) => acc + (board[nIdx].mine ? 1 : 0), 0);
+            }
+        };
+
+        const buildBoardDom = () => {
+            boardEl.innerHTML = '';
+            for (let i = 0; i < board.length; i++) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'minesweeper-cell';
+                btn.dataset.idx = String(i);
+                btn.setAttribute('aria-label', `Casa ${i + 1}`);
+                board[i].element = btn;
+                boardEl.appendChild(btn);
+            }
+        };
+
+        const revealSafeCell = (index) => {
+            const cell = board[index];
+            if (!cell || cell.revealed || cell.flagged) return;
+            if (cell.mine) {
+                cell.revealed = true;
+                renderCell(index);
+                lives--;
+                updateHud();
+                playTone(180, 0.14, 'sawtooth', 0.14);
+                if (lives <= 0) {
+                    revealAllMines();
+                    finish(false, 'no_lives');
+                }
+                return;
+            }
+
+            revealRecursive(index);
+            playTone(560, 0.045, 'triangle', 0.09);
+            updateHud();
+
+            if (safeRevealed >= TARGET_SAFE) {
+                finish(true, 'completed');
+            }
+        };
+
+        const toggleFlag = (index) => {
+            const cell = board[index];
+            if (!cell || cell.revealed) return;
+            cell.flagged = !cell.flagged;
+            flagsUsed += cell.flagged ? 1 : -1;
+            flagsUsed = Math.max(0, flagsUsed);
+            renderCell(index);
+        };
+
+        boardClickHandler = (event) => {
+            if (finished) return;
+            const target = event.target.closest('.minesweeper-cell');
+            if (!target || !boardEl.contains(target)) return;
+            const index = Number(target.dataset.idx);
+            if (!Number.isInteger(index)) return;
+            revealSafeCell(index);
+        };
+
+        boardContextHandler = (event) => {
+            if (finished) return;
+            const target = event.target.closest('.minesweeper-cell');
+            if (!target || !boardEl.contains(target)) return;
+            event.preventDefault();
+            const index = Number(target.dataset.idx);
+            if (!Number.isInteger(index)) return;
+            toggleFlag(index);
+        };
+
+        boardEl.addEventListener('click', boardClickHandler);
+        boardEl.addEventListener('contextmenu', boardContextHandler);
+
+        if (this.els.minesweeperGiveUpBtn) {
+            this.els.minesweeperGiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) {
+                revealAllMines();
+                finish(false, 'timeout');
+            }
+        }, 1000);
+
+        placeMines();
+        computeNeighbors();
+        buildBoardDom();
+        updateHud();
+
+        this.minesweeperSession = { cleanup: (won = false) => finish(won) };
+        return promise;
+    }
+
+    showMinesweeperVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 💣✨</h3>
+            <div style="font-size:4.2rem; margin:16px 0; line-height:1.2;">🎉💣🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, limpou o campo minado e venceu o desafio!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            [392, 523.25, 659.25, 783.99].forEach((freq, index) => {
+                const delay = index * 0.08;
+                const now = ac.currentTime;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.12, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.2);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.24);
+            });
+        }
+
+        return new Promise((resolve) => {
+            setTimeout(() => { overlay.remove(); resolve(); }, 5200);
+        });
+    }
+
+    showMinesweeperFinalSummary(baseScore, reward, safeRevealed = 0, flagsUsed = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeSafeRevealed = Math.max(0, Number(safeRevealed) || 0);
+        const safeFlagsUsed = Math.max(0, Number(flagsUsed) || 0);
+        const revealBonus = safeSafeRevealed * 5;
+        const precisionBonus = Math.max(0, 120 - safeFlagsUsed * 6);
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO MINESWEEPER 💣</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">💣🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Casas seguras reveladas (×5 pts)</span><strong>+${revealBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 550);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Bônus de precisão (${safeFlagsUsed} bandeiras)</span><strong>+${precisionBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 1150);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Concluiu o desafio</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += revealBonus + precisionBonus + safeReward;
                 totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
                 this.animateScoreIncrease(oldScore, runningScore);
             }, 1800);

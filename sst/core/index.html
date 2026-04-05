@@ -181,6 +181,8 @@
                 <button id="game2048-test-btn" class="opt-btn game2048-test-btn">TESTAR 2048 🔢</button>
                 <button id="flappybird-test-btn" class="opt-btn flappybird-test-btn">TESTAR FLAPPY BIRD 🐦</button>
                 <button id="arkanoid-test-btn" class="opt-btn arkanoid-test-btn">TESTAR ARKANOID 🧱🏓</button>
+                <button id="asteroids-test-btn" class="opt-btn asteroids-test-btn">TESTAR ASTEROIDS ☄️</button>
+                <button id="minesweeper-test-btn" class="opt-btn minesweeper-test-btn">TESTAR MINESWEEPER 💣</button>
             </div>
             
 
@@ -588,6 +590,54 @@
             <div class="arkanoid-actions">
                 <p class="arkanoid-controls">⬅➡ / A D / mouse para mover | Espaço, clique ou toque para lançar</p>
                 <button id="arkanoid-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo ASTEROIDS -->
+    <div id="asteroids-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3800; display: flex; align-items: center; justify-content: center;">
+        <div class="asteroids-bonus-container">
+            <h2 class="asteroids-title">☄️ ASTEROIDS LIBERADO!</h2>
+            <p class="asteroids-subtitle">Desafio bônus sorteado nesta aula. Destrua <strong>18 asteroides</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="asteroids-hud">
+                <span id="asteroids-score">Asteroides: 0/18</span>
+                <span id="asteroids-timer">Tempo: 60s</span>
+                <span id="asteroids-lives">Vidas: ❤️❤️❤️</span>
+            </div>
+
+            <div class="asteroids-board-wrap">
+                <canvas id="asteroids-canvas" width="560" height="560" aria-label="Mini-game bônus estilo Asteroids"></canvas>
+            </div>
+
+            <div class="asteroids-actions">
+                <p class="asteroids-controls">⬅➡ ou A D gira | ⬆ ou W acelera | Espaço atira</p>
+                <button id="asteroids-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo MINESWEEPER -->
+    <div id="minesweeper-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3810; display: flex; align-items: center; justify-content: center;">
+        <div class="minesweeper-bonus-container">
+            <h2 class="minesweeper-title">💣 MINESWEEPER LIBERADO!</h2>
+            <p class="minesweeper-subtitle">Desafio bônus sorteado nesta aula. Revele <strong>todas as casas seguras</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="minesweeper-hud">
+                <span id="minesweeper-score">Seguras: 0/54</span>
+                <span id="minesweeper-timer">Tempo: 60s</span>
+                <span id="minesweeper-lives">Vidas: ❤️❤️❤️</span>
+            </div>
+
+            <div class="minesweeper-board-wrap">
+                <div id="minesweeper-board" aria-label="Mini-game bônus estilo Minesweeper" role="grid"></div>
+            </div>
+
+            <div class="minesweeper-actions">
+                <p class="minesweeper-controls">Clique para revelar | clique direito para bandeira 🚩</p>
+                <button id="minesweeper-giveup-btn" class="slot-btn-close">DESISTIR</button>
             </div>
         </div>
     </div>

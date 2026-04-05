@@ -122,3 +122,34 @@ FORMATO DE ENTREGA
 - Explique resumidamente o que foi feito em cada arquivo.
 - Mostre os checks executados e seus resultados.
 - Se algo nao puder ser validado automaticamente, declarar explicitamente.
+
+
+
+Games populares a considerar
+Abaixo os que melhor se encaixam na arquitetura existente (arcade, ciclo curto ~30–60s, vitória binária):
+Prioridade alta — mecânica simples, muito reconhecida
+Sugestão	Mecânica	Por que encaixa bem
+Flappy Bird	Toque/click para voar entre canos	Runner vertical de um botão; implementação idêntica ao T-REX porém na vertical
+Breakout / Arkanoid	Raquete + bolinha destrói blocos	Clássico 1976; controle mouse/toque; condição clara: zerar blocos
+Tetris	Peças caem, completar linhas	Extremamente reconhecido; vitória = sobreviver X linhas ou zerar tabuleiro
+2048	Somar blocos deslizando	Puzzle sem timer; muito jogado em mobile; condição: atingir tile 2048 ou 512
+Dino Pong	Raquete vs CPU	Variação de Pong; controle de um eixo; ciclo ultra-curto
+Prioridade média — exigem mais implementação mas alta nostalgia
+Sugestão	Mecânica	Observação
+Asteroids	Nave rotaciona, atira fragmentos	Similar ao Space; diferencial: rotação livre e split de asteroides
+Minesweeper	Revelar casas sem pisar em bomba	Puzzle lógico; ciclo variável mas previsível; nenhum gênero igual no set atual
+Frogger	Sapo atravessa rua e rio	Desvio por grid; ciclo rápido com tráfego e troncos
+Donkey Kong	Plataformer de escada com barris	Extensão natural do Mario; escalar e desviar
+Simon Says	Repetir sequências de cores	Teste de memória sequencial; totalmente diferente do atual Memory
+Prioridade menor — mais complexidade, implementações já existem na web
+Sugestão	Motivo para deixar por último
+Puzzle Bobble	Física de bolhas; mais pesado de implementar
+Bomberman	Necessita grid grande + IA de inimigos
+Street Fighter (simplificado)	Lorde Hero já cobre o nicho de timing/habilidade
+________________________________________
+Recomendação de próximos 3
+Com base no que já existe no projeto e no esforço de implementação:
+1.	Flappy Bird — é a variação mais natural do T-REX (runner 1-botão), aproveitaria o mesmo padrão de código. Alta nostalgia e reconhecimento instantâneo.
+2.	Breakout — único gênero de "bolinha + raquete" ausente; canvas simples, colisão retangular, sem IA.
+3.	Minesweeper — único puzzle lógico de risco/revelação; complementa Memória e Sokoban sem repetir mecânica.
+

@@ -1,4 +1,4 @@
-const AVAILABLE_GAMES = ['pacman', 'enduro', 'trex', 'sokoban', 'mario', 'space', 'snake', 'memory', 'lordehero', 'frogger', 'tetris', 'game2048', 'flappybird', 'arkanoid'];
+const AVAILABLE_GAMES = ['pacman', 'enduro', 'trex', 'sokoban', 'mario', 'space', 'snake', 'memory', 'lordehero', 'frogger', 'tetris', 'game2048', 'flappybird', 'arkanoid', 'asteroids', 'minesweeper'];
 
 const DEFAULT_GAME_SCHEDULE_CONFIG = {
     slots: 5,
