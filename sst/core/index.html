@@ -106,7 +106,7 @@
         <!-- Tela inicial: coleta o nome do jogador e aguarda a carga dos dados da aula. -->
         <div id="start-screen">
             <h2 id="main-title">Carregando Dados da Aula...</h2>
-            
+
             <div id="start-motivation-card" class="start-motivation-card">
                 <p id="start-motivation-text" class="start-motivation-text">Olá aluno, hoje iremos estudar sobre o
                     seguinte tema:</p>
@@ -165,7 +165,7 @@
             <button id="next-btn" class="opt-btn hidden action-btn">AVANÇAR ➔</button>
             <div id="fb-area"></div>
 
-            
+            <!-- 
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px;">
                 <button id="pacman-test-btn" class="opt-btn pacman-test-btn">TESTAR PACMAN 👾</button>
                 <button id="enduro-test-btn" class="opt-btn enduro-test-btn">TESTAR ENDURO 🏎️</button>
@@ -184,7 +184,7 @@
                 <button id="asteroids-test-btn" class="opt-btn asteroids-test-btn">TESTAR ASTEROIDS ☄️</button>
                 <button id="minesweeper-test-btn" class="opt-btn minesweeper-test-btn">TESTAR MINESWEEPER 💣</button>
             </div>
-            
+        -->
 
             <div id="question-counter" class="question-counter">QUESTÃO 1/50</div>
 
@@ -478,7 +478,8 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3750; display: flex; align-items: center; justify-content: center;">
         <div class="frogger-bonus-container">
             <h2 class="frogger-title">🐸 FROGGER LIBERADO!</h2>
-            <p class="frogger-subtitle">Desafio bônus sorteado nesta aula. Atravesse a rua <strong>3 vezes</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="frogger-subtitle">Desafio bônus sorteado nesta aula. Atravesse a rua <strong>3 vezes</strong> em
+                <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="frogger-hud">
                 <span id="frogger-score">🐸 0/3</span>
@@ -487,7 +488,8 @@
             </div>
 
             <div class="frogger-board-wrap">
-                <canvas id="frogger-canvas" width="500" height="500" aria-label="Mini-game bônus estilo Frogger"></canvas>
+                <canvas id="frogger-canvas" width="500" height="500"
+                    aria-label="Mini-game bônus estilo Frogger"></canvas>
             </div>
 
             <div class="frogger-actions">
@@ -502,7 +504,8 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3760; display: flex; align-items: center; justify-content: center;">
         <div class="tetris-bonus-container">
             <h2 class="tetris-title">🧱 TETRIS LIBERADO!</h2>
-            <p class="tetris-subtitle">Desafio bônus sorteado nesta aula. Limpe <strong>5 linhas</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="tetris-subtitle">Desafio bônus sorteado nesta aula. Limpe <strong>5 linhas</strong> em <strong>1
+                    minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="tetris-hud">
                 <span id="tetris-lines">Linhas: 0/5</span>
@@ -527,7 +530,8 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3770; display: flex; align-items: center; justify-content: center;">
         <div class="game2048-bonus-container">
             <h2 class="game2048-title">🔢 2048 LIBERADO!</h2>
-            <p class="game2048-subtitle">Desafio bônus sorteado nesta aula. Alcance o bloco <strong>128</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="game2048-subtitle">Desafio bônus sorteado nesta aula. Alcance o bloco <strong>128</strong> em
+                <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="game2048-hud">
                 <span id="game2048-score">Pontos: 0</span>
@@ -551,7 +555,8 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3780; display: flex; align-items: center; justify-content: center;">
         <div class="flappybird-bonus-container">
             <h2 class="flappybird-title">🐦 FLAPPY BIRD LIBERADO!</h2>
-            <p class="flappybird-subtitle">Desafio bônus sorteado nesta aula. Passe por <strong>10 canos</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="flappybird-subtitle">Desafio bônus sorteado nesta aula. Passe por <strong>10 canos</strong> em
+                <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="flappybird-hud">
                 <span id="flappybird-score">Canos: 0/10</span>
@@ -560,7 +565,8 @@
             </div>
 
             <div class="flappybird-board-wrap">
-                <canvas id="flappybird-canvas" width="420" height="640" aria-label="Mini-game bônus estilo Flappy Bird"></canvas>
+                <canvas id="flappybird-canvas" width="420" height="640"
+                    aria-label="Mini-game bônus estilo Flappy Bird"></canvas>
             </div>
 
             <div class="flappybird-actions">
@@ -575,7 +581,8 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3790; display: flex; align-items: center; justify-content: center;">
         <div class="arkanoid-bonus-container">
             <h2 class="arkanoid-title">🧱🏓 ARKANOID LIBERADO!</h2>
-            <p class="arkanoid-subtitle">Desafio bônus sorteado nesta aula. Destrua <strong>24 blocos</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="arkanoid-subtitle">Desafio bônus sorteado nesta aula. Destrua <strong>24 blocos</strong> em
+                <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="arkanoid-hud">
                 <span id="arkanoid-score">Blocos: 0/24</span>
@@ -584,7 +591,8 @@
             </div>
 
             <div class="arkanoid-board-wrap">
-                <canvas id="arkanoid-canvas" width="640" height="420" aria-label="Mini-game bônus estilo Arkanoid"></canvas>
+                <canvas id="arkanoid-canvas" width="640" height="420"
+                    aria-label="Mini-game bônus estilo Arkanoid"></canvas>
             </div>
 
             <div class="arkanoid-actions">
@@ -599,7 +607,8 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3800; display: flex; align-items: center; justify-content: center;">
         <div class="asteroids-bonus-container">
             <h2 class="asteroids-title">☄️ ASTEROIDS LIBERADO!</h2>
-            <p class="asteroids-subtitle">Desafio bônus sorteado nesta aula. Destrua <strong>18 asteroides</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="asteroids-subtitle">Desafio bônus sorteado nesta aula. Destrua <strong>18 asteroides</strong> em
+                <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="asteroids-hud">
                 <span id="asteroids-score">Asteroides: 0/18</span>
@@ -608,7 +617,8 @@
             </div>
 
             <div class="asteroids-board-wrap">
-                <canvas id="asteroids-canvas" width="560" height="560" aria-label="Mini-game bônus estilo Asteroids"></canvas>
+                <canvas id="asteroids-canvas" width="560" height="560"
+                    aria-label="Mini-game bônus estilo Asteroids"></canvas>
             </div>
 
             <div class="asteroids-actions">
@@ -623,7 +633,9 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3810; display: flex; align-items: center; justify-content: center;">
         <div class="minesweeper-bonus-container">
             <h2 class="minesweeper-title">💣 MINESWEEPER LIBERADO!</h2>
-            <p class="minesweeper-subtitle">Desafio bônus sorteado nesta aula. Revele <strong>todas as casas seguras</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="minesweeper-subtitle">Desafio bônus sorteado nesta aula. Revele <strong>todas as casas
+                    seguras</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100
+                    pontos</strong>.</p>
 
             <div class="minesweeper-hud">
                 <span id="minesweeper-score">Seguras: 0/54</span>
@@ -682,7 +694,7 @@
                 <li>🎮 <strong>Mini-jogos bônus</strong> surgem ao longo da trilha — complete-os para mais pontos!</li>
                 <li>💡 Nas questões de <strong>múltipla escolha</strong>, marque exatamente a quantidade indicada de
                     respostas corretas</li>
-            </ul>            
+            </ul>
             <div class="rules-panel-footer">
                 Desenvolvido por<br>
                 <strong>Raphael Barreto</strong>
@@ -723,7 +735,7 @@
                 columnHintOverlay.classList.remove('active');
                 columnHintOverlay.setAttribute('aria-hidden', 'true');
                 body.classList.remove('column-hints-active');
-            }; 
+            };
 
             const openColumnHints = function () {
                 columnHintOverlay.setAttribute('aria-hidden', 'false');

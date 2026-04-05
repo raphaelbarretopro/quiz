@@ -251,6 +251,7 @@ export default class View {
         this.asteroidsSession = null;
         this.minesweeperSession = null;
         this.streakPopupHideTimer = null;
+        this.musicRetryHandler = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
         this.correctAnswerAudio.preload = 'auto';
@@ -453,11 +454,54 @@ export default class View {
         this.stopMiniGameAudioTracks(false);
     }
 
+    queueMusicRetry() {
+        if (this.musicRetryHandler) return;
+
+        const tryResume = () => {
+            if (!this.musicEnabled || !this.bgMusic) return;
+            if (this.els.sokobanScreen && !this.els.sokobanScreen.classList.contains('hidden')) return;
+            if (this.isAnyMiniGameActive()) return;
+            this.playBackgroundMusic(false);
+        };
+
+        const cleanup = () => {
+            if (!this.musicRetryHandler) return;
+            ['pointerdown', 'keydown', 'touchstart'].forEach((evt) => {
+                window.removeEventListener(evt, this.musicRetryHandler, true);
+            });
+            this.musicRetryHandler = null;
+        };
+
+        this.musicRetryHandler = () => {
+            cleanup();
+            tryResume();
+        };
+
+        ['pointerdown', 'keydown', 'touchstart'].forEach((evt) => {
+            window.addEventListener(evt, this.musicRetryHandler, true);
+        });
+    }
+
+    playBackgroundMusic(resetTime = false) {
+        if (!this.bgMusic || !this.musicEnabled) return;
+
+        if (resetTime) {
+            try { this.bgMusic.currentTime = 0; } catch (_) {}
+        }
+
+        const playPromise = this.bgMusic.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {
+                this.queueMusicRetry();
+            });
+        }
+    }
+
     resumeGameMusic() {
         // Retoma a música de fundo após mini-games terminarem
         if (this.bgMusic && this.musicEnabled) {
             if (this.els.sokobanScreen && !this.els.sokobanScreen.classList.contains('hidden')) return;
-            this.bgMusic.play().catch(() => {});
+            this.playBackgroundMusic(false);
         }
     }
 
@@ -486,8 +530,7 @@ export default class View {
         
         if (shouldPlay) {
             this.musicEnabled = true;
-            this.bgMusic.currentTime = 0;
-            this.bgMusic.play().catch(() => {});
+            this.playBackgroundMusic(true);
             if (this.els.musicToggle) {
                 this.els.musicToggle.textContent = 'DESLIGAR';
                 this.els.musicToggle.classList.remove('music-off');
@@ -512,7 +555,7 @@ export default class View {
                     } else if (this.isAnyMiniGameActive()) {
                         // Durante mini-games, mantém apenas os áudios do próprio jogo.
                     } else {
-                        this.bgMusic.play().catch(() => {});
+                        this.playBackgroundMusic(false);
                     }
                     this.els.musicToggle.textContent = 'DESLIGAR';
                     this.els.musicToggle.classList.remove('music-off');
