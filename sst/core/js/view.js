@@ -7160,7 +7160,7 @@ export default class View {
         const ROWS = 20;
         const CELL = Math.floor(canvas.width / COLS);
         const GAME_DURATION = 60;
-        const TARGET_LINES = 12;
+        const TARGET_LINES = 5;
         const BASE_DROP_MS = 560;
 
         const COLORS = {
