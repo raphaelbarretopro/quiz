@@ -42,6 +42,8 @@ class Controller {
         this.memoryBonusActive = false;
         this.lordeHeroBonusReward = 100;
         this.lordeHeroBonusActive = false;
+        this.froggerBonusReward = 100;
+        this.froggerBonusActive = false;
         this.activeBonusGameId = null;
         this.sokobanResolve = null;
         this.sokobanMaxLives = 3;
@@ -808,6 +810,7 @@ class Controller {
             || this.snakeBonusActive
             || this.memoryBonusActive
             || this.lordeHeroBonusActive
+            || this.froggerBonusActive
             || Boolean(this.activeBonusGameId);
     }
 
@@ -821,6 +824,7 @@ class Controller {
         if (gameId === 'snake') return this.snakeBonusReward;
         if (gameId === 'memory') return this.memoryBonusReward;
         if (gameId === 'lordehero') return this.lordeHeroBonusReward;
+        if (gameId === 'frogger') return this.froggerBonusReward;
         return 0;
     }
 
@@ -867,6 +871,7 @@ class Controller {
         this.snakeBonusActive = gameId === 'snake';
         this.memoryBonusActive = gameId === 'memory';
         this.lordeHeroBonusActive = gameId === 'lordehero';
+        this.froggerBonusActive = gameId === 'frogger';
 
         try {
             await selectedGame.run({
@@ -886,6 +891,7 @@ class Controller {
             this.snakeBonusActive = false;
             this.memoryBonusActive = false;
             this.lordeHeroBonusActive = false;
+            this.froggerBonusActive = false;
         }
     }
 
