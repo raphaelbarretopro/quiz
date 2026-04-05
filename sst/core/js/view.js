@@ -168,7 +168,17 @@ export default class View {
             froggerTimer: document.getElementById('frogger-timer'),
             froggerLives: document.getElementById('frogger-lives'),
             froggerGiveUpBtn: document.getElementById('frogger-giveup-btn'),
-            froggerTestBtn: document.getElementById('frogger-test-btn')
+            froggerTestBtn: document.getElementById('frogger-test-btn'),
+
+            // Bonus especial estilo TETRIS
+            tetrisBonusModal: document.getElementById('tetris-bonus-modal'),
+            tetrisCanvas: document.getElementById('tetris-canvas'),
+            tetrisNextCanvas: document.getElementById('tetris-next-canvas'),
+            tetrisLines: document.getElementById('tetris-lines'),
+            tetrisTimer: document.getElementById('tetris-timer'),
+            tetrisLives: document.getElementById('tetris-lives'),
+            tetrisGiveUpBtn: document.getElementById('tetris-giveup-btn'),
+            tetrisTestBtn: document.getElementById('tetris-test-btn')
         };
 
         this.rot = 0;
@@ -189,6 +199,7 @@ export default class View {
         this.memorySession = null;
         this.lordeHeroSession = null;
         this.froggerSession = null;
+        this.tetrisSession = null;
         this.streakPopupHideTimer = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
@@ -345,7 +356,8 @@ export default class View {
             isVisible(this.els.snakeBonusModal) ||
             isVisible(this.els.memoryBonusModal) ||
             isVisible(this.els.lordeHeroBonusModal) ||
-            isVisible(this.els.froggerBonusModal)
+            isVisible(this.els.froggerBonusModal) ||
+            isVisible(this.els.tetrisBonusModal)
         );
     }
 
@@ -741,6 +753,11 @@ export default class View {
     bindFroggerTest(handler) {
         if (!this.els.froggerTestBtn) return;
         this.els.froggerTestBtn.addEventListener('click', handler);
+    }
+
+    bindTetrisTest(handler) {
+        if (!this.els.tetrisTestBtn) return;
+        this.els.tetrisTestBtn.addEventListener('click', handler);
     }
 
     showPortal() {
@@ -7097,6 +7114,486 @@ export default class View {
                 totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
                 this.animateScoreIncrease(oldScore, runningScore);
             }, 1250);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try { this.cashRegisterAudio.currentTime = 0; } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    runTetrisBonusLevel() {
+        const modal = this.els.tetrisBonusModal;
+        const canvas = this.els.tetrisCanvas;
+        const nextCanvas = this.els.tetrisNextCanvas;
+
+        if (!modal || !canvas || !nextCanvas) {
+            return Promise.resolve({ won: false, linesCleared: 0, reason: 'no_canvas' });
+        }
+
+        const ctx = canvas.getContext('2d');
+        const nextCtx = nextCanvas.getContext('2d');
+        if (!ctx || !nextCtx) {
+            return Promise.resolve({ won: false, linesCleared: 0, reason: 'no_ctx' });
+        }
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.tetrisSession && this.tetrisSession.cleanup) {
+            this.tetrisSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        const COLS = 10;
+        const ROWS = 20;
+        const CELL = Math.floor(canvas.width / COLS);
+        const GAME_DURATION = 60;
+        const TARGET_LINES = 12;
+        const BASE_DROP_MS = 560;
+
+        const COLORS = {
+            I: '#22d3ee',
+            O: '#facc15',
+            T: '#a78bfa',
+            S: '#4ade80',
+            Z: '#fb7185',
+            J: '#60a5fa',
+            L: '#fb923c'
+        };
+
+        const SHAPES = {
+            I: [[1, 1, 1, 1]],
+            O: [[1, 1], [1, 1]],
+            T: [[0, 1, 0], [1, 1, 1]],
+            S: [[0, 1, 1], [1, 1, 0]],
+            Z: [[1, 1, 0], [0, 1, 1]],
+            J: [[1, 0, 0], [1, 1, 1]],
+            L: [[0, 0, 1], [1, 1, 1]]
+        };
+
+        const pieceKeys = Object.keys(SHAPES);
+
+        let board = Array.from({ length: ROWS }, () => Array(COLS).fill(''));
+        let current = null;
+        let next = null;
+        let linesCleared = 0;
+        let lives = 3;
+        let timeLeft = GAME_DURATION;
+        let finished = false;
+        let rafId = null;
+        let timerTick = null;
+        let keyHandler = null;
+        let lastTs = 0;
+        let dropAcc = 0;
+
+        const playTone = (frequency = 440, duration = 0.08, type = 'square', gainValue = 0.08) => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(frequency, now);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(gainValue, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + duration + 0.02);
+        };
+
+        const cloneMatrix = (matrix) => matrix.map((row) => [...row]);
+
+        const rotateMatrix = (matrix) => {
+            const rows = matrix.length;
+            const cols = matrix[0].length;
+            const rotated = Array.from({ length: cols }, () => Array(rows).fill(0));
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    rotated[c][rows - 1 - r] = matrix[r][c];
+                }
+            }
+            return rotated;
+        };
+
+        const createPiece = (forcedType = null) => {
+            const type = forcedType || pieceKeys[Math.floor(Math.random() * pieceKeys.length)];
+            const matrix = cloneMatrix(SHAPES[type]);
+            return {
+                type,
+                matrix,
+                x: Math.floor((COLS - matrix[0].length) / 2),
+                y: 0
+            };
+        };
+
+        const isInside = (x, y) => y >= 0 && y < ROWS && x >= 0 && x < COLS;
+
+        const collides = (piece, x = piece.x, y = piece.y, matrix = piece.matrix) => {
+            for (let r = 0; r < matrix.length; r++) {
+                for (let c = 0; c < matrix[r].length; c++) {
+                    if (!matrix[r][c]) continue;
+                    const nx = x + c;
+                    const ny = y + r;
+                    if (!isInside(nx, ny)) return true;
+                    if (board[ny][nx]) return true;
+                }
+            }
+            return false;
+        };
+
+        const mergePiece = (piece) => {
+            for (let r = 0; r < piece.matrix.length; r++) {
+                for (let c = 0; c < piece.matrix[r].length; c++) {
+                    if (!piece.matrix[r][c]) continue;
+                    const x = piece.x + c;
+                    const y = piece.y + r;
+                    if (isInside(x, y)) board[y][x] = piece.type;
+                }
+            }
+        };
+
+        const clearLines = () => {
+            let cleared = 0;
+            for (let r = ROWS - 1; r >= 0; r--) {
+                if (board[r].every(Boolean)) {
+                    board.splice(r, 1);
+                    board.unshift(Array(COLS).fill(''));
+                    cleared++;
+                    r++;
+                }
+            }
+            return cleared;
+        };
+
+        const updateHud = () => {
+            if (this.els.tetrisLines) this.els.tetrisLines.textContent = `Linhas: ${linesCleared}/${TARGET_LINES}`;
+            if (this.els.tetrisTimer) this.els.tetrisTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.tetrisLives) this.els.tetrisLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        const drawCell = (x, y, color, drawContext = ctx, size = CELL) => {
+            drawContext.fillStyle = color;
+            drawContext.fillRect(x * size, y * size, size, size);
+            drawContext.strokeStyle = 'rgba(255,255,255,0.15)';
+            drawContext.lineWidth = 1;
+            drawContext.strokeRect(x * size + 0.5, y * size + 0.5, size - 1, size - 1);
+        };
+
+        const drawBoard = () => {
+            ctx.fillStyle = '#020617';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    if (board[r][c]) {
+                        drawCell(c, r, COLORS[board[r][c]] || '#94a3b8');
+                    } else {
+                        ctx.strokeStyle = 'rgba(148, 163, 184, 0.08)';
+                        ctx.strokeRect(c * CELL + 0.5, r * CELL + 0.5, CELL - 1, CELL - 1);
+                    }
+                }
+            }
+
+            if (current) {
+                for (let r = 0; r < current.matrix.length; r++) {
+                    for (let c = 0; c < current.matrix[r].length; c++) {
+                        if (!current.matrix[r][c]) continue;
+                        drawCell(current.x + c, current.y + r, COLORS[current.type] || '#cbd5e1');
+                    }
+                }
+            }
+        };
+
+        const drawNext = () => {
+            nextCtx.fillStyle = '#020617';
+            nextCtx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
+            if (!next) return;
+
+            const block = Math.floor(nextCanvas.width / 5);
+            const w = next.matrix[0].length;
+            const h = next.matrix.length;
+            const ox = Math.floor((5 - w) / 2);
+            const oy = Math.floor((5 - h) / 2);
+
+            for (let r = 0; r < h; r++) {
+                for (let c = 0; c < w; c++) {
+                    if (!next.matrix[r][c]) continue;
+                    drawCell(ox + c, oy + r, COLORS[next.type] || '#cbd5e1', nextCtx, block);
+                }
+            }
+        };
+
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+            if (timerTick) { clearInterval(timerTick); timerTick = null; }
+            if (keyHandler) { document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+            if (this.els.tetrisGiveUpBtn) this.els.tetrisGiveUpBtn.onclick = null;
+            modal.classList.add('hidden');
+            resolvePromise({ won, reason, linesCleared });
+        };
+
+        const resetBoardAndRespawn = () => {
+            board = Array.from({ length: ROWS }, () => Array(COLS).fill(''));
+            current = createPiece();
+            next = createPiece();
+            if (collides(current)) {
+                lives = 0;
+                updateHud();
+                finish(false, 'no_lives');
+            }
+        };
+
+        const spawnPiece = () => {
+            current = next || createPiece();
+            current.x = Math.floor((COLS - current.matrix[0].length) / 2);
+            current.y = 0;
+            next = createPiece();
+            drawNext();
+
+            if (collides(current)) {
+                lives--;
+                updateHud();
+                playTone(180, 0.15, 'sawtooth', 0.12);
+                if (lives <= 0) {
+                    finish(false, 'no_lives');
+                    return false;
+                }
+                resetBoardAndRespawn();
+            }
+            return true;
+        };
+
+        const lockPiece = () => {
+            mergePiece(current);
+            const cleared = clearLines();
+            if (cleared > 0) {
+                linesCleared += cleared;
+                playTone(660, 0.07, 'triangle', 0.1);
+            } else {
+                playTone(320, 0.04, 'square', 0.05);
+            }
+
+            updateHud();
+            if (linesCleared >= TARGET_LINES) {
+                finish(true, 'completed');
+                return;
+            }
+            spawnPiece();
+        };
+
+        const softDrop = () => {
+            if (!current || finished) return;
+            const ny = current.y + 1;
+            if (!collides(current, current.x, ny)) {
+                current.y = ny;
+                return;
+            }
+            lockPiece();
+        };
+
+        const hardDrop = () => {
+            if (!current || finished) return;
+            while (!collides(current, current.x, current.y + 1)) {
+                current.y += 1;
+            }
+            lockPiece();
+        };
+
+        const tryRotate = () => {
+            if (!current || finished) return;
+            const rotated = rotateMatrix(current.matrix);
+            if (!collides(current, current.x, current.y, rotated)) {
+                current.matrix = rotated;
+                playTone(520, 0.05, 'triangle', 0.06);
+                return;
+            }
+
+            const kicks = [-1, 1, -2, 2];
+            for (const kick of kicks) {
+                if (!collides(current, current.x + kick, current.y, rotated)) {
+                    current.x += kick;
+                    current.matrix = rotated;
+                    playTone(520, 0.05, 'triangle', 0.06);
+                    return;
+                }
+            }
+        };
+
+        keyHandler = (e) => {
+            if (finished || modal.classList.contains('hidden') || !current) return;
+
+            const key = e.key;
+            if (key === 'ArrowLeft' || key === 'a' || key === 'A') {
+                e.preventDefault();
+                if (!collides(current, current.x - 1, current.y)) current.x -= 1;
+                return;
+            }
+
+            if (key === 'ArrowRight' || key === 'd' || key === 'D') {
+                e.preventDefault();
+                if (!collides(current, current.x + 1, current.y)) current.x += 1;
+                return;
+            }
+
+            if (key === 'ArrowDown' || key === 's' || key === 'S') {
+                e.preventDefault();
+                softDrop();
+                return;
+            }
+
+            if (key === 'ArrowUp' || key === 'w' || key === 'W') {
+                e.preventDefault();
+                tryRotate();
+                return;
+            }
+
+            if (key === ' ') {
+                e.preventDefault();
+                hardDrop();
+            }
+        };
+        document.addEventListener('keydown', keyHandler);
+
+        if (this.els.tetrisGiveUpBtn) {
+            this.els.tetrisGiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        const loop = (ts) => {
+            if (finished) return;
+            const dt = lastTs === 0 ? 0 : Math.min(ts - lastTs, 60);
+            lastTs = ts;
+            dropAcc += dt;
+
+            const accelFactor = Math.max(0.45, 1 - linesCleared * 0.02);
+            const dropMs = Math.max(130, BASE_DROP_MS * accelFactor);
+            if (dropAcc >= dropMs) {
+                dropAcc = 0;
+                softDrop();
+            }
+
+            drawBoard();
+            drawNext();
+            rafId = requestAnimationFrame(loop);
+        };
+
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) finish(false, 'timeout');
+        }, 1000);
+
+        next = createPiece();
+        spawnPiece();
+        updateHud();
+        rafId = requestAnimationFrame(loop);
+
+        this.tetrisSession = { cleanup: (won = false) => finish(won) };
+        return promise;
+    }
+
+    showTetrisVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🧱✨</h3>
+            <div style="font-size:4.3rem; margin:16px 0; line-height:1.2;">🎉🧱🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, dominou o TETRIS e bateu a meta de linhas!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            [392.0, 523.25, 659.25, 783.99].forEach((freq, i) => {
+                const delay = i * 0.09;
+                const now = ac.currentTime;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.12, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.2);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.24);
+            });
+        }
+
+        return new Promise((resolve) => {
+            setTimeout(() => { overlay.remove(); resolve(); }, 5200);
+        });
+    }
+
+    showTetrisFinalSummary(baseScore, reward, linesCleared = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeLines = Math.max(0, Number(linesCleared) || 0);
+        const lineBonus = safeLines * 20;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO TETRIS 🧱</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🧱🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Linhas removidas (×20 pts)</span><strong>+${lineBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 600);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Concluiu o desafio</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += lineBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1300);
 
             setTimeout(() => {
                 if (this.cashRegisterAudio) {

@@ -1,0 +1,124 @@
+OBJETIVO
+Adicionar um novo mini-game bonus ao quiz, seguindo o mesmo padrao do ultimo game integrado (Frogger), garantindo funcionamento completo no sistema de sorteio, sem quebrar fluxos existentes.
+
+DADOS DO NOVO GAME
+- gameId: {{GAME_ID_EM_MINUSCULO_SEM_ESPACO}}
+- gameLabel: {{NOME_EXIBICAO}}
+- gameTitleEmoji: {{EMOJI_E_TITULO}}
+- rewardPadrao: 100
+- condicaoDeVitoria: {{DESCREVA}}
+- timeoutSegundos: {{EX:60}}
+- vidasIniciais: {{EX:3_OU_NULL}}
+- hudPrincipal: {{EX: score/timer/lives}}
+
+INSTRUCAO PRINCIPAL
+Implemente o novo game em arquitetura MVC modular, mantendo compatibilidade total com o sorteio automatico de bonus e com os testes manuais opcionais. Nao simplifique etapas. Nao remova funcionalidades existentes. Preserve estilo e padrao de codigo atual.
+
+ARQUIVOS QUE DEVEM SER VERIFICADOS E ATUALIZADOS
+1) sst/core/js/game/{{GAME_ID}}-game.js
+- Criar modulo com export default contendo:
+  - id: '{{GAME_ID}}'
+  - label: '{{NOME_EXIBICAO}}'
+  - async run(ctx)
+- No run(ctx): tratar fluxos obrigatorios:
+  - vitoria
+  - derrota por vidas (se aplicavel)
+  - timeout
+  - desistencia
+  - encerramento generico
+- Em vitoria: mostrar popup de vitoria + resumo final, aplicar reward no score e atualizar HUD de score.
+- Em qualquer encerramento nao-vitoria: garantir retorno para musica/jogo principal quando aplicavel.
+
+2) sst/core/js/game/game-registry.js
+- Importar novo modulo.
+- Incluir no array games.
+- Confirmar que getAllGameIds() passa a retornar o novo gameId.
+
+3) sst/core/js/game/lesson-game-config.js
+- Adicionar '{{GAME_ID}}' em AVAILABLE_GAMES.
+- Garantir que o game possa entrar no pool do sorteio automatico.
+
+4) sst/core/js/controller.js
+- Incluir reward e flag de ativo do novo game no constructor.
+- Incluir bind de botao de teste no constructor (apenas se existir metodo correspondente na View).
+- Atualizar isAnyBonusGameActive().
+- Atualizar getBonusRewardByGameId(gameId).
+- Atualizar runScheduledGameById(gameId):
+  - ativar flag do game antes do run
+  - desativar no bloco finally
+- Criar handle{{GAME_ID_PASCAL}}Test() seguindo o padrao atual.
+- Garantir que o teste manual nao rode quando houver bonus ativo/slot em execucao/timeout.
+
+5) sst/core/js/view.js
+- Registrar elementos do novo modal/canvas/hud/botao em this.els.
+- Criar sessao de controle this.{{GAME_ID}}Session = null.
+- Criar bind{{GAME_ID_PASCAL}}Test(handler) com guard clause:
+  - se botao nao existir no HTML, retornar sem erro.
+- Criar run{{GAME_ID_PASCAL}}BonusLevel() com:
+  - validacoes de elementos obrigatorios
+  - loop principal
+  - timer
+  - input
+  - colisao/regras
+  - cleanup completo (raf, interval, listeners, onclick)
+  - resolve padronizado: { won, reason, ...dados }
+- Criar show{{GAME_ID_PASCAL}}VictoryPopup(...)
+- Criar show{{GAME_ID_PASCAL}}FinalSummary(...)
+- Garantir que modais de bonus nao conflitam entre si e que a musica principal seja retomada ao final.
+
+6) sst/core/index.html
+- Incluir modal completo do novo game (id, titulo, subtitulo, HUD, area de jogo, botao desistir).
+- Incluir IDs exatos que o View espera.
+- Se incluir botao de teste manual, usar id {{GAME_ID}}-test-btn.
+- Se NAO incluir botao de teste manual, o sistema deve continuar estavel (sem TypeError).
+
+7) sst/core/css/style.css
+- Incluir #{{GAME_ID}}-bonus-modal no bloco de modais fullscreen.
+- Criar estilos completos do container, HUD, area de jogo, controles e responsividade.
+- Garantir consistencia visual com os outros bonus.
+
+CHECKLIST OBRIGATORIA DE CONSISTENCIA (NAO PULAR)
+A) Integracao de sorteio
+- gameId presente em game-registry.js e lesson-game-config.js.
+- gameId retornado por getAllGameIds().
+- novo game elegivel no buildRandomGameSchedule.
+
+B) Integracao de execucao
+- runScheduledGameById(gameId) encontra e executa o game.
+- reward aplicado corretamente em caso de vitoria.
+- flags de ativo ligam/desligam corretamente (inclusive em erro, via finally).
+
+C) Estabilidade de inicializacao
+- Nenhum bind de metodo inexistente na View.
+- Todos os binds opcionais com guard clause para elemento ausente.
+- Nao gerar TypeError no boot mesmo com botoes de teste comentados/ausentes.
+
+D) Limpeza de recursos
+- remover listeners de teclado/click ao finalizar.
+- limpar setInterval/setTimeout/requestAnimationFrame.
+- esconder modal ao finalizar.
+- evitar multiplas sessoes simultaneas do mesmo mini-game.
+
+E) UX minima obrigatoria
+- HUD atualiza score/progresso/tempo/vidas em tempo real.
+- botao desistir funcional.
+- mensagens de fim coerentes para: vitoria, timeout, sem vidas, desistencia, encerramento generico.
+
+F) Responsividade
+- modal utilizavel em desktop e mobile.
+- canvas/area do jogo nao quebra layout em largura menor.
+
+VALIDACAO FINAL (EXECUTE E REPORTE)
+1) Busca por gameId em todo projeto e confirmar todos os pontos de integracao.
+2) Verificar que nao existem chamadas a metodos nao implementados na View.
+3) Verificar conflitos de IDs no HTML.
+4) Verificar se o modal abre e fecha corretamente sem travar o fluxo do quiz.
+5) Verificar se o sorteio dispara o novo game em uma posicao prevista.
+6) Verificar se, apos finalizar o bonus, o quiz retorna ao passo correto.
+7) Verificar ausencia de erros de console relacionados ao novo game.
+
+FORMATO DE ENTREGA
+- Liste arquivos alterados.
+- Explique resumidamente o que foi feito em cada arquivo.
+- Mostre os checks executados e seus resultados.
+- Se algo nao puder ser validado automaticamente, declarar explicitamente.

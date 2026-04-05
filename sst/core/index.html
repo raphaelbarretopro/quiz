@@ -165,7 +165,7 @@
             <button id="next-btn" class="opt-btn hidden action-btn">AVANÇAR ➔</button>
             <div id="fb-area"></div>
 
-            <!--
+            
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px;">
                 <button id="pacman-test-btn" class="opt-btn pacman-test-btn">TESTAR PACMAN 👾</button>
                 <button id="enduro-test-btn" class="opt-btn enduro-test-btn">TESTAR ENDURO 🏎️</button>
@@ -177,8 +177,9 @@
                 <button id="memory-test-btn" class="opt-btn memory-test-btn">TESTAR MEMÓRIA 🧠</button>
                 <button id="lordehero-test-btn" class="opt-btn lordehero-test-btn">TESTAR LORDE HERO 🤴🎸</button>
                 <button id="frogger-test-btn" class="opt-btn frogger-test-btn">TESTAR FROGGER 🐸</button>
+                <button id="tetris-test-btn" class="opt-btn tetris-test-btn">TESTAR TETRIS 🧱</button>
             </div>
-            -->
+            
 
             <div id="question-counter" class="question-counter">QUESTÃO 1/50</div>
 
@@ -487,6 +488,31 @@
             <div class="frogger-actions">
                 <p class="frogger-controls">⬆⬇⬅➡ ou W A S D para mover a rã</p>
                 <button id="frogger-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo TETRIS -->
+    <div id="tetris-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3760; display: flex; align-items: center; justify-content: center;">
+        <div class="tetris-bonus-container">
+            <h2 class="tetris-title">🧱 TETRIS LIBERADO!</h2>
+            <p class="tetris-subtitle">Desafio bônus sorteado nesta aula. Limpe <strong>12 linhas</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="tetris-hud">
+                <span id="tetris-lines">Linhas: 0/12</span>
+                <span id="tetris-timer">Tempo: 60s</span>
+                <span id="tetris-lives">Vidas: ❤️❤️❤️</span>
+            </div>
+
+            <div class="tetris-board-wrap">
+                <canvas id="tetris-canvas" width="300" height="600" aria-label="Mini-game bônus estilo Tetris"></canvas>
+                <canvas id="tetris-next-canvas" width="120" height="120" aria-label="Próxima peça do Tetris"></canvas>
+            </div>
+
+            <div class="tetris-actions">
+                <p class="tetris-controls">⬅➡ mover | ⬇ descer | ⬆ girar | Espaço queda rápida</p>
+                <button id="tetris-giveup-btn" class="slot-btn-close">DESISTIR</button>
             </div>
         </div>
     </div>
