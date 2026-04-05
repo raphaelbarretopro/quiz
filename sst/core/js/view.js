@@ -159,7 +159,16 @@ export default class View {
             lordeHeroTimer: document.getElementById('lordehero-timer'),
             lordeHeroScore: document.getElementById('lordehero-score'),
             lordeHeroGiveUpBtn: document.getElementById('lordehero-giveup-btn'),
-            lordeHeroTestBtn: document.getElementById('lordehero-test-btn')
+            lordeHeroTestBtn: document.getElementById('lordehero-test-btn'),
+
+            // Bonus especial estilo FROGGER
+            froggerBonusModal: document.getElementById('frogger-bonus-modal'),
+            froggerCanvas: document.getElementById('frogger-canvas'),
+            froggerScore: document.getElementById('frogger-score'),
+            froggerTimer: document.getElementById('frogger-timer'),
+            froggerLives: document.getElementById('frogger-lives'),
+            froggerGiveUpBtn: document.getElementById('frogger-giveup-btn'),
+            froggerTestBtn: document.getElementById('frogger-test-btn')
         };
 
         this.rot = 0;
@@ -179,6 +188,7 @@ export default class View {
         this.snakeSession = null;
         this.memorySession = null;
         this.lordeHeroSession = null;
+        this.froggerSession = null;
         this.streakPopupHideTimer = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
@@ -334,7 +344,8 @@ export default class View {
             isVisible(this.els.spaceBonusModal) ||
             isVisible(this.els.snakeBonusModal) ||
             isVisible(this.els.memoryBonusModal) ||
-            isVisible(this.els.lordeHeroBonusModal)
+            isVisible(this.els.lordeHeroBonusModal) ||
+            isVisible(this.els.froggerBonusModal)
         );
     }
 
@@ -725,6 +736,11 @@ export default class View {
     bindLordeHeroTest(handler) {
         if (!this.els.lordeHeroTestBtn) return;
         this.els.lordeHeroTestBtn.addEventListener('click', handler);
+    }
+
+    bindFroggerTest(handler) {
+        if (!this.els.froggerTestBtn) return;
+        this.els.froggerTestBtn.addEventListener('click', handler);
     }
 
     showPortal() {
@@ -6632,5 +6648,471 @@ export default class View {
                         }, 5600);
                 });
         }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // FROGGER BONUS GAME
+    // ─────────────────────────────────────────────────────────────────────────
+
+    runFroggerBonusLevel() {
+        const modal = this.els.froggerBonusModal;
+        const canvas = this.els.froggerCanvas;
+        if (!modal || !canvas) return Promise.resolve({ won: false, crossings: 0, reason: 'no_canvas' });
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return Promise.resolve({ won: false, crossings: 0, reason: 'no_ctx' });
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.froggerSession && this.froggerSession.cleanup) {
+            this.froggerSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        // ── CONSTANTS ────────────────────────────────────────────────────────
+        const COLS = 10;
+        const ROWS = 10;
+        const CELL = Math.floor(canvas.width / COLS); // 50px
+        const GAME_DURATION = 60;
+        const WIN_CROSSINGS = 3;
+        const W = canvas.width;
+        const H = canvas.height;
+
+        // Row 0  = goal (safe top), rows 1,2,4,5,7,8 = road, rows 3,6,9 = safe strips
+        const ROAD_ROWS = new Set([1, 2, 4, 5, 7, 8]);
+
+        // Per-lane car config: dir (+1 right, -1 left), speed px/s, count, color, width in cells
+        const laneConfigs = [
+            { row: 1, dir:  1, speed: 85,  count: 3, color: '#ef4444', carCells: 1.8 },
+            { row: 2, dir: -1, speed: 65,  count: 2, color: '#60a5fa', carCells: 2.0 },
+            { row: 4, dir:  1, speed: 80,  count: 2, color: '#f97316', carCells: 1.8 },
+            { row: 5, dir: -1, speed: 110, count: 3, color: '#facc15', carCells: 1.5 },
+            { row: 7, dir:  1, speed: 55,  count: 2, color: '#c084fc', carCells: 2.2 },
+            { row: 8, dir: -1, speed: 95,  count: 3, color: '#22d3ee', carCells: 1.6 },
+        ];
+
+        // ── STATE ────────────────────────────────────────────────────────────
+        let lives = 3;
+        let crossings = 0;
+        let timeLeft = GAME_DURATION;
+        let finished = false;
+        let frog = { col: Math.floor(COLS / 2), row: ROWS - 1 };
+        let invulUntil = 0;
+        let celebrating = false;
+        let rafId = null;
+        let timerTick = null;
+        let keyHandler = null;
+        let lastTs = 0;
+
+        // Initialize cars evenly spread per lane
+        const cars = [];
+        laneConfigs.forEach(cfg => {
+            const carW = cfg.carCells * CELL;
+            const spacing = W / cfg.count;
+            for (let i = 0; i < cfg.count; i++) {
+                const startX = cfg.dir === 1
+                    ? spacing * i - carW * 0.3
+                    : W - spacing * i - carW * 0.7;
+                cars.push({ row: cfg.row, x: startX, w: carW, dir: cfg.dir, speed: cfg.speed, color: cfg.color });
+            }
+        });
+
+        // ── AUDIO ────────────────────────────────────────────────────────────
+        const playHop = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(550, now);
+            osc.frequency.exponentialRampToValueAtTime(880, now + 0.05);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(0.12, now + 0.005);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + 0.08);
+        };
+
+        const playSplat = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const buf = ac.createBuffer(1, Math.floor(ac.sampleRate * 0.18), ac.sampleRate);
+            const ch = buf.getChannelData(0);
+            for (let i = 0; i < ch.length; i++) ch[i] = (Math.random() * 2 - 1) * (1 - i / ch.length);
+            const src = ac.createBufferSource();
+            src.buffer = buf;
+            const g = ac.createGain();
+            g.gain.setValueAtTime(0.22, now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+            src.connect(g);
+            g.connect(ac.destination);
+            src.start(now);
+        };
+
+        const playCross = () => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            [523, 659, 784, 1047].forEach((f, i) => {
+                const delay = i * 0.08;
+                const now = ac.currentTime;
+                const osc = ac.createOscillator();
+                const g = ac.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(f, now + delay);
+                g.gain.setValueAtTime(0.001, now + delay);
+                g.gain.exponentialRampToValueAtTime(0.16, now + delay + 0.01);
+                g.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.18);
+                osc.connect(g);
+                g.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.22);
+            });
+        };
+
+        // ── HUD ──────────────────────────────────────────────────────────────
+        const updateHud = () => {
+            if (this.els.froggerScore) this.els.froggerScore.textContent = `🐸 ${crossings}/${WIN_CROSSINGS}`;
+            if (this.els.froggerTimer) this.els.froggerTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.froggerLives) this.els.froggerLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        // ── DRAW ─────────────────────────────────────────────────────────────
+        const rowBg = (r) => {
+            if (r === 0) return '#14532d';
+            if (ROAD_ROWS.has(r)) return '#1c1917';
+            return '#1c2526';
+        };
+
+        const draw = () => {
+            // Row backgrounds
+            for (let r = 0; r < ROWS; r++) {
+                ctx.fillStyle = rowBg(r);
+                ctx.fillRect(0, r * CELL, W, CELL);
+            }
+
+            // Goal row shimmer
+            ctx.fillStyle = 'rgba(34,197,94,0.14)';
+            ctx.fillRect(0, 0, W, CELL);
+            ctx.fillStyle = 'rgba(34,197,94,0.75)';
+            ctx.font = `bold ${Math.floor(CELL * 0.34)}px Orbitron, monospace`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('🏁  META', W / 2, CELL / 2);
+
+            // Safe median zebra stripes
+            [3, 6].forEach(r => {
+                for (let c = 0; c < COLS; c += 2) {
+                    ctx.fillStyle = 'rgba(255,255,255,0.04)';
+                    ctx.fillRect(c * CELL, r * CELL, CELL, CELL);
+                }
+            });
+
+            // Lane direction dashes on road rows
+            ROAD_ROWS.forEach(r => {
+                ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([10, 8]);
+                ctx.beginPath();
+                ctx.moveTo(0, r * CELL + CELL / 2);
+                ctx.lineTo(W, r * CELL + CELL / 2);
+                ctx.stroke();
+                ctx.setLineDash([]);
+            });
+
+            // Cars
+            cars.forEach(car => {
+                const cy = car.row * CELL + 2;
+                const ch = CELL - 4;
+                ctx.fillStyle = car.color;
+                ctx.beginPath();
+                if (ctx.roundRect) ctx.roundRect(car.x, cy, car.w, ch, 5);
+                else ctx.rect(car.x, cy, car.w, ch);
+                ctx.fill();
+
+                // Windshield
+                ctx.fillStyle = 'rgba(200,230,255,0.22)';
+                const sW = car.w * 0.28;
+                const sX = car.dir === 1 ? car.x + car.w * 0.5 : car.x + car.w * 0.22;
+                ctx.fillRect(sX, cy + 3, sW, ch * 0.38);
+
+                // Headlights
+                ctx.fillStyle = 'rgba(255,255,200,0.9)';
+                const hlX = car.dir === 1 ? car.x + car.w - 5 : car.x + 2;
+                ctx.fillRect(hlX, cy + 3, 4, ch * 0.28);
+                ctx.fillRect(hlX, cy + ch * 0.64, 4, ch * 0.28);
+            });
+
+            // On-canvas HUD overlay at bottom (row 9)
+            ctx.fillStyle = 'rgba(0,0,0,0.64)';
+            ctx.fillRect(0, 9 * CELL, W, CELL);
+            const hudFont = `bold ${Math.max(9, Math.floor(CELL * 0.33))}px Orbitron, monospace`;
+            ctx.font = hudFont;
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#4ade80';
+            ctx.textAlign = 'left';
+            ctx.fillText(`🐸 ${crossings}/${WIN_CROSSINGS}`, 8, 9 * CELL + CELL / 2);
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#ff6b6b';
+            ctx.fillText('❤️'.repeat(Math.max(0, lives)), W / 2, 9 * CELL + CELL / 2);
+            ctx.textAlign = 'right';
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText(`⏱ ${timeLeft}s`, W - 8, 9 * CELL + CELL / 2);
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'alphabetic';
+
+            // Frog (always drawn on top)
+            const now = Date.now();
+            const isInvulFlash = now < invulUntil && Math.floor(now / 120) % 2 === 0;
+            if (!isInvulFlash) {
+                const fx = frog.col * CELL + CELL / 2;
+                const fy = frog.row * CELL + CELL / 2;
+                const radius = CELL * 0.36;
+
+                // Body
+                ctx.fillStyle = celebrating ? '#fbbf24' : '#22c55e';
+                ctx.beginPath();
+                ctx.arc(fx, fy, radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Belly
+                ctx.fillStyle = celebrating ? 'rgba(255,210,0,0.5)' : 'rgba(134,239,172,0.72)';
+                ctx.beginPath();
+                ctx.ellipse(fx, fy + radius * 0.18, radius * 0.55, radius * 0.38, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Eyes
+                const er = radius * 0.28;
+                [fx - radius * 0.38, fx + radius * 0.38].forEach(ex => {
+                    ctx.fillStyle = '#fce7f3';
+                    ctx.beginPath();
+                    ctx.arc(ex, fy - radius * 0.26, er, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = '#111';
+                    ctx.beginPath();
+                    ctx.arc(ex + 1, fy - radius * 0.26, er * 0.55, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.arc(ex + er * 0.3, fy - radius * 0.26 - er * 0.3, er * 0.22, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }
+        };
+
+        // ── COLLISION ────────────────────────────────────────────────────────
+        const checkHit = () => {
+            if (celebrating || !ROAD_ROWS.has(frog.row) || Date.now() < invulUntil) return false;
+            const fl = frog.col * CELL + 5;
+            const fr = frog.col * CELL + CELL - 5;
+            return cars.some(car => car.row === frog.row && fl < car.x + car.w && fr > car.x);
+        };
+
+        const handleDeath = () => {
+            playSplat();
+            lives--;
+            updateHud();
+            invulUntil = Date.now() + 2200;
+            frog = { col: Math.floor(COLS / 2), row: ROWS - 1 };
+            if (lives <= 0) {
+                setTimeout(() => finish(false, 'no_lives'), 500);
+            }
+        };
+
+        // ── UPDATE ────────────────────────────────────────────────────────────
+        const update = (dt) => {
+            cars.forEach(car => {
+                car.x += car.dir * car.speed * dt;
+                if (car.dir === 1 && car.x > W) car.x = -car.w;
+                if (car.dir === -1 && car.x + car.w < 0) car.x = W;
+            });
+            if (checkHit()) handleDeath();
+        };
+
+        // ── GAME LOOP ─────────────────────────────────────────────────────────
+        const loop = (ts) => {
+            if (finished) return;
+            const dt = lastTs === 0 ? 0 : Math.min((ts - lastTs) / 1000, 0.05);
+            lastTs = ts;
+            update(dt);
+            draw();
+            rafId = requestAnimationFrame(loop);
+        };
+
+        // ── FINISH ────────────────────────────────────────────────────────────
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+            if (rafId)     { cancelAnimationFrame(rafId); rafId = null; }
+            if (timerTick) { clearInterval(timerTick);   timerTick = null; }
+            if (keyHandler){ document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+            modal.classList.add('hidden');
+            resolvePromise({ won, crossings, reason });
+        };
+
+        // ── INPUT ─────────────────────────────────────────────────────────────
+        keyHandler = (e) => {
+            if (modal.classList.contains('hidden') || finished || celebrating) return;
+            let nr = frog.row;
+            let nc = frog.col;
+            if      (e.key === 'ArrowUp'    || e.key === 'w' || e.key === 'W') { nr--; e.preventDefault(); }
+            else if (e.key === 'ArrowDown'  || e.key === 's' || e.key === 'S') { nr++; e.preventDefault(); }
+            else if (e.key === 'ArrowLeft'  || e.key === 'a' || e.key === 'A') { nc--; e.preventDefault(); }
+            else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') { nc++; e.preventDefault(); }
+            else return;
+
+            nr = Math.max(0, Math.min(ROWS - 1, nr));
+            nc = Math.max(0, Math.min(COLS - 1, nc));
+            if (nr === frog.row && nc === frog.col) return;
+
+            frog = { col: nc, row: nr };
+            playHop();
+
+            if (frog.row === 0) {
+                crossings++;
+                playCross();
+                updateHud();
+                invulUntil = Date.now() + 2500;
+                celebrating = true;
+                if (crossings >= WIN_CROSSINGS) {
+                    setTimeout(() => finish(true, 'completed'), 800);
+                    return;
+                }
+                setTimeout(() => {
+                    frog = { col: Math.floor(COLS / 2), row: ROWS - 1 };
+                    celebrating = false;
+                }, 700);
+            }
+        };
+        document.addEventListener('keydown', keyHandler);
+
+        if (this.els.froggerGiveUpBtn) {
+            this.els.froggerGiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        // ── TIMER ─────────────────────────────────────────────────────────────
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) finish(false, 'timeout');
+        }, 1000);
+
+        // ── START ─────────────────────────────────────────────────────────────
+        updateHud();
+        rafId = requestAnimationFrame(loop);
+
+        this.froggerSession = { cleanup: (won = false) => finish(won) };
+        return promise;
+    }
+
+    showFroggerVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🐸🏁</h3>
+            <div style="font-size:4.5rem; margin:16px 0; line-height:1.2;">🎉🐸🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, atravessou a rua 3 vezes no FROGGER!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+                const delay = i * 0.1;
+                const now = ac.currentTime;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.14, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.22);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.26);
+            });
+        }
+
+        return new Promise((resolve) => {
+            setTimeout(() => { overlay.remove(); resolve(); }, 5500);
+        });
+    }
+
+    showFroggerFinalSummary(baseScore, reward, crossings = 0) {
+        const safeBase      = Number(baseScore) || 0;
+        const safeReward    = Math.max(0, Number(reward) || 0);
+        const safeCrossings = Math.max(0, Number(crossings) || 0);
+        const crossBonus    = safeCrossings * 30;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO FROGGER 🐸</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🐸🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl  = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Travessias completas (×30 pts)</span><strong>+${crossBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 600);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Completou o desafio</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += crossBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1250);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try { this.cashRegisterAudio.currentTime = 0; } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
 
 }

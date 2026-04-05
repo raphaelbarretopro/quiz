@@ -81,6 +81,7 @@ class Controller {
         this.view.bindSnakeTest(this.handleSnakeTest.bind(this));
         this.view.bindMemoryTest(this.handleMemoryTest.bind(this));
         this.view.bindLordeHeroTest(this.handleLordeHeroTest.bind(this));
+        this.view.bindFroggerTest(this.handleFroggerTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -948,6 +949,13 @@ class Controller {
         if (this.hasTimedOut) return;
         if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
         await this.runScheduledGameById('lordehero');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleFroggerTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('frogger');
         if (!this.hasTimedOut) this.renderStep();
     }
 }

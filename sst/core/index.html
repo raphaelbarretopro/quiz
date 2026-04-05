@@ -165,7 +165,7 @@
             <button id="next-btn" class="opt-btn hidden action-btn">AVANÇAR ➔</button>
             <div id="fb-area"></div>
 
-            <!--
+        
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:10px;">
                 <button id="pacman-test-btn" class="opt-btn pacman-test-btn">TESTAR PACMAN 👾</button>
                 <button id="enduro-test-btn" class="opt-btn enduro-test-btn">TESTAR ENDURO 🏎️</button>
@@ -176,8 +176,9 @@
                 <button id="snake-test-btn" class="opt-btn snake-test-btn">TESTAR SNAKE 🐍</button>
                 <button id="memory-test-btn" class="opt-btn memory-test-btn">TESTAR MEMÓRIA 🧠</button>
                 <button id="lordehero-test-btn" class="opt-btn lordehero-test-btn">TESTAR LORDE HERO 🤴🎸</button>
+                <button id="frogger-test-btn" class="opt-btn frogger-test-btn">TESTAR FROGGER 🐸</button>
             </div>
-        -->
+        
 
             <div id="question-counter" class="question-counter">QUESTÃO 1/50</div>
 
@@ -462,6 +463,30 @@
 
             <div class="lordehero-actions">
                 <button id="lordehero-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo FROGGER -->
+    <div id="frogger-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3750; display: flex; align-items: center; justify-content: center;">
+        <div class="frogger-bonus-container">
+            <h2 class="frogger-title">🐸 FROGGER LIBERADO!</h2>
+            <p class="frogger-subtitle">Desafio bônus sorteado nesta aula. Atravesse a rua <strong>3 vezes</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="frogger-hud">
+                <span id="frogger-score">🐸 0/3</span>
+                <span id="frogger-timer">Tempo: 60s</span>
+                <span id="frogger-lives">Vidas: ❤️❤️❤️</span>
+            </div>
+
+            <div class="frogger-board-wrap">
+                <canvas id="frogger-canvas" width="500" height="500" aria-label="Mini-game bônus estilo Frogger"></canvas>
+            </div>
+
+            <div class="frogger-actions">
+                <p class="frogger-controls">⬆⬇⬅➡ ou W A S D para mover a rã</p>
+                <button id="frogger-giveup-btn" class="slot-btn-close">DESISTIR</button>
             </div>
         </div>
     </div>

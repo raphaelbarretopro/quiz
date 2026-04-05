@@ -5948,28 +5948,28 @@
             "name": "TEORIA DE CONJUNTOS",
             "desc": "Conceitos, propriedades, representação e conjuntos especiais aplicados à lógica de TI.",
             "color": "#e74c3c",
-            "img_url": "[https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=1600](https://www.google.com/search?q=https://images.unsplash.com/photo-1509228468518-180dd4864904%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80%26w%3D1600)"
+            "img_url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
             "name": "OPERAÇÕES ENTRE CONJUNTOS",
             "desc": "União, interseção, diferença e complementar integrados com bancos de dados e programação.",
             "color": "#f1c40f",
-            "img_url": "[https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1600](https://www.google.com/search?q=https://images.unsplash.com/photo-1555949963-ff9fe0c870eb%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80%26w%3D1600)"
+            "img_url": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
             "name": "TIPOS DE FRAÇÕES",
             "desc": "Reconhecimento de frações próprias, impróprias, aparentes, decimais e equivalência.",
             "color": "#3498db",
-            "img_url": "[https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600](https://www.google.com/search?q=https://images.unsplash.com/photo-1518770660439-4636190af475%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80%26w%3D1600)"
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
             "name": "OPERAÇÕES COM FRAÇÕES",
             "desc": "Soma e multiplicação de frações em cálculos reais de desempenho e alocação de memória.",
             "color": "#2ecc71",
-            "img_url": "[https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600](https://www.google.com/search?q=https://images.unsplash.com/photo-1550751827-4bd374c3f58b%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80%26w%3D1600)"
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
           }
         ],
         "sokoban": [
@@ -6909,6 +6909,1948 @@
           ],
           "correct": "Cálculos",
           "tip": "Aplicamos lógica matemática pura em tudo na área de TI."
+        }
+      ]
+    },
+    {
+      "slug": "aula-18",
+      "lesson_info": {
+        "id": "Aula-18",
+        "title": "AULA 18 - RAZÕES, PROPORÇÕES, PORCENTAGENS E CORRELAÇÃO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "RAZÕES E PROPORÇÕES",
+            "desc": "Conceitos de razões, proporções e a aplicação da regra de três direta e inversa.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "PORCENTAGEM",
+            "desc": "Cálculos de representações percentuais, descontos, lucros e margens comerciais.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "CORRELAÇÃO",
+            "desc": "Medidas estatísticas, tipos de correlação e as diferenças estruturais para a causalidade.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "APLICAÇÃO EM TI",
+            "desc": "Análise de custos de software, capacidade de infraestrutura e otimização de recursos.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é uma razão no contexto matemático?",
+          "answers": [
+            "Comparação entre duas grandezas por meio de uma divisão",
+            "A soma exata de duas grandezas distintas",
+            "Uma constante matemática universal",
+            "O produto de duas frações irreais"
+          ],
+          "correct": "Comparação entre duas grandezas por meio de uma divisão",
+          "tip": "Quando dividimos um valor por outro, estabelecemos uma razão. Ex: requisições por segundo."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], duas razões são inversas quando a soma entre elas resulta em 1.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Elas são inversas quando o PRODUTO (multiplicação) entre elas é igual a 1."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O princípio fundamental das razões [COMBO] é que números diferentes representam a mesma relação.",
+          "options": [
+            "Equivalentes",
+            "Inversas",
+            "Irredutíveis",
+            "Compostas"
+          ],
+          "correct": "Equivalentes",
+          "tip": "Exemplo clássico: 2/4 = 4/8 = 1/2. Representam a mesma grandeza escalonada."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais destas são classificações corretas de tipos de razões?",
+          "answers": [
+            "Razões Inversas",
+            "Razões Equivalentes",
+            "Razão Irredutível",
+            "Razões Subtraídas"
+          ],
+          "correct": [
+            "Razões Inversas",
+            "Razões Equivalentes",
+            "Razão Irredutível"
+          ],
+          "tip": "As classificações abordadas ajudam a compreender e aplicar a relação correta nos cálculos."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o tipo de razão à sua característica principal:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Inversas",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Equivalentes",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Irredutível",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Produto igual a 1"
+            },
+            {
+              "id": "z2",
+              "label": "Escalas distintas, mesma proporção"
+            },
+            {
+              "id": "z3",
+              "label": "Simplificada ao máximo limite"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Identificar esses padrões permite saber que operação aplicar nas equações de TI."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o comportamento de grandezas diretamente proporcionais?",
+          "answers": [
+            "Quando uma aumenta, a outra aumenta na mesma proporção",
+            "Quando uma aumenta, a outra diminui na mesma proporção",
+            "Quando uma aumenta, a outra permanece constante",
+            "Elas não possuem relação aparente"
+          ],
+          "correct": "Quando uma aumenta, a outra aumenta na mesma proporção",
+          "tip": "O crescimento de uma gera um crescimento equivalente na outra (Ex: horas extras vs. salário)."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a proporção baseia-se na igualdade entre duas ou mais razões.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se a/b = c/d, afirmamos que estas razões são estritamente proporcionais."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A regra de [COMBO] inversa requer a inversão de uma das razões antes da resolução.",
+          "options": [
+            "Três",
+            "Proporção",
+            "Duas",
+            "Base"
+          ],
+          "correct": "Três",
+          "tip": "A regra de três inversa aplica-se em grandezas como (mais programadores = menos dias)."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Como identificar que duas grandezas são inversamente proporcionais?",
+          "answers": [
+            "Ao aumentar uma, a outra diminui",
+            "O produto entre os valores é sempre constante",
+            "Aumentam sempre na mesma direção",
+            "Ao reduzir uma pela metade, a outra dobra"
+          ],
+          "correct": [
+            "Ao aumentar uma, a outra diminui",
+            "O produto entre os valores é sempre constante",
+            "Ao reduzir uma pela metade, a outra dobra"
+          ],
+          "tip": "Use a lógica das setas apontando para direções opostas: ↑ ↓."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o cenário ao tipo de proporção correta:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Número de licenças X Custo",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Programadores X Tempo de projeto",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Quantidade de servidores X Capacidade",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Velocidade de rede X Tempo de download",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Proporção Direta"
+            },
+            {
+              "id": "z2",
+              "label": "Proporção Inversa"
+            },
+            {
+              "id": "z3",
+              "label": "Proporção Direta"
+            },
+            {
+              "id": "z4",
+              "label": "Proporção Inversa"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Proporção Direta = ↑↑. Proporção Inversa = ↑↓."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Se um arquivo de 500 MB for comprimido para 125 MB, qual é a sua razão de compressão?",
+          "answers": [
+            "4:1",
+            "3:1",
+            "5:1",
+            "2:1"
+          ],
+          "correct": "4:1",
+          "tip": "Divida 500 por 125. Isso quer dizer que foi reduzido a 1/4 do tamanho original."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a multiplicação dos meios é diferente da multiplicação dos extremos numa proporção válida.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A propriedade fundamental diz que produto dos extremos = produto dos meios.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], a porcentagem é uma razão que utiliza qual número como denominador padrão?",
+          "answers": [
+            "100",
+            "10",
+            "1",
+            "1000"
+          ],
+          "correct": "100",
+          "tip": "O próprio nome 'por cento' indica a relação 'a cada 100 unidades'."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Utilizar a porcentagem em TI facilita as comparações de métricas como aumento de vendas ou redução de falhas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dizer que houve um aumento de 15% é muito mais intuitivo do que valores absolutos crus."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A forma [COMBO] da porcentagem é ideal para efetuar cálculos dentro de planilhas eletrónicas e na programação.",
+          "options": [
+            "Decimal",
+            "Fracionária",
+            "Irredutível",
+            "Percentual"
+          ],
+          "correct": "Decimal",
+          "tip": "A divisão direta por 100 (ex: 0,45 para 45%) permite multiplicações simples em linguagens de código."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais as formas corretas de representar uma porcentagem matemática?",
+          "answers": [
+            "Forma Percentual (%)",
+            "Forma Decimal (0,x)",
+            "Forma Fracionária (x/100)",
+            "Forma Subtrativa"
+          ],
+          "correct": [
+            "Forma Percentual (%)",
+            "Forma Decimal (0,x)",
+            "Forma Fracionária (x/100)"
+          ],
+          "tip": "Saber converter as três formas agiliza bastante a resolução dos problemas reais."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o valor percentual à sua forma fracionária correta:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "25%",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "50%",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "75%",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "100%",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "1/4"
+            },
+            {
+              "id": "z2",
+              "label": "1/2"
+            },
+            {
+              "id": "z3",
+              "label": "3/4"
+            },
+            {
+              "id": "z4",
+              "label": "1/1"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As conversões rápidas mais usadas devem estar memorizadas!"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Como converter rapidamente 10% para sua respectiva forma decimal?",
+          "answers": [
+            "0,10",
+            "0,01",
+            "1,0",
+            "0,001"
+          ],
+          "correct": "0,10",
+          "tip": "Divida por 100. Ou simplesmente mova a vírgula duas casas para a esquerda."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], ao se deparar com um aumento e um desconto sucessivos de 20%, o valor voltará exatamente ao preço original.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As variações aplicam-se em bases diferentes. Deve-se multiplicar os fatores (1,20 x 0,80 = 0,96)."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O [COMBO] é uma redução no valor total de uma conta, comum em casos de pagamentos antecipados.",
+          "options": [
+            "Abatimento",
+            "Desconto",
+            "Lucro",
+            "Prejuízo"
+          ],
+          "correct": "Abatimento",
+          "tip": "Diferente do desconto promocional, o abatimento geralmente tem caráter financeiro contratual."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Selecione os conceitos comerciais cruciais para a análise financeira em projetos de TI:",
+          "answers": [
+            "Desconto",
+            "Lucro",
+            "Prejuízo",
+            "Coeficiente estático"
+          ],
+          "correct": [
+            "Desconto",
+            "Lucro",
+            "Prejuízo"
+          ],
+          "tip": "Dominar preços, custos e margens garante operações comerciais sustentáveis."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o conceito financeiro à sua correspondente definição matemática:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Preço base reduzido",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Diferença Positiva (Venda > Custo)",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Diferença Negativa (Custo > Venda)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Desconto"
+            },
+            {
+              "id": "z2",
+              "label": "Lucro"
+            },
+            {
+              "id": "z3",
+              "label": "Prejuízo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Identificar quando se lucra ou não, permite uma correta precificação."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Ao oferecer 12% de desconto numa compra, qual atalho permite calcular diretamente o preço a pagar?",
+          "answers": [
+            "Multiplicar o valor inicial por 0,88",
+            "Dividir o valor inicial por 12",
+            "Multiplicar o valor inicial por 1,12",
+            "Multiplicar o valor por 0,12"
+          ],
+          "correct": "Multiplicar o valor inicial por 0,88",
+          "tip": "Se tira 12%, o cliente paga a diferença que sobrou: 100% - 12% = 88%."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a fórmula fundamental para se descobrir a porcentagem que uma parte representa é: Porcentagem = (Parte / Todo) x 100.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa proporção simples resolve quase todos os cálculos percentuais."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual é a redução líquida se aplicarmos um aumento de 20% e, em seguida, um desconto de 20% num produto?",
+          "answers": [
+            "4%",
+            "2%",
+            "10%",
+            "0%"
+          ],
+          "correct": "4%",
+          "tip": "As variações geram o fator 1,20 x 0,80 = 0,96, representando 96% do total, logo, perda de 4%.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que a medida de correlação procura evidenciar estatisticamente?",
+          "answers": [
+            "O grau de relação e tendência entre duas variáveis",
+            "A igualdade exata entre dois valores contínuos",
+            "A soma de frações proporcionais",
+            "O desconto médio de uma fatura de serviços"
+          ],
+          "correct": "O grau de relação e tendência entre duas variáveis",
+          "tip": "Analisa-se se quando uma variável cresce, a outra cresce, cai ou ignora essa mudança."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], uma forte correlação estatística entre duas grandezas prova indiscutivelmente que uma é a causa da outra.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Correlação NÃO é causalidade. Fatores externos e variáveis ocultas podem atuar em conjunto."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Na correlação [COMBO], à medida que uma variável aumenta, a outra tende a diminuir de igual modo.",
+          "options": [
+            "Negativa",
+            "Positiva",
+            "Nula",
+            "Direta"
+          ],
+          "correct": "Negativa",
+          "tip": "Um crescimento que gera uma queda na outra métrica (ex: horas de testes x bugs de software)."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são as vertentes de comportamentos das variáveis na análise de correlação?",
+          "answers": [
+            "Correlação Positiva",
+            "Correlação Negativa",
+            "Sem Correlação (Nula)",
+            "Correlação Estática Absoluta"
+          ],
+          "correct": [
+            "Correlação Positiva",
+            "Correlação Negativa",
+            "Sem Correlação (Nula)"
+          ],
+          "tip": "As três abordam as únicas direções possíveis na leitura de um gráfico."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o exemplo ao tipo de correlação que ele representa:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Investimento em Treinamento X Produtividade",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Número de bugs em produção X Satisfação do cliente",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Cor do logotipo X Quantidade de downloads de um app",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Positiva"
+            },
+            {
+              "id": "z2",
+              "label": "Negativa"
+            },
+            {
+              "id": "z3",
+              "label": "Sem Correlação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Visualizar essas tendências poupa gastos equivocados numa empresa tecnológica."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Ao analisar um gráfico sobre custos de software, se mais usuários representam sempre mais gastos, isso caracteriza:",
+          "answers": [
+            "Uma correlação forte e positiva",
+            "Uma correlação inversa fraca",
+            "Ausência de correlação",
+            "Apenas um efeito colateral irrelevante"
+          ],
+          "correct": "Uma correlação forte e positiva",
+          "tip": "Ambos os índices movem-se na mesma direção de crescimento."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Venda de sorvetes e afogamentos são um exemplo clássico para ilustrar a falsa percepção de causalidade entre correlações.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O fator real e oculto para ambos é o clima de Verão, que engatilha o crescimento dos dois eventos em paralelo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A confusão entre correlação e [COMBO] é apontada como um dos maiores erros dos iniciantes na análise de dados.",
+          "options": [
+            "Causalidade",
+            "Porcentagem",
+            "Variabilidade",
+            "Proporção"
+          ],
+          "correct": "Causalidade",
+          "tip": "Duas variáveis podem mover-se de forma idêntica por total coincidência ou fatores comuns externos."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], por que é perigoso concluir precipitadamente que linhas de código causam inevitavelmente bugs em TI?",
+          "answers": [
+            "Pois há uma forte correlação estatística, mas a causalidade real pode ser do tamanho do projeto",
+            "Sistemas imensos e complexos tendem a ter mais código E mais chances de bugs em paralelo",
+            "A mera existência de uma linha não impõe ativamente o bug",
+            "O código nunca produz falhas de lógica."
+          ],
+          "correct": [
+            "Pois há uma forte correlação estatística, mas a causalidade real pode ser do tamanho do projeto",
+            "Sistemas imensos e complexos tendem a ter mais código E mais chances de bugs em paralelo",
+            "A mera existência de uma linha não impõe ativamente o bug"
+          ],
+          "tip": "Há fatores associados (arquitetura do projeto e experiência da equipe) que impactam a incidência de falhas."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Identifique a direção provável nas variáveis num gráfico de correlações:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "As duas linhas sobem no gráfico",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Uma sobe e a outra desce",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Os dados surgem totalmente dispersos",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tendência Positiva"
+            },
+            {
+              "id": "z2",
+              "label": "Tendência Negativa"
+            },
+            {
+              "id": "z3",
+              "label": "Falta de Correlação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A interpretação visual de gráficos de dispersão suporta a tomada imediata de estratégias."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual a principal diferença técnica apontada pela aula entre proporção matemática e correlação?",
+          "answers": [
+            "A proporção exige igualdade exata constante; a correlação mede a mera tendência na relação.",
+            "A proporção trata gráficos, enquanto a correlação foca em contas decimais.",
+            "A proporção é uma estatística falha e a correlação não.",
+            "Não existe diferença, tratam do mesmo conceito base."
+          ],
+          "correct": "A proporção exige igualdade exata constante; a correlação mede a mera tendência na relação.",
+          "tip": "Onde a matemática cobra precisão (y=kx), a estatística compreende e abraça as flutuações e variâncias."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], se o gráfico de dispersão demonstra uma tendência reta ascendente, significa que as variáveis são completamente independentes e não correlacionadas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Linha reta e inclinada em evidência comprova uma forte conexão de dados.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no desafio de upgrade de servidores, qual proporção é usada para estipular o tempo se aumentarmos o tamanho em GB dos arquivos a guardar?",
+          "answers": [
+            "Proporção Direta",
+            "Proporção Inversa",
+            "Proporção Nula",
+            "Regra de Juros"
+          ],
+          "correct": "Proporção Direta",
+          "tip": "Se mantivermos a banda igual, quanto mais gigabytes, maior será o tempo de conclusão."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Se o gerente solicitou uma compressão nos dados de 30%, o arquivo original manterá um volume correspondente a 70% após esta operação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O arquivo é reduzido e passa a representar o que 'sobra' perante os 100% integrais."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Ao elevar o fornecimento de banda de internet na rede da empresa, nota-se uma redução nas horas de backup. Trata-se de uma correlação com viés de inversamente [COMBO].",
+          "options": [
+            "Proporcional",
+            "Igual",
+            "Retilíneo",
+            "Lógico"
+          ],
+          "correct": "Proporcional",
+          "tip": "Mais velocidade diminui drasticamente a barreira do tempo exigido."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais elementos são essenciais para formar o preço de um SaaS (Software-as-a-Service) considerando os pilares aprendidos?",
+          "answers": [
+            "Os descontos ou abatimentos negociados para faturas anuais",
+            "O lucro desejado em cima dos custos na nuvem",
+            "O prejuízo projetado para estratégias de aquisição de clientes",
+            "A quantidade irredutível do layout da página"
+          ],
+          "correct": [
+            "Os descontos ou abatimentos negociados para faturas anuais",
+            "O lucro desejado em cima dos custos na nuvem",
+            "O prejuízo projetado para estratégias de aquisição de clientes"
+          ],
+          "tip": "As três abordagens financeiras afetam a métrica do preço por utilizador nos contratos."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Para resolver os impasses práticos do profissional, indique a ferramenta correta para cada passo:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Calcular tempo que 3 servidores fazem a tarefa de 1",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Retirar impostos de 15% sobre a receita bruta",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Decidir qual das 6 equipas apresenta mais rentabilidade de código vs bugs",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Regra de Três Inversa"
+            },
+            {
+              "id": "z2",
+              "label": "Porcentagem"
+            },
+            {
+              "id": "z3",
+              "label": "Análise de Correlação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Combinar ferramentas dá o poder preditivo aos gestores de Tl de forma infalível."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Ao montar a tabela de equipas no exercício prático, qual destas relações possui tendência NEGATIVA clara?",
+          "answers": [
+            "Horas de Treinamento X Número de Bugs ao Mês",
+            "Horas de Treinamento X Satisfação do Cliente",
+            "Satisfação do Cliente X Produtividade Média",
+            "Tamanho da Equipe X Produtividade"
+          ],
+          "correct": "Horas de Treinamento X Número de Bugs ao Mês",
+          "tip": "Conforme a quantidade de instrução dada aos programadores aumenta, as falhas técnicas tendem a cair."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], segundo a análise dos dados do SENAI, o número de tarefas desenvolvidas pelas equipes demonstra uma forte correlação positiva em relação às horas de treino.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Observando a tabela final da apostila, horas mais longas implicam em equipas e clientes notavelmente satisfeitos com mais entregas."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A margem de lucro de um software reflete sua [COMBO] de negócio, baseando-se no percentual conquistado após a retirada das métricas base de custos de hospedagem.",
+          "options": [
+            "Rentabilidade",
+            "Depressão",
+            "Aleatoriedade",
+            "Substituição"
+          ],
+          "correct": "Rentabilidade",
+          "tip": "Projetos escaláveis apresentam margens cada vez maiores à medida em que são propagados no mundo real."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Na rotina do programador e arquiteto de sistemas, onde estes dados e métricas são ativamente aplicados?",
+          "answers": [
+            "Dimensionamento de storage (capacidade de armazenamento)",
+            "Estimativa de tráfego de rede",
+            "Estimar os custos finais a transparecer no orçamento da nuvem",
+            "Na formatação física de pen-drives portáteis isolados"
+          ],
+          "correct": [
+            "Dimensionamento de storage (capacidade de armazenamento)",
+            "Estimativa de tráfego de rede",
+            "Estimar os custos finais a transparecer no orçamento da nuvem"
+          ],
+          "tip": "É a raiz da arquitetura na Cloud (AWS, Azure) e de sistemas modernos a dominar esta estrutura."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Revise o caso das licenças de gestão da atividade. Relacione os valores corretos descritos em aula:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Preço Original por 50 Licenças",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Fator Decimal para 12% Desconto",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Economia final por Licença Comprada",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "R$ 24.000"
+            },
+            {
+              "id": "z2",
+              "label": "0,88"
+            },
+            {
+              "id": "z3",
+              "label": "R$ 57,60"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Matemática objetiva e clara reflete-se em reduções contundentes de custos organizacionais."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], se um servidor A (400GB) demora 8 horas para concluir o backup, quanto tempo um servidor B (600GB) exigirá perante o mesmo hardware de rede?",
+          "answers": [
+            "12 horas",
+            "10 horas",
+            "16 horas",
+            "6 horas"
+          ],
+          "correct": "12 horas",
+          "tip": "Usando regra de três direta: 400/600 = 8/x -> 400x = 4800 -> x = 12."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], uma das melhores formas de reter esses conceitos é praticar com infraestruturas reais e tentar não verificar o gabarito instantaneamente nas revisões futuras.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A repetição é a mãe do ensino; testar dados em clouds ativas fixa todo o panorama prático e matemático da classe."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se o Antivírus Pro custava originalmente 120 reais e hoje consta com desconto de 10%, qual o preço real de venda após o reajuste para o cliente no site?",
+          "answers": [
+            "108 reais",
+            "110 reais",
+            "90 reais",
+            "132 reais"
+          ],
+          "correct": "108 reais",
+          "tip": "Basta subtrair os 12 reais de desconto. É essa rapidez fundamental que agiliza a negociação diária.",
+          "trans": "FIM"
+        }
+      ]
+    },
+    {
+      "slug": "aula-19",
+      "lesson_info": {
+        "id": "Aula-19",
+        "title": "AULA 19 - TÉCNICAS DE RESOLUÇÃO DE PROBLEMAS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DA RESOLUÇÃO",
+            "desc": "Conceitos básicos sobre o que é um problema e a importância do raciocínio estruturado.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "METODOLOGIA DE 5 PASSOS",
+            "desc": "A sequência completa: detalhar, encontrar, escolher, executar e revisar.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1507925922889-7262627d26bb?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "FERRAMENTAS DE ANÁLISE",
+            "desc": "Uso de 5W2H, Diagrama de Ishikawa, 5 Porquês, Matriz de Decisão e PDCA.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "EXECUÇÃO E REVISÃO",
+            "desc": "Estudos de caso, boas práticas na implementação e medição de indicadores.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "P",
+          "D",
+          "C",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], segundo a aula, qual é a melhor definição para um 'problema'?",
+          "answers": [
+            "A lacuna entre a situação atual e a situação desejada",
+            "Um defeito técnico inevitável em máquinas",
+            "Uma falha exclusiva de comunicação",
+            "A falta de recursos financeiros em um projeto"
+          ],
+          "correct": "A lacuna entre a situação atual e a situação desejada",
+          "tip": "É a distância (gap) entre onde estamos e o estado ideal desejado."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no ambiente industrial, resolver problemas por tentativa e erro é mais eficiente do que aplicar métodos estruturados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pesquisas mostram que profissionais que usam métodos estruturados são 3x mais eficientes."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], decisões impulsivas geram retrabalho, [COMBO] de recursos e perda de produtividade.",
+          "options": [
+            "desperdício",
+            "aumento",
+            "ganho",
+            "criação"
+          ],
+          "correct": "desperdício",
+          "tip": "A falta de análise prévia leva ao uso ineficiente de materiais e tempo."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], o pensamento lógico e matemático na resolução de problemas envolve a capacidade de:",
+          "answers": [
+            "Organizar informações",
+            "Identificar padrões",
+            "Estabelecer relações de causa e efeito",
+            "Ignorar dados contraditórios"
+          ],
+          "correct": [
+            "Organizar informações",
+            "Identificar padrões",
+            "Estabelecer relações de causa e efeito"
+          ],
+          "tip": "A lógica ajuda a estruturar a situação, enquanto ignorar dados é uma prática ruim."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o princípio matemático à sua aplicação na resolução de problemas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Decomposição",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Quantificação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Comparação",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Verificação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Dividir problemas grandes em menores"
+            },
+            {
+              "id": "z2",
+              "label": "Atribuir valores mensuráveis"
+            },
+            {
+              "id": "z3",
+              "label": "Avaliar alternativas com critérios"
+            },
+            {
+              "id": "z4",
+              "label": "Confirmar resultados com dados reais"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses princípios trazem objetividade para a tomada de decisão."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], quantos por cento dos erros industriais poderiam ser evitados com análise prévia adequada?",
+          "answers": [
+            "20%",
+            "40%",
+            "60%",
+            "85%"
+          ],
+          "correct": "60%",
+          "tip": "A falta de diagnóstico é a causa da maioria dos problemas recorrentes."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], resolver problemas é encontrar um caminho quando nenhum é previamente conhecido.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se já soubéssemos o caminho, seria apenas uma tarefa, não um problema."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], segundo empregadores, a resolução de problemas é a habilidade [COMBO] importante no mercado atual.",
+          "options": [
+            "menos",
+            "mais",
+            "teoricamente",
+            "igualmente"
+          ],
+          "correct": "mais",
+          "tip": "Cerca de 85% dos empregadores destacam essa competência no setor industrial."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais desses elementos definem a estrutura básica de um problema?",
+          "answers": [
+            "Situação Atual (Onde estamos)",
+            "Lacuna (O desvio ou erro)",
+            "Situação Desejada (Onde queremos chegar)",
+            "Solução Mágica (O atalho rápido)"
+          ],
+          "correct": [
+            "Situação Atual (Onde estamos)",
+            "Lacuna (O desvio ou erro)",
+            "Situação Desejada (Onde queremos chegar)"
+          ],
+          "tip": "Problemas reais exigem análise estruturada, não existem atalhos ou mágicas."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione os termos da estrutura de um problema:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Situação Atual",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Situação Desejada",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Lacuna (Gap)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Obstáculo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Onde estamos agora (estado com erro)"
+            },
+            {
+              "id": "z2",
+              "label": "Onde queremos chegar (estado ideal)"
+            },
+            {
+              "id": "z3",
+              "label": "A distância entre o real e o ideal"
+            },
+            {
+              "id": "z4",
+              "label": "A barreira que impede o avanço"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender as partes do problema ajuda a diagnosticar com clareza."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o pensamento lógico nasce pronto e não pode ser aprimorado.",
+          "answers": [
+            "Concordo plenamente",
+            "É uma verdade absoluta",
+            "Isso é incorreto",
+            "Apenas para máquinas"
+          ],
+          "correct": "Isso é incorreto",
+          "tip": "O pensamento lógico pode (e deve) ser desenvolvido com prática constante."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], na indústria, a resolução de problemas de forma estruturada é opcional e apenas desejável.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A aula destaca que não é apenas desejável, é indispensável."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], a competência de resolver problemas foca em contornar obstáculos para atingir um [COMBO].",
+          "options": [
+            "objetivo",
+            "risco",
+            "retrocesso",
+            "gasto"
+          ],
+          "correct": "objetivo",
+          "tip": "Você busca sair do estado atual com erro e atingir a meta esperada.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o primeiro passo da metodologia apresentada na aula?",
+          "answers": [
+            "Escolher",
+            "Encontrar",
+            "Detalhar",
+            "Revisar"
+          ],
+          "correct": "Detalhar",
+          "tip": "Antes de pensar na solução, é crucial compreender profundamente o problema."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], muitos erros ocorrem porque saltamos diretamente para a solução sem entender as variáveis.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Agir antes de diagnosticar gera decisões impulsivas e retrabalho."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], na fase de encontrar soluções, a [COMBO] importa mais do que a qualidade inicial.",
+          "options": [
+            "quantidade",
+            "limitação",
+            "estética",
+            "lógica"
+          ],
+          "correct": "quantidade",
+          "tip": "É o momento do brainstorming: o foco é gerar muitas opções para depois filtrar."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais dessas ações fazem parte do Passo 1 (Detalhar)?",
+          "answers": [
+            "Definir o problema com clareza",
+            "Identificar variáveis envolvidas",
+            "Coletar dados e evidências",
+            "Implementar a solução imediatamente"
+          ],
+          "correct": [
+            "Definir o problema com clareza",
+            "Identificar variáveis envolvidas",
+            "Coletar dados e evidências"
+          ],
+          "tip": "Implementar soluções pertence ao Passo 4 (Executar)."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], conecte cada passo da metodologia com sua respectiva ação central:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 3",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 4",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Passo 5",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Detalhar as variáveis"
+            },
+            {
+              "id": "z2",
+              "label": "Escolher a solução adequada"
+            },
+            {
+              "id": "z3",
+              "label": "Executar a solução escolhida"
+            },
+            {
+              "id": "z4",
+              "label": "Revisar e atualizar os dados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A sequência cria um fluxo coerente, do diagnóstico à avaliação."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o objetivo do Passo 3 (Escolher)?",
+          "answers": [
+            "Criar o maior número de ideias",
+            "Mapear os elementos do problema",
+            "Comparar alternativas com critérios objetivos",
+            "Atualizar o banco de dados"
+          ],
+          "correct": "Comparar alternativas com critérios objetivos",
+          "tip": "É a fase de análise crítica para definir a opção mais viável."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a metodologia de 5 passos ajuda a quebrar a complexidade em etapas gerenciáveis.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dividir um problema complexo facilita encontrar a resolução."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], na coleta de dados, devemos priorizar informações [COMBO] como números e medições.",
+          "options": [
+            "concretas",
+            "subjetivas",
+            "rumorosas",
+            "fictícias"
+          ],
+          "correct": "concretas",
+          "tip": "Dados reais e objetivos são a matéria-prima para uma análise bem-sucedida."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], de acordo com a aula, o que NÃO se deve fazer na hora de definir um problema (Passo 1)?",
+          "answers": [
+            "Escrever o problema em uma frase",
+            "Usar termos vagos como 'não está funcionando'",
+            "Ignorar os dados concretos disponíveis",
+            "Delimitar o escopo"
+          ],
+          "correct": [
+            "Usar termos vagos como 'não está funcionando'",
+            "Ignorar os dados concretos disponíveis"
+          ],
+          "tip": "Precisamos de exatidão para entender de fato o que está acontecendo."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione as palavras-chave aos seus passos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Variáveis e Fatores",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Brainstorming de ideias",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Ação e Plano",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Análise de Resultados",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Passo 1: Detalhar"
+            },
+            {
+              "id": "z2",
+              "label": "Passo 2: Encontrar"
+            },
+            {
+              "id": "z3",
+              "label": "Passo 4: Executar"
+            },
+            {
+              "id": "z4",
+              "label": "Passo 5: Revisar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada fase tem um objetivo singular e dependente do passo anterior."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], segundo a dica da aula, se você não consegue resolver um problema...",
+          "answers": [
+            "Desista e mude de área",
+            "Culpe as variáveis incontroláveis",
+            "Existe um problema mais fácil que você pode resolver",
+            "Pule para a fase de execução"
+          ],
+          "correct": "Existe um problema mais fácil que você pode resolver",
+          "tip": "Esta é a essência de quebrar o problema em partes menores."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o passo 'Revisar' serve exclusivamente para arquivar o projeto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Revisar transforma a experiência em conhecimento organizacional e calibra decisões futuras.",
+          "trans": "PROT"
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], o Diagrama de [COMBO] é uma ferramenta visual para organizar causas de um problema em categorias.",
+          "options": [
+            "Ishikawa",
+            "Pareto",
+            "Dispersão",
+            "Fluxo"
+          ],
+          "correct": "Ishikawa",
+          "tip": "Também conhecido como Diagrama de Espinha de Peixe."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são as categorias do Diagrama de Ishikawa (método 6M)?",
+          "answers": [
+            "Máquina",
+            "Método",
+            "Mão de Obra",
+            "Marketing"
+          ],
+          "correct": [
+            "Máquina",
+            "Método",
+            "Mão de Obra"
+          ],
+          "tip": "Marketing não faz parte dos 6M clássicos da espinha de peixe."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione as perguntas da ferramenta 5W2H com seu significado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "What?",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Who?",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Where?",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "How much?",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Qual é o problema exatamente?"
+            },
+            {
+              "id": "z2",
+              "label": "Quem é afetado ou envolvido?"
+            },
+            {
+              "id": "z3",
+              "label": "Em que local ou etapa do processo?"
+            },
+            {
+              "id": "z4",
+              "label": "Qual o impacto quantificável?"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A técnica 5W2H garante que nenhum aspecto do problema seja ignorado."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o principal objetivo da Técnica dos 5 Porquês?",
+          "answers": [
+            "Julgar os funcionários",
+            "Chegar à causa raiz do problema",
+            "Aumentar o orçamento do projeto",
+            "Gerar relatórios longos"
+          ],
+          "correct": "Chegar à causa raiz do problema",
+          "tip": "Ela revela a verdadeira origem do problema indo além dos sintomas."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a Matriz de Decisão permite atribuir notas a cada alternativa e pesos aos critérios, gerando um score final.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É uma ferramenta de análise objetiva para apoiar o Passo 3 (Escolher a Solução)."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], a Inversão de Perspectiva ajuda na ideação perguntando 'Como [COMBO] o problema?'.",
+          "options": [
+            "pioraríamos",
+            "ignoraríamos",
+            "delegaríamos",
+            "esqueceríamos"
+          ],
+          "correct": "pioraríamos",
+          "tip": "Inverter a lógica do problema pode revelar soluções inesperadas."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais critérios a aula sugere avaliar na Matriz de Decisão?",
+          "answers": [
+            "Eficácia",
+            "Viabilidade",
+            "Tempo de Implementação",
+            "Sorte da equipe"
+          ],
+          "correct": [
+            "Eficácia",
+            "Viabilidade",
+            "Tempo de Implementação"
+          ],
+          "tip": "A decisão deve ser baseada em critérios racionais, e não no acaso."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione as etapas do ciclo PDCA aos passos da nossa metodologia:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Plan (Planejar)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Do (Executar)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Check (Verificar)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Act (Agir)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Passos 1 a 3 (Detalhar, Encontrar, Escolher)"
+            },
+            {
+              "id": "z2",
+              "label": "Passo 4 (Executar a solução com plano)"
+            },
+            {
+              "id": "z3",
+              "label": "Passo 5 (Revisar resultados)"
+            },
+            {
+              "id": "z4",
+              "label": "Padronizar a solução ou reiniciar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O PDCA é uma ferramenta de melhoria contínua que se integra perfeitamente à resolução de problemas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], na Matriz de Decisão, o critério 'Riscos Envolvidos' foca em descobrir:",
+          "answers": [
+            "Se a solução é duradoura",
+            "Se o remédio pode ser pior que a doença",
+            "Se a urgência permite esperar",
+            "Quem será o líder da equipe"
+          ],
+          "correct": "Se o remédio pode ser pior que a doença",
+          "tip": "Avaliar riscos é pensar nos efeitos colaterais imprevistos da sua ideia."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no Brainstorming (Passo 2), o julgamento rigoroso de ideias logo no início é altamente recomendado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Deve-se gerar ideias livremente e sem julgamento para evitar o bloqueio criativo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], a sustentabilidade da solução pergunta se ela é [COMBO] ou apenas um paliativo.",
+          "options": [
+            "duradoura",
+            "provisória",
+            "complexa",
+            "cara"
+          ],
+          "correct": "duradoura",
+          "tip": "Buscamos soluções que previnam a recorrência do problema."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], ao utilizar a técnica de Analogia e Benchmarking, o que devemos buscar?",
+          "answers": [
+            "Como problemas semelhantes foram resolvidos",
+            "Copiar soluções às cegas",
+            "Experiências de outras empresas",
+            "Adaptação de lições aprendidas"
+          ],
+          "correct": [
+            "Como problemas semelhantes foram resolvidos",
+            "Experiências de outras empresas",
+            "Adaptação de lições aprendidas"
+          ],
+          "tip": "Copiar às cegas nunca é recomendado; é preciso adaptar ao seu contexto."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione os exemplos às categorias de causas no Diagrama de Ishikawa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Procedimentos desatualizados",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Equipamento obsoleto",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Treinamento insuficiente",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Temperatura inadequada",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Método"
+            },
+            {
+              "id": "z2",
+              "label": "Máquina"
+            },
+            {
+              "id": "z3",
+              "label": "Mão de Obra"
+            },
+            {
+              "id": "z4",
+              "label": "Meio Ambiente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O modelo 6M agrupa de forma clara onde a raiz do problema pode estar abrigada.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que uma solução bem escolhida ainda pode falhar?",
+          "answers": [
+            "Porque o problema mudou",
+            "Se for mal executada sem um plano detalhado",
+            "Porque os dados foram falsificados",
+            "Porque não usaram o 5W2H"
+          ],
+          "correct": "Se for mal executada sem um plano detalhado",
+          "tip": "A execução exige organização e acompanhamento, independentemente de quão brilhante seja a ideia."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], implementar tudo de uma vez sem realizar testes prévios é considerado uma boa prática.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É sempre preferível iniciar com um piloto em pequena escala quando possível."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], no Passo 4, é importante definir marcos temporais, também conhecidos como [COMBO].",
+          "options": [
+            "milestones",
+            "gaps",
+            "brainstorms",
+            "bugs"
+          ],
+          "correct": "milestones",
+          "tip": "Os marcos ajudam a acompanhar o progresso real da implementação da solução."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são consideradas Boas Práticas na execução de uma solução?",
+          "answers": [
+            "Documentar cada etapa",
+            "Manter comunicação com a equipe",
+            "Ignorar sinais de erro",
+            "Ter um plano B"
+          ],
+          "correct": [
+            "Documentar cada etapa",
+            "Manter comunicação com a equipe",
+            "Ter um plano B"
+          ],
+          "tip": "Ignorar erros é o oposto de monitoramento em tempo real."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], associe os tipos de indicadores de sucesso aos seus exemplos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Indicadores Quantitativos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Indicadores Qualitativos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Indicadores Temporais",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Impacto Financeiro",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Taxa de erro zerada, número concreto"
+            },
+            {
+              "id": "z2",
+              "label": "Satisfação e clima organizacional"
+            },
+            {
+              "id": "z3",
+              "label": "Período sem recorrência do problema"
+            },
+            {
+              "id": "z4",
+              "label": "R$ salvos ou de prejuízo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Definir os indicadores certos antes de agir prova se a solução funcionou."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no estudo de caso da aula (Erro #504), qual foi a solução escolhida pela Matriz de Decisão?",
+          "answers": [
+            "Atualizar o ERP",
+            "Aumentar o servidor",
+            "Implementar sistema de agendamento de tarefas",
+            "Mudar de ERP"
+          ],
+          "correct": "Implementar sistema de agendamento de tarefas",
+          "tip": "Essa solução eliminou o conflito e a sobrecarga com o melhor equilíbrio de custo-benefício."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a revisão dos dados e resultados (Passo 5) transforma a experiência do projeto em conhecimento organizacional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se errou, você descobre por quê; se acertou, cria um padrão para o futuro."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], segundo a aula, máquinas calculam, mas são as pessoas que encontram caminhos [COMBO] para resolver o que precisa ser resolvido.",
+          "options": [
+            "criativos",
+            "lineares",
+            "lentos",
+            "estáticos"
+          ],
+          "correct": "criativos",
+          "tip": "A capacidade analítica unida à criatividade é o diferencial humano."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], o que você deve EVITAR (Práticas Negativas) durante a execução de uma solução?",
+          "answers": [
+            "Excluir pessoas-chave do processo",
+            "Considerar a solução definitiva sem verificar",
+            "Monitorar o progresso",
+            "Não registrar as mudanças"
+          ],
+          "correct": [
+            "Excluir pessoas-chave do processo",
+            "Considerar a solução definitiva sem verificar",
+            "Não registrar as mudanças"
+          ],
+          "tip": "Tudo que ignora a verificação e o time leva ao fracasso da implementação."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], associe as etapas de revisão de resultados da aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Medir Resultados",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Comparar com o Esperado",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Ajustar e Melhorar",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Documentar Lições",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Avaliar os dados pós-implementação"
+            },
+            {
+              "id": "z2",
+              "label": "Bateu a meta estipulada?"
+            },
+            {
+              "id": "z3",
+              "label": "Implementar correções necessárias"
+            },
+            {
+              "id": "z4",
+              "label": "Registrar o aprendizado do ciclo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "É a base para padronização e garantia de eficácia real."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o resultado final ao passar por todo o ciclo de revisão do Passo 5?",
+          "answers": [
+            "Encontrar o culpado",
+            "Gerar mais despesas",
+            "Padronizar a solução ou reiniciar o ciclo",
+            "Finalizar a reunião"
+          ],
+          "correct": "Padronizar a solução ou reiniciar o ciclo",
+          "tip": "Assim como na etapa 'Act' do PDCA, a ação se consolida como padrão."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], decisões baseadas em intuição pura são mais eficazes do que decisões baseadas em evidências.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A mensagem final da aula é clara: use dados, não opiniões."
         }
       ]
     }
