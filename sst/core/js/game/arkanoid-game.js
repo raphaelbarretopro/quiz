@@ -1,20 +1,20 @@
-const game2048 = {
-    id: 'game2048',
-    label: '2048',
+const arkanoidGame = {
+    id: 'arkanoid',
+    label: 'ARKANOID',
     async run(ctx) {
-        const result = await ctx.view.runGame2048BonusLevel();
+        const result = await ctx.view.runArkanoidBonusLevel();
 
         if (ctx.hasTimedOut()) {
             return;
         }
 
         if (result.won) {
-            await ctx.view.showGame2048VictoryPopup(ctx.model.playerName);
-            const finalScore = await ctx.view.showGame2048FinalSummary(
+            await ctx.view.showArkanoidVictoryPopup(ctx.model.playerName);
+            const finalScore = await ctx.view.showArkanoidFinalSummary(
                 ctx.model.playerScore,
                 ctx.reward,
-                result.score,
-                result.maxTile
+                result.bricksDestroyed,
+                result.bestCombo
             );
             ctx.model.playerScore = finalScore;
             ctx.view.updateScoreDisplay(finalScore);
@@ -23,8 +23,8 @@ const game2048 = {
 
         if (result.reason === 'no_lives') {
             ctx.view.showAlert(
-                '🔢 Sem Vidas no 2048',
-                'Você perdeu as 3 vidas no desafio 2048. Continue acertando as perguntas para liberar uma nova tentativa!',
+                '🧱 Sem Vidas no Arkanoid',
+                'Você perdeu as 3 vidas no desafio ARKANOID. Continue acertando as perguntas para liberar uma nova tentativa!',
                 () => ctx.view.resumeGameMusic()
             );
             return;
@@ -33,7 +33,7 @@ const game2048 = {
         if (result.reason === 'timeout') {
             ctx.view.showAlert(
                 '⏱️ Tempo Esgotado',
-                'O tempo acabou antes de alcançar o bloco 128. Continue acertando as perguntas para liberar uma nova tentativa!',
+                'O tempo acabou antes de destruir 24 blocos. Continue acertando as perguntas para liberar uma nova tentativa!',
                 () => ctx.view.resumeGameMusic()
             );
             return;
@@ -42,18 +42,18 @@ const game2048 = {
         if (result.reason === 'giveup') {
             ctx.view.showAlert(
                 '⏸️ Desafio Interrompido',
-                'O desafio 2048 foi interrompido. Continue acertando as perguntas para liberar uma nova tentativa.',
+                'O desafio ARKANOID foi interrompido. Continue acertando as perguntas para liberar uma nova tentativa.',
                 () => ctx.view.resumeGameMusic()
             );
             return;
         }
 
         ctx.view.showAlert(
-            '🔢 Desafio Encerrado',
-            'O desafio 2048 foi encerrado. Continue acertando as perguntas para liberar uma nova tentativa!',
+            '🧱 Desafio Encerrado',
+            'O desafio ARKANOID foi encerrado. Continue acertando as perguntas para liberar uma nova tentativa!',
             () => ctx.view.resumeGameMusic()
         );
     }
 };
 
-export default game2048;
+export default arkanoidGame;

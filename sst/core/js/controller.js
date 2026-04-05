@@ -48,6 +48,10 @@ class Controller {
         this.tetrisBonusActive = false;
         this.game2048BonusReward = 100;
         this.game2048BonusActive = false;
+        this.flappyBirdBonusReward = 100;
+        this.flappyBirdBonusActive = false;
+        this.arkanoidBonusReward = 100;
+        this.arkanoidBonusActive = false;
         this.activeBonusGameId = null;
         this.sokobanResolve = null;
         this.sokobanMaxLives = 3;
@@ -90,6 +94,8 @@ class Controller {
         this.view.bindFroggerTest(this.handleFroggerTest.bind(this));
         this.view.bindTetrisTest(this.handleTetrisTest.bind(this));
         this.view.bindGame2048Test(this.handleGame2048Test.bind(this));
+        this.view.bindFlappyBirdTest(this.handleFlappyBirdTest.bind(this));
+        this.view.bindArkanoidTest(this.handleArkanoidTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
     }
 
@@ -819,6 +825,8 @@ class Controller {
             || this.froggerBonusActive
             || this.tetrisBonusActive
             || this.game2048BonusActive
+            || this.flappyBirdBonusActive
+            || this.arkanoidBonusActive
             || Boolean(this.activeBonusGameId);
     }
 
@@ -835,6 +843,8 @@ class Controller {
         if (gameId === 'frogger') return this.froggerBonusReward;
         if (gameId === 'tetris') return this.tetrisBonusReward;
         if (gameId === 'game2048') return this.game2048BonusReward;
+        if (gameId === 'flappybird') return this.flappyBirdBonusReward;
+        if (gameId === 'arkanoid') return this.arkanoidBonusReward;
         return 0;
     }
 
@@ -884,6 +894,8 @@ class Controller {
         this.froggerBonusActive = gameId === 'frogger';
         this.tetrisBonusActive = gameId === 'tetris';
         this.game2048BonusActive = gameId === 'game2048';
+        this.flappyBirdBonusActive = gameId === 'flappybird';
+        this.arkanoidBonusActive = gameId === 'arkanoid';
 
         try {
             await selectedGame.run({
@@ -906,6 +918,8 @@ class Controller {
             this.froggerBonusActive = false;
             this.tetrisBonusActive = false;
             this.game2048BonusActive = false;
+            this.flappyBirdBonusActive = false;
+            this.arkanoidBonusActive = false;
         }
     }
 
@@ -990,6 +1004,20 @@ class Controller {
         if (this.hasTimedOut) return;
         if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
         await this.runScheduledGameById('game2048');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleFlappyBirdTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('flappybird');
+        if (!this.hasTimedOut) this.renderStep();
+    }
+
+    async handleArkanoidTest() {
+        if (this.hasTimedOut) return;
+        if (this.slotIsActive || this.slotSpinInProgress || this.isAnyBonusGameActive()) return;
+        await this.runScheduledGameById('arkanoid');
         if (!this.hasTimedOut) this.renderStep();
     }
 }

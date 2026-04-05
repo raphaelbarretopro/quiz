@@ -331,7 +331,9 @@ label,
 #lordehero-bonus-modal,
 #frogger-bonus-modal,
 #tetris-bonus-modal,
-#game2048-bonus-modal {
+#game2048-bonus-modal,
+#flappybird-bonus-modal,
+#arkanoid-bonus-modal {
     background: rgba(0, 0, 0, 0.82);
     backdrop-filter: blur(1px);
 }
@@ -3874,6 +3876,34 @@ label,
     transition: all 0.25s ease;
 }
 
+.flappybird-test-btn {
+    background: linear-gradient(135deg, #0f3d68, #0ea5e9);
+    color: #f0f9ff;
+    font-weight: 900;
+    border: 2px solid #7dd3fc;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.34);
+    transition: all 0.25s ease;
+}
+
+.arkanoid-test-btn {
+    background: linear-gradient(135deg, #3f1f8a, #2563eb);
+    color: #eff6ff;
+    font-weight: 900;
+    border: 2px solid #93c5fd;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.34);
+    transition: all 0.25s ease;
+}
+
 @media (max-width: 700px) {
     .lordehero-title {
         font-size: 1.2rem;
@@ -5152,5 +5182,212 @@ body.right-panel-open {
 
     .game2048-cell {
         font-size: 1rem;
+    }
+}
+
+/* ── FLAPPY BIRD BONUS ───────────────────────────────────────────────────── */
+
+.flappybird-bonus-container {
+    background:
+        radial-gradient(circle at top, rgba(125, 211, 252, 0.18), transparent 38%),
+        linear-gradient(180deg, #082f49 0%, #0c4a6e 54%, #0f766e 100%);
+    border: 2px solid #7dd3fc;
+    border-radius: 22px;
+    padding: 18px 20px 16px;
+    width: min(92vw, 560px);
+    max-height: min(96dvh, 820px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 38px rgba(56, 189, 248, 0.42), inset 0 0 26px rgba(8, 47, 73, 0.42);
+    text-align: center;
+}
+
+.flappybird-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #e0f2fe;
+    text-shadow: 0 0 18px rgba(125, 211, 252, 0.92);
+    margin: 0 0 6px;
+}
+
+.flappybird-subtitle {
+    color: #e0f2fe;
+    font-size: 0.9rem;
+    margin: 0 0 10px;
+}
+
+.flappybird-subtitle strong {
+    color: #7dd3fc;
+}
+
+.flappybird-hud {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: #e0f2fe;
+    font-size: 0.95rem;
+}
+
+.flappybird-board-wrap {
+    border-radius: 14px;
+    border: 2px solid rgba(125, 211, 252, 0.35);
+    padding: 8px;
+    margin-top: 2px;
+    background: rgba(2, 6, 23, 0.5);
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.7);
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#flappybird-canvas {
+    display: block;
+    width: auto;
+    max-width: 420px;
+    height: min(58dvh, 640px);
+    max-height: 100%;
+    aspect-ratio: 21 / 32;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #38bdf8 0%, #7dd3fc 40%, #67e8f9 100%);
+}
+
+.flappybird-actions {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.flappybird-controls {
+    margin: 0;
+    color: rgba(224, 242, 254, 0.8);
+    font-size: 0.78rem;
+}
+
+@media (max-width: 700px) {
+    .flappybird-hud {
+        font-size: 0.76rem;
+        gap: 6px;
+    }
+
+    .flappybird-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .flappybird-bonus-container {
+        padding: 12px 10px;
+        max-height: 96dvh;
+    }
+
+    #flappybird-canvas {
+        width: auto;
+        max-width: 360px;
+        height: min(52dvh, 520px);
+    }
+}
+
+/* ── ARKANOID BONUS ──────────────────────────────────────────────────────── */
+
+.arkanoid-bonus-container {
+    background:
+        radial-gradient(circle at top, rgba(147, 197, 253, 0.2), transparent 40%),
+        linear-gradient(180deg, #0f172a 0%, #1e1b4b 52%, #0f172a 100%);
+    border: 2px solid #93c5fd;
+    border-radius: 22px;
+    padding: 18px 20px 16px;
+    width: min(94vw, 760px);
+    max-height: 96vh;
+    overflow-y: auto;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.42), inset 0 0 28px rgba(30, 27, 75, 0.4);
+    text-align: center;
+}
+
+.arkanoid-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #dbeafe;
+    text-shadow: 0 0 18px rgba(147, 197, 253, 0.9);
+    margin: 0 0 6px;
+}
+
+.arkanoid-subtitle {
+    color: #dbeafe;
+    font-size: 0.9rem;
+    margin: 0 0 10px;
+}
+
+.arkanoid-subtitle strong {
+    color: #93c5fd;
+}
+
+.arkanoid-hud {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    color: #dbeafe;
+    font-size: 0.95rem;
+}
+
+.arkanoid-board-wrap {
+    border-radius: 14px;
+    border: 2px solid rgba(147, 197, 253, 0.38);
+    padding: 8px;
+    background: rgba(2, 6, 23, 0.62);
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.72);
+}
+
+#arkanoid-canvas {
+    display: block;
+    width: min(90vw, 640px);
+    max-width: 640px;
+    aspect-ratio: 64 / 42;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #1d4ed8 0%, #1e293b 75%);
+}
+
+.arkanoid-actions {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.arkanoid-controls {
+    margin: 0;
+    color: rgba(219, 234, 254, 0.82);
+    font-size: 0.78rem;
+}
+
+@media (max-width: 700px) {
+    .arkanoid-hud {
+        font-size: 0.74rem;
+        gap: 6px;
+    }
+
+    .arkanoid-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .arkanoid-bonus-container {
+        padding: 12px 10px;
+    }
+
+    #arkanoid-canvas {
+        width: min(90vw, 520px);
+        max-width: 520px;
     }
 }

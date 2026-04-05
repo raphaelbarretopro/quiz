@@ -1,20 +1,20 @@
-const game2048 = {
-    id: 'game2048',
-    label: '2048',
+const flappyBirdGame = {
+    id: 'flappybird',
+    label: 'FLAPPY BIRD',
     async run(ctx) {
-        const result = await ctx.view.runGame2048BonusLevel();
+        const result = await ctx.view.runFlappyBirdBonusLevel();
 
         if (ctx.hasTimedOut()) {
             return;
         }
 
         if (result.won) {
-            await ctx.view.showGame2048VictoryPopup(ctx.model.playerName);
-            const finalScore = await ctx.view.showGame2048FinalSummary(
+            await ctx.view.showFlappyBirdVictoryPopup(ctx.model.playerName);
+            const finalScore = await ctx.view.showFlappyBirdFinalSummary(
                 ctx.model.playerScore,
                 ctx.reward,
-                result.score,
-                result.maxTile
+                result.pipesCleared,
+                result.bestStreak
             );
             ctx.model.playerScore = finalScore;
             ctx.view.updateScoreDisplay(finalScore);
@@ -23,8 +23,8 @@ const game2048 = {
 
         if (result.reason === 'no_lives') {
             ctx.view.showAlert(
-                '🔢 Sem Vidas no 2048',
-                'Você perdeu as 3 vidas no desafio 2048. Continue acertando as perguntas para liberar uma nova tentativa!',
+                '🐦 Sem Vidas no Flappy Bird',
+                'Você perdeu as 3 vidas no desafio FLAPPY BIRD. Continue acertando as perguntas para liberar uma nova tentativa!',
                 () => ctx.view.resumeGameMusic()
             );
             return;
@@ -33,7 +33,7 @@ const game2048 = {
         if (result.reason === 'timeout') {
             ctx.view.showAlert(
                 '⏱️ Tempo Esgotado',
-                'O tempo acabou antes de alcançar o bloco 128. Continue acertando as perguntas para liberar uma nova tentativa!',
+                'O tempo acabou antes de passar pelos 10 canos. Continue acertando as perguntas para liberar uma nova tentativa!',
                 () => ctx.view.resumeGameMusic()
             );
             return;
@@ -42,18 +42,18 @@ const game2048 = {
         if (result.reason === 'giveup') {
             ctx.view.showAlert(
                 '⏸️ Desafio Interrompido',
-                'O desafio 2048 foi interrompido. Continue acertando as perguntas para liberar uma nova tentativa.',
+                'O desafio FLAPPY BIRD foi interrompido. Continue acertando as perguntas para liberar uma nova tentativa.',
                 () => ctx.view.resumeGameMusic()
             );
             return;
         }
 
         ctx.view.showAlert(
-            '🔢 Desafio Encerrado',
-            'O desafio 2048 foi encerrado. Continue acertando as perguntas para liberar uma nova tentativa!',
+            '🐦 Desafio Encerrado',
+            'O desafio FLAPPY BIRD foi encerrado. Continue acertando as perguntas para liberar uma nova tentativa!',
             () => ctx.view.resumeGameMusic()
         );
     }
 };
 
-export default game2048;
+export default flappyBirdGame;

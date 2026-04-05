@@ -187,7 +187,25 @@ export default class View {
             game2048Timer: document.getElementById('game2048-timer'),
             game2048Lives: document.getElementById('game2048-lives'),
             game2048GiveUpBtn: document.getElementById('game2048-giveup-btn'),
-            game2048TestBtn: document.getElementById('game2048-test-btn')
+            game2048TestBtn: document.getElementById('game2048-test-btn'),
+
+            // Bonus especial estilo FLAPPY BIRD
+            flappybirdBonusModal: document.getElementById('flappybird-bonus-modal'),
+            flappybirdCanvas: document.getElementById('flappybird-canvas'),
+            flappybirdScore: document.getElementById('flappybird-score'),
+            flappybirdTimer: document.getElementById('flappybird-timer'),
+            flappybirdLives: document.getElementById('flappybird-lives'),
+            flappybirdGiveUpBtn: document.getElementById('flappybird-giveup-btn'),
+            flappybirdTestBtn: document.getElementById('flappybird-test-btn'),
+
+            // Bonus especial estilo ARKANOID
+            arkanoidBonusModal: document.getElementById('arkanoid-bonus-modal'),
+            arkanoidCanvas: document.getElementById('arkanoid-canvas'),
+            arkanoidScore: document.getElementById('arkanoid-score'),
+            arkanoidTimer: document.getElementById('arkanoid-timer'),
+            arkanoidLives: document.getElementById('arkanoid-lives'),
+            arkanoidGiveUpBtn: document.getElementById('arkanoid-giveup-btn'),
+            arkanoidTestBtn: document.getElementById('arkanoid-test-btn')
         };
 
         this.rot = 0;
@@ -210,6 +228,8 @@ export default class View {
         this.froggerSession = null;
         this.tetrisSession = null;
         this.game2048Session = null;
+        this.flappybirdSession = null;
+        this.arkanoidSession = null;
         this.streakPopupHideTimer = null;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
@@ -368,7 +388,9 @@ export default class View {
             isVisible(this.els.lordeHeroBonusModal) ||
             isVisible(this.els.froggerBonusModal) ||
             isVisible(this.els.tetrisBonusModal) ||
-            isVisible(this.els.game2048BonusModal)
+            isVisible(this.els.game2048BonusModal) ||
+            isVisible(this.els.flappybirdBonusModal) ||
+            isVisible(this.els.arkanoidBonusModal)
         );
     }
 
@@ -774,6 +796,16 @@ export default class View {
     bindGame2048Test(handler) {
         if (!this.els.game2048TestBtn) return;
         this.els.game2048TestBtn.addEventListener('click', handler);
+    }
+
+    bindFlappyBirdTest(handler) {
+        if (!this.els.flappybirdTestBtn) return;
+        this.els.flappybirdTestBtn.addEventListener('click', handler);
+    }
+
+    bindArkanoidTest(handler) {
+        if (!this.els.arkanoidTestBtn) return;
+        this.els.arkanoidTestBtn.addEventListener('click', handler);
     }
 
     showPortal() {
@@ -7646,7 +7678,7 @@ export default class View {
         const promise = new Promise((resolve) => { resolvePromise = resolve; });
 
         const SIZE = 4;
-        const TARGET_TILE = 256;
+        const TARGET_TILE = 128;
         const GAME_DURATION = 60;
         const tilePalette = {
             0: { bg: 'rgba(255, 237, 213, 0.10)', color: 'transparent' },
@@ -7894,7 +7926,7 @@ export default class View {
         card.innerHTML = `
             <h3 class="slot-summary-title">VOCÊ VENCEU! 🔢✨</h3>
             <div style="font-size:4.2rem; margin:16px 0; line-height:1.2;">🎉🔢🎉</div>
-            <p class="enduro-victory-text"><strong>${safeName}</strong>, alcançou o bloco 256 no 2048!</p>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, alcançou o bloco 128 no 2048!</p>
         `;
 
         overlay.appendChild(card);
@@ -7974,6 +8006,1141 @@ export default class View {
 
                 const oldScore = runningScore;
                 runningScore += safeRawScore + tileBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1800);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try { this.cashRegisterAudio.currentTime = 0; } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    runFlappyBirdBonusLevel() {
+        const modal = this.els.flappybirdBonusModal;
+        const canvas = this.els.flappybirdCanvas;
+
+        if (!modal || !canvas) {
+            return Promise.resolve({ won: false, reason: 'no_canvas', pipesCleared: 0, bestStreak: 0 });
+        }
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            return Promise.resolve({ won: false, reason: 'no_ctx', pipesCleared: 0, bestStreak: 0 });
+        }
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.flappybirdSession && this.flappybirdSession.cleanup) {
+            this.flappybirdSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        const GAME_DURATION = 60;
+        const INTRO_DURATION = 5;
+        const TARGET_PIPES = 10;
+        const PIPE_GAP = 220;
+        const PIPE_WIDTH = 60;
+        const PIPE_SPEED = 135;
+        const PIPE_SPAWN_MS = 1700;
+        const GRAVITY = 960;
+        const FLAP_FORCE = -430;
+        const BIRD_X = 110;
+        const GROUND_HEIGHT = 88;
+        const CEILING_MARGIN = 18;
+
+        let lives = 3;
+        let timeLeft = GAME_DURATION;
+        let pipesCleared = 0;
+        let bestStreak = 0;
+        let currentStreak = 0;
+        let finished = false;
+        let rafId = null;
+        let timerTick = null;
+        let keyHandler = null;
+        let pointerHandler = null;
+        let touchHandler = null;
+        let lastTs = 0;
+        let spawnAcc = 0;
+        let flashUntil = 0;
+        let introActive = true;
+        let introElapsed = 0;
+        const introButton = { x: 0, y: 0, w: 0, h: 0 };
+
+        const bird = {
+            x: BIRD_X,
+            y: canvas.height / 2,
+            velocityY: 0,
+            radius: 16,
+            angle: 0
+        };
+
+        let pipes = [];
+
+        const playTone = (frequency = 440, duration = 0.08, type = 'triangle', gainValue = 0.08) => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(frequency, now);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(gainValue, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + duration + 0.02);
+        };
+
+        const flap = () => {
+            if (finished) return;
+            bird.velocityY = FLAP_FORCE;
+            bird.angle = -0.45;
+            playTone(680, 0.05, 'square', 0.07);
+        };
+
+        const canStartGameplay = () => introElapsed >= INTRO_DURATION;
+
+        const startGameplayAfterIntro = () => {
+            if (!introActive || !canStartGameplay()) return;
+            introActive = false;
+            flashUntil = Date.now() + 500;
+            spawnAcc = PIPE_SPAWN_MS * 0.55;
+            playTone(560, 0.06, 'triangle', 0.08);
+        };
+
+        const resetBird = (withIntro = false) => {
+            bird.y = canvas.height / 2;
+            bird.velocityY = 0;
+            bird.angle = 0;
+            pipes = [];
+            spawnAcc = withIntro ? 0 : PIPE_SPAWN_MS * 0.45;
+            flashUntil = withIntro ? 0 : Date.now() + 1400;
+            if (withIntro) {
+                introActive = true;
+                introElapsed = 0;
+            }
+        };
+
+        const updateHud = () => {
+            if (this.els.flappybirdScore) this.els.flappybirdScore.textContent = `Canos: ${pipesCleared}/${TARGET_PIPES}`;
+            if (this.els.flappybirdTimer) this.els.flappybirdTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.flappybirdLives) this.els.flappybirdLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        const spawnPipe = () => {
+            const minTop = 110;
+            const maxTop = canvas.height - GROUND_HEIGHT - PIPE_GAP - 110;
+            const topHeight = minTop + Math.random() * Math.max(20, maxTop - minTop);
+            pipes.push({
+                x: canvas.width + PIPE_WIDTH,
+                width: PIPE_WIDTH,
+                gapY: topHeight,
+                gapHeight: PIPE_GAP,
+                passed: false
+            });
+        };
+
+        const drawBackground = () => {
+            const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            sky.addColorStop(0, '#38bdf8');
+            sky.addColorStop(0.58, '#7dd3fc');
+            sky.addColorStop(1, '#bbf7d0');
+            ctx.fillStyle = sky;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = 'rgba(255,255,255,0.7)';
+            [[80, 90, 24], [170, 130, 18], [315, 105, 20]].forEach(([x, y, r]) => {
+                ctx.beginPath();
+                ctx.arc(x, y, r, Math.PI * 0.9, Math.PI * 0.1, false);
+                ctx.arc(x + r * 0.9, y, r * 0.85, Math.PI, 0, false);
+                ctx.arc(x + r * 1.8, y, r, Math.PI, Math.PI * 0.1, false);
+                ctx.fill();
+            });
+        };
+
+        const drawPipes = () => {
+            pipes.forEach((pipe) => {
+                const right = pipe.x + pipe.width;
+                ctx.fillStyle = '#16a34a';
+                ctx.fillRect(pipe.x, 0, pipe.width, pipe.gapY);
+                ctx.fillRect(pipe.x, pipe.gapY + pipe.gapHeight, pipe.width, canvas.height - pipe.gapY - pipe.gapHeight - GROUND_HEIGHT);
+
+                ctx.fillStyle = '#22c55e';
+                ctx.fillRect(pipe.x - 6, pipe.gapY - 22, pipe.width + 12, 22);
+                ctx.fillRect(pipe.x - 6, pipe.gapY + pipe.gapHeight, pipe.width + 12, 22);
+
+                ctx.fillStyle = 'rgba(255,255,255,0.14)';
+                ctx.fillRect(pipe.x + 10, 0, 10, pipe.gapY);
+                ctx.fillRect(pipe.x + 10, pipe.gapY + pipe.gapHeight, 10, canvas.height - pipe.gapY - pipe.gapHeight - GROUND_HEIGHT);
+
+                ctx.fillStyle = 'rgba(6,95,70,0.5)';
+                ctx.fillRect(right - 12, 0, 12, pipe.gapY);
+                ctx.fillRect(right - 12, pipe.gapY + pipe.gapHeight, 12, canvas.height - pipe.gapY - pipe.gapHeight - GROUND_HEIGHT);
+            });
+        };
+
+        const drawGround = () => {
+            ctx.fillStyle = '#65a30d';
+            ctx.fillRect(0, canvas.height - GROUND_HEIGHT, canvas.width, GROUND_HEIGHT);
+            ctx.fillStyle = '#4d7c0f';
+            for (let x = 0; x < canvas.width; x += 28) {
+                ctx.fillRect(x, canvas.height - GROUND_HEIGHT + 16, 18, 8);
+                ctx.fillRect(x + 14, canvas.height - GROUND_HEIGHT + 38, 22, 8);
+            }
+        };
+
+        const drawBird = () => {
+            const flashing = introActive
+                ? Math.floor(Date.now() / 180) % 2 === 0
+                : Date.now() < flashUntil && Math.floor(Date.now() / 120) % 2 === 0;
+            if (flashing) return;
+
+            ctx.save();
+            ctx.translate(bird.x, bird.y);
+            ctx.rotate(bird.angle);
+
+            ctx.fillStyle = '#fde047';
+            ctx.beginPath();
+            ctx.arc(0, 0, bird.radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#f59e0b';
+            ctx.beginPath();
+            ctx.ellipse(-4, 2, bird.radius * 0.65, bird.radius * 0.5, 0.2, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#fff';
+            ctx.beginPath();
+            ctx.arc(6, -6, 5.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#111827';
+            ctx.beginPath();
+            ctx.arc(8, -6, 2.4, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = '#fb923c';
+            ctx.beginPath();
+            ctx.moveTo(16, 0);
+            ctx.lineTo(28, 4);
+            ctx.lineTo(16, 10);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.strokeStyle = '#fbbf24';
+            ctx.lineWidth = 5;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(-6, -2);
+            ctx.quadraticCurveTo(-18, -18, -8, -26);
+            ctx.stroke();
+
+            ctx.restore();
+        };
+
+        const drawHudOverlay = () => {
+            ctx.fillStyle = 'rgba(8, 47, 73, 0.42)';
+            ctx.fillRect(12, 12, canvas.width - 24, 42);
+            ctx.font = 'bold 16px Orbitron, sans-serif';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#f0f9ff';
+            ctx.textAlign = 'left';
+            ctx.fillText(`Canos ${pipesCleared}/${TARGET_PIPES}`, 24, 33);
+            ctx.textAlign = 'center';
+            ctx.fillText(`❤️ ${lives}`, canvas.width / 2, 33);
+            ctx.textAlign = 'right';
+            ctx.fillText(`⏱ ${timeLeft}s`, canvas.width - 24, 33);
+            ctx.textAlign = 'left';
+        };
+
+        const drawIntroBalloon = () => {
+            if (!introActive) return;
+
+            const waitSeconds = Math.max(0, Math.ceil(INTRO_DURATION - introElapsed));
+            const introReady = canStartGameplay();
+            const boxW = Math.min(canvas.width - 36, 360);
+            const boxH = 130;
+            const boxX = (canvas.width - boxW) / 2;
+            const boxY = canvas.height * 0.24;
+
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.82)';
+            if (ctx.roundRect) {
+                ctx.beginPath();
+                ctx.roundRect(boxX, boxY, boxW, boxH, 14);
+                ctx.fill();
+            } else {
+                ctx.fillRect(boxX, boxY, boxW, boxH);
+            }
+
+            ctx.beginPath();
+            ctx.moveTo(boxX + boxW * 0.47, boxY + boxH);
+            ctx.lineTo(boxX + boxW * 0.56, boxY + boxH);
+            ctx.lineTo(boxX + boxW * 0.5, boxY + boxH + 14);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.strokeStyle = 'rgba(125, 211, 252, 0.82)';
+            ctx.lineWidth = 2;
+            if (ctx.roundRect) {
+                ctx.beginPath();
+                ctx.roundRect(boxX, boxY, boxW, boxH, 14);
+                ctx.stroke();
+            } else {
+                ctx.strokeRect(boxX + 0.5, boxY + 0.5, boxW - 1, boxH - 1);
+            }
+
+            ctx.fillStyle = '#e0f2fe';
+            ctx.font = 'bold 14px Orbitron, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Use a seta para cima (↑) para não cair', canvas.width / 2, boxY + 30);
+            ctx.fillText('e passar pelos tubos!', canvas.width / 2, boxY + 52);
+
+            introButton.w = 170;
+            introButton.h = 34;
+            introButton.x = canvas.width / 2 - introButton.w / 2;
+            introButton.y = boxY + 72;
+
+            ctx.fillStyle = introReady ? '#fbbf24' : 'rgba(148, 163, 184, 0.65)';
+            if (ctx.roundRect) {
+                ctx.beginPath();
+                ctx.roundRect(introButton.x, introButton.y, introButton.w, introButton.h, 10);
+                ctx.fill();
+            } else {
+                ctx.fillRect(introButton.x, introButton.y, introButton.w, introButton.h);
+            }
+
+            ctx.fillStyle = introReady ? '#0f172a' : '#e2e8f0';
+            ctx.font = 'bold 13px Orbitron, sans-serif';
+            ctx.fillText('OK, ENTENDI', canvas.width / 2, introButton.y + 22);
+
+            ctx.fillStyle = '#fde68a';
+            ctx.font = 'bold 12px Orbitron, sans-serif';
+            ctx.fillText(
+                introReady ? 'Clique no botão para iniciar' : `Aguarde ${waitSeconds}s para iniciar`,
+                canvas.width / 2,
+                boxY + 118
+            );
+            ctx.textAlign = 'left';
+        };
+
+        const isInsideIntroButton = (x, y) => (
+            x >= introButton.x
+            && x <= introButton.x + introButton.w
+            && y >= introButton.y
+            && y <= introButton.y + introButton.h
+        );
+
+        const draw = () => {
+            drawBackground();
+            drawPipes();
+            drawGround();
+            drawBird();
+            drawHudOverlay();
+            drawIntroBalloon();
+        };
+
+        const collidesWithPipe = (pipe) => {
+            const birdLeft = bird.x - bird.radius;
+            const birdRight = bird.x + bird.radius;
+            const birdTop = bird.y - bird.radius;
+            const birdBottom = bird.y + bird.radius;
+            const pipeRight = pipe.x + pipe.width;
+            const hitX = birdRight > pipe.x && birdLeft < pipeRight;
+            if (!hitX) return false;
+            const hitTop = birdTop < pipe.gapY;
+            const hitBottom = birdBottom > pipe.gapY + pipe.gapHeight;
+            return hitTop || hitBottom;
+        };
+
+        const loseLife = () => {
+            lives--;
+            currentStreak = 0;
+            updateHud();
+            playTone(170, 0.16, 'sawtooth', 0.12);
+            if (lives <= 0) {
+                finish(false, 'no_lives');
+                return;
+            }
+            resetBird();
+        };
+
+        const update = (dt) => {
+            if (introActive) {
+                introElapsed += dt;
+                bird.y = canvas.height * 0.48 + Math.sin(introElapsed * 3.2) * 8;
+                bird.angle = Math.sin(introElapsed * 3.2) * 0.08;
+                return;
+            }
+
+            bird.velocityY += GRAVITY * dt;
+            bird.y += bird.velocityY * dt;
+            bird.angle = Math.max(-0.55, Math.min(1.15, bird.velocityY / 420));
+
+            if (bird.y - bird.radius <= CEILING_MARGIN) {
+                bird.y = CEILING_MARGIN + bird.radius;
+                bird.velocityY = Math.max(0, bird.velocityY * 0.12);
+            }
+
+            if (bird.y + bird.radius >= canvas.height - GROUND_HEIGHT) {
+                loseLife();
+                return;
+            }
+
+            spawnAcc += dt * 1000;
+            if (spawnAcc >= PIPE_SPAWN_MS) {
+                spawnAcc = 0;
+                spawnPipe();
+            }
+
+            pipes.forEach((pipe) => {
+                pipe.x -= PIPE_SPEED * dt;
+
+                if (!pipe.passed && pipe.x + pipe.width < bird.x - bird.radius) {
+                    pipe.passed = true;
+                    pipesCleared++;
+                    currentStreak++;
+                    bestStreak = Math.max(bestStreak, currentStreak);
+                    updateHud();
+                    playTone(740, 0.07, 'triangle', 0.09);
+                    if (pipesCleared >= TARGET_PIPES) {
+                        finish(true, 'completed');
+                    }
+                }
+            });
+
+            pipes = pipes.filter((pipe) => pipe.x + pipe.width > -20);
+
+            if (Date.now() >= flashUntil && pipes.some((pipe) => collidesWithPipe(pipe))) {
+                loseLife();
+            }
+        };
+
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+            if (timerTick) { clearInterval(timerTick); timerTick = null; }
+            if (keyHandler) { document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+            if (pointerHandler) { canvas.removeEventListener('pointerdown', pointerHandler); pointerHandler = null; }
+            if (touchHandler) { canvas.removeEventListener('touchstart', touchHandler); touchHandler = null; }
+            if (this.els.flappybirdGiveUpBtn) this.els.flappybirdGiveUpBtn.onclick = null;
+            modal.classList.add('hidden');
+            resolvePromise({ won, reason, pipesCleared, bestStreak });
+        };
+
+        const loop = (ts) => {
+            if (finished) return;
+            const dt = lastTs === 0 ? 0 : Math.min((ts - lastTs) / 1000, 0.045);
+            lastTs = ts;
+            update(dt);
+            draw();
+            rafId = requestAnimationFrame(loop);
+        };
+
+        keyHandler = (event) => {
+            if (finished || modal.classList.contains('hidden')) return;
+            if (introActive) {
+                if ((event.key === 'Enter' || event.key === ' ') && canStartGameplay()) {
+                    event.preventDefault();
+                    startGameplayAfterIntro();
+                }
+                return;
+            }
+            if (event.key === ' ' || event.key === 'ArrowUp' || event.key === 'w' || event.key === 'W') {
+                event.preventDefault();
+                flap();
+            }
+        };
+        document.addEventListener('keydown', keyHandler);
+
+        pointerHandler = (event) => {
+            event.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const ratioX = canvas.width / rect.width;
+            const ratioY = canvas.height / rect.height;
+            const x = (event.clientX - rect.left) * ratioX;
+            const y = (event.clientY - rect.top) * ratioY;
+
+            if (introActive) {
+                if (canStartGameplay() && isInsideIntroButton(x, y)) {
+                    startGameplayAfterIntro();
+                }
+                return;
+            }
+            flap();
+        };
+        canvas.addEventListener('pointerdown', pointerHandler);
+
+        touchHandler = (event) => {
+            event.preventDefault();
+            const touch = event.touches && event.touches[0];
+            if (!touch) return;
+            const rect = canvas.getBoundingClientRect();
+            const ratioX = canvas.width / rect.width;
+            const ratioY = canvas.height / rect.height;
+            const x = (touch.clientX - rect.left) * ratioX;
+            const y = (touch.clientY - rect.top) * ratioY;
+
+            if (introActive) {
+                if (canStartGameplay() && isInsideIntroButton(x, y)) {
+                    startGameplayAfterIntro();
+                }
+                return;
+            }
+            flap();
+        };
+        canvas.addEventListener('touchstart', touchHandler, { passive: false });
+
+        if (this.els.flappybirdGiveUpBtn) {
+            this.els.flappybirdGiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        timerTick = setInterval(() => {
+            if (finished) return;
+            if (introActive) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) finish(false, 'timeout');
+        }, 1000);
+
+        resetBird(true);
+        updateHud();
+        draw();
+        rafId = requestAnimationFrame(loop);
+
+        this.flappybirdSession = { cleanup: (won = false) => finish(won) };
+        return promise;
+    }
+
+    showFlappyBirdVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🐦✨</h3>
+            <div style="font-size:4.2rem; margin:16px 0; line-height:1.2;">🎉🐦🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, passou pelos 10 canos no FLAPPY BIRD!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            [523.25, 659.25, 783.99, 987.77].forEach((freq, index) => {
+                const delay = index * 0.08;
+                const now = ac.currentTime;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.12, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.2);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.24);
+            });
+        }
+
+        return new Promise((resolve) => {
+            setTimeout(() => { overlay.remove(); resolve(); }, 5200);
+        });
+    }
+
+    showFlappyBirdFinalSummary(baseScore, reward, pipesCleared = 0, bestStreak = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safePipes = Math.max(0, Number(pipesCleared) || 0);
+        const safeBestStreak = Math.max(0, Number(bestStreak) || 0);
+        const pipeBonus = safePipes * 15;
+        const streakBonus = safeBestStreak * 10;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO FLAPPY BIRD 🐦</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🐦🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Canos atravessados (×15 pts)</span><strong>+${pipeBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 550);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Melhor sequência limpa</span><strong>+${streakBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 1150);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Concluiu o desafio</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += pipeBonus + streakBonus + safeReward;
+                totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
+                this.animateScoreIncrease(oldScore, runningScore);
+            }, 1800);
+
+            setTimeout(() => {
+                if (this.cashRegisterAudio) {
+                    this.cashRegisterAudio.pause();
+                    try { this.cashRegisterAudio.currentTime = 0; } catch (_) {}
+                    this.cashRegisterAudio.play().catch(() => {});
+                }
+            }, 2900);
+
+            setTimeout(() => {
+                overlay.remove();
+                this.resumeGameMusic();
+                resolve(runningScore);
+            }, 5400);
+        });
+    }
+
+    runArkanoidBonusLevel() {
+        const modal = this.els.arkanoidBonusModal;
+        const canvas = this.els.arkanoidCanvas;
+
+        if (!modal || !canvas) {
+            return Promise.resolve({ won: false, reason: 'no_canvas', bricksDestroyed: 0, bestCombo: 0 });
+        }
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+            return Promise.resolve({ won: false, reason: 'no_ctx', bricksDestroyed: 0, bestCombo: 0 });
+        }
+
+        this.pauseGameMusic();
+        modal.classList.remove('hidden');
+
+        if (this.arkanoidSession && this.arkanoidSession.cleanup) {
+            this.arkanoidSession.cleanup(false);
+        }
+
+        let resolvePromise = null;
+        const promise = new Promise((resolve) => { resolvePromise = resolve; });
+
+        const GAME_DURATION = 60;
+        const TARGET_BRICKS = 24;
+        const MAX_LIVES = 3;
+        const BRICK_ROWS = 6;
+        const BRICK_COLS = 8;
+        const BRICK_W = 68;
+        const BRICK_H = 18;
+        const BRICK_GAP = 8;
+        const BRICK_TOP = 62;
+
+        let lives = MAX_LIVES;
+        let timeLeft = GAME_DURATION;
+        let bricksDestroyed = 0;
+        let currentCombo = 0;
+        let bestCombo = 0;
+        let finished = false;
+        let rafId = null;
+        let timerTick = null;
+        let keyDownHandler = null;
+        let keyUpHandler = null;
+        let pointerMoveHandler = null;
+        let pointerDownHandler = null;
+        let touchMoveHandler = null;
+        let touchStartHandler = null;
+        let lastTs = 0;
+        let moveLeft = false;
+        let moveRight = false;
+
+        const paddle = {
+            width: 116,
+            height: 14,
+            x: (canvas.width - 116) / 2,
+            y: canvas.height - 34,
+            speed: 520
+        };
+
+        const ball = {
+            radius: 8,
+            x: paddle.x + paddle.width / 2,
+            y: paddle.y - 10,
+            vx: 250,
+            vy: -300,
+            stuck: true
+        };
+
+        const brickColors = ['#60a5fa', '#38bdf8', '#22d3ee', '#4ade80', '#facc15', '#fb7185'];
+        let bricks = [];
+
+        const playTone = (frequency = 440, duration = 0.07, type = 'square', gainValue = 0.08) => {
+            const ac = this.getSharedAudioContext();
+            if (!ac) return;
+            const now = ac.currentTime;
+            const osc = ac.createOscillator();
+            const gain = ac.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(frequency, now);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(gainValue, now + 0.01);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+            osc.connect(gain);
+            gain.connect(ac.destination);
+            osc.start(now);
+            osc.stop(now + duration + 0.02);
+        };
+
+        const buildBricks = () => {
+            const totalW = BRICK_COLS * BRICK_W + (BRICK_COLS - 1) * BRICK_GAP;
+            const offsetX = Math.floor((canvas.width - totalW) / 2);
+            const list = [];
+            for (let row = 0; row < BRICK_ROWS; row++) {
+                for (let col = 0; col < BRICK_COLS; col++) {
+                    list.push({
+                        x: offsetX + col * (BRICK_W + BRICK_GAP),
+                        y: BRICK_TOP + row * (BRICK_H + BRICK_GAP),
+                        w: BRICK_W,
+                        h: BRICK_H,
+                        color: brickColors[row % brickColors.length],
+                        alive: true
+                    });
+                }
+            }
+            bricks = list;
+        };
+
+        const updateHud = () => {
+            if (this.els.arkanoidScore) this.els.arkanoidScore.textContent = `Blocos: ${bricksDestroyed}/${TARGET_BRICKS}`;
+            if (this.els.arkanoidTimer) this.els.arkanoidTimer.textContent = `Tempo: ${timeLeft}s`;
+            if (this.els.arkanoidLives) this.els.arkanoidLives.textContent = `Vidas: ${'❤️'.repeat(Math.max(0, lives))}`;
+        };
+
+        const launchBall = () => {
+            if (!ball.stuck || finished) return;
+            ball.stuck = false;
+            ball.vx = (Math.random() < 0.5 ? -1 : 1) * (220 + Math.random() * 70);
+            ball.vy = -(280 + Math.random() * 60);
+            playTone(620, 0.06, 'triangle', 0.09);
+        };
+
+        const resetBall = () => {
+            ball.stuck = true;
+            ball.vx = 250;
+            ball.vy = -300;
+            ball.x = paddle.x + paddle.width / 2;
+            ball.y = paddle.y - ball.radius - 2;
+            currentCombo = 0;
+        };
+
+        const loseLife = () => {
+            lives--;
+            updateHud();
+            playTone(170, 0.14, 'sawtooth', 0.12);
+            if (lives <= 0) {
+                finish(false, 'no_lives');
+                return;
+            }
+            resetBall();
+        };
+
+        const drawBackground = () => {
+            const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            grad.addColorStop(0, '#1d4ed8');
+            grad.addColorStop(0.55, '#1e3a8a');
+            grad.addColorStop(1, '#0f172a');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = 'rgba(255,255,255,0.08)';
+            for (let x = 0; x < canvas.width; x += 28) {
+                ctx.fillRect(x, 0, 1, canvas.height);
+            }
+        };
+
+        const drawBricks = () => {
+            bricks.forEach((brick) => {
+                if (!brick.alive) return;
+                ctx.fillStyle = brick.color;
+                ctx.fillRect(brick.x, brick.y, brick.w, brick.h);
+                ctx.fillStyle = 'rgba(255,255,255,0.26)';
+                ctx.fillRect(brick.x + 2, brick.y + 2, brick.w - 4, 4);
+                ctx.strokeStyle = 'rgba(15, 23, 42, 0.45)';
+                ctx.strokeRect(brick.x + 0.5, brick.y + 0.5, brick.w - 1, brick.h - 1);
+            });
+        };
+
+        const drawPaddle = () => {
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+            ctx.fillStyle = '#93c5fd';
+            ctx.fillRect(paddle.x + 10, paddle.y + 2, paddle.width - 20, 4);
+        };
+
+        const drawBall = () => {
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+            ctx.fillStyle = '#fde68a';
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(ball.x - 2, ball.y - 2, ball.radius * 0.35, 0, Math.PI * 2);
+            ctx.fillStyle = '#fff';
+            ctx.fill();
+        };
+
+        const drawHudOverlay = () => {
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.45)';
+            ctx.fillRect(12, 12, canvas.width - 24, 34);
+            ctx.font = 'bold 15px Orbitron, sans-serif';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#e2e8f0';
+            ctx.textAlign = 'left';
+            ctx.fillText(`Blocos ${bricksDestroyed}/${TARGET_BRICKS}`, 22, 29);
+            ctx.textAlign = 'center';
+            ctx.fillText(`Combo ${bestCombo}`, canvas.width / 2, 29);
+            ctx.textAlign = 'right';
+            ctx.fillText(`⏱ ${timeLeft}s`, canvas.width - 22, 29);
+            ctx.textAlign = 'left';
+        };
+
+        const draw = () => {
+            drawBackground();
+            drawBricks();
+            drawPaddle();
+            drawBall();
+            drawHudOverlay();
+        };
+
+        const resolveBrickCollision = () => {
+            for (let i = 0; i < bricks.length; i++) {
+                const brick = bricks[i];
+                if (!brick.alive) continue;
+
+                const closestX = Math.max(brick.x, Math.min(ball.x, brick.x + brick.w));
+                const closestY = Math.max(brick.y, Math.min(ball.y, brick.y + brick.h));
+                const dx = ball.x - closestX;
+                const dy = ball.y - closestY;
+
+                if ((dx * dx + dy * dy) > (ball.radius * ball.radius)) continue;
+
+                brick.alive = false;
+                bricksDestroyed++;
+                currentCombo++;
+                bestCombo = Math.max(bestCombo, currentCombo);
+                updateHud();
+                playTone(680 + Math.min(220, currentCombo * 12), 0.06, 'triangle', 0.09);
+
+                const overlapLeft = Math.abs((ball.x + ball.radius) - brick.x);
+                const overlapRight = Math.abs((brick.x + brick.w) - (ball.x - ball.radius));
+                const overlapTop = Math.abs((ball.y + ball.radius) - brick.y);
+                const overlapBottom = Math.abs((brick.y + brick.h) - (ball.y - ball.radius));
+                const minOverlap = Math.min(overlapLeft, overlapRight, overlapTop, overlapBottom);
+
+                if (minOverlap === overlapLeft || minOverlap === overlapRight) {
+                    ball.vx *= -1;
+                } else {
+                    ball.vy *= -1;
+                }
+
+                if (bricksDestroyed >= TARGET_BRICKS) {
+                    finish(true, 'completed');
+                }
+                return;
+            }
+        };
+
+        const update = (dt) => {
+            if (moveLeft) paddle.x -= paddle.speed * dt;
+            if (moveRight) paddle.x += paddle.speed * dt;
+            paddle.x = Math.max(0, Math.min(canvas.width - paddle.width, paddle.x));
+
+            if (ball.stuck) {
+                ball.x = paddle.x + paddle.width / 2;
+                ball.y = paddle.y - ball.radius - 2;
+                return;
+            }
+
+            ball.x += ball.vx * dt;
+            ball.y += ball.vy * dt;
+
+            if (ball.x - ball.radius <= 0) {
+                ball.x = ball.radius;
+                ball.vx = Math.abs(ball.vx);
+                playTone(290, 0.035, 'square', 0.04);
+            }
+
+            if (ball.x + ball.radius >= canvas.width) {
+                ball.x = canvas.width - ball.radius;
+                ball.vx = -Math.abs(ball.vx);
+                playTone(290, 0.035, 'square', 0.04);
+            }
+
+            if (ball.y - ball.radius <= 0) {
+                ball.y = ball.radius;
+                ball.vy = Math.abs(ball.vy);
+                playTone(320, 0.035, 'square', 0.04);
+            }
+
+            if (
+                ball.y + ball.radius >= paddle.y &&
+                ball.y + ball.radius <= paddle.y + paddle.height + 8 &&
+                ball.x >= paddle.x - 4 &&
+                ball.x <= paddle.x + paddle.width + 4 &&
+                ball.vy > 0
+            ) {
+                const hitPos = (ball.x - (paddle.x + paddle.width / 2)) / (paddle.width / 2);
+                ball.vx = 360 * hitPos;
+                ball.vy = -Math.max(260, Math.abs(ball.vy));
+                currentCombo = 0;
+                playTone(520, 0.05, 'triangle', 0.07);
+            }
+
+            resolveBrickCollision();
+
+            if (ball.y - ball.radius > canvas.height + 8) {
+                loseLife();
+            }
+        };
+
+        const finish = (won, reason = 'interrupted') => {
+            if (finished) return;
+            finished = true;
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+            if (timerTick) { clearInterval(timerTick); timerTick = null; }
+            if (keyDownHandler) { document.removeEventListener('keydown', keyDownHandler); keyDownHandler = null; }
+            if (keyUpHandler) { document.removeEventListener('keyup', keyUpHandler); keyUpHandler = null; }
+            if (pointerMoveHandler) { canvas.removeEventListener('pointermove', pointerMoveHandler); pointerMoveHandler = null; }
+            if (pointerDownHandler) { canvas.removeEventListener('pointerdown', pointerDownHandler); pointerDownHandler = null; }
+            if (touchMoveHandler) { canvas.removeEventListener('touchmove', touchMoveHandler); touchMoveHandler = null; }
+            if (touchStartHandler) { canvas.removeEventListener('touchstart', touchStartHandler); touchStartHandler = null; }
+            if (this.els.arkanoidGiveUpBtn) this.els.arkanoidGiveUpBtn.onclick = null;
+            modal.classList.add('hidden');
+            resolvePromise({ won, reason, bricksDestroyed, bestCombo });
+        };
+
+        const loop = (ts) => {
+            if (finished) return;
+            const dt = lastTs === 0 ? 0 : Math.min((ts - lastTs) / 1000, 0.04);
+            lastTs = ts;
+            update(dt);
+            draw();
+            rafId = requestAnimationFrame(loop);
+        };
+
+        keyDownHandler = (event) => {
+            if (finished || modal.classList.contains('hidden')) return;
+            const key = event.key;
+            if (key === 'ArrowLeft' || key === 'a' || key === 'A') {
+                moveLeft = true;
+                event.preventDefault();
+                return;
+            }
+            if (key === 'ArrowRight' || key === 'd' || key === 'D') {
+                moveRight = true;
+                event.preventDefault();
+                return;
+            }
+            if (key === ' ' || key === 'ArrowUp' || key === 'w' || key === 'W') {
+                launchBall();
+                event.preventDefault();
+            }
+        };
+
+        keyUpHandler = (event) => {
+            const key = event.key;
+            if (key === 'ArrowLeft' || key === 'a' || key === 'A') {
+                moveLeft = false;
+            }
+            if (key === 'ArrowRight' || key === 'd' || key === 'D') {
+                moveRight = false;
+            }
+        };
+
+        pointerMoveHandler = (event) => {
+            const rect = canvas.getBoundingClientRect();
+            if (!rect.width) return;
+            const ratio = canvas.width / rect.width;
+            const pointerX = (event.clientX - rect.left) * ratio;
+            paddle.x = Math.max(0, Math.min(canvas.width - paddle.width, pointerX - paddle.width / 2));
+        };
+
+        pointerDownHandler = (event) => {
+            event.preventDefault();
+            launchBall();
+        };
+
+        touchMoveHandler = (event) => {
+            event.preventDefault();
+            const touch = event.touches && event.touches[0];
+            if (!touch) return;
+            const rect = canvas.getBoundingClientRect();
+            if (!rect.width) return;
+            const ratio = canvas.width / rect.width;
+            const pointerX = (touch.clientX - rect.left) * ratio;
+            paddle.x = Math.max(0, Math.min(canvas.width - paddle.width, pointerX - paddle.width / 2));
+        };
+
+        touchStartHandler = (event) => {
+            event.preventDefault();
+            launchBall();
+        };
+
+        document.addEventListener('keydown', keyDownHandler);
+        document.addEventListener('keyup', keyUpHandler);
+        canvas.addEventListener('pointermove', pointerMoveHandler);
+        canvas.addEventListener('pointerdown', pointerDownHandler);
+        canvas.addEventListener('touchmove', touchMoveHandler, { passive: false });
+        canvas.addEventListener('touchstart', touchStartHandler, { passive: false });
+
+        if (this.els.arkanoidGiveUpBtn) {
+            this.els.arkanoidGiveUpBtn.onclick = () => finish(false, 'giveup');
+        }
+
+        timerTick = setInterval(() => {
+            if (finished) return;
+            timeLeft--;
+            updateHud();
+            if (timeLeft <= 0) finish(false, 'timeout');
+        }, 1000);
+
+        buildBricks();
+        resetBall();
+        updateHud();
+        draw();
+        rafId = requestAnimationFrame(loop);
+
+        this.arkanoidSession = { cleanup: (won = false) => finish(won) };
+        return promise;
+    }
+
+    showArkanoidVictoryPopup(playerName = 'Jogador') {
+        const safeName = String(playerName || 'Jogador').trim() || 'Jogador';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay enduro-victory-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card enduro-victory-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">VOCÊ VENCEU! 🧱🏓</h3>
+            <div style="font-size:4.2rem; margin:16px 0; line-height:1.2;">🎉🧱🎉</div>
+            <p class="enduro-victory-text"><strong>${safeName}</strong>, dominou o ARKANOID e destruiu 24 blocos!</p>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const ac = this.getSharedAudioContext();
+        if (ac) {
+            [392, 523.25, 659.25, 880].forEach((freq, index) => {
+                const delay = index * 0.08;
+                const now = ac.currentTime;
+                const osc = ac.createOscillator();
+                const gain = ac.createGain();
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(freq, now + delay);
+                gain.gain.setValueAtTime(0.001, now + delay);
+                gain.gain.exponentialRampToValueAtTime(0.12, now + delay + 0.01);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + delay + 0.2);
+                osc.connect(gain);
+                gain.connect(ac.destination);
+                osc.start(now + delay);
+                osc.stop(now + delay + 0.24);
+            });
+        }
+
+        return new Promise((resolve) => {
+            setTimeout(() => { overlay.remove(); resolve(); }, 5200);
+        });
+    }
+
+    showArkanoidFinalSummary(baseScore, reward, bricksDestroyed = 0, bestCombo = 0) {
+        const safeBase = Number(baseScore) || 0;
+        const safeReward = Math.max(0, Number(reward) || 0);
+        const safeBricks = Math.max(0, Number(bricksDestroyed) || 0);
+        const safeBestCombo = Math.max(0, Number(bestCombo) || 0);
+        const brickBonus = safeBricks * 8;
+        const comboBonus = safeBestCombo * 12;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'slot-summary-overlay';
+
+        const card = document.createElement('div');
+        card.className = 'slot-summary-card';
+        card.innerHTML = `
+            <h3 class="slot-summary-title">TOTAL DO DESAFIO ARKANOID 🧱</h3>
+            <div class="enduro-trophy-hero" aria-hidden="true">🧱🏆</div>
+            <div class="slot-summary-list"></div>
+            <div class="slot-summary-total">PONTUAÇÃO: ${safeBase}</div>
+        `;
+
+        overlay.appendChild(card);
+        document.body.appendChild(overlay);
+
+        const listEl = card.querySelector('.slot-summary-list');
+        const totalEl = card.querySelector('.slot-summary-total');
+
+        return new Promise((resolve) => {
+            let runningScore = safeBase;
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Blocos destruídos (×8 pts)</span><strong>+${brickBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 550);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Maior combo (${safeBestCombo})</span><strong>+${comboBonus}</strong>`;
+                listEl.appendChild(row);
+            }, 1150);
+
+            setTimeout(() => {
+                const row = document.createElement('div');
+                row.className = 'slot-summary-row';
+                row.innerHTML = `<span>Concluiu o desafio</span><strong>+${safeReward}</strong>`;
+                listEl.appendChild(row);
+
+                const oldScore = runningScore;
+                runningScore += brickBonus + comboBonus + safeReward;
                 totalEl.textContent = `PONTUAÇÃO: ${runningScore}`;
                 this.animateScoreIncrease(oldScore, runningScore);
             }, 1800);

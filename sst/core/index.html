@@ -179,6 +179,8 @@
                 <button id="frogger-test-btn" class="opt-btn frogger-test-btn">TESTAR FROGGER 🐸</button>
                 <button id="tetris-test-btn" class="opt-btn tetris-test-btn">TESTAR TETRIS 🧱</button>
                 <button id="game2048-test-btn" class="opt-btn game2048-test-btn">TESTAR 2048 🔢</button>
+                <button id="flappybird-test-btn" class="opt-btn flappybird-test-btn">TESTAR FLAPPY BIRD 🐦</button>
+                <button id="arkanoid-test-btn" class="opt-btn arkanoid-test-btn">TESTAR ARKANOID 🧱🏓</button>
             </div>
             
 
@@ -523,7 +525,7 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3770; display: flex; align-items: center; justify-content: center;">
         <div class="game2048-bonus-container">
             <h2 class="game2048-title">🔢 2048 LIBERADO!</h2>
-            <p class="game2048-subtitle">Desafio bônus sorteado nesta aula. Alcance o bloco <strong>256</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
+            <p class="game2048-subtitle">Desafio bônus sorteado nesta aula. Alcance o bloco <strong>128</strong> em <strong>1 minuto</strong> para ganhar <strong>+100 pontos</strong>.</p>
 
             <div class="game2048-hud">
                 <span id="game2048-score">Pontos: 0</span>
@@ -538,6 +540,54 @@
             <div class="game2048-actions">
                 <p class="game2048-controls">⬆⬇⬅➡ ou W A S D para mover e combinar blocos</p>
                 <button id="game2048-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo FLAPPY BIRD -->
+    <div id="flappybird-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3780; display: flex; align-items: center; justify-content: center;">
+        <div class="flappybird-bonus-container">
+            <h2 class="flappybird-title">🐦 FLAPPY BIRD LIBERADO!</h2>
+            <p class="flappybird-subtitle">Desafio bônus sorteado nesta aula. Passe por <strong>10 canos</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="flappybird-hud">
+                <span id="flappybird-score">Canos: 0/10</span>
+                <span id="flappybird-timer">Tempo: 60s</span>
+                <span id="flappybird-lives">Vidas: ❤️❤️❤️</span>
+            </div>
+
+            <div class="flappybird-board-wrap">
+                <canvas id="flappybird-canvas" width="420" height="640" aria-label="Mini-game bônus estilo Flappy Bird"></canvas>
+            </div>
+
+            <div class="flappybird-actions">
+                <p class="flappybird-controls">Espaço, clique ou toque no jogo para bater asas</p>
+                <button id="flappybird-giveup-btn" class="slot-btn-close">DESISTIR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Bônus Especial: desafio estilo ARKANOID -->
+    <div id="arkanoid-bonus-modal" class="hidden"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3790; display: flex; align-items: center; justify-content: center;">
+        <div class="arkanoid-bonus-container">
+            <h2 class="arkanoid-title">🧱🏓 ARKANOID LIBERADO!</h2>
+            <p class="arkanoid-subtitle">Desafio bônus sorteado nesta aula. Destrua <strong>24 blocos</strong> em <strong>1 minuto</strong> com <strong>3 vidas</strong> para ganhar <strong>+100 pontos</strong>.</p>
+
+            <div class="arkanoid-hud">
+                <span id="arkanoid-score">Blocos: 0/24</span>
+                <span id="arkanoid-timer">Tempo: 60s</span>
+                <span id="arkanoid-lives">Vidas: ❤️❤️❤️</span>
+            </div>
+
+            <div class="arkanoid-board-wrap">
+                <canvas id="arkanoid-canvas" width="640" height="420" aria-label="Mini-game bônus estilo Arkanoid"></canvas>
+            </div>
+
+            <div class="arkanoid-actions">
+                <p class="arkanoid-controls">⬅➡ / A D / mouse para mover | Espaço, clique ou toque para lançar</p>
+                <button id="arkanoid-giveup-btn" class="slot-btn-close">DESISTIR</button>
             </div>
         </div>
     </div>
