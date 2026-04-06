@@ -686,7 +686,7 @@ class Controller {
 
         try {
             const identity = this.getGoogleIdentity(this.authUser);
-            await this.ranking.saveScore(
+            const scoreSaved = await this.ranking.saveScore(
                 this.model.playerName,
                 this.model.playerScore,
                 this.model.stats.correct,
@@ -698,6 +698,13 @@ class Controller {
                     alias: identity.scoreLabel
                 }
             );
+
+            if (!scoreSaved) {
+                this.view.showAlert(
+                    'Resultado não registrado',
+                    'Você concluiu o quiz, mas houve falha ao salvar no ranking do Firebase. Verifique login/permissões e tente novamente.'
+                );
+            }
 
             this.view.showEndScreen(
                 this.model.stats,

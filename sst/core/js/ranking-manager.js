@@ -127,6 +127,20 @@ export default class RankingManager {
         });
     }
 
+    buildSafeScoreId(playerName = '', timestamp = Date.now()) {
+        // Chaves do Realtime Database não aceitam . # $ [ ] /.
+        const normalizedName = String(playerName || '')
+            .trim()
+            .toLowerCase()
+            .replace(/[.#$\[\]/]/g, '_')
+            .replace(/\s+/g, '_')
+            .replace(/_+/g, '_')
+            .replace(/^_+|_+$/g, '');
+
+        const safeName = normalizedName || 'jogador';
+        return `${timestamp}_${safeName}`;
+    }
+
     async saveScore(playerName, score, correctAnswers, totalQuestions, gameTime = 0, identity = {}) {
         if (!(await this.ensureAccess())) {
             return false;
@@ -150,7 +164,7 @@ export default class RankingManager {
             };
 
             // Salva com ID único baseado em timestamp + nome
-            const scoreId = `${timestamp}_${playerName.replace(/\s+/g, '_')}`;
+            const scoreId = this.buildSafeScoreId(playerName, timestamp);
             await set(ref(database, `scores/${scoreId}`), scoreData);
 
             console.log('Score salvo com sucesso!', scoreData);
