@@ -223,7 +223,12 @@ export default class View {
             minesweeperTimer: document.getElementById('minesweeper-timer'),
             minesweeperLives: document.getElementById('minesweeper-lives'),
             minesweeperGiveUpBtn: document.getElementById('minesweeper-giveup-btn'),
-            minesweeperTestBtn: document.getElementById('minesweeper-test-btn')
+            minesweeperTestBtn: document.getElementById('minesweeper-test-btn'),
+
+            // Timer por questão
+            qTimerDisplay: document.getElementById('q-timer-display'),
+            qTimerValue: document.getElementById('q-timer-value'),
+            qTimeOverlay: document.getElementById('q-time-overlay')
         };
 
         this.rot = 0;
@@ -346,6 +351,23 @@ export default class View {
         this.sokobanMusic.loop = true;
         this.sokobanMusic.preload = 'auto';
         this.sokobanMusic.volume = this.defaultMusicVolume;
+
+        this.questionTimerAudio = new Audio(this.resolveAssetPath('audio/tempo.mp3'));
+        this.questionTimerAudio.preload = 'auto';
+        this.questionTimerAudio.volume = 0.85;
+
+        this.questionTimer10Audio = new Audio(this.resolveAssetPath('audio/tempo10.mp3'));
+        this.questionTimer10Audio.preload = 'auto';
+        this.questionTimer10Audio.volume = 0.85;
+
+        this.questionTimerEndAudio = new Audio(this.resolveAssetPath('audio/tempo2.mp3'));
+        this.questionTimerEndAudio.preload = 'auto';
+        this.questionTimerEndAudio.volume = 0.9;
+
+        this.shouldResumeBgMusicOnNextQuestion = false;
+
+        this.qTimerId = null;
+        this.qTimerExpired = false;
 
         this.musicEnabled = true;
 
@@ -1003,7 +1025,201 @@ export default class View {
         }, 1500);
     }
 
+    // ─── Timer por questão ────────────────────────────────────────────
+
+    stopQuestionTimer() {
+        if (this.qTimerId) {
+            clearInterval(this.qTimerId);
+            this.qTimerId = null;
+        }
+        if (this.questionTimerAudio) {
+            this.questionTimerAudio.pause();
+            this.questionTimerAudio.onended = null;
+            try { this.questionTimerAudio.currentTime = 0; } catch (_) {}
+        }
+        if (this.questionTimer10Audio) {
+            this.questionTimer10Audio.pause();
+            try { this.questionTimer10Audio.currentTime = 0; } catch (_) {}
+        }
+        if (this.questionTimerEndAudio) {
+            this.questionTimerEndAudio.pause();
+            this.questionTimerEndAudio.onended = null;
+            try { this.questionTimerEndAudio.currentTime = 0; } catch (_) {}
+        }
+        if (this.shouldResumeBgMusicOnNextQuestion) {
+            this.shouldResumeBgMusicOnNextQuestion = false;
+            this.resumeGameMusic();
+        }
+        this.qTimerExpired = false;
+        if (this.els.qTimerDisplay) {
+            this.els.qTimerDisplay.classList.add('hidden');
+            this.els.qTimerDisplay.classList.remove('q-timer-warning', 'q-timer-danger');
+        }
+        if (this.els.qTimeOverlay) {
+            this.els.qTimeOverlay.className = 'q-time-overlay';
+            this.els.qTimeOverlay.style.opacity = '0';
+            this.els.qTimeOverlay.textContent = '';
+        }
+    }
+
+    showQuizHitText(text, color, persist = false) {
+        const el = this.els.qTimeOverlay;
+        if (!el) return;
+        el.className = 'q-time-overlay';
+        el.style.opacity = '0';
+        el.textContent = text;
+        el.style.color = color;
+        void el.offsetWidth; // force reflow to restart animation
+        el.classList.add(persist ? 'q-timer-expired' : 'q-timer-pop');
+    }
+
+    startQuestionTimer(totalSecs = 40) {
+        if (!this.els.qTimerDisplay) return;
+        this.stopQuestionTimer();
+
+        let remaining = totalSecs;
+        let warningTriggered = false;
+
+        const updateDisplay = () => {
+            const mins = Math.floor(remaining / 60);
+            const secs = remaining % 60;
+            const value = `${mins}:${String(secs).padStart(2, '0')}`;
+            if (this.els.qTimerValue) {
+                this.els.qTimerValue.textContent = value;
+            } else {
+                this.els.qTimerDisplay.textContent = `⏳ ${value}`;
+            }
+            this.els.qTimerDisplay.classList.remove('q-timer-warning', 'q-timer-danger');
+            if (remaining <= 10 && remaining > 5) {
+                this.els.qTimerDisplay.classList.add('q-timer-warning');
+            } else if (remaining <= 5) {
+                this.els.qTimerDisplay.classList.add('q-timer-danger');
+            }
+        };
+
+        updateDisplay();
+        this.els.qTimerDisplay.classList.remove('hidden');
+
+        this.qTimerId = setInterval(() => {
+            remaining--;
+
+            if (remaining === 10 && !warningTriggered) {
+                warningTriggered = true;
+                this.showQuizHitText('Tempo!!!', '#FFD700', false);
+                if (this.questionTimerAudio) {
+                    this.questionTimerAudio.pause();
+                    try { this.questionTimerAudio.currentTime = 0; } catch (_) {}
+                    this.questionTimerAudio.onended = null;
+                    if (this.questionTimer10Audio) {
+                        this.questionTimer10Audio.pause();
+                        try { this.questionTimer10Audio.currentTime = 0; } catch (_) {}
+                        this.questionTimerAudio.onended = () => {
+                            this.questionTimerAudio.onended = null;
+                            this.questionTimer10Audio.play().catch(() => {});
+                        };
+                    }
+                    this.questionTimerAudio.play().catch(() => {
+                        if (this.questionTimer10Audio) {
+                            this.questionTimer10Audio.play().catch(() => {});
+                        }
+                    });
+                }
+            }
+
+            if (remaining <= 0) {
+                clearInterval(this.qTimerId);
+                this.qTimerId = null;
+                this.qTimerExpired = true;
+
+                // Ao acabar o tempo, pausa avisos/sons de contagem para tocar apenas o som final.
+                if (this.questionTimerAudio) {
+                    this.questionTimerAudio.pause();
+                    this.questionTimerAudio.onended = null;
+                    try { this.questionTimerAudio.currentTime = 0; } catch (_) {}
+                }
+                if (this.questionTimer10Audio) {
+                    this.questionTimer10Audio.pause();
+                    try { this.questionTimer10Audio.currentTime = 0; } catch (_) {}
+                }
+
+                // Pausa trilha principal e toca o som final do timer de forma isolada.
+                this.pauseGameMusic();
+                this.shouldResumeBgMusicOnNextQuestion = true;
+                if (this.questionTimerEndAudio) {
+                    this.questionTimerEndAudio.pause();
+                    try { this.questionTimerEndAudio.currentTime = 0; } catch (_) {}
+                    this.questionTimerEndAudio.play().catch(() => {
+                        if (this.questionTimer10Audio) {
+                            this.questionTimer10Audio.pause();
+                            try { this.questionTimer10Audio.currentTime = 0; } catch (_) {}
+                            this.questionTimer10Audio.play().catch(() => {});
+                        }
+                    });
+                }
+
+                if (this.els.qTimerDisplay) {
+                    if (this.els.qTimerValue) {
+                        this.els.qTimerValue.textContent = '0:00';
+                    } else {
+                        this.els.qTimerDisplay.textContent = '⏳ 0:00';
+                    }
+                    this.els.qTimerDisplay.classList.remove('q-timer-warning');
+                    this.els.qTimerDisplay.classList.add('q-timer-danger');
+                }
+                this.showQuizHitText('O Tempo Acabou', '#FF4B4B', true);
+                this._lockAllOptionsOnTimeout();
+                return;
+            }
+
+            updateDisplay();
+        }, 1000);
+    }
+
+    _lockAllOptionsOnTimeout() {
+        // Botões de alternativa simples
+        this.els.opts.querySelectorAll('.opt-btn').forEach((opt) => {
+            opt.disabled = true;
+            opt.classList.add('locked-option');
+        });
+        // Valida / val-btn
+        if (this.els.valBtn) {
+            this.els.valBtn.disabled = true;
+            this.els.valBtn.classList.add('hidden');
+        }
+        // Checkboxes (multi)
+        this.els.opts.querySelectorAll('input[type="checkbox"]').forEach((check) => {
+            check.disabled = true;
+            const wrapper = check.closest('.multi-opt');
+            if (wrapper) wrapper.classList.add('locked-option');
+        });
+        // Combo select
+        const combo = this.els.qTxt ? this.els.qTxt.querySelector('.combo-box') : null;
+        if (combo) {
+            combo.disabled = true;
+            combo.classList.add('locked-field');
+        }
+        // Drag cards e zonas
+        if (this.els.dragDrop) {
+            this.els.dragDrop.querySelectorAll('.target-zone').forEach((z) => {
+                z.classList.add('locked-option');
+                z.style.pointerEvents = 'none';
+            });
+            this.els.dragDrop.querySelectorAll('.drag-card').forEach((c) => {
+                c.draggable = false;
+                c.classList.add('locked-option');
+                c.style.pointerEvents = 'none';
+            });
+        }
+        // Habilita o botão Avançar
+        this.els.nextBtn.classList.remove('hidden');
+    }
+
+    // ─────────────────────────────────────────────────────────────────
+
     renderQuestion(q, topicData, playerName, answerHandler, currentStep = 0, totalQuestions = 0) {
+        // Para o timer da questão anterior antes de qualquer outra operação.
+        this.stopQuestionTimer();
+
         // Limpa estado visual da pergunta anterior antes de renderizar a próxima.
         this.els.opts.innerHTML = ""; 
         this.els.dragDrop.innerHTML = ""; 
@@ -1147,6 +1363,9 @@ export default class View {
                 this.els.opts.appendChild(b);
             });
         }
+
+        // Inicia o cronômetro de 40s para a questão recém-renderizada.
+        this.startQuestionTimer(40);
     }
 
     renderDrag(q, answerHandler) {
@@ -1238,6 +1457,9 @@ export default class View {
     }
 
     showFeedback(isCorrect, tip, playerName, btnElement, questionData = null, answerResult = null, streakMultiplier = 1, correctStreak = 0) {
+        // Para o timer da questão ao processar a resposta do jogador.
+        this.stopQuestionTimer();
+
         const isPartial = !isCorrect && Number(answerResult?.pointsAwarded || 0) > 0 && Number(answerResult?.totalItems || 0) > 1;
         const buildTipFrame = (content) => `
             <div class="feedback-tip-frame">
@@ -1861,7 +2083,7 @@ export default class View {
     updateTotalTimeDisplay(totalSeconds) {
         // Mostra o tempo total acumulado de sessão para critério de desempate.
         if (!this.els.totalTimeDisplay) return;
-        this.els.totalTimeDisplay.textContent = `🕒 TOTAL ${this.formatGameTime(totalSeconds)}`;
+        this.els.totalTimeDisplay.textContent = `🕒 TEMPO TOTAL ${this.formatGameTime(totalSeconds)}`;
     }
 
     setTimerVisibility(isVisible) {

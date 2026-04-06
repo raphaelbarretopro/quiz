@@ -12,7 +12,7 @@
     --hud-width: 300px;
     --hud-right: 20px;
     --hud-gap: 12px;
-    --score-panel-height: 144px;
+    --score-panel-height: 220px;
     --ranking-btn-height: 54px;
     --music-player-height: 92px;
     /* Imagem dinâmica */
@@ -1889,6 +1889,104 @@ label,
     color: #ffef9f;
     letter-spacing: 0.8px;
     font-weight: 700;
+}
+
+/* ─── Timer por questão (painel de pontos) ───────────────────── */
+.q-timer-display {
+    margin-top: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #00d4ff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 212, 255, 0.35);
+    background: rgba(0, 0, 0, 0.28);
+    transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.q-timer-icon {
+    font-size: 1.05em;
+    line-height: 1;
+}
+
+.q-timer-value {
+    font-size: 1em;
+    line-height: 1;
+}
+
+.q-timer-display.q-timer-warning {
+    color: #ff8c00;
+    border-color: rgba(255, 140, 0, 0.55);
+    animation: qTimerWarnPulse 0.55s ease-in-out infinite alternate;
+}
+
+.q-timer-display.q-timer-danger {
+    color: #ff3333;
+    border-color: rgba(255, 50, 50, 0.6);
+    animation: qTimerDangerPulse 0.32s ease-in-out infinite alternate;
+}
+
+@keyframes qTimerWarnPulse {
+    from { box-shadow: 0 0 4px rgba(255, 140, 0, 0.3); }
+    to   { box-shadow: 0 0 14px rgba(255, 140, 0, 0.85); }
+}
+
+@keyframes qTimerDangerPulse {
+    from { box-shadow: 0 0 6px rgba(255, 50, 50, 0.4); }
+    to   { box-shadow: 0 0 20px rgba(255, 50, 50, 1.0); }
+}
+
+/* ─── Overlay de texto no centro da tela de questão ─────────── */
+.q-time-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-title);
+    font-size: 4.5rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    pointer-events: none;
+    z-index: 200;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.85);
+    background: transparent;
+    border: none;
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.q-time-overlay.q-timer-pop {
+    animation: qTimerPop 4s ease-out forwards;
+}
+
+.q-time-overlay.q-timer-expired {
+    animation: qTimerExpiredPop 4s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+}
+
+@keyframes qTimerPop {
+    0%   { opacity: 0;   transform: translate(-50%, -50%) scale(0.45); }
+    8%   { opacity: 1;   transform: translate(-50%, -50%) scale(1.22); }
+    16%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.0);  }
+    88%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.0);  }
+    100% { opacity: 0;   transform: translate(-50%, -68%) scale(0.88); }
+}
+
+@keyframes qTimerExpiredPop {
+    0%   { opacity: 0;   transform: translate(-50%, -50%) scale(0.45); text-shadow: 0 0 10px rgba(0,0,0,0.85); }
+    8%   { opacity: 1;   transform: translate(-50%, -50%) scale(1.28); text-shadow: 0 0 10px rgba(0,0,0,0.85), 0 0 26px rgba(255, 50, 50, 0.95); }
+    16%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.02); text-shadow: 0 0 10px rgba(0,0,0,0.85), 0 0 24px rgba(255, 50, 50, 0.85); }
+    88%  { opacity: 1;   transform: translate(-50%, -50%) scale(1.0);  text-shadow: 0 0 10px rgba(0,0,0,0.85), 0 0 28px rgba(255, 80, 80, 0.9); }
+    100% { opacity: 0;   transform: translate(-50%, -64%) scale(0.94); text-shadow: 0 0 10px rgba(0,0,0,0.85); }
 }
 
 .score-pulse {
