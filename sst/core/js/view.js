@@ -356,13 +356,13 @@ export default class View {
         this.questionTimerAudio.preload = 'auto';
         this.questionTimerAudio.volume = 0.85;
 
+        this.questionBuzzerAudio = new Audio(this.resolveAssetPath('audio/buzina.mp3'));
+        this.questionBuzzerAudio.preload = 'auto';
+        this.questionBuzzerAudio.volume = 0.9;
+
         this.questionTimer10Audio = new Audio(this.resolveAssetPath('audio/tempo10.mp3'));
         this.questionTimer10Audio.preload = 'auto';
         this.questionTimer10Audio.volume = 0.85;
-
-        this.questionTimerEndAudio = new Audio(this.resolveAssetPath('audio/tempo2.mp3'));
-        this.questionTimerEndAudio.preload = 'auto';
-        this.questionTimerEndAudio.volume = 0.9;
 
         this.shouldResumeBgMusicOnNextQuestion = false;
 
@@ -1037,14 +1037,14 @@ export default class View {
             this.questionTimerAudio.onended = null;
             try { this.questionTimerAudio.currentTime = 0; } catch (_) {}
         }
+        if (this.questionBuzzerAudio) {
+            this.questionBuzzerAudio.pause();
+            this.questionBuzzerAudio.onended = null;
+            try { this.questionBuzzerAudio.currentTime = 0; } catch (_) {}
+        }
         if (this.questionTimer10Audio) {
             this.questionTimer10Audio.pause();
             try { this.questionTimer10Audio.currentTime = 0; } catch (_) {}
-        }
-        if (this.questionTimerEndAudio) {
-            this.questionTimerEndAudio.pause();
-            this.questionTimerEndAudio.onended = null;
-            try { this.questionTimerEndAudio.currentTime = 0; } catch (_) {}
         }
         if (this.shouldResumeBgMusicOnNextQuestion) {
             this.shouldResumeBgMusicOnNextQuestion = false;
@@ -1106,23 +1106,30 @@ export default class View {
             if (remaining === 10 && !warningTriggered) {
                 warningTriggered = true;
                 this.showQuizHitText('Tempo!!!', '#FFD700', false);
+                this.pauseGameMusic();
+                this.shouldResumeBgMusicOnNextQuestion = true;
+
+                if (this.questionBuzzerAudio) {
+                    this.questionBuzzerAudio.pause();
+                    try { this.questionBuzzerAudio.currentTime = 0; } catch (_) {}
+                    this.questionBuzzerAudio.onended = null;
+                }
                 if (this.questionTimerAudio) {
                     this.questionTimerAudio.pause();
                     try { this.questionTimerAudio.currentTime = 0; } catch (_) {}
                     this.questionTimerAudio.onended = null;
-                    if (this.questionTimer10Audio) {
-                        this.questionTimer10Audio.pause();
-                        try { this.questionTimer10Audio.currentTime = 0; } catch (_) {}
-                        this.questionTimerAudio.onended = () => {
-                            this.questionTimerAudio.onended = null;
-                            this.questionTimer10Audio.play().catch(() => {});
-                        };
-                    }
+                }
+
+                if (this.questionBuzzerAudio && this.questionTimerAudio) {
+                    this.questionTimerAudio.onended = () => {
+                        this.questionTimerAudio.onended = null;
+                        this.questionBuzzerAudio.play().catch(() => {});
+                    };
                     this.questionTimerAudio.play().catch(() => {
-                        if (this.questionTimer10Audio) {
-                            this.questionTimer10Audio.play().catch(() => {});
-                        }
+                        this.questionBuzzerAudio.play().catch(() => {});
                     });
+                } else if (this.questionTimerAudio) {
+                    this.questionTimerAudio.play().catch(() => {});
                 }
             }
 
@@ -1137,24 +1144,19 @@ export default class View {
                     this.questionTimerAudio.onended = null;
                     try { this.questionTimerAudio.currentTime = 0; } catch (_) {}
                 }
+                if (this.questionBuzzerAudio) {
+                    this.questionBuzzerAudio.pause();
+                    this.questionBuzzerAudio.onended = null;
+                    try { this.questionBuzzerAudio.currentTime = 0; } catch (_) {}
+                }
                 if (this.questionTimer10Audio) {
                     this.questionTimer10Audio.pause();
                     try { this.questionTimer10Audio.currentTime = 0; } catch (_) {}
                 }
 
-                // Pausa trilha principal e toca o som final do timer de forma isolada.
-                this.pauseGameMusic();
-                this.shouldResumeBgMusicOnNextQuestion = true;
-                if (this.questionTimerEndAudio) {
-                    this.questionTimerEndAudio.pause();
-                    try { this.questionTimerEndAudio.currentTime = 0; } catch (_) {}
-                    this.questionTimerEndAudio.play().catch(() => {
-                        if (this.questionTimer10Audio) {
-                            this.questionTimer10Audio.pause();
-                            try { this.questionTimer10Audio.currentTime = 0; } catch (_) {}
-                            this.questionTimer10Audio.play().catch(() => {});
-                        }
-                    });
+                // Com o cronômetro zerado, toca apenas o aviso final.
+                if (this.questionTimer10Audio) {
+                    this.questionTimer10Audio.play().catch(() => {});
                 }
 
                 if (this.els.qTimerDisplay) {
@@ -1166,7 +1168,7 @@ export default class View {
                     this.els.qTimerDisplay.classList.remove('q-timer-warning');
                     this.els.qTimerDisplay.classList.add('q-timer-danger');
                 }
-                this.showQuizHitText('O Tempo Acabou', '#FF4B4B', true);
+                this.showQuizHitText('Acabou o seu tempo!', '#FF4B4B', true);
                 this._lockAllOptionsOnTimeout();
                 return;
             }
