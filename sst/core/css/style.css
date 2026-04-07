@@ -4944,6 +4944,157 @@ body.right-panel-open {
     }
 }
 
+/* ── Correções finais para mobile no fluxo do quiz ── */
+@media (max-width: 900px) {
+    body {
+        min-height: 100dvh;
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+        align-items: flex-start;
+        background-attachment: scroll;
+        -webkit-overflow-scrolling: touch;
+        padding-left: calc(var(--side-arrow-width) + 10px);
+        padding-right: calc(var(--side-arrow-width) + 10px);
+        padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    }
+
+    body.left-panel-open,
+    body.right-panel-open {
+        padding-left: calc(var(--side-arrow-width) + 10px);
+        padding-right: calc(var(--side-arrow-width) + 10px);
+    }
+
+    #game-container {
+        height: auto;
+        min-height: calc(100dvh - 24px);
+        max-height: none;
+        overflow: visible;
+        padding: 14px;
+    }
+
+    #start-screen,
+    #portal-screen,
+    #quiz-screen {
+        height: auto;
+        max-height: none;
+        min-height: 0;
+        overflow: visible;
+    }
+
+    #quiz-screen,
+    #quiz-screen.is-drag-question,
+    #quiz-screen.is-drag-question.drag-feedback-visible,
+    #quiz-screen:not(.is-drag-question) {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        overflow: visible;
+        padding-right: 0;
+        padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+    }
+
+    #era-tag {
+        margin-bottom: 4px !important;
+    }
+
+    #q-txt,
+    #quiz-screen.is-drag-question #q-txt,
+    #quiz-screen:not(.is-drag-question) #q-txt {
+        font-size: clamp(1rem, 4.8vw, 1.2rem) !important;
+        line-height: 1.45 !important;
+        margin-bottom: 4px !important;
+    }
+
+    #opts,
+    #quiz-screen:not(.is-drag-question) #opts {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+    }
+
+    #opts .opt-btn,
+    .multi-opt {
+        width: 100%;
+    }
+
+    #drag-drop-container,
+    #quiz-screen.is-drag-question #drag-drop-container {
+        width: 100%;
+    }
+
+    .drag-pool,
+    .drop-zones,
+    #quiz-screen.is-drag-question .drag-pool,
+    #quiz-screen.is-drag-question .drop-zones {
+        grid-template-columns: 1fr !important;
+    }
+
+    #fb-area,
+    #quiz-screen.is-drag-question #fb-area,
+    #quiz-screen:not(.is-drag-question) #fb-area {
+        max-height: none;
+        overflow: visible;
+        font-size: 1rem !important;
+        line-height: 1.5;
+        margin-top: 8px !important;
+        margin-bottom: 6px !important;
+        padding-bottom: 4px;
+    }
+
+    #quiz-screen #fb-area.has-feedback,
+    #quiz-screen.is-drag-question #fb-area.has-feedback {
+        margin-top: 12px !important;
+        margin-bottom: 6px !important;
+    }
+
+    #val-btn,
+    #next-btn,
+    #quiz-screen.is-drag-question #val-btn,
+    #quiz-screen.is-drag-question #next-btn,
+    #quiz-screen:not(.is-drag-question) #val-btn,
+    #quiz-screen:not(.is-drag-question) #next-btn {
+        position: sticky;
+        bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+        z-index: 30;
+        width: 100%;
+        margin-top: 10px !important;
+        margin-bottom: 0 !important;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(0, 229, 255, 0.16);
+    }
+
+    .question-counter {
+        position: static;
+        align-self: flex-end;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-left: calc(var(--side-arrow-width) + 8px);
+        padding-right: calc(var(--side-arrow-width) + 8px);
+    }
+
+    body.left-panel-open,
+    body.right-panel-open {
+        padding-left: calc(var(--side-arrow-width) + 8px);
+        padding-right: calc(var(--side-arrow-width) + 8px);
+    }
+
+    #game-container {
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    #val-btn,
+    #next-btn {
+        padding: 16px 14px !important;
+        font-size: 1rem !important;
+        letter-spacing: 1px !important;
+    }
+}
+
 /* ── Tema/modalidade: responsivo + neon ── */
 #era-tag,
 #main-title {
