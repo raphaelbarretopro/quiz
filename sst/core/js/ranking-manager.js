@@ -201,8 +201,12 @@ export default class RankingManager {
     }
 
     sortScores(scores = []) {
-        // Ordena por pontuação (desc) e usa menor tempo como desempate.
+        // Ordena por: 1) acertos das perguntas, 2) moedas (score), 3) menor tempo total.
         return [...scores].sort((a, b) => {
+            const correctA = this.parseIntegerValue(a?.correct, 0);
+            const correctB = this.parseIntegerValue(b?.correct, 0);
+            if (correctA !== correctB) return correctB - correctA;
+
             const scoreA = this.parseScoreValue(a?.score);
             const scoreB = this.parseScoreValue(b?.score);
             if (scoreA !== scoreB) return scoreB - scoreA;

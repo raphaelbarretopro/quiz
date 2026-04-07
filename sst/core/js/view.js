@@ -2175,7 +2175,7 @@ export default class View {
 
         const tieBreakHint = document.createElement('p');
         tieBreakHint.style.cssText = 'color:#ffef9f; font-size:0.78rem; margin:0 0 10px 0; text-align:center;';
-        tieBreakHint.textContent = 'Critério de desempate: menor tempo total.';
+        tieBreakHint.textContent = 'Classificação: 1º acertos das perguntas, 2º moedas, 3º menor tempo total.';
         this.els.rankingList.appendChild(tieBreakHint);
 
         if (scores.length === 0) {
