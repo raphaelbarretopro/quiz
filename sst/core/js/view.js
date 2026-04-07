@@ -2149,6 +2149,9 @@ export default class View {
             row.className = 'top15-row';
             const medal = ['🥇', '🥈', '🥉'][index] || '';
             const displayName = this.getRankingDisplayName(score);
+            const correct = Math.max(0, Number(score?.correct || 0));
+            const total = Math.max(0, Number(score?.total || 0));
+            const questionScore = total > 0 ? `${correct}/${total}` : `${correct}`;
 
             if (index < 3) {
                 row.classList.add('is-podium');
@@ -2157,7 +2160,7 @@ export default class View {
             row.innerHTML = `
                 <span class="top15-pos">${index + 1}</span>
                 <span class="top15-name">${medal ? `<span class="top15-medal">${medal}</span>` : ''}${this.escapeHtml(displayName)}</span>
-                <span class="top15-score">${score.score || 0}</span>
+                <span class="top15-score">${questionScore}</span>
                 <span class="top15-time">${this.formatGameTime(score.gameTime)}</span>
             `;
             this.els.top15Body.appendChild(row);
@@ -2189,6 +2192,7 @@ export default class View {
 
         // Cria tabela de ranking
         const table = document.createElement('table');
+        table.className = 'ranking-table';
         table.style.cssText = 'width:100%; border-collapse:collapse;';
 
         // Header
@@ -2215,13 +2219,13 @@ export default class View {
 
             row.style.cssText = `background: ${bgColor}; border-bottom: 1px solid rgba(255,255,255,0.1);`;
             row.innerHTML = `
-                <td style="padding:10px; color:gold; font-weight:bold;">${medal} ${index + 1}</td>
-                <td style="padding:10px; color:#f0f0f0;">${this.escapeHtml(displayName)}</td>
-                <td style="padding:10px; text-align:center; color:#ffd700; font-weight:bold;">${score.score}</td>
-                <td style="padding:10px; text-align:center; color:#ffef9f;">${this.formatGameTime(score.gameTime)}</td>
-                <td style="padding:10px; text-align:center;"><button type="button" class="ranking-cert-link" data-rank-index="${index}">CERTIFICADO</button></td>
-                <td style="padding:10px; text-align:center; color:#2ecc71;">${score.correct}/${score.total}</td>
-                <td style="padding:10px; text-align:center; color:#00d4ff;">${score.accuracy}%</td>
+                <td data-label="Pos." style="padding:10px; color:gold; font-weight:bold;">${medal} ${index + 1}</td>
+                <td data-label="Jogador" style="padding:10px; color:#f0f0f0;">${this.escapeHtml(displayName)}</td>
+                <td data-label="Moedas" style="padding:10px; text-align:center; color:#ffd700; font-weight:bold;">${score.score}</td>
+                <td data-label="Tempo" style="padding:10px; text-align:center; color:#ffef9f;">${this.formatGameTime(score.gameTime)}</td>
+                <td data-label="Certificado" style="padding:10px; text-align:center;"><button type="button" class="ranking-cert-link" data-rank-index="${index}">CERTIFICADO</button></td>
+                <td data-label="Acertos" style="padding:10px; text-align:center; color:#2ecc71;">${score.correct}/${score.total}</td>
+                <td data-label="Precisão" style="padding:10px; text-align:center; color:#00d4ff;">${score.accuracy}%</td>
             `;
             table.appendChild(row);
         });

@@ -1282,6 +1282,39 @@ label,
     accent-color: #00e5ff;
 }
 
+.music-volume::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(0, 229, 255, 0.45), rgba(0, 229, 255, 0.9));
+}
+
+.music-volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    margin-top: -5px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: #f5ffff;
+    box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.32);
+}
+
+.music-volume::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(0, 229, 255, 0.45), rgba(0, 229, 255, 0.9));
+}
+
+.music-volume::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: #f5ffff;
+    box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.32);
+}
+
 /* ── Painel lateral de regras ───────────────────────────────── */
 .rules-panel {
     position: fixed;
@@ -2256,6 +2289,140 @@ label,
     color: #fff;
     box-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
     transform: translateY(-1px);
+}
+
+/* Ranking global: layout responsivo para mobile */
+#ranking-modal {
+    box-sizing: border-box;
+}
+
+#ranking-list {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+#ranking-list .ranking-table {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    table-layout: fixed;
+    box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+    #ranking-modal {
+        padding: 12px !important;
+        gap: 12px !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    #ranking-modal .ranking-modal-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto;
+        padding: 16px 12px !important;
+        border-radius: 14px !important;
+        max-height: none;
+        min-height: 0;
+        box-sizing: border-box;
+    }
+
+    #ranking-modal-title {
+        margin-bottom: 10px !important;
+        font-size: clamp(1.1rem, 5.2vw, 1.4rem) !important;
+    }
+
+    #ranking-list {
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-height: 0;
+    }
+
+    #ranking-list .ranking-table {
+        border-collapse: separate !important;
+        border-spacing: 0 8px;
+    }
+
+    #ranking-list .ranking-table tr:first-child {
+        display: none;
+    }
+
+    #ranking-list .ranking-table tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6px 12px;
+        padding: 10px 10px;
+        border: 1px solid rgba(0, 229, 255, 0.28);
+        border-radius: 10px;
+        background: rgba(7, 18, 30, 0.9);
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.18);
+    }
+
+    #ranking-list .ranking-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        min-width: 0;
+        padding: 0 !important;
+        border: 0 !important;
+        font-size: 0.88rem;
+        box-shadow: none !important;
+        text-align: right !important;
+    }
+
+    #ranking-list .ranking-table td::before {
+        content: attr(data-label);
+        font-size: 0.72rem;
+        color: #9fefff;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        flex-shrink: 0;
+    }
+
+    #ranking-list .ranking-table td[data-label="Certificado"] {
+        grid-column: 1 / -1;
+    }
+
+    #ranking-list .ranking-table td[data-label="Certificado"] .ranking-cert-link {
+        width: 100%;
+        margin-top: 2px;
+    }
+
+    #ranking-modal-close {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #ranking-modal {
+        padding: 10px !important;
+    }
+
+    #ranking-modal .ranking-modal-card {
+        padding: 14px 10px !important;
+    }
+
+    #ranking-list .ranking-table td {
+        font-size: 0.82rem;
+    }
+
+    #ranking-list .ranking-table td::before {
+        font-size: 0.68rem;
+    }
+
+    #ranking-list .ranking-table tr {
+        gap: 6px 10px;
+        padding: 9px;
+    }
 }
 
 .certificate-paper {
@@ -5135,6 +5302,296 @@ body.right-panel-open {
     .multi-opt input[type="checkbox"] {
         width: 18px;
         height: 18px;
+    }
+}
+
+/* ── Painéis laterais: refinamento mobile (score, top-15 e como jogar) ── */
+@media (max-width: 900px) {
+    .hud-right-panel {
+        width: min(92vw, 340px);
+    }
+
+    .hud-right-panel-inner {
+        padding: 14px 10px;
+        gap: 10px;
+    }
+
+    .hud-right-panel .score-panel,
+    .score-panel {
+        width: 100%;
+        height: auto;
+        min-height: 172px;
+        padding: 12px 10px;
+        border-width: 2px;
+        box-sizing: border-box;
+    }
+
+    .score-display {
+        gap: 4px;
+    }
+
+    .score-meta {
+        gap: 6px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .score-player {
+        max-width: 170px;
+        font-size: 0.9rem;
+    }
+
+    .score-label {
+        font-size: 0.78rem;
+    }
+
+    .score-value {
+        font-size: clamp(1.5rem, 6.3vw, 1.9rem);
+    }
+
+    .timer-display {
+        font-size: 0.78rem;
+    }
+
+    .total-time-display {
+        font-size: 0.72rem;
+    }
+
+    .q-timer-display {
+        font-size: clamp(1.2rem, 5.2vw, 1.55rem);
+        gap: 7px;
+        padding: 5px 9px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .hud-right-panel .top15-panel,
+    .top15-panel {
+        width: 100%;
+        min-height: 0;
+        max-height: min(42dvh, 340px);
+        padding: 8px 8px 10px;
+        box-sizing: border-box;
+    }
+
+    .hud-right-panel .ranking-hud-btn,
+    .ranking-hud-btn {
+        width: 100%;
+        max-width: 100%;
+        min-height: 46px;
+        margin: 0;
+        padding: 10px 8px;
+        font-size: 0.82rem;
+        letter-spacing: 0.45px;
+        line-height: 1.2;
+        border-radius: 10px;
+        box-sizing: border-box;
+        white-space: normal;
+    }
+
+    .hud-right-panel .music-player,
+    .music-player {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 9px 8px;
+        gap: 6px;
+        border-width: 2px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-areas:
+            "label toggle"
+            "volume volume";
+    }
+
+    .music-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.6px;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .music-toggle-btn {
+        font-size: 0.68rem;
+        padding: 5px 8px;
+        min-width: 94px;
+        justify-self: end;
+    }
+
+    .music-volume {
+        width: 100%;
+        min-width: 0;
+        height: 28px;
+        padding: 6px 0;
+        -webkit-appearance: none;
+        appearance: none;
+        touch-action: pan-y;
+    }
+
+    .music-volume::-webkit-slider-runnable-track {
+        height: 6px;
+    }
+
+    .music-volume::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+        margin-top: -7px;
+    }
+
+    .music-volume::-moz-range-track {
+        height: 6px;
+    }
+
+    .music-volume::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    .top15-title {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+
+    .top15-head,
+    .top15-row {
+        grid-template-columns: 20px minmax(0, 1fr) 64px 52px;
+        gap: 6px;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .top15-head {
+        font-size: 0.68rem;
+        padding: 5px 2px;
+    }
+
+    .top15-row {
+        padding: 7px 2px;
+        font-size: 0.76rem;
+    }
+
+    .top15-name {
+        min-width: 0;
+        font-size: 0.74rem;
+    }
+
+    .top15-score,
+    .top15-time {
+        font-size: 0.74rem;
+    }
+
+    .rules-panel {
+        width: min(92vw, 340px);
+        left: calc(-1 * min(92vw, 340px) - 12px);
+    }
+
+    .rules-toggle-btn.open {
+        left: min(92vw, 340px);
+    }
+
+    .rules-panel-inner {
+        padding: 18px 12px 14px;
+        gap: 10px;
+    }
+
+    .rules-panel-title {
+        font-size: 0.9rem;
+        letter-spacing: 1.2px;
+    }
+
+    .rules-list {
+        gap: 8px;
+    }
+
+    .rules-list li {
+        font-size: 0.74rem;
+        line-height: 1.4;
+        padding-left: 8px;
+    }
+
+    .rules-panel-footer {
+        font-size: 0.68rem;
+        line-height: 1.55;
+        padding-top: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hud-right-panel {
+        width: min(94vw, 320px);
+    }
+
+    .hud-right-panel .score-panel,
+    .score-panel {
+        min-height: 162px;
+        padding: 10px 8px;
+    }
+
+    .top15-head,
+    .top15-row {
+        grid-template-columns: 18px minmax(0, 1fr) 56px 48px;
+        gap: 5px;
+    }
+
+    .top15-head {
+        font-size: 0.64rem;
+    }
+
+    .top15-row,
+    .top15-name,
+    .top15-score,
+    .top15-time {
+        font-size: 0.7rem;
+    }
+
+    .rules-panel {
+        width: min(94vw, 320px);
+        left: calc(-1 * min(94vw, 320px) - 10px);
+    }
+
+    .hud-right-panel .ranking-hud-btn,
+    .ranking-hud-btn {
+        min-height: 44px;
+        padding: 9px 7px;
+        font-size: 0.76rem;
+        letter-spacing: 0.35px;
+    }
+
+    .rules-toggle-btn.open {
+        left: min(94vw, 320px);
+    }
+
+    .rules-panel-inner {
+        padding: 16px 10px 12px;
+    }
+
+    .rules-list li {
+        font-size: 0.7rem;
+    }
+
+    .hud-right-panel .music-player,
+    .music-player {
+        padding: 8px 7px;
+        gap: 5px;
+    }
+
+    .music-label {
+        font-size: 0.68rem;
+    }
+
+    .music-toggle-btn {
+        font-size: 0.64rem;
+        min-width: 86px;
+        padding: 5px 7px;
+    }
+
+    .music-volume {
+        height: 30px;
+        padding: 7px 0;
     }
 }
 
