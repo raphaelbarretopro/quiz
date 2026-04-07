@@ -1073,7 +1073,7 @@ export default class View {
         el.classList.add(persist ? 'q-timer-expired' : 'q-timer-pop');
     }
 
-    startQuestionTimer(totalSecs = 40) {
+    startQuestionTimer(totalSecs = 60) {
         if (!this.els.qTimerDisplay) return;
         this.stopQuestionTimer();
 
@@ -1366,8 +1366,8 @@ export default class View {
             });
         }
 
-        // Inicia o cronômetro de 40s para a questão recém-renderizada.
-        this.startQuestionTimer(40);
+        // Inicia o cronômetro de 60s para a questão recém-renderizada.
+        this.startQuestionTimer(60);
     }
 
     renderDrag(q, answerHandler) {

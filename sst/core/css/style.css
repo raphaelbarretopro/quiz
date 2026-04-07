@@ -5011,11 +5011,30 @@ body.right-panel-open {
     #quiz-screen:not(.is-drag-question) #opts {
         grid-template-columns: 1fr !important;
         gap: 10px !important;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     #opts .opt-btn,
     .multi-opt {
         width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box !important;
+    }
+
+    .multi-opt {
+        align-items: flex-start;
+    }
+
+    .multi-opt span {
+        flex: 1;
+        min-width: 0;
+        overflow-wrap: anywhere;
+        word-break: break-word;
     }
 
     #drag-drop-container,
@@ -5092,6 +5111,30 @@ body.right-panel-open {
         padding: 16px 14px !important;
         font-size: 1rem !important;
         letter-spacing: 1px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    #opts {
+        gap: 8px !important;
+    }
+
+    #opts .opt-btn,
+    .multi-opt {
+        padding: 12px 10px !important;
+        border-width: 1px !important;
+        border-radius: 10px !important;
+        font-size: 0.96rem !important;
+        line-height: 1.35;
+    }
+
+    .multi-opt {
+        gap: 10px !important;
+    }
+
+    .multi-opt input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
     }
 }
 

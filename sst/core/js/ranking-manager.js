@@ -39,10 +39,99 @@ export default class RankingManager {
         return keyNamePart;
     }
 
+    parseScoreValue(value) {
+        const direct = Number(value);
+        if (Number.isFinite(direct)) return direct;
+
+        const raw = String(value ?? '').trim();
+        if (!raw) return 0;
+
+        // Compatibilidade com dados legados: remove separadores e mantém apenas sinal/dígitos.
+        const normalized = raw.replace(/[^\d-]/g, '');
+        const parsed = Number(normalized);
+        return Number.isFinite(parsed) ? parsed : 0;
+    }
+
+    parseGameTimeSeconds(value) {
+        const direct = Number(value);
+        if (Number.isFinite(direct) && direct >= 0) {
+            return Math.floor(direct);
+        }
+
+        const raw = String(value ?? '').trim();
+        if (!raw) return Number.POSITIVE_INFINITY;
+
+        // Suporta formatos legados como mm:ss e hh:mm:ss.
+        if (raw.includes(':')) {
+            const parts = raw.split(':').map((part) => Number(String(part).trim()));
+            if (parts.every((part) => Number.isFinite(part) && part >= 0)) {
+                if (parts.length === 2) {
+                    return Math.floor(parts[0] * 60 + parts[1]);
+                }
+                if (parts.length === 3) {
+                    return Math.floor(parts[0] * 3600 + parts[1] * 60 + parts[2]);
+                }
+            }
+        }
+
+        // Fallback para strings com números soltos (ex.: "1064s", "17m 44s").
+        const digitsOnly = raw.replace(/[^\d]/g, '');
+        const parsed = Number(digitsOnly);
+        return Number.isFinite(parsed) ? parsed : Number.POSITIVE_INFINITY;
+    }
+
+    parseIntegerValue(value, fallback = 0) {
+        const parsed = Number(value);
+        if (!Number.isFinite(parsed)) return fallback;
+        return Math.floor(parsed);
+    }
+
+    normalizeIdentityToken(value) {
+        return String(value ?? '')
+            .trim()
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]/g, '');
+    }
+
+    getPlayerIdentityKey(scoreData = {}) {
+        const uidKey = this.normalizeIdentityToken(scoreData?.playerUid);
+        if (uidKey) return `uid:${uidKey}`;
+
+        const emailKey = this.normalizeIdentityToken(scoreData?.playerEmail);
+        if (emailKey) return `email:${emailKey}`;
+
+        const aliasKey = this.normalizeIdentityToken(scoreData?.playerAlias);
+        if (aliasKey) return `alias:${aliasKey}`;
+
+        const nameKey = this.normalizeIdentityToken(scoreData?.name);
+        if (nameKey) return `name:${nameKey}`;
+
+        // Sem identidade confiável: não deduplica com outros jogadores.
+        const ts = this.parseIntegerValue(scoreData?.timestamp, Date.now());
+        const score = this.parseScoreValue(scoreData?.score);
+        return `entry:${ts}:${score}`;
+    }
+
     normalizeScoreData(scoreData = {}, fallbackKey = '') {
+        const total = this.parseIntegerValue(scoreData?.total, 0);
+        const correct = this.parseIntegerValue(scoreData?.correct, 0);
+        const safeTotal = Math.max(0, total);
+        const safeCorrect = Math.max(0, Math.min(correct, safeTotal || correct));
+        const accuracy = safeTotal > 0
+            ? Math.round((safeCorrect / safeTotal) * 100)
+            : this.parseIntegerValue(scoreData?.accuracy, 0);
+
         return {
             ...scoreData,
             name: this.extractPlayerName(scoreData, fallbackKey),
+            score: this.parseScoreValue(scoreData?.score),
+            gameTime: this.parseGameTimeSeconds(scoreData?.gameTime),
+            correct: safeCorrect,
+            total: safeTotal,
+            accuracy,
+            timestamp: this.parseIntegerValue(scoreData?.timestamp, 0),
             playerUid: String(scoreData?.playerUid || scoreData?.uid || '').trim(),
             playerEmail: String(scoreData?.playerEmail || scoreData?.email || '').trim(),
             playerAlias: String(scoreData?.playerAlias || scoreData?.alias || '').trim()
@@ -114,17 +203,43 @@ export default class RankingManager {
     sortScores(scores = []) {
         // Ordena por pontuação (desc) e usa menor tempo como desempate.
         return [...scores].sort((a, b) => {
-            const scoreA = Number(a?.score || 0);
-            const scoreB = Number(b?.score || 0);
+            const scoreA = this.parseScoreValue(a?.score);
+            const scoreB = this.parseScoreValue(b?.score);
             if (scoreA !== scoreB) return scoreB - scoreA;
 
-            const timeA = Number.isFinite(Number(a?.gameTime)) ? Number(a.gameTime) : Number.POSITIVE_INFINITY;
-            const timeB = Number.isFinite(Number(b?.gameTime)) ? Number(b.gameTime) : Number.POSITIVE_INFINITY;
+            const timeA = this.parseGameTimeSeconds(a?.gameTime);
+            const timeB = this.parseGameTimeSeconds(b?.gameTime);
             if (timeA !== timeB) return timeA - timeB;
 
             // Critério estável final: registro mais antigo primeiro.
-            return Number(a?.timestamp || 0) - Number(b?.timestamp || 0);
+            return this.parseIntegerValue(a?.timestamp, 0) - this.parseIntegerValue(b?.timestamp, 0);
         });
+    }
+
+    consolidateBestScorePerPlayer(scores = []) {
+        const byPlayer = new Map();
+
+        scores.forEach((rawScore) => {
+            const scoreData = this.normalizeScoreData(rawScore);
+            if (!Number.isFinite(scoreData.score) || scoreData.score < 0) return;
+
+            const key = this.getPlayerIdentityKey(scoreData);
+            const previous = byPlayer.get(key);
+            if (!previous) {
+                byPlayer.set(key, scoreData);
+                return;
+            }
+
+            const [best] = this.sortScores([previous, scoreData]);
+            byPlayer.set(key, best);
+        });
+
+        return Array.from(byPlayer.values());
+    }
+
+    buildLeaderboard(scores = [], limit = 10) {
+        const consolidated = this.consolidateBestScorePerPlayer(scores);
+        return this.sortScores(consolidated).slice(0, limit);
     }
 
     buildSafeScoreId(playerName = '', timestamp = Date.now()) {
@@ -196,7 +311,7 @@ export default class RankingManager {
             }
         }
 
-        return this.sortScores(scores).slice(0, limit);
+        return this.buildLeaderboard(scores, limit);
     }
 
     subscribeToTopScores(limit = 10, callback) {
@@ -207,7 +322,7 @@ export default class RankingManager {
             }
 
             const emitFallback = async () => {
-                const scores = this.sortScores(await this.getScoresViaRest()).slice(0, limit);
+                const scores = this.buildLeaderboard(await this.getScoresViaRest(), limit);
                 callback(scores);
             };
 
@@ -225,7 +340,7 @@ export default class RankingManager {
 
             onValue(rankingQuery, (snapshot) => {
                 const scores = this.getScoresFromSnapshot(snapshot);
-                callback(this.sortScores(scores).slice(0, limit));
+                callback(this.buildLeaderboard(scores, limit));
             }, async (error) => {
                 console.error('Erro no listener em tempo real do ranking:', error);
                 await emitFallback();

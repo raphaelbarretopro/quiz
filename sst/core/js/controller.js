@@ -71,6 +71,8 @@ class Controller {
         this.slotRoundBaseScore = 0;
         this.isFinalizingQuiz = false;
         this.hasFinalizedQuiz = false;
+        this.questionAnswered = false;
+        this.isAdvancingStep = false;
         this.authUser = null;
         this.authUnsubscribe = null;
         this.rankingRealtimeSubscribed = false;
@@ -372,6 +374,8 @@ class Controller {
     }
 
     renderStep() {
+        this.questionAnswered = false;
+        this.isAdvancingStep = false;
         const q = this.model.getCurrentQuestion();
 
         // Em transições de tema, exibe roleta + popup e segue para o quiz.
@@ -502,11 +506,16 @@ class Controller {
     }
 
     handleAnswer(selectedValue, btnElement) {
-        if (this.hasTimedOut) return;
+        if (this.hasTimedOut || this.questionAnswered) return;
         const q = this.model.getCurrentQuestion();
         if (q?.type === 'combo' && this.normalizeAnswerValue(selectedValue) === '') {
             return;
         }
+
+        // Garante processamento único por questão, evitando pontuação duplicada por múltiplos cliques.
+        this.questionAnswered = true;
+        this.view.lockQuestionAfterError(q, btnElement);
+
         const result = this.evaluateAnswer(q, selectedValue);
         this.lastAnswerWasCorrect = result.isCorrect;
 
@@ -613,24 +622,31 @@ class Controller {
 
     async handleNext() {
         // Avança no fluxo; ao final, exibe tela de encerramento.
-        if (this.hasTimedOut || this.isFinalizingQuiz || this.hasFinalizedQuiz) return;
+        if (this.hasTimedOut || this.isFinalizingQuiz || this.hasFinalizedQuiz || this.isAdvancingStep) return;
+
+        this.isAdvancingStep = true;
+
         this.model.curStep++;
 
-        const ranScheduledGame = await this.tryRunScheduledGame();
-        if (ranScheduledGame) {
-            return;
-        }
-        
-        if (this.model.curStep < this.model.questions.length) {
-            // Regra: abre caça-níquel ao atingir 5 acertos consecutivos (contador dedicado).
-            if (this.slotStreak >= 5) {
-                this.slotStreak = 0;
-                this.openSlotRound();
-            } else {
-                this.renderStep();
+        try {
+            const ranScheduledGame = await this.tryRunScheduledGame();
+            if (ranScheduledGame) {
+                return;
             }
-        } else {
-            await this.finalizeQuiz();
+
+            if (this.model.curStep < this.model.questions.length) {
+                // Regra: abre caça-níquel ao atingir 5 acertos consecutivos (contador dedicado).
+                if (this.slotStreak >= 5) {
+                    this.slotStreak = 0;
+                    this.openSlotRound();
+                } else {
+                    this.renderStep();
+                }
+            } else {
+                await this.finalizeQuiz();
+            }
+        } finally {
+            this.isAdvancingStep = false;
         }
     }
 
