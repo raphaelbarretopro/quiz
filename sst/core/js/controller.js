@@ -108,7 +108,7 @@ class Controller {
     }
 
     getSokobanDurationMsByTopic(topicId) {
-        return 30000;
+        return 60000;
     }
 
     getGoogleIdentity(user = null) {
@@ -319,6 +319,8 @@ class Controller {
             // Se está em Sokoban, encerra o jogo IMEDIATAMENTE (sem alert)
             if (this.model.sokobanActive) {
                 this.finishSokobanRound(false, 'timeout');
+                // Timeout do Sokoban não deve bloquear o fluxo do quiz.
+                this.hasTimedOut = false;
                 return;
             }
 

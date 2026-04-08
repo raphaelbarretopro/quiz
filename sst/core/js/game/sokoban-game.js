@@ -1,3 +1,12 @@
+function waitForSokobanResult(view, title, message) {
+    return new Promise((resolve) => {
+        view.showAlert(title, message, () => {
+            view.resumeGameMusic();
+            resolve();
+        });
+    });
+}
+
 const sokobanGame = {
     id: 'sokoban',
     label: 'SOKOBAN',
@@ -18,10 +27,10 @@ const sokobanGame = {
             ctx.model.playerScore = finalScore;
             ctx.view.animateScoreIncrease(oldScore, finalScore);
 
-            ctx.view.showAlert(
+            await waitForSokobanResult(
+                ctx.view,
                 '📦 SOKOBAN CONCLUÍDO!',
-                `Excelente! Você completou o desafio e ganhou +${ctx.reward} pontos.`,
-                () => ctx.view.resumeGameMusic()
+                `Excelente! Você completou o desafio e ganhou +${ctx.reward} pontos. Pontuação atual: ${finalScore}.`
             );
             return;
         }
@@ -29,13 +38,18 @@ const sokobanGame = {
         // Se o jogo foi interrompido por timeout, não mostra alert adicional
         // O fluxo retorna automaticamente para a contabilização de pontos
         if (result?.reason === 'timeout') {
+            await waitForSokobanResult(
+                ctx.view,
+                '⏱️ Tempo Esgotado no Sokoban',
+                `O tempo do desafio acabou antes da conclusão. Nenhum ponto foi adicionado. Pontuação atual: ${ctx.model.playerScore}.`
+            );
             return;
         }
 
-        ctx.view.showAlert(
+        await waitForSokobanResult(
+            ctx.view,
             '📦 Desafio Interrompido',
-            'O desafio Sokoban foi interrompido antes da conclusão. Continue acertando para tentar novamente.',
-            () => ctx.view.resumeGameMusic()
+            `O desafio Sokoban foi interrompido antes da conclusão. Nenhum ponto foi adicionado. Pontuação atual: ${ctx.model.playerScore}.`
         );
     }
 };

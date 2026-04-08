@@ -974,8 +974,11 @@ export default class View {
     }
 
     showSokoban() {
+        this.stopQuestionTimer();
         this.els.introModal.classList.add('hidden');
         this.els.portalScreen.classList.add('hidden');
+        this.els.quizScreen.classList.add('hidden');
+        this.els.nextBtn.classList.add('hidden');
         this.els.sokobanScreen.classList.remove('hidden');
         this.startSokobanMusic();
     }
@@ -1075,6 +1078,10 @@ export default class View {
 
     startQuestionTimer(totalSecs = 60) {
         if (!this.els.qTimerDisplay) return;
+        if (this.isAnyMiniGameActive()) {
+            this.stopQuestionTimer();
+            return;
+        }
         this.stopQuestionTimer();
 
         let remaining = totalSecs;
