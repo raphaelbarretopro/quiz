@@ -26,6 +26,12 @@ const sokobanGame = {
             return;
         }
 
+        // Se o jogo foi interrompido por timeout, não mostra alert adicional
+        // O fluxo retorna automaticamente para a contabilização de pontos
+        if (result?.reason === 'timeout') {
+            return;
+        }
+
         ctx.view.showAlert(
             '📦 Desafio Interrompido',
             'O desafio Sokoban foi interrompido antes da conclusão. Continue acertando para tentar novamente.',

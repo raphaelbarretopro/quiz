@@ -316,6 +316,12 @@ class Controller {
             this.clearGameTimeout();
             this.view.updateTimerDisplay(0);
 
+            // Se está em Sokoban, encerra o jogo IMEDIATAMENTE (sem alert)
+            if (this.model.sokobanActive) {
+                this.finishSokobanRound(false, 'timeout');
+                return;
+            }
+
             // Mantém um registro da tentativa interrompida por tempo.
             this.lastTimeoutSnapshot = {
                 playerName: this.model.playerName,
@@ -361,11 +367,9 @@ class Controller {
         this.view.els.portalScreen.classList.add('hidden');
         this.view.els.quizScreen.classList.add('hidden');
 
-        // Se o timeout ocorreu no Sokoban bônus em andamento, reinicia apenas o mini-jogo.
+        // Se o timeout ocorreu no Sokoban bônus em andamento, encerra o jogo (sem reiniciar).
         if (this.model.sokobanActive) {
-            this.model.sokobanActive = true;
-            this.view.showSokoban();
-            this.handleSokobanReset();
+            this.finishSokobanRound(false, 'timeout');
             return;
         }
 
@@ -448,6 +452,9 @@ class Controller {
 
     handleSokobanMove(dx, dy) {
         if (this.hasTimedOut) return;
+        // Impede movimentos durante a animação de conclusão para evitar travamento
+        if (!this.model.sokobanActive) return;
+        
         // Aplica movimento, atualiza o grid e verifica vitória da etapa.
         const moveResult = this.model.movePlayer(dx, dy);
 
@@ -492,6 +499,8 @@ class Controller {
         this.clearGameTimeout();
         this.timerStarted = false;
         this.view.setTimerVisibility(false);
+        
+        // SEMPRE oculta a tela do Sokoban primeiro
         this.view.hideSokoban();
 
         if (this.activeBonusGameId === 'sokoban' && this.sokobanResolve) {
