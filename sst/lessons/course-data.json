@@ -7100,54 +7100,7 @@
             "Ao reduzir uma pela metade, a outra dobra"
           ],
           "tip": "Use a lógica das setas apontando para direções opostas: ↑ ↓."
-        },
-        {
-          "type": "drag",
-          "topics": "ACID",
-          "questions": "Relacione o cenário ao tipo de proporção correta:",
-          "items": [
-            {
-              "id": "i1",
-              "txt": "Número de licenças X Custo",
-              "match": "z1"
-            },
-            {
-              "id": "i2",
-              "txt": "Programadores X Tempo de projeto",
-              "match": "z2"
-            },
-            {
-              "id": "i3",
-              "txt": "Quantidade de servidores X Capacidade",
-              "match": "z3"
-            },
-            {
-              "id": "i4",
-              "txt": "Velocidade de rede X Tempo de download",
-              "match": "z4"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Proporção Direta"
-            },
-            {
-              "id": "z2",
-              "label": "Proporção Inversa"
-            },
-            {
-              "id": "z3",
-              "label": "Proporção Direta"
-            },
-            {
-              "id": "z4",
-              "label": "Proporção Inversa"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Proporção Direta = ↑↑. Proporção Inversa = ↑↓."
-        },
+        },        
         {
           "type": "multiple",
           "topics": "ACID",
