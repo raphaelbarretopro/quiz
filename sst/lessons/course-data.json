@@ -7100,7 +7100,7 @@
             "Ao reduzir uma pela metade, a outra dobra"
           ],
           "tip": "Use a lógica das setas apontando para direções opostas: ↑ ↓."
-        },        
+        },
         {
           "type": "multiple",
           "topics": "ACID",
@@ -7791,44 +7791,44 @@
       ]
     },
     {
-      "slug": "aula-19",
+      "slug": "aula-17-1",
       "lesson_info": {
-        "id": "Aula-19",
-        "title": "AULA 19 - TÉCNICAS DE RESOLUÇÃO DE PROBLEMAS",
+        "id": "Aula-17-1",
+        "title": "AULA 17 - LÓGICA MATEMÁTICA: CONJUNTOS E FRAÇÕES APLICADAS",
         "topics": [
           {
             "id": "ACID",
-            "name": "FUNDAMENTOS DA RESOLUÇÃO",
-            "desc": "Conceitos básicos sobre o que é um problema e a importância do raciocínio estruturado.",
-            "color": "#e74c3c",
-            "img_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
+            "name": "TEORIA DE CONJUNTOS",
+            "desc": "Propriedades fundamentais e modelagem de coleções de dados estruturados.",
+            "color": "#1abc9c",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
-            "name": "METODOLOGIA DE 5 PASSOS",
-            "desc": "A sequência completa: detalhar, encontrar, escolher, executar e revisar.",
-            "color": "#f1c40f",
-            "img_url": "https://images.unsplash.com/photo-1507925922889-7262627d26bb?auto=format&fit=crop&q=80&w=1600"
+            "name": "OPERAÇÕES LÓGICAS",
+            "desc": "Álgebra relacional, junções SQL e lógica de predicados em sistemas.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
-            "name": "FERRAMENTAS DE ANÁLISE",
-            "desc": "Uso de 5W2H, Diagrama de Ishikawa, 5 Porquês, Matriz de Decisão e PDCA.",
-            "color": "#3498db",
-            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+            "name": "TIPOLOGIA DE FRAÇÕES",
+            "desc": "Análise de capacidade computacional através de representações fracionárias.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
-            "name": "EXECUÇÃO E REVISÃO",
-            "desc": "Estudos de caso, boas práticas na implementação e medição de indicadores.",
-            "color": "#2ecc71",
-            "img_url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600"
+            "name": "CÁLCULOS E RECURSOS",
+            "desc": "Otimização de memória e armazenamento utilizando operações matemáticas.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1600"
           }
         ],
         "sokoban": [
-          "P",
           "D",
-          "C",
+          "A",
+          "T",
           "A"
         ]
       },
@@ -7836,301 +7836,718 @@
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], segundo a aula, qual é a melhor definição para um 'problema'?",
+          "questions": "[NAME], em um sistema de controle de acesso, o conjunto A representa 'usuários com privilégio root'. Se a avaliação de um ID resulta em pertinência negativa, qual a representação formal correta e seu significado?",
           "answers": [
-            "A lacuna entre a situação atual e a situação desejada",
-            "Um defeito técnico inevitável em máquinas",
-            "Uma falha exclusiva de comunicação",
-            "A falta de recursos financeiros em um projeto"
+            "ID ∈ A; O usuário possui privilégio root.",
+            "ID ⊂ A; O usuário é um subconjunto de root.",
+            "ID ∉ A; O usuário não possui privilégios de root.",
+            "ID U A; O usuário foi adicionado aos privilégios."
           ],
-          "correct": "A lacuna entre a situação atual e a situação desejada",
-          "tip": "É a distância (gap) entre onde estamos e o estado ideal desejado."
+          "correct": "ID ∉ A; O usuário não possui privilégios de root.",
+          "tip": "A pertinência negativa (∉) indica categoricamente que o elemento testado não compõe a coleção especificada."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "[NAME], no ambiente industrial, resolver problemas por tentativa e erro é mais eficiente do que aplicar métodos estruturados.",
+          "questions": "[NAME], um conjunto com cardinalidade zero n(A) = 0 em modelagem de dados implica em erro de integridade referencial absoluto e deve ser impedido pelo SGBD.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Pesquisas mostram que profissionais que usam métodos estruturados são 3x mais eficientes."
+          "tip": "A cardinalidade zero representa um conjunto vazio (ex: tabela sem registros), o que é um estado válido e comum em sistemas."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "[NAME], decisões impulsivas geram retrabalho, [COMBO] de recursos e perda de produtividade.",
+          "questions": "A cláusula 'WHERE status = ativo AND limite > 1000' em SQL define um conjunto de dados por [COMBO], não sendo necessário listar cada ID individualmente.",
           "options": [
-            "desperdício",
-            "aumento",
-            "ganho",
-            "criação"
+            "Extensão",
+            "Descrição",
+            "Diagrama de Venn",
+            "Cardinalidade"
           ],
-          "correct": "desperdício",
-          "tip": "A falta de análise prévia leva ao uso ineficiente de materiais e tempo."
+          "correct": "Descrição",
+          "tip": "A representação por descrição usa uma regra lógica ou propriedade para determinar os elementos que pertencem ao conjunto."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], o pensamento lógico e matemático na resolução de problemas envolve a capacidade de:",
+          "questions": "[NAME], na análise de coleções de dados, quais afirmações traduzem corretamente as propriedades dos conjuntos numéricos para os tipos de dados primitivos?",
           "answers": [
-            "Organizar informações",
-            "Identificar padrões",
-            "Estabelecer relações de causa e efeito",
-            "Ignorar dados contraditórios"
+            "O tipo 'int' armazena valores do conjunto dos Inteiros (Z).",
+            "O tipo 'float' é capaz de representar subconjuntos dos números Reais (R).",
+            "O conjunto dos Naturais (N) inclui números decimais positivos.",
+            "Valores booleanos (True/False) representam o conjunto Universo (U)."
           ],
           "correct": [
-            "Organizar informações",
-            "Identificar padrões",
-            "Estabelecer relações de causa e efeito"
+            "O tipo 'int' armazena valores do conjunto dos Inteiros (Z).",
+            "O tipo 'float' é capaz de representar subconjuntos dos números Reais (R)."
           ],
-          "tip": "A lógica ajuda a estruturar a situação, enquanto ignorar dados é uma prática ruim."
+          "tip": "Os conjuntos N e Z não possuem parte fracionária, enquanto Q e R são modelados computacionalmente por pontos flutuantes."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "[NAME], relacione o princípio matemático à sua aplicação na resolução de problemas:",
+          "questions": "Relacione os conceitos formais da teoria de conjuntos com suas representações práticas em análise de sistemas:",
           "items": [
             {
               "id": "d1",
-              "txt": "Decomposição",
+              "txt": "Lista vazia [] ou NULL",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Quantificação",
+              "txt": "Tabela completa sem filtros aplicados",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Comparação",
+              "txt": "Quantidade de registros (Count)",
               "match": "z3"
             },
             {
               "id": "d4",
-              "txt": "Verificação",
+              "txt": "A ⊂ B",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Dividir problemas grandes em menores"
+              "label": "Conjunto Vazio"
             },
             {
               "id": "z2",
-              "label": "Atribuir valores mensuráveis"
+              "label": "Conjunto Universo (U)"
             },
             {
               "id": "z3",
-              "label": "Avaliar alternativas com critérios"
+              "label": "Cardinalidade n(A)"
             },
             {
               "id": "z4",
-              "label": "Confirmar resultados com dados reais"
+              "label": "Relação de Inclusão"
             }
           ],
           "correct": "drag",
-          "tip": "Esses princípios trazem objetividade para a tomada de decisão."
+          "tip": "A modelagem matemática é a abstração que sustenta a estrutura de qualquer banco de dados relacional."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], quantos por cento dos erros industriais poderiam ser evitados com análise prévia adequada?",
+          "questions": "[NAME], considere que A = {endereços IP bloqueados} e B = {192.168.0.50, 10.0.0.1}. Se verificamos que A = B, qual propriedade matemática valida essa constatação independentemente da ordem em que os IPs foram registrados?",
           "answers": [
-            "20%",
-            "40%",
-            "60%",
-            "85%"
+            "Inclusão mútua",
+            "Igualdade de Conjuntos",
+            "Interseção nula",
+            "Cardinalidade unitária"
           ],
-          "correct": "60%",
-          "tip": "A falta de diagnóstico é a causa da maioria dos problemas recorrentes."
+          "correct": "Igualdade de Conjuntos",
+          "tip": "Dois conjuntos são iguais quando possuem exatamente os mesmos elementos, e a ordem de inserção não altera a coleção."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "[NAME], resolver problemas é encontrar um caminho quando nenhum é previamente conhecido.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Verdadeiro",
-          "tip": "Se já soubéssemos o caminho, seria apenas uma tarefa, não um problema."
-        },
-        {
-          "type": "combo",
-          "topics": "ACID",
-          "questions": "[NAME], segundo empregadores, a resolução de problemas é a habilidade [COMBO] importante no mercado atual.",
-          "options": [
-            "menos",
-            "mais",
-            "teoricamente",
-            "igualmente"
-          ],
-          "correct": "mais",
-          "tip": "Cerca de 85% dos empregadores destacam essa competência no setor industrial."
-        },
-        {
-          "type": "multi",
-          "topics": "ACID",
-          "questions": "[NAME], quais desses elementos definem a estrutura básica de um problema?",
-          "answers": [
-            "Situação Atual (Onde estamos)",
-            "Lacuna (O desvio ou erro)",
-            "Situação Desejada (Onde queremos chegar)",
-            "Solução Mágica (O atalho rápido)"
-          ],
-          "correct": [
-            "Situação Atual (Onde estamos)",
-            "Lacuna (O desvio ou erro)",
-            "Situação Desejada (Onde queremos chegar)"
-          ],
-          "tip": "Problemas reais exigem análise estruturada, não existem atalhos ou mágicas."
-        },
-        {
-          "type": "drag",
-          "topics": "ACID",
-          "questions": "[NAME], relacione os termos da estrutura de um problema:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Situação Atual",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Situação Desejada",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Lacuna (Gap)",
-              "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Obstáculo",
-              "match": "z4"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Onde estamos agora (estado com erro)"
-            },
-            {
-              "id": "z2",
-              "label": "Onde queremos chegar (estado ideal)"
-            },
-            {
-              "id": "z3",
-              "label": "A distância entre o real e o ideal"
-            },
-            {
-              "id": "z4",
-              "label": "A barreira que impede o avanço"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Entender as partes do problema ajuda a diagnosticar com clareza."
-        },
-        {
-          "type": "multiple",
-          "topics": "ACID",
-          "questions": "[NAME], o pensamento lógico nasce pronto e não pode ser aprimorado.",
-          "answers": [
-            "Concordo plenamente",
-            "É uma verdade absoluta",
-            "Isso é incorreto",
-            "Apenas para máquinas"
-          ],
-          "correct": "Isso é incorreto",
-          "tip": "O pensamento lógico pode (e deve) ser desenvolvido com prática constante."
-        },
-        {
-          "type": "boolean",
-          "topics": "ACID",
-          "questions": "[NAME], na indústria, a resolução de problemas de forma estruturada é opcional e apenas desejável.",
+          "questions": "[NAME], se a coleção de IPs banidos excede a memória RAM disponível, o sistema lida com um conjunto infinito.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "A aula destaca que não é apenas desejável, é indispensável."
+          "tip": "Na TI computacional, a limitação física de memória define conjuntos finitos massivos, não infinitos teóricos."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "[NAME], a competência de resolver problemas foca em contornar obstáculos para atingir um [COMBO].",
+          "questions": "Quando a definição dita que a coleção deve ser inequívoca quanto à pertinência de um objeto, garantimos que o conjunto seja considerado [COMBO].",
           "options": [
-            "objetivo",
-            "risco",
-            "retrocesso",
-            "gasto"
+            "Bem Definido",
+            "Unitário",
+            "Complexo",
+            "Absoluto"
           ],
-          "correct": "objetivo",
-          "tip": "Você busca sair do estado atual com erro e atingir a meta esperada.",
+          "correct": "Bem Definido",
+          "tip": "Sem uma regra clara de pertinência, é impossível programar um algoritmo de filtro determinístico."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais opções apresentam formas válidas e diretas de se demonstrar a regra de formação de um conjunto em um código computacional?",
+          "answers": [
+            "Array declarado estaticamente: let a = [2, 4, 6];",
+            "Função de mapeamento ou filtro: list.filter(x => x > 10);",
+            "Cláusula SQL condicional: WHERE idade >= 18",
+            "Comando de output em tela: print('Hello World')"
+          ],
+          "correct": [
+            "Array declarado estaticamente: let a = [2, 4, 6];",
+            "Função de mapeamento ou filtro: list.filter(x => x > 10);",
+            "Cláusula SQL condicional: WHERE idade >= 18"
+          ],
+          "tip": "Declarações diretas usam a forma por extensão, enquanto filtros e queries usam a forma por descrição."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em auditorias de logs, se o administrador precisa identificar uma anomalia registrada como 'x pertence ao conjunto de tentativas falhas e o total de tentativas falhas é 1', qual a característica do conjunto?",
+          "answers": [
+            "É um conjunto infinito.",
+            "É um conjunto universo.",
+            "É um conjunto unitário.",
+            "É um conjunto vazio."
+          ],
+          "correct": "É um conjunto unitário.",
+          "tip": "Conjuntos com n(A) = 1 são denominados unitários, independentemente do tipo de dado."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a representação por Diagrama de Venn é inútil na computação por ser apenas um desenho gráfico sem base matemática abstrata.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Diagramas de Venn são fundamentais na modelagem de esquemas de banco de dados e resolução de lógica de junção."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na teoria dos números aplicada ao hardware, números reais com [COMBO] dupla de bytes compõem o subconjunto mapeado ao tipo double.",
+          "options": [
+            "Extensão",
+            "Inclusão",
+            "Precisão",
+            "Pertinência"
+          ],
+          "correct": "Precisão",
+          "tip": "O tipo double usa 64 bits para fornecer uma precisão dupla na representação de conjuntos Racionais e Reais."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Classifique corretamente os cenários de desenvolvimento com a respectiva tipologia de conjunto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Um log diário limitando-se a 500 registros",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Resultado de SELECT para um usuário recém-criado sem interações",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Toda a população de usuários do sistema sem filtros",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Conjunto Finito"
+            },
+            {
+              "id": "z2",
+              "label": "Conjunto Vazio"
+            },
+            {
+              "id": "z3",
+              "label": "Conjunto Universo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O contexto delimita a natureza do conjunto. Domine esses mapeamentos lógicos.",
           "trans": "AGEN"
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], qual é o primeiro passo da metodologia apresentada na aula?",
+          "questions": "[NAME], em uma consulta a banco de dados relacional que exija a recuperação de registros contidos na Tabela A que NÃO tenham correspondência na Tabela B, qual operação matemática é a base lógica desta query?",
           "answers": [
-            "Escolher",
-            "Encontrar",
-            "Detalhar",
-            "Revisar"
+            "Interseção (A ∩ B)",
+            "União (A U B)",
+            "Diferença de Conjuntos (A - B)",
+            "Igualdade (A = B)"
           ],
-          "correct": "Detalhar",
-          "tip": "Antes de pensar na solução, é crucial compreender profundamente o problema."
+          "correct": "Diferença de Conjuntos (A - B)",
+          "tip": "A operação de diferença isola elementos exclusivos do primeiro conjunto."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "[NAME], muitos erros ocorrem porque saltamos diretamente para a solução sem entender as variáveis.",
+          "questions": "[NAME], o operador lógico NOT em programação (ex: !condicao) atua aplicando o conceito matemático do Conjunto Complementar (Ac) em relação a um universo booleano.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Agir antes de diagnosticar gera decisões impulsivas e retrabalho."
+          "tip": "O conjunto complementar abrange tudo no universo que não atende à condição avaliada."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "[NAME], na fase de encontrar soluções, a [COMBO] importa mais do que a qualidade inicial.",
+          "questions": "Para evitar duplicação de dados ao mesclar listas de clientes de duas regiões diferentes, a operação de [COMBO] processa os elementos, garantindo que os repetidos constem apenas uma vez.",
           "options": [
-            "quantidade",
-            "limitação",
-            "estética",
-            "lógica"
+            "Interseção",
+            "Complementar",
+            "União",
+            "Diferença"
           ],
-          "correct": "quantidade",
-          "tip": "É o momento do brainstorming: o foco é gerar muitas opções para depois filtrar."
+          "correct": "União",
+          "tip": "A união matemática funde as coleções eliminando as redundâncias inerentes."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "[NAME], quais dessas ações fazem parte do Passo 1 (Detalhar)?",
+          "questions": "[NAME], a cláusula INNER JOIN na linguagem SQL reflete qual conjunto de operações e lógicas?",
           "answers": [
-            "Definir o problema com clareza",
-            "Identificar variáveis envolvidas",
-            "Coletar dados e evidências",
-            "Implementar a solução imediatamente"
+            "A operação de Interseção (A ∩ B).",
+            "A recuperação de elementos exclusivos de A.",
+            "O operador lógico E (AND).",
+            "A operação de União Completa (A U B)."
           ],
           "correct": [
-            "Definir o problema com clareza",
-            "Identificar variáveis envolvidas",
-            "Coletar dados e evidências"
+            "A operação de Interseção (A ∩ B).",
+            "O operador lógico E (AND)."
           ],
-          "tip": "Implementar soluções pertence ao Passo 4 (Executar)."
+          "tip": "O INNER JOIN exige que a condição seja verdadeira em ambos os conjuntos, equivalendo à interseção."
         },
         {
           "type": "drag",
           "topics": "AGEN",
-          "questions": "[NAME], conecte cada passo da metodologia com sua respectiva ação central:",
+          "questions": "Arraste os comandos/operadores SQL e lógicos para a operação de conjuntos correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "UNION / OR (||)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "INTERSECT / AND (&&)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "EXCEPT / NOT IN",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "A U B"
+            },
+            {
+              "id": "z2",
+              "label": "A ∩ B"
+            },
+            {
+              "id": "z3",
+              "label": "A - B"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A programação nada mais é do que a aplicação prática da álgebra de conjuntos booleana."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao projetar um painel de permissões, a regra 'x pertence ao grupo Admin OU x pertence ao grupo Segurança' constrói logicamente um conjunto através de:",
+          "answers": [
+            "A U B (União)",
+            "A ∩ B (Interseção)",
+            "A - B (Diferença)",
+            "Ac (Complementar)"
+          ],
+          "correct": "A U B (União)",
+          "tip": "O conectivo 'OU' (OR) é o reflexo direto da união inclusiva de conjuntos."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], em conjuntos, A - B resultará no conjunto vazio sempre que A for um subconjunto próprio de B (A ⊂ B).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se todos os elementos de A também estão em B, subtrair os elementos de B removerá tudo de A."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Uma consulta que busca registros onde o departamento [COMBO] ('TI') é a implementação prática computacional do Complementar (Ac) em relação à base inteira.",
+          "options": [
+            "IS NULL",
+            "NOT IN",
+            "EQUALS",
+            "LIKE"
+          ],
+          "correct": "NOT IN",
+          "tip": "Excluir um subconjunto de um universo por meio da negação produz o seu complementar."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais cenários corporativos abaixo se resolvem primariamente usando a operação de Interseção (A ∩ B)?",
+          "answers": [
+            "Listar clientes que realizaram compras no site E também na loja física.",
+            "Obter todos os contatos agrupando as bases de dados de duas filiais.",
+            "Identificar funcionários do setor de vendas que possuem certificação avançada.",
+            "Remover da lista de e-mail os usuários que pediram descadastro."
+          ],
+          "correct": [
+            "Listar clientes que realizaram compras no site E também na loja física.",
+            "Identificar funcionários do setor de vendas que possuem certificação avançada."
+          ],
+          "tip": "A interseção foca nas condições simultâneas ou sobreposições de características."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], na expressão de Diagrama de Venn, a área de sobreposição central que conecta os círculos A e B representa os elementos sujeitos a qual filtro de código?",
+          "answers": [
+            "A.filter(x => B.includes(x))",
+            "A.filter(x => !B.includes(x))",
+            "A.concat(B)",
+            "B.filter(x => !A.includes(x))"
+          ],
+          "correct": "A.filter(x => B.includes(x))",
+          "tip": "A interseção programática verifica para cada elemento de um se ele também pertence ao outro."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a comutatividade aplica-se à União e à Interseção, significando que A U B = B U A e A ∩ B = B ∩ A, o que garante estabilidade em otimizações de query engines.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A ordem não altera o resultado da união e interseção, permitindo aos otimizadores de BD rearranjar execuções."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Se o Universo U possui 1000 IDs e o conjunto A possui 200 IDs, a cardinalidade do [COMBO] de A será exatamente 800.",
+          "options": [
+            "Subconjunto",
+            "Complementar",
+            "Resto Divisório",
+            "Agrupamento"
+          ],
+          "correct": "Complementar",
+          "tip": "O complementar de A (Ac) é o conjunto U subtraído dos elementos de A."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione as operações aos casos de uso em scripts de segurança e dados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Achar IPs atacantes que também estão em blacklists públicas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Combinar logs de firewall primário e secundário",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Listar usuários logados, exceto os administradores",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Interseção (AND)"
+            },
+            {
+              "id": "z2",
+              "label": "União (OR)"
+            },
+            {
+              "id": "z3",
+              "label": "Diferença (EXCEPT)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A lógica matemática resolve falhas de processamento antes de virarem gargalos no código.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], considere o particionamento de um disco rígido. Se um cluster indica uso de 11/8 de sua capacidade alocada inicialmente, como essa fração é matematicamente classificada e qual a consequência técnica?",
+          "answers": [
+            "Imprópria; indica estouro de buffer ou sobrecarga de capacidade estrutural.",
+            "Própria; indica que o limite de segurança de 8 bytes foi preservado.",
+            "Aparente; indica que os blocos de memória foram alocados perfeitamente.",
+            "Decimal; demonstra falha na conversão analógica-digital."
+          ],
+          "correct": "Imprópria; indica estouro de buffer ou sobrecarga de capacidade estrutural.",
+          "tip": "Frações onde o numerador supera o denominador têm valor absoluto maior que 1, apontando excesso no universo delimitado."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a representação nativa de dados fracionários na ULA (Unidade Lógica e Aritmética) suporta o denominador zero para fins de manipulação de infinidades algébricas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O denominador zero acarreta indefinição matemática, gerando as conhecidas exceções de DivisionByZero no hardware."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Se uma carga de processamento CPU atinge 24/8 de threads ativas por núcleo, o sistema experimenta o processamento correspondente a uma fração [COMBO], cujo valor inteiro é 3.",
+          "options": [
+            "Aparente",
+            "Imprópria-Irredutível",
+            "Própria",
+            "Sintética"
+          ],
+          "correct": "Aparente",
+          "tip": "Frações cujo numerador é múltiplo exato do denominador são aparentes e convertem-se diretamente em valores inteiros isolados."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], ao otimizar o layout responsivo de um frontend, a relação de tela 1920x1080 é simplificada para 16:9. Identifique as bases matemáticas empregadas neste processo de simplificação.",
+          "answers": [
+            "O conceito de frações equivalentes que preservam a mesma proporção geométrica.",
+            "A divisão sucessiva ou determinação do Máximo Divisor Comum (MDC).",
+            "A conversão mandatório de frações próprias para impróprias.",
+            "A eliminação do denominador mediante multiplicação cruzada."
+          ],
+          "correct": [
+            "O conceito de frações equivalentes que preservam a mesma proporção geométrica.",
+            "A divisão sucessiva ou determinação do Máximo Divisor Comum (MDC)."
+          ],
+          "tip": "A simplificação otimiza o armazenamento numérico sem alterar o fator de proporção da fração original."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe a natureza estrutural do numerador vs denominador com sua tipologia de fração correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Numerador menor que Denominador",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Numerador maior, mas não é múltiplo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Numerador é múltiplo exato do Denominador",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Fração Própria"
+            },
+            {
+              "id": "z2",
+              "label": "Fração Imprópria"
+            },
+            {
+              "id": "z3",
+              "label": "Fração Aparente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender os tipos viabiliza algoritmos mais eficientes de checagem de limites (thresholds)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], ao se afirmar que frações decimais apresentam conversão direta e nativa na programação orientada a float/double, refere-se especificamente a frações onde o denominador assume qual forma matemática?",
+          "answers": [
+            "Potências de base 10 (ex: 10, 100, 1000).",
+            "Números primos maiores que 2.",
+            "Múltiplos binários como 2, 4, 8, 16.",
+            "Qualquer valor ímpar divisível por ele mesmo."
+          ],
+          "correct": "Potências de base 10 (ex: 10, 100, 1000).",
+          "tip": "As frações decimais têm a conversão imediata para notação com vírgula flutuante (ponto decimal) no sistema decimal clássico."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], uma taxa de transferência de dados representada por 75/100 é classificada como uma fração aparente por tratar-se de uma porcentagem exata na computação em rede.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ela é uma fração própria e decimal. O numerador 75 não é múltiplo exato do denominador 100."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Devido à arquitetura da máquina, certas frações próprias comuns (ex: 1/3) não possuem uma representação decimal finita perfeita, resultando nos conhecidos erros de [COMBO] nas variáveis de ponto flutuante.",
+          "options": [
+            "Arredondamento",
+            "Compilação",
+            "Alocação",
+            "Runtime"
+          ],
+          "correct": "Arredondamento",
+          "tip": "Frações não-decimais muitas vezes geram dízimas, causando truncamento nos bits limitados de floats e doubles."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], em auditorias de estabilidade de serviços, quando a métrica de utilização RAM atinge a fração 5/5, quais as conclusões matemáticas e de sistemas corretas?",
+          "answers": [
+            "É uma fração aparente que equivale ao inteiro 1.",
+            "O sistema indica 100% de utilização do recurso avaliado.",
+            "O valor representa uma sobrecarga técnica, indicando crash.",
+            "O denominador anula o numerador, liberando a memória."
+          ],
+          "correct": [
+            "É uma fração aparente que equivale ao inteiro 1.",
+            "O sistema indica 100% de utilização do recurso avaliado."
+          ],
+          "tip": "Toda fração onde o numerador é igual ao denominador resulta em 1, expressando a totalidade do recurso sem excedê-lo."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], simplificar frações como 12/16 para 3/4 no código evita over-processing geométrico. Para implementar a rotina de simplificação programática, qual algoritmo é essencial aplicar?",
+          "answers": [
+            "Algoritmo de cálculo do Máximo Divisor Comum (MDC).",
+            "Algoritmo de Fatoração de Primos até a Raiz Quadrada.",
+            "Cálculo de Inversão da Matriz Transposta.",
+            "Teorema do Mínimo Múltiplo Comum (MMC)."
+          ],
+          "correct": "Algoritmo de cálculo do Máximo Divisor Comum (MDC).",
+          "tip": "O MDC encontra o maior fator comum entre numerador e denominador, assegurando a obtenção imediata da fração irredutível."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], todas as frações impróprias, por terem um numerador maior, podem ser diretamente reescritas na computação como frações decimais exatas sem erros de arredondamento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A conversão em fração decimal exata depende da natureza dos fatores primos do denominador, não do tipo (própria ou imprópria)."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Vincule a métrica computacional ao significado fracionário mais apropriado no contexto de gestão de recursos de nuvem:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1/4 da capacidade",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "8/8 dos contêineres",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "10/5 requisições por ticket",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Subutilização elástica"
+            },
+            {
+              "id": "z2",
+              "label": "Uso máximo do pool alocado"
+            },
+            {
+              "id": "z3",
+              "label": "Gargalo ou dupla alocação (valor 2)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber ler métricas fracionárias como frações aparentes, impróprias ou próprias direciona o dimensionamento (scaling).",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em um cálculo heurístico de distribuição de cluster, se o nó primário requer a adição das partições ocupadas 1/3 e 1/4, o algoritmo programado deve executar qual procedimento preparatório para evitar inconsistência de dados?",
+          "answers": [
+            "O cálculo do Mínimo Múltiplo Comum (MMC) para homogeneizar as bases denominadoras.",
+            "A multiplicação cruzada apenas dos numeradores.",
+            "A extração dos valores decimais truncando o dígito menos significativo.",
+            "A soma linear e direta dos denominadores formando a base 7."
+          ],
+          "correct": "O cálculo do Mínimo Múltiplo Comum (MMC) para homogeneizar as bases denominadoras.",
+          "tip": "Somar frações heterogêneas exige a equalização matemática da base, providenciada pelo MMC, convertendo-as em frações de denominador equivalente."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], para calcular qual fração de recursos é gasta por um serviço restrito a 2/5 do espaço total delimitado por 3/4 do disco (processo de uma fração de outra fração), deve-se realizar uma multiplicação simples resultando em 6/20.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A operação correta para extrair proporções subsequentes (fração da fração) é a multiplicação direta."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para liberar espaço em partições com as taxas 1/4 e 2/4 ocupadas, uma rotina algorítmica somaria rapidamente obtendo 3/4 por identificar que ambas possuem denominadores [COMBO].",
+          "options": [
+            "Iguais",
+            "Primos",
+            "Impróprios",
+            "Decimais"
+          ],
+          "correct": "Iguais",
+          "tip": "A presença de bases idênticas permite a supressão do MMC e a soma direta e eficiente apenas das alocações dos numeradores."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], avalie um cenário onde um cache L3 do servidor necessita subtrair a carga de 1/2 de uma taxa alocada de 3/4. Quais etapas lógicas são intrínsecas a esse pipeline aritmético de frações?",
+          "answers": [
+            "O reconhecimento de que a fração 1/2 pode ser equivalentemente reescrita como 2/4.",
+            "O estabelecimento de uma base de operação comum que, neste caso, é 4.",
+            "A soma paralela e indireta do numerador 3 e denominador 2.",
+            "A produção do resultado final 1/4 representando o cache remanescente."
+          ],
+          "correct": [
+            "O reconhecimento de que a fração 1/2 pode ser equivalentemente reescrita como 2/4.",
+            "O estabelecimento de uma base de operação comum que, neste caso, é 4.",
+            "A produção do resultado final 1/4 representando o cache remanescente."
+          ],
+          "tip": "A conversão em frações equivalentes com o mesmo denominador possibilita a subtração ou adição de fatias operacionais compatíveis."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Ordene mentalmente as etapas algorítmicas ao processar a soma de arrays fracionários heterogêneos e relacione a ordem:",
           "items": [
             {
               "id": "d1",
@@ -8139,713 +8556,190 @@
             },
             {
               "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
               "txt": "Passo 3",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Passo 4",
               "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Passo 5",
-              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Detalhar as variáveis"
+              "label": "Achar o MMC (equalizar denominadores)"
             },
             {
               "id": "z2",
-              "label": "Escolher a solução adequada"
+              "label": "Somar exclusivamente os numeradores"
             },
             {
               "id": "z3",
-              "label": "Executar a solução escolhida"
-            },
-            {
-              "id": "z4",
-              "label": "Revisar e atualizar os dados"
+              "label": "Simplificar o resultado gerado usando MDC"
             }
           ],
           "correct": "drag",
-          "tip": "A sequência cria um fluxo coerente, do diagnóstico à avaliação."
+          "tip": "Este pipeline estruturado assegura a estabilidade e mitigação de erros de overflow de tipos ao integrar grandes números."
         },
         {
           "type": "multiple",
-          "topics": "AGEN",
-          "questions": "[NAME], qual é o objetivo do Passo 3 (Escolher)?",
+          "topics": "NORM",
+          "questions": "[NAME], considerando as primitivas matemáticas na criptografia assimétrica, por que a operação de adição com denominadores iguais consome muito menos ciclos de clock na CPU do que a adição com denominadores distintos?",
           "answers": [
-            "Criar o maior número de ideias",
-            "Mapear os elementos do problema",
-            "Comparar alternativas com critérios objetivos",
-            "Atualizar o banco de dados"
+            "Evita a chamada custosa ao algoritmo de divisão/MMC, demandando apenas um somador na ALU.",
+            "Ignora a presença dos numeradores nas portas lógicas.",
+            "As frações com bases iguais são intrinsecamente dízimas periódicas contínuas.",
+            "O barramento é desativado permitindo a soma estática assíncrona."
           ],
-          "correct": "Comparar alternativas com critérios objetivos",
-          "tip": "É a fase de análise crítica para definir a opção mais viável."
+          "correct": "Evita a chamada custosa ao algoritmo de divisão/MMC, demandando apenas um somador na ALU.",
+          "tip": "A eliminação da etapa de determinação de MMC corta operações complexas de hardware, acelerando a instrução."
         },
         {
           "type": "boolean",
-          "topics": "AGEN",
-          "questions": "[NAME], a metodologia de 5 passos ajuda a quebrar a complexidade em etapas gerenciáveis.",
+          "topics": "NORM",
+          "questions": "[NAME], ao se multiplicar a taxa de transferência da rede de 3/4 por um estrangulamento de QoS imposto de 4/3, a vazão resultante da banda modela perfeitamente uma fração aparente.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Dividir um problema complexo facilita encontrar a resolução."
+          "tip": "3/4 multiplicado pelo seu recíproco 4/3 gera 12/12, que simplifica para 1, uma fração aparente confirmando restauração total da banda-base no fator."
         },
         {
           "type": "combo",
-          "topics": "AGEN",
-          "questions": "[NAME], na coleta de dados, devemos priorizar informações [COMBO] como números e medições.",
+          "topics": "NORM",
+          "questions": "Em um data warehouse, somar frações como '1/4 de TB em log' com '1/2 de TB em mídia' exige a regra fundamental de conversão baseada em [COMBO] pelo número inferior e multiplicar pelo superior.",
           "options": [
-            "concretas",
-            "subjetivas",
-            "rumorosas",
-            "fictícias"
+            "Dividir",
+            "Inverter",
+            "Modular",
+            "Rotacionar"
           ],
-          "correct": "concretas",
-          "tip": "Dados reais e objetivos são a matéria-prima para uma análise bem-sucedida."
+          "correct": "Dividir",
+          "tip": "O processo empírico dita dividir o MMC encontrado pelo denominador originário para reestruturar as grandezas do numerador adequadamente."
         },
         {
           "type": "multi",
-          "topics": "AGEN",
-          "questions": "[NAME], de acordo com a aula, o que NÃO se deve fazer na hora de definir um problema (Passo 1)?",
+          "topics": "NORM",
+          "questions": "[NAME], se uma partição do Kubernetes apresenta limites elásticos requerendo o cálculo fracionário [3/5 + 1/4], identifique os valores intermediários matematicamente corretos que o orquestrador manipula internamente.",
           "answers": [
-            "Escrever o problema em uma frase",
-            "Usar termos vagos como 'não está funcionando'",
-            "Ignorar os dados concretos disponíveis",
-            "Delimitar o escopo"
+            "O MMC que determina o divisor comum é igual a 20.",
+            "A primeira fração transforma-se na equivalente 12/20.",
+            "A segunda fração torna-se 5/20 na padronização geométrica.",
+            "O resultado final acusa sobrecarga por exceder o valor 20/20."
           ],
           "correct": [
-            "Usar termos vagos como 'não está funcionando'",
-            "Ignorar os dados concretos disponíveis"
+            "O MMC que determina o divisor comum é igual a 20.",
+            "A primeira fração transforma-se na equivalente 12/20.",
+            "A segunda fração torna-se 5/20 na padronização geométrica."
           ],
-          "tip": "Precisamos de exatidão para entender de fato o que está acontecendo."
-        },
-        {
-          "type": "drag",
-          "topics": "AGEN",
-          "questions": "[NAME], relacione as palavras-chave aos seus passos:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Variáveis e Fatores",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Brainstorming de ideias",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Ação e Plano",
-              "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Análise de Resultados",
-              "match": "z4"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Passo 1: Detalhar"
-            },
-            {
-              "id": "z2",
-              "label": "Passo 2: Encontrar"
-            },
-            {
-              "id": "z3",
-              "label": "Passo 4: Executar"
-            },
-            {
-              "id": "z4",
-              "label": "Passo 5: Revisar"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Cada fase tem um objetivo singular e dependente do passo anterior."
+          "tip": "A soma resulta em 17/20, que é uma fração própria e não causa estado de sobrecarga."
         },
         {
           "type": "multiple",
-          "topics": "AGEN",
-          "questions": "[NAME], segundo a dica da aula, se você não consegue resolver um problema...",
+          "topics": "NORM",
+          "questions": "[NAME], na gestão de um banco de dados in-memory de 16GB, se os três serviços vitais alocam exatamente 3/16, 5/16 e 4/16 simultaneamente, como você traduz e conclui analiticamente a operação de disponibilidade restante?",
           "answers": [
-            "Desista e mude de área",
-            "Culpe as variáveis incontroláveis",
-            "Existe um problema mais fácil que você pode resolver",
-            "Pule para a fase de execução"
+            "A soma 12/16 simplifica-se para 3/4 de uso, liberando exatamente 1/4 (4 GB) de contingência.",
+            "Os denominadores somados resultam em 48, colapsando a segmentação em buffer overflow.",
+            "A base é alterada para MMC(16,3,5), estendendo a RAM por memória virtual swap.",
+            "O MMC falha pois 16 não é número primo, trancando a alocação em 12GB estáticos."
           ],
-          "correct": "Existe um problema mais fácil que você pode resolver",
-          "tip": "Esta é a essência de quebrar o problema em partes menores."
+          "correct": "A soma 12/16 simplifica-se para 3/4 de uso, liberando exatamente 1/4 (4 GB) de contingência.",
+          "tip": "O balanço patrimonial dos recursos no sistema é uma aplicação objetiva das subtrações no conjunto universo do hardware."
         },
         {
           "type": "boolean",
-          "topics": "AGEN",
-          "questions": "[NAME], o passo 'Revisar' serve exclusivamente para arquivar o projeto.",
+          "topics": "NORM",
+          "questions": "[NAME], em algoritmos de modelagem tridimensional, simplificar frações decorrentes de matrizes multiplicadas no estágio final não impacta o desempenho ou a representação exata do vetor de renderização.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Revisar transforma a experiência em conhecimento organizacional e calibra decisões futuras.",
-          "trans": "PROT"
-        },
-        {
-          "type": "combo",
-          "topics": "PROT",
-          "questions": "[NAME], o Diagrama de [COMBO] é uma ferramenta visual para organizar causas de um problema em categorias.",
-          "options": [
-            "Ishikawa",
-            "Pareto",
-            "Dispersão",
-            "Fluxo"
-          ],
-          "correct": "Ishikawa",
-          "tip": "Também conhecido como Diagrama de Espinha de Peixe."
-        },
-        {
-          "type": "multi",
-          "topics": "PROT",
-          "questions": "[NAME], quais são as categorias do Diagrama de Ishikawa (método 6M)?",
-          "answers": [
-            "Máquina",
-            "Método",
-            "Mão de Obra",
-            "Marketing"
-          ],
-          "correct": [
-            "Máquina",
-            "Método",
-            "Mão de Obra"
-          ],
-          "tip": "Marketing não faz parte dos 6M clássicos da espinha de peixe."
+          "tip": "Simplificar frações (otimização) melhora a precisão na conversão float e poupa registros de armazenamento em cálculos pesados."
         },
         {
           "type": "drag",
-          "topics": "PROT",
-          "questions": "[NAME], relacione as perguntas da ferramenta 5W2H com seu significado:",
+          "topics": "NORM",
+          "questions": "Mapeie a operação matemática de frações com o comportamento analítico em sistemas operacionais:",
           "items": [
             {
               "id": "d1",
-              "txt": "What?",
+              "txt": "1/2 + 1/4 na tabela de páginas",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Who?",
+              "txt": "1/3 * 3/4 de latência de buffer",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Where?",
+              "txt": "8/8 - 3/4 em fragmentação de disco",
               "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "How much?",
-              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Qual é o problema exatamente?"
+              "label": "Soma via equalização de MMC"
             },
             {
               "id": "z2",
-              "label": "Quem é afetado ou envolvido?"
+              "label": "Multiplicação gerando restrição proporcional"
             },
             {
               "id": "z3",
-              "label": "Em que local ou etapa do processo?"
-            },
-            {
-              "id": "z4",
-              "label": "Qual o impacto quantificável?"
+              "label": "Subtração para medição de margem livre"
             }
           ],
           "correct": "drag",
-          "tip": "A técnica 5W2H garante que nenhum aspecto do problema seja ignorado."
-        },
-        {
-          "type": "multiple",
-          "topics": "PROT",
-          "questions": "[NAME], qual é o principal objetivo da Técnica dos 5 Porquês?",
-          "answers": [
-            "Julgar os funcionários",
-            "Chegar à causa raiz do problema",
-            "Aumentar o orçamento do projeto",
-            "Gerar relatórios longos"
-          ],
-          "correct": "Chegar à causa raiz do problema",
-          "tip": "Ela revela a verdadeira origem do problema indo além dos sintomas."
-        },
-        {
-          "type": "boolean",
-          "topics": "PROT",
-          "questions": "[NAME], a Matriz de Decisão permite atribuir notas a cada alternativa e pesos aos critérios, gerando um score final.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Verdadeiro",
-          "tip": "É uma ferramenta de análise objetiva para apoiar o Passo 3 (Escolher a Solução)."
-        },
-        {
-          "type": "combo",
-          "topics": "PROT",
-          "questions": "[NAME], a Inversão de Perspectiva ajuda na ideação perguntando 'Como [COMBO] o problema?'.",
-          "options": [
-            "pioraríamos",
-            "ignoraríamos",
-            "delegaríamos",
-            "esqueceríamos"
-          ],
-          "correct": "pioraríamos",
-          "tip": "Inverter a lógica do problema pode revelar soluções inesperadas."
-        },
-        {
-          "type": "multi",
-          "topics": "PROT",
-          "questions": "[NAME], quais critérios a aula sugere avaliar na Matriz de Decisão?",
-          "answers": [
-            "Eficácia",
-            "Viabilidade",
-            "Tempo de Implementação",
-            "Sorte da equipe"
-          ],
-          "correct": [
-            "Eficácia",
-            "Viabilidade",
-            "Tempo de Implementação"
-          ],
-          "tip": "A decisão deve ser baseada em critérios racionais, e não no acaso."
-        },
-        {
-          "type": "drag",
-          "topics": "PROT",
-          "questions": "[NAME], relacione as etapas do ciclo PDCA aos passos da nossa metodologia:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Plan (Planejar)",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Do (Executar)",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Check (Verificar)",
-              "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Act (Agir)",
-              "match": "z4"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Passos 1 a 3 (Detalhar, Encontrar, Escolher)"
-            },
-            {
-              "id": "z2",
-              "label": "Passo 4 (Executar a solução com plano)"
-            },
-            {
-              "id": "z3",
-              "label": "Passo 5 (Revisar resultados)"
-            },
-            {
-              "id": "z4",
-              "label": "Padronizar a solução ou reiniciar"
-            }
-          ],
-          "correct": "drag",
-          "tip": "O PDCA é uma ferramenta de melhoria contínua que se integra perfeitamente à resolução de problemas."
-        },
-        {
-          "type": "multiple",
-          "topics": "PROT",
-          "questions": "[NAME], na Matriz de Decisão, o critério 'Riscos Envolvidos' foca em descobrir:",
-          "answers": [
-            "Se a solução é duradoura",
-            "Se o remédio pode ser pior que a doença",
-            "Se a urgência permite esperar",
-            "Quem será o líder da equipe"
-          ],
-          "correct": "Se o remédio pode ser pior que a doença",
-          "tip": "Avaliar riscos é pensar nos efeitos colaterais imprevistos da sua ideia."
-        },
-        {
-          "type": "boolean",
-          "topics": "PROT",
-          "questions": "[NAME], no Brainstorming (Passo 2), o julgamento rigoroso de ideias logo no início é altamente recomendado.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Falso",
-          "tip": "Deve-se gerar ideias livremente e sem julgamento para evitar o bloqueio criativo."
-        },
-        {
-          "type": "combo",
-          "topics": "PROT",
-          "questions": "[NAME], a sustentabilidade da solução pergunta se ela é [COMBO] ou apenas um paliativo.",
-          "options": [
-            "duradoura",
-            "provisória",
-            "complexa",
-            "cara"
-          ],
-          "correct": "duradoura",
-          "tip": "Buscamos soluções que previnam a recorrência do problema."
-        },
-        {
-          "type": "multi",
-          "topics": "PROT",
-          "questions": "[NAME], ao utilizar a técnica de Analogia e Benchmarking, o que devemos buscar?",
-          "answers": [
-            "Como problemas semelhantes foram resolvidos",
-            "Copiar soluções às cegas",
-            "Experiências de outras empresas",
-            "Adaptação de lições aprendidas"
-          ],
-          "correct": [
-            "Como problemas semelhantes foram resolvidos",
-            "Experiências de outras empresas",
-            "Adaptação de lições aprendidas"
-          ],
-          "tip": "Copiar às cegas nunca é recomendado; é preciso adaptar ao seu contexto."
-        },
-        {
-          "type": "drag",
-          "topics": "PROT",
-          "questions": "[NAME], relacione os exemplos às categorias de causas no Diagrama de Ishikawa:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Procedimentos desatualizados",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Equipamento obsoleto",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Treinamento insuficiente",
-              "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Temperatura inadequada",
-              "match": "z4"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Método"
-            },
-            {
-              "id": "z2",
-              "label": "Máquina"
-            },
-            {
-              "id": "z3",
-              "label": "Mão de Obra"
-            },
-            {
-              "id": "z4",
-              "label": "Meio Ambiente"
-            }
-          ],
-          "correct": "drag",
-          "tip": "O modelo 6M agrupa de forma clara onde a raiz do problema pode estar abrigada.",
-          "trans": "NORM"
-        },
-        {
-          "type": "multiple",
-          "topics": "NORM",
-          "questions": "[NAME], por que uma solução bem escolhida ainda pode falhar?",
-          "answers": [
-            "Porque o problema mudou",
-            "Se for mal executada sem um plano detalhado",
-            "Porque os dados foram falsificados",
-            "Porque não usaram o 5W2H"
-          ],
-          "correct": "Se for mal executada sem um plano detalhado",
-          "tip": "A execução exige organização e acompanhamento, independentemente de quão brilhante seja a ideia."
-        },
-        {
-          "type": "boolean",
-          "topics": "NORM",
-          "questions": "[NAME], implementar tudo de uma vez sem realizar testes prévios é considerado uma boa prática.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Falso",
-          "tip": "É sempre preferível iniciar com um piloto em pequena escala quando possível."
-        },
-        {
-          "type": "combo",
-          "topics": "NORM",
-          "questions": "[NAME], no Passo 4, é importante definir marcos temporais, também conhecidos como [COMBO].",
-          "options": [
-            "milestones",
-            "gaps",
-            "brainstorms",
-            "bugs"
-          ],
-          "correct": "milestones",
-          "tip": "Os marcos ajudam a acompanhar o progresso real da implementação da solução."
-        },
-        {
-          "type": "multi",
-          "topics": "NORM",
-          "questions": "[NAME], quais são consideradas Boas Práticas na execução de uma solução?",
-          "answers": [
-            "Documentar cada etapa",
-            "Manter comunicação com a equipe",
-            "Ignorar sinais de erro",
-            "Ter um plano B"
-          ],
-          "correct": [
-            "Documentar cada etapa",
-            "Manter comunicação com a equipe",
-            "Ter um plano B"
-          ],
-          "tip": "Ignorar erros é o oposto de monitoramento em tempo real."
-        },
-        {
-          "type": "drag",
-          "topics": "NORM",
-          "questions": "[NAME], associe os tipos de indicadores de sucesso aos seus exemplos:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Indicadores Quantitativos",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Indicadores Qualitativos",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Indicadores Temporais",
-              "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Impacto Financeiro",
-              "match": "z4"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Taxa de erro zerada, número concreto"
-            },
-            {
-              "id": "z2",
-              "label": "Satisfação e clima organizacional"
-            },
-            {
-              "id": "z3",
-              "label": "Período sem recorrência do problema"
-            },
-            {
-              "id": "z4",
-              "label": "R$ salvos ou de prejuízo"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Definir os indicadores certos antes de agir prova se a solução funcionou."
-        },
-        {
-          "type": "multiple",
-          "topics": "NORM",
-          "questions": "[NAME], no estudo de caso da aula (Erro #504), qual foi a solução escolhida pela Matriz de Decisão?",
-          "answers": [
-            "Atualizar o ERP",
-            "Aumentar o servidor",
-            "Implementar sistema de agendamento de tarefas",
-            "Mudar de ERP"
-          ],
-          "correct": "Implementar sistema de agendamento de tarefas",
-          "tip": "Essa solução eliminou o conflito e a sobrecarga com o melhor equilíbrio de custo-benefício."
-        },
-        {
-          "type": "boolean",
-          "topics": "NORM",
-          "questions": "[NAME], a revisão dos dados e resultados (Passo 5) transforma a experiência do projeto em conhecimento organizacional.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Verdadeiro",
-          "tip": "Se errou, você descobre por quê; se acertou, cria um padrão para o futuro."
-        },
-        {
-          "type": "combo",
-          "topics": "NORM",
-          "questions": "[NAME], segundo a aula, máquinas calculam, mas são as pessoas que encontram caminhos [COMBO] para resolver o que precisa ser resolvido.",
-          "options": [
-            "criativos",
-            "lineares",
-            "lentos",
-            "estáticos"
-          ],
-          "correct": "criativos",
-          "tip": "A capacidade analítica unida à criatividade é o diferencial humano."
-        },
-        {
-          "type": "multi",
-          "topics": "NORM",
-          "questions": "[NAME], o que você deve EVITAR (Práticas Negativas) durante a execução de uma solução?",
-          "answers": [
-            "Excluir pessoas-chave do processo",
-            "Considerar a solução definitiva sem verificar",
-            "Monitorar o progresso",
-            "Não registrar as mudanças"
-          ],
-          "correct": [
-            "Excluir pessoas-chave do processo",
-            "Considerar a solução definitiva sem verificar",
-            "Não registrar as mudanças"
-          ],
-          "tip": "Tudo que ignora a verificação e o time leva ao fracasso da implementação."
-        },
-        {
-          "type": "drag",
-          "topics": "NORM",
-          "questions": "[NAME], associe as etapas de revisão de resultados da aula:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Medir Resultados",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Comparar com o Esperado",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Ajustar e Melhorar",
-              "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Documentar Lições",
-              "match": "z4"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Avaliar os dados pós-implementação"
-            },
-            {
-              "id": "z2",
-              "label": "Bateu a meta estipulada?"
-            },
-            {
-              "id": "z3",
-              "label": "Implementar correções necessárias"
-            },
-            {
-              "id": "z4",
-              "label": "Registrar o aprendizado do ciclo"
-            }
-          ],
-          "correct": "drag",
-          "tip": "É a base para padronização e garantia de eficácia real."
-        },
-        {
-          "type": "multiple",
-          "topics": "NORM",
-          "questions": "[NAME], qual é o resultado final ao passar por todo o ciclo de revisão do Passo 5?",
-          "answers": [
-            "Encontrar o culpado",
-            "Gerar mais despesas",
-            "Padronizar a solução ou reiniciar o ciclo",
-            "Finalizar a reunião"
-          ],
-          "correct": "Padronizar a solução ou reiniciar o ciclo",
-          "tip": "Assim como na etapa 'Act' do PDCA, a ação se consolida como padrão."
-        },
-        {
-          "type": "boolean",
-          "topics": "NORM",
-          "questions": "[NAME], decisões baseadas em intuição pura são mais eficazes do que decisões baseadas em evidências.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Falso",
-          "tip": "A mensagem final da aula é clara: use dados, não opiniões."
+          "tip": "O domínio teórico transcende fórmulas e orienta tomadas de decisão baseadas em quantificações precisas do sistema.",
+          "trans": "FINISH"
         }
       ]
     },
     {
-"slug": "aula-17-1",
+"slug": "aula-19",
 "lesson_info": {
-"id": "Aula-17-1",
-"title": "AULA 17 - LÓGICA MATEMÁTICA: CONJUNTOS E FRAÇÕES APLICADAS",
+"id": "Aula-19",
+"title": "AULA 19 - TÉCNICAS DE RESOLUÇÃO DE PROBLEMAS",
 "topics": [
 {
 "id": "ACID",
-"name": "TEORIA DE CONJUNTOS",
-"desc": "Propriedades fundamentais e modelagem de coleções de dados estruturados.",
-"color": "#1abc9c",
-"img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+"name": "FUNDAMENTOS DA RESOLUÇÃO",
+"desc": "Compreenda o que é um problema e a importância do raciocínio lógico no mercado de trabalho.",
+"color": "#ff4757",
+"img_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
 },
 {
 "id": "AGEN",
-"name": "OPERAÇÕES LÓGICAS",
-"desc": "Álgebra relacional, junções SQL e lógica de predicados em sistemas.",
-"color": "#9b59b6",
-"img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+"name": "METODOLOGIA DE 5 PASSOS",
+"desc": "A sequência estruturada: Detalhar, Encontrar, Escolher, Executar e Revisar.",
+"color": "#ffa502",
+"img_url": "https://images.unsplash.com/photo-1507925922837-326f12d9348d?auto=format&fit=crop&q=80&w=1600"
 },
 {
 "id": "PROT",
-"name": "TIPOLOGIA DE FRAÇÕES",
-"desc": "Análise de capacidade computacional através de representações fracionárias.",
-"color": "#e67e22",
-"img_url": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1600"
+"name": "FERRAMENTAS DE ANÁLISE",
+"desc": "Domine o 5W2H, Diagrama de Ishikawa, 5 Porquês e o Ciclo PDCA.",
+"color": "#1e90ff",
+"img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
 },
 {
 "id": "NORM",
-"name": "CÁLCULOS E RECURSOS",
-"desc": "Otimização de memória e armazenamento utilizando operações matemáticas.",
-"color": "#2980b9",
-"img_url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1600"
+"name": "EXECUÇÃO E INDICADORES",
+"desc": "Como usar a Matriz de Decisão, planejar ações e medir o sucesso com indicadores.",
+"color": "#2ed573",
+"img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
 }
 ],
 "sokoban": [
+"P",
 "D",
-"A",
-"T",
+"C",
 "A"
 ]
 },
@@ -8853,693 +8747,893 @@
 {
 "type": "multiple",
 "topics": "ACID",
-"questions": "[NAME], em um sistema de controle de acesso, o conjunto A representa 'usuários com privilégio root'. Se a avaliação de um ID resulta em pertinência negativa, qual a representação formal correta e seu significado?",
+"questions": "[NAME], como é definido tecnicamente um problema no contexto profissional?",
 "answers": [
-"ID ∈ A; O usuário possui privilégio root.",
-"ID ⊂ A; O usuário é um subconjunto de root.",
-"ID ∉ A; O usuário não possui privilégios de root.",
-"ID U A; O usuário foi adicionado aos privilégios."
+"A diferença entre a situação atual e a situação desejada",
+"Uma falha no equipamento que para a produção",
+"Um conflito entre membros de uma equipe",
+"Qualquer tarefa que exija cálculos matemáticos"
 ],
-"correct": "ID ∉ A; O usuário não possui privilégios de root.",
-"tip": "A pertinência negativa (∉) indica categoricamente que o elemento testado não compõe a coleção especificada."
+"correct": "A diferença entre a situation atual e a situação desejada",
+"tip": "Um problema surge quando há uma lacuna (gap) entre o estado real e o estado ideal esperado."
 },
 {
 "type": "boolean",
 "topics": "ACID",
-"questions": "[NAME], um conjunto com cardinalidade zero n(A) = 0 em modelagem de dados implica em erro de integridade referencial absoluto e deve ser impedido pelo SGBD.",
+"questions": "[NAME], tentar resolver um problema na base da 'tentativa e erro' é a abordagem mais recomendada na indústria.",
 "answers": [
 "Verdadeiro",
 "Falso"
 ],
 "correct": "Falso",
-"tip": "A cardinalidade zero representa um conjunto vazio (ex: tabela sem registros), o que é um estado válido e comum em sistemas."
+"tip": "Decisões impulsivas geram retrabalho e desperdício. É indispensável o uso de métodos estruturados."
 },
 {
 "type": "combo",
 "topics": "ACID",
-"questions": "A cláusula 'WHERE status = ativo AND limite > 1000' em SQL define um conjunto de dados por [COMBO], não sendo necessário listar cada ID individualmente.",
+"questions": "Para resolver problemas, usamos a [COMBO], que divide problemas grandes em partes menores.",
 "options": [
-"Extensão",
-"Descrição",
-"Diagrama de Venn",
-"Cardinalidade"
+"Decomposição",
+"Quantificação",
+"Intuição",
+"Generalização"
 ],
-"correct": "Descrição",
-"tip": "A representação por descrição usa uma regra lógica ou propriedade para determinar os elementos que pertencem ao conjunto."
+"correct": "Decomposição",
+"tip": "A decomposição é um princípio matemático aplicado para tornar desafios complexos mais gerenciáveis."
 },
 {
 "type": "multi",
 "topics": "ACID",
-"questions": "[NAME], na análise de coleções de dados, quais afirmações traduzem corretamente as propriedades dos conjuntos numéricos para os tipos de dados primitivos?",
+"questions": "[NAME], quais destes são princípios matemáticos aplicados à resolução de problemas segundo a aula?",
 "answers": [
-"O tipo 'int' armazena valores do conjunto dos Inteiros (Z).",
-"O tipo 'float' é capaz de representar subconjuntos dos números Reais (R).",
-"O conjunto dos Naturais (N) inclui números decimais positivos.",
-"Valores booleanos (True/False) representam o conjunto Universo (U)."
+"Decomposição",
+"Quantificação",
+"Verificação",
+"Improvisação"
 ],
 "correct": [
-"O tipo 'int' armazena valores do conjunto dos Inteiros (Z).",
-"O tipo 'float' é capaz de representar subconjuntos dos números Reais (R)."
+"Decomposição",
+"Quantificação",
+"Verificação"
 ],
-"tip": "Os conjuntos N e Z não possuem parte fracionária, enquanto Q e R são modelados computacionalmente por pontos flutuantes."
+"tip": "O pensamento lógico e matemático exige métodos rigorosos, deixando de lado a improvisação."
 },
 {
 "type": "drag",
 "topics": "ACID",
-"questions": "Relacione os conceitos formais da teoria de conjuntos com suas representações práticas em análise de sistemas:",
+"questions": "[NAME], relacione os conceitos matemáticos da resolução de problemas com seus significados:",
 "items": [
-{ "id": "d1", "txt": "Lista vazia [] ou NULL", "match": "z1" },
-{ "id": "d2", "txt": "Tabela completa sem filtros aplicados", "match": "z2" },
-{ "id": "d3", "txt": "Quantidade de registros (Count)", "match": "z3" },
-{ "id": "d4", "txt": "A ⊂ B", "match": "z4" }
+{
+"id": "d1",
+"txt": "Quantificação",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Comparação",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Verificação",
+"match": "z3"
+}
 ],
 "zones": [
-{ "id": "z1", "label": "Conjunto Vazio" },
-{ "id": "z2", "label": "Conjunto Universo (U)" },
-{ "id": "z3", "label": "Cardinalidade n(A)" },
-{ "id": "z4", "label": "Relação de Inclusão" }
+{
+"id": "z1",
+"label": "Atribuir valores mensuráveis"
+},
+{
+"id": "z2",
+"label": "Avaliar alternativas objetivamente"
+},
+{
+"id": "z3",
+"label": "Confirmar resultados com dados"
+}
 ],
 "correct": "drag",
-"tip": "A modelagem matemática é a abstração que sustenta a estrutura de qualquer banco de dados relacional."
+"tip": "Cada princípio oferece uma lente analítica diferente para tratar o desafio."
 },
 {
 "type": "multiple",
 "topics": "ACID",
-"questions": "[NAME], considere que A = {endereços IP bloqueados} e B = {192.168.0.50, 10.0.0.1}. Se verificamos que A = B, qual propriedade matemática valida essa constatação independentemente da ordem em que os IPs foram registrados?",
+"questions": "De acordo com pesquisas do setor industrial apresentadas na aula, que percentual de empregadores considera a resolução de problemas a habilidade mais importante?",
 "answers": [
-"Inclusão mútua",
-"Igualdade de Conjuntos",
-"Interseção nula",
-"Cardinalidade unitária"
+"85%",
+"50%",
+"99%",
+"30%"
 ],
-"correct": "Igualdade de Conjuntos",
-"tip": "Dois conjuntos são iguais quando possuem exatamente os mesmos elementos, e a ordem de inserção não altera a coleção."
+"correct": "85%",
+"tip": "Esta é a competência mais valorizada no mercado de trabalho contemporâneo."
 },
 {
 "type": "boolean",
 "topics": "ACID",
-"questions": "[NAME], se a coleção de IPs banidos excede a memória RAM disponível, o sistema lida com um conjunto infinito.",
+"questions": "[NAME], o pensamento lógico é um talento nato e não pode ser desenvolvido com a prática.",
 "answers": [
 "Verdadeiro",
 "Falso"
 ],
 "correct": "Falso",
-"tip": "Na TI computacional, a limitação física de memória define conjuntos finitos massivos, não infinitos teóricos."
+"tip": "O pensamento lógico pode (e deve) ser desenvolvido e aperfeiçoado com prática constante."
 },
 {
 "type": "combo",
 "topics": "ACID",
-"questions": "Quando a definição dita que a coleção deve ser inequívoca quanto à pertinência de um objeto, garantimos que o conjunto seja considerado [COMBO].",
+"questions": "A distância entre o real e o ideal é chamada de [COMBO], onde mora o problema a ser resolvido.",
 "options": [
-"Bem Definido",
-"Unitário",
-"Complexo",
-"Absoluto"
+"Lacuna (Gap)",
+"Erro de Sistema",
+"Fronteira",
+"Variação"
 ],
-"correct": "Bem Definido",
-"tip": "Sem uma regra clara de pertinência, é impossível programar um algoritmo de filtro determinístico."
+"correct": "Lacuna (Gap)",
+"tip": "Identificar esta lacuna é o primeiro passo para compreender o que precisa ser consertado."
 },
 {
 "type": "multi",
 "topics": "ACID",
-"questions": "[NAME], quais opções apresentam formas válidas e diretas de se demonstrar a regra de formação de um conjunto em um código computacional?",
+"questions": "Quais são as consequências diretas de decisões impulsivas ao resolver problemas industriais?",
 "answers": [
-"Array declarado estaticamente: let a = [2, 4, 6];",
-"Função de mapeamento ou filtro: list.filter(x => x > 10);",
-"Cláusula SQL condicional: WHERE idade >= 18",
-"Comando de output em tela: print('Hello World')"
+"Retrabalho",
+"Desperdício de recursos",
+"Aumento de lucro",
+"Perda de produtividade"
 ],
 "correct": [
-"Array declarado estaticamente: let a = [2, 4, 6];",
-"Função de mapeamento ou filtro: list.filter(x => x > 10);",
-"Cláusula SQL condicional: WHERE idade >= 18"
+"Retrabalho",
+"Desperdício de recursos",
+"Perda de produtividade"
 ],
-"tip": "Declarações diretas usam a forma por extensão, enquanto filtros e queries usam a forma por descrição."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], em auditorias de logs, se o administrador precisa identificar uma anomalia registrada como 'x pertence ao conjunto de tentativas falhas e o total de tentativas falhas é 1', qual a característica do conjunto?",
-"answers": [
-"É um conjunto infinito.",
-"É um conjunto universo.",
-"É um conjunto unitário.",
-"É um conjunto vazio."
-],
-"correct": "É um conjunto unitário.",
-"tip": "Conjuntos com n(A) = 1 são denominados unitários, independentemente do tipo de dado."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], a representação por Diagrama de Venn é inútil na computação por ser apenas um desenho gráfico sem base matemática abstrata.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Diagramas de Venn são fundamentais na modelagem de esquemas de banco de dados e resolução de lógica de junção."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "Na teoria dos números aplicada ao hardware, números reais com [COMBO] dupla de bytes compõem o subconjunto mapeado ao tipo double.",
-"options": [
-"Extensão",
-"Inclusão",
-"Precisão",
-"Pertinência"
-],
-"correct": "Precisão",
-"tip": "O tipo double usa 64 bits para fornecer uma precisão dupla na representação de conjuntos Racionais e Reais."
+"tip": "Agir sem pensar estruturadamente custa caro para qualquer operação."
 },
 {
 "type": "drag",
 "topics": "ACID",
-"questions": "Classifique corretamente os cenários de desenvolvimento com a respectiva tipologia de conjunto:",
+"questions": "Relacione os estados do problema:",
 "items": [
-{ "id": "d1", "txt": "Um log diário limitando-se a 500 registros", "match": "z1" },
-{ "id": "d2", "txt": "Resultado de SELECT para um usuário recém-criado sem interações", "match": "z2" },
-{ "id": "d3", "txt": "Toda a população de usuários do sistema sem filtros", "match": "z3" }
+{
+"id": "d1",
+"txt": "Onde estamos agora",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Onde queremos chegar",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Distância entre os dois",
+"match": "z3"
+}
 ],
 "zones": [
-{ "id": "z1", "label": "Conjunto Finito" },
-{ "id": "z2", "label": "Conjunto Vazio" },
-{ "id": "z3", "label": "Conjunto Universo" }
+{
+"id": "z1",
+"label": "Situação Atual"
+},
+{
+"id": "z2",
+"label": "Situação Desejada"
+},
+{
+"id": "z3",
+"label": "Lacuna (Gap)"
+}
 ],
 "correct": "drag",
-"tip": "O contexto delimita a natureza do conjunto. Domine esses mapeamentos lógicos.",
-"trans": "AGEN"
+"tip": "Esta tríade define a estrutura básica de qualquer desafio técnico."
 },
 {
 "type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], em uma consulta a banco de dados relacional que exija a recuperação de registros contidos na Tabela A que NÃO tenham correspondência na Tabela B, qual operação matemática é a base lógica desta query?",
+"topics": "ACID",
+"questions": "[NAME], quantos porcento dos erros em processos industriais poderiam ser evitados com análise prévia adequada?",
 "answers": [
-"Interseção (A ∩ B)",
-"União (A U B)",
-"Diferença de Conjuntos (A - B)",
-"Igualdade (A = B)"
+"60%",
+"20%",
+"85%",
+"40%"
 ],
-"correct": "Diferença de Conjuntos (A - B)",
-"tip": "A operação de diferença isola elementos exclusivos do primeiro conjunto."
+"correct": "60%",
+"tip": "A prevenção estruturada evita mais da metade das falhas comuns."
 },
 {
 "type": "boolean",
-"topics": "AGEN",
-"questions": "[NAME], o operador lógico NOT em programação (ex: !condicao) atua aplicando o conceito matemático do Conjunto Complementar (Ac) em relação a um universo booleano.",
+"topics": "ACID",
+"questions": "[NAME], um profissional que aplica métodos estruturados é cerca de 3 vezes mais eficiente que um que usa tentativa e erro.",
 "answers": [
 "Verdadeiro",
 "Falso"
 ],
 "correct": "Verdadeiro",
-"tip": "O conjunto complementar abrange tudo no universo que não atende à condição avaliada."
+"tip": "A eficiência multiplica quando seguimos uma lógica clara em vez de achismos."
 },
 {
 "type": "combo",
-"topics": "AGEN",
-"questions": "Para evitar duplicação de dados ao mesclar listas de clientes de duas regiões diferentes, a operação de [COMBO] processa os elementos, garantindo que os repetidos constem apenas uma vez.",
+"topics": "ACID",
+"questions": "O pensamento lógico é a capacidade de organizar informações, identificar padrões e estabelecer relações de [COMBO].",
 "options": [
-"Interseção",
-"Complementar",
-"União",
-"Diferença"
+"Causa e efeito",
+"Tentativa e erro",
+"Início e fim",
+"Custo e benefício"
 ],
-"correct": "União",
-"tip": "A união matemática funde as coleções eliminando as redundâncias inerentes."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "[NAME], a cláusula INNER JOIN na linguagem SQL reflete qual conjunto de operações e lógicas?",
-"answers": [
-"A operação de Interseção (A ∩ B).",
-"A recuperação de elementos exclusivos de A.",
-"O operador lógico E (AND).",
-"A operação de União Completa (A U B)."
-],
-"correct": [
-"A operação de Interseção (A ∩ B).",
-"O operador lógico E (AND)."
-],
-"tip": "O INNER JOIN exige que a condição seja verdadeira em ambos os conjuntos, equivalendo à interseção."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "Arraste os comandos/operadores SQL e lógicos para a operação de conjuntos correspondente:",
-"items": [
-{ "id": "d1", "txt": "UNION / OR (||)", "match": "z1" },
-{ "id": "d2", "txt": "INTERSECT / AND (&&)", "match": "z2" },
-{ "id": "d3", "txt": "EXCEPT / NOT IN", "match": "z3" }
-],
-"zones": [
-{ "id": "z1", "label": "A U B" },
-{ "id": "z2", "label": "A ∩ B" },
-{ "id": "z3", "label": "A - B" }
-],
-"correct": "drag",
-"tip": "A programação nada mais é do que a aplicação prática da álgebra de conjuntos booleana."
+"correct": "Causa e efeito",
+"trans": "AGEN",
+"tip": "Entender o que causa um sintoma é a base do raciocínio diagnóstico."
 },
 {
 "type": "multiple",
 "topics": "AGEN",
-"questions": "[NAME], ao projetar um painel de permissões, a regra 'x pertence ao grupo Admin OU x pertence ao grupo Segurança' constrói logicamente um conjunto através de:",
+"questions": "[NAME], qual é o primeiro e mais crítico passo da Metodologia de 5 Passos?",
 "answers": [
-"A U B (União)",
-"A ∩ B (Interseção)",
-"A - B (Diferença)",
-"Ac (Complementar)"
+"Detalhar as Variáveis",
+"Encontrar Soluções",
+"Escolher a Solução",
+"Revisar os Dados"
 ],
-"correct": "A U B (União)",
-"tip": "O conectivo 'OU' (OR) é o reflexo direto da união inclusiva de conjuntos."
+"correct": "Detalhar as Variáveis",
+"tip": "Muitos erros ocorrem porque saltamos para a solução sem entender o que está acontecendo."
 },
 {
 "type": "boolean",
 "topics": "AGEN",
-"questions": "[NAME], em conjuntos, A - B resultará no conjunto vazio sempre que A for um subconjunto próprio de B (A ⊂ B).",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Se todos os elementos de A também estão em B, subtrair os elementos de B removerá tudo de A."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "Uma consulta que busca registros onde o departamento [COMBO] ('TI') é a implementação prática computacional do Complementar (Ac) em relação à base inteira.",
-"options": [
-"IS NULL",
-"NOT IN",
-"EQUALS",
-"LIKE"
-],
-"correct": "NOT IN",
-"tip": "Excluir um subconjunto de um universo por meio da negação produz o seu complementar."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "[NAME], quais cenários corporativos abaixo se resolvem primariamente usando a operação de Interseção (A ∩ B)?",
-"answers": [
-"Listar clientes que realizaram compras no site E também na loja física.",
-"Obter todos os contatos agrupando as bases de dados de duas filiais.",
-"Identificar funcionários do setor de vendas que possuem certificação avançada.",
-"Remover da lista de e-mail os usuários que pediram descadastro."
-],
-"correct": [
-"Listar clientes que realizaram compras no site E também na loja física.",
-"Identificar funcionários do setor de vendas que possuem certificação avançada."
-],
-"tip": "A interseção foca nas condições simultâneas ou sobreposições de características."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], na expressão de Diagrama de Venn, a área de sobreposição central que conecta os círculos A e B representa os elementos sujeitos a qual filtro de código?",
-"answers": [
-"A.filter(x => B.includes(x))",
-"A.filter(x => !B.includes(x))",
-"A.concat(B)",
-"B.filter(x => !A.includes(x))"
-],
-"correct": "A.filter(x => B.includes(x))",
-"tip": "A interseção programática verifica para cada elemento de um se ele também pertence ao outro."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "[NAME], a comutatividade aplica-se à União e à Interseção, significando que A U B = B U A e A ∩ B = B ∩ A, o que garante estabilidade em otimizações de query engines.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A ordem não altera o resultado da união e interseção, permitindo aos otimizadores de BD rearranjar execuções."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "Se o Universo U possui 1000 IDs e o conjunto A possui 200 IDs, a cardinalidade do [COMBO] de A será exatamente 800.",
-"options": [
-"Subconjunto",
-"Complementar",
-"Resto Divisório",
-"Agrupamento"
-],
-"correct": "Complementar",
-"tip": "O complementar de A (Ac) é o conjunto U subtraído dos elementos de A."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "Relacione as operações aos casos de uso em scripts de segurança e dados:",
-"items": [
-{ "id": "d1", "txt": "Achar IPs atacantes que também estão em blacklists públicas", "match": "z1" },
-{ "id": "d2", "txt": "Combinar logs de firewall primário e secundário", "match": "z2" },
-{ "id": "d3", "txt": "Listar usuários logados, exceto os administradores", "match": "z3" }
-],
-"zones": [
-{ "id": "z1", "label": "Interseção (AND)" },
-{ "id": "z2", "label": "União (OR)" },
-{ "id": "z3", "label": "Diferença (EXCEPT)" }
-],
-"correct": "drag",
-"tip": "A lógica matemática resolve falhas de processamento antes de virarem gargalos no código.",
-"trans": "PROT"
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], considere o particionamento de um disco rígido. Se um cluster indica uso de 11/8 de sua capacidade alocada inicialmente, como essa fração é matematicamente classificada e qual a consequência técnica?",
-"answers": [
-"Imprópria; indica estouro de buffer ou sobrecarga de capacidade estrutural.",
-"Própria; indica que o limite de segurança de 8 bytes foi preservado.",
-"Aparente; indica que os blocos de memória foram alocados perfeitamente.",
-"Decimal; demonstra falha na conversão analógica-digital."
-],
-"correct": "Imprópria; indica estouro de buffer ou sobrecarga de capacidade estrutural.",
-"tip": "Frações onde o numerador supera o denominador têm valor absoluto maior que 1, apontando excesso no universo delimitado."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "[NAME], a representação nativa de dados fracionários na ULA (Unidade Lógica e Aritmética) suporta o denominador zero para fins de manipulação de infinidades algébricas.",
+"questions": "Na fase de 'Encontrar Possíveis Soluções', a qualidade das ideias importa mais do que a quantidade gerada no início.",
 "answers": [
 "Verdadeiro",
 "Falso"
 ],
 "correct": "Falso",
-"tip": "O denominador zero acarreta indefinição matemática, gerando as conhecidas exceções de DivisionByZero no hardware."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "Se uma carga de processamento CPU atinge 24/8 de threads ativas por núcleo, o sistema experimenta o processamento correspondente a uma fração [COMBO], cujo valor inteiro é 3.",
-"options": [
-"Aparente",
-"Imprópria-Irredutível",
-"Própria",
-"Sintética"
-],
-"correct": "Aparente",
-"tip": "Frações cujo numerador é múltiplo exato do denominador são aparentes e convertem-se diretamente em valores inteiros isolados."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "[NAME], ao otimizar o layout responsivo de um frontend, a relação de tela 1920x1080 é simplificada para 16:9. Identifique as bases matemáticas empregadas neste processo de simplificação.",
-"answers": [
-"O conceito de frações equivalentes que preservam a mesma proporção geométrica.",
-"A divisão sucessiva ou determinação do Máximo Divisor Comum (MDC).",
-"A conversão mandatório de frações próprias para impróprias.",
-"A eliminação do denominador mediante multiplicação cruzada."
-],
-"correct": [
-"O conceito de frações equivalentes que preservam a mesma proporção geométrica.",
-"A divisão sucessiva ou determinação do Máximo Divisor Comum (MDC)."
-],
-"tip": "A simplificação otimiza o armazenamento numérico sem alterar o fator de proporção da fração original."
+"tip": "Nesta fase, o objetivo é pensar de forma divergente. Toda ideia é bem-vinda antes da filtragem."
 },
 {
 "type": "drag",
-"topics": "PROT",
-"questions": "Associe a natureza estrutural do numerador vs denominador com sua tipologia de fração correta:",
+"topics": "AGEN",
+"questions": "[NAME], ordene corretamente os 4 primeiros passos da metodologia:",
 "items": [
-{ "id": "d1", "txt": "Numerador menor que Denominador", "match": "z1" },
-{ "id": "d2", "txt": "Numerador maior, mas não é múltiplo", "match": "z2" },
-{ "id": "d3", "txt": "Numerador é múltiplo exato do Denominador", "match": "z3" }
+{
+"id": "d1",
+"txt": "Passo 1",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Passo 2",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Passo 3",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "Passo 4",
+"match": "z4"
+}
 ],
 "zones": [
-{ "id": "z1", "label": "Fração Própria" },
-{ "id": "z2", "label": "Fração Imprópria" },
-{ "id": "z3", "label": "Fração Aparente" }
+{
+"id": "z1",
+"label": "Detalhar"
+},
+{
+"id": "z2",
+"label": "Encontrar"
+},
+{
+"id": "z3",
+"label": "Escolher"
+},
+{
+"id": "z4",
+"label": "Executar"
+}
 ],
 "correct": "drag",
-"tip": "Compreender os tipos viabiliza algoritmos mais eficientes de checagem de limites (thresholds)."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], ao se afirmar que frações decimais apresentam conversão direta e nativa na programação orientada a float/double, refere-se especificamente a frações onde o denominador assume qual forma matemática?",
-"answers": [
-"Potências de base 10 (ex: 10, 100, 1000).",
-"Números primos maiores que 2.",
-"Múltiplos binários como 2, 4, 8, 16.",
-"Qualquer valor ímpar divisível por ele mesmo."
-],
-"correct": "Potências de base 10 (ex: 10, 100, 1000).",
-"tip": "As frações decimais têm a conversão imediata para notação com vírgula flutuante (ponto decimal) no sistema decimal clássico."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "[NAME], uma taxa de transferência de dados representada por 75/100 é classificada como uma fração aparente por tratar-se de uma porcentagem exata na computação em rede.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Ela é uma fração própria e decimal. O numerador 75 não é múltiplo exato do denominador 100."
+"tip": "A sequência constrói a solução desde a raiz até a prática."
 },
 {
 "type": "combo",
-"topics": "PROT",
-"questions": "Devido à arquitetura da máquina, certas frações próprias comuns (ex: 1/3) não possuem uma representação decimal finita perfeita, resultando nos conhecidos erros de [COMBO] nas variáveis de ponto flutuante.",
+"topics": "AGEN",
+"questions": "O quinto passo da metodologia é [COMBO] e atualizar os dados.",
 "options": [
-"Arredondamento",
-"Compilação",
-"Alocação",
-"Runtime"
+"Revisar",
+"Registrar",
+"Repetir",
+"Remodelar"
 ],
-"correct": "Arredondamento",
-"tip": "Frações não-decimais muitas vezes geram dízimas, causando truncamento nos bits limitados de floats e doubles."
+"correct": "Revisar",
+"tip": "A revisão fecha o ciclo e transforma a experiência em conhecimento."
 },
 {
 "type": "multi",
-"topics": "PROT",
-"questions": "[NAME], em auditorias de estabilidade de serviços, quando a métrica de utilização RAM atinge a fração 5/5, quais as conclusões matemáticas e de sistemas corretas?",
+"topics": "AGEN",
+"questions": "[NAME], quais são atividades fundamentais no Passo 1 (Detalhar)?",
 "answers": [
-"É uma fração aparente que equivale ao inteiro 1.",
-"O sistema indica 100% de utilização do recurso avaliado.",
-"O valor representa uma sobrecarga técnica, indicando crash.",
-"O denominador anula o numerador, liberando a memória."
+"Coletar dados e evidências",
+"Delimitar o escopo",
+"Implementar a correção",
+"Definir o problema com clareza"
 ],
 "correct": [
-"É uma fração aparente que equivale ao inteiro 1.",
-"O sistema indica 100% de utilização do recurso avaliado."
+"Coletar dados e evidências",
+"Delimitar o escopo",
+"Definir o problema com clareza"
 ],
-"tip": "Toda fração onde o numerador é igual ao denominador resulta em 1, expressando a totalidade do recurso sem excedê-lo."
+"tip": "A implementação só ocorre no Passo 4. O início é puramente investigativo."
 },
 {
 "type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], simplificar frações como 12/16 para 3/4 no código evita over-processing geométrico. Para implementar a rotina de simplificação programática, qual algoritmo é essencial aplicar?",
+"topics": "AGEN",
+"questions": "Qual técnica criativa consiste em perguntar 'Como pioraríamos o problema?' para descobrir caminhos inesperados?",
 "answers": [
-"Algoritmo de cálculo do Máximo Divisor Comum (MDC).",
-"Algoritmo de Fatoração de Primos até a Raiz Quadrada.",
-"Cálculo de Inversão da Matriz Transposta.",
-"Teorema do Mínimo Múltiplo Comum (MMC)."
+"Inversão de Perspectiva",
+"Brainstorming Estruturado",
+"Benchmarking",
+"Analogia"
 ],
-"correct": "Algoritmo de cálculo do Máximo Divisor Comum (MDC).",
-"tip": "O MDC encontra o maior fator comum entre numerador e denominador, assegurando a obtenção imediata da fração irredutível."
+"correct": "Inversão de Perspectiva",
+"tip": "Inverter a lógica ajuda a enxergar variáveis que passavam despercebidas."
 },
 {
 "type": "boolean",
-"topics": "PROT",
-"questions": "[NAME], todas as frações impróprias, por terem um numerador maior, podem ser diretamente reescritas na computação como frações decimais exatas sem erros de arredondamento.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "A conversão em fração decimal exata depende da natureza dos fatores primos do denominador, não do tipo (própria ou imprópria)."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "Vincule a métrica computacional ao significado fracionário mais apropriado no contexto de gestão de recursos de nuvem:",
-"items": [
-{ "id": "d1", "txt": "1/4 da capacidade", "match": "z1" },
-{ "id": "d2", "txt": "8/8 dos contêineres", "match": "z2" },
-{ "id": "d3", "txt": "10/5 requisições por ticket", "match": "z3" }
-],
-"zones": [
-{ "id": "z1", "label": "Subutilização elástica" },
-{ "id": "z2", "label": "Uso máximo do pool alocado" },
-{ "id": "z3", "label": "Gargalo ou dupla alocação (valor 2)" }
-],
-"correct": "drag",
-"tip": "Saber ler métricas fracionárias como frações aparentes, impróprias ou próprias direciona o dimensionamento (scaling).",
-"trans": "NORM"
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], em um cálculo heurístico de distribuição de cluster, se o nó primário requer a adição das partições ocupadas 1/3 e 1/4, o algoritmo programado deve executar qual procedimento preparatório para evitar inconsistência de dados?",
-"answers": [
-"O cálculo do Mínimo Múltiplo Comum (MMC) para homogeneizar as bases denominadoras.",
-"A multiplicação cruzada apenas dos numeradores.",
-"A extração dos valores decimais truncando o dígito menos significativo.",
-"A soma linear e direta dos denominadores formando a base 7."
-],
-"correct": "O cálculo do Mínimo Múltiplo Comum (MMC) para homogeneizar as bases denominadoras.",
-"tip": "Somar frações heterogêneas exige a equalização matemática da base, providenciada pelo MMC, convertendo-as em frações de denominador equivalente."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], para calcular qual fração de recursos é gasta por um serviço restrito a 2/5 do espaço total delimitado por 3/4 do disco (processo de uma fração de outra fração), deve-se realizar uma multiplicação simples resultando em 6/20.",
+"topics": "AGEN",
+"questions": "[NAME], o método de 5 passos ensinado é baseado em um framework heurístico clássico de 4 fases.",
 "answers": [
 "Verdadeiro",
 "Falso"
 ],
 "correct": "Verdadeiro",
-"tip": "A operação correta para extrair proporções subsequentes (fração da fração) é a multiplicação direta."
+"tip": "Ele é uma adaptação prática de métodos consagrados mundialmente (como o de Pólya) para o ambiente técnico."
 },
 {
 "type": "combo",
-"topics": "NORM",
-"questions": "Para liberar espaço em partições com as taxas 1/4 e 2/4 ocupadas, uma rotina algorítmica somaria rapidamente obtendo 3/4 por identificar que ambas possuem denominadores [COMBO].",
+"topics": "AGEN",
+"questions": "Buscar como problemas semelhantes foram resolvidos em outras empresas é usar a técnica de [COMBO].",
 "options": [
-"Iguais",
-"Primos",
-"Impróprios",
-"Decimais"
+"Benchmarking",
+"Inversão",
+"Brainstorming",
+"Isolamento"
 ],
-"correct": "Iguais",
-"tip": "A presença de bases idênticas permite a supressão do MMC e a soma direta e eficiente apenas das alocações dos numeradores."
+"correct": "Benchmarking",
+"tip": "Não precisamos reinventar a roda se o mercado já possui soluções análogas."
 },
 {
 "type": "multi",
-"topics": "NORM",
-"questions": "[NAME], avalie um cenário onde um cache L3 do servidor necessita subtrair a carga de 1/2 de uma taxa alocada de 3/4. Quais etapas lógicas são intrínsecas a esse pipeline aritmético de frações?",
+"topics": "AGEN",
+"questions": "Na fase de 'Escolher' (Passo 3), é necessário evitar achismos. Quais critérios devem ser usados?",
 "answers": [
-"O reconhecimento de que a fração 1/2 pode ser equivalentemente reescrita como 2/4.",
-"O estabelecimento de uma base de operação comum que, neste caso, é 4.",
-"A soma paralela e indireta do numerador 3 e denominador 2.",
-"A produção do resultado final 1/4 representando o cache remanescente."
+"Eficácia",
+"Viabilidade",
+"Riscos Envolvidos",
+"Opinião do mais velho"
 ],
 "correct": [
-"O reconhecimento de que a fração 1/2 pode ser equivalentemente reescrita como 2/4.",
-"O estabelecimento de uma base de operação comum que, neste caso, é 4.",
-"A produção do resultado final 1/4 representando o cache remanescente."
+"Eficácia",
+"Viabilidade",
+"Riscos Envolvidos"
 ],
-"tip": "A conversão em frações equivalentes com o mesmo denominador possibilita a subtração ou adição de fatias operacionais compatíveis."
+"tip": "A escolha deve ser puramente baseada em critérios mensuráveis e objetivos."
 },
 {
 "type": "drag",
-"topics": "NORM",
-"questions": "Ordene mentalmente as etapas algorítmicas ao processar a soma de arrays fracionários heterogêneos e relacione a ordem:",
+"topics": "AGEN",
+"questions": "Relacione a ação à respectiva técnica de geração de soluções:",
 "items": [
-{ "id": "d1", "txt": "Passo 1", "match": "z1" },
-{ "id": "d2", "txt": "Passo 2", "match": "z2" },
-{ "id": "d3", "txt": "Passo 3", "match": "z3" }
+{
+"id": "d1",
+"txt": "Geração livre de ideias",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Pensar o oposto",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Copiar boas práticas externas",
+"match": "z3"
+}
 ],
 "zones": [
-{ "id": "z1", "label": "Achar o MMC (equalizar denominadores)" },
-{ "id": "z2", "label": "Somar exclusivamente os numeradores" },
-{ "id": "z3", "label": "Simplificar o resultado gerado usando MDC" }
+{
+"id": "z1",
+"label": "Brainstorming"
+},
+{
+"id": "z2",
+"label": "Inversão de Perspectiva"
+},
+{
+"id": "z3",
+"label": "Benchmarking"
+}
 ],
 "correct": "drag",
-"tip": "Este pipeline estruturado assegura a estabilidade e mitigação de erros de overflow de tipos ao integrar grandes números."
+"tip": "Dominar várias técnicas garante que a equipe não fique 'travada' na ideação."
 },
 {
 "type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], considerando as primitivas matemáticas na criptografia assimétrica, por que a operação de adição com denominadores iguais consome muito menos ciclos de clock na CPU do que a adição com denominadores distintos?",
+"topics": "AGEN",
+"questions": "[NAME], se você não consegue resolver um problema complexo, qual é a melhor recomendação heurística?",
 "answers": [
-"Evita a chamada custosa ao algoritmo de divisão/MMC, demandando apenas um somador na ALU.",
-"Ignora a presença dos numeradores nas portas lógicas.",
-"As frações com bases iguais são intrinsecamente dízimas periódicas contínuas.",
-"O barramento é desativado permitindo a soma estática assíncrona."
+"Encontrar um problema mais fácil (uma parte) que possa ser resolvido primeiro",
+"Desistir e passar para outra equipe",
+"Pular direto para a execução",
+"Aumentar o escopo do problema"
 ],
-"correct": "Evita a chamada custosa ao algoritmo de divisão/MMC, demandando apenas um somador na ALU.",
-"tip": "A eliminação da etapa de determinação de MMC corta operações complexas de hardware, acelerando a instrução."
+"correct": "Encontrar um problema mais fácil (uma parte) que possa ser resolvido primeiro",
+"tip": "Quebrar a complexidade em etapas gerenciáveis é o segredo dos grandes analistas."
 },
 {
 "type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], ao se multiplicar a taxa de transferência da rede de 3/4 por um estrangulamento de QoS imposto de 4/3, a vazão resultante da banda modela perfeitamente uma fração aparente.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "3/4 multiplicado pelo seu recíproco 4/3 gera 12/12, que simplifica para 1, uma fração aparente confirmando restauração total da banda-base no fator."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "Em um data warehouse, somar frações como '1/4 de TB em log' com '1/2 de TB em mídia' exige a regra fundamental de conversão baseada em [COMBO] pelo número inferior e multiplicar pelo superior.",
-"options": [
-"Dividir",
-"Inverter",
-"Modular",
-"Rotacionar"
-],
-"correct": "Dividir",
-"tip": "O processo empírico dita dividir o MMC encontrado pelo denominador originário para reestruturar as grandezas do numerador adequadamente."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "[NAME], se uma partição do Kubernetes apresenta limites elásticos requerendo o cálculo fracionário [3/5 + 1/4], identifique os valores intermediários matematicamente corretos que o orquestrador manipula internamente.",
-"answers": [
-"O MMC que determina o divisor comum é igual a 20.",
-"A primeira fração transforma-se na equivalente 12/20.",
-"A segunda fração torna-se 5/20 na padronização geométrica.",
-"O resultado final acusa sobrecarga por exceder o valor 20/20."
-],
-"correct": [
-"O MMC que determina o divisor comum é igual a 20.",
-"A primeira fração transforma-se na equivalente 12/20.",
-"A segunda fração torna-se 5/20 na padronização geométrica."
-],
-"tip": "A soma resulta em 17/20, que é uma fração própria e não causa estado de sobrecarga."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], na gestão de um banco de dados in-memory de 16GB, se os três serviços vitais alocam exatamente 3/16, 5/16 e 4/16 simultaneamente, como você traduz e conclui analiticamente a operação de disponibilidade restante?",
-"answers": [
-"A soma 12/16 simplifica-se para 3/4 de uso, liberando exatamente 1/4 (4 GB) de contingência.",
-"Os denominadores somados resultam em 48, colapsando a segmentação em buffer overflow.",
-"A base é alterada para MMC(16,3,5), estendendo a RAM por memória virtual swap.",
-"O MMC falha pois 16 não é número primo, trancando a alocação em 12GB estáticos."
-],
-"correct": "A soma 12/16 simplifica-se para 3/4 de uso, liberando exatamente 1/4 (4 GB) de contingência.",
-"tip": "O balanço patrimonial dos recursos no sistema é uma aplicação objetiva das subtrações no conjunto universo do hardware."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], em algoritmos de modelagem tridimensional, simplificar frações decorrentes de matrizes multiplicadas no estágio final não impacta o desempenho ou a representação exata do vetor de renderização.",
+"topics": "AGEN",
+"questions": "O Passo 4 (Executar) se resume apenas em 'fazer o que foi decidido', sem necessidade de planejamento formal.",
 "answers": [
 "Verdadeiro",
 "Falso"
 ],
 "correct": "Falso",
-"tip": "Simplificar frações (otimização) melhora a precisão na conversão float e poupa registros de armazenamento em cálculos pesados."
+"tip": "A execução exige planejamento rigoroso de recursos, responsáveis e cronograma."
+},
+{
+"type": "combo",
+"topics": "AGEN",
+"questions": "Durante o Passo 2, o principal objetivo é o pensamento [COMBO], abrindo o leque de opções.",
+"options": [
+"Divergente",
+"Convergente",
+"Estático",
+"Linear"
+],
+"correct": "Divergente",
+"trans": "PROT",
+"tip": "Pense divergente para criar opções, pense convergente para escolher a melhor."
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "[NAME], qual ferramenta ajuda a entender profundamente as dimensões de um problema respondendo perguntas em inglês?",
+"answers": [
+"5W2H",
+"5 Porquês",
+"Diagrama de Ishikawa",
+"Ciclo PDCA"
+],
+"correct": "5W2H",
+"tip": "What, Who, When, Where, Why, How, How much - garantem um mapeamento 360 graus."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "O Diagrama de Ishikawa também é popularmente conhecido como Espinha de Peixe.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Seu formato visual lembra o esqueleto de um peixe apontando para o problema central."
+},
+{
+"type": "drag",
+"topics": "PROT",
+"questions": "Relacione o 'W' do 5W2H ao seu significado prático:",
+"items": [
+{
+"id": "d1",
+"txt": "What?",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Who?",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Where?",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "When?",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "O que é o problema?"
+},
+{
+"id": "z2",
+"label": "Quem está envolvido?"
+},
+{
+"id": "z3",
+"label": "Em que local ocorre?"
+},
+{
+"id": "z4",
+"label": "Quando ocorre?"
+}
+],
+"correct": "drag",
+"tip": "Esta ferramenta estrutura o caos de informações num formato legível."
+},
+{
+"type": "combo",
+"topics": "PROT",
+"questions": "A técnica dos [COMBO] é usada para escavar os sintomas até chegar à verdadeira origem da falha.",
+"options": [
+"5 Porquês",
+"6 Chapéus",
+"4 Quadrantes",
+"5 Passos"
+],
+"correct": "5 Porquês",
+"tip": "Nunca pare no primeiro 'por quê', ele geralmente aponta só um sintoma superficial."
+},
+{
+"type": "multi",
+"topics": "PROT",
+"questions": "[NAME], quais destas opções são categorias (os 'Ms') clássicas do Diagrama de Ishikawa?",
+"answers": [
+"Máquina",
+"Método",
+"Mão de Obra",
+"Marketing"
+],
+"correct": [
+"Máquina",
+"Método",
+"Mão de Obra"
+],
+"tip": "Os outros Ms são: Material, Meio Ambiente e Medição."
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "O que a sigla PDCA significa em português?",
+"answers": [
+"Planejar, Executar, Verificar, Agir",
+"Prevenir, Documentar, Corrigir, Analisar",
+"Pesquisar, Desenvolver, Checar, Avaliar",
+"Pensar, Decidir, Controlar, Atualizar"
+],
+"correct": "Planejar, Executar, Verificar, Agir",
+"tip": "O PDCA é o ciclo definitivo para a melhoria contínua nas engenharias."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "[NAME], a fase 'Check' do PDCA corresponde exatamente ao Passo 5 (Revisar) da nossa metodologia.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Em ambos, o objetivo é cruzar os dados de resultado com os indicadores esperados."
+},
+{
+"type": "drag",
+"topics": "PROT",
+"questions": "Associe a fase do PDCA com a ação da nossa Metodologia de 5 Passos:",
+"items": [
+{
+"id": "d1",
+"txt": "Plan (Planejar)",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Do (Executar)",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Check (Verificar)",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Detalhar, Encontrar, Escolher"
+},
+{
+"id": "z2",
+"label": "Implementar a solução (Passo 4)"
+},
+{
+"id": "z3",
+"label": "Revisar resultados (Passo 5)"
+}
+],
+"correct": "drag",
+"tip": "As metodologias ágeis e de qualidade conversam todas entre si."
+},
+{
+"type": "combo",
+"topics": "PROT",
+"questions": "No 5W2H, a pergunta 'How much?' refere-se ao impacto [COMBO] do problema.",
+"options": [
+"Quantificável",
+"Social",
+"Ambiental",
+"Teórico"
+],
+"correct": "Quantificável",
+"tip": "Saber o custo do problema ajuda a justificar o orçamento da solução."
+},
+{
+"type": "multi",
+"topics": "PROT",
+"questions": "[NAME], sobre o Diagrama de Ishikawa, para quais categorias olharíamos se houvesse erro de calibração num termômetro e falta de SOP (Standard Operating Procedure)?",
+"answers": [
+"Medição",
+"Método",
+"Mão de Obra",
+"Material"
+],
+"correct": [
+"Medição",
+"Método"
+],
+"tip": "Calibração entra em Medição; Procedimentos documentados entram em Método."
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "Qual é a principal função da etapa 'Act' (Agir) no PDCA?",
+"answers": [
+"Padronizar a solução eficaz ou reiniciar o ciclo",
+"Fazer uma tempestade de ideias",
+"Definir o orçamento da equipe",
+"Procurar os culpados do erro"
+],
+"correct": "Padronizar a solução eficaz ou reiniciar o ciclo",
+"tip": "Se funcionou, vira o novo padrão da empresa. Se falhou, rodamos o ciclo novamente."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "Chegar na 'Causa Raiz' garante que o problema não voltará a acontecer se for corrigida adequadamente.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "A causa raiz é a doença. Os outros problemas gerados por ela são apenas febre."
+},
+{
+"type": "combo",
+"topics": "PROT",
+"questions": "O 5W2H mapeia as variáveis na fase de [COMBO].",
+"options": [
+"Detalhamento",
+"Execução",
+"Escolha",
+"Revisão"
+],
+"correct": "Detalhamento",
+"trans": "NORM",
+"tip": "Use essa ferramenta logo no Passo 1 para não perder o foco."
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "[NAME], qual ferramenta utilizamos para cruzar notas e pesos na escolha da melhor solução (Passo 3)?",
+"answers": [
+"Matriz de Decisão",
+"Diagrama de Pareto",
+"Gráfico de Gantt",
+"Espinha de Peixe"
+],
+"correct": "Matriz de Decisão",
+"tip": "Ela remove a subjetividade, aplicando uma lógica matemática de pesos e pontos."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "[NAME], ao executar uma solução (Passo 4), é uma péssima ideia fazer testes ou pilotos em pequena escala antes de implementar tudo de uma vez.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Fazer um teste piloto é uma das melhores práticas! Evita que uma solução falha quebre todo o sistema."
 },
 {
 "type": "drag",
 "topics": "NORM",
-"questions": "Mapeie a operação matemática de frações com o comportamento analítico em sistemas operacionais:",
+"questions": "Relacione os critérios de avaliação da Matriz de Decisão com suas perguntas base:",
 "items": [
-{ "id": "d1", "txt": "1/2 + 1/4 na tabela de páginas", "match": "z1" },
-{ "id": "d2", "txt": "1/3 * 3/4 de latência de buffer", "match": "z2" },
-{ "id": "d3", "txt": "8/8 - 3/4 em fragmentação de disco", "match": "z3" }
+{
+"id": "d1",
+"txt": "Eficácia",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Sustentabilidade",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Viabilidade",
+"match": "z3"
+}
 ],
 "zones": [
-{ "id": "z1", "label": "Soma via equalização de MMC" },
-{ "id": "z2", "label": "Multiplicação gerando restrição proporcional" },
-{ "id": "z3", "label": "Subtração para medição de margem livre" }
+{
+"id": "z1",
+"label": "Resolve o problema na causa raiz?"
+},
+{
+"id": "z2",
+"label": "Previne a recorrência a longo prazo?"
+},
+{
+"id": "z3",
+"label": "Temos orçamento e tecnologia para fazer?"
+}
 ],
 "correct": "drag",
-"tip": "O domínio teórico transcende fórmulas e orienta tomadas de decisão baseadas em quantificações precisas do sistema.",
-"trans": "FINISH"
+"tip": "Esses critérios garantem que não vamos escolher algo perfeito na teoria e impossível na prática."
+},
+{
+"type": "combo",
+"topics": "NORM",
+"questions": "O registro do que funcionou e falhou após a implementação é documentado como [COMBO].",
+"options": [
+"Lições Aprendidas",
+"Manual de Crise",
+"Relatório de Erros",
+"Auditoria Cega"
+],
+"correct": "Lições Aprendidas",
+"tip": "Isso retroalimenta o conhecimento organizacional da empresa."
+},
+{
+"type": "multi",
+"topics": "NORM",
+"questions": "O que deve constar no planejamento obrigatório do Passo 4 (Execução)?",
+"answers": [
+"Responsáveis nominais",
+"Alocação de Recursos",
+"Cronograma com Marcos",
+"Escolha da causa raiz"
+],
+"correct": [
+"Responsáveis nominais",
+"Alocação de Recursos",
+"Cronograma com Marcos"
+],
+"tip": "A causa raiz já foi definida lá atrás. No passo 4, o foco é projeto."
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "[NAME], uma 'taxa de erro zerada' e 'tempo de ciclo reduzido' são exemplos de quais tipos de indicadores?",
+"answers": [
+"Quantitativos",
+"Qualitativos",
+"Subjetivos",
+"Comportamentais"
+],
+"correct": "Quantitativos",
+"tip": "São números absolutos que podem ser medidos diretamente pelas máquinas ou sistemas."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "Comunicar o plano de ação a todos os afetados é uma perda de tempo, pois apenas os executores precisam saber da mudança.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "A resistência à mudança cai drasticamente quando a comunicação é clara e transparente."
+},
+{
+"type": "drag",
+"topics": "NORM",
+"questions": "Associe os tipos de indicadores com seus exemplos práticos da aula:",
+"items": [
+{
+"id": "d1",
+"txt": "Quantitativo",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Qualitativo",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Temporal",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "R$ 20.000 poupados por dia"
+},
+{
+"id": "z2",
+"label": "Aumento na confiança da equipe"
+},
+{
+"id": "z3",
+"label": "Implementado em 4 semanas"
+}
+],
+"correct": "drag",
+"tip": "Uma boa revisão avalia a performance em todas essas três frentes."
+},
+{
+"type": "combo",
+"topics": "NORM",
+"questions": "Se a Matriz de Decisão deu empate técnico, o critério de [COMBO] costuma ter peso maior para desempatar, pois define se a solução ataca a causa real.",
+"options": [
+"Eficácia",
+"Rapidez",
+"Inovação",
+"Design"
+],
+"correct": "Eficácia",
+"tip": "De nada adianta uma solução rápida que não extingue o problema de vez."
+},
+{
+"type": "multi",
+"topics": "NORM",
+"questions": "[NAME], o que você deve EVITAR fazer durante a fase de Execução?",
+"answers": [
+"Ignorar sinais de que algo não está funcionando",
+"Excluir pessoas-chave da implementação",
+"Considerar que a solução é definitiva sem verificação",
+"Monitorar indicadores de progresso"
+],
+"correct": [
+"Ignorar sinais de que algo não está funcionando",
+"Excluir pessoas-chave da implementação",
+"Considerar que a solução é definitiva sem verificação"
+],
+"tip": "Executar exige humildade para ajustar a rota se a prática não confirmar a teoria."
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "No estudo de caso da LogisTech, por que a opção 'D: Mudar de ERP' obteve a menor pontuação total (44) na Matriz de Decisão?",
+"answers": [
+"Sua viabilidade técnica e tempo de execução eram muito baixos, puxando a nota para baixo",
+"Ela não era eficaz para resolver o problema",
+"Era uma solução muito barata",
+"A equipe votou nela sem critério"
+],
+"correct": "Sua viabilidade técnica e tempo de execução eram muito baixos, puxando a nota para baixo",
+"tip": "Mudar todo o sistema por causa de um bug é matar uma mosca com um canhão: demorado e complexo."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "[NAME], o sucesso no ambiente profissional não vem de evitar problemas, mas sim da capacidade de resolvê-los sistematicamente.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Os problemas sempre existirão. Sua habilidade técnica e metodológica é o que garantirá o avanço da operação!"
 }
 ]
 }
