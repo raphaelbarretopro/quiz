@@ -8702,940 +8702,2726 @@
       ]
     },
     {
-"slug": "aula-19",
-"lesson_info": {
-"id": "Aula-19",
-"title": "AULA 19 - TÉCNICAS DE RESOLUÇÃO DE PROBLEMAS",
-"topics": [
-{
-"id": "ACID",
-"name": "FUNDAMENTOS DA RESOLUÇÃO",
-"desc": "Compreenda o que é um problema e a importância do raciocínio lógico no mercado de trabalho.",
-"color": "#ff4757",
-"img_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "AGEN",
-"name": "METODOLOGIA DE 5 PASSOS",
-"desc": "A sequência estruturada: Detalhar, Encontrar, Escolher, Executar e Revisar.",
-"color": "#ffa502",
-"img_url": "https://images.unsplash.com/photo-1507925922837-326f12d9348d?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "PROT",
-"name": "FERRAMENTAS DE ANÁLISE",
-"desc": "Domine o 5W2H, Diagrama de Ishikawa, 5 Porquês e o Ciclo PDCA.",
-"color": "#1e90ff",
-"img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "NORM",
-"name": "EXECUÇÃO E INDICADORES",
-"desc": "Como usar a Matriz de Decisão, planejar ações e medir o sucesso com indicadores.",
-"color": "#2ed573",
-"img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
-}
-],
-"sokoban": [
-"P",
-"D",
-"C",
-"A"
-]
-},
-"questions": [
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], como é definido tecnicamente um problema no contexto profissional?",
-"answers": [
-"A diferença entre a situação atual e a situação desejada",
-"Uma falha no equipamento que para a produção",
-"Um conflito entre membros de uma equipe",
-"Qualquer tarefa que exija cálculos matemáticos"
-],
-"correct": "A diferença entre a situation atual e a situação desejada",
-"tip": "Um problema surge quando há uma lacuna (gap) entre o estado real e o estado ideal esperado."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], tentar resolver um problema na base da 'tentativa e erro' é a abordagem mais recomendada na indústria.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Decisões impulsivas geram retrabalho e desperdício. É indispensável o uso de métodos estruturados."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "Para resolver problemas, usamos a [COMBO], que divide problemas grandes em partes menores.",
-"options": [
-"Decomposição",
-"Quantificação",
-"Intuição",
-"Generalização"
-],
-"correct": "Decomposição",
-"tip": "A decomposição é um princípio matemático aplicado para tornar desafios complexos mais gerenciáveis."
-},
-{
-"type": "multi",
-"topics": "ACID",
-"questions": "[NAME], quais destes são princípios matemáticos aplicados à resolução de problemas segundo a aula?",
-"answers": [
-"Decomposição",
-"Quantificação",
-"Verificação",
-"Improvisação"
-],
-"correct": [
-"Decomposição",
-"Quantificação",
-"Verificação"
-],
-"tip": "O pensamento lógico e matemático exige métodos rigorosos, deixando de lado a improvisação."
-},
-{
-"type": "drag",
-"topics": "ACID",
-"questions": "[NAME], relacione os conceitos matemáticos da resolução de problemas com seus significados:",
-"items": [
-{
-"id": "d1",
-"txt": "Quantificação",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Comparação",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Verificação",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Atribuir valores mensuráveis"
-},
-{
-"id": "z2",
-"label": "Avaliar alternativas objetivamente"
-},
-{
-"id": "z3",
-"label": "Confirmar resultados com dados"
-}
-],
-"correct": "drag",
-"tip": "Cada princípio oferece uma lente analítica diferente para tratar o desafio."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "De acordo com pesquisas do setor industrial apresentadas na aula, que percentual de empregadores considera a resolução de problemas a habilidade mais importante?",
-"answers": [
-"85%",
-"50%",
-"99%",
-"30%"
-],
-"correct": "85%",
-"tip": "Esta é a competência mais valorizada no mercado de trabalho contemporâneo."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], o pensamento lógico é um talento nato e não pode ser desenvolvido com a prática.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "O pensamento lógico pode (e deve) ser desenvolvido e aperfeiçoado com prática constante."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "A distância entre o real e o ideal é chamada de [COMBO], onde mora o problema a ser resolvido.",
-"options": [
-"Lacuna (Gap)",
-"Erro de Sistema",
-"Fronteira",
-"Variação"
-],
-"correct": "Lacuna (Gap)",
-"tip": "Identificar esta lacuna é o primeiro passo para compreender o que precisa ser consertado."
-},
-{
-"type": "multi",
-"topics": "ACID",
-"questions": "Quais são as consequências diretas de decisões impulsivas ao resolver problemas industriais?",
-"answers": [
-"Retrabalho",
-"Desperdício de recursos",
-"Aumento de lucro",
-"Perda de produtividade"
-],
-"correct": [
-"Retrabalho",
-"Desperdício de recursos",
-"Perda de produtividade"
-],
-"tip": "Agir sem pensar estruturadamente custa caro para qualquer operação."
-},
-{
-"type": "drag",
-"topics": "ACID",
-"questions": "Relacione os estados do problema:",
-"items": [
-{
-"id": "d1",
-"txt": "Onde estamos agora",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Onde queremos chegar",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Distância entre os dois",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Situação Atual"
-},
-{
-"id": "z2",
-"label": "Situação Desejada"
-},
-{
-"id": "z3",
-"label": "Lacuna (Gap)"
-}
-],
-"correct": "drag",
-"tip": "Esta tríade define a estrutura básica de qualquer desafio técnico."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], quantos porcento dos erros em processos industriais poderiam ser evitados com análise prévia adequada?",
-"answers": [
-"60%",
-"20%",
-"85%",
-"40%"
-],
-"correct": "60%",
-"tip": "A prevenção estruturada evita mais da metade das falhas comuns."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], um profissional que aplica métodos estruturados é cerca de 3 vezes mais eficiente que um que usa tentativa e erro.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A eficiência multiplica quando seguimos uma lógica clara em vez de achismos."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "O pensamento lógico é a capacidade de organizar informações, identificar padrões e estabelecer relações de [COMBO].",
-"options": [
-"Causa e efeito",
-"Tentativa e erro",
-"Início e fim",
-"Custo e benefício"
-],
-"correct": "Causa e efeito",
-"trans": "AGEN",
-"tip": "Entender o que causa um sintoma é a base do raciocínio diagnóstico."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], qual é o primeiro e mais crítico passo da Metodologia de 5 Passos?",
-"answers": [
-"Detalhar as Variáveis",
-"Encontrar Soluções",
-"Escolher a Solução",
-"Revisar os Dados"
-],
-"correct": "Detalhar as Variáveis",
-"tip": "Muitos erros ocorrem porque saltamos para a solução sem entender o que está acontecendo."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "Na fase de 'Encontrar Possíveis Soluções', a qualidade das ideias importa mais do que a quantidade gerada no início.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Nesta fase, o objetivo é pensar de forma divergente. Toda ideia é bem-vinda antes da filtragem."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "[NAME], ordene corretamente os 4 primeiros passos da metodologia:",
-"items": [
-{
-"id": "d1",
-"txt": "Passo 1",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Passo 2",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Passo 3",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Passo 4",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Detalhar"
-},
-{
-"id": "z2",
-"label": "Encontrar"
-},
-{
-"id": "z3",
-"label": "Escolher"
-},
-{
-"id": "z4",
-"label": "Executar"
-}
-],
-"correct": "drag",
-"tip": "A sequência constrói a solução desde a raiz até a prática."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "O quinto passo da metodologia é [COMBO] e atualizar os dados.",
-"options": [
-"Revisar",
-"Registrar",
-"Repetir",
-"Remodelar"
-],
-"correct": "Revisar",
-"tip": "A revisão fecha o ciclo e transforma a experiência em conhecimento."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "[NAME], quais são atividades fundamentais no Passo 1 (Detalhar)?",
-"answers": [
-"Coletar dados e evidências",
-"Delimitar o escopo",
-"Implementar a correção",
-"Definir o problema com clareza"
-],
-"correct": [
-"Coletar dados e evidências",
-"Delimitar o escopo",
-"Definir o problema com clareza"
-],
-"tip": "A implementação só ocorre no Passo 4. O início é puramente investigativo."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "Qual técnica criativa consiste em perguntar 'Como pioraríamos o problema?' para descobrir caminhos inesperados?",
-"answers": [
-"Inversão de Perspectiva",
-"Brainstorming Estruturado",
-"Benchmarking",
-"Analogia"
-],
-"correct": "Inversão de Perspectiva",
-"tip": "Inverter a lógica ajuda a enxergar variáveis que passavam despercebidas."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "[NAME], o método de 5 passos ensinado é baseado em um framework heurístico clássico de 4 fases.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Ele é uma adaptação prática de métodos consagrados mundialmente (como o de Pólya) para o ambiente técnico."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "Buscar como problemas semelhantes foram resolvidos em outras empresas é usar a técnica de [COMBO].",
-"options": [
-"Benchmarking",
-"Inversão",
-"Brainstorming",
-"Isolamento"
-],
-"correct": "Benchmarking",
-"tip": "Não precisamos reinventar a roda se o mercado já possui soluções análogas."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "Na fase de 'Escolher' (Passo 3), é necessário evitar achismos. Quais critérios devem ser usados?",
-"answers": [
-"Eficácia",
-"Viabilidade",
-"Riscos Envolvidos",
-"Opinião do mais velho"
-],
-"correct": [
-"Eficácia",
-"Viabilidade",
-"Riscos Envolvidos"
-],
-"tip": "A escolha deve ser puramente baseada em critérios mensuráveis e objetivos."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "Relacione a ação à respectiva técnica de geração de soluções:",
-"items": [
-{
-"id": "d1",
-"txt": "Geração livre de ideias",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Pensar o oposto",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Copiar boas práticas externas",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Brainstorming"
-},
-{
-"id": "z2",
-"label": "Inversão de Perspectiva"
-},
-{
-"id": "z3",
-"label": "Benchmarking"
-}
-],
-"correct": "drag",
-"tip": "Dominar várias técnicas garante que a equipe não fique 'travada' na ideação."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], se você não consegue resolver um problema complexo, qual é a melhor recomendação heurística?",
-"answers": [
-"Encontrar um problema mais fácil (uma parte) que possa ser resolvido primeiro",
-"Desistir e passar para outra equipe",
-"Pular direto para a execução",
-"Aumentar o escopo do problema"
-],
-"correct": "Encontrar um problema mais fácil (uma parte) que possa ser resolvido primeiro",
-"tip": "Quebrar a complexidade em etapas gerenciáveis é o segredo dos grandes analistas."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "O Passo 4 (Executar) se resume apenas em 'fazer o que foi decidido', sem necessidade de planejamento formal.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "A execução exige planejamento rigoroso de recursos, responsáveis e cronograma."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "Durante o Passo 2, o principal objetivo é o pensamento [COMBO], abrindo o leque de opções.",
-"options": [
-"Divergente",
-"Convergente",
-"Estático",
-"Linear"
-],
-"correct": "Divergente",
-"trans": "PROT",
-"tip": "Pense divergente para criar opções, pense convergente para escolher a melhor."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], qual ferramenta ajuda a entender profundamente as dimensões de um problema respondendo perguntas em inglês?",
-"answers": [
-"5W2H",
-"5 Porquês",
-"Diagrama de Ishikawa",
-"Ciclo PDCA"
-],
-"correct": "5W2H",
-"tip": "What, Who, When, Where, Why, How, How much - garantem um mapeamento 360 graus."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "O Diagrama de Ishikawa também é popularmente conhecido como Espinha de Peixe.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Seu formato visual lembra o esqueleto de um peixe apontando para o problema central."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "Relacione o 'W' do 5W2H ao seu significado prático:",
-"items": [
-{
-"id": "d1",
-"txt": "What?",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Who?",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Where?",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "When?",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "O que é o problema?"
-},
-{
-"id": "z2",
-"label": "Quem está envolvido?"
-},
-{
-"id": "z3",
-"label": "Em que local ocorre?"
-},
-{
-"id": "z4",
-"label": "Quando ocorre?"
-}
-],
-"correct": "drag",
-"tip": "Esta ferramenta estrutura o caos de informações num formato legível."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "A técnica dos [COMBO] é usada para escavar os sintomas até chegar à verdadeira origem da falha.",
-"options": [
-"5 Porquês",
-"6 Chapéus",
-"4 Quadrantes",
-"5 Passos"
-],
-"correct": "5 Porquês",
-"tip": "Nunca pare no primeiro 'por quê', ele geralmente aponta só um sintoma superficial."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "[NAME], quais destas opções são categorias (os 'Ms') clássicas do Diagrama de Ishikawa?",
-"answers": [
-"Máquina",
-"Método",
-"Mão de Obra",
-"Marketing"
-],
-"correct": [
-"Máquina",
-"Método",
-"Mão de Obra"
-],
-"tip": "Os outros Ms são: Material, Meio Ambiente e Medição."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "O que a sigla PDCA significa em português?",
-"answers": [
-"Planejar, Executar, Verificar, Agir",
-"Prevenir, Documentar, Corrigir, Analisar",
-"Pesquisar, Desenvolver, Checar, Avaliar",
-"Pensar, Decidir, Controlar, Atualizar"
-],
-"correct": "Planejar, Executar, Verificar, Agir",
-"tip": "O PDCA é o ciclo definitivo para a melhoria contínua nas engenharias."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "[NAME], a fase 'Check' do PDCA corresponde exatamente ao Passo 5 (Revisar) da nossa metodologia.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Em ambos, o objetivo é cruzar os dados de resultado com os indicadores esperados."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "Associe a fase do PDCA com a ação da nossa Metodologia de 5 Passos:",
-"items": [
-{
-"id": "d1",
-"txt": "Plan (Planejar)",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Do (Executar)",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Check (Verificar)",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Detalhar, Encontrar, Escolher"
-},
-{
-"id": "z2",
-"label": "Implementar a solução (Passo 4)"
-},
-{
-"id": "z3",
-"label": "Revisar resultados (Passo 5)"
-}
-],
-"correct": "drag",
-"tip": "As metodologias ágeis e de qualidade conversam todas entre si."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "No 5W2H, a pergunta 'How much?' refere-se ao impacto [COMBO] do problema.",
-"options": [
-"Quantificável",
-"Social",
-"Ambiental",
-"Teórico"
-],
-"correct": "Quantificável",
-"tip": "Saber o custo do problema ajuda a justificar o orçamento da solução."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "[NAME], sobre o Diagrama de Ishikawa, para quais categorias olharíamos se houvesse erro de calibração num termômetro e falta de SOP (Standard Operating Procedure)?",
-"answers": [
-"Medição",
-"Método",
-"Mão de Obra",
-"Material"
-],
-"correct": [
-"Medição",
-"Método"
-],
-"tip": "Calibração entra em Medição; Procedimentos documentados entram em Método."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "Qual é a principal função da etapa 'Act' (Agir) no PDCA?",
-"answers": [
-"Padronizar a solução eficaz ou reiniciar o ciclo",
-"Fazer uma tempestade de ideias",
-"Definir o orçamento da equipe",
-"Procurar os culpados do erro"
-],
-"correct": "Padronizar a solução eficaz ou reiniciar o ciclo",
-"tip": "Se funcionou, vira o novo padrão da empresa. Se falhou, rodamos o ciclo novamente."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "Chegar na 'Causa Raiz' garante que o problema não voltará a acontecer se for corrigida adequadamente.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A causa raiz é a doença. Os outros problemas gerados por ela são apenas febre."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "O 5W2H mapeia as variáveis na fase de [COMBO].",
-"options": [
-"Detalhamento",
-"Execução",
-"Escolha",
-"Revisão"
-],
-"correct": "Detalhamento",
-"trans": "NORM",
-"tip": "Use essa ferramenta logo no Passo 1 para não perder o foco."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], qual ferramenta utilizamos para cruzar notas e pesos na escolha da melhor solução (Passo 3)?",
-"answers": [
-"Matriz de Decisão",
-"Diagrama de Pareto",
-"Gráfico de Gantt",
-"Espinha de Peixe"
-],
-"correct": "Matriz de Decisão",
-"tip": "Ela remove a subjetividade, aplicando uma lógica matemática de pesos e pontos."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], ao executar uma solução (Passo 4), é uma péssima ideia fazer testes ou pilotos em pequena escala antes de implementar tudo de uma vez.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Fazer um teste piloto é uma das melhores práticas! Evita que uma solução falha quebre todo o sistema."
-},
-{
-"type": "drag",
-"topics": "NORM",
-"questions": "Relacione os critérios de avaliação da Matriz de Decisão com suas perguntas base:",
-"items": [
-{
-"id": "d1",
-"txt": "Eficácia",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Sustentabilidade",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Viabilidade",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Resolve o problema na causa raiz?"
-},
-{
-"id": "z2",
-"label": "Previne a recorrência a longo prazo?"
-},
-{
-"id": "z3",
-"label": "Temos orçamento e tecnologia para fazer?"
-}
-],
-"correct": "drag",
-"tip": "Esses critérios garantem que não vamos escolher algo perfeito na teoria e impossível na prática."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "O registro do que funcionou e falhou após a implementação é documentado como [COMBO].",
-"options": [
-"Lições Aprendidas",
-"Manual de Crise",
-"Relatório de Erros",
-"Auditoria Cega"
-],
-"correct": "Lições Aprendidas",
-"tip": "Isso retroalimenta o conhecimento organizacional da empresa."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "O que deve constar no planejamento obrigatório do Passo 4 (Execução)?",
-"answers": [
-"Responsáveis nominais",
-"Alocação de Recursos",
-"Cronograma com Marcos",
-"Escolha da causa raiz"
-],
-"correct": [
-"Responsáveis nominais",
-"Alocação de Recursos",
-"Cronograma com Marcos"
-],
-"tip": "A causa raiz já foi definida lá atrás. No passo 4, o foco é projeto."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], uma 'taxa de erro zerada' e 'tempo de ciclo reduzido' são exemplos de quais tipos de indicadores?",
-"answers": [
-"Quantitativos",
-"Qualitativos",
-"Subjetivos",
-"Comportamentais"
-],
-"correct": "Quantitativos",
-"tip": "São números absolutos que podem ser medidos diretamente pelas máquinas ou sistemas."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "Comunicar o plano de ação a todos os afetados é uma perda de tempo, pois apenas os executores precisam saber da mudança.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "A resistência à mudança cai drasticamente quando a comunicação é clara e transparente."
-},
-{
-"type": "drag",
-"topics": "NORM",
-"questions": "Associe os tipos de indicadores com seus exemplos práticos da aula:",
-"items": [
-{
-"id": "d1",
-"txt": "Quantitativo",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Qualitativo",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Temporal",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "R$ 20.000 poupados por dia"
-},
-{
-"id": "z2",
-"label": "Aumento na confiança da equipe"
-},
-{
-"id": "z3",
-"label": "Implementado em 4 semanas"
-}
-],
-"correct": "drag",
-"tip": "Uma boa revisão avalia a performance em todas essas três frentes."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "Se a Matriz de Decisão deu empate técnico, o critério de [COMBO] costuma ter peso maior para desempatar, pois define se a solução ataca a causa real.",
-"options": [
-"Eficácia",
-"Rapidez",
-"Inovação",
-"Design"
-],
-"correct": "Eficácia",
-"tip": "De nada adianta uma solução rápida que não extingue o problema de vez."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "[NAME], o que você deve EVITAR fazer durante a fase de Execução?",
-"answers": [
-"Ignorar sinais de que algo não está funcionando",
-"Excluir pessoas-chave da implementação",
-"Considerar que a solução é definitiva sem verificação",
-"Monitorar indicadores de progresso"
-],
-"correct": [
-"Ignorar sinais de que algo não está funcionando",
-"Excluir pessoas-chave da implementação",
-"Considerar que a solução é definitiva sem verificação"
-],
-"tip": "Executar exige humildade para ajustar a rota se a prática não confirmar a teoria."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "No estudo de caso da LogisTech, por que a opção 'D: Mudar de ERP' obteve a menor pontuação total (44) na Matriz de Decisão?",
-"answers": [
-"Sua viabilidade técnica e tempo de execução eram muito baixos, puxando a nota para baixo",
-"Ela não era eficaz para resolver o problema",
-"Era uma solução muito barata",
-"A equipe votou nela sem critério"
-],
-"correct": "Sua viabilidade técnica e tempo de execução eram muito baixos, puxando a nota para baixo",
-"tip": "Mudar todo o sistema por causa de um bug é matar uma mosca com um canhão: demorado e complexo."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], o sucesso no ambiente profissional não vem de evitar problemas, mas sim da capacidade de resolvê-los sistematicamente.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Os problemas sempre existirão. Sua habilidade técnica e metodológica é o que garantirá o avanço da operação!"
-}
-]
-}
+      "slug": "aula-19",
+      "lesson_info": {
+        "id": "Aula-19",
+        "title": "AULA 19 - TÉCNICAS DE RESOLUÇÃO DE PROBLEMAS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DA RESOLUÇÃO",
+            "desc": "Compreenda o que é um problema e a importância do raciocínio lógico no mercado de trabalho.",
+            "color": "#ff4757",
+            "img_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "METODOLOGIA DE 5 PASSOS",
+            "desc": "A sequência estruturada: Detalhar, Encontrar, Escolher, Executar e Revisar.",
+            "color": "#ffa502",
+            "img_url": "https://images.unsplash.com/photo-1507925922837-326f12d9348d?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "FERRAMENTAS DE ANÁLISE",
+            "desc": "Domine o 5W2H, Diagrama de Ishikawa, 5 Porquês e o Ciclo PDCA.",
+            "color": "#1e90ff",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "EXECUÇÃO E INDICADORES",
+            "desc": "Como usar a Matriz de Decisão, planejar ações e medir o sucesso com indicadores.",
+            "color": "#2ed573",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "P",
+          "D",
+          "C",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], como é definido tecnicamente um problema no contexto profissional?",
+          "answers": [
+            "A diferença entre a situação atual e a situação desejada",
+            "Uma falha no equipamento que para a produção",
+            "Um conflito entre membros de uma equipe",
+            "Qualquer tarefa que exija cálculos matemáticos"
+          ],
+          "correct": "A diferença entre a situation atual e a situação desejada",
+          "tip": "Um problema surge quando há uma lacuna (gap) entre o estado real e o estado ideal esperado."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], tentar resolver um problema na base da 'tentativa e erro' é a abordagem mais recomendada na indústria.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Decisões impulsivas geram retrabalho e desperdício. É indispensável o uso de métodos estruturados."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para resolver problemas, usamos a [COMBO], que divide problemas grandes em partes menores.",
+          "options": [
+            "Decomposição",
+            "Quantificação",
+            "Intuição",
+            "Generalização"
+          ],
+          "correct": "Decomposição",
+          "tip": "A decomposição é um princípio matemático aplicado para tornar desafios complexos mais gerenciáveis."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destes são princípios matemáticos aplicados à resolução de problemas segundo a aula?",
+          "answers": [
+            "Decomposição",
+            "Quantificação",
+            "Verificação",
+            "Improvisação"
+          ],
+          "correct": [
+            "Decomposição",
+            "Quantificação",
+            "Verificação"
+          ],
+          "tip": "O pensamento lógico e matemático exige métodos rigorosos, deixando de lado a improvisação."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione os conceitos matemáticos da resolução de problemas com seus significados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Quantificação",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Comparação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Verificação",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Atribuir valores mensuráveis"
+            },
+            {
+              "id": "z2",
+              "label": "Avaliar alternativas objetivamente"
+            },
+            {
+              "id": "z3",
+              "label": "Confirmar resultados com dados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada princípio oferece uma lente analítica diferente para tratar o desafio."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "De acordo com pesquisas do setor industrial apresentadas na aula, que percentual de empregadores considera a resolução de problemas a habilidade mais importante?",
+          "answers": [
+            "85%",
+            "50%",
+            "99%",
+            "30%"
+          ],
+          "correct": "85%",
+          "tip": "Esta é a competência mais valorizada no mercado de trabalho contemporâneo."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o pensamento lógico é um talento nato e não pode ser desenvolvido com a prática.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O pensamento lógico pode (e deve) ser desenvolvido e aperfeiçoado com prática constante."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A distância entre o real e o ideal é chamada de [COMBO], onde mora o problema a ser resolvido.",
+          "options": [
+            "Lacuna (Gap)",
+            "Erro de Sistema",
+            "Fronteira",
+            "Variação"
+          ],
+          "correct": "Lacuna (Gap)",
+          "tip": "Identificar esta lacuna é o primeiro passo para compreender o que precisa ser consertado."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são as consequências diretas de decisões impulsivas ao resolver problemas industriais?",
+          "answers": [
+            "Retrabalho",
+            "Desperdício de recursos",
+            "Aumento de lucro",
+            "Perda de produtividade"
+          ],
+          "correct": [
+            "Retrabalho",
+            "Desperdício de recursos",
+            "Perda de produtividade"
+          ],
+          "tip": "Agir sem pensar estruturadamente custa caro para qualquer operação."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os estados do problema:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Onde estamos agora",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Onde queremos chegar",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Distância entre os dois",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Situação Atual"
+            },
+            {
+              "id": "z2",
+              "label": "Situação Desejada"
+            },
+            {
+              "id": "z3",
+              "label": "Lacuna (Gap)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta tríade define a estrutura básica de qualquer desafio técnico."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], quantos porcento dos erros em processos industriais poderiam ser evitados com análise prévia adequada?",
+          "answers": [
+            "60%",
+            "20%",
+            "85%",
+            "40%"
+          ],
+          "correct": "60%",
+          "tip": "A prevenção estruturada evita mais da metade das falhas comuns."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], um profissional que aplica métodos estruturados é cerca de 3 vezes mais eficiente que um que usa tentativa e erro.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A eficiência multiplica quando seguimos uma lógica clara em vez de achismos."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O pensamento lógico é a capacidade de organizar informações, identificar padrões e estabelecer relações de [COMBO].",
+          "options": [
+            "Causa e efeito",
+            "Tentativa e erro",
+            "Início e fim",
+            "Custo e benefício"
+          ],
+          "correct": "Causa e efeito",
+          "trans": "AGEN",
+          "tip": "Entender o que causa um sintoma é a base do raciocínio diagnóstico."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o primeiro e mais crítico passo da Metodologia de 5 Passos?",
+          "answers": [
+            "Detalhar as Variáveis",
+            "Encontrar Soluções",
+            "Escolher a Solução",
+            "Revisar os Dados"
+          ],
+          "correct": "Detalhar as Variáveis",
+          "tip": "Muitos erros ocorrem porque saltamos para a solução sem entender o que está acontecendo."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Na fase de 'Encontrar Possíveis Soluções', a qualidade das ideias importa mais do que a quantidade gerada no início.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Nesta fase, o objetivo é pensar de forma divergente. Toda ideia é bem-vinda antes da filtragem."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], ordene corretamente os 4 primeiros passos da metodologia:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Passo 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Detalhar"
+            },
+            {
+              "id": "z2",
+              "label": "Encontrar"
+            },
+            {
+              "id": "z3",
+              "label": "Escolher"
+            },
+            {
+              "id": "z4",
+              "label": "Executar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A sequência constrói a solução desde a raiz até a prática."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O quinto passo da metodologia é [COMBO] e atualizar os dados.",
+          "options": [
+            "Revisar",
+            "Registrar",
+            "Repetir",
+            "Remodelar"
+          ],
+          "correct": "Revisar",
+          "tip": "A revisão fecha o ciclo e transforma a experiência em conhecimento."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são atividades fundamentais no Passo 1 (Detalhar)?",
+          "answers": [
+            "Coletar dados e evidências",
+            "Delimitar o escopo",
+            "Implementar a correção",
+            "Definir o problema com clareza"
+          ],
+          "correct": [
+            "Coletar dados e evidências",
+            "Delimitar o escopo",
+            "Definir o problema com clareza"
+          ],
+          "tip": "A implementação só ocorre no Passo 4. O início é puramente investigativo."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual técnica criativa consiste em perguntar 'Como pioraríamos o problema?' para descobrir caminhos inesperados?",
+          "answers": [
+            "Inversão de Perspectiva",
+            "Brainstorming Estruturado",
+            "Benchmarking",
+            "Analogia"
+          ],
+          "correct": "Inversão de Perspectiva",
+          "tip": "Inverter a lógica ajuda a enxergar variáveis que passavam despercebidas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o método de 5 passos ensinado é baseado em um framework heurístico clássico de 4 fases.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele é uma adaptação prática de métodos consagrados mundialmente (como o de Pólya) para o ambiente técnico."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Buscar como problemas semelhantes foram resolvidos em outras empresas é usar a técnica de [COMBO].",
+          "options": [
+            "Benchmarking",
+            "Inversão",
+            "Brainstorming",
+            "Isolamento"
+          ],
+          "correct": "Benchmarking",
+          "tip": "Não precisamos reinventar a roda se o mercado já possui soluções análogas."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Na fase de 'Escolher' (Passo 3), é necessário evitar achismos. Quais critérios devem ser usados?",
+          "answers": [
+            "Eficácia",
+            "Viabilidade",
+            "Riscos Envolvidos",
+            "Opinião do mais velho"
+          ],
+          "correct": [
+            "Eficácia",
+            "Viabilidade",
+            "Riscos Envolvidos"
+          ],
+          "tip": "A escolha deve ser puramente baseada em critérios mensuráveis e objetivos."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione a ação à respectiva técnica de geração de soluções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Geração livre de ideias",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pensar o oposto",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Copiar boas práticas externas",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Brainstorming"
+            },
+            {
+              "id": "z2",
+              "label": "Inversão de Perspectiva"
+            },
+            {
+              "id": "z3",
+              "label": "Benchmarking"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar várias técnicas garante que a equipe não fique 'travada' na ideação."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], se você não consegue resolver um problema complexo, qual é a melhor recomendação heurística?",
+          "answers": [
+            "Encontrar um problema mais fácil (uma parte) que possa ser resolvido primeiro",
+            "Desistir e passar para outra equipe",
+            "Pular direto para a execução",
+            "Aumentar o escopo do problema"
+          ],
+          "correct": "Encontrar um problema mais fácil (uma parte) que possa ser resolvido primeiro",
+          "tip": "Quebrar a complexidade em etapas gerenciáveis é o segredo dos grandes analistas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O Passo 4 (Executar) se resume apenas em 'fazer o que foi decidido', sem necessidade de planejamento formal.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A execução exige planejamento rigoroso de recursos, responsáveis e cronograma."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Durante o Passo 2, o principal objetivo é o pensamento [COMBO], abrindo o leque de opções.",
+          "options": [
+            "Divergente",
+            "Convergente",
+            "Estático",
+            "Linear"
+          ],
+          "correct": "Divergente",
+          "trans": "PROT",
+          "tip": "Pense divergente para criar opções, pense convergente para escolher a melhor."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual ferramenta ajuda a entender profundamente as dimensões de um problema respondendo perguntas em inglês?",
+          "answers": [
+            "5W2H",
+            "5 Porquês",
+            "Diagrama de Ishikawa",
+            "Ciclo PDCA"
+          ],
+          "correct": "5W2H",
+          "tip": "What, Who, When, Where, Why, How, How much - garantem um mapeamento 360 graus."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O Diagrama de Ishikawa também é popularmente conhecido como Espinha de Peixe.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Seu formato visual lembra o esqueleto de um peixe apontando para o problema central."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o 'W' do 5W2H ao seu significado prático:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "What?",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Who?",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Where?",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "When?",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O que é o problema?"
+            },
+            {
+              "id": "z2",
+              "label": "Quem está envolvido?"
+            },
+            {
+              "id": "z3",
+              "label": "Em que local ocorre?"
+            },
+            {
+              "id": "z4",
+              "label": "Quando ocorre?"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta ferramenta estrutura o caos de informações num formato legível."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A técnica dos [COMBO] é usada para escavar os sintomas até chegar à verdadeira origem da falha.",
+          "options": [
+            "5 Porquês",
+            "6 Chapéus",
+            "4 Quadrantes",
+            "5 Passos"
+          ],
+          "correct": "5 Porquês",
+          "tip": "Nunca pare no primeiro 'por quê', ele geralmente aponta só um sintoma superficial."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais destas opções são categorias (os 'Ms') clássicas do Diagrama de Ishikawa?",
+          "answers": [
+            "Máquina",
+            "Método",
+            "Mão de Obra",
+            "Marketing"
+          ],
+          "correct": [
+            "Máquina",
+            "Método",
+            "Mão de Obra"
+          ],
+          "tip": "Os outros Ms são: Material, Meio Ambiente e Medição."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que a sigla PDCA significa em português?",
+          "answers": [
+            "Planejar, Executar, Verificar, Agir",
+            "Prevenir, Documentar, Corrigir, Analisar",
+            "Pesquisar, Desenvolver, Checar, Avaliar",
+            "Pensar, Decidir, Controlar, Atualizar"
+          ],
+          "correct": "Planejar, Executar, Verificar, Agir",
+          "tip": "O PDCA é o ciclo definitivo para a melhoria contínua nas engenharias."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a fase 'Check' do PDCA corresponde exatamente ao Passo 5 (Revisar) da nossa metodologia.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Em ambos, o objetivo é cruzar os dados de resultado com os indicadores esperados."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe a fase do PDCA com a ação da nossa Metodologia de 5 Passos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Plan (Planejar)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Do (Executar)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Check (Verificar)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Detalhar, Encontrar, Escolher"
+            },
+            {
+              "id": "z2",
+              "label": "Implementar a solução (Passo 4)"
+            },
+            {
+              "id": "z3",
+              "label": "Revisar resultados (Passo 5)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As metodologias ágeis e de qualidade conversam todas entre si."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No 5W2H, a pergunta 'How much?' refere-se ao impacto [COMBO] do problema.",
+          "options": [
+            "Quantificável",
+            "Social",
+            "Ambiental",
+            "Teórico"
+          ],
+          "correct": "Quantificável",
+          "tip": "Saber o custo do problema ajuda a justificar o orçamento da solução."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], sobre o Diagrama de Ishikawa, para quais categorias olharíamos se houvesse erro de calibração num termômetro e falta de SOP (Standard Operating Procedure)?",
+          "answers": [
+            "Medição",
+            "Método",
+            "Mão de Obra",
+            "Material"
+          ],
+          "correct": [
+            "Medição",
+            "Método"
+          ],
+          "tip": "Calibração entra em Medição; Procedimentos documentados entram em Método."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual é a principal função da etapa 'Act' (Agir) no PDCA?",
+          "answers": [
+            "Padronizar a solução eficaz ou reiniciar o ciclo",
+            "Fazer uma tempestade de ideias",
+            "Definir o orçamento da equipe",
+            "Procurar os culpados do erro"
+          ],
+          "correct": "Padronizar a solução eficaz ou reiniciar o ciclo",
+          "tip": "Se funcionou, vira o novo padrão da empresa. Se falhou, rodamos o ciclo novamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Chegar na 'Causa Raiz' garante que o problema não voltará a acontecer se for corrigida adequadamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A causa raiz é a doença. Os outros problemas gerados por ela são apenas febre."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O 5W2H mapeia as variáveis na fase de [COMBO].",
+          "options": [
+            "Detalhamento",
+            "Execução",
+            "Escolha",
+            "Revisão"
+          ],
+          "correct": "Detalhamento",
+          "trans": "NORM",
+          "tip": "Use essa ferramenta logo no Passo 1 para não perder o foco."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual ferramenta utilizamos para cruzar notas e pesos na escolha da melhor solução (Passo 3)?",
+          "answers": [
+            "Matriz de Decisão",
+            "Diagrama de Pareto",
+            "Gráfico de Gantt",
+            "Espinha de Peixe"
+          ],
+          "correct": "Matriz de Decisão",
+          "tip": "Ela remove a subjetividade, aplicando uma lógica matemática de pesos e pontos."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao executar uma solução (Passo 4), é uma péssima ideia fazer testes ou pilotos em pequena escala antes de implementar tudo de uma vez.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Fazer um teste piloto é uma das melhores práticas! Evita que uma solução falha quebre todo o sistema."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os critérios de avaliação da Matriz de Decisão com suas perguntas base:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Eficácia",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sustentabilidade",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Viabilidade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Resolve o problema na causa raiz?"
+            },
+            {
+              "id": "z2",
+              "label": "Previne a recorrência a longo prazo?"
+            },
+            {
+              "id": "z3",
+              "label": "Temos orçamento e tecnologia para fazer?"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses critérios garantem que não vamos escolher algo perfeito na teoria e impossível na prática."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O registro do que funcionou e falhou após a implementação é documentado como [COMBO].",
+          "options": [
+            "Lições Aprendidas",
+            "Manual de Crise",
+            "Relatório de Erros",
+            "Auditoria Cega"
+          ],
+          "correct": "Lições Aprendidas",
+          "tip": "Isso retroalimenta o conhecimento organizacional da empresa."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "O que deve constar no planejamento obrigatório do Passo 4 (Execução)?",
+          "answers": [
+            "Responsáveis nominais",
+            "Alocação de Recursos",
+            "Cronograma com Marcos",
+            "Escolha da causa raiz"
+          ],
+          "correct": [
+            "Responsáveis nominais",
+            "Alocação de Recursos",
+            "Cronograma com Marcos"
+          ],
+          "tip": "A causa raiz já foi definida lá atrás. No passo 4, o foco é projeto."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], uma 'taxa de erro zerada' e 'tempo de ciclo reduzido' são exemplos de quais tipos de indicadores?",
+          "answers": [
+            "Quantitativos",
+            "Qualitativos",
+            "Subjetivos",
+            "Comportamentais"
+          ],
+          "correct": "Quantitativos",
+          "tip": "São números absolutos que podem ser medidos diretamente pelas máquinas ou sistemas."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Comunicar o plano de ação a todos os afetados é uma perda de tempo, pois apenas os executores precisam saber da mudança.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A resistência à mudança cai drasticamente quando a comunicação é clara e transparente."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe os tipos de indicadores com seus exemplos práticos da aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Quantitativo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Qualitativo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Temporal",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "R$ 20.000 poupados por dia"
+            },
+            {
+              "id": "z2",
+              "label": "Aumento na confiança da equipe"
+            },
+            {
+              "id": "z3",
+              "label": "Implementado em 4 semanas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Uma boa revisão avalia a performance em todas essas três frentes."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Se a Matriz de Decisão deu empate técnico, o critério de [COMBO] costuma ter peso maior para desempatar, pois define se a solução ataca a causa real.",
+          "options": [
+            "Eficácia",
+            "Rapidez",
+            "Inovação",
+            "Design"
+          ],
+          "correct": "Eficácia",
+          "tip": "De nada adianta uma solução rápida que não extingue o problema de vez."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], o que você deve EVITAR fazer durante a fase de Execução?",
+          "answers": [
+            "Ignorar sinais de que algo não está funcionando",
+            "Excluir pessoas-chave da implementação",
+            "Considerar que a solução é definitiva sem verificação",
+            "Monitorar indicadores de progresso"
+          ],
+          "correct": [
+            "Ignorar sinais de que algo não está funcionando",
+            "Excluir pessoas-chave da implementação",
+            "Considerar que a solução é definitiva sem verificação"
+          ],
+          "tip": "Executar exige humildade para ajustar a rota se a prática não confirmar a teoria."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "No estudo de caso da LogisTech, por que a opção 'D: Mudar de ERP' obteve a menor pontuação total (44) na Matriz de Decisão?",
+          "answers": [
+            "Sua viabilidade técnica e tempo de execução eram muito baixos, puxando a nota para baixo",
+            "Ela não era eficaz para resolver o problema",
+            "Era uma solução muito barata",
+            "A equipe votou nela sem critério"
+          ],
+          "correct": "Sua viabilidade técnica e tempo de execução eram muito baixos, puxando a nota para baixo",
+          "tip": "Mudar todo o sistema por causa de um bug é matar uma mosca com um canhão: demorado e complexo."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o sucesso no ambiente profissional não vem de evitar problemas, mas sim da capacidade de resolvê-los sistematicamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Os problemas sempre existirão. Sua habilidade técnica e metodológica é o que garantirá o avanço da operação!"
+        }
+      ]
+    },
+    {
+      "slug": "aula-21",
+      "lesson_info": {
+        "id": "Aula-21",
+        "title": "AULA 21 - INDÚSTRIA 4.0: DAS REVOLUÇÕES AO FUTURO DO EMPREGO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "A EVOLUÇÃO INDUSTRIAL",
+            "desc": "Da mecanização com energia a vapor à automação parcial com CLPs e robótica.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1533421821268-87e4152170da?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "A QUARTA REVOLUÇÃO",
+            "desc": "Sistemas ciber-físicos, fusão de mundos físico e digital e inteligência conectada.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "TECNOLOGIAS HABILITADORAS",
+            "desc": "Os nove pilares tecnológicos que sustentam a transformação digital da manufatura.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "O FUTURO DO EMPREGO",
+            "desc": "Impactos no mercado de trabalho, requalificação e novas competências profissionais.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual foi a tecnologia motriz que marcou a Primeira Revolução Industrial no século XVIII?",
+          "answers": [
+            "Máquina a vapor",
+            "Eletricidade",
+            "Eletrônica",
+            "Internet"
+          ],
+          "correct": "Máquina a vapor",
+          "tip": "Iniciada na Inglaterra, substituiu o trabalho artesanal por processos fabris."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a Segunda Revolução Industrial foi impulsionada pela descoberta da energia nuclear.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Foi impulsionada pela eletricidade e pelo petróleo, não pela energia nuclear."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O modelo de produção em massa e a [COMBO] foram popularizados por Henry Ford na Segunda Revolução.",
+          "options": [
+            "Linha de montagem",
+            "Mecanização têxtil",
+            "Computação em nuvem",
+            "Automação robótica"
+          ],
+          "correct": "Linha de montagem",
+          "tip": "A linha de montagem reduziu o tempo de fabricação do Model T de 12h para 93 minutos."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o período da Revolução Industrial à sua característica principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1ª Revolução",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "2ª Revolução",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "3ª Revolução",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Carvão Mineral e Êxodo Rural"
+            },
+            {
+              "id": "z2",
+              "label": "Eletricidade e Consumo de Massa"
+            },
+            {
+              "id": "z3",
+              "label": "Eletrônica e Sociedade da Informação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada revolução industrial trouxe uma nova tecnologia motriz e uma nova fonte de energia."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais destes elementos foram característicos do surgimento da Terceira Revolução Industrial, [NAME]?",
+          "answers": [
+            "Controladores Lógicos Programáveis (CLPs)",
+            "Robôs industriais em larga escala",
+            "Sistemas Ciber-físicos autônomos",
+            "Internet comercial e ERPs"
+          ],
+          "correct": [
+            "Controladores Lógicos Programáveis (CLPs)",
+            "Robôs industriais em larga escala",
+            "Internet comercial e ERPs"
+          ],
+          "tip": "Sistemas Ciber-físicos são a base da Quarta Revolução, não da Terceira."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual combustível principal substituiu o carvão durante a Segunda Revolução Industrial?",
+          "answers": [
+            "Petróleo",
+            "Gás Natural",
+            "Energia Solar",
+            "Lenha"
+          ],
+          "correct": "Petróleo",
+          "tip": "O petróleo e a eletricidade foram as grandes forças motrizes desse período."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a padronização e divisão do trabalho na linha de montagem resultou em um aumento do preço dos automóveis.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Na verdade, reduziu o preço (ex: de $850 para $260), tornando bens acessíveis à massa."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A Terceira Revolução Industrial democratizou o acesso à informação e criou as bases para a [COMBO].",
+          "options": [
+            "Economia digital",
+            "Mecanização agrária",
+            "Produção artesanal",
+            "Era do carvão"
+          ],
+          "correct": "Economia digital",
+          "tip": "Também conhecida como Revolução Digital."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais impactos sociais ocorreram devido à Primeira Revolução Industrial?",
+          "answers": [
+            "Êxodo rural",
+            "Urbanização",
+            "Surgimento do operariado",
+            "Surgimento do e-commerce"
+          ],
+          "correct": [
+            "Êxodo rural",
+            "Urbanização",
+            "Surgimento do operariado"
+          ],
+          "tip": "O e-commerce surgiu apenas na Terceira/Quarta Revolução."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Em qual revolução industrial ocorreu a automação parcial das fábricas por meio da eletrônica?",
+          "answers": [
+            "Primeira",
+            "Segunda",
+            "Terceira",
+            "Quarta"
+          ],
+          "correct": "Terceira",
+          "tip": "A terceira revolução introduziu os microprocessadores e CLPs."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Cada revolução industrial eliminou completamente as conquistas tecnológicas da revolução anterior, [NAME].",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Cada revolução incorporou e expandiu as conquistas da anterior."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe a fonte de energia à sua respectiva Revolução Industrial, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Carvão",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Petróleo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nuclear / Renováveis",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "1ª Revolução"
+            },
+            {
+              "id": "z2",
+              "label": "2ª Revolução"
+            },
+            {
+              "id": "z3",
+              "label": "3ª Revolução"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A matriz energética evoluiu com as necessidades produtivas.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], onde e quando o termo 'Indústria 4.0' foi cunhado pela primeira vez?",
+          "answers": [
+            "Feira de Hannover, 2011",
+            "Vale do Silício, 2005",
+            "Fórum Econômico Mundial, 2016",
+            "Tóquio, 2010"
+          ],
+          "correct": "Feira de Hannover, 2011",
+          "tip": "Foi criado para descrever a estratégia alemã de alta tecnologia."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a Quarta Revolução Industrial caracteriza-se por mudanças em ritmo linear e previsível.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As mudanças ocorrem em ritmo exponencial, afetando sistemas inteiros rapidamente."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A base tecnológica da Indústria 4.0 são os Sistemas [COMBO], que integram o físico ao digital.",
+          "options": [
+            "Ciber-Físicos (CPS)",
+            "Analógicos-Mecânicos",
+            "Hidráulicos-Isolados",
+            "Têxteis-Manuais"
+          ],
+          "correct": "Ciber-Físicos (CPS)",
+          "tip": "Eles usam sensores, atuadores e redes de comunicação inteligentes."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais destas características distinguem a Indústria 4.0 das revoluções anteriores, [NAME]?",
+          "answers": [
+            "Velocidade exponencial",
+            "Amplitude e profundidade",
+            "Impacto sistêmico",
+            "Retorno ao trabalho artesanal"
+          ],
+          "correct": [
+            "Velocidade exponencial",
+            "Amplitude e profundidade",
+            "Impacto sistêmico"
+          ],
+          "tip": "Ela afeta indústrias, governos e sociedades simultaneamente."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o princípio da Indústria 4.0 à sua descrição correta, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Interoperabilidade",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Virtualização",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Modularidade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Máquinas e pessoas se comunicam via IoT"
+            },
+            {
+              "id": "z2",
+              "label": "Criação de Digital Twins para simulação"
+            },
+            {
+              "id": "z3",
+              "label": "Módulos reconfigurados sob demanda"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estes são alguns dos 6 princípios fundamentais das fábricas inteligentes."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O princípio que permite que sistemas ciber-físicos tomem decisões autônomas é chamado de:",
+          "answers": [
+            "Decisão Descentralizada",
+            "Controle Centralizado",
+            "Hierarquia Rigorosa",
+            "Produção em Massa"
+          ],
+          "correct": "Decisão Descentralizada",
+          "tip": "A intervenção humana ocorre apenas em casos de exceção."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a 'Orientação a Serviços' significa que serviços de humanos e sistemas são oferecidos via IoS (Internet of Services).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse é um dos seis pilares fundamentais da Indústria 4.0."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O princípio de [COMBO] permite a coleta e análise instantânea de dados para resposta imediata.",
+          "options": [
+            "Tempo Real",
+            "Decisão Posterior",
+            "Análise Histórica",
+            "Batch Processing"
+          ],
+          "correct": "Tempo Real",
+          "tip": "Isso permite respostas imediatas a mudanças na produção."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], selecione os componentes de uma Fábrica Inteligente (4.0) em comparação a uma Fábrica Tradicional:",
+          "answers": [
+            "Dados integrados em tempo real",
+            "Manutenção preditiva com IA",
+            "Produção personalizada em massa",
+            "Controle de qualidade por amostragem visual"
+          ],
+          "correct": [
+            "Dados integrados em tempo real",
+            "Manutenção preditiva com IA",
+            "Produção personalizada em massa"
+          ],
+          "tip": "O controle de qualidade na Indústria 4.0 é 100% automatizado, não por amostragem manual."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], uma fábrica tradicional usa manutenção reativa (corretiva). Qual é o equivalente na Fábrica Inteligente?",
+          "answers": [
+            "Manutenção preditiva com IA",
+            "Manutenção preventiva anual",
+            "Manutenção apenas por quebra",
+            "Manutenção terceirizada"
+          ],
+          "correct": "Manutenção preditiva com IA",
+          "tip": "A IA analisa padrões para prever e evitar falhas antes que ocorram."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Na Indústria 4.0, as decisões são orientadas por dados (data-driven) em vez da experiência intuitiva isolada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Decisões baseadas em evidências minimizam erros operacionais."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Enquanto fábricas antigas guardavam informações em silos isolados, a Fábrica 4.0 mantém dados [COMBO].",
+          "options": [
+            "Integrados",
+            "Escondidos",
+            "Descartáveis",
+            "Impressos"
+          ],
+          "correct": "Integrados",
+          "tip": "A integração horizontal e vertical garante visibilidade em toda a cadeia."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Compare o modelo tradicional com o modelo da Indústria 4.0, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Produção padronizada em lotes",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Produção personalizada em massa",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Fábrica Tradicional"
+            },
+            {
+              "id": "z2",
+              "label": "Fábrica Inteligente (4.0)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A tecnologia 4.0 permite personalizar produtos sem perder a escala de produção.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], quantos pilares tecnológicos compõem as Tecnologias Habilitadoras da Indústria 4.0 no modelo estudado?",
+          "answers": [
+            "Nove",
+            "Seis",
+            "Doze",
+            "Quatro"
+          ],
+          "correct": "Nove",
+          "tip": "Esses nove pilares convergem para formar o ecossistema da manufatura digital."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O pilar 'Internet das Coisas (IoT)' refere-se ao uso de sensores conectados para coletar dados do chão de fábrica.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A IoT permite monitoramento contínuo em tempo real."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A [COMBO] permite infraestrutura escalável sem a necessidade de grandes investimentos em hardware local.",
+          "options": [
+            "Computação em Nuvem",
+            "Manufatura Aditiva",
+            "Automação Pneumática",
+            "Robótica Simples"
+          ],
+          "correct": "Computação em Nuvem",
+          "tip": "Também conhecida como Cloud Computing, armazena e processa dados remotamente."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], associe a tecnologia habilitadora à sua função principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Big Data e Analytics",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Inteligência Artificial",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Cibersegurança",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Processamento de enormes volumes de dados"
+            },
+            {
+              "id": "z2",
+              "label": "Algoritmos que aprendem e tomam decisões"
+            },
+            {
+              "id": "z3",
+              "label": "Proteção de sistemas industriais conectados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A verdadeira potência ocorre quando estas tecnologias operam integradas."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são as principais vantagens da Manufatura Aditiva (Impressão 3D) na Indústria 4.0, [NAME]?",
+          "answers": [
+            "Produção sob demanda",
+            "Redução do desperdício de material",
+            "Necessidade de criação de moldes",
+            "Criação de peças complexas"
+          ],
+          "correct": [
+            "Produção sob demanda",
+            "Redução do desperdício de material",
+            "Criação de peças complexas"
+          ],
+          "tip": "A impressão 3D justamente ELIMINA a necessidade de moldes e ferramentas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Como são chamados os robôs que trabalham lado a lado com humanos, combinando precisão mecânica e flexibilidade?",
+          "answers": [
+            "Robôs Colaborativos (Cobots)",
+            "Drones Autônomos",
+            "CLPs",
+            "Avatares Físicos"
+          ],
+          "correct": "Robôs Colaborativos (Cobots)",
+          "tip": "Os Cobots fazem parte do pilar de Robótica Avançada."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a tecnologia de Simulação (Digital Twin) pode reduzir em até 30% o tempo de desenvolvimento de novos produtos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Gêmeos digitais permitem testar cenários antes da implementação física."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A integração [COMBO] conecta o chão de fábrica até o nível estratégico da própria empresa.",
+          "options": [
+            "Vertical",
+            "Horizontal",
+            "Diagonal",
+            "Externa"
+          ],
+          "correct": "Vertical",
+          "tip": "A integração horizontal ocorre entre diferentes empresas na cadeia de valor."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Defina os tipos de integração de sistemas na Indústria 4.0, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Integração Horizontal",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Integração Vertical",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Entre diferentes empresas na cadeia de valor"
+            },
+            {
+              "id": "z2",
+              "label": "Do chão de fábrica ao nível executivo da empresa"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A integração completa proporciona visibilidade e coordenação total."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], por que a cibersegurança industrial tornou-se um pilar tão crítico?",
+          "answers": [
+            "Devido à hiperconectividade dos sistemas",
+            "Para proteger contra ataques hackers",
+            "Porque os CLPs são invulneráveis",
+            "68% das indústrias sofreram ataque em 2024"
+          ],
+          "correct": [
+            "Devido à hiperconectividade dos sistemas",
+            "Para proteger contra ataques hackers",
+            "68% das indústrias sofreram ataque em 2024"
+          ],
+          "tip": "Nenhum sistema conectado é naturalmente invulnerável."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual tecnologia é responsável por capacitar os sistemas a aprenderem com dados e melhorarem continuamente sem programação explícita?",
+          "answers": [
+            "Inteligência Artificial",
+            "Impressão 3D",
+            "Cabeamento de Rede",
+            "Sensores de Temperatura"
+          ],
+          "correct": "Inteligência Artificial",
+          "tip": "A IA utiliza algoritmos de machine learning e deep learning."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a verdadeira potência da Indústria 4.0 reside no uso isolado e individual de cada tecnologia habilitadora.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O verdadeiro poder está na CONVERGÊNCIA destas tecnologias."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O pilar de Big Data baseia-se na identificação de [COMBO] para prever falhas operacionais.",
+          "options": [
+            "Padrões nos dados",
+            "Reações químicas",
+            "Cores nas máquinas",
+            "Rumores do mercado"
+          ],
+          "correct": "Padrões nos dados",
+          "tip": "A análise orienta processos produtivos com base em evidências numéricas.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com os dados apresentados, quantos empregos podem ser deslocados pela automação até 2030 no mundo?",
+          "answers": [
+            "85 Milhões",
+            "97 Milhões",
+            "10 Milhões",
+            "150 Milhões"
+          ],
+          "correct": "85 Milhões",
+          "tip": "Apesar do deslocamento, estima-se a criação de 97 milhões de NOVOS empregos."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A automação inteligente da Indústria 4.0 afeta exclusivamente tarefas manuais repetitivas, poupando o trabalho cognitivo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ela afeta tanto atividades manuais quanto atividades cognitivas de rotina."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Estima-se que 50% dos trabalhadores precisarão passar por um processo de [COMBO] até 2027.",
+          "options": [
+            "Requalificação",
+            "Aposentadoria",
+            "Desligamento",
+            "Transferência de país"
+          ],
+          "correct": "Requalificação",
+          "tip": "O upskilling (aprimoramento) e reskilling (requalificação) são fundamentais na era digital."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe as competências necessárias ao profissional 4.0 com as suas categorias, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Programação e análise de dados",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pensamento crítico e analítico",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Computação em nuvem",
+              "match": "z1"
+            },
+            {
+              "id": "d4",
+              "txt": "Criatividade e inovação",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Competência Técnica (Hard Skill)"
+            },
+            {
+              "id": "z2",
+              "label": "Competência Socioemocional (Soft Skill)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O mercado exige uma forte combinação de habilidades técnicas e socioemocionais."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais destas são profissões emergentes na nova economia industrial, [NAME]?",
+          "answers": [
+            "Engenheiro de Dados Industriais",
+            "Programador de Cobots",
+            "Analista de Cibersegurança OT",
+            "Operador de Telégrafo"
+          ],
+          "correct": [
+            "Engenheiro de Dados Industriais",
+            "Programador de Cobots",
+            "Analista de Cibersegurança OT"
+          ],
+          "tip": "O operador de telégrafo surgiu e desapareceu após a Segunda Revolução Industrial."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o papel de um Arquiteto de Soluções em Nuvem na Indústria 4.0?",
+          "answers": [
+            "Projetar infraestruturas cloud para suportar operações escaláveis",
+            "Montar peças manualmente na linha de produção",
+            "Configurar engrenagens de máquinas a vapor",
+            "Realizar transporte físico de mercadorias"
+          ],
+          "correct": "Projetar infraestruturas cloud para suportar operações escaláveis",
+          "tip": "A infraestrutura em nuvem é o que torna os sistemas resilientes e integrados."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no Case LogisTech, o controle de estoque feito em planilhas Excel é considerado um gargalo de processo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Processos puramente manuais como planilhas possuem alta incidência de erros."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Uma solução proposta para a LogisTech é a criação de [COMBO] para visualização de métricas e tomada de decisão.",
+          "options": [
+            "Dashboards em tempo real",
+            "Novas planilhas",
+            "Quadros de giz",
+            "Servidores locais físicos"
+          ],
+          "correct": "Dashboards em tempo real",
+          "tip": "Dashboards eliminam a demora de dias na compilação de relatórios."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais problemas a migração para a nuvem resolve em uma empresa como a LogisTech?",
+          "answers": [
+            "Alto custo de manutenção de servidores locais",
+            "Risco elevado de perda de dados",
+            "Falta de escalabilidade do sistema",
+            "Aumento da necessidade de papéis"
+          ],
+          "correct": [
+            "Alto custo de manutenção de servidores locais",
+            "Risco elevado de perda de dados",
+            "Falta de escalabilidade do sistema"
+          ],
+          "tip": "A nuvem elimina infraestrutura obsoleta e digitaliza os processos."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Ao automatizar processos em TI, em qual conceito histórico baseamos os workflows?",
+          "answers": [
+            "Mecanização inspirada pela 1ª Revolução",
+            "Decisões manuais",
+            "Artesanato têxtil",
+            "Força muscular"
+          ],
+          "correct": "Mecanização inspirada pela 1ª Revolução",
+          "tip": "A padronização inicial de rotinas tem raízes na primeira grande industrialização."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o saldo geral entre o deslocamento de vagas antigas e a criação de novas oportunidades devido à automação é negativo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O saldo é positivo (85M deslocados vs 97M criados), mas requer requalificação massiva."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o principal objetivo de um Desenvolvedor de Soluções Integradas em TI dentro do contexto 4.0?",
+          "answers": [
+            "Guiar a transformação digital, integrando IA, Cloud e IoT nas operações",
+            "Evitar o uso de internet corporativa",
+            "Aumentar o uso de servidores on-premise obsoletos",
+            "Manter dados armazenados exclusivamente em papel"
+          ],
+          "correct": "Guiar a transformação digital, integrando IA, Cloud e IoT nas operações",
+          "tip": "O papel é modernizar as estruturas organizacionais, como no case LogisTech.",
+          "trans": "FIM"
+        }
+      ]
+    },
+    {
+      "slug": "aula-20",
+      "lesson_info": {
+        "id": "Aula-20",
+        "title": "AULA 20 - PLANILHAS ELETRÔNICAS, GRÁFICOS, QUADROS E TABELAS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DAS PLANILHAS",
+            "desc": "Conceitos básicos, navegação, formatação e estrutura de células.",
+            "color": "#1abc9c",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "FÓRMULAS E FUNÇÕES",
+            "desc": "Cálculos automáticos, funções essenciais e referências lógicas.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "ORGANIZAÇÃO DE DADOS",
+            "desc": "Classificação e filtragem para otimizar a leitura e análise.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "VISUALIZAÇÃO DE DADOS",
+            "desc": "Transformação de números em gráficos, quadros e tabelas informativas.",
+            "color": "#34495e",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a definição mais precisa de uma planilha eletrônica?",
+          "answers": [
+            "Software para organizar, calcular e analisar dados em formato de grade.",
+            "Aplicativo exclusivo para edição de imagens e vídeos curtos.",
+            "Editor de texto voltado para formatação de livros e artigos.",
+            "Ferramenta de navegação na web com foco em segurança."
+          ],
+          "correct": "Software para organizar, calcular e analisar dados em formato de grade.",
+          "tip": "As planilhas organizam dados em linhas e colunas, permitindo cálculos automáticos."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], ao contrário de um editor de texto, a planilha permite realizar cálculos automáticos e criar gráficos dinâmicos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa é a principal vantagem das planilhas em relação aos editores de texto tradicionais."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais dos seguintes softwares são classificados como editores de planilhas eletrônicas?",
+          "answers": [
+            "Microsoft Excel",
+            "Google Sheets",
+            "LibreOffice Calc",
+            "Microsoft Word"
+          ],
+          "correct": [
+            "Microsoft Excel",
+            "Google Sheets",
+            "LibreOffice Calc"
+          ],
+          "tip": "O Word é um processador de texto, não uma planilha."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A interseção de uma linha com uma coluna forma uma [COMBO], que é a unidade básica da planilha.",
+          "options": [
+            "Célula",
+            "Fórmula",
+            "Aba",
+            "Margem"
+          ],
+          "correct": "Célula",
+          "tip": "Cada dado que você insere fica armazenado dentro de uma célula."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os elementos estruturais da planilha às suas características:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Linhas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Colunas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Endereço",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Dispostas horizontalmente (1, 2, 3)"
+            },
+            {
+              "id": "z2",
+              "label": "Dispostas verticalmente (A, B, C)"
+            },
+            {
+              "id": "z3",
+              "label": "Letra da coluna + Número da linha"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender as coordenadas (como B3) é essencial para navegar e criar fórmulas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], se uma informação está na coluna D e na linha 5, qual é o seu endereço único?",
+          "answers": [
+            "D5",
+            "5D",
+            "ColD-Lin5",
+            "Lin5-ColD"
+          ],
+          "correct": "D5",
+          "tip": "A letra da coluna sempre precede o número da linha na notação de endereços."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "A formatação de células, como alterar a cor ou a fonte, modifica o valor real armazenado na célula.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A formatação altera apenas a aparência visual dos dados, não o seu conteúdo matemático."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são opções válidas de formatação para melhorar o visual de uma planilha?",
+          "answers": [
+            "Alterar fonte e tamanho",
+            "Adicionar bordas",
+            "Mudar a cor de fundo",
+            "Excluir o disco rígido"
+          ],
+          "correct": [
+            "Alterar fonte e tamanho",
+            "Adicionar bordas",
+            "Mudar a cor de fundo"
+          ],
+          "tip": "Uma boa formatação torna a leitura de dados muito mais fluida e profissional."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para exibir o valor 1500.5 como R$ 1.500,50, você deve aplicar o formato numérico de [COMBO].",
+          "options": [
+            "Moeda",
+            "Data",
+            "Porcentagem",
+            "Texto"
+          ],
+          "correct": "Moeda",
+          "tip": "O formato 'Moeda' adiciona automaticamente o símbolo monetário e as casas decimais."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe o formato numérico ao seu uso comum na planilha:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Número",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Porcentagem",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Data",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Texto",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Quantidades gerais (ex: 1.500,50)"
+            },
+            {
+              "id": "z2",
+              "label": "Proporções e taxas (ex: 85%)"
+            },
+            {
+              "id": "z3",
+              "label": "Prazos e agendamentos (ex: 15/01/2024)"
+            },
+            {
+              "id": "z4",
+              "label": "Endereços e CEPs (ex: Rua ABC, 12345-678)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Definir o formato correto antes de digitar evita que o software interprete o dado de forma errada."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Ao preparar uma planilha para impressão, qual configuração define se a folha será impressa na vertical ou na horizontal?",
+          "answers": [
+            "Orientação",
+            "Margens",
+            "Área de Impressão",
+            "Cabeçalho"
+          ],
+          "correct": "Orientação",
+          "tip": "Retrato é vertical (para planilhas longas) e Paisagem é horizontal (para planilhas largas)."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a 'Área de Impressão' serve para limitar quais células sairão no papel, evitando a impressão de páginas em branco.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "trans": "AGEN",
+          "tip": "Isso economiza tinta e papel, garantindo que apenas os dados relevantes sejam impressos."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Toda fórmula no Excel, Sheets ou Calc deve obrigatoriamente começar com qual caractere?",
+          "answers": [
+            "O sinal de igual (=)",
+            "O sinal de mais (+)",
+            "O símbolo de arroba (@)",
+            "O símbolo de hashtag (#)"
+          ],
+          "correct": "O sinal de igual (=)",
+          "tip": "Sem o sinal de igual, o software interpretará o seu cálculo apenas como um texto comum."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para multiplicar os valores das células A1 e B1, a fórmula correta seria =A1 [COMBO] B1.",
+          "options": [
+            "*",
+            "X",
+            "+",
+            "-"
+          ],
+          "correct": "*",
+          "tip": "O asterisco é o operador padrão para multiplicação na computação."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o operador matemático ao seu respectivo símbolo nas planilhas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Adição",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Subtração",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Divisão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Potência",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "+"
+            },
+            {
+              "id": "z2",
+              "label": "-"
+            },
+            {
+              "id": "z3",
+              "label": "/"
+            },
+            {
+              "id": "z4",
+              "label": "^"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Lembre-se que a barra (/) representa a divisão, e o acento circunflexo (^) a exponenciação."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são vantagens de usar endereços de células (como A1+B1) em vez de números fixos (como 10+20) nas fórmulas?",
+          "answers": [
+            "Atualização automática se os dados de origem mudarem.",
+            "Redução de erros de digitação ao longo do tempo.",
+            "Facilidade de copiar a fórmula para outras linhas.",
+            "O computador consome mais memória ram."
+          ],
+          "correct": [
+            "Atualização automática se os dados de origem mudarem.",
+            "Redução de erros de digitação ao longo do tempo.",
+            "Facilidade de copiar a fórmula para outras linhas."
+          ],
+          "tip": "Trabalhar com referências torna a planilha dinâmica e inteligente."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual função nativa deve ser usada para somar rapidamente todos os valores de A1 até A10?",
+          "answers": [
+            "=SOMA(A1:A10)",
+            "=TOTAL(A1:A10)",
+            "=SOMAR(A1;A10)",
+            "=ADICIONAR(A1:A10)"
+          ],
+          "correct": "=SOMA(A1:A10)",
+          "tip": "Os dois pontos (:) indicam um 'intervalo', ou seja, de A1 'até' A10."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A função =MÁXIMO(A1:A10) retorna o menor valor numérico encontrado dentro do intervalo selecionado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Para encontrar o menor valor, deve-se utilizar a função =MÍNIMO(A1:A10)."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A função [COMBO] é utilizada para contar quantas células num intervalo específico não estão vazias (possuem algum conteúdo).",
+          "options": [
+            "CONT.VALORES",
+            "CONTAR",
+            "SOMA",
+            "MÉDIA"
+          ],
+          "correct": "CONT.VALORES",
+          "tip": "Ela é útil para saber quantos alunos responderam à prova, ou quantas vendas foram registradas."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], combine a função com o seu objetivo principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "=MÉDIA()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "=MÍNIMO()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "=SOMA()",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Calcula a média aritmética dos valores."
+            },
+            {
+              "id": "z2",
+              "label": "Retorna o menor valor do intervalo."
+            },
+            {
+              "id": "z3",
+              "label": "Adiciona todos os valores selecionados."
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas são as funções estatísticas mais básicas e utilizadas no ambiente corporativo."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Na função =SE(B2>=7; Aprovado; Reprovado), o que o termo Aprovado representa?",
+          "answers": [
+            "O valor retornado caso a condição (B2>=7) seja verdadeira.",
+            "O valor retornado caso a condição seja falsa.",
+            "A condição lógica a ser testada.",
+            "Um erro de sintaxe."
+          ],
+          "correct": "O valor retornado caso a condição (B2>=7) seja verdadeira.",
+          "tip": "A estrutura é: SE(condição; valor_se_verdadeiro; valor_se_falso)."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], uma Referência Relativa (como A1+B1) ajusta automaticamente o seu endereço quando copiada para a linha de baixo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse é o comportamento padrão das planilhas, projetado para facilitar o preenchimento de tabelas."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Sobre as Referências Absolutas (ex: $A$1), assinale as características corretas:",
+          "answers": [
+            "Utilizam o símbolo de cifrão ($) para travar a linha e/ou coluna.",
+            "O endereço não muda ao copiar a fórmula para outra célula.",
+            "São ideais para referenciar valores fixos, como taxas de impostos.",
+            "Impedem que a célula seja deletada pelo usuário."
+          ],
+          "correct": [
+            "Utilizam o símbolo de cifrão ($) para travar a linha e/ou coluna.",
+            "O endereço não muda ao copiar a fórmula para outra célula.",
+            "São ideais para referenciar valores fixos, como taxas de impostos."
+          ],
+          "tip": "Travar células é essencial quando uma variável (como a taxa de juros) está numa célula única e isolada."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para alternar rapidamente entre referência relativa e absoluta, você pode usar a tecla de atalho [COMBO] no teclado.",
+          "options": [
+            "F4",
+            "F1",
+            "F5",
+            "F12"
+          ],
+          "correct": "F4",
+          "tip": "Aperte F4 ao editar a fórmula e os cifrões ($) serão adicionados magicamente!"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], se você copiar a fórmula =A1+$B$1 da linha 1 para a linha 2, como ela ficará?",
+          "answers": [
+            "=A2+$B$1",
+            "=A2+$B$2",
+            "=A1+$B$2",
+            "=$A$2+B2"
+          ],
+          "correct": "=A2+$B$1",
+          "trans": "PROT",
+          "tip": "O 'A1' é relativo e desce para 'A2'. O '$B$1' é absoluto e continua '$B$1'."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual é a principal utilidade do recurso de 'Classificação' (ou ordenação) numa planilha?",
+          "answers": [
+            "Reorganizar os dados em uma ordem lógica (alfabética ou numérica).",
+            "Mudar as cores das células alternadamente.",
+            "Apagar dados duplicados automaticamente.",
+            "Gerar um gráfico instantâneo da tabela."
+          ],
+          "correct": "Reorganizar os dados em uma ordem lógica (alfabética ou numérica).",
+          "tip": "A classificação ajuda a dar sentido aos dados embaralhados, facilitando a leitura."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Organizar uma lista de nomes do A até o Z é chamado de ordenação [COMBO].",
+          "options": [
+            "Crescente",
+            "Decrescente",
+            "Multinível",
+            "Aleatória"
+          ],
+          "correct": "Crescente",
+          "tip": "A ordem crescente vai do menor ao maior, ou do início do alfabeto para o final."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a Classificação Multinível permite ordenar os dados por vários critérios, como por exemplo: primeiro por Estado, e depois por Cidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso é perfeito para tabelas complexas que precisam de agrupamentos lógicos precisos."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são situações ideais para utilizar a Ordem Decrescente (Z->A ou Maior->Menor)?",
+          "answers": [
+            "Identificar os vendedores com as maiores comissões do mês.",
+            "Ver os produtos mais caros do estoque no topo da lista.",
+            "Organizar os alunos pelo sobrenome começando da letra A.",
+            "Listar as datas começando pelos eventos mais recentes."
+          ],
+          "correct": [
+            "Identificar os vendedores com as maiores comissões do mês.",
+            "Ver os produtos mais caros do estoque no topo da lista.",
+            "Listar as datas começando pelos eventos mais recentes."
+          ],
+          "tip": "Ordem decrescente foca no topo do ranking ou nas ocorrências mais atuais."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o tipo de ordenação ao seu comportamento:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "A -> Z",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "9 -> 1",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Multinível",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ordem Crescente (Textos)"
+            },
+            {
+              "id": "z2",
+              "label": "Ordem Decrescente (Números)"
+            },
+            {
+              "id": "z3",
+              "label": "Ordenação por múltiplos critérios"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Escolher a ordenação certa responde rapidamente perguntas sobre rankings e prioridades."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o principal objetivo do recurso de Filtro nas planilhas?",
+          "answers": [
+            "Exibir apenas as linhas que atendem a determinados critérios, ocultando as demais.",
+            "Deletar definitivamente as linhas que não são mais úteis.",
+            "Embaçar visualmente os dados sensíveis da tabela.",
+            "Traduzir os dados de uma coluna para outro idioma."
+          ],
+          "correct": "Exibir apenas as linhas que atendem a determinados critérios, ocultando as demais.",
+          "tip": "O filtro atua como uma 'lupa', removendo o ruído visual temporariamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Ao desativar um filtro, as linhas que estavam ocultas são perdidas e precisam ser digitadas novamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ocultar não é apagar! O filtro apenas esconde os dados momentaneamente da sua tela."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para ativar o filtro rapidamente usando o teclado, você pode selecionar o cabeçalho e usar o atalho Ctrl + Shift + [COMBO].",
+          "options": [
+            "L",
+            "F",
+            "C",
+            "P"
+          ],
+          "correct": "L",
+          "tip": "A letra 'L' vem de 'List' ou lista em inglês. É um atalho universal no Excel e no Calc."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], associe o tipo de Filtro à sua aplicação prática:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Filtro por Valor",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Filtro por Condição",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Filtro por Cor",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Mostrar apenas funcionários do RH."
+            },
+            {
+              "id": "z2",
+              "label": "Mostrar vendas acima de R$ 5.000."
+            },
+            {
+              "id": "z3",
+              "label": "Mostrar apenas células destacadas em vermelho."
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber combinar esses diferentes tipos de filtros te torna um analista de dados muito mais veloz."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Ao utilizar o 'Filtro por Condição', quais das opções abaixo são regras que você pode configurar?",
+          "answers": [
+            "Maior que",
+            "Contém a palavra...",
+            "Está entre",
+            "Deletar linha se..."
+          ],
+          "correct": [
+            "Maior que",
+            "Contém a palavra...",
+            "Está entre"
+          ],
+          "tip": "Filtros apenas ocultam, eles não têm poder de deletar informações condicionalmente."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Se você precisa localizar todos os clientes que moram na cidade de 'São Paulo', qual seria a abordagem mais rápida?",
+          "answers": [
+            "Aplicar um filtro na coluna 'Cidade' e selecionar apenas 'São Paulo'.",
+            "Ler linha por linha e pintar a fonte de azul.",
+            "Ordenar em ordem decrescente e procurar pelo final.",
+            "Criar uma fórmula =SE(SP) em todas as células."
+          ],
+          "correct": "Aplicar um filtro na coluna 'Cidade' e selecionar apenas 'São Paulo'.",
+          "tip": "O filtro isola a informação exata que você precisa em milissegundos."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "É possível aplicar filtros simultâneos em várias colunas (Ex: Filtrar Cidade='Rio' E Cargo='Gerente').",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "trans": "NORM",
+          "tip": "Isso permite criar funis de dados extremamente específicos e poderosos."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que os gráficos são tão importantes na análise de dados?",
+          "answers": [
+            "Transformam informações complexas em representações visuais fáceis de compreender.",
+            "Ocupam menos espaço no disco rígido do computador.",
+            "Substituem completamente a necessidade de usar fórmulas.",
+            "Impedem que a planilha seja alterada por outras pessoas."
+          ],
+          "correct": "Transformam informações complexas em representações visuais fáceis de compreender.",
+          "tip": "Um gráfico comunica em segundos o que uma tabela de números levaria minutos para transmitir."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para visualizar tendências ao longo do tempo (como o crescimento das vendas nos meses do ano), o melhor gráfico é o gráfico de [COMBO].",
+          "options": [
+            "Linhas",
+            "Pizza",
+            "Bolhas",
+            "Radar"
+          ],
+          "correct": "Linhas",
+          "tip": "As linhas conectam os pontos e mostram claramente a subida, a descida ou a sazonalidade."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O gráfico de Pizza (ou Setores) é a escolha ideal quando você tem dezenas de categorias diferentes para comparar simultaneamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Gráficos de pizza ficam confusos com muitas fatias. Use-os no máximo para umas 5 ou 6 categorias."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Combine o tipo de gráfico com a sua função recomendada:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Gráfico de Linhas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Gráfico de Colunas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Gráfico de Pizza",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Gráfico de Barras",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tendências ao longo do tempo"
+            },
+            {
+              "id": "z2",
+              "label": "Comparação simples entre itens"
+            },
+            {
+              "id": "z3",
+              "label": "Composição de um todo (Fatias)"
+            },
+            {
+              "id": "z4",
+              "label": "Comparação com nomes longos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A escolha errada do gráfico pode confundir o seu público em vez de ajudar."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais as diferenças fundamentais entre uma 'Tabela' e um 'Quadro'?",
+          "answers": [
+            "Tabelas são para dados quantitativos (números, cálculos).",
+            "Quadros organizam informações qualitativas (textos, descrições).",
+            "Tabelas não possuem linhas, apenas quadros possuem.",
+            "Tabelas são sempre coloridas, quadros são em preto e branco."
+          ],
+          "correct": [
+            "Tabelas são para dados quantitativos (números, cálculos).",
+            "Quadros organizam informações qualitativas (textos, descrições)."
+          ],
+          "tip": "Use tabela para o balanço financeiro e quadro para comparar características de planos de internet."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Ao analisar um gráfico de pizza sobre os custos de uma empresa, a fatia que representa o pagamento de 'Pessoal' ocupa quase metade do círculo. O que isso significa?",
+          "answers": [
+            "Que o custo com pessoal representa cerca de 50% de todo o orçamento.",
+            "Que a empresa demitiu metade dos funcionários.",
+            "Que os funcionários trabalham meio período.",
+            "Que o gráfico está configurado incorretamente."
+          ],
+          "correct": "Que o custo com pessoal representa cerca de 50% de todo o orçamento.",
+          "tip": "A área da fatia é diretamente proporcional ao percentual da categoria em relação ao total."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O Google Planilhas (Sheets) é uma excelente alternativa online, permitindo que várias pessoas editem o mesmo gráfico simultaneamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A colaboração em tempo real é o ponto mais forte das soluções na nuvem do Google."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Se você precisa comparar as vendas de três produtos diferentes em quatro trimestres, o gráfico de [COMBO] agrupadas seria uma ótima escolha.",
+          "options": [
+            "Colunas",
+            "Dispersão",
+            "Radar",
+            "Cascata"
+          ],
+          "correct": "Colunas",
+          "tip": "Colunas verticais lado a lado deixam a comparação entre produtos muito evidente."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], dentre os softwares abaixo, quais permitem a criação e edição de gráficos profissionais?",
+          "answers": [
+            "Microsoft Excel",
+            "Google Planilhas",
+            "LibreOffice Calc",
+            "Notepad (Bloco de Notas)"
+          ],
+          "correct": [
+            "Microsoft Excel",
+            "Google Planilhas",
+            "LibreOffice Calc"
+          ],
+          "tip": "O Bloco de Notas lida apenas com texto puro, sem capacidades visuais ou matemáticas."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe a estrutura ao seu melhor caso de uso no dia a dia corporativo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Tabela",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Quadro",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Gráfico de Linha",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Registro diário de entradas e saídas (R$)."
+            },
+            {
+              "id": "z2",
+              "label": "Resumo dos prós e contras de dois projetos."
+            },
+            {
+              "id": "z3",
+              "label": "Evolução da temperatura no último mês."
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender as ferramentas corretas para cada dado é a base do Raciocínio Lógico."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Por que o LibreOffice Calc é frequentemente escolhido por empresas e estudantes em vez do Microsoft Excel?",
+          "answers": [
+            "Porque ele é gratuito e de código aberto, economizando em licenças de software.",
+            "Porque ele faz cálculos mais rápidos que o Excel.",
+            "Porque é a única ferramenta que roda em Windows.",
+            "Porque ele obriga o usuário a programar as fórmulas em inglês."
+          ],
+          "correct": "Porque ele é gratuito e de código aberto, economizando em licenças de software.",
+          "tip": "O fator custo é o principal motivador para adoção do software livre."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a apresentação de resultados fica muito mais persuasiva e impactante quando se utiliza o gráfico correto para os dados apresentados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Nossos cérebros processam imagens e padrões muito mais rápido do que grades cheias de números soltos."
+        }
+      ]
+    }
   ]
 }
