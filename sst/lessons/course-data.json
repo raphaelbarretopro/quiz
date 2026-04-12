@@ -13287,6 +13287,933 @@
 "tip": "A autenticação e autorização (IAM) no chão de fábrica evita desastres e sabotagens."
 }
 ]
+    },
+    {
+"slug": "aula-24",
+"lesson_info": {
+"id": "Aula-24",
+"title": "AULA 24 - INTEGRAÇÃO DE SISTEMAS, SEGURANÇA DIGITAL E REALIDADE AUMENTADA",
+"topics": [
+{
+"id": "ACID",
+"name": "INTEGRAÇÃO DE SISTEMAS",
+"desc": "Verticalização, horizontalização e a conexão na Indústria 4.0.",
+"color": "#8e44ad",
+"img_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "AGEN",
+"name": "SEGURANÇA DIGITAL",
+"desc": "Conceitos, pilares CIA e requisitos para o chão de fábrica.",
+"color": "#c0392b",
+"img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "PROT",
+"name": "REALIDADE AUMENTADA",
+"desc": "Aplicações industriais e componentes tecnológicos da RA.",
+"color": "#2980b9",
+"img_url": "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "NORM",
+"name": "APLICAÇÃO PRÁTICA",
+"desc": "Diagnóstico de segurança e case de empresa de logística.",
+"color": "#27ae60",
+"img_url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600"
+}
+],
+"sokoban": [
+"R",
+"E",
+"D",
+"E"
+]
+},
+"questions": [
+{
+"type": "multiple",
+"topics": "ACID",
+"questions": "[NAME], o que define a integração de sistemas na Indústria 4.0?",
+"answers": [
+"Conectar tecnologias e processos em tempo real",
+"Substituir operadores por robôs",
+"Isolar máquinas para maior segurança",
+"Eliminar a necessidade de nuvem"
+],
+"correct": "Conectar tecnologias e processos em tempo real",
+"tip": "A integração permite que informações sejam compartilhadas de forma coordenada."
+},
+{
+"type": "boolean",
+"topics": "ACID",
+"questions": "[NAME], a integração vertical conecta fornecedores, fábrica e clientes finais.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Essa descrição corresponde à integração horizontal. A vertical é interna."
+},
+{
+"type": "combo",
+"topics": "ACID",
+"questions": "Na pirâmide de automação, o nível de Sensores e Atuadores representa o chão de [COMBO].",
+"options": [
+"Fábrica",
+"Vendas",
+"Nuvem",
+"Gerência"
+],
+"correct": "Fábrica",
+"tip": "Este é o Nível 1 da pirâmide de integração vertical."
+},
+{
+"type": "multi",
+"topics": "ACID",
+"questions": "[NAME], quais tecnologias habilitam a integração na Indústria 4.0?",
+"answers": [
+"IoT Industrial (IIoT)",
+"APIs e Microsserviços",
+"Computação em Nuvem",
+"Máquinas de Escrever"
+],
+"correct": [
+"IoT Industrial (IIoT)",
+"APIs e Microsserviços",
+"Computação em Nuvem"
+],
+"tip": "Essas tecnologias criam o ecossistema ciberfísico completo."
+},
+{
+"type": "drag",
+"topics": "ACID",
+"questions": "Relacione os níveis de automação aos seus componentes:",
+"items": [
+{
+"id": "d1",
+"txt": "Nível 1",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Nível 2",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Nível 4",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "Nível 5",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Sensores e Atuadores"
+},
+{
+"id": "z2",
+"label": "CLPs e SCADA"
+},
+{
+"id": "z3",
+"label": "ERP (Gestão)"
+},
+{
+"id": "z4",
+"label": "BI e Nuvem"
+}
+],
+"correct": "drag",
+"tip": "Esta hierarquia define o fluxo de dados do chão de fábrica até a estratégia corporativa."
+},
+{
+"type": "multiple",
+"topics": "ACID",
+"questions": "[NAME], o que acontece com a fábrica se não houver integração de sistemas?",
+"answers": [
+"Os dados ficam em silos e decisões são lentas",
+"A produção dobra de velocidade",
+"A segurança digital aumenta automaticamente",
+"Os custos operacionais zeram"
+],
+"correct": "Os dados ficam em silos e decisões são lentas",
+"tip": "A falta de integração impede o monitoramento e a otimização em tempo real."
+},
+{
+"type": "boolean",
+"topics": "ACID",
+"questions": "[NAME], o ERP se comunica diretamente com fornecedores na integração horizontal.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "O ERP repassa ordens de reposição sincronizando a cadeia de suprimentos."
+},
+{
+"type": "combo",
+"topics": "ACID",
+"questions": "O nível 3 da pirâmide de automação é focado na execução da manufatura, conhecido pela sigla [COMBO].",
+"options": [
+"MES",
+"ERP",
+"CLP",
+"IOT"
+],
+"correct": "MES",
+"tip": "O MES atua entre o controle (SCADA) e a gestão (ERP)."
+},
+{
+"type": "multi",
+"topics": "ACID",
+"questions": "[NAME], quais os objetivos principais da integração horizontal?",
+"answers": [
+"Sincronização da cadeia de suprimentos",
+"Fluxo de dados de ponta a ponta",
+"Melhorar a relação com cliente final",
+"Controlar válvulas da máquina"
+],
+"correct": [
+"Sincronização da cadeia de suprimentos",
+"Fluxo de dados de ponta a ponta",
+"Melhorar a relação com cliente final"
+],
+"tip": "O controle de válvulas é função da integração vertical (Nível 1 e 2)."
+},
+{
+"type": "drag",
+"topics": "ACID",
+"questions": "Relacione o tipo de integração às suas características:",
+"items": [
+{
+"id": "d1",
+"txt": "Interna (Empresa)",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Externa (Cadeia)",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Sensor para ERP",
+"match": "z1"
+},
+{
+"id": "d4",
+"txt": "Fornecedor para Cliente",
+"match": "z2"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Integração Vertical"
+},
+{
+"id": "z2",
+"label": "Integração Horizontal"
+}
+],
+"correct": "drag",
+"tip": "Vertical é profundidade hierárquica; horizontal é alcance ao longo da cadeia de valor."
+},
+{
+"type": "multiple",
+"topics": "ACID",
+"questions": "O que um ecossistema ciberfísico completo faz na Indústria 4.0?",
+"answers": [
+"Funde a integração vertical e horizontal",
+"Desconecta máquinas antigas",
+"Exclui a necessidade de ERP",
+"Foca apenas em vendas"
+],
+"correct": "Funde a integração vertical e horizontal",
+"tip": "A Indústria 4.0 une o chão de fábrica à cadeia de suprimentos em nuvem."
+},
+{
+"type": "combo",
+"topics": "ACID",
+"questions": "[NAME], a convergência entre TI e [COMBO] cria o cenário da fábrica conectada.",
+"options": [
+"TO",
+"RH",
+"UX",
+"UI"
+],
+"correct": "TO",
+"tip": "Tecnologia da Informação (TI) une-se à Tecnologia Operacional (TO).",
+"trans": "AGEN"
+},
+{
+"type": "multiple",
+"topics": "AGEN",
+"questions": "[NAME], qual norma é o padrão internacional para cibersegurança industrial?",
+"answers": [
+"IEC 62443",
+"ISO 9001",
+"IEEE 802.11",
+"LGPD"
+],
+"correct": "IEC 62443",
+"tip": "A IEC 62443 define os níveis de segurança em sistemas de automação."
+},
+{
+"type": "boolean",
+"topics": "AGEN",
+"questions": "[NAME], garantir que o SCADA opere 24/7 atende ao pilar de Disponibilidade.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "A disponibilidade assegura que os sistemas não parem de funcionar."
+},
+{
+"type": "combo",
+"topics": "AGEN",
+"questions": "O vazamento de uma receita de produção fere o pilar da [COMBO].",
+"options": [
+"Confidencialidade",
+"Integridade",
+"Disponibilidade",
+"Privacidade"
+],
+"correct": "Confidencialidade",
+"tip": "Segredos industriais devem ser acessíveis apenas a pessoas autorizadas."
+},
+{
+"type": "multi",
+"topics": "AGEN",
+"questions": "[NAME], quais são os desafios específicos de segurança no chão de fábrica?",
+"answers": [
+"Dispositivos legados sem atualizações",
+"Protocolos sem criptografia nativa",
+"Requisitos de tempo real estritos",
+"Sobrecarga de rede social"
+],
+"correct": [
+"Dispositivos legados sem atualizações",
+"Protocolos sem criptografia nativa",
+"Requisitos de tempo real estritos"
+],
+"tip": "O ambiente industrial antigo não foi projetado com a internet em mente."
+},
+{
+"type": "drag",
+"topics": "AGEN",
+"questions": "Relacione o pilar CIA à sua consequência de falha na indústria:",
+"items": [
+{
+"id": "d1",
+"txt": "Confidencialidade",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Integridade",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Disponibilidade",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Concorrentes acessam dados"
+},
+{
+"id": "z2",
+"label": "Produtos fora de especificação"
+},
+{
+"id": "z3",
+"label": "Parada total da linha (Ransomware)"
+}
+],
+"correct": "drag",
+"tip": "Cada pilar protege um aspecto crucial da produção industrial."
+},
+{
+"type": "multiple",
+"topics": "AGEN",
+"questions": "[NAME], o que é o princípio do Não Repúdio?",
+"answers": [
+"Impossibilitar que alguém negue ter feito uma ação",
+"Negar acesso a dispositivos móveis",
+"Obrigar o uso de senhas complexas",
+"Garantir a privacidade do cliente"
+],
+"correct": "Impossibilitar que alguém negue ter feito uma ação",
+"tip": "Logs e assinaturas digitais garantem essa rastreabilidade inegável."
+},
+{
+"type": "boolean",
+"topics": "AGEN",
+"questions": "Ataques a sistemas industriais cresceram mais de 300% entre 2020 e 2024.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "A conectividade aumentou drasticamente a superfície de ataque nas fábricas."
+},
+{
+"type": "combo",
+"topics": "AGEN",
+"questions": "Proteger os dados pessoais dos colaboradores refere-se ao requisito de [COMBO].",
+"options": [
+"Privacidade",
+"Legalidade",
+"Auditoria",
+"Autenticidade"
+],
+"correct": "Privacidade",
+"tip": "Isso inclui anonimização e minimização de coleta de dados."
+},
+{
+"type": "multi",
+"topics": "AGEN",
+"questions": "Quais são boas práticas para segurança na Indústria 4.0?",
+"answers": [
+"Segmentação de redes (TI vs TO)",
+"Monitoramento com SIEM industrial",
+"Gestão de vulnerabilidades",
+"Uso de senhas genéricas"
+],
+"correct": [
+"Segmentação de redes (TI vs TO)",
+"Monitoramento com SIEM industrial",
+"Gestão de vulnerabilidades"
+],
+"tip": "Separar a rede administrativa da rede de máquinas é o primeiro passo de defesa."
+},
+{
+"type": "drag",
+"topics": "AGEN",
+"questions": "Relacione o caso famoso de ataque cibernético ao seu impacto:",
+"items": [
+{
+"id": "d1",
+"txt": "Stuxnet (2010)",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Colonial Pipeline (2021)",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Toyota (2022)",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Sabotou centrífugas nucleares"
+},
+{
+"id": "z2",
+"label": "Paralisou oleoduto via ransomware"
+},
+{
+"id": "z3",
+"label": "Paralisou 14 fábricas por fornecedor"
+}
+],
+"correct": "drag",
+"tip": "Ataques reais mostram o impacto financeiro e físico de vulnerabilidades."
+},
+{
+"type": "multiple",
+"topics": "AGEN",
+"questions": "[NAME], a capacidade de rastrear todas as ações nos sistemas é o requisito de:",
+"answers": [
+"Auditoria",
+"Legalidade",
+"Privacidade",
+"Confidencialidade"
+],
+"correct": "Auditoria",
+"tip": "A auditoria depende de logs detalhados para investigação de incidentes."
+},
+{
+"type": "boolean",
+"topics": "AGEN",
+"questions": "[NAME], a segurança digital é um produto que você instala uma vez e resolve.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "A segurança é um processo contínuo de adaptação e monitoramento."
+},
+{
+"type": "combo",
+"topics": "AGEN",
+"questions": "Garantir a conformidade com a LGPD atende ao requisito de [COMBO].",
+"options": [
+"Legalidade",
+"Autenticidade",
+"Disponibilidade",
+"Auditoria"
+],
+"correct": "Legalidade",
+"tip": "As operações devem sempre atuar dentro do escopo da lei.",
+"trans": "PROT"
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "[NAME], o que a Realidade Aumentada (RA) faz de diferente da Realidade Virtual (RV)?",
+"answers": [
+"Sobrepõe elementos digitais ao mundo real",
+"Cria um mundo 100% digital e fechado",
+"Desliga os sensores do equipamento",
+"Conecta redes sem fio automaticamente"
+],
+"correct": "Sobrepõe elementos digitais ao mundo real",
+"tip": "A RA enriquece o mundo físico sem substituí-lo."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "[NAME], no Continuum de Milgram, a Realidade Mista (RM) permite que objetos virtuais interajam com reais.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "A RM é o estágio onde a fusão entre digital e físico permite interação mútua."
+},
+{
+"type": "combo",
+"topics": "PROT",
+"questions": "Na área de logística, o uso de RA para separar pedidos acelerando o processo é chamado de [COMBO].",
+"options": [
+"Picking",
+"Tracking",
+"Hacking",
+"Packing"
+],
+"correct": "Picking",
+"tip": "O picking assistido por RA reduz erros guiando visualmente o operador."
+},
+{
+"type": "multi",
+"topics": "PROT",
+"questions": "[NAME], quais são aplicações reais de RA na indústria?",
+"answers": [
+"Manutenção assistida passo a passo",
+"Simulação de treinamento sem risco",
+"Controle de qualidade com blueprints 3D",
+"Mineração de criptomoedas no ERP"
+],
+"correct": [
+"Manutenção assistida passo a passo",
+"Simulação de treinamento sem risco",
+"Controle de qualidade com blueprints 3D"
+],
+"tip": "A RA serve como uma interface visual de alta eficiência para tarefas manuais."
+},
+{
+"type": "drag",
+"topics": "PROT",
+"questions": "Ordene o ciclo de funcionamento de um sistema de RA:",
+"items": [
+{
+"id": "d1",
+"txt": "Câmeras e GPS",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "CPU e Algoritmos",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Gráficos Virtuais",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "Telas e Óculos",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "1. Captura"
+},
+{
+"id": "z2",
+"label": "2. Processamento"
+},
+{
+"id": "z3",
+"label": "3. Renderização"
+},
+{
+"id": "z4",
+"label": "4. Exibição"
+}
+],
+"correct": "drag",
+"tip": "Esse ciclo ocorre dezenas de vezes por segundo para criar a imersão."
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "[NAME], qual tipo de dispositivo é mais focado em liberar as mãos de operadores na indústria?",
+"answers": [
+"Óculos Inteligentes",
+"Smartphones",
+"Tablets",
+"Televisões"
+],
+"correct": "Óculos Inteligentes",
+"tip": "Dispositivos como HoloLens permitem que o operador trabalhe enquanto consome a informação visual."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "Uma latência superior a 20ms no processamento não afeta a imersão na Realidade Aumentada.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Latências maiores que 20ms quebram a ilusão da sobreposição fluida e causam desconforto."
+},
+{
+"type": "combo",
+"topics": "PROT",
+"questions": "Projeções de RA exibidas em para-brisas são conhecidas como [COMBO].",
+"options": [
+"HUD",
+"VR",
+"MES",
+"API"
+],
+"correct": "HUD",
+"tip": "Head-Up Displays (HUD) mantêm o usuário olhando para frente sem desviar o olhar."
+},
+{
+"type": "multi",
+"topics": "PROT",
+"questions": "[NAME], quais são os principais desafios técnicos de implementar RA na fábrica conectada?",
+"answers": [
+"Precisão do Tracking de câmera",
+"Sincronização de rede com baixa latência",
+"Integração segura com os dados do ERP",
+"Substituir o cabeamento das máquinas"
+],
+"correct": [
+"Precisão do Tracking de câmera",
+"Sincronização de rede com baixa latência",
+"Integração segura com os dados do ERP"
+],
+"tip": "A RA exige alto desempenho de rede e precisão de dados em tempo real."
+},
+{
+"type": "drag",
+"topics": "PROT",
+"questions": "Relacione o equipamento ao nível de imersão de XR (Continuum de Milgram):",
+"items": [
+{
+"id": "d1",
+"txt": "Óculos HoloLens (Hologramas na mesa)",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Óculos VR Meta Quest (Ambiente fechado)",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Filtro no app do Smartphone",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Realidade Mista (RM)"
+},
+{
+"id": "z2",
+"label": "Realidade Virtual (RV)"
+},
+{
+"id": "z3",
+"label": "Realidade Aumentada (RA) Básica"
+}
+],
+"correct": "drag",
+"tip": "Quanto mais o digital responde à física do ambiente, mais perto da RM estamos."
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "Qual a vantagem do treinamento industrial feito via RA?",
+"answers": [
+"Praticar procedimentos complexos sem risco a equipamentos",
+"Demora mais para aprender, mas é mais barato",
+"Substitui completamente o instrutor humano",
+"Não exige integração com manuais técnicos"
+],
+"correct": "Praticar procedimentos complexos sem risco a equipamentos",
+"tip": "Simulações interativas aceleram a curva de aprendizado."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "[NAME], na RA, ARCore e ARKit são tecnologias tipicamente utilizadas em smartphones e tablets.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "São as bibliotecas de realidade aumentada nativas da Google e da Apple."
+},
+{
+"type": "combo",
+"topics": "PROT",
+"questions": "Para exibir hologramas 3D sem lentidão, a máquina precisa de alto poder de [COMBO].",
+"options": [
+"Renderização",
+"Aquecimento",
+"Frenagem",
+"Iluminação"
+],
+"correct": "Renderização",
+"tip": "Processamento gráfico (Renderização) traduz os dados 3D em pixels na tela.",
+"trans": "NORM"
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "[NAME], no case da LogisTech, qual era um dos grandes problemas da empresa?",
+"answers": [
+"Processos manuais em planilhas Excel",
+"Excesso de automação nos caminhões",
+"Nuvem sobrecarregada de acessos",
+"Todos os funcionários tinham óculos de RA"
+],
+"correct": "Processos manuais em planilhas Excel",
+"tip": "A transição digital visa substituir processos manuais e silos de informação."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "[NAME], no case da LogisTech, os fornecedores enviar notificações via API é um exemplo de integração horizontal.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "APIs trocando dados entre organizações diferentes é o cerne da integração horizontal."
+},
+{
+"type": "combo",
+"topics": "NORM",
+"questions": "A utilização de TLS 1.3 serve para garantir a segurança dos dados em [COMBO].",
+"options": [
+"Trânsito",
+"Repouso",
+"Papel",
+"Deleção"
+],
+"correct": "Trânsito",
+"tip": "Dados viajando na rede precisam ser encriptados para evitar interceptação."
+},
+{
+"type": "multi",
+"topics": "NORM",
+"questions": "[NAME], ao migrar a LogisTech para a nuvem, quais medidas de segurança são vitais?",
+"answers": [
+"Classificação dos Dados",
+"Controle de Acesso (IAM)",
+"Criptografia AES-256",
+"Remover o Wi-fi do Armazém"
+],
+"correct": [
+"Classificação dos Dados",
+"Controle de Acesso (IAM)",
+"Criptografia AES-256"
+],
+"tip": "A infraestrutura Wi-Fi é essencial; o que precisa ser feito é protegê-la (WPA3/VLAN)."
+},
+{
+"type": "drag",
+"topics": "NORM",
+"questions": "No diagnóstico da LogisTech, relacione o ativo à sua vulnerabilidade provável:",
+"items": [
+{
+"id": "d1",
+"txt": "Rede Wi-Fi do Armazém",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "API de Fornecedores",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Dashboard na Nuvem",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Acesso não autorizado por visitantes locais"
+},
+{
+"id": "z2",
+"label": "Requisições forjadas ou sem autenticidade"
+},
+{
+"id": "z3",
+"label": "Acesso corporativo sem controle MFA"
+}
+],
+"correct": "drag",
+"tip": "Mapear ameaças baseadas nos vetores de entrada (rede local, externa, nuvem)."
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "[NAME], para aplicar RA de forma segura no armazém da LogisTech, qual medida é recomendada?",
+"answers": [
+"Segmentar a rede VLAN dos óculos inteligentes do restante do TI corporativo",
+"Desligar o rastreamento GPS para economizar bateria",
+"Usar Wi-Fi aberto para não atrasar a renderização",
+"Guardar os manuais impressos em um cofre"
+],
+"correct": "Segmentar a rede VLAN dos óculos inteligentes do restante do TI corporativo",
+"tip": "Segmentação (zones/conduits na IEC 62443) isola vulnerabilidades."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "O controle de acesso IAM (Identidade e Gerenciamento de Acesso) previne acessos não autorizados aos relatórios de logística.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "O IAM aplica o princípio do menor privilégio, fundamental para a confidencialidade."
+},
+{
+"type": "combo",
+"topics": "NORM",
+"questions": "A LogisTech deve categorizar dados sensíveis, garantindo a conformidade com a [COMBO].",
+"options": [
+"LGPD",
+"ISO",
+"CLT",
+"WMS"
+],
+"correct": "LGPD",
+"tip": "Dados pessoais de motoristas exigem proteção legal."
+},
+{
+"type": "multi",
+"topics": "NORM",
+"questions": "[NAME], como a Integração Vertical e RA se comunicam na LogisTech?",
+"answers": [
+"Sensores IoT no armazém alimentam o WMS",
+"O WMS aciona as diretrizes visuais nos óculos de RA do operador",
+"O ERP processa o pedido e sinaliza a ordem de picking",
+"O cliente acessa fisicamente as câmeras de RA"
+],
+"correct": [
+"Sensores IoT no armazém alimentam o WMS",
+"O WMS aciona as diretrizes visuais nos óculos de RA do operador",
+"O ERP processa o pedido e sinaliza a ordem de picking"
+],
+"tip": "Dados estratégicos descem do ERP para o WMS e são exibidos pela RA ao operador."
+},
+{
+"type": "drag",
+"topics": "NORM",
+"questions": "Relacione as ações da LogisTech ao respectivo tema do curso:",
+"items": [
+{
+"id": "d1",
+"txt": "Uso de WPA3 e Autenticação 802.1X",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Conexão entre Sensores, WMS e ERP",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Óculos guiam operador nas prateleiras",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Segurança Digital"
+},
+{
+"id": "z2",
+"label": "Integração de Sistemas"
+},
+{
+"id": "z3",
+"label": "Realidade Aumentada"
+}
+],
+"correct": "drag",
+"tip": "Na Indústria 4.0, esses três eixos operam de forma interdependente."
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "No contexto da Tríade Completa da aula, o que a Segurança Digital faz?",
+"answers": [
+"Protege os dados transmitidos entre os sistemas conectados",
+"Fornece a interface visual intuitiva para o humano",
+"Interliga sensores diretamente ao fornecedor de peças",
+"Aumenta a velocidade de renderização da GPU"
+],
+"correct": "Protege os dados transmitidos entre os sistemas conectados",
+"tip": "A Integração fornece os dados, a Segurança protege, a RA exibe."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "[NAME], ao propor uma solução para a LogisTech, identificar ameaças de intercepção no Wi-Fi faz parte da Classificação CIA.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Intercepção ameaça diretamente a Confidencialidade e Integridade (pilares C e I)."
+}
+]
 }
   ]
 }
