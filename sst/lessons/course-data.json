@@ -8198,12 +8198,12 @@
           "answers": [
             "Listar clientes que realizaram compras no site E também na loja física.",
             "Obter todos os contatos agrupando as bases de dados de duas filiais.",
-            "Identificar funcionários do setor de vendas que possuem certificação avançada.",
+            "Identificar funcionários do setor de vendas que possuem certificação.",
             "Remover da lista de e-mail os usuários que pediram descadastro."
           ],
           "correct": [
             "Listar clientes que realizaram compras no site E também na loja física.",
-            "Identificar funcionários do setor de vendas que possuem certificação avançada."
+            "Identificar funcionários do setor de vendas que possuem certificação."
           ],
           "tip": "A interseção foca nas condições simultâneas ou sobreposições de características."
         },
@@ -10205,7 +10205,7 @@
             "Avatares Físicos"
           ],
           "correct": "Robôs Colaborativos (Cobots)",
-          "tip": "Os Cobots fazem parte do pilar de Robótica Avançada."
+          "tip": "Os Cobots fazem parte do pilar de Robótica."
         },
         {
           "type": "boolean",
@@ -12364,6 +12364,929 @@
           "tip": "O Machine Learning permite aprender com dados anteriores e prever a rota mais eficiente."
         }
       ]
-    }
+    },
+    {
+"slug": "aula-23",
+"lesson_info": {
+"id": "Aula-23",
+"title": "AULA 23 - ROBÓTICA, MANUFATURA ADITIVA E SIMULAÇÃO",
+"topics": [
+{
+"id": "ROBO",
+"name": "ROBÓTICA",
+"desc": "Conceitos, componentes, tipos de robôs e a ascensão dos cobots na Indústria 4.0.",
+"color": "#3498db",
+"img_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "MADI",
+"name": "MANUFATURA ADITIVA",
+"desc": "Impressão 3D, tecnologias, materiais e os benefícios frente à manufatura subtrativa.",
+"color": "#e67e22",
+"img_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "SIMU",
+"name": "SIMULAÇÃO DIGITAL",
+"desc": "Gêmeos digitais, etapas de simulação e softwares aplicados na validação industrial.",
+"color": "#9b59b6",
+"img_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "INTG",
+"name": "PAPEL DA TI NA INDÚSTRIA 4.0",
+"desc": "Infraestrutura de redes, integração de dados e cibersegurança nos processos robóticos.",
+"color": "#2ecc71",
+"img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+}
+],
+"sokoban": [
+"R",
+"O",
+"B",
+"O"
+]
+},
+"questions": [
+{
+"type": "multiple",
+"topics": "ROBO",
+"questions": "[NAME], de acordo com o material, como se define a robótica?",
+"answers": [
+"Ramo que projeta e opera máquinas programáveis autônomas ou semiautônomas.",
+"Área focada exclusivamente no desenvolvimento de softwares web.",
+"Ciência que estuda apenas a locomoção de veículos elétricos.",
+"Disciplina focada na manutenção de painéis de energia solar."
+],
+"correct": "Ramo que projeta e opera máquinas programáveis autônomas ou semiautônomas.",
+"tip": "A robótica une mecânica, eletrônica e programação para criar máquinas capazes de executar tarefas."
+},
+{
+"type": "boolean",
+"topics": "ROBO",
+"questions": "Na Indústria 4.0, a robótica se diferencia por incorporar inteligência artificial e visão computacional.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Esses recursos permitem que os robôs se adaptem a ambientes dinâmicos."
+},
+{
+"type": "combo",
+"topics": "ROBO",
+"questions": "[NAME], o primeiro robô industrial instalado na General Motors na década de 1960 chamava-se [COMBO].",
+"options": [
+"Unimate",
+"Cobot",
+"SCARA",
+"Delta"
+],
+"correct": "Unimate",
+"tip": "Foi o marco inicial da robótica na indústria automotiva."
+},
+{
+"type": "multi",
+"topics": "ROBO",
+"questions": "Quais destes são componentes fundamentais que compõem um robô industrial?",
+"answers": [
+"Atuadores",
+"Controlador",
+"Sensores",
+"Extrusora de Resina"
+],
+"correct": [
+"Atuadores",
+"Controlador",
+"Sensores"
+],
+"tip": "A extrusora de resina é um componente de impressoras 3D, não do robô industrial padrão."
+},
+{
+"type": "drag",
+"topics": "ROBO",
+"questions": "Relacione o componente do robô à sua função funcional:",
+"items": [
+{
+"id": "d1",
+"txt": "Controlador",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Atuadores",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Sensores",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "Efetuador",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "O cérebro: processa dados"
+},
+{
+"id": "z2",
+"label": "Os músculos: executam movimento"
+},
+{
+"id": "z3",
+"label": "Os sentidos: captam o ambiente"
+},
+{
+"id": "z4",
+"label": "A mão: realiza a tarefa final"
+}
+],
+"correct": "drag",
+"tip": "Cada subsistema atua de forma integrada para realizar a operação física."
+},
+{
+"type": "multiple",
+"topics": "ROBO",
+"questions": "Qual tipo de robô possui uma estrutura paralela ultraveloz, sendo muito utilizado em embalagem e seleção de alimentos?",
+"answers": [
+"Delta",
+"Cartesiano",
+"Articulado",
+"SCARA"
+],
+"correct": "Delta",
+"tip": "Sua geometria permite velocidades incrivelmente rápidas em operações pick-and-place."
+},
+{
+"type": "boolean",
+"topics": "ROBO",
+"questions": "[NAME], robôs colaborativos (cobots) requerem cercas de segurança rígidas e não podem operar próximos a humanos.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Os cobots possuem sensores de força e torque que permitem o contato seguro e o trabalho lado a lado com humanos."
+},
+{
+"type": "combo",
+"topics": "ROBO",
+"questions": "Robôs do tipo [COMBO] movem-se em eixos lineares (X, Y, Z) e são muito usados em máquinas CNC.",
+"options": [
+"Cartesianos",
+"Articulados",
+"Paralelos",
+"Cilíndricos"
+],
+"correct": "Cartesianos",
+"tip": "Eles seguem a lógica do plano cartesiano da matemática matemática."
+},
+{
+"type": "multi",
+"topics": "ROBO",
+"questions": "Quais são características marcantes dos robôs na Indústria 4.0?",
+"answers": [
+"Conectividade IoT",
+"Gêmeos digitais integrados",
+"Operação totalmente isolada",
+"Visão computacional"
+],
+"correct": [
+"Conectividade IoT",
+"Gêmeos digitais integrados",
+"Visão computacional"
+],
+"tip": "A operação isolada é característica da 3ª revolução; na 4.0 eles são nós de rede conectados."
+},
+{
+"type": "drag",
+"topics": "ROBO",
+"questions": "Relacione o tipo de robô com a sua característica principal:",
+"items": [
+{
+"id": "d1",
+"txt": "Articulado",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "SCARA",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Cobot",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Máxima flexibilidade (6 eixos)"
+},
+{
+"id": "z2",
+"label": "Articulação seletiva para montagem"
+},
+{
+"id": "z3",
+"label": "Trabalho seguro com humanos"
+}
+],
+"correct": "drag",
+"tip": "A geometria cinemática define a melhor aplicação de cada robô."
+},
+{
+"type": "boolean",
+"topics": "ROBO",
+"questions": "Segundo os dados apresentados, a adoção de linhas automatizadas com robôs pode gerar uma economia média de 30% em relação às linhas manuais.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "A redução de custos e o aumento da precisão são fatores que impulsionam o investimento."
+},
+{
+"type": "multiple",
+"topics": "ROBO",
+"questions": "A sigla CNC, frequentemente associada ao uso de eixos cartesianos, refere-se a quê?",
+"answers": [
+"Controle Numérico Computadorizado",
+"Centro de Navegação Cibernética",
+"Código Nacional de Construção",
+"Computação na Nuvem Central"
+],
+"correct": "Controle Numérico Computadorizado",
+"tip": "Máquinas CNC usam arquivos digitais para orientar ferramentas de corte."
+},
+{
+"type": "combo",
+"topics": "ROBO",
+"questions": "O robô que processa informações do ambiente e toma decisões através do seu processador central utiliza o [COMBO].",
+"options": [
+"Controlador",
+"Atuador linear",
+"Eixo Y",
+"Motor de Passo"
+],
+"correct": "Controlador",
+"trans": "MADI",
+"tip": "É o equivalente ao sistema nervoso central que envia ordens aos músculos."
+},
+{
+"type": "multiple",
+"topics": "MADI",
+"questions": "[NAME], qual é o princípio fundamental da Manufatura Aditiva?",
+"answers": [
+"Adição de material camada sobre camada.",
+"Remoção de material de um bloco bruto.",
+"Dobramento a frio de chapas de metal.",
+"Injeção de plástico em moldes aquecidos."
+],
+"correct": "Adição de material camada sobre camada.",
+"tip": "Por isso é chamada de aditiva, opondo-se à usinagem (subtrativa)."
+},
+{
+"type": "boolean",
+"topics": "MADI",
+"questions": "A manufatura aditiva gera um desperdício de material muito maior do que a usinagem tradicional.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "A manufatura aditiva utiliza apenas o material necessário para a peça, reduzindo drasticamente o desperdício."
+},
+{
+"type": "combo",
+"topics": "MADI",
+"questions": "A etapa de [COMBO] (Slicing) no software converte o modelo 3D em fatias e gera o G-code.",
+"options": [
+"Fatiamento",
+"Renderização",
+"Compilação",
+"Vetorização"
+],
+"correct": "Fatiamento",
+"tip": "Esse processo fatiado diz à máquina exatamente o caminho de cada camada."
+},
+{
+"type": "multi",
+"topics": "MADI",
+"questions": "Quais as principais vantagens da Manufatura Aditiva abordadas na aula?",
+"answers": [
+"Personalização em massa",
+"Produção de geometrias complexas",
+"Prototipagem rápida",
+"Dependência de moldes caros"
+],
+"correct": [
+"Personalização em massa",
+"Produção de geometrias complexas",
+"Prototipagem rápida"
+],
+"tip": "A impressão 3D elimina justamente a necessidade de investir em moldes caros para cada variação de peça."
+},
+{
+"type": "drag",
+"topics": "MADI",
+"questions": "[NAME], relacione o tipo de tecnologia de impressão 3D à sua descrição:",
+"items": [
+{
+"id": "d1",
+"txt": "FDM / FFF",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "SLA / DLP",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "SLS / DMLS",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Fundição de filamento termoplástico"
+},
+{
+"id": "z2",
+"label": "Cura de resina líquida com luz UV"
+},
+{
+"id": "z3",
+"label": "Sinterização de pó com laser"
+}
+],
+"correct": "drag",
+"tip": "A escolha da tecnologia depende do material e da resistência desejada."
+},
+{
+"type": "multiple",
+"topics": "MADI",
+"questions": "A impressão 3D com a tecnologia SLA é amplamente utilizada em quais áreas devido à sua alta precisão e acabamento liso?",
+"answers": [
+"Joalheria e odontologia",
+"Construção civil de grandes pontes",
+"Fabricação de chassis automotivos",
+"Produção têxtil de roupas"
+],
+"correct": "Joalheria e odontologia",
+"tip": "A cura de resina por UV garante detalhes que a fusão de filamento não atinge."
+},
+{
+"type": "boolean",
+"topics": "MADI",
+"questions": "O uso de estruturas internas otimizadas, como 'lattice' ou 'honeycomb', reduz o peso da peça sem comprometer sua resistência mecânica.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Esse design complexo é impossível de ser usinado, sendo exclusivo da manufatura aditiva."
+},
+{
+"type": "combo",
+"topics": "MADI",
+"questions": "A Manufatura [COMBO] baseia-se na remoção de material de um bloco bruto.",
+"options": [
+"Subtrativa",
+"Generativa",
+"Aditiva",
+"Moldada"
+],
+"correct": "Subtrativa",
+"tip": "Tornos e fresadoras são máquinas subtrativas."
+},
+{
+"type": "multi",
+"topics": "MADI",
+"questions": "Quais materiais podem ser utilizados atualmente na Manufatura Aditiva industrial?",
+"answers": [
+"Polímeros (PLA, ABS)",
+"Metais (Titânio, Alumínio)",
+"Cerâmicas (Zircônia)",
+"Gases Nobres"
+],
+"correct": [
+"Polímeros (PLA, ABS)",
+"Metais (Titânio, Alumínio)",
+"Cerâmicas (Zircônia)"
+],
+"tip": "Sólidos fundíveis, sinterizáveis ou resinas fotossensíveis cobrem uma ampla gama de materiais."
+},
+{
+"type": "drag",
+"topics": "MADI",
+"questions": "Ordene as 4 etapas do Processo de Manufatura Aditiva:",
+"items": [
+{
+"id": "d1",
+"txt": "Modelagem CAD",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Fatiamento (Slicing)",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Impressão",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "Pós-processamento",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Passo 1"
+},
+{
+"id": "z2",
+"label": "Passo 2"
+},
+{
+"id": "z3",
+"label": "Passo 3"
+},
+{
+"id": "z4",
+"label": "Passo 4"
+}
+],
+"correct": "drag",
+"tip": "Tudo começa no ambiente virtual e termina no acabamento físico da peça."
+},
+{
+"type": "boolean",
+"topics": "MADI",
+"questions": "[NAME], a manufatura aditiva elimina a necessidade de estoques físicos grandes, permitindo a impressão de peças sob demanda.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Isso revoluciona a cadeia de suprimentos e reduz os custos de inventário."
+},
+{
+"type": "multiple",
+"topics": "MADI",
+"questions": "Segundo a aula, a impressão 3D pode reduzir o tempo total de prototipagem em que porcentagem se comparada a métodos convencionais?",
+"answers": [
+"75%",
+"20%",
+"10%",
+"50%"
+],
+"correct": "75%",
+"tip": "Essa redução drástica acelera o 'time-to-market' do desenvolvimento de produtos."
+},
+{
+"type": "combo",
+"topics": "MADI",
+"questions": "O uso de inteligência artificial para criar automaticamente designs geométricos eficientes para impressão é chamado de Design [COMBO].",
+"options": [
+"Generativo",
+"Estático",
+"Isométrico",
+"Subtrativo"
+],
+"correct": "Generativo",
+"trans": "SIMU",
+"tip": "A IA testa milhares de variações para encontrar a estrutura mais forte e leve."
+},
+{
+"type": "multiple",
+"topics": "SIMU",
+"questions": "Na Indústria 4.0, o que é um 'Gêmeo Digital' (Digital Twin)?",
+"answers": [
+"Uma réplica virtual alimentada por dados de sensores em tempo real.",
+"Um robô fabricado idêntico a outro na mesma linha de montagem.",
+"Um backup dos arquivos CAD em dois servidores na nuvem.",
+"O operador humano que trabalha junto com o cobot."
+],
+"correct": "Uma réplica virtual alimentada por dados de sensores em tempo real.",
+"tip": "O gêmeo digital espelha o comportamento do sistema real para prever falhas e otimizar processos."
+},
+{
+"type": "boolean",
+"topics": "SIMU",
+"questions": "A simulação digital aumenta o risco e o custo, pois requer a construção de múltiplos protótipos físicos complexos.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Pelo contrário, ela reduz custos e riscos justamente por evitar a necessidade de testes físicos até a fase final."
+},
+{
+"type": "combo",
+"topics": "SIMU",
+"questions": "[NAME], a simulação de produto permite analisar comportamento mecânico ou térmico estabelecendo as condições de [COMBO].",
+"options": [
+"Contorno",
+"Soldagem",
+"Fatiamento",
+"Render"
+],
+"correct": "Contorno",
+"tip": "Cargas, restrições e propriedades do material definem como o ambiente afeta a peça virtual."
+},
+{
+"type": "multi",
+"topics": "SIMU",
+"questions": "Ao realizar a simulação de uma célula robótica de manufatura, quais aspectos podem ser analisados virtualmente?",
+"answers": [
+"Detecção de colisões",
+"Tempo de ciclo e alcance dos braços",
+"Estresse financeiro da economia global",
+"Interação segura com operadores"
+],
+"correct": [
+"Detecção de colisões",
+"Tempo de ciclo e alcance dos braços",
+"Interação segura com operadores"
+],
+"tip": "As células robóticas focam no fluxo físico e espacial da linha de montagem."
+},
+{
+"type": "drag",
+"topics": "SIMU",
+"questions": "Associe o software de simulação à sua principal aplicação industrial:",
+"items": [
+{
+"id": "d1",
+"txt": "ANSYS / SolidWorks",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "RoboDK",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "FlexSim",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Análise de Elementos Finitos (estrutural/térmica)"
+},
+{
+"id": "z2",
+"label": "Programação offline e cinemática de robôs"
+},
+{
+"id": "z3",
+"label": "Simulação de eventos discretos (logística/fluxo)"
+}
+],
+"correct": "drag",
+"tip": "Cada nível do processo industrial requer um motor de simulação diferente."
+},
+{
+"type": "multiple",
+"topics": "SIMU",
+"questions": "Qual a principal vantagem do Gêmeo Digital operando em tempo real na fábrica?",
+"answers": [
+"Manutenção preditiva, evitando paradas não planejadas.",
+"Imprimir peças metálicas diretamente do software.",
+"Aumentar a temperatura do forno físico via Wi-Fi.",
+"Treinar operadores em realidade virtual de jogos."
+],
+"correct": "Manutenção preditiva, evitando paradas não planejadas.",
+"tip": "Observando a degradação no modelo virtual, os engenheiros agem antes da quebra da máquina real."
+},
+{
+"type": "boolean",
+"topics": "SIMU",
+"questions": "A última etapa da simulação de produto é a validação, onde os resultados simulados são comparados com dados experimentais reais.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Sem validação, não podemos garantir que o ambiente virtual é fiel ao mundo físico."
+},
+{
+"type": "combo",
+"topics": "SIMU",
+"questions": "No treinamento virtual com simulações de alto risco, os operadores aprendem de forma [COMBO], sem se exporem a riscos elétricos ou físicos reais.",
+"options": [
+"Segura",
+"Imprudente",
+"Subtrativa",
+"Analógica"
+],
+"correct": "Segura",
+"tip": "Errar na simulação é um aprendizado valioso e que não gera acidentes de trabalho."
+},
+{
+"type": "multi",
+"topics": "SIMU",
+"questions": "Quais são as grandes etapas da Simulação de um Produto descritas na aula?",
+"answers": [
+"Definição do Problema",
+"Modelagem 3D",
+"Execução e Análise",
+"Fusão do Filamento"
+],
+"correct": [
+"Definição do Problema",
+"Modelagem 3D",
+"Execução e Análise"
+],
+"tip": "A fusão de filamento faz parte do processo de fabricação por impressão 3D (FDM), não da simulação virtual."
+},
+{
+"type": "drag",
+"topics": "SIMU",
+"questions": "Identifique a abrangência do objeto sendo simulado:",
+"items": [
+{
+"id": "d1",
+"txt": "Simulação de Produto",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Simulação de Equipamento",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Simulação de Célula",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Testa resistência e comportamento da peça final"
+},
+{
+"id": "z2",
+"label": "Avalia o ciclo e desgaste de uma máquina individual"
+},
+{
+"id": "z3",
+"label": "Valida fluxo e colisões entre várias máquinas"
+}
+],
+"correct": "drag",
+"tip": "A complexidade sobe da peça, para a máquina, para o layout completo."
+},
+{
+"type": "boolean",
+"topics": "SIMU",
+"questions": "[NAME], a simulação fornece suporte crucial à tomada de decisão baseada em dados reais e virtuais integrados.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "A intuição dos gestores dá lugar à análise rigorosa de cenários modelados."
+},
+{
+"type": "combo",
+"topics": "SIMU",
+"questions": "Testar a fadiga, vibração ou aquecimento de uma peça específica virtualmente ocorre com análise de elementos [COMBO] (FEA).",
+"options": [
+"Finitos",
+"Infinitos",
+"Dinâmicos",
+"Paralelos"
+],
+"correct": "Finitos",
+"trans": "INTG",
+"tip": "A malha divide a peça em elementos minúsculos e calculáveis de forma finita."
+},
+{
+"type": "multiple",
+"topics": "INTG",
+"questions": "Embora robótica e impressão 3D pareçam temas estritamente de engenharia mecânica, por que o profissional de TI é indispensável na Indústria 4.0?",
+"answers": [
+"Ele projeta e assegura a infraestrutura de rede, dados e cibersegurança do chão de fábrica.",
+"Ele é o único responsável por limpar as máquinas CNC e os robôs.",
+"Ele realiza a soldagem das placas eletrônicas dos atuadores mecanicamente.",
+"Sua função é apenas criar os sites de marketing dos produtos impressos."
+],
+"correct": "Ele projeta e assegura a infraestrutura de rede, dados e cibersegurança do chão de fábrica.",
+"tip": "As máquinas conectadas dependem inteiramente de redes estáveis e protocolos de comunicação implementados pela TI."
+},
+{
+"type": "boolean",
+"topics": "INTG",
+"questions": "Um robô industrial operando numa rede desprotegida não apresenta risco físico, apenas vazamento de dados.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Na Indústria 4.0, um robô hackeado pode alterar parâmetros de força e velocidade, causando danos físicos reais à fábrica e operadores."
+},
+{
+"type": "combo",
+"topics": "INTG",
+"questions": "Protocolos como OPC-UA e MQTT são cruciais para a comunicação em ambientes de Internet das Coisas Industriais ([COMBO]).",
+"options": [
+"IIoT",
+"WiFi",
+"HTML",
+"SaaS"
+],
+"correct": "IIoT",
+"tip": "IIoT (Industrial IoT) difere da IoT comum por exigir altíssima confiabilidade e baixa latência."
+},
+{
+"type": "multi",
+"topics": "INTG",
+"questions": "[NAME], como a computação em nuvem (Cloud) atua no contexto da manufatura aditiva?",
+"answers": [
+"Armazenando arquivos CAD que podem ser impressos em filiais globais remotamente.",
+"Hospedando plataformas de Big Data que processam dados de sensores das impressoras.",
+"Evitando que as impressoras 3D precisem usar filamentos de plástico.",
+"Dificultando o fatiamento (slicing) ao exigir cabos de rede diretos."
+],
+"correct": [
+"Armazenando arquivos CAD que podem ser impressos em filiais globais remotamente.",
+"Hospedando plataformas de Big Data que processam dados de sensores das impressoras."
+],
+"tip": "A nuvem descentraliza a produção física, enviando os 'dados de fabricação' instantaneamente para qualquer lugar."
+},
+{
+"type": "drag",
+"topics": "INTG",
+"questions": "Relacione o desafio da TI Industrial com a sua descrição:",
+"items": [
+{
+"id": "d1",
+"txt": "Infraestrutura de Rede",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Integração de Dados",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Cibersegurança",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Garantir latência zero entre o cobot e o servidor"
+},
+{
+"id": "z2",
+"label": "Unificar dados do ERP, IoT e Simulação num Dashboard"
+},
+{
+"id": "z3",
+"label": "Proteger os Gêmeos Digitais contra ataques externos"
+}
+],
+"correct": "drag",
+"tip": "Esses três pilares garantem a resiliência e estabilidade da operação automatizada."
+},
+{
+"type": "multiple",
+"topics": "INTG",
+"questions": "Qual termo define o ecossistema tecnológico onde máquinas físicas e sistemas de software comunicam e interagem intensamente na Indústria 4.0?",
+"answers": [
+"Sistemas Ciberfísicos",
+"Redes Neurais Biológicas",
+"Intranets Corporativas Estáticas",
+"Protocolos de Linha de Comando"
+],
+"correct": "Sistemas Ciberfísicos",
+"tip": "A fusão do físico com o digital (ciber) é a essência da Quarta Revolução Industrial."
+},
+{
+"type": "boolean",
+"topics": "INTG",
+"questions": "Nenhuma das tecnologias habilitadoras (Robótica, MA e Simulação) opera de forma isolada; seu verdadeiro valor está na convergência entre elas.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "A integração tecnológica (ex: IA rodando simulações para imprimir peças por robôs conectados via IoT) cria o ambiente 4.0 completo."
+},
+{
+"type": "combo",
+"topics": "INTG",
+"questions": "A integração entre Gêmeos Digitais e Manufatura Aditiva permite realizar a simulação virtual antes da fabricação [COMBO] da peça.",
+"options": [
+"Física",
+"Abstrata",
+"Remota",
+"Em nuvem"
+],
+"correct": "Física",
+"tip": "Você testa até a impressora virtualmente antes de gastar material real."
+},
+{
+"type": "multi",
+"topics": "INTG",
+"questions": "Para a análise massiva de parâmetros de operação dos robôs, o setor de TI emprega soluções envolvendo quais tecnologias?",
+"answers": [
+"Big Data",
+"Machine Learning (Aprendizado de Máquina)",
+"Disquetes de Armazenamento",
+"Roteadores domésticos de baixa frequência"
+],
+"correct": [
+"Big Data",
+"Machine Learning (Aprendizado de Máquina)"
+],
+"tip": "O imenso volume de dados (Big Data) e a análise preditiva requerem infraestrutura de ponta."
+},
+{
+"type": "drag",
+"topics": "INTG",
+"questions": "Associe a integração de tecnologias MA (Manufatura Aditiva) ao seu benefício direto:",
+"items": [
+{
+"id": "d1",
+"txt": "IoT + MA",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Big Data + MA",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "IA + MA",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Sensores monitoram qualidade da impressão ao vivo"
+},
+{
+"id": "z2",
+"label": "Análise profunda otimiza parâmetros operacionais"
+},
+{
+"id": "z3",
+"label": "Algoritmos criam novos designs geométricos sozinhos"
+}
+],
+"correct": "drag",
+"tip": "O poder do sistema 4.0 surge da combinação e da arquitetura dos dados."
+},
+{
+"type": "boolean",
+"topics": "INTG",
+"questions": "[NAME], a manutenção de um parque de impressoras 3D industriais passa a exigir a monitoria de pacotes de dados de rede, e não apenas chaves de fenda.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Erros de rede podem corromper arquivos ou parar produções no meio, atrelando a manutenção mecânica à TI."
+},
+{
+"type": "combo",
+"topics": "INTG",
+"questions": "Garantir que apenas softwares autorizados interajam com o controlador do Robô Articulado requer sólidas políticas de controle de [COMBO].",
+"options": [
+"Acesso",
+"Velocidade",
+"Torque",
+"Refrigeração"
+],
+"correct": "Acesso",
+"trans": "FIM",
+"tip": "A autenticação e autorização (IAM) no chão de fábrica evita desastres e sabotagens."
+}
+]
+}
   ]
 }
