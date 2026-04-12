@@ -11422,6 +11422,948 @@
           "tip": "Nossos cérebros processam imagens e padrões muito mais rápido do que grades cheias de números soltos."
         }
       ]
+    },
+    {
+      "slug": "aula-22",
+      "lesson_info": {
+        "id": "Aula-22",
+        "title": "AULA 22 - TECNOLOGIAS HABILITADORAS DA INDÚSTRIA 4.0",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "INTERNET DAS COISAS (IoT)",
+            "desc": "Conectando o mundo físico ao digital com sensores e dados em tempo real.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "COMPUTAÇÃO EM NUVEM",
+            "desc": "Modelos de serviço (IaaS, PaaS, SaaS) e infraestrutura escalável.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "BIG DATA E IA",
+            "desc": "Os 5 V's, Analytics e a Inteligência Artificial na indústria.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "ECOSSISTEMA INTEGRADO",
+            "desc": "A união prática das tecnologias e o Case LogisTech.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o conceito de Internet das Coisas (IoT) foi cunhado por Kevin Ashton no ano de 1999.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Desde 1999, o conceito evoluiu de simples etiquetas RFID para ecossistemas complexos."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "No contexto industrial, como é chamada a tecnologia IoT?",
+          "answers": [
+            "AIoT (Artificial IoT)",
+            "IIoT (Industrial IoT)",
+            "GIoT (Global IoT)",
+            "SIoT (Smart IoT)"
+          ],
+          "correct": "IIoT (Industrial IoT)",
+          "tip": "A IIoT é o alicerce da quarta revolução industrial, permitindo digitalizar fábricas."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destas são camadas essenciais para que um sistema IoT funcione?",
+          "answers": [
+            "Sensores",
+            "Conectividade",
+            "Criptomoedas",
+            "Interface"
+          ],
+          "correct": [
+            "Sensores",
+            "Conectividade",
+            "Interface"
+          ],
+          "tip": "As 4 camadas fundamentais são: Sensores, Conectividade, Processamento e Interface."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione a camada da IoT com a sua principal função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sensores",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Conectividade",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Processamento",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Interface",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Captam dados do ambiente"
+            },
+            {
+              "id": "z2",
+              "label": "Transmitem os dados (Ex: Wi-Fi)"
+            },
+            {
+              "id": "z3",
+              "label": "Filtram dados na borda (Edge)"
+            },
+            {
+              "id": "z4",
+              "label": "Visualização para o usuário"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada camada tem um papel vital no fluxo de dados da IoT."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O uso de [COMBO] computing filtra e pré-processa os dados antes do envio à nuvem.",
+          "options": [
+            "Edge",
+            "Quantum",
+            "Mainframe",
+            "Local"
+          ],
+          "correct": "Edge",
+          "tip": "A Edge Computing atua na camada de processamento da arquitetura IoT."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "A manutenção preditiva com IIoT não é capaz de antecipar falhas de equipamentos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, sensores monitoram equipamentos 24/7 para antecipar falhas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], na logística inteligente, qual é a maior vantagem do uso da IIoT?",
+          "answers": [
+            "Aumentar a burocracia de transporte",
+            "Rastreamento em tempo real de insumos",
+            "Eliminar o uso de caminhões",
+            "Substituir motoristas por robôs instantaneamente"
+          ],
+          "correct": "Rastreamento em tempo real de insumos",
+          "tip": "Isso otimiza rotas e reduz desperdícios na cadeia de suprimentos."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são impactos mensuráveis diretos da adoção da IIoT nas indústrias?",
+          "answers": [
+            "Redução de Downtime (paradas)",
+            "Economia em Manutenção",
+            "Ganho de Produtividade",
+            "Aumento do consumo de papel"
+          ],
+          "correct": [
+            "Redução de Downtime (paradas)",
+            "Economia em Manutenção",
+            "Ganho de Produtividade"
+          ],
+          "tip": "Esses três indicadores são melhorados substancialmente pela adoção da IIoT."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o percentual de impacto da IIoT com o seu respectivo benefício:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "30%",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "25%",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "20%",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Redução de Downtime"
+            },
+            {
+              "id": "z2",
+              "label": "Economia em Manutenção"
+            },
+            {
+              "id": "z3",
+              "label": "Ganho de Produtividade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses números demonstram o retorno sobre o investimento em soluções IIoT."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Câmeras e sensores integrados identificam defeitos automaticamente no Controle de [COMBO].",
+          "options": [
+            "Estoque",
+            "Ponto",
+            "Qualidade",
+            "Acesso"
+          ],
+          "correct": "Qualidade",
+          "tip": "Esse controle automatizado evita que produtos defeituosos sigam na linha de produção."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a IoT transforma qualquer objeto físico numa fonte de dados e numa camada de inteligência.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É exatamente essa capacidade de conexão que torna os objetos 'inteligentes'."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual a principal diferença entre IoT e IIoT?",
+          "answers": [
+            "Não há diferença, são sinónimos em qualquer contexto",
+            "A IIoT é focada em aplicações industriais e manufatura",
+            "A IoT não usa a internet",
+            "A IIoT é voltada apenas para o uso doméstico"
+          ],
+          "correct": "A IIoT é focada em aplicações industriais e manufatura",
+          "trans": "AGEN",
+          "tip": "A IIoT (Industrial IoT) exige níveis maiores de segurança, precisão e escalabilidade."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual destas características essenciais da Nuvem foi definida pelo NIST?",
+          "answers": [
+            "Processamento estático",
+            "Hardware local exclusivo",
+            "Elasticidade rápida",
+            "Baixo acesso à rede"
+          ],
+          "correct": "Elasticidade rápida",
+          "tip": "A elasticidade permite que os recursos escalem automaticamente conforme a demanda."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são os principais Modelos de Serviço em Nuvem?",
+          "answers": [
+            "IaaS (Infraestrutura)",
+            "PaaS (Plataforma)",
+            "SaaS (Software)",
+            "HaaS (Hardware local)"
+          ],
+          "correct": [
+            "IaaS (Infraestrutura)",
+            "PaaS (Plataforma)",
+            "SaaS (Software)"
+          ],
+          "tip": "Estes três modelos definem o nível de gestão entre cliente e provedor."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o modelo de serviço à sua principal responsabilidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "IaaS",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "PaaS",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "SaaS",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Cliente gere o SO e as aplicações"
+            },
+            {
+              "id": "z2",
+              "label": "Provedor gere o SO; cliente gere a aplicação"
+            },
+            {
+              "id": "z3",
+              "label": "Provedor entrega aplicação pronta ao uso"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Em IaaS o cliente tem mais controlo; em SaaS, o provedor tem o controlo total da gestão."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Em ambientes PaaS, o Runtime e o Middleware são geridos pelo próprio cliente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "No PaaS, o provedor gere a infraestrutura, SO, Middleware e Runtime."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A computação em nuvem opera sob um modelo de serviço mensurado conhecido como [COMBO].",
+          "options": [
+            "pay-per-use",
+            "all-inclusive",
+            "freemium",
+            "fixed-rate"
+          ],
+          "correct": "pay-per-use",
+          "tip": "Paga-se apenas pelos recursos que foram efetivamente consumidos."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o Google Workspace e o Office 365 são exemplos de qual modelo de nuvem?",
+          "answers": [
+            "IaaS",
+            "PaaS",
+            "SaaS",
+            "DaaS"
+          ],
+          "correct": "SaaS",
+          "tip": "São softwares prontos a usar fornecidos através de um navegador."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A Nuvem Privada oferece maior controlo e segurança, sendo ideal para dados sensíveis.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Porém, esta dedicação exclusiva tem geralmente um custo de operação superior."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Associe o modelo de implantação de Nuvem às suas características:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nuvem Pública",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nuvem Privada",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nuvem Híbrida",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Nuvem Comunitária",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Infraestrutura partilhada (AWS, Azure)"
+            },
+            {
+              "id": "z2",
+              "label": "Infraestrutura dedicada a uma organização"
+            },
+            {
+              "id": "z3",
+              "label": "Combina recursos on-premises e partilhados"
+            },
+            {
+              "id": "z4",
+              "label": "Partilhada por organizações do mesmo setor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A escolha depende de critérios como segurança, custo e regulação."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais são os pilares de segurança essenciais na Nuvem Industrial?",
+          "answers": [
+            "Criptografia",
+            "Controlo de Acesso (MFA)",
+            "Senhas fracas partilhadas",
+            "Backup e Recuperação de Desastres"
+          ],
+          "correct": [
+            "Criptografia",
+            "Controlo de Acesso (MFA)",
+            "Backup e Recuperação de Desastres"
+          ],
+          "tip": "A segurança robusta é um requisito obrigatório para a migração industrial."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O uso de [COMBO] protege dados em trânsito e em repouso com padrões como AES-256.",
+          "options": [
+            "Criptografia",
+            "Compressão",
+            "Indexação",
+            "Formatação"
+          ],
+          "correct": "Criptografia",
+          "tip": "Isso garante que, mesmo que intercetados, os dados não possam ser lidos."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O modelo de nuvem Híbrida é raramente adotado pela indústria por ser muito complexo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, é o modelo MAIS adotado, pois equilibra controlo e flexibilidade."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], Gêmeos Digitais na Indústria 4.0 requerem alta capacidade computacional. Onde eles costumam ser executados?",
+          "answers": [
+            "Em calculadoras científicas",
+            "Na Computação em Nuvem",
+            "Apenas em servidores locais sem internet",
+            "Em etiquetas RFID"
+          ],
+          "correct": "Na Computação em Nuvem",
+          "tip": "A nuvem fornece a escalabilidade necessária para simular operações fabris complexas."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O serviço Amazon EC2 é o exemplo clássico de qual modelo de nuvem?",
+          "answers": [
+            "SaaS",
+            "PaaS",
+            "IaaS",
+            "DbaaS"
+          ],
+          "correct": "IaaS",
+          "trans": "PROT",
+          "tip": "Ele permite alugar máquinas virtuais, gerindo desde o SO até às aplicações."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Como é chamada a capacidade de processar um volume gigantesco de dados variados em tempo real?",
+          "answers": [
+            "Small Data",
+            "Big Data",
+            "Cloud Storage",
+            "Data Entry"
+          ],
+          "correct": "Big Data",
+          "tip": "Ferramentas tradicionais não conseguem lidar com este nível de informação."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são os componentes que fazem parte dos 5 V's do Big Data?",
+          "answers": [
+            "Volume",
+            "Virtualização",
+            "Velocidade",
+            "Veracidade"
+          ],
+          "correct": [
+            "Volume",
+            "Velocidade",
+            "Veracidade"
+          ],
+          "tip": "Os 5 V's são: Volume, Velocidade, Variedade, Veracidade e Valor."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe o 'V' do Big Data à sua definição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Volume",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Velocidade",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Variedade",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Valor",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Terabytes a petabytes de dados diários"
+            },
+            {
+              "id": "z2",
+              "label": "Geração e processamento em tempo real"
+            },
+            {
+              "id": "z3",
+              "label": "Dados estruturados e não estruturados"
+            },
+            {
+              "id": "z4",
+              "label": "Extração de insights acionáveis"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta estrutura ajuda a classificar e tratar desafios no processamento de dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O V de 'Veracidade' no Big Data refere-se exclusivamente à rapidez da rede de internet.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Veracidade está ligada à fiabilidade e qualidade da informação recolhida."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Na análise de dados, a Analytics [COMBO] responde à pergunta: 'Por que aconteceu?'.",
+          "options": [
+            "Descritiva",
+            "Diagnóstica",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "correct": "Diagnóstica",
+          "tip": "É o segundo nível de análise, aprofundando-se nas causas de um evento."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o nível mais avançado e objetivo final da análise de dados na Indústria 4.0?",
+          "answers": [
+            "Descritiva",
+            "Diagnóstica",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "correct": "Prescritiva",
+          "tip": "A prescritiva não só prevê o que vai acontecer, como recomenda a melhor ação."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o nível de Analytics com a pergunta que este procura responder:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Descritiva",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Diagnóstica",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Preditiva",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Prescritiva",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O que aconteceu?"
+            },
+            {
+              "id": "z2",
+              "label": "Por que aconteceu?"
+            },
+            {
+              "id": "z3",
+              "label": "O que vai acontecer?"
+            },
+            {
+              "id": "z4",
+              "label": "O que fazer?"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Existe uma hierarquia de complexidade na extração de valor dos dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A Inteligência Artificial (IA) é a tecnologia que transforma os dados brutos em decisões autónomas no Big Data.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sem IA, os dados são apenas números armazenados; a IA atua como catalisador."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Técnicas de IA como o [COMBO] Learning baseiam-se em algoritmos que aprendem com o histórico para prever o futuro.",
+          "options": [
+            "Machine",
+            "Manual",
+            "Basic",
+            "Random"
+          ],
+          "correct": "Machine",
+          "tip": "A aprendizagem automática é um dos pilares preditivos da Indústria 4.0."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são as etapas que fazem parte do pipeline da Mineração de Dados (Data Mining)?",
+          "answers": [
+            "Coleta",
+            "Limpeza",
+            "Criptomoedas",
+            "Transformação"
+          ],
+          "correct": [
+            "Coleta",
+            "Limpeza",
+            "Transformação"
+          ],
+          "tip": "Modelagem e Interpretação também completam o ciclo de Data Mining."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que a sigla NLP (usada na IA para analisar manuais e relatórios) significa?",
+          "answers": [
+            "New Logical Process",
+            "Natural Language Processing",
+            "Network Local Protocol",
+            "Numerical Linear Processing"
+          ],
+          "correct": "Natural Language Processing",
+          "tip": "É o processamento de linguagem natural, permitindo às máquinas lerem textos humanos."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A etapa de Limpeza na mineração de dados envolve manter todos os ruídos e duplicatas para não perder volume.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A limpeza visa justamente remover os ruídos e dados faltantes para garantir veracidade."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Na Indústria 4.0, como o Big Data impacta a eficiência energética?",
+          "answers": [
+            "Aumentando o consumo dos servidores em 100%",
+            "Desligando aleatoriamente as máquinas da fábrica",
+            "Monitorando e identificando desperdícios para gerar otimização",
+            "Ignorando os medidores térmicos"
+          ],
+          "correct": "Monitorando e identificando desperdícios para gerar otimização",
+          "trans": "NORM",
+          "tip": "O foco é gerar operações mais sustentáveis e económicas."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Na arquitetura da fábrica inteligente, IoT, Cloud e Big Data operam de forma isolada, sem comunicação direta.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Elas formam um Ecossistema Integrado; cada camada potencializa as demais."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o ciclo contínuo criado pelas tecnologias habilitadoras?",
+          "answers": [
+            "Comprar, Instalar, Descartar",
+            "Coleta (IoT), Armazenamento (Cloud) e Análise (Big Data)",
+            "Produção, Venda e Marketing",
+            "Manutenção, Limpeza e Descarte"
+          ],
+          "correct": "Coleta (IoT), Armazenamento (Cloud) e Análise (Big Data)",
+          "tip": "É este ciclo que permite à fábrica aprender e otimizar-se autonomamente."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "No caso da LogisTech, quais eram os principais problemas enfrentados antes da transformação digital?",
+          "answers": [
+            "Processos manuais em planilhas",
+            "Dados fragmentados e decisões no 'achismo'",
+            "Excesso de automação na distribuição",
+            "Sem visibilidade em tempo real"
+          ],
+          "correct": [
+            "Processos manuais em planilhas",
+            "Dados fragmentados e decisões no 'achismo'",
+            "Sem visibilidade em tempo real"
+          ],
+          "tip": "Resolver estes problemas manuais é o principal objetivo da digitalização de uma frota."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe a tecnologia à sua aplicação prática na Arquitetura da LogisTech:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "IoT",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Cloud",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Big Data Analytics",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "GPS nos caminhões e RFID nos produtos"
+            },
+            {
+              "id": "z2",
+              "label": "Servidores ERP/CRM em infraestrutura web"
+            },
+            {
+              "id": "z3",
+              "label": "Relatórios preditivos e otimização de rotas com IA"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta visão estruturada permite compreender como a arquitetura em camadas funciona."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para a implementação rápida de um ERP logístico em todos os centros, recomenda-se o uso de nuvem modelo [COMBO].",
+          "options": [
+            "SaaS",
+            "IaaS",
+            "PaaS",
+            "DaaS"
+          ],
+          "correct": "SaaS",
+          "tip": "SaaS entrega a aplicação pronta (ex: SAP, Oracle Cloud) com atualização automática."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Se a equipa de Data Science precisa desenvolver dashboards sem gerir infraestrutura, o modelo indicado é o IaaS.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O modelo indicado seria o PaaS, permitindo foco total no desenvolvimento e análise."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], processar grandes volumes brutos dos sensores IoT exige muito controlo de rede. Qual serviço de cloud a LogisTech deve usar?",
+          "answers": [
+            "PaaS (Plataforma como Serviço)",
+            "IaaS (Infraestrutura como Serviço)",
+            "SaaS (Software como Serviço)",
+            "Híbrida"
+          ],
+          "correct": "IaaS (Infraestrutura como Serviço)",
+          "tip": "Serviços como o Amazon EC2 dão o máximo de controlo sobre o hardware virtualizado."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais modelos de serviço a LogisTech pode combinar numa arquitetura de Nuvem Híbrida?",
+          "answers": [
+            "Dados sensíveis de clientes em Nuvem Privada",
+            "Processamento de Big Data em Nuvem Pública",
+            "Eliminação total de segurança",
+            "Uso exclusivo de servidores on-premises desconectados"
+          ],
+          "correct": [
+            "Dados sensíveis de clientes em Nuvem Privada",
+            "Processamento de Big Data em Nuvem Pública"
+          ],
+          "tip": "A Nuvem Híbrida permite ter o 'melhor dos dois mundos'."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe o Cenário da LogisTech ao modelo de serviço mais indicado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Criar app sem gerir Servidores/SO",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sistema pronto de folha de pagamento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Acesso a hardware específico (GPUs) para IA",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "PaaS"
+            },
+            {
+              "id": "z2",
+              "label": "SaaS"
+            },
+            {
+              "id": "z3",
+              "label": "IaaS"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A avaliação correta de cada camada do Cloud Computing otimiza os custos e a operação."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Dados com alta exigência de sigilo total devem ser alocados num modelo de implantação de Nuvem [COMBO].",
+          "options": [
+            "Privada",
+            "Pública",
+            "Social",
+            "Aberta"
+          ],
+          "correct": "Privada",
+          "tip": "A nuvem privada oferece hardware e controlos dedicados unicamente à organização."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A transformação digital na LogisTech tem como único objetivo reduzir funcionários.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O objetivo é automatizar processos, melhorar decisões e ganhar eficiência e rastreabilidade."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], ao utilizar IA no histórico de rotas da LogisTech, qual técnica será provavelmente aplicada?",
+          "answers": [
+            "Processamento de Texto Estático",
+            "Machine Learning para otimização preditiva",
+            "Descarte manual de dados",
+            "Aumento das planilhas em papel"
+          ],
+          "correct": "Machine Learning para otimização preditiva",
+          "trans": "FIM",
+          "tip": "O Machine Learning permite aprender com dados anteriores e prever a rota mais eficiente."
+        }
+      ]
     }
   ]
 }
