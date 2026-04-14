@@ -12366,1854 +12366,2781 @@
       ]
     },
     {
-"slug": "aula-23",
-"lesson_info": {
-"id": "Aula-23",
-"title": "AULA 23 - ROBÓTICA, MANUFATURA ADITIVA E SIMULAÇÃO",
-"topics": [
-{
-"id": "ROBO",
-"name": "ROBÓTICA",
-"desc": "Conceitos, componentes, tipos de robôs e a ascensão dos cobots na Indústria 4.0.",
-"color": "#3498db",
-"img_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "MADI",
-"name": "MANUFATURA ADITIVA",
-"desc": "Impressão 3D, tecnologias, materiais e os benefícios frente à manufatura subtrativa.",
-"color": "#e67e22",
-"img_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "SIMU",
-"name": "SIMULAÇÃO DIGITAL",
-"desc": "Gêmeos digitais, etapas de simulação e softwares aplicados na validação industrial.",
-"color": "#9b59b6",
-"img_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "INTG",
-"name": "PAPEL DA TI NA INDÚSTRIA 4.0",
-"desc": "Infraestrutura de redes, integração de dados e cibersegurança nos processos robóticos.",
-"color": "#2ecc71",
-"img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
-}
-],
-"sokoban": [
-"R",
-"O",
-"B",
-"O"
-]
-},
-"questions": [
-{
-"type": "multiple",
-"topics": "ROBO",
-"questions": "[NAME], de acordo com o material, como se define a robótica?",
-"answers": [
-"Ramo que projeta e opera máquinas programáveis autônomas ou semiautônomas.",
-"Área focada exclusivamente no desenvolvimento de softwares web.",
-"Ciência que estuda apenas a locomoção de veículos elétricos.",
-"Disciplina focada na manutenção de painéis de energia solar."
-],
-"correct": "Ramo que projeta e opera máquinas programáveis autônomas ou semiautônomas.",
-"tip": "A robótica une mecânica, eletrônica e programação para criar máquinas capazes de executar tarefas."
-},
-{
-"type": "boolean",
-"topics": "ROBO",
-"questions": "Na Indústria 4.0, a robótica se diferencia por incorporar inteligência artificial e visão computacional.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Esses recursos permitem que os robôs se adaptem a ambientes dinâmicos."
-},
-{
-"type": "combo",
-"topics": "ROBO",
-"questions": "[NAME], o primeiro robô industrial instalado na General Motors na década de 1960 chamava-se [COMBO].",
-"options": [
-"Unimate",
-"Cobot",
-"SCARA",
-"Delta"
-],
-"correct": "Unimate",
-"tip": "Foi o marco inicial da robótica na indústria automotiva."
-},
-{
-"type": "multi",
-"topics": "ROBO",
-"questions": "Quais destes são componentes fundamentais que compõem um robô industrial?",
-"answers": [
-"Atuadores",
-"Controlador",
-"Sensores",
-"Extrusora de Resina"
-],
-"correct": [
-"Atuadores",
-"Controlador",
-"Sensores"
-],
-"tip": "A extrusora de resina é um componente de impressoras 3D, não do robô industrial padrão."
-},
-{
-"type": "drag",
-"topics": "ROBO",
-"questions": "Relacione o componente do robô à sua função funcional:",
-"items": [
-{
-"id": "d1",
-"txt": "Controlador",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Atuadores",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Sensores",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Efetuador",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "O cérebro: processa dados"
-},
-{
-"id": "z2",
-"label": "Os músculos: executam movimento"
-},
-{
-"id": "z3",
-"label": "Os sentidos: captam o ambiente"
-},
-{
-"id": "z4",
-"label": "A mão: realiza a tarefa final"
-}
-],
-"correct": "drag",
-"tip": "Cada subsistema atua de forma integrada para realizar a operação física."
-},
-{
-"type": "multiple",
-"topics": "ROBO",
-"questions": "Qual tipo de robô possui uma estrutura paralela ultraveloz, sendo muito utilizado em embalagem e seleção de alimentos?",
-"answers": [
-"Delta",
-"Cartesiano",
-"Articulado",
-"SCARA"
-],
-"correct": "Delta",
-"tip": "Sua geometria permite velocidades incrivelmente rápidas em operações pick-and-place."
-},
-{
-"type": "boolean",
-"topics": "ROBO",
-"questions": "[NAME], robôs colaborativos (cobots) requerem cercas de segurança rígidas e não podem operar próximos a humanos.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Os cobots possuem sensores de força e torque que permitem o contato seguro e o trabalho lado a lado com humanos."
-},
-{
-"type": "combo",
-"topics": "ROBO",
-"questions": "Robôs do tipo [COMBO] movem-se em eixos lineares (X, Y, Z) e são muito usados em máquinas CNC.",
-"options": [
-"Cartesianos",
-"Articulados",
-"Paralelos",
-"Cilíndricos"
-],
-"correct": "Cartesianos",
-"tip": "Eles seguem a lógica do plano cartesiano da matemática matemática."
-},
-{
-"type": "multi",
-"topics": "ROBO",
-"questions": "Quais são características marcantes dos robôs na Indústria 4.0?",
-"answers": [
-"Conectividade IoT",
-"Gêmeos digitais integrados",
-"Operação totalmente isolada",
-"Visão computacional"
-],
-"correct": [
-"Conectividade IoT",
-"Gêmeos digitais integrados",
-"Visão computacional"
-],
-"tip": "A operação isolada é característica da 3ª revolução; na 4.0 eles são nós de rede conectados."
-},
-{
-"type": "drag",
-"topics": "ROBO",
-"questions": "Relacione o tipo de robô com a sua característica principal:",
-"items": [
-{
-"id": "d1",
-"txt": "Articulado",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "SCARA",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Cobot",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Máxima flexibilidade (6 eixos)"
-},
-{
-"id": "z2",
-"label": "Articulação seletiva para montagem"
-},
-{
-"id": "z3",
-"label": "Trabalho seguro com humanos"
-}
-],
-"correct": "drag",
-"tip": "A geometria cinemática define a melhor aplicação de cada robô."
-},
-{
-"type": "boolean",
-"topics": "ROBO",
-"questions": "Segundo os dados apresentados, a adoção de linhas automatizadas com robôs pode gerar uma economia média de 30% em relação às linhas manuais.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A redução de custos e o aumento da precisão são fatores que impulsionam o investimento."
-},
-{
-"type": "multiple",
-"topics": "ROBO",
-"questions": "A sigla CNC, frequentemente associada ao uso de eixos cartesianos, refere-se a quê?",
-"answers": [
-"Controle Numérico Computadorizado",
-"Centro de Navegação Cibernética",
-"Código Nacional de Construção",
-"Computação na Nuvem Central"
-],
-"correct": "Controle Numérico Computadorizado",
-"tip": "Máquinas CNC usam arquivos digitais para orientar ferramentas de corte."
-},
-{
-"type": "combo",
-"topics": "ROBO",
-"questions": "O robô que processa informações do ambiente e toma decisões através do seu processador central utiliza o [COMBO].",
-"options": [
-"Controlador",
-"Atuador linear",
-"Eixo Y",
-"Motor de Passo"
-],
-"correct": "Controlador",
-"trans": "MADI",
-"tip": "É o equivalente ao sistema nervoso central que envia ordens aos músculos."
-},
-{
-"type": "multiple",
-"topics": "MADI",
-"questions": "[NAME], qual é o princípio fundamental da Manufatura Aditiva?",
-"answers": [
-"Adição de material camada sobre camada.",
-"Remoção de material de um bloco bruto.",
-"Dobramento a frio de chapas de metal.",
-"Injeção de plástico em moldes aquecidos."
-],
-"correct": "Adição de material camada sobre camada.",
-"tip": "Por isso é chamada de aditiva, opondo-se à usinagem (subtrativa)."
-},
-{
-"type": "boolean",
-"topics": "MADI",
-"questions": "A manufatura aditiva gera um desperdício de material muito maior do que a usinagem tradicional.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "A manufatura aditiva utiliza apenas o material necessário para a peça, reduzindo drasticamente o desperdício."
-},
-{
-"type": "combo",
-"topics": "MADI",
-"questions": "A etapa de [COMBO] (Slicing) no software converte o modelo 3D em fatias e gera o G-code.",
-"options": [
-"Fatiamento",
-"Renderização",
-"Compilação",
-"Vetorização"
-],
-"correct": "Fatiamento",
-"tip": "Esse processo fatiado diz à máquina exatamente o caminho de cada camada."
-},
-{
-"type": "multi",
-"topics": "MADI",
-"questions": "Quais as principais vantagens da Manufatura Aditiva abordadas na aula?",
-"answers": [
-"Personalização em massa",
-"Produção de geometrias complexas",
-"Prototipagem rápida",
-"Dependência de moldes caros"
-],
-"correct": [
-"Personalização em massa",
-"Produção de geometrias complexas",
-"Prototipagem rápida"
-],
-"tip": "A impressão 3D elimina justamente a necessidade de investir em moldes caros para cada variação de peça."
-},
-{
-"type": "drag",
-"topics": "MADI",
-"questions": "[NAME], relacione o tipo de tecnologia de impressão 3D à sua descrição:",
-"items": [
-{
-"id": "d1",
-"txt": "FDM / FFF",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "SLA / DLP",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "SLS / DMLS",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Fundição de filamento termoplástico"
-},
-{
-"id": "z2",
-"label": "Cura de resina líquida com luz UV"
-},
-{
-"id": "z3",
-"label": "Sinterização de pó com laser"
-}
-],
-"correct": "drag",
-"tip": "A escolha da tecnologia depende do material e da resistência desejada."
-},
-{
-"type": "multiple",
-"topics": "MADI",
-"questions": "A impressão 3D com a tecnologia SLA é amplamente utilizada em quais áreas devido à sua alta precisão e acabamento liso?",
-"answers": [
-"Joalheria e odontologia",
-"Construção civil de grandes pontes",
-"Fabricação de chassis automotivos",
-"Produção têxtil de roupas"
-],
-"correct": "Joalheria e odontologia",
-"tip": "A cura de resina por UV garante detalhes que a fusão de filamento não atinge."
-},
-{
-"type": "boolean",
-"topics": "MADI",
-"questions": "O uso de estruturas internas otimizadas, como 'lattice' ou 'honeycomb', reduz o peso da peça sem comprometer sua resistência mecânica.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Esse design complexo é impossível de ser usinado, sendo exclusivo da manufatura aditiva."
-},
-{
-"type": "combo",
-"topics": "MADI",
-"questions": "A Manufatura [COMBO] baseia-se na remoção de material de um bloco bruto.",
-"options": [
-"Subtrativa",
-"Generativa",
-"Aditiva",
-"Moldada"
-],
-"correct": "Subtrativa",
-"tip": "Tornos e fresadoras são máquinas subtrativas."
-},
-{
-"type": "multi",
-"topics": "MADI",
-"questions": "Quais materiais podem ser utilizados atualmente na Manufatura Aditiva industrial?",
-"answers": [
-"Polímeros (PLA, ABS)",
-"Metais (Titânio, Alumínio)",
-"Cerâmicas (Zircônia)",
-"Gases Nobres"
-],
-"correct": [
-"Polímeros (PLA, ABS)",
-"Metais (Titânio, Alumínio)",
-"Cerâmicas (Zircônia)"
-],
-"tip": "Sólidos fundíveis, sinterizáveis ou resinas fotossensíveis cobrem uma ampla gama de materiais."
-},
-{
-"type": "drag",
-"topics": "MADI",
-"questions": "Ordene as 4 etapas do Processo de Manufatura Aditiva:",
-"items": [
-{
-"id": "d1",
-"txt": "Modelagem CAD",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Fatiamento (Slicing)",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Impressão",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Pós-processamento",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Passo 1"
-},
-{
-"id": "z2",
-"label": "Passo 2"
-},
-{
-"id": "z3",
-"label": "Passo 3"
-},
-{
-"id": "z4",
-"label": "Passo 4"
-}
-],
-"correct": "drag",
-"tip": "Tudo começa no ambiente virtual e termina no acabamento físico da peça."
-},
-{
-"type": "boolean",
-"topics": "MADI",
-"questions": "[NAME], a manufatura aditiva elimina a necessidade de estoques físicos grandes, permitindo a impressão de peças sob demanda.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Isso revoluciona a cadeia de suprimentos e reduz os custos de inventário."
-},
-{
-"type": "multiple",
-"topics": "MADI",
-"questions": "Segundo a aula, a impressão 3D pode reduzir o tempo total de prototipagem em que porcentagem se comparada a métodos convencionais?",
-"answers": [
-"75%",
-"20%",
-"10%",
-"50%"
-],
-"correct": "75%",
-"tip": "Essa redução drástica acelera o 'time-to-market' do desenvolvimento de produtos."
-},
-{
-"type": "combo",
-"topics": "MADI",
-"questions": "O uso de inteligência artificial para criar automaticamente designs geométricos eficientes para impressão é chamado de Design [COMBO].",
-"options": [
-"Generativo",
-"Estático",
-"Isométrico",
-"Subtrativo"
-],
-"correct": "Generativo",
-"trans": "SIMU",
-"tip": "A IA testa milhares de variações para encontrar a estrutura mais forte e leve."
-},
-{
-"type": "multiple",
-"topics": "SIMU",
-"questions": "Na Indústria 4.0, o que é um 'Gêmeo Digital' (Digital Twin)?",
-"answers": [
-"Uma réplica virtual alimentada por dados de sensores em tempo real.",
-"Um robô fabricado idêntico a outro na mesma linha de montagem.",
-"Um backup dos arquivos CAD em dois servidores na nuvem.",
-"O operador humano que trabalha junto com o cobot."
-],
-"correct": "Uma réplica virtual alimentada por dados de sensores em tempo real.",
-"tip": "O gêmeo digital espelha o comportamento do sistema real para prever falhas e otimizar processos."
-},
-{
-"type": "boolean",
-"topics": "SIMU",
-"questions": "A simulação digital aumenta o risco e o custo, pois requer a construção de múltiplos protótipos físicos complexos.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Pelo contrário, ela reduz custos e riscos justamente por evitar a necessidade de testes físicos até a fase final."
-},
-{
-"type": "combo",
-"topics": "SIMU",
-"questions": "[NAME], a simulação de produto permite analisar comportamento mecânico ou térmico estabelecendo as condições de [COMBO].",
-"options": [
-"Contorno",
-"Soldagem",
-"Fatiamento",
-"Render"
-],
-"correct": "Contorno",
-"tip": "Cargas, restrições e propriedades do material definem como o ambiente afeta a peça virtual."
-},
-{
-"type": "multi",
-"topics": "SIMU",
-"questions": "Ao realizar a simulação de uma célula robótica de manufatura, quais aspectos podem ser analisados virtualmente?",
-"answers": [
-"Detecção de colisões",
-"Tempo de ciclo e alcance dos braços",
-"Estresse financeiro da economia global",
-"Interação segura com operadores"
-],
-"correct": [
-"Detecção de colisões",
-"Tempo de ciclo e alcance dos braços",
-"Interação segura com operadores"
-],
-"tip": "As células robóticas focam no fluxo físico e espacial da linha de montagem."
-},
-{
-"type": "drag",
-"topics": "SIMU",
-"questions": "Associe o software de simulação à sua principal aplicação industrial:",
-"items": [
-{
-"id": "d1",
-"txt": "ANSYS / SolidWorks",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "RoboDK",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "FlexSim",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Análise de Elementos Finitos (estrutural/térmica)"
-},
-{
-"id": "z2",
-"label": "Programação offline e cinemática de robôs"
-},
-{
-"id": "z3",
-"label": "Simulação de eventos discretos (logística/fluxo)"
-}
-],
-"correct": "drag",
-"tip": "Cada nível do processo industrial requer um motor de simulação diferente."
-},
-{
-"type": "multiple",
-"topics": "SIMU",
-"questions": "Qual a principal vantagem do Gêmeo Digital operando em tempo real na fábrica?",
-"answers": [
-"Manutenção preditiva, evitando paradas não planejadas.",
-"Imprimir peças metálicas diretamente do software.",
-"Aumentar a temperatura do forno físico via Wi-Fi.",
-"Treinar operadores em realidade virtual de jogos."
-],
-"correct": "Manutenção preditiva, evitando paradas não planejadas.",
-"tip": "Observando a degradação no modelo virtual, os engenheiros agem antes da quebra da máquina real."
-},
-{
-"type": "boolean",
-"topics": "SIMU",
-"questions": "A última etapa da simulação de produto é a validação, onde os resultados simulados são comparados com dados experimentais reais.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Sem validação, não podemos garantir que o ambiente virtual é fiel ao mundo físico."
-},
-{
-"type": "combo",
-"topics": "SIMU",
-"questions": "No treinamento virtual com simulações de alto risco, os operadores aprendem de forma [COMBO], sem se exporem a riscos elétricos ou físicos reais.",
-"options": [
-"Segura",
-"Imprudente",
-"Subtrativa",
-"Analógica"
-],
-"correct": "Segura",
-"tip": "Errar na simulação é um aprendizado valioso e que não gera acidentes de trabalho."
-},
-{
-"type": "multi",
-"topics": "SIMU",
-"questions": "Quais são as grandes etapas da Simulação de um Produto descritas na aula?",
-"answers": [
-"Definição do Problema",
-"Modelagem 3D",
-"Execução e Análise",
-"Fusão do Filamento"
-],
-"correct": [
-"Definição do Problema",
-"Modelagem 3D",
-"Execução e Análise"
-],
-"tip": "A fusão de filamento faz parte do processo de fabricação por impressão 3D (FDM), não da simulação virtual."
-},
-{
-"type": "drag",
-"topics": "SIMU",
-"questions": "Identifique a abrangência do objeto sendo simulado:",
-"items": [
-{
-"id": "d1",
-"txt": "Simulação de Produto",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Simulação de Equipamento",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Simulação de Célula",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Testa resistência e comportamento da peça final"
-},
-{
-"id": "z2",
-"label": "Avalia o ciclo e desgaste de uma máquina individual"
-},
-{
-"id": "z3",
-"label": "Valida fluxo e colisões entre várias máquinas"
-}
-],
-"correct": "drag",
-"tip": "A complexidade sobe da peça, para a máquina, para o layout completo."
-},
-{
-"type": "boolean",
-"topics": "SIMU",
-"questions": "[NAME], a simulação fornece suporte crucial à tomada de decisão baseada em dados reais e virtuais integrados.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A intuição dos gestores dá lugar à análise rigorosa de cenários modelados."
-},
-{
-"type": "combo",
-"topics": "SIMU",
-"questions": "Testar a fadiga, vibração ou aquecimento de uma peça específica virtualmente ocorre com análise de elementos [COMBO] (FEA).",
-"options": [
-"Finitos",
-"Infinitos",
-"Dinâmicos",
-"Paralelos"
-],
-"correct": "Finitos",
-"trans": "INTG",
-"tip": "A malha divide a peça em elementos minúsculos e calculáveis de forma finita."
-},
-{
-"type": "multiple",
-"topics": "INTG",
-"questions": "Embora robótica e impressão 3D pareçam temas estritamente de engenharia mecânica, por que o profissional de TI é indispensável na Indústria 4.0?",
-"answers": [
-"Ele projeta e assegura a infraestrutura de rede, dados e cibersegurança do chão de fábrica.",
-"Ele é o único responsável por limpar as máquinas CNC e os robôs.",
-"Ele realiza a soldagem das placas eletrônicas dos atuadores mecanicamente.",
-"Sua função é apenas criar os sites de marketing dos produtos impressos."
-],
-"correct": "Ele projeta e assegura a infraestrutura de rede, dados e cibersegurança do chão de fábrica.",
-"tip": "As máquinas conectadas dependem inteiramente de redes estáveis e protocolos de comunicação implementados pela TI."
-},
-{
-"type": "boolean",
-"topics": "INTG",
-"questions": "Um robô industrial operando numa rede desprotegida não apresenta risco físico, apenas vazamento de dados.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Na Indústria 4.0, um robô hackeado pode alterar parâmetros de força e velocidade, causando danos físicos reais à fábrica e operadores."
-},
-{
-"type": "combo",
-"topics": "INTG",
-"questions": "Protocolos como OPC-UA e MQTT são cruciais para a comunicação em ambientes de Internet das Coisas Industriais ([COMBO]).",
-"options": [
-"IIoT",
-"WiFi",
-"HTML",
-"SaaS"
-],
-"correct": "IIoT",
-"tip": "IIoT (Industrial IoT) difere da IoT comum por exigir altíssima confiabilidade e baixa latência."
-},
-{
-"type": "multi",
-"topics": "INTG",
-"questions": "[NAME], como a computação em nuvem (Cloud) atua no contexto da manufatura aditiva?",
-"answers": [
-"Armazenando arquivos CAD que podem ser impressos em filiais globais remotamente.",
-"Hospedando plataformas de Big Data que processam dados de sensores das impressoras.",
-"Evitando que as impressoras 3D precisem usar filamentos de plástico.",
-"Dificultando o fatiamento (slicing) ao exigir cabos de rede diretos."
-],
-"correct": [
-"Armazenando arquivos CAD que podem ser impressos em filiais globais remotamente.",
-"Hospedando plataformas de Big Data que processam dados de sensores das impressoras."
-],
-"tip": "A nuvem descentraliza a produção física, enviando os 'dados de fabricação' instantaneamente para qualquer lugar."
-},
-{
-"type": "drag",
-"topics": "INTG",
-"questions": "Relacione o desafio da TI Industrial com a sua descrição:",
-"items": [
-{
-"id": "d1",
-"txt": "Infraestrutura de Rede",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Integração de Dados",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Cibersegurança",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Garantir latência zero entre o cobot e o servidor"
-},
-{
-"id": "z2",
-"label": "Unificar dados do ERP, IoT e Simulação num Dashboard"
-},
-{
-"id": "z3",
-"label": "Proteger os Gêmeos Digitais contra ataques externos"
-}
-],
-"correct": "drag",
-"tip": "Esses três pilares garantem a resiliência e estabilidade da operação automatizada."
-},
-{
-"type": "multiple",
-"topics": "INTG",
-"questions": "Qual termo define o ecossistema tecnológico onde máquinas físicas e sistemas de software comunicam e interagem intensamente na Indústria 4.0?",
-"answers": [
-"Sistemas Ciberfísicos",
-"Redes Neurais Biológicas",
-"Intranets Corporativas Estáticas",
-"Protocolos de Linha de Comando"
-],
-"correct": "Sistemas Ciberfísicos",
-"tip": "A fusão do físico com o digital (ciber) é a essência da Quarta Revolução Industrial."
-},
-{
-"type": "boolean",
-"topics": "INTG",
-"questions": "Nenhuma das tecnologias habilitadoras (Robótica, MA e Simulação) opera de forma isolada; seu verdadeiro valor está na convergência entre elas.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A integração tecnológica (ex: IA rodando simulações para imprimir peças por robôs conectados via IoT) cria o ambiente 4.0 completo."
-},
-{
-"type": "combo",
-"topics": "INTG",
-"questions": "A integração entre Gêmeos Digitais e Manufatura Aditiva permite realizar a simulação virtual antes da fabricação [COMBO] da peça.",
-"options": [
-"Física",
-"Abstrata",
-"Remota",
-"Em nuvem"
-],
-"correct": "Física",
-"tip": "Você testa até a impressora virtualmente antes de gastar material real."
-},
-{
-"type": "multi",
-"topics": "INTG",
-"questions": "Para a análise massiva de parâmetros de operação dos robôs, o setor de TI emprega soluções envolvendo quais tecnologias?",
-"answers": [
-"Big Data",
-"Machine Learning (Aprendizado de Máquina)",
-"Disquetes de Armazenamento",
-"Roteadores domésticos de baixa frequência"
-],
-"correct": [
-"Big Data",
-"Machine Learning (Aprendizado de Máquina)"
-],
-"tip": "O imenso volume de dados (Big Data) e a análise preditiva requerem infraestrutura de ponta."
-},
-{
-"type": "drag",
-"topics": "INTG",
-"questions": "Associe a integração de tecnologias MA (Manufatura Aditiva) ao seu benefício direto:",
-"items": [
-{
-"id": "d1",
-"txt": "IoT + MA",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Big Data + MA",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "IA + MA",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Sensores monitoram qualidade da impressão ao vivo"
-},
-{
-"id": "z2",
-"label": "Análise profunda otimiza parâmetros operacionais"
-},
-{
-"id": "z3",
-"label": "Algoritmos criam novos designs geométricos sozinhos"
-}
-],
-"correct": "drag",
-"tip": "O poder do sistema 4.0 surge da combinação e da arquitetura dos dados."
-},
-{
-"type": "boolean",
-"topics": "INTG",
-"questions": "[NAME], a manutenção de um parque de impressoras 3D industriais passa a exigir a monitoria de pacotes de dados de rede, e não apenas chaves de fenda.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Erros de rede podem corromper arquivos ou parar produções no meio, atrelando a manutenção mecânica à TI."
-},
-{
-"type": "combo",
-"topics": "INTG",
-"questions": "Garantir que apenas softwares autorizados interajam com o controlador do Robô Articulado requer sólidas políticas de controle de [COMBO].",
-"options": [
-"Acesso",
-"Velocidade",
-"Torque",
-"Refrigeração"
-],
-"correct": "Acesso",
-"trans": "FIM",
-"tip": "A autenticação e autorização (IAM) no chão de fábrica evita desastres e sabotagens."
-}
-]
+      "slug": "aula-23",
+      "lesson_info": {
+        "id": "Aula-23",
+        "title": "AULA 23 - ROBÓTICA, MANUFATURA ADITIVA E SIMULAÇÃO",
+        "topics": [
+          {
+            "id": "ROBO",
+            "name": "ROBÓTICA",
+            "desc": "Conceitos, componentes, tipos de robôs e a ascensão dos cobots na Indústria 4.0.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "MADI",
+            "name": "MANUFATURA ADITIVA",
+            "desc": "Impressão 3D, tecnologias, materiais e os benefícios frente à manufatura subtrativa.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "SIMU",
+            "name": "SIMULAÇÃO DIGITAL",
+            "desc": "Gêmeos digitais, etapas de simulação e softwares aplicados na validação industrial.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "INTG",
+            "name": "PAPEL DA TI NA INDÚSTRIA 4.0",
+            "desc": "Infraestrutura de redes, integração de dados e cibersegurança nos processos robóticos.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "R",
+          "O",
+          "B",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ROBO",
+          "questions": "[NAME], de acordo com o material, como se define a robótica?",
+          "answers": [
+            "Ramo que projeta e opera máquinas programáveis autônomas ou semiautônomas.",
+            "Área focada exclusivamente no desenvolvimento de softwares web.",
+            "Ciência que estuda apenas a locomoção de veículos elétricos.",
+            "Disciplina focada na manutenção de painéis de energia solar."
+          ],
+          "correct": "Ramo que projeta e opera máquinas programáveis autônomas ou semiautônomas.",
+          "tip": "A robótica une mecânica, eletrônica e programação para criar máquinas capazes de executar tarefas."
+        },
+        {
+          "type": "boolean",
+          "topics": "ROBO",
+          "questions": "Na Indústria 4.0, a robótica se diferencia por incorporar inteligência artificial e visão computacional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esses recursos permitem que os robôs se adaptem a ambientes dinâmicos."
+        },
+        {
+          "type": "combo",
+          "topics": "ROBO",
+          "questions": "[NAME], o primeiro robô industrial instalado na General Motors na década de 1960 chamava-se [COMBO].",
+          "options": [
+            "Unimate",
+            "Cobot",
+            "SCARA",
+            "Delta"
+          ],
+          "correct": "Unimate",
+          "tip": "Foi o marco inicial da robótica na indústria automotiva."
+        },
+        {
+          "type": "multi",
+          "topics": "ROBO",
+          "questions": "Quais destes são componentes fundamentais que compõem um robô industrial?",
+          "answers": [
+            "Atuadores",
+            "Controlador",
+            "Sensores",
+            "Extrusora de Resina"
+          ],
+          "correct": [
+            "Atuadores",
+            "Controlador",
+            "Sensores"
+          ],
+          "tip": "A extrusora de resina é um componente de impressoras 3D, não do robô industrial padrão."
+        },
+        {
+          "type": "drag",
+          "topics": "ROBO",
+          "questions": "Relacione o componente do robô à sua função funcional:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Controlador",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Atuadores",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sensores",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Efetuador",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O cérebro: processa dados"
+            },
+            {
+              "id": "z2",
+              "label": "Os músculos: executam movimento"
+            },
+            {
+              "id": "z3",
+              "label": "Os sentidos: captam o ambiente"
+            },
+            {
+              "id": "z4",
+              "label": "A mão: realiza a tarefa final"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada subsistema atua de forma integrada para realizar a operação física."
+        },
+        {
+          "type": "multiple",
+          "topics": "ROBO",
+          "questions": "Qual tipo de robô possui uma estrutura paralela ultraveloz, sendo muito utilizado em embalagem e seleção de alimentos?",
+          "answers": [
+            "Delta",
+            "Cartesiano",
+            "Articulado",
+            "SCARA"
+          ],
+          "correct": "Delta",
+          "tip": "Sua geometria permite velocidades incrivelmente rápidas em operações pick-and-place."
+        },
+        {
+          "type": "boolean",
+          "topics": "ROBO",
+          "questions": "[NAME], robôs colaborativos (cobots) requerem cercas de segurança rígidas e não podem operar próximos a humanos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Os cobots possuem sensores de força e torque que permitem o contato seguro e o trabalho lado a lado com humanos."
+        },
+        {
+          "type": "combo",
+          "topics": "ROBO",
+          "questions": "Robôs do tipo [COMBO] movem-se em eixos lineares (X, Y, Z) e são muito usados em máquinas CNC.",
+          "options": [
+            "Cartesianos",
+            "Articulados",
+            "Paralelos",
+            "Cilíndricos"
+          ],
+          "correct": "Cartesianos",
+          "tip": "Eles seguem a lógica do plano cartesiano da matemática matemática."
+        },
+        {
+          "type": "multi",
+          "topics": "ROBO",
+          "questions": "Quais são características marcantes dos robôs na Indústria 4.0?",
+          "answers": [
+            "Conectividade IoT",
+            "Gêmeos digitais integrados",
+            "Operação totalmente isolada",
+            "Visão computacional"
+          ],
+          "correct": [
+            "Conectividade IoT",
+            "Gêmeos digitais integrados",
+            "Visão computacional"
+          ],
+          "tip": "A operação isolada é característica da 3ª revolução; na 4.0 eles são nós de rede conectados."
+        },
+        {
+          "type": "drag",
+          "topics": "ROBO",
+          "questions": "Relacione o tipo de robô com a sua característica principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Articulado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "SCARA",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Cobot",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Máxima flexibilidade (6 eixos)"
+            },
+            {
+              "id": "z2",
+              "label": "Articulação seletiva para montagem"
+            },
+            {
+              "id": "z3",
+              "label": "Trabalho seguro com humanos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A geometria cinemática define a melhor aplicação de cada robô."
+        },
+        {
+          "type": "boolean",
+          "topics": "ROBO",
+          "questions": "Segundo os dados apresentados, a adoção de linhas automatizadas com robôs pode gerar uma economia média de 30% em relação às linhas manuais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A redução de custos e o aumento da precisão são fatores que impulsionam o investimento."
+        },
+        {
+          "type": "multiple",
+          "topics": "ROBO",
+          "questions": "A sigla CNC, frequentemente associada ao uso de eixos cartesianos, refere-se a quê?",
+          "answers": [
+            "Controle Numérico Computadorizado",
+            "Centro de Navegação Cibernética",
+            "Código Nacional de Construção",
+            "Computação na Nuvem Central"
+          ],
+          "correct": "Controle Numérico Computadorizado",
+          "tip": "Máquinas CNC usam arquivos digitais para orientar ferramentas de corte."
+        },
+        {
+          "type": "combo",
+          "topics": "ROBO",
+          "questions": "O robô que processa informações do ambiente e toma decisões através do seu processador central utiliza o [COMBO].",
+          "options": [
+            "Controlador",
+            "Atuador linear",
+            "Eixo Y",
+            "Motor de Passo"
+          ],
+          "correct": "Controlador",
+          "trans": "MADI",
+          "tip": "É o equivalente ao sistema nervoso central que envia ordens aos músculos."
+        },
+        {
+          "type": "multiple",
+          "topics": "MADI",
+          "questions": "[NAME], qual é o princípio fundamental da Manufatura Aditiva?",
+          "answers": [
+            "Adição de material camada sobre camada.",
+            "Remoção de material de um bloco bruto.",
+            "Dobramento a frio de chapas de metal.",
+            "Injeção de plástico em moldes aquecidos."
+          ],
+          "correct": "Adição de material camada sobre camada.",
+          "tip": "Por isso é chamada de aditiva, opondo-se à usinagem (subtrativa)."
+        },
+        {
+          "type": "boolean",
+          "topics": "MADI",
+          "questions": "A manufatura aditiva gera um desperdício de material muito maior do que a usinagem tradicional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A manufatura aditiva utiliza apenas o material necessário para a peça, reduzindo drasticamente o desperdício."
+        },
+        {
+          "type": "combo",
+          "topics": "MADI",
+          "questions": "A etapa de [COMBO] (Slicing) no software converte o modelo 3D em fatias e gera o G-code.",
+          "options": [
+            "Fatiamento",
+            "Renderização",
+            "Compilação",
+            "Vetorização"
+          ],
+          "correct": "Fatiamento",
+          "tip": "Esse processo fatiado diz à máquina exatamente o caminho de cada camada."
+        },
+        {
+          "type": "multi",
+          "topics": "MADI",
+          "questions": "Quais as principais vantagens da Manufatura Aditiva abordadas na aula?",
+          "answers": [
+            "Personalização em massa",
+            "Produção de geometrias complexas",
+            "Prototipagem rápida",
+            "Dependência de moldes caros"
+          ],
+          "correct": [
+            "Personalização em massa",
+            "Produção de geometrias complexas",
+            "Prototipagem rápida"
+          ],
+          "tip": "A impressão 3D elimina justamente a necessidade de investir em moldes caros para cada variação de peça."
+        },
+        {
+          "type": "drag",
+          "topics": "MADI",
+          "questions": "[NAME], relacione o tipo de tecnologia de impressão 3D à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "FDM / FFF",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "SLA / DLP",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "SLS / DMLS",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Fundição de filamento termoplástico"
+            },
+            {
+              "id": "z2",
+              "label": "Cura de resina líquida com luz UV"
+            },
+            {
+              "id": "z3",
+              "label": "Sinterização de pó com laser"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A escolha da tecnologia depende do material e da resistência desejada."
+        },
+        {
+          "type": "multiple",
+          "topics": "MADI",
+          "questions": "A impressão 3D com a tecnologia SLA é amplamente utilizada em quais áreas devido à sua alta precisão e acabamento liso?",
+          "answers": [
+            "Joalheria e odontologia",
+            "Construção civil de grandes pontes",
+            "Fabricação de chassis automotivos",
+            "Produção têxtil de roupas"
+          ],
+          "correct": "Joalheria e odontologia",
+          "tip": "A cura de resina por UV garante detalhes que a fusão de filamento não atinge."
+        },
+        {
+          "type": "boolean",
+          "topics": "MADI",
+          "questions": "O uso de estruturas internas otimizadas, como 'lattice' ou 'honeycomb', reduz o peso da peça sem comprometer sua resistência mecânica.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse design complexo é impossível de ser usinado, sendo exclusivo da manufatura aditiva."
+        },
+        {
+          "type": "combo",
+          "topics": "MADI",
+          "questions": "A Manufatura [COMBO] baseia-se na remoção de material de um bloco bruto.",
+          "options": [
+            "Subtrativa",
+            "Generativa",
+            "Aditiva",
+            "Moldada"
+          ],
+          "correct": "Subtrativa",
+          "tip": "Tornos e fresadoras são máquinas subtrativas."
+        },
+        {
+          "type": "multi",
+          "topics": "MADI",
+          "questions": "Quais materiais podem ser utilizados atualmente na Manufatura Aditiva industrial?",
+          "answers": [
+            "Polímeros (PLA, ABS)",
+            "Metais (Titânio, Alumínio)",
+            "Cerâmicas (Zircônia)",
+            "Gases Nobres"
+          ],
+          "correct": [
+            "Polímeros (PLA, ABS)",
+            "Metais (Titânio, Alumínio)",
+            "Cerâmicas (Zircônia)"
+          ],
+          "tip": "Sólidos fundíveis, sinterizáveis ou resinas fotossensíveis cobrem uma ampla gama de materiais."
+        },
+        {
+          "type": "drag",
+          "topics": "MADI",
+          "questions": "Ordene as 4 etapas do Processo de Manufatura Aditiva:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Modelagem CAD",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fatiamento (Slicing)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Impressão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Pós-processamento",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Passo 1"
+            },
+            {
+              "id": "z2",
+              "label": "Passo 2"
+            },
+            {
+              "id": "z3",
+              "label": "Passo 3"
+            },
+            {
+              "id": "z4",
+              "label": "Passo 4"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Tudo começa no ambiente virtual e termina no acabamento físico da peça."
+        },
+        {
+          "type": "boolean",
+          "topics": "MADI",
+          "questions": "[NAME], a manufatura aditiva elimina a necessidade de estoques físicos grandes, permitindo a impressão de peças sob demanda.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso revoluciona a cadeia de suprimentos e reduz os custos de inventário."
+        },
+        {
+          "type": "multiple",
+          "topics": "MADI",
+          "questions": "Segundo a aula, a impressão 3D pode reduzir o tempo total de prototipagem em que porcentagem se comparada a métodos convencionais?",
+          "answers": [
+            "75%",
+            "20%",
+            "10%",
+            "50%"
+          ],
+          "correct": "75%",
+          "tip": "Essa redução drástica acelera o 'time-to-market' do desenvolvimento de produtos."
+        },
+        {
+          "type": "combo",
+          "topics": "MADI",
+          "questions": "O uso de inteligência artificial para criar automaticamente designs geométricos eficientes para impressão é chamado de Design [COMBO].",
+          "options": [
+            "Generativo",
+            "Estático",
+            "Isométrico",
+            "Subtrativo"
+          ],
+          "correct": "Generativo",
+          "trans": "SIMU",
+          "tip": "A IA testa milhares de variações para encontrar a estrutura mais forte e leve."
+        },
+        {
+          "type": "multiple",
+          "topics": "SIMU",
+          "questions": "Na Indústria 4.0, o que é um 'Gêmeo Digital' (Digital Twin)?",
+          "answers": [
+            "Uma réplica virtual alimentada por dados de sensores em tempo real.",
+            "Um robô fabricado idêntico a outro na mesma linha de montagem.",
+            "Um backup dos arquivos CAD em dois servidores na nuvem.",
+            "O operador humano que trabalha junto com o cobot."
+          ],
+          "correct": "Uma réplica virtual alimentada por dados de sensores em tempo real.",
+          "tip": "O gêmeo digital espelha o comportamento do sistema real para prever falhas e otimizar processos."
+        },
+        {
+          "type": "boolean",
+          "topics": "SIMU",
+          "questions": "A simulação digital aumenta o risco e o custo, pois requer a construção de múltiplos protótipos físicos complexos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, ela reduz custos e riscos justamente por evitar a necessidade de testes físicos até a fase final."
+        },
+        {
+          "type": "combo",
+          "topics": "SIMU",
+          "questions": "[NAME], a simulação de produto permite analisar comportamento mecânico ou térmico estabelecendo as condições de [COMBO].",
+          "options": [
+            "Contorno",
+            "Soldagem",
+            "Fatiamento",
+            "Render"
+          ],
+          "correct": "Contorno",
+          "tip": "Cargas, restrições e propriedades do material definem como o ambiente afeta a peça virtual."
+        },
+        {
+          "type": "multi",
+          "topics": "SIMU",
+          "questions": "Ao realizar a simulação de uma célula robótica de manufatura, quais aspectos podem ser analisados virtualmente?",
+          "answers": [
+            "Detecção de colisões",
+            "Tempo de ciclo e alcance dos braços",
+            "Estresse financeiro da economia global",
+            "Interação segura com operadores"
+          ],
+          "correct": [
+            "Detecção de colisões",
+            "Tempo de ciclo e alcance dos braços",
+            "Interação segura com operadores"
+          ],
+          "tip": "As células robóticas focam no fluxo físico e espacial da linha de montagem."
+        },
+        {
+          "type": "drag",
+          "topics": "SIMU",
+          "questions": "Associe o software de simulação à sua principal aplicação industrial:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ANSYS / SolidWorks",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "RoboDK",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "FlexSim",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Análise de Elementos Finitos (estrutural/térmica)"
+            },
+            {
+              "id": "z2",
+              "label": "Programação offline e cinemática de robôs"
+            },
+            {
+              "id": "z3",
+              "label": "Simulação de eventos discretos (logística/fluxo)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada nível do processo industrial requer um motor de simulação diferente."
+        },
+        {
+          "type": "multiple",
+          "topics": "SIMU",
+          "questions": "Qual a principal vantagem do Gêmeo Digital operando em tempo real na fábrica?",
+          "answers": [
+            "Manutenção preditiva, evitando paradas não planejadas.",
+            "Imprimir peças metálicas diretamente do software.",
+            "Aumentar a temperatura do forno físico via Wi-Fi.",
+            "Treinar operadores em realidade virtual de jogos."
+          ],
+          "correct": "Manutenção preditiva, evitando paradas não planejadas.",
+          "tip": "Observando a degradação no modelo virtual, os engenheiros agem antes da quebra da máquina real."
+        },
+        {
+          "type": "boolean",
+          "topics": "SIMU",
+          "questions": "A última etapa da simulação de produto é a validação, onde os resultados simulados são comparados com dados experimentais reais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sem validação, não podemos garantir que o ambiente virtual é fiel ao mundo físico."
+        },
+        {
+          "type": "combo",
+          "topics": "SIMU",
+          "questions": "No treinamento virtual com simulações de alto risco, os operadores aprendem de forma [COMBO], sem se exporem a riscos elétricos ou físicos reais.",
+          "options": [
+            "Segura",
+            "Imprudente",
+            "Subtrativa",
+            "Analógica"
+          ],
+          "correct": "Segura",
+          "tip": "Errar na simulação é um aprendizado valioso e que não gera acidentes de trabalho."
+        },
+        {
+          "type": "multi",
+          "topics": "SIMU",
+          "questions": "Quais são as grandes etapas da Simulação de um Produto descritas na aula?",
+          "answers": [
+            "Definição do Problema",
+            "Modelagem 3D",
+            "Execução e Análise",
+            "Fusão do Filamento"
+          ],
+          "correct": [
+            "Definição do Problema",
+            "Modelagem 3D",
+            "Execução e Análise"
+          ],
+          "tip": "A fusão de filamento faz parte do processo de fabricação por impressão 3D (FDM), não da simulação virtual."
+        },
+        {
+          "type": "drag",
+          "topics": "SIMU",
+          "questions": "Identifique a abrangência do objeto sendo simulado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Simulação de Produto",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Simulação de Equipamento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Simulação de Célula",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Testa resistência e comportamento da peça final"
+            },
+            {
+              "id": "z2",
+              "label": "Avalia o ciclo e desgaste de uma máquina individual"
+            },
+            {
+              "id": "z3",
+              "label": "Valida fluxo e colisões entre várias máquinas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A complexidade sobe da peça, para a máquina, para o layout completo."
+        },
+        {
+          "type": "boolean",
+          "topics": "SIMU",
+          "questions": "[NAME], a simulação fornece suporte crucial à tomada de decisão baseada em dados reais e virtuais integrados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A intuição dos gestores dá lugar à análise rigorosa de cenários modelados."
+        },
+        {
+          "type": "combo",
+          "topics": "SIMU",
+          "questions": "Testar a fadiga, vibração ou aquecimento de uma peça específica virtualmente ocorre com análise de elementos [COMBO] (FEA).",
+          "options": [
+            "Finitos",
+            "Infinitos",
+            "Dinâmicos",
+            "Paralelos"
+          ],
+          "correct": "Finitos",
+          "trans": "INTG",
+          "tip": "A malha divide a peça em elementos minúsculos e calculáveis de forma finita."
+        },
+        {
+          "type": "multiple",
+          "topics": "INTG",
+          "questions": "Embora robótica e impressão 3D pareçam temas estritamente de engenharia mecânica, por que o profissional de TI é indispensável na Indústria 4.0?",
+          "answers": [
+            "Ele projeta e assegura a infraestrutura de rede, dados e cibersegurança do chão de fábrica.",
+            "Ele é o único responsável por limpar as máquinas CNC e os robôs.",
+            "Ele realiza a soldagem das placas eletrônicas dos atuadores mecanicamente.",
+            "Sua função é apenas criar os sites de marketing dos produtos impressos."
+          ],
+          "correct": "Ele projeta e assegura a infraestrutura de rede, dados e cibersegurança do chão de fábrica.",
+          "tip": "As máquinas conectadas dependem inteiramente de redes estáveis e protocolos de comunicação implementados pela TI."
+        },
+        {
+          "type": "boolean",
+          "topics": "INTG",
+          "questions": "Um robô industrial operando numa rede desprotegida não apresenta risco físico, apenas vazamento de dados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Na Indústria 4.0, um robô hackeado pode alterar parâmetros de força e velocidade, causando danos físicos reais à fábrica e operadores."
+        },
+        {
+          "type": "combo",
+          "topics": "INTG",
+          "questions": "Protocolos como OPC-UA e MQTT são cruciais para a comunicação em ambientes de Internet das Coisas Industriais ([COMBO]).",
+          "options": [
+            "IIoT",
+            "WiFi",
+            "HTML",
+            "SaaS"
+          ],
+          "correct": "IIoT",
+          "tip": "IIoT (Industrial IoT) difere da IoT comum por exigir altíssima confiabilidade e baixa latência."
+        },
+        {
+          "type": "multi",
+          "topics": "INTG",
+          "questions": "[NAME], como a computação em nuvem (Cloud) atua no contexto da manufatura aditiva?",
+          "answers": [
+            "Armazenando arquivos CAD que podem ser impressos em filiais globais remotamente.",
+            "Hospedando plataformas de Big Data que processam dados de sensores das impressoras.",
+            "Evitando que as impressoras 3D precisem usar filamentos de plástico.",
+            "Dificultando o fatiamento (slicing) ao exigir cabos de rede diretos."
+          ],
+          "correct": [
+            "Armazenando arquivos CAD que podem ser impressos em filiais globais remotamente.",
+            "Hospedando plataformas de Big Data que processam dados de sensores das impressoras."
+          ],
+          "tip": "A nuvem descentraliza a produção física, enviando os 'dados de fabricação' instantaneamente para qualquer lugar."
+        },
+        {
+          "type": "drag",
+          "topics": "INTG",
+          "questions": "Relacione o desafio da TI Industrial com a sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Infraestrutura de Rede",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Integração de Dados",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Cibersegurança",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Garantir latência zero entre o cobot e o servidor"
+            },
+            {
+              "id": "z2",
+              "label": "Unificar dados do ERP, IoT e Simulação num Dashboard"
+            },
+            {
+              "id": "z3",
+              "label": "Proteger os Gêmeos Digitais contra ataques externos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses três pilares garantem a resiliência e estabilidade da operação automatizada."
+        },
+        {
+          "type": "multiple",
+          "topics": "INTG",
+          "questions": "Qual termo define o ecossistema tecnológico onde máquinas físicas e sistemas de software comunicam e interagem intensamente na Indústria 4.0?",
+          "answers": [
+            "Sistemas Ciberfísicos",
+            "Redes Neurais Biológicas",
+            "Intranets Corporativas Estáticas",
+            "Protocolos de Linha de Comando"
+          ],
+          "correct": "Sistemas Ciberfísicos",
+          "tip": "A fusão do físico com o digital (ciber) é a essência da Quarta Revolução Industrial."
+        },
+        {
+          "type": "boolean",
+          "topics": "INTG",
+          "questions": "Nenhuma das tecnologias habilitadoras (Robótica, MA e Simulação) opera de forma isolada; seu verdadeiro valor está na convergência entre elas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A integração tecnológica (ex: IA rodando simulações para imprimir peças por robôs conectados via IoT) cria o ambiente 4.0 completo."
+        },
+        {
+          "type": "combo",
+          "topics": "INTG",
+          "questions": "A integração entre Gêmeos Digitais e Manufatura Aditiva permite realizar a simulação virtual antes da fabricação [COMBO] da peça.",
+          "options": [
+            "Física",
+            "Abstrata",
+            "Remota",
+            "Em nuvem"
+          ],
+          "correct": "Física",
+          "tip": "Você testa até a impressora virtualmente antes de gastar material real."
+        },
+        {
+          "type": "multi",
+          "topics": "INTG",
+          "questions": "Para a análise massiva de parâmetros de operação dos robôs, o setor de TI emprega soluções envolvendo quais tecnologias?",
+          "answers": [
+            "Big Data",
+            "Machine Learning (Aprendizado de Máquina)",
+            "Disquetes de Armazenamento",
+            "Roteadores domésticos de baixa frequência"
+          ],
+          "correct": [
+            "Big Data",
+            "Machine Learning (Aprendizado de Máquina)"
+          ],
+          "tip": "O imenso volume de dados (Big Data) e a análise preditiva requerem infraestrutura de ponta."
+        },
+        {
+          "type": "drag",
+          "topics": "INTG",
+          "questions": "Associe a integração de tecnologias MA (Manufatura Aditiva) ao seu benefício direto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "IoT + MA",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Big Data + MA",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "IA + MA",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sensores monitoram qualidade da impressão ao vivo"
+            },
+            {
+              "id": "z2",
+              "label": "Análise profunda otimiza parâmetros operacionais"
+            },
+            {
+              "id": "z3",
+              "label": "Algoritmos criam novos designs geométricos sozinhos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O poder do sistema 4.0 surge da combinação e da arquitetura dos dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "INTG",
+          "questions": "[NAME], a manutenção de um parque de impressoras 3D industriais passa a exigir a monitoria de pacotes de dados de rede, e não apenas chaves de fenda.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Erros de rede podem corromper arquivos ou parar produções no meio, atrelando a manutenção mecânica à TI."
+        },
+        {
+          "type": "combo",
+          "topics": "INTG",
+          "questions": "Garantir que apenas softwares autorizados interajam com o controlador do Robô Articulado requer sólidas políticas de controle de [COMBO].",
+          "options": [
+            "Acesso",
+            "Velocidade",
+            "Torque",
+            "Refrigeração"
+          ],
+          "correct": "Acesso",
+          "trans": "FIM",
+          "tip": "A autenticação e autorização (IAM) no chão de fábrica evita desastres e sabotagens."
+        }
+      ]
     },
     {
-"slug": "aula-24",
-"lesson_info": {
-"id": "Aula-24",
-"title": "AULA 24 - INTEGRAÇÃO DE SISTEMAS, SEGURANÇA DIGITAL E REALIDADE AUMENTADA",
-"topics": [
-{
-"id": "ACID",
-"name": "INTEGRAÇÃO DE SISTEMAS",
-"desc": "Verticalização, horizontalização e a conexão na Indústria 4.0.",
-"color": "#8e44ad",
-"img_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "AGEN",
-"name": "SEGURANÇA DIGITAL",
-"desc": "Conceitos, pilares CIA e requisitos para o chão de fábrica.",
-"color": "#c0392b",
-"img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "PROT",
-"name": "REALIDADE AUMENTADA",
-"desc": "Aplicações industriais e componentes tecnológicos da RA.",
-"color": "#2980b9",
-"img_url": "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "NORM",
-"name": "APLICAÇÃO PRÁTICA",
-"desc": "Diagnóstico de segurança e case de empresa de logística.",
-"color": "#27ae60",
-"img_url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600"
-}
-],
-"sokoban": [
-"R",
-"E",
-"D",
-"E"
-]
-},
-"questions": [
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], o que define a integração de sistemas na Indústria 4.0?",
-"answers": [
-"Conectar tecnologias e processos em tempo real",
-"Substituir operadores por robôs",
-"Isolar máquinas para maior segurança",
-"Eliminar a necessidade de nuvem"
-],
-"correct": "Conectar tecnologias e processos em tempo real",
-"tip": "A integração permite que informações sejam compartilhadas de forma coordenada."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], a integração vertical conecta fornecedores, fábrica e clientes finais.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Essa descrição corresponde à integração horizontal. A vertical é interna."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "Na pirâmide de automação, o nível de Sensores e Atuadores representa o chão de [COMBO].",
-"options": [
-"Fábrica",
-"Vendas",
-"Nuvem",
-"Gerência"
-],
-"correct": "Fábrica",
-"tip": "Este é o Nível 1 da pirâmide de integração vertical."
-},
-{
-"type": "multi",
-"topics": "ACID",
-"questions": "[NAME], quais tecnologias habilitam a integração na Indústria 4.0?",
-"answers": [
-"IoT Industrial (IIoT)",
-"APIs e Microsserviços",
-"Computação em Nuvem",
-"Máquinas de Escrever"
-],
-"correct": [
-"IoT Industrial (IIoT)",
-"APIs e Microsserviços",
-"Computação em Nuvem"
-],
-"tip": "Essas tecnologias criam o ecossistema ciberfísico completo."
-},
-{
-"type": "drag",
-"topics": "ACID",
-"questions": "Relacione os níveis de automação aos seus componentes:",
-"items": [
-{
-"id": "d1",
-"txt": "Nível 1",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Nível 2",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Nível 4",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Nível 5",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Sensores e Atuadores"
-},
-{
-"id": "z2",
-"label": "CLPs e SCADA"
-},
-{
-"id": "z3",
-"label": "ERP (Gestão)"
-},
-{
-"id": "z4",
-"label": "BI e Nuvem"
-}
-],
-"correct": "drag",
-"tip": "Esta hierarquia define o fluxo de dados do chão de fábrica até a estratégia corporativa."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], o que acontece com a fábrica se não houver integração de sistemas?",
-"answers": [
-"Os dados ficam em silos e decisões são lentas",
-"A produção dobra de velocidade",
-"A segurança digital aumenta automaticamente",
-"Os custos operacionais zeram"
-],
-"correct": "Os dados ficam em silos e decisões são lentas",
-"tip": "A falta de integração impede o monitoramento e a otimização em tempo real."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], o ERP se comunica diretamente com fornecedores na integração horizontal.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "O ERP repassa ordens de reposição sincronizando a cadeia de suprimentos."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "O nível 3 da pirâmide de automação é focado na execução da manufatura, conhecido pela sigla [COMBO].",
-"options": [
-"MES",
-"ERP",
-"CLP",
-"IOT"
-],
-"correct": "MES",
-"tip": "O MES atua entre o controle (SCADA) e a gestão (ERP)."
-},
-{
-"type": "multi",
-"topics": "ACID",
-"questions": "[NAME], quais os objetivos principais da integração horizontal?",
-"answers": [
-"Sincronização da cadeia de suprimentos",
-"Fluxo de dados de ponta a ponta",
-"Melhorar a relação com cliente final",
-"Controlar válvulas da máquina"
-],
-"correct": [
-"Sincronização da cadeia de suprimentos",
-"Fluxo de dados de ponta a ponta",
-"Melhorar a relação com cliente final"
-],
-"tip": "O controle de válvulas é função da integração vertical (Nível 1 e 2)."
-},
-{
-"type": "drag",
-"topics": "ACID",
-"questions": "Relacione o tipo de integração às suas características:",
-"items": [
-{
-"id": "d1",
-"txt": "Interna (Empresa)",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Externa (Cadeia)",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Sensor para ERP",
-"match": "z1"
-},
-{
-"id": "d4",
-"txt": "Fornecedor para Cliente",
-"match": "z2"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Integração Vertical"
-},
-{
-"id": "z2",
-"label": "Integração Horizontal"
-}
-],
-"correct": "drag",
-"tip": "Vertical é profundidade hierárquica; horizontal é alcance ao longo da cadeia de valor."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "O que um ecossistema ciberfísico completo faz na Indústria 4.0?",
-"answers": [
-"Funde a integração vertical e horizontal",
-"Desconecta máquinas antigas",
-"Exclui a necessidade de ERP",
-"Foca apenas em vendas"
-],
-"correct": "Funde a integração vertical e horizontal",
-"tip": "A Indústria 4.0 une o chão de fábrica à cadeia de suprimentos em nuvem."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "[NAME], a convergência entre TI e [COMBO] cria o cenário da fábrica conectada.",
-"options": [
-"TO",
-"RH",
-"UX",
-"UI"
-],
-"correct": "TO",
-"tip": "Tecnologia da Informação (TI) une-se à Tecnologia Operacional (TO).",
-"trans": "AGEN"
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], qual norma é o padrão internacional para cibersegurança industrial?",
-"answers": [
-"IEC 62443",
-"ISO 9001",
-"IEEE 802.11",
-"LGPD"
-],
-"correct": "IEC 62443",
-"tip": "A IEC 62443 define os níveis de segurança em sistemas de automação."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "[NAME], garantir que o SCADA opere 24/7 atende ao pilar de Disponibilidade.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A disponibilidade assegura que os sistemas não parem de funcionar."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "O vazamento de uma receita de produção fere o pilar da [COMBO].",
-"options": [
-"Confidencialidade",
-"Integridade",
-"Disponibilidade",
-"Privacidade"
-],
-"correct": "Confidencialidade",
-"tip": "Segredos industriais devem ser acessíveis apenas a pessoas autorizadas."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "[NAME], quais são os desafios específicos de segurança no chão de fábrica?",
-"answers": [
-"Dispositivos legados sem atualizações",
-"Protocolos sem criptografia nativa",
-"Requisitos de tempo real estritos",
-"Sobrecarga de rede social"
-],
-"correct": [
-"Dispositivos legados sem atualizações",
-"Protocolos sem criptografia nativa",
-"Requisitos de tempo real estritos"
-],
-"tip": "O ambiente industrial antigo não foi projetado com a internet em mente."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "Relacione o pilar CIA à sua consequência de falha na indústria:",
-"items": [
-{
-"id": "d1",
-"txt": "Confidencialidade",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Integridade",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Disponibilidade",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Concorrentes acessam dados"
-},
-{
-"id": "z2",
-"label": "Produtos fora de especificação"
-},
-{
-"id": "z3",
-"label": "Parada total da linha (Ransomware)"
-}
-],
-"correct": "drag",
-"tip": "Cada pilar protege um aspecto crucial da produção industrial."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], o que é o princípio do Não Repúdio?",
-"answers": [
-"Impossibilitar que alguém negue ter feito uma ação",
-"Negar acesso a dispositivos móveis",
-"Obrigar o uso de senhas complexas",
-"Garantir a privacidade do cliente"
-],
-"correct": "Impossibilitar que alguém negue ter feito uma ação",
-"tip": "Logs e assinaturas digitais garantem essa rastreabilidade inegável."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "Ataques a sistemas industriais cresceram mais de 300% entre 2020 e 2024.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A conectividade aumentou drasticamente a superfície de ataque nas fábricas."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "Proteger os dados pessoais dos colaboradores refere-se ao requisito de [COMBO].",
-"options": [
-"Privacidade",
-"Legalidade",
-"Auditoria",
-"Autenticidade"
-],
-"correct": "Privacidade",
-"tip": "Isso inclui anonimização e minimização de coleta de dados."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "Quais são boas práticas para segurança na Indústria 4.0?",
-"answers": [
-"Segmentação de redes (TI vs TO)",
-"Monitoramento com SIEM industrial",
-"Gestão de vulnerabilidades",
-"Uso de senhas genéricas"
-],
-"correct": [
-"Segmentação de redes (TI vs TO)",
-"Monitoramento com SIEM industrial",
-"Gestão de vulnerabilidades"
-],
-"tip": "Separar a rede administrativa da rede de máquinas é o primeiro passo de defesa."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "Relacione o caso famoso de ataque cibernético ao seu impacto:",
-"items": [
-{
-"id": "d1",
-"txt": "Stuxnet (2010)",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Colonial Pipeline (2021)",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Toyota (2022)",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Sabotou centrífugas nucleares"
-},
-{
-"id": "z2",
-"label": "Paralisou oleoduto via ransomware"
-},
-{
-"id": "z3",
-"label": "Paralisou 14 fábricas por fornecedor"
-}
-],
-"correct": "drag",
-"tip": "Ataques reais mostram o impacto financeiro e físico de vulnerabilidades."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], a capacidade de rastrear todas as ações nos sistemas é o requisito de:",
-"answers": [
-"Auditoria",
-"Legalidade",
-"Privacidade",
-"Confidencialidade"
-],
-"correct": "Auditoria",
-"tip": "A auditoria depende de logs detalhados para investigação de incidentes."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "[NAME], a segurança digital é um produto que você instala uma vez e resolve.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "A segurança é um processo contínuo de adaptação e monitoramento."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "Garantir a conformidade com a LGPD atende ao requisito de [COMBO].",
-"options": [
-"Legalidade",
-"Autenticidade",
-"Disponibilidade",
-"Auditoria"
-],
-"correct": "Legalidade",
-"tip": "As operações devem sempre atuar dentro do escopo da lei.",
-"trans": "PROT"
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], o que a Realidade Aumentada (RA) faz de diferente da Realidade Virtual (RV)?",
-"answers": [
-"Sobrepõe elementos digitais ao mundo real",
-"Cria um mundo 100% digital e fechado",
-"Desliga os sensores do equipamento",
-"Conecta redes sem fio automaticamente"
-],
-"correct": "Sobrepõe elementos digitais ao mundo real",
-"tip": "A RA enriquece o mundo físico sem substituí-lo."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "[NAME], no Continuum de Milgram, a Realidade Mista (RM) permite que objetos virtuais interajam com reais.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "A RM é o estágio onde a fusão entre digital e físico permite interação mútua."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "Na área de logística, o uso de RA para separar pedidos acelerando o processo é chamado de [COMBO].",
-"options": [
-"Picking",
-"Tracking",
-"Hacking",
-"Packing"
-],
-"correct": "Picking",
-"tip": "O picking assistido por RA reduz erros guiando visualmente o operador."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "[NAME], quais são aplicações reais de RA na indústria?",
-"answers": [
-"Manutenção assistida passo a passo",
-"Simulação de treinamento sem risco",
-"Controle de qualidade com blueprints 3D",
-"Mineração de criptomoedas no ERP"
-],
-"correct": [
-"Manutenção assistida passo a passo",
-"Simulação de treinamento sem risco",
-"Controle de qualidade com blueprints 3D"
-],
-"tip": "A RA serve como uma interface visual de alta eficiência para tarefas manuais."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "Ordene o ciclo de funcionamento de um sistema de RA:",
-"items": [
-{
-"id": "d1",
-"txt": "Câmeras e GPS",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "CPU e Algoritmos",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Gráficos Virtuais",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Telas e Óculos",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "1. Captura"
-},
-{
-"id": "z2",
-"label": "2. Processamento"
-},
-{
-"id": "z3",
-"label": "3. Renderização"
-},
-{
-"id": "z4",
-"label": "4. Exibição"
-}
-],
-"correct": "drag",
-"tip": "Esse ciclo ocorre dezenas de vezes por segundo para criar a imersão."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], qual tipo de dispositivo é mais focado em liberar as mãos de operadores na indústria?",
-"answers": [
-"Óculos Inteligentes",
-"Smartphones",
-"Tablets",
-"Televisões"
-],
-"correct": "Óculos Inteligentes",
-"tip": "Dispositivos como HoloLens permitem que o operador trabalhe enquanto consome a informação visual."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "Uma latência superior a 20ms no processamento não afeta a imersão na Realidade Aumentada.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Latências maiores que 20ms quebram a ilusão da sobreposição fluida e causam desconforto."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "Projeções de RA exibidas em para-brisas são conhecidas como [COMBO].",
-"options": [
-"HUD",
-"VR",
-"MES",
-"API"
-],
-"correct": "HUD",
-"tip": "Head-Up Displays (HUD) mantêm o usuário olhando para frente sem desviar o olhar."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "[NAME], quais são os principais desafios técnicos de implementar RA na fábrica conectada?",
-"answers": [
-"Precisão do Tracking de câmera",
-"Sincronização de rede com baixa latência",
-"Integração segura com os dados do ERP",
-"Substituir o cabeamento das máquinas"
-],
-"correct": [
-"Precisão do Tracking de câmera",
-"Sincronização de rede com baixa latência",
-"Integração segura com os dados do ERP"
-],
-"tip": "A RA exige alto desempenho de rede e precisão de dados em tempo real."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "Relacione o equipamento ao nível de imersão de XR (Continuum de Milgram):",
-"items": [
-{
-"id": "d1",
-"txt": "Óculos HoloLens (Hologramas na mesa)",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Óculos VR Meta Quest (Ambiente fechado)",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Filtro no app do Smartphone",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Realidade Mista (RM)"
-},
-{
-"id": "z2",
-"label": "Realidade Virtual (RV)"
-},
-{
-"id": "z3",
-"label": "Realidade Aumentada (RA) Básica"
-}
-],
-"correct": "drag",
-"tip": "Quanto mais o digital responde à física do ambiente, mais perto da RM estamos."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "Qual a vantagem do treinamento industrial feito via RA?",
-"answers": [
-"Praticar procedimentos complexos sem risco a equipamentos",
-"Demora mais para aprender, mas é mais barato",
-"Substitui completamente o instrutor humano",
-"Não exige integração com manuais técnicos"
-],
-"correct": "Praticar procedimentos complexos sem risco a equipamentos",
-"tip": "Simulações interativas aceleram a curva de aprendizado."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "[NAME], na RA, ARCore e ARKit são tecnologias tipicamente utilizadas em smartphones e tablets.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "São as bibliotecas de realidade aumentada nativas da Google e da Apple."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "Para exibir hologramas 3D sem lentidão, a máquina precisa de alto poder de [COMBO].",
-"options": [
-"Renderização",
-"Aquecimento",
-"Frenagem",
-"Iluminação"
-],
-"correct": "Renderização",
-"tip": "Processamento gráfico (Renderização) traduz os dados 3D em pixels na tela.",
-"trans": "NORM"
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], no case da LogisTech, qual era um dos grandes problemas da empresa?",
-"answers": [
-"Processos manuais em planilhas Excel",
-"Excesso de automação nos caminhões",
-"Nuvem sobrecarregada de acessos",
-"Todos os funcionários tinham óculos de RA"
-],
-"correct": "Processos manuais em planilhas Excel",
-"tip": "A transição digital visa substituir processos manuais e silos de informação."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], no case da LogisTech, os fornecedores enviar notificações via API é um exemplo de integração horizontal.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "APIs trocando dados entre organizações diferentes é o cerne da integração horizontal."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "A utilização de TLS 1.3 serve para garantir a segurança dos dados em [COMBO].",
-"options": [
-"Trânsito",
-"Repouso",
-"Papel",
-"Deleção"
-],
-"correct": "Trânsito",
-"tip": "Dados viajando na rede precisam ser encriptados para evitar interceptação."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "[NAME], ao migrar a LogisTech para a nuvem, quais medidas de segurança são vitais?",
-"answers": [
-"Classificação dos Dados",
-"Controle de Acesso (IAM)",
-"Criptografia AES-256",
-"Remover o Wi-fi do Armazém"
-],
-"correct": [
-"Classificação dos Dados",
-"Controle de Acesso (IAM)",
-"Criptografia AES-256"
-],
-"tip": "A infraestrutura Wi-Fi é essencial; o que precisa ser feito é protegê-la (WPA3/VLAN)."
-},
-{
-"type": "drag",
-"topics": "NORM",
-"questions": "No diagnóstico da LogisTech, relacione o ativo à sua vulnerabilidade provável:",
-"items": [
-{
-"id": "d1",
-"txt": "Rede Wi-Fi do Armazém",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "API de Fornecedores",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Dashboard na Nuvem",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Acesso não autorizado por visitantes locais"
-},
-{
-"id": "z2",
-"label": "Requisições forjadas ou sem autenticidade"
-},
-{
-"id": "z3",
-"label": "Acesso corporativo sem controle MFA"
-}
-],
-"correct": "drag",
-"tip": "Mapear ameaças baseadas nos vetores de entrada (rede local, externa, nuvem)."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], para aplicar RA de forma segura no armazém da LogisTech, qual medida é recomendada?",
-"answers": [
-"Segmentar a rede VLAN dos óculos inteligentes do restante do TI corporativo",
-"Desligar o rastreamento GPS para economizar bateria",
-"Usar Wi-Fi aberto para não atrasar a renderização",
-"Guardar os manuais impressos em um cofre"
-],
-"correct": "Segmentar a rede VLAN dos óculos inteligentes do restante do TI corporativo",
-"tip": "Segmentação (zones/conduits na IEC 62443) isola vulnerabilidades."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "O controle de acesso IAM (Identidade e Gerenciamento de Acesso) previne acessos não autorizados aos relatórios de logística.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "O IAM aplica o princípio do menor privilégio, fundamental para a confidencialidade."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "A LogisTech deve categorizar dados sensíveis, garantindo a conformidade com a [COMBO].",
-"options": [
-"LGPD",
-"ISO",
-"CLT",
-"WMS"
-],
-"correct": "LGPD",
-"tip": "Dados pessoais de motoristas exigem proteção legal."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "[NAME], como a Integração Vertical e RA se comunicam na LogisTech?",
-"answers": [
-"Sensores IoT no armazém alimentam o WMS",
-"O WMS aciona as diretrizes visuais nos óculos de RA do operador",
-"O ERP processa o pedido e sinaliza a ordem de picking",
-"O cliente acessa fisicamente as câmeras de RA"
-],
-"correct": [
-"Sensores IoT no armazém alimentam o WMS",
-"O WMS aciona as diretrizes visuais nos óculos de RA do operador",
-"O ERP processa o pedido e sinaliza a ordem de picking"
-],
-"tip": "Dados estratégicos descem do ERP para o WMS e são exibidos pela RA ao operador."
-},
-{
-"type": "drag",
-"topics": "NORM",
-"questions": "Relacione as ações da LogisTech ao respectivo tema do curso:",
-"items": [
-{
-"id": "d1",
-"txt": "Uso de WPA3 e Autenticação 802.1X",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Conexão entre Sensores, WMS e ERP",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Óculos guiam operador nas prateleiras",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Segurança Digital"
-},
-{
-"id": "z2",
-"label": "Integração de Sistemas"
-},
-{
-"id": "z3",
-"label": "Realidade Aumentada"
-}
-],
-"correct": "drag",
-"tip": "Na Indústria 4.0, esses três eixos operam de forma interdependente."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "No contexto da Tríade Completa da aula, o que a Segurança Digital faz?",
-"answers": [
-"Protege os dados transmitidos entre os sistemas conectados",
-"Fornece a interface visual intuitiva para o humano",
-"Interliga sensores diretamente ao fornecedor de peças",
-"Aumenta a velocidade de renderização da GPU"
-],
-"correct": "Protege os dados transmitidos entre os sistemas conectados",
-"tip": "A Integração fornece os dados, a Segurança protege, a RA exibe."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], ao propor uma solução para a LogisTech, identificar ameaças de intercepção no Wi-Fi faz parte da Classificação CIA.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Intercepção ameaça diretamente a Confidencialidade e Integridade (pilares C e I)."
-}
-]
-}
+      "slug": "aula-24",
+      "lesson_info": {
+        "id": "Aula-24",
+        "title": "AULA 24 - INTEGRAÇÃO DE SISTEMAS, SEGURANÇA DIGITAL E REALIDADE AUMENTADA",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "INTEGRAÇÃO DE SISTEMAS",
+            "desc": "Verticalização, horizontalização e a conexão na Indústria 4.0.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "SEGURANÇA DIGITAL",
+            "desc": "Conceitos, pilares CIA e requisitos para o chão de fábrica.",
+            "color": "#c0392b",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "REALIDADE AUMENTADA",
+            "desc": "Aplicações industriais e componentes tecnológicos da RA.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "APLICAÇÃO PRÁTICA",
+            "desc": "Diagnóstico de segurança e case de empresa de logística.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "R",
+          "E",
+          "D",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que define a integração de sistemas na Indústria 4.0?",
+          "answers": [
+            "Conectar tecnologias e processos em tempo real",
+            "Substituir operadores por robôs",
+            "Isolar máquinas para maior segurança",
+            "Eliminar a necessidade de nuvem"
+          ],
+          "correct": "Conectar tecnologias e processos em tempo real",
+          "tip": "A integração permite que informações sejam compartilhadas de forma coordenada."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a integração vertical conecta fornecedores, fábrica e clientes finais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essa descrição corresponde à integração horizontal. A vertical é interna."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na pirâmide de automação, o nível de Sensores e Atuadores representa o chão de [COMBO].",
+          "options": [
+            "Fábrica",
+            "Vendas",
+            "Nuvem",
+            "Gerência"
+          ],
+          "correct": "Fábrica",
+          "tip": "Este é o Nível 1 da pirâmide de integração vertical."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais tecnologias habilitam a integração na Indústria 4.0?",
+          "answers": [
+            "IoT Industrial (IIoT)",
+            "APIs e Microsserviços",
+            "Computação em Nuvem",
+            "Máquinas de Escrever"
+          ],
+          "correct": [
+            "IoT Industrial (IIoT)",
+            "APIs e Microsserviços",
+            "Computação em Nuvem"
+          ],
+          "tip": "Essas tecnologias criam o ecossistema ciberfísico completo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os níveis de automação aos seus componentes:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nível 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nível 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nível 4",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Nível 5",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sensores e Atuadores"
+            },
+            {
+              "id": "z2",
+              "label": "CLPs e SCADA"
+            },
+            {
+              "id": "z3",
+              "label": "ERP (Gestão)"
+            },
+            {
+              "id": "z4",
+              "label": "BI e Nuvem"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta hierarquia define o fluxo de dados do chão de fábrica até a estratégia corporativa."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que acontece com a fábrica se não houver integração de sistemas?",
+          "answers": [
+            "Os dados ficam em silos e decisões são lentas",
+            "A produção dobra de velocidade",
+            "A segurança digital aumenta automaticamente",
+            "Os custos operacionais zeram"
+          ],
+          "correct": "Os dados ficam em silos e decisões são lentas",
+          "tip": "A falta de integração impede o monitoramento e a otimização em tempo real."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o ERP se comunica diretamente com fornecedores na integração horizontal.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O ERP repassa ordens de reposição sincronizando a cadeia de suprimentos."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O nível 3 da pirâmide de automação é focado na execução da manufatura, conhecido pela sigla [COMBO].",
+          "options": [
+            "MES",
+            "ERP",
+            "CLP",
+            "IOT"
+          ],
+          "correct": "MES",
+          "tip": "O MES atua entre o controle (SCADA) e a gestão (ERP)."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais os objetivos principais da integração horizontal?",
+          "answers": [
+            "Sincronização da cadeia de suprimentos",
+            "Fluxo de dados de ponta a ponta",
+            "Melhorar a relação com cliente final",
+            "Controlar válvulas da máquina"
+          ],
+          "correct": [
+            "Sincronização da cadeia de suprimentos",
+            "Fluxo de dados de ponta a ponta",
+            "Melhorar a relação com cliente final"
+          ],
+          "tip": "O controle de válvulas é função da integração vertical (Nível 1 e 2)."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o tipo de integração às suas características:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Interna (Empresa)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Externa (Cadeia)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sensor para ERP",
+              "match": "z1"
+            },
+            {
+              "id": "d4",
+              "txt": "Fornecedor para Cliente",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Integração Vertical"
+            },
+            {
+              "id": "z2",
+              "label": "Integração Horizontal"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Vertical é profundidade hierárquica; horizontal é alcance ao longo da cadeia de valor."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "O que um ecossistema ciberfísico completo faz na Indústria 4.0?",
+          "answers": [
+            "Funde a integração vertical e horizontal",
+            "Desconecta máquinas antigas",
+            "Exclui a necessidade de ERP",
+            "Foca apenas em vendas"
+          ],
+          "correct": "Funde a integração vertical e horizontal",
+          "tip": "A Indústria 4.0 une o chão de fábrica à cadeia de suprimentos em nuvem."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], a convergência entre TI e [COMBO] cria o cenário da fábrica conectada.",
+          "options": [
+            "TO",
+            "RH",
+            "UX",
+            "UI"
+          ],
+          "correct": "TO",
+          "tip": "Tecnologia da Informação (TI) une-se à Tecnologia Operacional (TO).",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual norma é o padrão internacional para cibersegurança industrial?",
+          "answers": [
+            "IEC 62443",
+            "ISO 9001",
+            "IEEE 802.11",
+            "LGPD"
+          ],
+          "correct": "IEC 62443",
+          "tip": "A IEC 62443 define os níveis de segurança em sistemas de automação."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], garantir que o SCADA opere 24/7 atende ao pilar de Disponibilidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A disponibilidade assegura que os sistemas não parem de funcionar."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O vazamento de uma receita de produção fere o pilar da [COMBO].",
+          "options": [
+            "Confidencialidade",
+            "Integridade",
+            "Disponibilidade",
+            "Privacidade"
+          ],
+          "correct": "Confidencialidade",
+          "tip": "Segredos industriais devem ser acessíveis apenas a pessoas autorizadas."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são os desafios específicos de segurança no chão de fábrica?",
+          "answers": [
+            "Dispositivos legados sem atualizações",
+            "Protocolos sem criptografia nativa",
+            "Requisitos de tempo real estritos",
+            "Sobrecarga de rede social"
+          ],
+          "correct": [
+            "Dispositivos legados sem atualizações",
+            "Protocolos sem criptografia nativa",
+            "Requisitos de tempo real estritos"
+          ],
+          "tip": "O ambiente industrial antigo não foi projetado com a internet em mente."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o pilar CIA à sua consequência de falha na indústria:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Confidencialidade",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Integridade",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Disponibilidade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Concorrentes acessam dados"
+            },
+            {
+              "id": "z2",
+              "label": "Produtos fora de especificação"
+            },
+            {
+              "id": "z3",
+              "label": "Parada total da linha (Ransomware)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada pilar protege um aspecto crucial da produção industrial."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que é o princípio do Não Repúdio?",
+          "answers": [
+            "Impossibilitar que alguém negue ter feito uma ação",
+            "Negar acesso a dispositivos móveis",
+            "Obrigar o uso de senhas complexas",
+            "Garantir a privacidade do cliente"
+          ],
+          "correct": "Impossibilitar que alguém negue ter feito uma ação",
+          "tip": "Logs e assinaturas digitais garantem essa rastreabilidade inegável."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Ataques a sistemas industriais cresceram mais de 300% entre 2020 e 2024.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A conectividade aumentou drasticamente a superfície de ataque nas fábricas."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Proteger os dados pessoais dos colaboradores refere-se ao requisito de [COMBO].",
+          "options": [
+            "Privacidade",
+            "Legalidade",
+            "Auditoria",
+            "Autenticidade"
+          ],
+          "correct": "Privacidade",
+          "tip": "Isso inclui anonimização e minimização de coleta de dados."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais são boas práticas para segurança na Indústria 4.0?",
+          "answers": [
+            "Segmentação de redes (TI vs TO)",
+            "Monitoramento com SIEM industrial",
+            "Gestão de vulnerabilidades",
+            "Uso de senhas genéricas"
+          ],
+          "correct": [
+            "Segmentação de redes (TI vs TO)",
+            "Monitoramento com SIEM industrial",
+            "Gestão de vulnerabilidades"
+          ],
+          "tip": "Separar a rede administrativa da rede de máquinas é o primeiro passo de defesa."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o caso famoso de ataque cibernético ao seu impacto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Stuxnet (2010)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Colonial Pipeline (2021)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Toyota (2022)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sabotou centrífugas nucleares"
+            },
+            {
+              "id": "z2",
+              "label": "Paralisou oleoduto via ransomware"
+            },
+            {
+              "id": "z3",
+              "label": "Paralisou 14 fábricas por fornecedor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Ataques reais mostram o impacto financeiro e físico de vulnerabilidades."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], a capacidade de rastrear todas as ações nos sistemas é o requisito de:",
+          "answers": [
+            "Auditoria",
+            "Legalidade",
+            "Privacidade",
+            "Confidencialidade"
+          ],
+          "correct": "Auditoria",
+          "tip": "A auditoria depende de logs detalhados para investigação de incidentes."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a segurança digital é um produto que você instala uma vez e resolve.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A segurança é um processo contínuo de adaptação e monitoramento."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Garantir a conformidade com a LGPD atende ao requisito de [COMBO].",
+          "options": [
+            "Legalidade",
+            "Autenticidade",
+            "Disponibilidade",
+            "Auditoria"
+          ],
+          "correct": "Legalidade",
+          "tip": "As operações devem sempre atuar dentro do escopo da lei.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que a Realidade Aumentada (RA) faz de diferente da Realidade Virtual (RV)?",
+          "answers": [
+            "Sobrepõe elementos digitais ao mundo real",
+            "Cria um mundo 100% digital e fechado",
+            "Desliga os sensores do equipamento",
+            "Conecta redes sem fio automaticamente"
+          ],
+          "correct": "Sobrepõe elementos digitais ao mundo real",
+          "tip": "A RA enriquece o mundo físico sem substituí-lo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no Continuum de Milgram, a Realidade Mista (RM) permite que objetos virtuais interajam com reais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A RM é o estágio onde a fusão entre digital e físico permite interação mútua."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Na área de logística, o uso de RA para separar pedidos acelerando o processo é chamado de [COMBO].",
+          "options": [
+            "Picking",
+            "Tracking",
+            "Hacking",
+            "Packing"
+          ],
+          "correct": "Picking",
+          "tip": "O picking assistido por RA reduz erros guiando visualmente o operador."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são aplicações reais de RA na indústria?",
+          "answers": [
+            "Manutenção assistida passo a passo",
+            "Simulação de treinamento sem risco",
+            "Controle de qualidade com blueprints 3D",
+            "Mineração de criptomoedas no ERP"
+          ],
+          "correct": [
+            "Manutenção assistida passo a passo",
+            "Simulação de treinamento sem risco",
+            "Controle de qualidade com blueprints 3D"
+          ],
+          "tip": "A RA serve como uma interface visual de alta eficiência para tarefas manuais."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Ordene o ciclo de funcionamento de um sistema de RA:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Câmeras e GPS",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "CPU e Algoritmos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Gráficos Virtuais",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Telas e Óculos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "1. Captura"
+            },
+            {
+              "id": "z2",
+              "label": "2. Processamento"
+            },
+            {
+              "id": "z3",
+              "label": "3. Renderização"
+            },
+            {
+              "id": "z4",
+              "label": "4. Exibição"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esse ciclo ocorre dezenas de vezes por segundo para criar a imersão."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual tipo de dispositivo é mais focado em liberar as mãos de operadores na indústria?",
+          "answers": [
+            "Óculos Inteligentes",
+            "Smartphones",
+            "Tablets",
+            "Televisões"
+          ],
+          "correct": "Óculos Inteligentes",
+          "tip": "Dispositivos como HoloLens permitem que o operador trabalhe enquanto consome a informação visual."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Uma latência superior a 20ms no processamento não afeta a imersão na Realidade Aumentada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Latências maiores que 20ms quebram a ilusão da sobreposição fluida e causam desconforto."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Projeções de RA exibidas em para-brisas são conhecidas como [COMBO].",
+          "options": [
+            "HUD",
+            "VR",
+            "MES",
+            "API"
+          ],
+          "correct": "HUD",
+          "tip": "Head-Up Displays (HUD) mantêm o usuário olhando para frente sem desviar o olhar."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são os principais desafios técnicos de implementar RA na fábrica conectada?",
+          "answers": [
+            "Precisão do Tracking de câmera",
+            "Sincronização de rede com baixa latência",
+            "Integração segura com os dados do ERP",
+            "Substituir o cabeamento das máquinas"
+          ],
+          "correct": [
+            "Precisão do Tracking de câmera",
+            "Sincronização de rede com baixa latência",
+            "Integração segura com os dados do ERP"
+          ],
+          "tip": "A RA exige alto desempenho de rede e precisão de dados em tempo real."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o equipamento ao nível de imersão de XR (Continuum de Milgram):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Óculos HoloLens (Hologramas na mesa)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Óculos VR Meta Quest (Ambiente fechado)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Filtro no app do Smartphone",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Realidade Mista (RM)"
+            },
+            {
+              "id": "z2",
+              "label": "Realidade Virtual (RV)"
+            },
+            {
+              "id": "z3",
+              "label": "Realidade Aumentada (RA) Básica"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Quanto mais o digital responde à física do ambiente, mais perto da RM estamos."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual a vantagem do treinamento industrial feito via RA?",
+          "answers": [
+            "Praticar procedimentos complexos sem risco a equipamentos",
+            "Demora mais para aprender, mas é mais barato",
+            "Substitui completamente o instrutor humano",
+            "Não exige integração com manuais técnicos"
+          ],
+          "correct": "Praticar procedimentos complexos sem risco a equipamentos",
+          "tip": "Simulações interativas aceleram a curva de aprendizado."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], na RA, ARCore e ARKit são tecnologias tipicamente utilizadas em smartphones e tablets.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "São as bibliotecas de realidade aumentada nativas da Google e da Apple."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para exibir hologramas 3D sem lentidão, a máquina precisa de alto poder de [COMBO].",
+          "options": [
+            "Renderização",
+            "Aquecimento",
+            "Frenagem",
+            "Iluminação"
+          ],
+          "correct": "Renderização",
+          "tip": "Processamento gráfico (Renderização) traduz os dados 3D em pixels na tela.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no case da LogisTech, qual era um dos grandes problemas da empresa?",
+          "answers": [
+            "Processos manuais em planilhas Excel",
+            "Excesso de automação nos caminhões",
+            "Nuvem sobrecarregada de acessos",
+            "Todos os funcionários tinham óculos de RA"
+          ],
+          "correct": "Processos manuais em planilhas Excel",
+          "tip": "A transição digital visa substituir processos manuais e silos de informação."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no case da LogisTech, os fornecedores enviar notificações via API é um exemplo de integração horizontal.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "APIs trocando dados entre organizações diferentes é o cerne da integração horizontal."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A utilização de TLS 1.3 serve para garantir a segurança dos dados em [COMBO].",
+          "options": [
+            "Trânsito",
+            "Repouso",
+            "Papel",
+            "Deleção"
+          ],
+          "correct": "Trânsito",
+          "tip": "Dados viajando na rede precisam ser encriptados para evitar interceptação."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], ao migrar a LogisTech para a nuvem, quais medidas de segurança são vitais?",
+          "answers": [
+            "Classificação dos Dados",
+            "Controle de Acesso (IAM)",
+            "Criptografia AES-256",
+            "Remover o Wi-fi do Armazém"
+          ],
+          "correct": [
+            "Classificação dos Dados",
+            "Controle de Acesso (IAM)",
+            "Criptografia AES-256"
+          ],
+          "tip": "A infraestrutura Wi-Fi é essencial; o que precisa ser feito é protegê-la (WPA3/VLAN)."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "No diagnóstico da LogisTech, relacione o ativo à sua vulnerabilidade provável:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Rede Wi-Fi do Armazém",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "API de Fornecedores",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Dashboard na Nuvem",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Acesso não autorizado por visitantes locais"
+            },
+            {
+              "id": "z2",
+              "label": "Requisições forjadas ou sem autenticidade"
+            },
+            {
+              "id": "z3",
+              "label": "Acesso corporativo sem controle MFA"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Mapear ameaças baseadas nos vetores de entrada (rede local, externa, nuvem)."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], para aplicar RA de forma segura no armazém da LogisTech, qual medida é recomendada?",
+          "answers": [
+            "Segmentar a rede VLAN dos óculos inteligentes do restante do TI corporativo",
+            "Desligar o rastreamento GPS para economizar bateria",
+            "Usar Wi-Fi aberto para não atrasar a renderização",
+            "Guardar os manuais impressos em um cofre"
+          ],
+          "correct": "Segmentar a rede VLAN dos óculos inteligentes do restante do TI corporativo",
+          "tip": "Segmentação (zones/conduits na IEC 62443) isola vulnerabilidades."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O controle de acesso IAM (Identidade e Gerenciamento de Acesso) previne acessos não autorizados aos relatórios de logística.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O IAM aplica o princípio do menor privilégio, fundamental para a confidencialidade."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A LogisTech deve categorizar dados sensíveis, garantindo a conformidade com a [COMBO].",
+          "options": [
+            "LGPD",
+            "ISO",
+            "CLT",
+            "WMS"
+          ],
+          "correct": "LGPD",
+          "tip": "Dados pessoais de motoristas exigem proteção legal."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], como a Integração Vertical e RA se comunicam na LogisTech?",
+          "answers": [
+            "Sensores IoT no armazém alimentam o WMS",
+            "O WMS aciona as diretrizes visuais nos óculos de RA do operador",
+            "O ERP processa o pedido e sinaliza a ordem de picking",
+            "O cliente acessa fisicamente as câmeras de RA"
+          ],
+          "correct": [
+            "Sensores IoT no armazém alimentam o WMS",
+            "O WMS aciona as diretrizes visuais nos óculos de RA do operador",
+            "O ERP processa o pedido e sinaliza a ordem de picking"
+          ],
+          "tip": "Dados estratégicos descem do ERP para o WMS e são exibidos pela RA ao operador."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione as ações da LogisTech ao respectivo tema do curso:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Uso de WPA3 e Autenticação 802.1X",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Conexão entre Sensores, WMS e ERP",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Óculos guiam operador nas prateleiras",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Segurança Digital"
+            },
+            {
+              "id": "z2",
+              "label": "Integração de Sistemas"
+            },
+            {
+              "id": "z3",
+              "label": "Realidade Aumentada"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Na Indústria 4.0, esses três eixos operam de forma interdependente."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "No contexto da Tríade Completa da aula, o que a Segurança Digital faz?",
+          "answers": [
+            "Protege os dados transmitidos entre os sistemas conectados",
+            "Fornece a interface visual intuitiva para o humano",
+            "Interliga sensores diretamente ao fornecedor de peças",
+            "Aumenta a velocidade de renderização da GPU"
+          ],
+          "correct": "Protege os dados transmitidos entre os sistemas conectados",
+          "tip": "A Integração fornece os dados, a Segurança protege, a RA exibe."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao propor uma solução para a LogisTech, identificar ameaças de intercepção no Wi-Fi faz parte da Classificação CIA.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Intercepção ameaça diretamente a Confidencialidade e Integridade (pilares C e I)."
+        }
+      ]
+    },
+    {
+      "slug": "aula-25",
+      "lesson_info": {
+        "id": "Aula-25",
+        "title": "AULA 25 - AUTOCONHECIMENTO E METAS PROFISSIONAIS NA ERA DIGITAL",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "REVOLUÇÃO E MERCADO",
+            "desc": "O impacto da Quarta Revolução Industrial no mercado de trabalho e as novas profissões.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "COMPETÊNCIAS 4.0",
+            "desc": "Hard skills e soft skills essenciais exigidas para os profissionais do futuro.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "AUTOCONHECIMENTO",
+            "desc": "Mapas de capacidades, identificação de lacunas e aplicação da matriz SWOT pessoal.",
+            "color": "#16a085",
+            "img_url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "ROADMAP E METAS",
+            "desc": "Criação de um roadmap de estudos estruturado através da metodologia de metas SMART.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "M",
+          "E",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], a Quarta Revolução Industrial se diferencia das anteriores principalmente por quais fatores?",
+          "answers": [
+            "Velocidade, amplitude e profundidade das mudanças.",
+            "Apenas pela introdução de computadores de grande porte.",
+            "Pela substituição total da força humana pela tração animal.",
+            "Pelo foco exclusivo no setor agrícola."
+          ],
+          "correct": "Velocidade, amplitude e profundidade das mudanças.",
+          "tip": "A transformação atual tem escala e escopo sem precedentes na história humana."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], as novas profissões mapeadas pela transformação digital substituem completamente a necessidade de competências socioemocionais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As carreiras emergentes unem competências técnicas e humanas de forma inédita."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O [COMBO] de Dados é o profissional que extrai insights estratégicos de grandes volumes de informações usando estatística e IA.",
+          "options": [
+            "Cientista",
+            "Engenheiro",
+            "Arquiteto",
+            "Designer"
+          ],
+          "correct": "Cientista",
+          "tip": "Esse profissional é fundamental para dar sentido ao Big Data."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais destas profissões são consideradas carreiras emergentes no ecossistema da Indústria 4.0, [NAME]?",
+          "answers": [
+            "Engenheiro de Robótica Industrial",
+            "Especialista em Ética de IA",
+            "Datilógrafo de Sistemas",
+            "Arquiteto de Soluções em Nuvem"
+          ],
+          "correct": [
+            "Engenheiro de Robótica Industrial",
+            "Especialista em Ética de IA",
+            "Arquiteto de Soluções em Nuvem"
+          ],
+          "tip": "As novas carreiras estão ligadas à convergência das tecnologias habilitadoras."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione a profissão emergente com a sua respectiva função principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Analista de Cibersegurança",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Especialista em Digital Twins",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Designer de Experiência IoT",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Arquiteto em Nuvem",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Protege redes contra ameaças"
+            },
+            {
+              "id": "z2",
+              "label": "Cria réplicas virtuais para simulação"
+            },
+            {
+              "id": "z3",
+              "label": "Projeta interfaces para dispositivos conectados"
+            },
+            {
+              "id": "z4",
+              "label": "Projeta infraestruturas escaláveis"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada profissão foca em um pilar tecnológico específico da Indústria 4.0."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o papel central do Especialista em Ética de IA?",
+          "answers": [
+            "Garantir que os algoritmos operem com transparência e equidade.",
+            "Programar a infraestrutura de redes locais.",
+            "Montar os robôs colaborativos no chão de fábrica.",
+            "Aumentar o faturamento das vendas online."
+          ],
+          "correct": "Garantir que os algoritmos operem com transparência e equidade.",
+          "tip": "A ética na inteligência artificial assegura responsabilidade nas decisões automatizadas."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a Quarta Revolução Industrial redefine a natureza do trabalho humano, não se limitando apenas à alteração de processos produtivos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A transformação afeta fundamentalmente como trabalhamos e nos relacionamos."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A criação de réplicas virtuais de processos industriais para otimização em tempo real é função do Especialista em Digital [COMBO].",
+          "options": [
+            "Twins",
+            "Shadows",
+            "Clones",
+            "Minds"
+          ],
+          "correct": "Twins",
+          "tip": "O termo em inglês significa 'gêmeos'."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "De acordo com os dados do Fórum Econômico Mundial sobre o cenário até 2027, quais afirmações estão corretas, [NAME]?",
+          "answers": [
+            "Haverá 85 milhões de empregos deslocados.",
+            "97 milhões de novos empregos serão criados.",
+            "A automação reduzirá as vagas globais sem criar novas.",
+            "Cerca de 50% dos trabalhadores precisarão de requalificação."
+          ],
+          "correct": [
+            "Haverá 85 milhões de empregos deslocados.",
+            "97 milhões de novos empregos serão criados.",
+            "Cerca de 50% dos trabalhadores precisarão de requalificação."
+          ],
+          "tip": "A revolução destrói funções antigas, mas cria um volume ainda maior de novas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que significa o termo 'reskilling' no contexto do mercado de trabalho atual?",
+          "answers": [
+            "Requalificação profissional para atuar em novas funções.",
+            "Demissão em massa causada por robôs.",
+            "Redução voluntária da jornada de trabalho.",
+            "Contratação exclusiva de profissionais estrangeiros."
+          ],
+          "correct": "Requalificação profissional para atuar em novas funções.",
+          "tip": "Aprender novas habilidades é essencial para acompanhar a transformação digital."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o Designer de Experiência IoT é focado unicamente na estética do equipamento, ignorando a usabilidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele projeta interfaces intuitivas, priorizando fortemente a experiência do usuário."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Para atuar como Arquiteto de Soluções em Nuvem, qual destas áreas de conhecimento é fundamental, [NAME]?",
+          "answers": [
+            "Plataformas Cloud e infraestruturas escaláveis.",
+            "Manutenção corretiva de motores a diesel.",
+            "Técnicas de soldagem industrial.",
+            "Logística reversa de resíduos sólidos."
+          ],
+          "correct": "Plataformas Cloud e infraestruturas escaláveis.",
+          "tip": "A profissão envolve desenhar sistemas lógicos e seguros hospedados na nuvem."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O Engenheiro de [COMBO] Industrial projeta, integra e mantém sistemas mecânicos autônomos no chão de fábrica.",
+          "options": [
+            "Robótica",
+            "Mecatrônica",
+            "Software",
+            "Sistemas"
+          ],
+          "correct": "Robótica",
+          "trans": "AGEN",
+          "tip": "Essa área une mecânica, eletrônica e programação para criar máquinas automatizadas."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é considerado o diferencial mais valioso do profissional da Indústria 4.0?",
+          "answers": [
+            "A capacidade de aprendizado contínuo.",
+            "A memorização de manuais técnicos obsoletos.",
+            "O trabalho estritamente individual e isolado.",
+            "A recusa em utilizar ferramentas de Inteligência Artificial."
+          ],
+          "correct": "A capacidade de aprendizado contínuo.",
+          "tip": "A adaptabilidade às novas tecnologias é o que garante a relevância no mercado."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], na era da automação, o diferencial humano reside nas competências técnicas repetitivas, que as máquinas ainda não conseguem fazer.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Máquinas assumem tarefas repetitivas; o diferencial humano está nas competências socioemocionais."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione as habilidades à sua correta classificação (Hard Skill ou Soft Skill):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Programação em Python",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pensamento Crítico",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Configuração de Cloud",
+              "match": "z1"
+            },
+            {
+              "id": "d4",
+              "txt": "Inteligência Emocional",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Competência Técnica (Hard Skill)"
+            },
+            {
+              "id": "z2",
+              "label": "Competência Socioemocional (Soft Skill)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Hard skills são mensuráveis e técnicas; Soft skills são comportamentais e relacionais."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Segundo o Fórum Econômico Mundial, quais das seguintes são classificadas como competências cognitivas e socioemocionais top 5 para o futuro, [NAME]?",
+          "answers": [
+            "Pensamento analítico",
+            "Resiliência e flexibilidade",
+            "Manutenção de tornos mecânicos",
+            "Curiosidade e aprendizado contínuo"
+          ],
+          "correct": [
+            "Pensamento analítico",
+            "Resiliência e flexibilidade",
+            "Curiosidade e aprendizado contínuo"
+          ],
+          "tip": "As top skills focam na capacidade de adaptação e raciocínio lógico."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O pensamento [COMBO] é a capacidade de questionar, analisar e tomar decisões com base em evidências.",
+          "options": [
+            "Crítico",
+            "Mágico",
+            "Linear",
+            "Passivo"
+          ],
+          "correct": "Crítico",
+          "tip": "É uma das soft skills mais valorizadas em ambientes complexos."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], das 10 competências mais demandadas até 2027 pelo Fórum Econômico Mundial, quantas são socioemocionais ou cognitivas (não estritamente técnicas)?",
+          "answers": [
+            "Apenas 2",
+            "Exatamente 5",
+            "Ao menos 7",
+            "Todas as 10"
+          ],
+          "correct": "Ao menos 7",
+          "tip": "Isso demonstra que o desenvolvimento comportamental é estratégico."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a adaptabilidade no contexto da Indústria 4.0 significa ajustar-se lentamente e com resistência a novas tecnologias.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Adaptabilidade exige ajuste rápido e abertura a novos cenários."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione a competência do ranking (Future of Jobs) ao seu tipo principal, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Pensamento Criativo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Motivação e Autoconhecimento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Letramento Tecnológico",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Controle de Qualidade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Cognitiva"
+            },
+            {
+              "id": "z2",
+              "label": "Socioemocional"
+            },
+            {
+              "id": "z3",
+              "label": "Técnica"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender a categoria da habilidade ajuda a direcionar o método de estudo."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A resolução de problemas [COMBO] envolve articular soluções para desafios inéditos e multidisciplinares.",
+          "options": [
+            "Complexos",
+            "Simples",
+            "Matemáticos",
+            "Óbvios"
+          ],
+          "correct": "Complexos",
+          "tip": "A Indústria 4.0 frequentemente apresenta cenários sem respostas pré-definidas."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais opções representam competências técnicas (Hard Skills) essenciais mapeadas para o profissional 4.0?",
+          "answers": [
+            "Análise de dados e estatística",
+            "Empatia e escuta ativa",
+            "Cibersegurança e proteção de dados",
+            "Automação e integração de sistemas"
+          ],
+          "correct": [
+            "Análise de dados e estatística",
+            "Cibersegurança e proteção de dados",
+            "Automação e integração de sistemas"
+          ],
+          "tip": "Hard skills são os conhecimentos práticos e operacionais sobre a tecnologia."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que significa 'Colaboração' no Mapa de Competências do Profissional 4.0, [NAME]?",
+          "answers": [
+            "Trabalhar em equipes diversas, presenciais e remotas.",
+            "Executar tarefas individuais sem consultar ninguém.",
+            "Repassar todas as obrigações para a inteligência artificial.",
+            "Concordar com o gestor em todas as situações sem questionar."
+          ],
+          "correct": "Trabalhar em equipes diversas, presenciais e remotas.",
+          "tip": "O ambiente digital exige sinergia entre pessoas em diferentes locais."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o 'Letramento Tecnológico', classificado como competência técnica, figura no Top 10 das habilidades mais demandadas até 2027.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É a 6ª competência mais demandada globalmente."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Por que o autoconhecimento é considerado tão estratégico quanto o domínio técnico na era digital, [NAME]?",
+          "answers": [
+            "Porque permite que o profissional alinhe seus esforços ao seu perfil, evitando frustrações.",
+            "Porque é uma exigência legal para emitir notas fiscais.",
+            "Porque os sistemas de IA avaliam os perfis psicológicos secretamente.",
+            "Porque substitui a necessidade de ter diploma superior."
+          ],
+          "correct": "Porque permite que o profissional alinhe seus esforços ao seu perfil, evitando frustrações.",
+          "trans": "PROT",
+          "tip": "Conhecer a si mesmo é o alicerce para planejar uma carreira sólida."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Autoconhecimento profissional é a capacidade de reconhecer com clareza seus [COMBO] fortes, limitações e valores no contexto da carreira.",
+          "options": [
+            "Pontos",
+            "Cargos",
+            "Salários",
+            "Erros"
+          ],
+          "correct": "Pontos",
+          "tip": "Reconhecer suas qualidades é o primeiro passo para o desenvolvimento."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], investir tempo e energia em direções que não se alinham ao seu perfil geralmente resulta em frustração e baixo desempenho.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O direcionamento correto potencializa os resultados e a satisfação pessoal."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], no Modelo de Autoavaliação, o que caracteriza o nível 3 (Intermediário)?",
+          "answers": [
+            "Consegue aplicar a competência com alguma autonomia.",
+            "Domina o tema e consegue ensinar a outros.",
+            "Precisa de apoio constante para aplicar o conceito.",
+            "Compreende o conceito, mas tem dificuldades na prática."
+          ],
+          "correct": "Consegue aplicar a competência com alguma autonomia.",
+          "tip": "No nível intermediário, você já caminha com as próprias pernas na execução."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Na matriz SWOT pessoal, quais elementos representam os fatores internos do indivíduo, [NAME]?",
+          "answers": [
+            "Forças (Strengths)",
+            "Ameaças (Threats)",
+            "Fraquezas (Weaknesses)",
+            "Oportunidades (Opportunities)"
+          ],
+          "correct": [
+            "Forças (Strengths)",
+            "Fraquezas (Weaknesses)"
+          ],
+          "tip": "Fatores internos são aqueles sobre os quais você tem controle direto."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione o componente da Análise SWOT ao seu exemplo prático:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Força",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fraqueza",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Oportunidade",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Ameaça",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Alta motivação e boa comunicação"
+            },
+            {
+              "id": "z2",
+              "label": "Inglês técnico ainda deficiente"
+            },
+            {
+              "id": "z3",
+              "label": "Aumento de vagas em cursos online"
+            },
+            {
+              "id": "z4",
+              "label": "Concorrência com novos algoritmos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A SWOT cruza sua realidade interna com o cenário externo do mercado."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No Mapa de Capacidades, a intenção é transformar percepções vagas em [COMBO] concretas.",
+          "options": [
+            "Ações",
+            "Reclamações",
+            "Teorias",
+            "Dúvidas"
+          ],
+          "correct": "Ações",
+          "tip": "O planejamento precisa gerar movimento e mudança na prática."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], como definimos 'Lacunas de Conhecimento' no planejamento de carreira?",
+          "answers": [
+            "A distância entre o seu nível de conhecimento atual e o perfil profissional desejado.",
+            "O período de férias entre um semestre letivo e outro.",
+            "O esquecimento de matérias básicas do ensino fundamental.",
+            "O tempo gasto em redes sociais durante o expediente."
+          ],
+          "correct": "A distância entre o seu nível de conhecimento atual e o perfil profissional desejado.",
+          "tip": "A lacuna (gap) é o espaço que você precisa preencher estudando."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no mapa de autoavaliação de capacidades, o ideal é focar primeiro nas lacunas de conhecimento que têm menor impacto na sua área de escolha.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Deve-se priorizar as lacunas de MAIOR impacto para otimizar os resultados."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais destas capacidades básicas fazem parte do Mapa de Avaliação da Unidade Curricular, [NAME]?",
+          "answers": [
+            "Compreender conceitos de IoT e sensoriamento.",
+            "Interpretar dados com ferramentas de Big Data.",
+            "Aplicar boas práticas de cibersegurança.",
+            "Realizar cirurgias robóticas avançadas."
+          ],
+          "correct": [
+            "Compreender conceitos de IoT e sensoriamento.",
+            "Interpretar dados com ferramentas de Big Data.",
+            "Aplicar boas práticas de cibersegurança."
+          ],
+          "tip": "O mapa avalia os fundamentos da transformação digital industrial."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe o nível de autoavaliação à sua descrição correspondente, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nível 1 - Iniciante",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nível 2 - Básico",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nível 4 - Avançado",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Conheço pouco, preciso de apoio constante"
+            },
+            {
+              "id": "z2",
+              "label": "Compreendo, mas tenho dificuldades na prática"
+            },
+            {
+              "id": "z3",
+              "label": "Domino o tema e consigo ensinar a outros"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A sinceridade nesta etapa é o que torna o seu planejamento realista."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], as ameaças na matriz SWOT representam fatores externos do mercado que podem prejudicar o alcance de seus objetivos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ameaças não estão sob seu controle, mas você pode se preparar para elas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Após preencher o Mapa de Capacidades, qual deve ser a sua principal atitude para montar o roteiro de estudos, [NAME]?",
+          "answers": [
+            "Identificar as capacidades com menor nota para defini-las como prioridade.",
+            "Ignorar as notas baixas e estudar apenas o que já domina no nível 4.",
+            "Apagar as notas baixas para não desmotivar.",
+            "Desistir da área se houver mais de três capacidades no nível 1."
+          ],
+          "correct": "Identificar as capacidades com menor nota para defini-las como prioridade.",
+          "trans": "NORM",
+          "tip": "Enfrentar as dificuldades de frente é a base do crescimento."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o que é, essencialmente, um Roadmap de Estudos?",
+          "answers": [
+            "Um plano visual e estruturado que organiza metas em uma linha do tempo realista.",
+            "Um mapa geográfico mostrando as rotas de transporte para o local de trabalho.",
+            "Um software antivírus instalado em ambientes industriais.",
+            "Um certificado emitido após a conclusão de qualquer curso online."
+          ],
+          "correct": "Um plano visual e estruturado que organiza metas em uma linha do tempo realista.",
+          "tip": "A metáfora do 'mapa rodoviário' indica o caminho passo a passo para o objetivo."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A metodologia [COMBO] é utilizada para garantir que as metas criadas sejam eficazes e bem estruturadas.",
+          "options": [
+            "SMART",
+            "SWOT",
+            "AGILE",
+            "LEAN"
+          ],
+          "correct": "SMART",
+          "tip": "SMART é um acrônimo em inglês para metas inteligentes."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], um dos benefícios do roadmap de estudos é permitir o monitoramento do progresso, possibilitando ajustes de rota quando necessário.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Planos não são engessados; eles evoluem conforme o seu aprendizado."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione a letra do modelo SMART ao seu significado correto, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "S (Specific)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "M (Measurable)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "A (Attainable)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "T (Time-bound)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Específica: O que exatamente quero aprender?"
+            },
+            {
+              "id": "z2",
+              "label": "Mensurável: Como vou medir o progresso?"
+            },
+            {
+              "id": "z3",
+              "label": "Atingível: É realista com meus recursos?"
+            },
+            {
+              "id": "z4",
+              "label": "Temporal: Qual o prazo?"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O critério faltante (R) refere-se a 'Relevante' para a sua carreira."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais alternativas apresentam exemplos de metas que NÃO seguem corretamente o padrão SMART, [NAME]?",
+          "answers": [
+            "Quero estudar computação em algum momento da vida.",
+            "Vou ser o melhor programador do mundo até amanhã.",
+            "Concluir o curso de Python básico em 2 meses, dedicando 4h semanais.",
+            "Estudar muito sobre a Indústria 4.0."
+          ],
+          "correct": [
+            "Quero estudar computação em algum momento da vida.",
+            "Vou ser o melhor programador do mundo até amanhã.",
+            "Estudar muito sobre a Indústria 4.0."
+          ],
+          "tip": "Metas vagas ou irreais falham nos critérios de Específica, Mensurável e Temporal."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "No critério 'Relevante' (R) da meta SMART, devemos garantir que a meta se conecte com a nossa área de [COMBO].",
+          "options": [
+            "Interesse",
+            "Lazer",
+            "Repouso",
+            "Desgaste"
+          ],
+          "correct": "Interesse",
+          "tip": "Uma meta irrelevante fará você perder a motivação rapidamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em um Roadmap focado em Computação em Nuvem, qual seria um bom exemplo de meta 'Mensurável'?",
+          "answers": [
+            "Completar 3 projetos práticos e o exame de certificação AWS.",
+            "Entender razoavelmente bem os conceitos de SaaS.",
+            "Aprender a usar a nuvem um dia.",
+            "Ser um bom profissional de tecnologia."
+          ],
+          "correct": "Completar 3 projetos práticos e o exame de certificação AWS.",
+          "tip": "Números e certificações oferecem evidências claras de que a meta foi atingida."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], segundo o workshop, você deve distribuir suas metas no roadmap concentrando tudo em um prazo máximo de uma semana, para agilizar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O roadmap propõe um horizonte realista, muitas vezes de 6 a 12 meses."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais são as etapas recomendadas para a construção do seu roadmap de estudos no Workshop, [NAME]?",
+          "answers": [
+            "Escolher sua tecnologia-foco.",
+            "Mapear as lacunas prioritárias.",
+            "Definir metas subjetivas e abertas.",
+            "Organizar as metas na linha do tempo."
+          ],
+          "correct": [
+            "Escolher sua tecnologia-foco.",
+            "Mapear as lacunas prioritárias.",
+            "Organizar as metas na linha do tempo."
+          ],
+          "tip": "Lembre-se: as metas devem ser SMART (objetivas), não subjetivas."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com os modelos apresentados, qual é a atitude sugerida após a criação do Roadmap?",
+          "answers": [
+            "Revisar o roadmap mensalmente e celebrar cada conquista.",
+            "Guardá-lo na gaveta e só consultá-re no fim do ano.",
+            "Mudá-lo completamente a cada dois dias.",
+            "Entregá-lo ao gestor para que ele estude por você."
+          ],
+          "correct": "Revisar o roadmap mensalmente e celebrar cada conquista.",
+          "tip": "A constância e o acompanhamento são vitais para o sucesso do plano."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Ordene logicamente a estrutura temporal de um planejamento de estudos, baseando-se no exemplo da nuvem, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1. Primeiro passo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "2. Segundo passo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "3. Terceiro passo",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Compreender fundamentos (ex: IaaS, PaaS)"
+            },
+            {
+              "id": "z2",
+              "label": "Aplicar em laboratórios práticos"
+            },
+            {
+              "id": "z3",
+              "label": "Buscar especialização e certificação oficial"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O aprendizado progressivo constrói uma base sólida antes da especialização."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], compartilhar seu roadmap com um colega para receber feedback é uma prática desencorajada, pois gera competição.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Compartilhar e pedir feedback são ações encorajadas no workshop para melhorar o plano."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "O futuro pertence àqueles que se preparam para ele hoje. Qual é o principal insumo que o Roadmap de Estudos exige de você, [NAME]?",
+          "answers": [
+            "A decisão de agir e seguir o plano estabelecido.",
+            "Investimento financeiro imediato em hardware.",
+            "Abandono da sua área de atuação atual.",
+            "Esperar que a empresa pague pelos seus estudos."
+          ],
+          "correct": "A decisão de agir e seguir o plano estabelecido.",
+          "trans": "FIM",
+          "tip": "Ferramentas são úteis, mas é a sua atitude e execução que trarão os resultados reais."
+        }
+      ]
+    }
   ]
 }
