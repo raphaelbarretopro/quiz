@@ -14487,46 +14487,7 @@
           ],
           "correct": "Falso",
           "tip": "Máquinas assumem tarefas repetitivas; o diferencial humano está nas competências socioemocionais."
-        },
-        {
-          "type": "drag",
-          "topics": "AGEN",
-          "questions": "[NAME], relacione as habilidades à sua correta classificação (Hard Skill ou Soft Skill):",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Programação em Python",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Pensamento Crítico",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Configuração de Cloud",
-              "match": "z1"
-            },
-            {
-              "id": "d4",
-              "txt": "Inteligência Emocional",
-              "match": "z2"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Competência Técnica (Hard Skill)"
-            },
-            {
-              "id": "z2",
-              "label": "Competência Socioemocional (Soft Skill)"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Hard skills são mensuráveis e técnicas; Soft skills são comportamentais e relacionais."
-        },
+        },       
         {
           "type": "multi",
           "topics": "AGEN",
