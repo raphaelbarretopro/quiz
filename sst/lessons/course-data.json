@@ -13489,7 +13489,7 @@
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Relacione o tipo de integração às suas características:",
+          "questions": "[NAME], relacione o tipo de integração às suas características:",
           "items": [
             {
               "id": "d1",
@@ -13520,10 +13520,18 @@
             {
               "id": "z2",
               "label": "Integração Horizontal"
+            },
+            {
+              "id": "z3",
+              "label": "Integração Transversal"
+            },
+            {
+              "id": "z4",
+              "label": "Engenharia de Ponta a Ponta"
             }
           ],
           "correct": "drag",
-          "tip": "Vertical é profundidade hierárquica; horizontal é alcance ao longo da cadeia de valor."
+          "tip": "Vertical é a profundidade hierárquica (chão de fábrica ao ERP); Horizontal é o alcance ao longo da cadeia de valor (do fornecedor ao cliente)."
         },
         {
           "type": "multiple",
@@ -14487,7 +14495,7 @@
           ],
           "correct": "Falso",
           "tip": "Máquinas assumem tarefas repetitivas; o diferencial humano está nas competências socioemocionais."
-        },       
+        },
         {
           "type": "multi",
           "topics": "AGEN",
@@ -15104,857 +15112,857 @@
       ]
     },
     {
-"slug": "aula-23-bonus",
-"lesson_info": {
-"id": "Aula-23-bonus",
-"title": "AULA 23 BÔNUS - APRENDENDO ARDUINO DO ZERO",
-"topics": [
-{
-"id": "HARD",
-"name": "FUNDAMENTOS DE HARDWARE",
-"desc": "A estrutura física do Arduino, o microcontrolador ATmega328 e as funções da placa.",
-"color": "#e74c3c",
-"img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "SIMU",
-"name": "AMBIENTE DE DESENVOLVIMENTO",
-"desc": "Conhecendo a IDE do Arduino e o simulador online Tinkercad.",
-"color": "#3498db",
-"img_url": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "ELET",
-"name": "ELETRÔNICA DIGITAL",
-"desc": "Sinais lógicos, montagem em protoboard, cálculos de resistores e LEDs.",
-"color": "#f1c40f",
-"img_url": "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "PROG",
-"name": "PROGRAMAÇÃO E CÓDIGO",
-"desc": "A estrutura obrigatória de Setup e Loop e os comandos base de controle.",
-"color": "#2ecc71",
-"img_url": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1600"
-}
-],
-"sokoban": [
-"L",
-"E",
-"D",
-"S"
-]
-},
-"questions": [
-{
-"type": "multiple",
-"topics": "HARD",
-"questions": "[NAME], de acordo com nosso material do SENAI, o que define corretamente o Arduino?",
-"answers": [
-"Uma plataforma eletrônica de código aberto que une hardware, software e comunidade.",
-"Apenas a placa física com componentes eletrônicos.",
-"Um software para programar em C++.",
-"Uma marca de microcontroladores industriais."
-],
-"correct": "Uma plataforma eletrônica de código aberto que une hardware, software e comunidade.",
-"tip": "Arduino é um ecossistema completo, não apenas a placa física."
-},
-{
-"type": "boolean",
-"topics": "HARD",
-"questions": "[NAME], o microcontrolador ATmega328 é considerado o 'coração' da placa Arduino Uno.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "É ele quem recebe e executa as instruções do código."
-},
-{
-"type": "combo",
-"topics": "HARD",
-"questions": "O [COMBO] é a parte física do sistema, ou seja, tudo aquilo que você consegue tocar, como a placa e os LEDs.",
-"options": [
-"Hardware",
-"Software",
-"Firmware",
-"Sketch"
-],
-"correct": "Hardware",
-"tip": "Sem o hardware, o código não tem onde ser executado."
-},
-{
-"type": "multi",
-"topics": "HARD",
-"questions": "Como Jovem Aprendiz da Technip, você precisará entender a infraestrutura. Quais são as três funções principais da placa Arduino em relação ao microcontrolador?",
-"answers": [
-"Comunicação",
-"Alimentação",
-"Conexão",
-"Programação autônoma",
-"Geração de internet"
-],
-"correct": [
-"Comunicação",
-"Alimentação",
-"Conexão"
-],
-"tip": "A placa facilita o uso do microcontrolador conectando-o ao PC, energia e componentes."
-},
-{
-"type": "drag",
-"topics": "HARD",
-"questions": "[NAME], relacione os pinos da placa Arduino às suas descrições:",
-"items": [
-{
-"id": "d1",
-"txt": "Pinos Digitais",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Pinos Analógicos",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Pinos PWM (~)",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Pinos de Alimentação",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Trabalham com 0V ou 5V"
-},
-{
-"id": "z2",
-"label": "Lêem variações entre 0V e 5V"
-},
-{
-"id": "z3",
-"label": "Simulam valores intermediários"
-},
-{
-"id": "z4",
-"label": "GND, 5V e 3.3V"
-}
-],
-"correct": "drag",
-"tip": "Os pinos do lado direito geralmente são digitais, e os do esquerdo, analógicos."
-},
-{
-"type": "multiple",
-"topics": "HARD",
-"questions": "No laboratório, você percebe que algumas placas são genéricas. O que acontece se enviarmos o mesmo código para uma placa original e para um clone?",
-"answers": [
-"Funciona igualzinho em ambas.",
-"O clone queima ao receber o código.",
-"O código precisa ser adaptado para o clone.",
-"A placa original é mais rápida."
-],
-"correct": "Funciona igualzinho em ambas.",
-"tip": "Como o projeto é de código aberto, ambas usam o mesmo ATmega328."
-},
-{
-"type": "boolean",
-"topics": "HARD",
-"questions": "[NAME], o cabo USB serve apenas para alimentar a placa Arduino, não participando da transferência de código.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "O USB faz a comunicação serial entre o PC e o microcontrolador, além da alimentação."
-},
-{
-"type": "combo",
-"topics": "HARD",
-"questions": "Um botão pressionado ou a leitura de temperatura de um ambiente são exemplos de [COMBO] para o microcontrolador.",
-"options": [
-"Entrada (Input)",
-"Saída (Output)",
-"Processamento",
-"Energia"
-],
-"correct": "Entrada (Input)",
-"tip": "Informações que vêm do mundo externo para o Arduino são entradas."
-},
-{
-"type": "multi",
-"topics": "HARD",
-"questions": "Quais dos componentes abaixo são classificados como dispositivos de SAÍDA (Output)?",
-"answers": [
-"LED",
-"Motor",
-"Buzzer",
-"Sensor de luz",
-"Botão"
-],
-"correct": [
-"LED",
-"Motor",
-"Buzzer"
-],
-"tip": "Saídas são dispositivos que executam ações comandadas pelo Arduino."
-},
-{
-"type": "multiple",
-"topics": "HARD",
-"questions": "[NAME], qual modelo de Arduino é o mais recomendado para iniciantes devido à facilidade de conexão e conector USB integrado?",
-"answers": [
-"Arduino Uno",
-"Arduino Nano",
-"Arduino Pro Mini",
-"Arduino Mega"
-],
-"correct": "Arduino Uno",
-"tip": "O Uno possui o tamanho ideal para prototipar sem problemas de espaço."
-},
-{
-"type": "boolean",
-"topics": "HARD",
-"questions": "O Arduino Pro Mini é ideal para produtos finais justamente por não ter o conector USB integrado.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Após o código gravado, o USB é desnecessário, economizando espaço e custo."
-},
-{
-"type": "combo",
-"topics": "HARD",
-"questions": "A comunicação [COMBO] é a ponte de troca de dados constante entre o computador e o Arduino.",
-"options": [
-"Serial",
-"Paralela",
-"Bluetooth",
-"Analógica"
-],
-"correct": "Serial",
-"tip": "Essa comunicação ocorre via cabo USB e o chip conversor da placa."
-},
-{
-"type": "multiple",
-"topics": "HARD",
-"questions": "Para concluir esta etapa, lembre-se: quando pesquisamos no Google, a definição de Arduino é uma plataforma eletrônica de...",
-"answers": [
-"Código Aberto (Open Source)",
-"Código Fechado (Proprietário)",
-"Uso Exclusivo Industrial",
-"Sistema Pago"
-],
-"correct": "Código Aberto (Open Source)",
-"trans": "SIMU",
-"tip": "Isso permite que qualquer pessoa crie placas compatíveis (clones)."
-},
-{
-"type": "multiple",
-"topics": "SIMU",
-"questions": "[NAME], por que utilizamos o Tinkercad nas nossas aulas práticas do SENAI em vez de instalar a Arduino IDE?",
-"answers": [
-"Porque os computadores têm restrição de download e o Tinkercad roda direto no navegador.",
-"Porque o Tinkercad é a única ferramenta que o Arduino suporta.",
-"Porque a Arduino IDE foi descontinuada.",
-"Porque o Tinkercad é pago e o SENAI tem licença."
-],
-"correct": "Porque os computadores têm restrição de download e o Tinkercad roda direto no navegador.",
-"tip": "O Tinkercad é um simulador online gratuito da Autodesk."
-},
-{
-"type": "boolean",
-"topics": "SIMU",
-"questions": "O ambiente de código onde escrevemos as instruções para o Arduino é conhecido como Sketch.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "O sketch é a 'receita' que o Arduino vai seguir passo a passo."
-},
-{
-"type": "combo",
-"topics": "SIMU",
-"questions": "Na IDE do Arduino, o botão [COMBO] serve apenas para conferir se há erros de sintaxe no código, sem enviá-lo para a placa.",
-"options": [
-"Verificar",
-"Upload",
-"Salvar",
-"Monitor Serial"
-],
-"correct": "Verificar",
-"tip": "Use sempre o Verificar antes de tentar carregar o programa."
-},
-{
-"type": "multi",
-"topics": "SIMU",
-"questions": "[NAME], quais são as principais vantagens de usar o Tinkercad Circuits?",
-"answers": [
-"É gratuito e roda no navegador.",
-"Permite simular circuitos reais sem risco de queimar componentes.",
-"Salva os projetos automaticamente na nuvem.",
-"Requer um computador super potente para rodar.",
-"Funciona apenas offline."
-],
-"correct": [
-"É gratuito e roda no navegador.",
-"Permite simular circuitos reais sem risco de queimar componentes.",
-"Salva os projetos automaticamente na nuvem."
-],
-"tip": "Basta ter acesso à internet e uma conta para acessar de qualquer lugar."
-},
-{
-"type": "drag",
-"topics": "SIMU",
-"questions": "Relacione as áreas e botões da IDE/Tinkercad às suas funções:",
-"items": [
-{
-"id": "d1",
-"txt": "Área de Sketch",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Área de Mensagens",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Upload",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Iniciar Simulação",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Onde o código é escrito"
-},
-{
-"id": "z2",
-"label": "Mostra erros e status"
-},
-{
-"id": "z3",
-"label": "Envia o código para a placa física"
-},
-{
-"id": "z4",
-"label": "Roda o código no circuito virtual"
-}
-],
-"correct": "drag",
-"tip": "Conhecer o ambiente de desenvolvimento é vital para o fluxo de trabalho."
-},
-{
-"type": "multiple",
-"topics": "SIMU",
-"questions": "[NAME], se o seu código piscar um LED na simulação do Tinkercad, o que acontecerá se enviar exatamente o mesmo código para a placa física?",
-"answers": [
-"Ele funcionará da mesma maneira no mundo real.",
-"Ele precisará ser traduzido do Tinkercad para o C++.",
-"Ele não vai compilar.",
-"A placa física precisa de uma biblioteca especial."
-],
-"correct": "Ele funcionará da mesma maneira no mundo real.",
-"tip": "A lógica e a linguagem são idênticas nos dois ambientes."
-},
-{
-"type": "boolean",
-"topics": "SIMU",
-"questions": "No Tinkercad, você deve sempre parar a simulação antes de tentar salvar ou modificar o circuito com segurança.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Assim como na vida real, evitamos alterar ligações com o circuito energizado."
-},
-{
-"type": "combo",
-"topics": "SIMU",
-"questions": "A sigla IDE significa Integrated [COMBO] Environment.",
-"options": [
-"Development",
-"Digital",
-"Data",
-"Design"
-],
-"correct": "Development",
-"tip": "É o Ambiente de Desenvolvimento Integrado oficial da Arduino."
-},
-{
-"type": "multi",
-"topics": "SIMU",
-"questions": "Quais elementos encontramos na biblioteca de componentes do Tinkercad?",
-"answers": [
-"Arduino Uno",
-"Protoboard",
-"LEDs e Resistores",
-"Ferro de solda virtual",
-"Multímetro"
-],
-"correct": [
-"Arduino Uno",
-"Protoboard",
-"LEDs e Resistores",
-"Multímetro"
-],
-"tip": "Não há necessidade de solda em protoboards ou simuladores deste tipo."
-},
-{
-"type": "multiple",
-"topics": "SIMU",
-"questions": "[NAME], como você acessa um projeto salvo anteriormente no Tinkercad?",
-"answers": [
-"Clicando em 'Circuits' na tela inicial.",
-"Baixando um arquivo .ino do Google Drive.",
-"Apertando CTRL+S repetidamente.",
-"Reescrevendo o código do zero."
-],
-"correct": "Clicando em 'Circuits' na tela inicial.",
-"tip": "Todos os seus projetos virtuais ficam salvos na nuvem da sua conta."
-},
-{
-"type": "boolean",
-"topics": "SIMU",
-"questions": "A linguagem base utilizada para programar o Arduino na IDE ou Tinkercad é derivada de C/C++.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Isso torna o Arduino uma excelente plataforma para aprender conceitos reais de programação."
-},
-{
-"type": "combo",
-"topics": "SIMU",
-"questions": "A etapa de [COMBO] é onde a 'mágica' de transferir as instruções para o hardware finalmente acontece.",
-"options": [
-"Upload",
-"Verificação",
-"Montagem",
-"Desmontagem"
-],
-"correct": "Upload",
-"trans": "ELET",
-"tip": "O Upload compila o sketch e transfere via Serial."
-},
-{
-"type": "multiple",
-"topics": "ELET",
-"questions": "[NAME], na eletrônica digital do Arduino, o estado HIGH (Alto) corresponde a qual voltagem no pino digital?",
-"answers": [
-"5 Volts",
-"0 Volts",
-"12 Volts",
-"3.3 Volts"
-],
-"correct": "5 Volts",
-"tip": "HIGH = Ligado = Número 1 = 5V."
-},
-{
-"type": "boolean",
-"topics": "ELET",
-"questions": "O estado LOW (Baixo) envia 5 Volts para acender um LED conectado ao pino.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "LOW representa 0 Volts (GND), o que apaga o LED."
-},
-{
-"type": "combo",
-"topics": "ELET",
-"questions": "Para evitar que um LED queime ao receber os 5V e 20mA do Arduino, devemos sempre utilizar um [COMBO] em série.",
-"options": [
-"Resistor",
-"Capacitor",
-"Diodo",
-"Transistor"
-],
-"correct": "Resistor",
-"tip": "O resistor limita a corrente elétrica que passa pelo componente."
-},
-{
-"type": "multi",
-"topics": "ELET",
-"questions": "Sobre as conexões internas de uma Protoboard, assinale as alternativas corretas:",
-"answers": [
-"Os furos centrais são conectados verticalmente em colunas.",
-"Os trilhos laterais (+ e -) são conectados horizontalmente.",
-"Existe uma divisão no centro que isola a parte superior da inferior.",
-"Todos os furos da placa são interconectados em uma única rede.",
-"Você precisa usar solda para fixar os cabos."
-],
-"correct": [
-"Os furos centrais são conectados verticalmente em colunas.",
-"Os trilhos laterais (+ e -) são conectados horizontalmente.",
-"Existe uma divisão no centro que isola a parte superior da inferior."
-],
-"tip": "A protoboard (matriz de contatos) facilita conexões sem uso de solda."
-},
-{
-"type": "drag",
-"topics": "ELET",
-"questions": "[NAME], aplique a Lei de Ohm (R = V / I) para o circuito do LED. Relacione os valores ao seu significado:",
-"items": [
-{
-"id": "d1",
-"txt": "5V",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "2V",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "0,02A (20mA)",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "150 Ohms",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Tensão fornecida pelo Pino"
-},
-{
-"id": "z2",
-"label": "Queda de tensão no LED"
-},
-{
-"id": "z3",
-"label": "Corrente elétrica suportada"
-},
-{
-"id": "z4",
-"label": "Resistência mínima calculada"
-}
-],
-"correct": "drag",
-"tip": "Cálculo: R = (5V - 2V) / 0.02A = 150 Ohms."
-},
-{
-"type": "multiple",
-"topics": "ELET",
-"questions": "Na aula, calculamos que o resistor ideal para o LED é de 150Ω. Qual valor comercial aproximado podemos utilizar com segurança?",
-"answers": [
-"220 Ohms",
-"10 Ohms",
-"1000 Ohms",
-"Nenhum, deve ser exato"
-],
-"correct": "220 Ohms",
-"tip": "Um pouco a mais de resistência apenas diminui levemente o brilho, protegendo o LED."
-},
-{
-"type": "boolean",
-"topics": "ELET",
-"questions": "[NAME], a eletrônica digital baseia-se em apenas dois estados: 1 (Ligado) e 0 (Desligado).",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "O Arduino opera quase inteiramente nessa lógica binária."
-},
-{
-"type": "combo",
-"topics": "ELET",
-"questions": "O pino marcado como [COMBO] na placa Arduino atua como o pólo negativo (0 Volts) onde o circuito elétrico fecha.",
-"options": [
-"GND",
-"5V",
-"VIN",
-"TX"
-],
-"correct": "GND",
-"tip": "GND vem do termo em inglês Ground (Terra)."
-},
-{
-"type": "multi",
-"topics": "ELET",
-"questions": "Para montar um circuito de pisca-pisca seguro no Tinkercad, quais componentes você irá arrastar para a área de trabalho?",
-"answers": [
-"Arduino Uno",
-"Protoboard",
-"LED",
-"Resistor de 220Ω",
-"Bateria de 9V adicional"
-],
-"correct": [
-"Arduino Uno",
-"Protoboard",
-"LED",
-"Resistor de 220Ω"
-],
-"tip": "O próprio Arduino já fornecerá a energia de 5V necessária pelos pinos digitais."
-},
-{
-"type": "multiple",
-"topics": "ELET",
-"questions": "O que acontece se ligarmos o LED invertido (perna negativa no pino 13 e positiva no GND)?",
-"answers": [
-"Ele não acende, pois o diodo permite corrente em um só sentido.",
-"Ele queima instantaneamente.",
-"Ele muda a cor para azul.",
-"A placa entra em curto-circuito."
-],
-"correct": "Ele não acende, pois o diodo permite corrente em um só sentido.",
-"tip": "LED significa Diodo Emissor de Luz (Light Emitting Diode)."
-},
-{
-"type": "boolean",
-"topics": "ELET",
-"questions": "Os fios de cores diferentes no simulador alteram as propriedades elétricas da corrente.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "As cores servem apenas para organização visual (ex: vermelho = +, preto = GND)."
-},
-{
-"type": "combo",
-"topics": "ELET",
-"questions": "Ao colocar componentes na protoboard, evitamos colocar as duas pernas de um resistor na mesma [COMBO] vertical, pois isso causa um curto na própria peça.",
-"options": [
-"Coluna",
-"Linha horizontal",
-"Borda",
-"Divisória"
-],
-"correct": "Coluna",
-"tip": "Como a coluna inteira está conectada, a eletricidade ignoraria a resistência."
-},
-{
-"type": "multiple",
-"topics": "ELET",
-"questions": "[NAME], como futuros profissionais, qual é a principal vantagem de usar uma protoboard antes de soldar uma placa definitiva?",
-"answers": [
-"Permite testar e modificar o circuito facilmente sem estragar componentes.",
-"A protoboard aumenta a velocidade do processador.",
-"Ela elimina a necessidade do uso de resistores.",
-"Permite rodar códigos em Java."
-],
-"correct": "Permite testar e modificar o circuito facilmente sem estragar componentes.",
-"trans": "PROG",
-"tip": "É a base da 'prototipagem' rápida que faz o Arduino ser tão famoso."
-},
-{
-"type": "multiple",
-"topics": "PROG",
-"questions": "[NAME], a função void setup() em um sketch do Arduino tem qual característica de execução?",
-"answers": [
-"Roda uma única vez, logo que o Arduino é ligado.",
-"Roda continuamente para sempre.",
-"Só roda quando você aperta o botão no computador.",
-"Executa apenas funções analógicas."
-],
-"correct": "Roda uma única vez, logo que o Arduino é ligado.",
-"tip": "O setup é usado para definir o estado inicial (como calçar os tênis antes de correr)."
-},
-{
-"type": "boolean",
-"topics": "PROG",
-"questions": "A função void loop() executa repetidamente, sem parar, enquanto a placa tiver energia.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "É aqui que colocamos as lógicas dinâmicas, como o acender e apagar constante de um semáforo."
-},
-{
-"type": "combo",
-"topics": "PROG",
-"questions": "O comando [COMBO] define o modo de funcionamento de um pino, configurando-o como INPUT ou OUTPUT.",
-"options": [
-"pinMode",
-"digitalWrite",
-"delay",
-"setup"
-],
-"correct": "pinMode",
-"tip": "Este comando fica sempre dentro do void setup()."
-},
-{
-"type": "multi",
-"topics": "PROG",
-"questions": "Como Jovem Aprendiz atuando em sistemas da Technip, você sabe que a sintaxe importa. Quais afirmações sobre a linguagem C++ do Arduino estão corretas?",
-"answers": [
-"A IDE diferencia letras maiúsculas de minúsculas (Case Sensitive).",
-"Toda instrução deve terminar com ponto e vírgula (;).",
-"Comentários podem ser feitos com barras duplas (//).",
-"OUTPUT deve ser escrito em letras minúsculas.",
-"O comando pinMode tem todas as letras minúsculas."
-],
-"correct": [
-"A IDE diferencia letras maiúsculas de minúsculas (Case Sensitive).",
-"Toda instrução deve terminar com ponto e vírgula (;).",
-"Comentários podem ser feitos com barras duplas (//)."
-],
-"tip": "Errar uma maiúscula ou esquecer um ; é a maior causa de erros em iniciantes."
-},
-{
-"type": "drag",
-"topics": "PROG",
-"questions": "Relacione os comandos do código às suas respectivas ações:",
-"items": [
-{
-"id": "d1",
-"txt": "pinMode(13, OUTPUT)",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "digitalWrite(13, HIGH)",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "delay(1000)",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "digitalWrite(13, LOW)",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Prepara o pino para enviar energia"
-},
-{
-"id": "z2",
-"label": "Acende o LED (5V)"
-},
-{
-"id": "z3",
-"label": "Pausa a execução por 1 segundo"
-},
-{
-"id": "z4",
-"label": "Apaga o LED (0V)"
-}
-],
-"correct": "drag",
-"tip": "Essa é a estrutura clássica do sketch 'Blink'."
-},
-{
-"type": "multiple",
-"topics": "PROG",
-"questions": "Dentro da função delay(), o tempo deve ser informado em qual unidade de medida?",
-"answers": [
-"Milissegundos",
-"Segundos",
-"Minutos",
-"Microssegundos"
-],
-"correct": "Milissegundos",
-"tip": "Portanto, 1000 milissegundos equivalem a 1 segundo."
-},
-{
-"type": "boolean",
-"topics": "PROG",
-"questions": "[NAME], é possível apagar a função void setup() do seu código, desde que você escreva tudo dentro do void loop().",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "As duas funções são obrigatórias na estrutura base, mesmo que fiquem vazias."
-},
-{
-"type": "combo",
-"topics": "PROG",
-"questions": "O comando [COMBO] define o nível lógico de um pino de saída como 5V ou 0V.",
-"options": [
-"digitalWrite",
-"pinMode",
-"analogRead",
-"delay"
-],
-"correct": "digitalWrite",
-"tip": "Digital (sinal de 0 e 1) + Write (escrever/enviar)."
-},
-{
-"type": "multi",
-"topics": "PROG",
-"questions": "Ao montar o semáforo de dois LEDs (Vermelho no pino 13 e Amarelo no 12), quais blocos lógicos você usa para alternar entre eles?",
-"answers": [
-"Ligar Vermelho e Desligar Amarelo.",
-"Esperar um tempo com delay.",
-"Desligar Vermelho e Ligar Amarelo.",
-"Ler um botão pressionado.",
-"Usar a função reboot()."
-],
-"correct": [
-"Ligar Vermelho e Desligar Amarelo.",
-"Esperar um tempo com delay.",
-"Desligar Vermelho e Ligar Amarelo."
-],
-"tip": "A programação nada mais é do que descrever processos lógicos passo a passo."
-},
-{
-"type": "multiple",
-"topics": "PROG",
-"questions": "O que acontece se escrevermos PinMode(13, OUTPUT) com o 'P' maiúsculo?",
-"answers": [
-"A IDE gera um erro e não compila o código.",
-"Funciona normalmente.",
-"Configura o pino como entrada.",
-"A placa queima o pino."
-],
-"correct": "A IDE gera um erro e não compila o código.",
-"tip": "Lembre-se: Arduino é Case Sensitive. Apenas o 'M' é maiúsculo."
-},
-{
-"type": "boolean",
-"topics": "PROG",
-"questions": "A linha comentada // Liga o LED Vermelho afeta o desempenho do Arduino, deixando o código mais lento.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Comentários são ignorados na compilação, servindo apenas para ajudar humanos a entenderem o código."
-},
-{
-"type": "multiple",
-"topics": "PROG",
-"questions": "[NAME], concluindo nossa jornada de introdução, onde você deve escrever o código de piscar LEDs no Tinkercad?",
-"answers": [
-"Na aba 'Código', selecionando o modo de texto.",
-"No painel frontal da placa Arduino.",
-"No resistor do circuito.",
-"Na barra de URL do navegador."
-],
-"correct": "Na aba 'Código', selecionando o modo de texto.",
-"trans": "FIM",
-"tip": "Lá você insere o sketch e depois aperta Iniciar Simulação para ver a mágica ocorrer."
-}
-]
-}
+      "slug": "aula-23-bonus",
+      "lesson_info": {
+        "id": "Aula-23-bonus",
+        "title": "AULA 23 BÔNUS - APRENDENDO ARDUINO DO ZERO",
+        "topics": [
+          {
+            "id": "HARD",
+            "name": "FUNDAMENTOS DE HARDWARE",
+            "desc": "A estrutura física do Arduino, o microcontrolador ATmega328 e as funções da placa.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "SIMU",
+            "name": "AMBIENTE DE DESENVOLVIMENTO",
+            "desc": "Conhecendo a IDE do Arduino e o simulador online Tinkercad.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "ELET",
+            "name": "ELETRÔNICA DIGITAL",
+            "desc": "Sinais lógicos, montagem em protoboard, cálculos de resistores e LEDs.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROG",
+            "name": "PROGRAMAÇÃO E CÓDIGO",
+            "desc": "A estrutura obrigatória de Setup e Loop e os comandos base de controle.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "L",
+          "E",
+          "D",
+          "S"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "HARD",
+          "questions": "[NAME], de acordo com nosso material do SENAI, o que define corretamente o Arduino?",
+          "answers": [
+            "Uma plataforma eletrônica de código aberto que une hardware, software e comunidade.",
+            "Apenas a placa física com componentes eletrônicos.",
+            "Um software para programar em C++.",
+            "Uma marca de microcontroladores industriais."
+          ],
+          "correct": "Uma plataforma eletrônica de código aberto que une hardware, software e comunidade.",
+          "tip": "Arduino é um ecossistema completo, não apenas a placa física."
+        },
+        {
+          "type": "boolean",
+          "topics": "HARD",
+          "questions": "[NAME], o microcontrolador ATmega328 é considerado o 'coração' da placa Arduino Uno.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É ele quem recebe e executa as instruções do código."
+        },
+        {
+          "type": "combo",
+          "topics": "HARD",
+          "questions": "O [COMBO] é a parte física do sistema, ou seja, tudo aquilo que você consegue tocar, como a placa e os LEDs.",
+          "options": [
+            "Hardware",
+            "Software",
+            "Firmware",
+            "Sketch"
+          ],
+          "correct": "Hardware",
+          "tip": "Sem o hardware, o código não tem onde ser executado."
+        },
+        {
+          "type": "multi",
+          "topics": "HARD",
+          "questions": "Como Jovem Aprendiz da Technip, você precisará entender a infraestrutura. Quais são as três funções principais da placa Arduino em relação ao microcontrolador?",
+          "answers": [
+            "Comunicação",
+            "Alimentação",
+            "Conexão",
+            "Programação autônoma",
+            "Geração de internet"
+          ],
+          "correct": [
+            "Comunicação",
+            "Alimentação",
+            "Conexão"
+          ],
+          "tip": "A placa facilita o uso do microcontrolador conectando-o ao PC, energia e componentes."
+        },
+        {
+          "type": "drag",
+          "topics": "HARD",
+          "questions": "[NAME], relacione os pinos da placa Arduino às suas descrições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Pinos Digitais",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pinos Analógicos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pinos PWM (~)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Pinos de Alimentação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Trabalham com 0V ou 5V"
+            },
+            {
+              "id": "z2",
+              "label": "Lêem variações entre 0V e 5V"
+            },
+            {
+              "id": "z3",
+              "label": "Simulam valores intermediários"
+            },
+            {
+              "id": "z4",
+              "label": "GND, 5V e 3.3V"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os pinos do lado direito geralmente são digitais, e os do esquerdo, analógicos."
+        },
+        {
+          "type": "multiple",
+          "topics": "HARD",
+          "questions": "No laboratório, você percebe que algumas placas são genéricas. O que acontece se enviarmos o mesmo código para uma placa original e para um clone?",
+          "answers": [
+            "Funciona igualzinho em ambas.",
+            "O clone queima ao receber o código.",
+            "O código precisa ser adaptado para o clone.",
+            "A placa original é mais rápida."
+          ],
+          "correct": "Funciona igualzinho em ambas.",
+          "tip": "Como o projeto é de código aberto, ambas usam o mesmo ATmega328."
+        },
+        {
+          "type": "boolean",
+          "topics": "HARD",
+          "questions": "[NAME], o cabo USB serve apenas para alimentar a placa Arduino, não participando da transferência de código.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O USB faz a comunicação serial entre o PC e o microcontrolador, além da alimentação."
+        },
+        {
+          "type": "combo",
+          "topics": "HARD",
+          "questions": "Um botão pressionado ou a leitura de temperatura de um ambiente são exemplos de [COMBO] para o microcontrolador.",
+          "options": [
+            "Entrada (Input)",
+            "Saída (Output)",
+            "Processamento",
+            "Energia"
+          ],
+          "correct": "Entrada (Input)",
+          "tip": "Informações que vêm do mundo externo para o Arduino são entradas."
+        },
+        {
+          "type": "multi",
+          "topics": "HARD",
+          "questions": "Quais dos componentes abaixo são classificados como dispositivos de SAÍDA (Output)?",
+          "answers": [
+            "LED",
+            "Motor",
+            "Buzzer",
+            "Sensor de luz",
+            "Botão"
+          ],
+          "correct": [
+            "LED",
+            "Motor",
+            "Buzzer"
+          ],
+          "tip": "Saídas são dispositivos que executam ações comandadas pelo Arduino."
+        },
+        {
+          "type": "multiple",
+          "topics": "HARD",
+          "questions": "[NAME], qual modelo de Arduino é o mais recomendado para iniciantes devido à facilidade de conexão e conector USB integrado?",
+          "answers": [
+            "Arduino Uno",
+            "Arduino Nano",
+            "Arduino Pro Mini",
+            "Arduino Mega"
+          ],
+          "correct": "Arduino Uno",
+          "tip": "O Uno possui o tamanho ideal para prototipar sem problemas de espaço."
+        },
+        {
+          "type": "boolean",
+          "topics": "HARD",
+          "questions": "O Arduino Pro Mini é ideal para produtos finais justamente por não ter o conector USB integrado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Após o código gravado, o USB é desnecessário, economizando espaço e custo."
+        },
+        {
+          "type": "combo",
+          "topics": "HARD",
+          "questions": "A comunicação [COMBO] é a ponte de troca de dados constante entre o computador e o Arduino.",
+          "options": [
+            "Serial",
+            "Paralela",
+            "Bluetooth",
+            "Analógica"
+          ],
+          "correct": "Serial",
+          "tip": "Essa comunicação ocorre via cabo USB e o chip conversor da placa."
+        },
+        {
+          "type": "multiple",
+          "topics": "HARD",
+          "questions": "Para concluir esta etapa, lembre-se: quando pesquisamos no Google, a definição de Arduino é uma plataforma eletrônica de...",
+          "answers": [
+            "Código Aberto (Open Source)",
+            "Código Fechado (Proprietário)",
+            "Uso Exclusivo Industrial",
+            "Sistema Pago"
+          ],
+          "correct": "Código Aberto (Open Source)",
+          "trans": "SIMU",
+          "tip": "Isso permite que qualquer pessoa crie placas compatíveis (clones)."
+        },
+        {
+          "type": "multiple",
+          "topics": "SIMU",
+          "questions": "[NAME], por que utilizamos o Tinkercad nas nossas aulas práticas do SENAI em vez de instalar a Arduino IDE?",
+          "answers": [
+            "Porque os computadores têm restrição de download e o Tinkercad roda direto no navegador.",
+            "Porque o Tinkercad é a única ferramenta que o Arduino suporta.",
+            "Porque a Arduino IDE foi descontinuada.",
+            "Porque o Tinkercad é pago e o SENAI tem licença."
+          ],
+          "correct": "Porque os computadores têm restrição de download e o Tinkercad roda direto no navegador.",
+          "tip": "O Tinkercad é um simulador online gratuito da Autodesk."
+        },
+        {
+          "type": "boolean",
+          "topics": "SIMU",
+          "questions": "O ambiente de código onde escrevemos as instruções para o Arduino é conhecido como Sketch.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O sketch é a 'receita' que o Arduino vai seguir passo a passo."
+        },
+        {
+          "type": "combo",
+          "topics": "SIMU",
+          "questions": "Na IDE do Arduino, o botão [COMBO] serve apenas para conferir se há erros de sintaxe no código, sem enviá-lo para a placa.",
+          "options": [
+            "Verificar",
+            "Upload",
+            "Salvar",
+            "Monitor Serial"
+          ],
+          "correct": "Verificar",
+          "tip": "Use sempre o Verificar antes de tentar carregar o programa."
+        },
+        {
+          "type": "multi",
+          "topics": "SIMU",
+          "questions": "[NAME], quais são as principais vantagens de usar o Tinkercad Circuits?",
+          "answers": [
+            "É gratuito e roda no navegador.",
+            "Permite simular circuitos reais sem risco de queimar componentes.",
+            "Salva os projetos automaticamente na nuvem.",
+            "Requer um computador super potente para rodar.",
+            "Funciona apenas offline."
+          ],
+          "correct": [
+            "É gratuito e roda no navegador.",
+            "Permite simular circuitos reais sem risco de queimar componentes.",
+            "Salva os projetos automaticamente na nuvem."
+          ],
+          "tip": "Basta ter acesso à internet e uma conta para acessar de qualquer lugar."
+        },
+        {
+          "type": "drag",
+          "topics": "SIMU",
+          "questions": "Relacione as áreas e botões da IDE/Tinkercad às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Área de Sketch",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Área de Mensagens",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Upload",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Iniciar Simulação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Onde o código é escrito"
+            },
+            {
+              "id": "z2",
+              "label": "Mostra erros e status"
+            },
+            {
+              "id": "z3",
+              "label": "Envia o código para a placa física"
+            },
+            {
+              "id": "z4",
+              "label": "Roda o código no circuito virtual"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer o ambiente de desenvolvimento é vital para o fluxo de trabalho."
+        },
+        {
+          "type": "multiple",
+          "topics": "SIMU",
+          "questions": "[NAME], se o seu código piscar um LED na simulação do Tinkercad, o que acontecerá se enviar exatamente o mesmo código para a placa física?",
+          "answers": [
+            "Ele funcionará da mesma maneira no mundo real.",
+            "Ele precisará ser traduzido do Tinkercad para o C++.",
+            "Ele não vai compilar.",
+            "A placa física precisa de uma biblioteca especial."
+          ],
+          "correct": "Ele funcionará da mesma maneira no mundo real.",
+          "tip": "A lógica e a linguagem são idênticas nos dois ambientes."
+        },
+        {
+          "type": "boolean",
+          "topics": "SIMU",
+          "questions": "No Tinkercad, você deve sempre parar a simulação antes de tentar salvar ou modificar o circuito com segurança.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Assim como na vida real, evitamos alterar ligações com o circuito energizado."
+        },
+        {
+          "type": "combo",
+          "topics": "SIMU",
+          "questions": "A sigla IDE significa Integrated [COMBO] Environment.",
+          "options": [
+            "Development",
+            "Digital",
+            "Data",
+            "Design"
+          ],
+          "correct": "Development",
+          "tip": "É o Ambiente de Desenvolvimento Integrado oficial da Arduino."
+        },
+        {
+          "type": "multi",
+          "topics": "SIMU",
+          "questions": "Quais elementos encontramos na biblioteca de componentes do Tinkercad?",
+          "answers": [
+            "Arduino Uno",
+            "Protoboard",
+            "LEDs e Resistores",
+            "Ferro de solda virtual",
+            "Multímetro"
+          ],
+          "correct": [
+            "Arduino Uno",
+            "Protoboard",
+            "LEDs e Resistores",
+            "Multímetro"
+          ],
+          "tip": "Não há necessidade de solda em protoboards ou simuladores deste tipo."
+        },
+        {
+          "type": "multiple",
+          "topics": "SIMU",
+          "questions": "[NAME], como você acessa um projeto salvo anteriormente no Tinkercad?",
+          "answers": [
+            "Clicando em 'Circuits' na tela inicial.",
+            "Baixando um arquivo .ino do Google Drive.",
+            "Apertando CTRL+S repetidamente.",
+            "Reescrevendo o código do zero."
+          ],
+          "correct": "Clicando em 'Circuits' na tela inicial.",
+          "tip": "Todos os seus projetos virtuais ficam salvos na nuvem da sua conta."
+        },
+        {
+          "type": "boolean",
+          "topics": "SIMU",
+          "questions": "A linguagem base utilizada para programar o Arduino na IDE ou Tinkercad é derivada de C/C++.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso torna o Arduino uma excelente plataforma para aprender conceitos reais de programação."
+        },
+        {
+          "type": "combo",
+          "topics": "SIMU",
+          "questions": "A etapa de [COMBO] é onde a 'mágica' de transferir as instruções para o hardware finalmente acontece.",
+          "options": [
+            "Upload",
+            "Verificação",
+            "Montagem",
+            "Desmontagem"
+          ],
+          "correct": "Upload",
+          "trans": "ELET",
+          "tip": "O Upload compila o sketch e transfere via Serial."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELET",
+          "questions": "[NAME], na eletrônica digital do Arduino, o estado HIGH (Alto) corresponde a qual voltagem no pino digital?",
+          "answers": [
+            "5 Volts",
+            "0 Volts",
+            "12 Volts",
+            "3.3 Volts"
+          ],
+          "correct": "5 Volts",
+          "tip": "HIGH = Ligado = Número 1 = 5V."
+        },
+        {
+          "type": "boolean",
+          "topics": "ELET",
+          "questions": "O estado LOW (Baixo) envia 5 Volts para acender um LED conectado ao pino.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "LOW representa 0 Volts (GND), o que apaga o LED."
+        },
+        {
+          "type": "combo",
+          "topics": "ELET",
+          "questions": "Para evitar que um LED queime ao receber os 5V e 20mA do Arduino, devemos sempre utilizar um [COMBO] em série.",
+          "options": [
+            "Resistor",
+            "Capacitor",
+            "Diodo",
+            "Transistor"
+          ],
+          "correct": "Resistor",
+          "tip": "O resistor limita a corrente elétrica que passa pelo componente."
+        },
+        {
+          "type": "multi",
+          "topics": "ELET",
+          "questions": "Sobre as conexões internas de uma Protoboard, assinale as alternativas corretas:",
+          "answers": [
+            "Os furos centrais são conectados verticalmente em colunas.",
+            "Os trilhos laterais (+ e -) são conectados horizontalmente.",
+            "Existe uma divisão no centro que isola a parte superior da inferior.",
+            "Todos os furos da placa são interconectados em uma única rede.",
+            "Você precisa usar solda para fixar os cabos."
+          ],
+          "correct": [
+            "Os furos centrais são conectados verticalmente em colunas.",
+            "Os trilhos laterais (+ e -) são conectados horizontalmente.",
+            "Existe uma divisão no centro que isola a parte superior da inferior."
+          ],
+          "tip": "A protoboard (matriz de contatos) facilita conexões sem uso de solda."
+        },
+        {
+          "type": "drag",
+          "topics": "ELET",
+          "questions": "[NAME], aplique a Lei de Ohm (R = V / I) para o circuito do LED. Relacione os valores ao seu significado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "5V",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "2V",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "0,02A (20mA)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "150 Ohms",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tensão fornecida pelo Pino"
+            },
+            {
+              "id": "z2",
+              "label": "Queda de tensão no LED"
+            },
+            {
+              "id": "z3",
+              "label": "Corrente elétrica suportada"
+            },
+            {
+              "id": "z4",
+              "label": "Resistência mínima calculada"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cálculo: R = (5V - 2V) / 0.02A = 150 Ohms."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELET",
+          "questions": "Na aula, calculamos que o resistor ideal para o LED é de 150Ω. Qual valor comercial aproximado podemos utilizar com segurança?",
+          "answers": [
+            "220 Ohms",
+            "10 Ohms",
+            "1000 Ohms",
+            "Nenhum, deve ser exato"
+          ],
+          "correct": "220 Ohms",
+          "tip": "Um pouco a mais de resistência apenas diminui levemente o brilho, protegendo o LED."
+        },
+        {
+          "type": "boolean",
+          "topics": "ELET",
+          "questions": "[NAME], a eletrônica digital baseia-se em apenas dois estados: 1 (Ligado) e 0 (Desligado).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Arduino opera quase inteiramente nessa lógica binária."
+        },
+        {
+          "type": "combo",
+          "topics": "ELET",
+          "questions": "O pino marcado como [COMBO] na placa Arduino atua como o pólo negativo (0 Volts) onde o circuito elétrico fecha.",
+          "options": [
+            "GND",
+            "5V",
+            "VIN",
+            "TX"
+          ],
+          "correct": "GND",
+          "tip": "GND vem do termo em inglês Ground (Terra)."
+        },
+        {
+          "type": "multi",
+          "topics": "ELET",
+          "questions": "Para montar um circuito de pisca-pisca seguro no Tinkercad, quais componentes você irá arrastar para a área de trabalho?",
+          "answers": [
+            "Arduino Uno",
+            "Protoboard",
+            "LED",
+            "Resistor de 220Ω",
+            "Bateria de 9V adicional"
+          ],
+          "correct": [
+            "Arduino Uno",
+            "Protoboard",
+            "LED",
+            "Resistor de 220Ω"
+          ],
+          "tip": "O próprio Arduino já fornecerá a energia de 5V necessária pelos pinos digitais."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELET",
+          "questions": "O que acontece se ligarmos o LED invertido (perna negativa no pino 13 e positiva no GND)?",
+          "answers": [
+            "Ele não acende, pois o diodo permite corrente em um só sentido.",
+            "Ele queima instantaneamente.",
+            "Ele muda a cor para azul.",
+            "A placa entra em curto-circuito."
+          ],
+          "correct": "Ele não acende, pois o diodo permite corrente em um só sentido.",
+          "tip": "LED significa Diodo Emissor de Luz (Light Emitting Diode)."
+        },
+        {
+          "type": "boolean",
+          "topics": "ELET",
+          "questions": "Os fios de cores diferentes no simulador alteram as propriedades elétricas da corrente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As cores servem apenas para organização visual (ex: vermelho = +, preto = GND)."
+        },
+        {
+          "type": "combo",
+          "topics": "ELET",
+          "questions": "Ao colocar componentes na protoboard, evitamos colocar as duas pernas de um resistor na mesma [COMBO] vertical, pois isso causa um curto na própria peça.",
+          "options": [
+            "Coluna",
+            "Linha horizontal",
+            "Borda",
+            "Divisória"
+          ],
+          "correct": "Coluna",
+          "tip": "Como a coluna inteira está conectada, a eletricidade ignoraria a resistência."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELET",
+          "questions": "[NAME], como futuros profissionais, qual é a principal vantagem de usar uma protoboard antes de soldar uma placa definitiva?",
+          "answers": [
+            "Permite testar e modificar o circuito facilmente sem estragar componentes.",
+            "A protoboard aumenta a velocidade do processador.",
+            "Ela elimina a necessidade do uso de resistores.",
+            "Permite rodar códigos em Java."
+          ],
+          "correct": "Permite testar e modificar o circuito facilmente sem estragar componentes.",
+          "trans": "PROG",
+          "tip": "É a base da 'prototipagem' rápida que faz o Arduino ser tão famoso."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROG",
+          "questions": "[NAME], a função void setup() em um sketch do Arduino tem qual característica de execução?",
+          "answers": [
+            "Roda uma única vez, logo que o Arduino é ligado.",
+            "Roda continuamente para sempre.",
+            "Só roda quando você aperta o botão no computador.",
+            "Executa apenas funções analógicas."
+          ],
+          "correct": "Roda uma única vez, logo que o Arduino é ligado.",
+          "tip": "O setup é usado para definir o estado inicial (como calçar os tênis antes de correr)."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROG",
+          "questions": "A função void loop() executa repetidamente, sem parar, enquanto a placa tiver energia.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É aqui que colocamos as lógicas dinâmicas, como o acender e apagar constante de um semáforo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROG",
+          "questions": "O comando [COMBO] define o modo de funcionamento de um pino, configurando-o como INPUT ou OUTPUT.",
+          "options": [
+            "pinMode",
+            "digitalWrite",
+            "delay",
+            "setup"
+          ],
+          "correct": "pinMode",
+          "tip": "Este comando fica sempre dentro do void setup()."
+        },
+        {
+          "type": "multi",
+          "topics": "PROG",
+          "questions": "Como Jovem Aprendiz atuando em sistemas da Technip, você sabe que a sintaxe importa. Quais afirmações sobre a linguagem C++ do Arduino estão corretas?",
+          "answers": [
+            "A IDE diferencia letras maiúsculas de minúsculas (Case Sensitive).",
+            "Toda instrução deve terminar com ponto e vírgula (;).",
+            "Comentários podem ser feitos com barras duplas (//).",
+            "OUTPUT deve ser escrito em letras minúsculas.",
+            "O comando pinMode tem todas as letras minúsculas."
+          ],
+          "correct": [
+            "A IDE diferencia letras maiúsculas de minúsculas (Case Sensitive).",
+            "Toda instrução deve terminar com ponto e vírgula (;).",
+            "Comentários podem ser feitos com barras duplas (//)."
+          ],
+          "tip": "Errar uma maiúscula ou esquecer um ; é a maior causa de erros em iniciantes."
+        },
+        {
+          "type": "drag",
+          "topics": "PROG",
+          "questions": "Relacione os comandos do código às suas respectivas ações:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "pinMode(13, OUTPUT)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "digitalWrite(13, HIGH)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "delay(1000)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "digitalWrite(13, LOW)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Prepara o pino para enviar energia"
+            },
+            {
+              "id": "z2",
+              "label": "Acende o LED (5V)"
+            },
+            {
+              "id": "z3",
+              "label": "Pausa a execução por 1 segundo"
+            },
+            {
+              "id": "z4",
+              "label": "Apaga o LED (0V)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essa é a estrutura clássica do sketch 'Blink'."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROG",
+          "questions": "Dentro da função delay(), o tempo deve ser informado em qual unidade de medida?",
+          "answers": [
+            "Milissegundos",
+            "Segundos",
+            "Minutos",
+            "Microssegundos"
+          ],
+          "correct": "Milissegundos",
+          "tip": "Portanto, 1000 milissegundos equivalem a 1 segundo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROG",
+          "questions": "[NAME], é possível apagar a função void setup() do seu código, desde que você escreva tudo dentro do void loop().",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As duas funções são obrigatórias na estrutura base, mesmo que fiquem vazias."
+        },
+        {
+          "type": "combo",
+          "topics": "PROG",
+          "questions": "O comando [COMBO] define o nível lógico de um pino de saída como 5V ou 0V.",
+          "options": [
+            "digitalWrite",
+            "pinMode",
+            "analogRead",
+            "delay"
+          ],
+          "correct": "digitalWrite",
+          "tip": "Digital (sinal de 0 e 1) + Write (escrever/enviar)."
+        },
+        {
+          "type": "multi",
+          "topics": "PROG",
+          "questions": "Ao montar o semáforo de dois LEDs (Vermelho no pino 13 e Amarelo no 12), quais blocos lógicos você usa para alternar entre eles?",
+          "answers": [
+            "Ligar Vermelho e Desligar Amarelo.",
+            "Esperar um tempo com delay.",
+            "Desligar Vermelho e Ligar Amarelo.",
+            "Ler um botão pressionado.",
+            "Usar a função reboot()."
+          ],
+          "correct": [
+            "Ligar Vermelho e Desligar Amarelo.",
+            "Esperar um tempo com delay.",
+            "Desligar Vermelho e Ligar Amarelo."
+          ],
+          "tip": "A programação nada mais é do que descrever processos lógicos passo a passo."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROG",
+          "questions": "O que acontece se escrevermos PinMode(13, OUTPUT) com o 'P' maiúsculo?",
+          "answers": [
+            "A IDE gera um erro e não compila o código.",
+            "Funciona normalmente.",
+            "Configura o pino como entrada.",
+            "A placa queima o pino."
+          ],
+          "correct": "A IDE gera um erro e não compila o código.",
+          "tip": "Lembre-se: Arduino é Case Sensitive. Apenas o 'M' é maiúsculo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROG",
+          "questions": "A linha comentada // Liga o LED Vermelho afeta o desempenho do Arduino, deixando o código mais lento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Comentários são ignorados na compilação, servindo apenas para ajudar humanos a entenderem o código."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROG",
+          "questions": "[NAME], concluindo nossa jornada de introdução, onde você deve escrever o código de piscar LEDs no Tinkercad?",
+          "answers": [
+            "Na aba 'Código', selecionando o modo de texto.",
+            "No painel frontal da placa Arduino.",
+            "No resistor do circuito.",
+            "Na barra de URL do navegador."
+          ],
+          "correct": "Na aba 'Código', selecionando o modo de texto.",
+          "trans": "FIM",
+          "tip": "Lá você insere o sketch e depois aperta Iniciar Simulação para ver a mágica ocorrer."
+        }
+      ]
+    }
   ]
 }
