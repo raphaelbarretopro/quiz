@@ -19149,12 +19149,7 @@
               "id": "d2",
               "txt": "Substituir o login por senha por biometria e reconhecimento facial.",
               "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Criar um modelo de negócios SaaS (Software as a Service) do zero.",
-              "match": "z2"
-            }
+            }            
           ],
           "zones": [
             {
