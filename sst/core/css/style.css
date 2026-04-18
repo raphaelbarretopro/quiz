@@ -4417,7 +4417,7 @@ label,
 .login-modal-title {
     margin: 0;
     font-family: var(--font-title);
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(2rem, 5vw, 1rem);
     color: var(--neon-gold);
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     letter-spacing: 1px;
