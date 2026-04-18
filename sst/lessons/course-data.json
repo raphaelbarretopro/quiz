@@ -1,4 +1,4 @@
-{
+﻿{
   "version": 1,
   "defaultLesson": "aula-11",
   "lessons": [
@@ -15961,6 +15961,4566 @@
           "correct": "Na aba 'Código', selecionando o modo de texto.",
           "trans": "FIM",
           "tip": "Lá você insere o sketch e depois aperta Iniciar Simulação para ver a mágica ocorrer."
+        }
+      ]
+    },
+    {
+      "slug": "aula-26",
+      "lesson_info": {
+        "id": "Aula-26",
+        "title": "AULA 26 - ORGANIZAÇÃO E PLANEJAMENTO EM AMBIENTES PROFISSIONAIS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DA ORGANIZAÇÃO",
+            "desc": "Conceitos de organização no trabalho, gestão do tempo e a metodologia 5S.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "ESTRUTURAS ORGANIZACIONAIS",
+            "desc": "Hierarquias, cadeias de comando e sistemas administrativos das empresas.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "DIRETRIZES EMPRESARIAIS",
+            "desc": "A importância da Missão, Visão e Política da Qualidade no ambiente corporativo.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "PLANEJAMENTO E PROFISSIONALISMO",
+            "desc": "Técnicas de gestão do tempo, metodologias ágeis e atitudes do profissional moderno.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "P",
+          "L",
+          "A",
+          "N"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é fundamentalmente a organização no trabalho?",
+          "answers": [
+            "Um processo de alocar recursos para alcançar objetivos",
+            "Apenas arrumar a mesa física",
+            "Uma forma de controlar o horário dos funcionários",
+            "A eliminação total de pausas durante o dia"
+          ],
+          "correct": "Um processo de alocar recursos para alcançar objetivos",
+          "tip": "A organização agrupa e estrutura recursos humanos, materiais e tecnológicos."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o tempo é considerado o único recurso verdadeiramente não renovável no ambiente de trabalho.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Por não ser renovável, a má gestão do tempo afeta toda a cadeia produtiva."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O princípio de [COMBO] indica que 20% das atividades geram 80% dos resultados.",
+          "options": [
+            "Pareto",
+            "Taylor",
+            "Ford",
+            "Maslow"
+          ],
+          "correct": "Pareto",
+          "tip": "Também conhecido como regra 80/20, foca na priorização do que realmente importa."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são os principais ladrões de tempo no ambiente corporativo?",
+          "answers": [
+            "Redes sociais",
+            "Reuniões improdutivas",
+            "Multitarefa",
+            "Uso de blocos de tempo"
+          ],
+          "correct": [
+            "Redes sociais",
+            "Reuniões improdutivas",
+            "Multitarefa"
+          ],
+          "tip": "O uso de blocos de tempo é, na verdade, uma técnica para combater o desperdício de tempo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada senso da Metodologia 5S ao seu significado:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Seiri",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Seiton",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Seiso",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Seiketsu",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Utilização"
+            },
+            {
+              "id": "z2",
+              "label": "Ordenação"
+            },
+            {
+              "id": "z3",
+              "label": "Limpeza"
+            },
+            {
+              "id": "z4",
+              "label": "Padronização"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A metodologia 5S japonesa transforma ambientes de trabalho físicos e digitais."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual técnica envolve agrupar tarefas similares e definir períodos dedicados a elas?",
+          "answers": [
+            "Time blocking",
+            "Matriz de Pareto",
+            "Multitarefa",
+            "Seiketsu"
+          ],
+          "correct": "Time blocking",
+          "tip": "Os blocos de tempo reduzem a troca de contexto e aumentam o foco."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o 5S digital não se aplica a repositórios de código como o Git.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O 5S digital é essencial para o TI, aplicando-se na nomenclatura de branches e commits descritivos."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O quinto senso do 5S, chamado Shitsuke, refere-se à [COMBO].",
+          "options": [
+            "Disciplina",
+            "Limpeza",
+            "Ordenação",
+            "Agilidade"
+          ],
+          "correct": "Disciplina",
+          "tip": "Shitsuke é o hábito e a autodisciplina de manter o sistema funcionando."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os pilares da organização profissional às suas ações:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Tempo",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Compromissos",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Atividades",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Local",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Eliminar desperdícios de horas"
+            },
+            {
+              "id": "z2",
+              "label": "Agendamento e prazos"
+            },
+            {
+              "id": "z3",
+              "label": "Sequenciamento de tarefas"
+            },
+            {
+              "id": "z4",
+              "label": "Ambiente funcional"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estes são os 4 pilares da organização e disciplina."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], como podemos aplicar o senso de Ordenação (Seiton) no ambiente digital?",
+          "answers": [
+            "Pastas com nomenclatura padrão",
+            "Área de trabalho limpa",
+            "Apagar todos os e-mails recebidos",
+            "Backups regulares"
+          ],
+          "correct": [
+            "Pastas com nomenclatura padrão",
+            "Área de trabalho limpa",
+            "Backups regulares"
+          ],
+          "tip": "Apagar todos os e-mails sem triagem não é uma prática de ordenação sustentável."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "O que significa separar o necessário do desnecessário no 5S?",
+          "answers": [
+            "Seiri (Utilização)",
+            "Seiso (Limpeza)",
+            "Shitsuke (Disciplina)",
+            "Seiton (Ordenação)"
+          ],
+          "correct": "Seiri (Utilização)",
+          "tip": "É o primeiro passo: eliminar o que não agrega valor."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "De acordo com estudos industriais, o 5S pode reduzir acidentes em até 40%.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Bancadas organizadas e áreas livres diminuem drasticamente os riscos."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "A organização, junto com o planejamento, a direção e o controle, faz parte das:",
+          "answers": [
+            "Funções administrativas clássicas",
+            "Diretrizes empresariais",
+            "Metodologias ágeis",
+            "Estruturas hierárquicas"
+          ],
+          "correct": "Funções administrativas clássicas",
+          "tip": "Estes são os pilares da teoria geral da administração.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que a estrutura organizacional define em uma empresa?",
+          "answers": [
+            "Como as atividades são divididas e coordenadas",
+            "Apenas o horário de entrada e saída",
+            "A missão e visão da empresa",
+            "As metodologias de desenvolvimento de software"
+          ],
+          "correct": "Como as atividades são divididas e coordenadas",
+          "tip": "Ela estabelece a cadeia de comando e os canais de comunicação formais."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A estrutura linear é caracterizada pela autoridade múltipla e comunicação horizontal.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A estrutura linear tem autoridade única (um chefe) e comunicação vertical."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A linha de autoridade que conecta cada nível hierárquico é chamada de cadeia de [COMBO].",
+          "options": [
+            "Comando",
+            "Suprimentos",
+            "Valor",
+            "Blocos"
+          ],
+          "correct": "Comando",
+          "tip": "É a base da hierarquia tradicional."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Compare as estruturas Linear e Funcional:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Autoridade Única",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Especialização Alta",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Comunicação Vertical",
+              "match": "z1"
+            },
+            {
+              "id": "i4",
+              "txt": "Decisão Descentralizada",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Estrutura Linear"
+            },
+            {
+              "id": "z2",
+              "label": "Estrutura Funcional"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A linear foca no comando; a funcional foca na especialidade técnica."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são características comuns do departamento de TI em uma estrutura funcional?",
+          "answers": [
+            "Cuidar da infraestrutura tecnológica",
+            "Prestar suporte técnico",
+            "Desenvolver sistemas",
+            "Controlar o fluxo de caixa"
+          ],
+          "correct": [
+            "Cuidar da infraestrutura tecnológica",
+            "Prestar suporte técnico",
+            "Desenvolver sistemas"
+          ],
+          "tip": "O controle de fluxo de caixa é responsabilidade do departamento Financeiro."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que significa 'Amplitude de Controle' na organização?",
+          "answers": [
+            "Número de subordinados sob supervisão de cada gestor",
+            "Especialização das tarefas",
+            "A distância entre o presidente e os diretores",
+            "O volume de regras da empresa"
+          ],
+          "correct": "Número de subordinados sob supervisão de cada gestor",
+          "tip": "Amplitudes grandes significam gerentes cuidando de muitas pessoas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Uma desvantagem da estrutura funcional é a criação de 'silos', onde os departamentos não se comunicam bem.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A alta especialização pode prejudicar a visão do todo da empresa."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O sistema administrativo [COMBO] tem decisões totalmente centralizadas e comunicação de cima para baixo.",
+          "options": [
+            "Autoritário-Coercitivo",
+            "Participativo",
+            "Consultivo",
+            "Funcional"
+          ],
+          "correct": "Autoritário-Coercitivo",
+          "tip": "É o sistema mais rígido (Sistema 1)."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os Sistemas Administrativos (1 a 4):",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Sistema 1",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Sistema 2",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Sistema 3",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Sistema 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Autoritário-Coercitivo"
+            },
+            {
+              "id": "z2",
+              "label": "Autoritário-Benevolente"
+            },
+            {
+              "id": "z3",
+              "label": "Consultivo"
+            },
+            {
+              "id": "z4",
+              "label": "Participativo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os sistemas variam do controle extremo à total participação."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são as limitações da estrutura linear em grandes empresas?",
+          "answers": [
+            "Lentidão na tomada de decisão",
+            "Sobrecarga nos gestores de topo",
+            "Alta flexibilidade",
+            "Comunicação descentralizada"
+          ],
+          "correct": [
+            "Lentidão na tomada de decisão",
+            "Sobrecarga nos gestores de topo"
+          ],
+          "tip": "A estrutura linear concentra tudo no topo, gerando gargalos."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A coordenação diz respeito à integração entre departamentos para atingir metas comuns.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A coordenação alinha as engrenagens da empresa."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "No Sistema Administrativo Consultivo (Sistema 3):",
+          "answers": [
+            "Gestores consultam equipes antes de decidir",
+            "As decisões são impostas com ameaças",
+            "A liderança delega tudo",
+            "Não existe hierarquia"
+          ],
+          "correct": "Gestores consultam equipes antes de decidir",
+          "tip": "A comunicação bidirecional é a marca deste sistema.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que a 'Missão' de uma empresa define?",
+          "answers": [
+            "A razão de ser e o propósito fundamental",
+            "O futuro desejado daqui a 10 anos",
+            "Os padrões técnicos de qualidade",
+            "O manual de conduta dos funcionários"
+          ],
+          "correct": "A razão de ser e o propósito fundamental",
+          "tip": "A Missão responde à pergunta: 'Por que existimos?'"
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A Visão de uma organização descreve o seu presente e as atividades atuais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A Missão é o presente; a Visão descreve o futuro desejado (onde queremos chegar)."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A Política da [COMBO] estabelece compromissos com padrões de excelência e melhoria contínua.",
+          "options": [
+            "Qualidade",
+            "Missão",
+            "Estratégia",
+            "Linearidade"
+          ],
+          "correct": "Qualidade",
+          "tip": "Ela define 'Como fazemos' nosso trabalho diário."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os conceitos das diretrizes empresariais:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Missão",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Visão",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Política da Qualidade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Por que existimos?"
+            },
+            {
+              "id": "z2",
+              "label": "Onde queremos chegar?"
+            },
+            {
+              "id": "z3",
+              "label": "Como fazemos?"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas três perguntas são a bússola estratégica de qualquer negócio."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], por que as diretrizes empresariais são importantes para o profissional de TI?",
+          "answers": [
+            "Ajudam na tomada de decisão sobre prioridades",
+            "Geram alinhamento da equipe",
+            "Fomentam uma cultura de qualidade",
+            "Excluem a necessidade de usar o Git"
+          ],
+          "correct": [
+            "Ajudam na tomada de decisão sobre prioridades",
+            "Geram alinhamento da equipe",
+            "Fomentam uma cultura de qualidade"
+          ],
+          "tip": "Diretrizes afetam a qualidade do código e a entrega tecnológica."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Uma Visão bem definida serve como:",
+          "answers": [
+            "O norte que inspira o crescimento",
+            "O registro histórico da fundação",
+            "O regulamento interno",
+            "O catálogo de produtos"
+          ],
+          "correct": "O norte que inspira o crescimento",
+          "tip": "Ela projeta o sucesso da empresa a longo prazo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "As diretrizes são apenas 'frases na parede' e não impactam o trabalho operacional diário.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Elas orientam desde o planejamento a longo prazo até o código do desenvolvedor júnior."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Equipes que conhecem a [COMBO] da empresa trabalham com mais coesão e menos retrabalho.",
+          "options": [
+            "Visão",
+            "Hierarquia",
+            "Cor",
+            "Amplitude"
+          ],
+          "correct": "Visão",
+          "tip": "O alinhamento acontece quando todos caminham na mesma direção."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o exemplo prático com a sua categoria (Caso TechLog):",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Desenvolver soluções logísticas",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Ser referência nacional até 2028",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Garantir a melhoria contínua e ISO",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Missão"
+            },
+            {
+              "id": "z2",
+              "label": "Visão"
+            },
+            {
+              "id": "z3",
+              "label": "Política da Qualidade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Missão é a essência, Visão tem data/meta, Qualidade tem métodos."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], como a Política da Qualidade influencia o trabalho de TI?",
+          "answers": [
+            "Estabelecendo padrões de código",
+            "Incentivando testes automatizados",
+            "Promovendo boa documentação",
+            "Eliminando a necessidade de testes"
+          ],
+          "correct": [
+            "Estabelecendo padrões de código",
+            "Incentivando testes automatizados",
+            "Promovendo boa documentação"
+          ],
+          "tip": "Qualidade exige métodos, testes e padronização contínua."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A Missão de uma empresa pode descrever o valor que ela entrega à sociedade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sim, é o propósito da empresa para o mundo ao seu redor."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Se há dúvida entre qual funcionalidade priorizar no código, o desenvolvedor deve recorrer primeiramente:",
+          "answers": [
+            "Às diretrizes (Missão e Visão) da empresa",
+            "Aos seus próprios interesses",
+            "À cor da marca",
+            "Ao departamento financeiro"
+          ],
+          "correct": "Às diretrizes (Missão e Visão) da empresa",
+          "tip": "As diretrizes ajudam na tomada de decisões estratégicas diárias.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o foco da Técnica Pomodoro?",
+          "answers": [
+            "Trabalhar em blocos de tempo com pausas curtas",
+            "Fazer várias tarefas ao mesmo tempo",
+            "Trabalhar 8 horas sem parar",
+            "Eliminar todas as tarefas urgentes"
+          ],
+          "correct": "Trabalhar em blocos de tempo com pausas curtas",
+          "tip": "O clássico são 25 minutos de foco seguidos de 5 minutos de pausa."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O Kanban Pessoal utiliza colunas como 'A Fazer', 'Fazendo' e 'Feito' para visualizar o fluxo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele também limita o trabalho em progresso (WIP) para evitar sobrecarga."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Metas [COMBO] são Específicas, Mensuráveis, Alcançáveis, Relevantes e com Tempo definido.",
+          "options": [
+            "SMART",
+            "AGILE",
+            "FAST",
+            "LEAN"
+          ],
+          "correct": "SMART",
+          "tip": "Elas transformam intenções vagas em planos de ação concretos."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os elementos da Matriz de Eisenhower / Tríade do Tempo:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Importante",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Urgente",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Circunstancial",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Meta: 70% do tempo (Estratégico)"
+            },
+            {
+              "id": "z2",
+              "label": "Máximo 20% do tempo (Crises)"
+            },
+            {
+              "id": "z3",
+              "label": "Desperdícios e distrações (Evitar)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Apagar incêndios o dia todo significa falha no planejamento das atividades importantes."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são características vitais do Profissional do Século XXI abordadas na aula?",
+          "answers": [
+            "Autonomia",
+            "Iniciativa",
+            "Inovação",
+            "Rigidez"
+          ],
+          "correct": [
+            "Autonomia",
+            "Iniciativa",
+            "Inovação"
+          ],
+          "tip": "O profissional deve ser flexível e adaptável, não rígido."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Segundo a Tríade do Tempo, distrações e tarefas sem valor caem na categoria:",
+          "answers": [
+            "Circunstancial",
+            "Importante",
+            "Urgente",
+            "Prioritário"
+          ],
+          "correct": "Circunstancial",
+          "tip": "Estas atividades devem ser reduzidas ao máximo."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Iniciativa significa esperar a solicitação do supervisor antes de propor qualquer solução.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Iniciativa é exatamente a proatividade de antecipar necessidades."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A capacidade de tomar decisões com independência é chamada de [COMBO].",
+          "options": [
+            "Autonomia",
+            "Circunstância",
+            "Linearidade",
+            "Burocracia"
+          ],
+          "correct": "Autonomia",
+          "tip": "A autonomia assume responsabilidade pelos resultados."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o comportamento profissional à sua definição:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Inovação",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Flexibilidade",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Autonomia",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Buscar formas mais eficientes"
+            },
+            {
+              "id": "z2",
+              "label": "Adaptar-se a mudanças imprevistas"
+            },
+            {
+              "id": "z3",
+              "label": "Executar sem supervisão constante"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas são as fundações do profissional de excelência moderna."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Como a tecnologia atua como aliada na organização do Desenvolvedor de TI?",
+          "answers": [
+            "Com ferramentas como Jira e Trello para projetos",
+            "Com CI/CD para automação de processos",
+            "Com Wikis para documentação técnica",
+            "Com impressão em papel de todo o código"
+          ],
+          "correct": [
+            "Com ferramentas como Jira e Trello para projetos",
+            "Com CI/CD para automação de processos",
+            "Com Wikis para documentação técnica"
+          ],
+          "tip": "Ferramentas digitais são extensões dos princípios de organização do profissional de TI."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], equipes com processos organizados de code review têm maiores chances de entregar projetos com bugs.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A pesquisa aponta que equipes organizadas reduzem bugs em produção em até 65%."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "De acordo com os dados apresentados, a implementação do 5S e da organização reduz o retrabalho em até:",
+          "answers": [
+            "40%",
+            "10%",
+            "90%",
+            "5%"
+          ],
+          "correct": "40%",
+          "tip": "A organização direta impacta muito a redução de retrabalho."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "A principal lição sobre planejamento é que ele:",
+          "answers": [
+            "Economiza tempo, evitando retrabalho no futuro",
+            "É um desperdício de energia",
+            "É responsabilidade exclusiva do diretor geral",
+            "Só funciona para projetos de construção civil"
+          ],
+          "correct": "Economiza tempo, evitando retrabalho no futuro",
+          "tip": "Investir tempo planejando é investir na produtividade futura.",
+          "trans": "FIM"
+        }
+      ]
+    },
+    {
+      "slug": "aula-27",
+      "lesson_info": {
+        "id": "Aula-27",
+        "title": "AULA 27 - TRABALHO EM EQUIPE E LIDERANÇA NA INDÚSTRIA",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DE EQUIPES",
+            "desc": "A diferença essencial entre grupos e equipes, e a importância das responsabilidades.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "COMPORTAMENTO E CONVIVÊNCIA",
+            "desc": "Como as normas formais e informais guiam a interação social no ambiente industrial.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "CONFLITOS E LIDERANÇA",
+            "desc": "Tipos de conflitos, gestão de crises e os diferentes estilos de atuação de um líder.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "CONTROLE EMOCIONAL E ESTRUTURA",
+            "desc": "A gestão das emoções no trabalho e a compreensão da estrutura organizacional.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "T",
+          "I",
+          "M",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a principal diferença entre um grupo e uma equipe de trabalho?",
+          "answers": [
+            "A equipe possui interdependência e responsabilidade compartilhada.",
+            "O grupo sempre atinge resultados superiores à equipe.",
+            "A equipe atua de forma totalmente independente.",
+            "Grupos possuem líderes e equipes não."
+          ],
+          "correct": "A equipe possui interdependência e responsabilidade compartilhada.",
+          "tip": "Enquanto o grupo foca no individual, a equipe une habilidades para um objetivo comum."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], em uma equipe de alta performance, a responsabilidade individual desaparece, restando apenas a coletiva.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A responsabilidade individual não desaparece; ela se soma à responsabilidade coletiva."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "No trabalho em equipe, ocorre uma [COMBO] positiva, onde o resultado final é superior à soma das partes (1+1>2).",
+          "options": [
+            "Sinergia",
+            "Divergência",
+            "Concorrência",
+            "Divisão"
+          ],
+          "correct": "Sinergia",
+          "tip": "A sinergia é o efeito multiplicador gerado pela colaboração."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são exemplos de responsabilidade individual dentro de uma equipe?",
+          "answers": [
+            "Cumprir prazos e entregas pessoais",
+            "Assumir os resultados de toda a equipe",
+            "Comunicar dificuldades com antecedência",
+            "Garantir que o objetivo do time seja alcançado sozinho"
+          ],
+          "correct": [
+            "Cumprir prazos e entregas pessoais",
+            "Comunicar dificuldades com antecedência"
+          ],
+          "tip": "As outras opções são exemplos de responsabilidade coletiva ou comportamentos irreais."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione as características com Trabalho em Grupo ou em Equipe:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Objetivo Individual ou paralelo",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Sinergia Positiva",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Comunicação contínua e aberta",
+              "match": "z2"
+            },
+            {
+              "id": "i4",
+              "txt": "Responsabilidade apenas individual",
+              "match": "z1"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Trabalho em Grupo"
+            },
+            {
+              "id": "z2",
+              "label": "Trabalho em Equipe"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Equipes colaboram e têm sinergia; grupos agem de forma mais isolada."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], por que a 'Clareza de Papéis' é fundamental na cooperação?",
+          "answers": [
+            "Para que cada membro saiba o que se espera dele.",
+            "Para que todos façam exatamente o mesmo trabalho.",
+            "Para criar competição interna.",
+            "Para eliminar a necessidade de comunicação."
+          ],
+          "correct": "Para que cada membro saiba o que se espera dele.",
+          "tip": "Saber seu papel evita retrabalho e foca o esforço no que realmente importa."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "O feedback construtivo é uma competência essencial, consistindo em saber dar e receber retornos de forma respeitosa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É um pilar para a melhoria contínua e bons relacionamentos interpessoais."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A [COMBO] positiva significa que o sucesso de um membro depende do sucesso do outro, gerando engajamento.",
+          "options": [
+            "Interdependência",
+            "Independência",
+            "Autonomia",
+            "Centralização"
+          ],
+          "correct": "Interdependência",
+          "tip": "Todos estão no mesmo barco e precisam remar na mesma direção."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são pilares para um bom relacionamento com os colegas de equipe?",
+          "answers": [
+            "Confiança",
+            "Respeito às diferenças",
+            "Competitividade agressiva",
+            "Feedback construtivo"
+          ],
+          "correct": [
+            "Confiança",
+            "Respeito às diferenças",
+            "Feedback construtivo"
+          ],
+          "tip": "Competitividade agressiva destrói a confiança e prejudica o clima."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe a responsabilidade coletiva à sua descrição:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Ajudar colegas",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Boas práticas",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Resultados",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Apoiar membros em dificuldade"
+            },
+            {
+              "id": "z2",
+              "label": "Compartilhar conhecimento"
+            },
+            {
+              "id": "z3",
+              "label": "Assumir os acertos e erros do time"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Responsabilidade coletiva foca no fortalecimento do time como um todo."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], equipes diversas costumam gerar soluções mais criativas e robustas. Qual é o motivo disso?",
+          "answers": [
+            "A pluralidade de perspectivas e o respeito às diferenças.",
+            "A ausência total de conflitos.",
+            "O fato de todos pensarem exatamente igual.",
+            "A rapidez em concordar com o líder."
+          ],
+          "correct": "A pluralidade de perspectivas e o respeito às diferenças.",
+          "tip": "Diferentes vivências trazem diferentes abordagens para resolver o mesmo problema."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Em um grupo de trabalho, a liderança geralmente é distribuída ou situacional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "No grupo, a liderança costuma ser centralizada ou ausente. Liderança distribuída é típica de equipes."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual destas ações exemplifica um compromisso com metas compartilhadas em uma equipe de TI?",
+          "answers": [
+            "O desenvolvedor backend ajudar o frontend para garantir a entrega da sprint.",
+            "O analista esconder informações para se destacar na avaliação.",
+            "Cada programador focar apenas no seu código e ir embora.",
+            "O líder tomar todas as decisões sem consultar ninguém."
+          ],
+          "correct": "O desenvolvedor backend ajudar o frontend para garantir a entrega da sprint.",
+          "tip": "O sucesso coletivo se sobrepõe à entrega isolada.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Por que dizemos que o ser humano é, por natureza, um 'ser social' no trabalho?",
+          "answers": [
+            "Porque nossos comportamentos e identidade são moldados pelas interações.",
+            "Porque preferimos trabalhar isolados sempre que possível.",
+            "Porque não dependemos de ninguém para alcançar grandes resultados.",
+            "Porque as emoções devem ser proibidas na empresa."
+          ],
+          "correct": "Porque nossos comportamentos e identidade são moldados pelas interações.",
+          "tip": "A necessidade de pertencimento influencia diretamente o nosso engajamento."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], normas informais são aquelas que estão documentadas no regulamento interno e no código de ética.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Normas documentadas são as formais. As informais são os costumes do grupo aprendidos na prática."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O descumprimento das normas de convivência frequentemente gera [COMBO] e queda de desempenho.",
+          "options": [
+            "Conflitos",
+            "Aumentos",
+            "Sinergia",
+            "Promoções"
+          ],
+          "correct": "Conflitos",
+          "tip": "A quebra de acordos sociais afeta o clima e a produtividade."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais dos itens abaixo são considerados fatores psicológicos que influenciam o comportamento no ambiente de trabalho?",
+          "answers": [
+            "Clima organizacional",
+            "Iluminação",
+            "Estilo de gestão",
+            "Pressão por metas"
+          ],
+          "correct": [
+            "Clima organizacional",
+            "Estilo de gestão",
+            "Pressão por metas"
+          ],
+          "tip": "A iluminação é um fator físico, não psicológico."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Associe os Fatores de Satisfação às suas definições:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Reconhecimento",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Crescimento Profissional",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Equilíbrio",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ser valorizado pelo trabalho"
+            },
+            {
+              "id": "z2",
+              "label": "Oportunidades de aprendizado"
+            },
+            {
+              "id": "z3",
+              "label": "Gestão adequada do tempo pessoal e laboral"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses três fatores mantêm o engajamento e previnem o esgotamento (burnout)."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a função das normas de convivência em um grupo social ou empresa?",
+          "answers": [
+            "Regular o comportamento, garantindo segurança e respeito.",
+            "Limitar a criatividade de todos os funcionários.",
+            "Criar burocracia desnecessária.",
+            "Incentivar o conflito contínuo entre equipes."
+          ],
+          "correct": "Regular o comportamento, garantindo segurança e respeito.",
+          "tip": "Elas estabelecem o que é aceitável, facilitando a cooperação."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O ambiente físico de trabalho, como ruído e ergonomia, não tem impacto real sobre o comportamento dos colaboradores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Os fatores físicos influenciam diretamente a fadiga, o estresse e a produtividade."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Em equipes, atitudes positivas ou negativas se propagam rapidamente devido à influência [COMBO] entre os membros.",
+          "options": [
+            "Mútua",
+            "Nula",
+            "Burocrática",
+            "Autoritária"
+          ],
+          "correct": "Mútua",
+          "tip": "As emoções e comportamentos são muitas vezes contagiosos dentro de um grupo."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais são as consequências da falta de equilíbrio entre a vida pessoal e o trabalho?",
+          "answers": [
+            "Esgotamento (Burnout)",
+            "Aumento da produtividade",
+            "Alta rotatividade (turnover)",
+            "Melhora no clima organizacional"
+          ],
+          "correct": [
+            "Esgotamento (Burnout)",
+            "Alta rotatividade (turnover)"
+          ],
+          "tip": "O excesso de trabalho sem descanso destrói a saúde e afasta talentos."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Diferencie Normas Formais de Informais:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Código de Ética",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Horários de convivência (café)",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Linguagem aceita no grupo",
+              "match": "z2"
+            },
+            {
+              "id": "i4",
+              "txt": "Políticas de Segurança",
+              "match": "z1"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Normas Formais"
+            },
+            {
+              "id": "z2",
+              "label": "Normas Informais"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Formais são escritas e oficiais. Informais são orgânicas e culturais."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], como o reconhecimento impacta a equipe de trabalho?",
+          "answers": [
+            "Gera motivação intrínseca e lealdade.",
+            "Causa inveja e deve ser evitado.",
+            "Aumenta a rotatividade.",
+            "Diminui a necessidade de feedback."
+          ],
+          "correct": "Gera motivação intrínseca e lealdade.",
+          "tip": "Ser valorizado é uma das necessidades sociais mais básicas do ser humano."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Se um desenvolvedor percebe que a equipe tem costumes que não estão no manual, ele está observando as:",
+          "answers": [
+            "Normas Informais",
+            "Normas Formais",
+            "Diretrizes de Qualidade",
+            "Políticas de TI"
+          ],
+          "correct": "Normas Informais",
+          "tip": "Essas são regras aprendidas apenas pela observação e prática social.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Segundo o material, o que é um conflito organizacional?",
+          "answers": [
+            "Quando uma parte percebe que a outra frustrou seus interesses.",
+            "Sempre um erro de comunicação que termina em demissão.",
+            "Apenas quando ocorre uma agressão física.",
+            "Uma situação impossível de resolver."
+          ],
+          "correct": "Quando uma parte percebe que a outra frustrou seus interesses.",
+          "tip": "É a percepção de divergência de interesses ou valores."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], conflitos são sempre destrutivos e devem ser evitados a todo custo na indústria.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Quando bem gerenciados, os conflitos podem revelar problemas ocultos e gerar inovação."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O conflito [COMBO] ocorre entre equipes diferentes, como os setores de TI e Operações disputando recursos.",
+          "options": [
+            "Intergrupal",
+            "Intragrupal",
+            "Interpessoal",
+            "Intrapessoal"
+          ],
+          "correct": "Intergrupal",
+          "tip": "O prefixo 'inter' significa 'entre' diferentes grupos."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são exemplos de causas internas para conflitos nas equipes?",
+          "answers": [
+            "Diferenças de personalidade",
+            "Falhas na comunicação",
+            "Mudanças organizacionais",
+            "Instabilidade econômica"
+          ],
+          "correct": [
+            "Diferenças de personalidade",
+            "Falhas na comunicação"
+          ],
+          "tip": "Mudanças e economia são fatores externos ao indivíduo ou à comunicação imediata."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Classifique os tipos de conflitos:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Entre dois indivíduos",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Dentro da mesma equipe",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Dilema interno de valores",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Interpessoal"
+            },
+            {
+              "id": "z2",
+              "label": "Intragrupal"
+            },
+            {
+              "id": "z3",
+              "label": "Intrapessoal"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A classificação ajuda a abordar o problema de forma mais direcionada."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é a principal característica do líder democrático?",
+          "answers": [
+            "Envolve a equipe nas decisões e estimula a participação.",
+            "Toma todas as decisões sozinho de forma rápida.",
+            "Delega totalmente as tarefas e se isenta.",
+            "Evita a comunicação bidirecional."
+          ],
+          "correct": "Envolve a equipe nas decisões e estimula a participação.",
+          "tip": "Esse estilo gera alto senso de pertencimento, mas pode ser mais lento."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A liderança centralizadora (autocrática) pode ser muito útil em situações de crise ou emergência.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Na emergência, a velocidade de execução é mais importante que o consenso."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A liderança [COMBO] combina os diferentes estilos (democrático, autocrático, liberal) de acordo com o momento do projeto.",
+          "options": [
+            "Situacional",
+            "Fixa",
+            "Autoritária",
+            "Passiva"
+          ],
+          "correct": "Situacional",
+          "tip": "O líder moderno se adapta à maturidade da equipe e à urgência da tarefa."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são papéis essenciais de um líder segundo o material?",
+          "answers": [
+            "Orientar e Desenvolver",
+            "Motivar e Mediar conflitos",
+            "Fazer todo o trabalho técnico sozinho",
+            "Ocultar informações da equipe"
+          ],
+          "correct": [
+            "Orientar e Desenvolver",
+            "Motivar e Mediar conflitos"
+          ],
+          "tip": "Liderar é sobre cuidar das pessoas, e não ser um executor isolado."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe os riscos aos estilos de liderança:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Lentidão nas decisões",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Desmotivação da equipe",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Desorganização geral",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Democrático"
+            },
+            {
+              "id": "z2",
+              "label": "Centralizador"
+            },
+            {
+              "id": "z3",
+              "label": "Liberal"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Todo estilo possui prós e contras que o líder deve ponderar."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual a melhor forma de apresentar uma crítica ao líder?",
+          "answers": [
+            "Em momento reservado, baseando-se em fatos e propondo soluções.",
+            "Em público durante uma reunião de equipe.",
+            "Reclamar informalmente sem oferecer alternativas.",
+            "Ignorar o problema até que o líder perceba."
+          ],
+          "correct": "Em momento reservado, baseando-se em fatos e propondo soluções.",
+          "tip": "Esta atitude demonstra maturidade, respeito e proatividade."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], conflitos técnicos (como escolha de arquitetura) são exemplos de conflitos que podem ter consequências construtivas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Debater opções técnicas frequentemente resulta na melhor solução de software."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Quando o líder delega totalmente as tarefas, ideal para equipes altamente maduras, ele usa o estilo:",
+          "answers": [
+            "Liberal (Laissez-faire)",
+            "Autocrático",
+            "Centralizador",
+            "Democrático"
+          ],
+          "correct": "Liberal (Laissez-faire)",
+          "tip": "A equipe atua com autonomia quase total.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o que significa o verdadeiro controle emocional no trabalho?",
+          "answers": [
+            "Desenvolver as emoções como ferramenta para melhores decisões e colaboração.",
+            "Reprimir toda e qualquer emoção na frente dos colegas.",
+            "Ignorar os sentimentos alheios.",
+            "Expressar agressividade para se impor."
+          ],
+          "correct": "Desenvolver as emoções como ferramenta para melhores decisões e colaboração.",
+          "tip": "Não é reprimir, é perceber, compreender e canalizar de forma consciente."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Entender o que causa uma emoção faz parte do pilar de 'Compreender' na inteligência emocional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Saber o gatilho da emoção ajuda a regulá-la de forma mais eficaz."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O ciclo da gestão emocional inclui Perceber, Compreender, [COMBO] de forma assertiva, e Regular.",
+          "options": [
+            "Expressar",
+            "Esconder",
+            "Gritar",
+            "Fingir"
+          ],
+          "correct": "Expressar",
+          "tip": "Comunicar emoções sem agressividade ou passividade é essencial."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais são exemplos de fatores externos que influenciam as emoções no trabalho?",
+          "answers": [
+            "Clima organizacional tóxico",
+            "Pressão por resultados irreais",
+            "Saúde física e sono",
+            "Autoestima"
+          ],
+          "correct": [
+            "Clima organizacional tóxico",
+            "Pressão por resultados irreais"
+          ],
+          "tip": "Sono e autoestima são fatores internos que você controla diretamente."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o pilar emocional à sua definição:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Perceber",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Compreender",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Regular",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identificar as próprias emoções"
+            },
+            {
+              "id": "z2",
+              "label": "Entender o que causa a emoção"
+            },
+            {
+              "id": "z3",
+              "label": "Escolher como reagir de forma consciente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Este é o ciclo da inteligência emocional aplicado ao ambiente corporativo."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "O que é um Organograma em uma empresa?",
+          "answers": [
+            "A representação gráfica da estrutura hierárquica e das subordinações.",
+            "Um gráfico que mostra os lucros mensais.",
+            "O documento com as regras informais da equipe.",
+            "Um cronograma de projetos de TI."
+          ],
+          "correct": "A representação gráfica da estrutura hierárquica e das subordinações.",
+          "tip": "Ele mostra quem reporta para quem dentro da organização."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], conhecer o organograma é importante para saber como escalar problemas formalmente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Entender as linhas de subordinação facilita a comunicação e a resolução de bloqueios."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Expectativas pessoais frustradas entre o planejado e o real geram desgaste emocional, sendo um fator [COMBO].",
+          "options": [
+            "Externo",
+            "Burocrático",
+            "Físico",
+            "Ambiental"
+          ],
+          "correct": "Externo",
+          "tip": "Apesar de pessoal, a expectativa frustrada ocorre em resposta às condições do ambiente externo."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "No caso da LogisTech Express, como a inteligência emocional ajuda os desenvolvedores?",
+          "answers": [
+            "A lidar com a pressão de prazos curtos",
+            "A resolver divergências sobre tecnologias com maturidade",
+            "A ignorar completamente os clientes",
+            "A eliminar a necessidade de testar o código"
+          ],
+          "correct": [
+            "A lidar com a pressão de prazos curtos",
+            "A resolver divergências sobre tecnologias com maturidade"
+          ],
+          "tip": "Pressão e discussões técnicas exigem alta regulação emocional."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe os cargos às suas prováveis posições no organograma padrão (acima, meio, baixo):",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Diretor Geral",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Gerente de TI",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Desenvolvedor Júnior",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Topo Estratégico"
+            },
+            {
+              "id": "z2",
+              "label": "Liderança Tática / Meio"
+            },
+            {
+              "id": "z3",
+              "label": "Base Operacional"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um organograma geralmente segue o formato piramidal."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Uma boa saúde física, incluindo alimentação e sono, melhora a capacidade de gerenciar o estresse no trabalho.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Corpo cansado resulta em reações emocionais mais intensas e difíceis de regular."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Em um conflito entre desenvolvedores que preferem automatizar planilhas vs migrar para a nuvem, a atitude mais inteligente emocionalmente é:",
+          "answers": [
+            "Apresentar dados técnicos e buscar um consenso alinhado à meta.",
+            "Gritar com o colega para impor sua visão.",
+            "Sair da sala e se recusar a programar.",
+            "Esperar o chefe decidir sem dar opinião."
+          ],
+          "correct": "Apresentar dados técnicos e buscar um consenso alinhado à meta.",
+          "tip": "A empatia e a racionalidade resolvem conflitos de forma construtiva.",
+          "trans": "FIM"
+        }
+      ]
+    },
+    {
+      "slug": "aula-28",
+      "lesson_info": {
+        "id": "Aula-28",
+        "title": "AULA 28 - FERRAMENTAS DA QUALIDADE: ESTRATÉGIAS PARA A MELHORIA CONTÍNUA",
+        "topics": [
+          {
+            "id": "QUAL",
+            "name": "CONCEITOS E PDCA",
+            "desc": "Fundamentos da qualidade, eficiência, eficácia e o ciclo iterativo PDCA.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "RAIZ",
+            "name": "CAUSA-RAIZ E PARETO",
+            "desc": "Análise de problemas utilizando Ishikawa, Brainstorming e o Princípio de Pareto.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PLAN",
+            "name": "PLANO DE AÇÃO 5W2H",
+            "desc": "Estruturação de soluções concretas, mensuráveis e com responsáveis definidos.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "INIT",
+            "name": "INICIATIVA E 5S",
+            "desc": "A proatividade como diferencial profissional e o programa 5S aplicado a TI.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "P",
+          "D",
+          "C",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "QUAL",
+          "questions": "[NAME], o que melhor define o conceito de \"Qualidade Total\" no contexto corporativo?",
+          "answers": [
+            "Apenas a ausência completa de defeitos em um código.",
+            "Um esforço contínuo de melhoria envolvendo todos os setores.",
+            "A garantia de que o projeto será entregue antes do prazo.",
+            "A redução drástica dos custos de produção do software."
+          ],
+          "correct": "Um esforço contínuo de melhoria envolvendo todos os setores.",
+          "tip": "Qualidade total é sistêmica, integrando desde o atendimento até a infraestrutura tecnológica."
+        },
+        {
+          "type": "boolean",
+          "topics": "QUAL",
+          "questions": "[NAME], a eficácia refere-se a fazer a coisa certa, ou seja, atingir os objetivos e resultados esperados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Enquanto a eficiência foca no recurso (como fazer), a eficácia foca no resultado (o que entregar)."
+        },
+        {
+          "type": "drag",
+          "topics": "QUAL",
+          "questions": "[NAME], relacione os conceitos fundamentais de desempenho aos seus significados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Fazer as coisas do jeito certo, otimizando recursos.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fazer a coisa certa, atingindo os resultados esperados.",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Eficiência"
+            },
+            {
+              "id": "z2",
+              "label": "Eficácia"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um bom desenvolvedor deve ser eficiente (processamento rápido) e eficaz (entrega o dado correto)."
+        },
+        {
+          "type": "combo",
+          "topics": "QUAL",
+          "questions": "[NAME], a melhoria contínua é feita de pequenos ajustes constantes em vez de grandes [COMBO].",
+          "options": [
+            "revoluções",
+            "paralisações",
+            "documentações",
+            "entregas"
+          ],
+          "correct": "revoluções",
+          "tip": "O foco está no aprimoramento incremental e permanente."
+        },
+        {
+          "type": "multi",
+          "topics": "QUAL",
+          "questions": "[NAME], quais das seguintes práticas de TI representam a busca pela melhoria contínua?",
+          "answers": [
+            "Revisão de código (\"Code Review\")",
+            "Retrospectivas ao final de cada \"Sprint\"",
+            "Abolir totalmente os testes para ganhar tempo",
+            "Monitoramento de métricas de desempenho"
+          ],
+          "correct": [
+            "Revisão de código (\"Code Review\")",
+            "Retrospectivas ao final de cada \"Sprint\"",
+            "Monitoramento de métricas de desempenho"
+          ],
+          "tip": "Abolir testes piora a qualidade; as demais práticas ajudam a aprimorar o processo."
+        },
+        {
+          "type": "multiple",
+          "topics": "QUAL",
+          "questions": "[NAME], quem popularizou o ciclo PDCA como uma ferramenta versátil da gestão da qualidade?",
+          "answers": [
+            "Steve Jobs",
+            "Kaoru Ishikawa",
+            "W. Edwards Deming",
+            "Vilfredo Pareto"
+          ],
+          "correct": "W. Edwards Deming",
+          "tip": "Embora concebido por Shewhart, foi Deming quem popularizou mundialmente o método."
+        },
+        {
+          "type": "boolean",
+          "topics": "QUAL",
+          "questions": "[NAME], o ciclo \"PDCA\" não é iterativo, ou seja, deve ser executado apenas uma única vez em cada projeto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele é iterativo: quanto mais vezes o ciclo é percorrido, mais refinado o processo se torna."
+        },
+        {
+          "type": "combo",
+          "topics": "QUAL",
+          "questions": "Na etapa \"Plan\" do PDCA aplicado a TI, o desenvolvedor deve levantar [COMBO] e desenhar a arquitetura da solução.",
+          "options": [
+            "requisitos",
+            "equipamentos",
+            "cabos",
+            "patrocínios"
+          ],
+          "correct": "requisitos",
+          "tip": "Planejar envolve entender o problema e mapear o que o cliente necessita."
+        },
+        {
+          "type": "drag",
+          "topics": "QUAL",
+          "questions": "Associe a etapa do PDCA à sua ação correspondente no desenvolvimento de software:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Codificar e configurar a nuvem",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Monitorar logs e comparar tempos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Corrigir \"bugs\" e atualizar documentação",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Do (Executar)"
+            },
+            {
+              "id": "z2",
+              "label": "Check (Verificar)"
+            },
+            {
+              "id": "z3",
+              "label": "Act (Agir)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Do é a construção; Check é a validação; Act é o ajuste final e padronização."
+        },
+        {
+          "type": "multi",
+          "topics": "QUAL",
+          "questions": "[NAME], por que o PDCA é uma ferramenta essencial na qualidade?",
+          "answers": [
+            "Estrutura o pensamento analítico",
+            "Incentiva decisões impulsivas e rápidas",
+            "Documenta o aprendizado",
+            "Promove uma cultura orientada a dados"
+          ],
+          "correct": [
+            "Estrutura o pensamento analítico",
+            "Documenta o aprendizado",
+            "Promove uma cultura orientada a dados"
+          ],
+          "tip": "O PDCA serve justamente para evitar decisões impulsivas, baseando-se em planejamento e verificação."
+        },
+        {
+          "type": "boolean",
+          "topics": "QUAL",
+          "questions": "[NAME], na etapa \"Agir\" (Act) do PDCA, devemos padronizar o que funcionou e reiniciar o ciclo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se a melhoria atingiu a meta, ela vira o novo padrão; caso contrário, corrige-se e planeja novamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "QUAL",
+          "questions": "[NAME], qual etapa do PDCA utiliza \"KPIs\" para validar se as metas foram atingidas?",
+          "answers": [
+            "Plan",
+            "Do",
+            "Check",
+            "Act"
+          ],
+          "correct": "Check",
+          "tip": "A verificação (\"Check\") compara os resultados práticos com o que foi planejado.",
+          "trans": "RAIZ"
+        },
+        {
+          "type": "multiple",
+          "topics": "RAIZ",
+          "questions": "[NAME], por qual outro nome é conhecido o Diagrama de Ishikawa?",
+          "answers": [
+            "Diagrama de Pareto",
+            "Espinha de Peixe",
+            "Gráfico de Dispersão",
+            "Matriz 5W2H"
+          ],
+          "correct": "Espinha de Peixe",
+          "tip": "Devido ao seu formato visual, onde o efeito fica na cabeça e as causas nas espinhas laterais."
+        },
+        {
+          "type": "boolean",
+          "topics": "RAIZ",
+          "questions": "[NAME], no \"Brainstorming\", criticar e julgar as ideias dos colegas logo de cara é essencial para manter a qualidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Durante a geração de ideias, não deve haver críticas. A quantidade importa mais num primeiro momento."
+        },
+        {
+          "type": "drag",
+          "topics": "RAIZ",
+          "questions": "Relacione as categorias do 6M do Ishikawa com exemplos no contexto de TI:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Falta de treinamento ou desmotivação",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Hardware obsoleto ou falha de rede",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Falta de padrão ou processo manual",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Mão de Obra"
+            },
+            {
+              "id": "z2",
+              "label": "Máquina"
+            },
+            {
+              "id": "z3",
+              "label": "Método"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os 6Ms ajudam a categorizar onde o erro pode estar escondido."
+        },
+        {
+          "type": "combo",
+          "topics": "RAIZ",
+          "questions": "[NAME], o Diagrama de Pareto baseia-se na regra de que 80% dos problemas são gerados por 20% das [COMBO].",
+          "options": [
+            "causas",
+            "pessoas",
+            "máquinas",
+            "empresas"
+          ],
+          "correct": "causas",
+          "tip": "A regra 80/20 indica que devemos concentrar esforços nas \"poucas causas vitais\"."
+        },
+        {
+          "type": "multi",
+          "topics": "RAIZ",
+          "questions": "[NAME], quais são as regras essenciais para uma boa sessão de \"Brainstorming\"?",
+          "answers": [
+            "Quantidade gera qualidade",
+            "Ideias incomuns são bem-vindas",
+            "As ideias devem ser criticadas imediatamente",
+            "Pode-se combinar e melhorar ideias alheias"
+          ],
+          "correct": [
+            "Quantidade gera qualidade",
+            "Ideias incomuns são bem-vindas",
+            "Pode-se combinar e melhorar ideias alheias"
+          ],
+          "tip": "O julgamento precoce trava a criatividade; todas as ideias devem fluir livremente no início."
+        },
+        {
+          "type": "multiple",
+          "topics": "RAIZ",
+          "questions": "[NAME], ao construir um Ishikawa, onde escrevemos o problema de forma clara e objetiva?",
+          "answers": [
+            "Na cauda do peixe.",
+            "Na espinha dorsal central.",
+            "Na \"cabeça\" do peixe.",
+            "Nas espinhas secundárias (os 6M)."
+          ],
+          "correct": "Na \"cabeça\" do peixe.",
+          "tip": "O efeito (problema) fica na cabeça, enquanto as causas são as espinhas que levam a ele."
+        },
+        {
+          "type": "boolean",
+          "topics": "RAIZ",
+          "questions": "[NAME], a \"causa-raiz\" é aquela que, se eliminada, resolve o problema definitivamente em vez de tratar apenas o sintoma.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ferramentas como o Ishikawa servem exatamente para chegar até essa causa profunda."
+        },
+        {
+          "type": "drag",
+          "topics": "RAIZ",
+          "questions": "[NAME], associe a ferramenta da qualidade à sua melhor descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Geração livre de ideias e hipóteses em grupo.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Organiza causas estruturalmente em categorias 6M.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Gráfico de barras que prioriza do maior para o menor.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Brainstorming"
+            },
+            {
+              "id": "z2",
+              "label": "Ishikawa"
+            },
+            {
+              "id": "z3",
+              "label": "Pareto"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Brainstorming levanta ideias, Ishikawa estrutura causas e Pareto prioriza ações."
+        },
+        {
+          "type": "combo",
+          "topics": "RAIZ",
+          "questions": "Em um sistema de relatórios, se os \"dados\" que entram estão incorretos, essa falha enquadra-se no M de [COMBO].",
+          "options": [
+            "Material",
+            "Máquina",
+            "Meio Ambiente",
+            "Mão de Obra"
+          ],
+          "correct": "Material",
+          "tip": "Em TI, o 'Material' frequentemente se refere aos dados e informações consumidos pelo sistema."
+        },
+        {
+          "type": "multi",
+          "topics": "RAIZ",
+          "questions": "[NAME], como as categorias do Ishikawa (6M) podem ser adaptadas para Tecnologia da Informação?",
+          "answers": [
+            "\"Máquina\" pode incluir servidores, \"desktops\" e roteadores.",
+            "\"Meio Ambiente\" pode referir-se à temperatura do Data Center ou excesso de ruído na sala.",
+            "\"Mão de Obra\" é ignorada, pois sistemas operam sozinhos.",
+            "\"Medida\" engloba a ausência de métricas ou KPIs mal definidos."
+          ],
+          "correct": [
+            "\"Máquina\" pode incluir servidores, \"desktops\" e roteadores.",
+            "\"Meio Ambiente\" pode referir-se à temperatura do Data Center ou excesso de ruído na sala.",
+            "\"Medida\" engloba a ausência de métricas ou KPIs mal definidos."
+          ],
+          "tip": "Mão de Obra em TI é crucial (desenvolvedores, usuários, analistas)."
+        },
+        {
+          "type": "boolean",
+          "topics": "RAIZ",
+          "questions": "[NAME], no Gráfico de Pareto, a curva cumulativa ajuda a visualizar facilmente onde se atinge os 80% dos problemas mais impactantes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A linha traçada sobre as barras mostra a porcentagem acumulada e aponta o foco crítico."
+        },
+        {
+          "type": "combo",
+          "topics": "RAIZ",
+          "questions": "Quando a equipe faz um \"Brainstorming\" para levantar requisitos com o cliente, ela foca na etapa de [COMBO] do ciclo PDCA.",
+          "options": [
+            "Planejamento",
+            "Execução",
+            "Verificação",
+            "Ação"
+          ],
+          "correct": "Planejamento",
+          "tip": "Entender o problema antes de codificar faz parte do Planejamento (P)."
+        },
+        {
+          "type": "multiple",
+          "topics": "RAIZ",
+          "questions": "[NAME], se num sistema 80% das falhas de \"deploy\" vêm de dependências desatualizadas, qual ferramenta evidencia isso?",
+          "answers": [
+            "O Brainstorming",
+            "O Diagrama de Pareto",
+            "O Diagrama 5W2H",
+            "A Espinha de Peixe"
+          ],
+          "correct": "O Diagrama de Pareto",
+          "tip": "A regra 80/20 de Pareto aponta a causa que domina a incidência dos erros.",
+          "trans": "PLAN"
+        },
+        {
+          "type": "multiple",
+          "topics": "PLAN",
+          "questions": "[NAME], o que a ferramenta \"5W2H\" busca proporcionar na resolução de problemas?",
+          "answers": [
+            "Achar a causa-raiz através de categorias 6M.",
+            "Transformar ideias em planos de ação concretos e mensuráveis.",
+            "Levantar o maior número possível de ideias criativas.",
+            "Priorizar problemas em um gráfico de barras cumulativo."
+          ],
+          "correct": "Transformar ideias em planos de ação concretos e mensuráveis.",
+          "tip": "Após achar a causa-raiz, o 5W2H estrutura como o problema será de fato resolvido."
+        },
+        {
+          "type": "boolean",
+          "topics": "PLAN",
+          "questions": "[NAME], no 5W2H, a pergunta \"Who?\" (Quem) indica que se deve apontar o nome de um setor inteiro, e não de pessoas específicas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Responsabilidade difusa (setor inteiro) gera inação; é preciso apontar responsáveis reais."
+        },
+        {
+          "type": "drag",
+          "topics": "PLAN",
+          "questions": "Relacione a pergunta em inglês do 5W2H à sua tradução e significado prático:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "O que será feito? (Ação)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Por que será feito? (Motivo)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Onde será feito? (Local)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "What?"
+            },
+            {
+              "id": "z2",
+              "label": "Why?"
+            },
+            {
+              "id": "z3",
+              "label": "Where?"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada W cobre um aspecto vital do planejamento de uma tarefa."
+        },
+        {
+          "type": "combo",
+          "topics": "PLAN",
+          "questions": "[NAME], no 5W2H, o prazo da ação deve ser definido respondendo à pergunta [COMBO].",
+          "options": [
+            "When",
+            "Who",
+            "Where",
+            "How"
+          ],
+          "correct": "When",
+          "tip": "When (Quando) exige datas concretas, como \"Sprint 3\" ou \"15 dias úteis\"."
+        },
+        {
+          "type": "multi",
+          "topics": "PLAN",
+          "questions": "[NAME], sobre o campo \"How?\" (Como) no 5W2H aplicado a TI, o que é apropriado descrever?",
+          "answers": [
+            "O custo do servidor em nuvem.",
+            "O nome do programador \"Sênior\" responsável.",
+            "Os métodos e tecnologias que serão utilizados no código.",
+            "A criação de rotinas específicas e testes automatizados."
+          ],
+          "correct": [
+            "Os métodos e tecnologias que serão utilizados no código.",
+            "A criação de rotinas específicas e testes automatizados."
+          ],
+          "tip": "\"Como\" detalha a execução técnica; custos entram em \"How much\" e responsáveis em \"Who\"."
+        },
+        {
+          "type": "multiple",
+          "topics": "PLAN",
+          "questions": "[NAME], o que a pergunta \"How much?\" avalia no plano de ação de TI?",
+          "answers": [
+            "A qualidade técnica da arquitetura desenvolvida.",
+            "O prazo de entrega da solução.",
+            "O custo financeiro ou a quantidade de horas de trabalho estimadas.",
+            "A quantidade de bugs encontrados na última versão."
+          ],
+          "correct": "O custo financeiro ou a quantidade de horas de trabalho estimadas.",
+          "tip": "How much mensura os recursos consumidos (R$ ou horas-homem)."
+        },
+        {
+          "type": "boolean",
+          "topics": "PLAN",
+          "questions": "[NAME], uma ação descrita como \"melhorar o sistema o mais rápido possível\" é considerada excelente no método 5W2H.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É genérica demais. O 5W2H exige especificidade de ações e de prazos concretos."
+        },
+        {
+          "type": "drag",
+          "topics": "PLAN",
+          "questions": "Identifique quais elementos do projeto de TI correspondem a cada pergunta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "\"Migrar o banco de dados para a nuvem AWS\"",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "\"40 horas de desenvolvimento\"",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "\"Para evitar lentidão e perda de dados locais\"",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "What? (O quê)"
+            },
+            {
+              "id": "z2",
+              "label": "How much? (Quanto)"
+            },
+            {
+              "id": "z3",
+              "label": "Why? (Por quê)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Mapear exatamente a frase à sua função evita ambiguidades no plano de ação."
+        },
+        {
+          "type": "combo",
+          "topics": "PLAN",
+          "questions": "[NAME], o 5W2H não é apenas um formulário preenchido uma única vez, ele é um instrumento [COMBO] que deve ser acompanhado.",
+          "options": [
+            "vivo",
+            "burocrático",
+            "jurídico",
+            "engessado"
+          ],
+          "correct": "vivo",
+          "tip": "Sendo vivo, ele deve ser revisado, atualizado e validado durante a execução."
+        },
+        {
+          "type": "multi",
+          "topics": "PLAN",
+          "questions": "[NAME], quais são boas práticas (dicas) para construir um 5W2H eficaz?",
+          "answers": [
+            "Ser específico na definição do que será feito.",
+            "Usar prazos vagos para dar mais liberdade à equipe.",
+            "Definir responsáveis reais com nomes específicos.",
+            "Documentar e acompanhar a execução do plano."
+          ],
+          "correct": [
+            "Ser específico na definição do que será feito.",
+            "Definir responsáveis reais com nomes específicos.",
+            "Documentar e acompanhar a execução do plano."
+          ],
+          "tip": "Prazos vagos (como \"em breve\") destroem a utilidade de um plano estruturado."
+        },
+        {
+          "type": "boolean",
+          "topics": "PLAN",
+          "questions": "[NAME], o plano 5W2H é utilizado na fase \"Agir\" (Act) e \"Verificar\" (Check) do ciclo PDCA, pois sua natureza é corretiva.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O 5W2H é focado no \"Planejar\" (Plan) e orienta o \"Executar\" (Do). Ele desenha a ação antes dela acontecer."
+        },
+        {
+          "type": "multiple",
+          "topics": "PLAN",
+          "questions": "[NAME], se a equipe decidir implementar uma validação em Python no módulo de entrada de dados, isso responde primariamente a qual pergunta do 5W2H?",
+          "answers": [
+            "When",
+            "Where",
+            "How",
+            "Who"
+          ],
+          "correct": "How",
+          "tip": "A tecnologia e a lógica de programação representam o COMO a ação será feita.",
+          "trans": "INIT"
+        },
+        {
+          "type": "multiple",
+          "topics": "INIT",
+          "questions": "[NAME], de acordo com o material, o que melhor define a competência \"Iniciativa\" no trabalho?",
+          "answers": [
+            "Agi proativamente, antecipando problemas e oportunidades.",
+            "Seguir ordens estritamente sem nunca questionar.",
+            "Anotar as falhas dos colegas para reportar aos gestores.",
+            "Fazer tarefas extras de outras áreas para ganhar horas."
+          ],
+          "correct": "Agi proativamente, antecipando problemas e oportunidades.",
+          "tip": "A iniciativa é não esperar que alguém diga o que deve ser feito diante de um problema visível."
+        },
+        {
+          "type": "boolean",
+          "topics": "INIT",
+          "questions": "[NAME], a iniciativa sem qualquer alinhamento e comunicação prévia com a equipe pode ser vista como precipitação e causar problemas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Por isso a importância da \"iniciativa com comunicação\". Mudar código sem avisar gera caos."
+        },
+        {
+          "type": "drag",
+          "topics": "INIT",
+          "questions": "Associe o \"S\" do Programa 5S japonês ao seu significado prático no ambiente de TI:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Eliminar código morto e ferramentas obsoletas.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Estruturar repositórios e padronizar nomes de arquivos.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Manter o código limpo (\"Clean Code\") e dependências atualizadas.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Seiri (Utilização)"
+            },
+            {
+              "id": "z2",
+              "label": "Seiton (Organização)"
+            },
+            {
+              "id": "z3",
+              "label": "Seiso (Limpeza)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O 5S moderno vai muito além de varrer o chão; ele organiza a mente e o ambiente digital."
+        },
+        {
+          "type": "combo",
+          "topics": "INIT",
+          "questions": "[NAME], o senso de \"Seiketsu\" no 5S refere-se à criação de [COMBO] de codificação e templates.",
+          "options": [
+            "padrões",
+            "conflitos",
+            "competições",
+            "atrasos"
+          ],
+          "correct": "padrões",
+          "tip": "Padronização garante que a equipe fale a mesma língua no código."
+        },
+        {
+          "type": "multi",
+          "topics": "INIT",
+          "questions": "[NAME], quais atitudes são bons exemplos de iniciativa para um Desenvolvedor de Soluções Integradas em TI?",
+          "answers": [
+            "Identificar um processo manual chato e propor um \"script\" para automatizá-lo.",
+            "Sugerir melhorias construtivas durante um \"Code Review\".",
+            "Ignorar os erros no código de outros para focar apenas na sua tarefa.",
+            "Aprender uma nova ferramenta tecnológica que o projeto precisará no futuro."
+          ],
+          "correct": [
+            "Identificar um processo manual chato e propor um \"script\" para automatizá-lo.",
+            "Sugerir melhorias construtivas durante um \"Code Review\".",
+            "Aprender uma nova ferramenta tecnológica que o projeto precisará no futuro."
+          ],
+          "tip": "Profissionais de alto valor não operam no modo 'não é problema meu'."
+        },
+        {
+          "type": "multiple",
+          "topics": "INIT",
+          "questions": "[NAME], segundo a frase citada na aula, a iniciativa separa os profissionais que resolvem problemas daqueles que:",
+          "answers": [
+            "Apenas relatam os problemas.",
+            "Criam planilhas coloridas.",
+            "Ganham as maiores premiações.",
+            "Trabalham até mais tarde."
+          ],
+          "correct": "Apenas relatam os problemas.",
+          "tip": "Apontar o dedo para um bug é fácil; investigar sua causa e sugerir correção é o que destaca um desenvolvedor."
+        },
+        {
+          "type": "boolean",
+          "topics": "INIT",
+          "questions": "[NAME], assumir projetos e tarefas que ninguém quer fazer demonstra comprometimento, coragem e é uma excelente forma de mostrar iniciativa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Muitas vezes os problemas difíceis são as melhores vitrines para suas habilidades."
+        },
+        {
+          "type": "drag",
+          "topics": "INIT",
+          "questions": "Relacione a ação às consequências potenciais da iniciativa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Agir e sugerir melhorias de forma alinhada com os colegas.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Alterar um processo crítico em produção sem avisar ninguém.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Assumir tarefas além da própria capacidade física e mental.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Crescimento profissional e liderança"
+            },
+            {
+              "id": "z2",
+              "label": "Conflito e aparente insubordinação"
+            },
+            {
+              "id": "z3",
+              "label": "Sobrecarga e estresse"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Iniciativa não significa ser um lobo solitário; equilíbrio é fundamental."
+        },
+        {
+          "type": "combo",
+          "topics": "INIT",
+          "questions": "[NAME], o último S do programa 5S, \"Shitsuke\", refere-se a manter as práticas consistentes. Ele significa [COMBO].",
+          "options": [
+            "Disciplina",
+            "Saúde",
+            "Descarte",
+            "Automação"
+          ],
+          "correct": "Disciplina",
+          "tip": "Sem disciplina para manter as auditorias e limpezas, a organização perde-se rapidamente."
+        },
+        {
+          "type": "multi",
+          "topics": "INIT",
+          "questions": "[NAME], quais resultados a implantação do 5S em um repositório de código fonte (\"GitHub\", por exemplo) gera?",
+          "answers": [
+            "Dificulta a entrada de programadores novatos.",
+            "Facilita encontrar a documentação correta.",
+            "Aumenta a produtividade por não haver arquivos inúteis.",
+            "Garante padronização nos nomes das funções."
+          ],
+          "correct": [
+            "Facilita encontrar a documentação correta.",
+            "Aumenta a produtividade por não haver arquivos inúteis.",
+            "Garante padronização nos nomes das funções."
+          ],
+          "tip": "A organização digital economiza centenas de horas de retrabalho da equipe."
+        },
+        {
+          "type": "boolean",
+          "topics": "INIT",
+          "questions": "[NAME], para aplicar as ferramentas da qualidade com sucesso, não basta ter iniciativa uma única vez; é preciso torná-la um hábito.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Como adaptado de Aristóteles: 'Qualidade não é um ato, é um hábito'."
+        },
+        {
+          "type": "combo",
+          "topics": "INIT",
+          "questions": "[NAME], no Case LogisTech, se a equipe migrar as planilhas inseguras para \"dashboards\" na nuvem, ela estará propondo uma ação corretiva na fase [COMBO] do PDCA.",
+          "options": [
+            "Do (Executar)",
+            "Check (Verificar)",
+            "Plan (Planejar)",
+            "Stop (Parar)"
+          ],
+          "correct": "Do (Executar)",
+          "tip": "A implementação prática da solução recai sobre a execução ('Do')."
+        },
+        {
+          "type": "multiple",
+          "topics": "INIT",
+          "questions": "[NAME], por que o material reforça que o desenvolvedor moderno não deve apenas conhecer código, mas também ferramentas de qualidade?",
+          "answers": [
+            "Porque o foco único de TI é cortar custos com funcionários.",
+            "Porque programar rápido e sem planejamento é a regra de mercado.",
+            "Porque criar soluções integradas exige alinhar a tecnologia às metas e eliminar as causas-raízes dos problemas do cliente.",
+            "Porque o cliente gosta de apresentações longas e teóricas de Ishikawa."
+          ],
+          "correct": "Porque criar soluções integradas exige alinhar a tecnologia às metas e eliminar as causas-raízes dos problemas do cliente.",
+          "tip": "O diferencial técnico hoje é ter visão de negócio aliada à excelência da engenharia de software.",
+          "trans": "END"
+        }
+      ]
+    },
+    {
+      "slug": "aula-29",
+      "lesson_info": {
+        "id": "Aula-29",
+        "title": "AULA 29 - PESQUISA, INOVAÇÃO E EMPREENDEDORISMO NA TI",
+        "topics": [
+          {
+            "id": "PESQ",
+            "name": "PESQUISA E PROPRIEDADE",
+            "desc": "Fundamentos da pesquisa técnica, métodos e proteção da propriedade intelectual.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "INOV",
+            "name": "INOVAÇÃO E VISÃO",
+            "desc": "A diferença entre melhoria e inovação, tipos de inovação e o ecossistema tecnológico.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "EMPR",
+            "name": "EMPREENDEDORISMO",
+            "desc": "Intraempreendedorismo, etapas de negócio e autoempreendedorismo.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "CARR",
+            "name": "CARREIRA EM TI",
+            "desc": "Planejamento profissional, ascensão, \"hard/soft skills\" e empregabilidade.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "I",
+          "D",
+          "E",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "PESQ",
+          "questions": "[NAME], o que define corretamente o processo de pesquisa no contexto da Tecnologia da Informação?",
+          "answers": [
+            "Uma simples busca no Google para copiar e colar código.",
+            "Um processo sistemático e metódico para produzir ou validar conhecimento.",
+            "Apenas a leitura de livros antigos em bibliotecas.",
+            "A criação de um software sem nenhum planejamento prévio."
+          ],
+          "correct": "Um processo sistemático e metódico para produzir ou validar conhecimento.",
+          "tip": "Na TI, pesquisar exige método, rigor e pensamento crítico para resolver problemas reais."
+        },
+        {
+          "type": "boolean",
+          "topics": "PESQ",
+          "questions": "[NAME], a pesquisa laboratorial na TI equivale à realização de testes em ambientes controlados, como \"homologação\" e \"sandbox\".",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esses ambientes permitem validar o software sem afetar os usuários finais no ambiente de produção."
+        },
+        {
+          "type": "combo",
+          "topics": "PESQ",
+          "questions": "A pesquisa [COMBO] baseia-se em documentos publicados, artigos e manuais, sendo essencial para fundamentar projetos.",
+          "options": [
+            "Bibliográfica",
+            "De Campo",
+            "Laboratorial",
+            "Estatística"
+          ],
+          "correct": "Bibliográfica",
+          "tip": "É a base teórica de qualquer projeto de tecnologia."
+        },
+        {
+          "type": "drag",
+          "topics": "PESQ",
+          "questions": "[NAME], relacione o tipo de método de pesquisa à sua característica principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Entrevistas e observação participante.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Questionários, métricas e estatísticas.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Uso simultâneo de dados numéricos e observacionais.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Método Qualitativo"
+            },
+            {
+              "id": "z2",
+              "label": "Método Quantitativo"
+            },
+            {
+              "id": "z3",
+              "label": "Método Misto"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A escolha do método deve ser guiada pelo tipo de problema que se deseja resolver."
+        },
+        {
+          "type": "multi",
+          "topics": "PESQ",
+          "questions": "[NAME], quais das opções abaixo são consideradas fontes confiáveis de pesquisa na TI?",
+          "answers": [
+            "Documentação oficial de \"frameworks\" e APIs.",
+            "Blogs de opinião sem referências técnicas.",
+            "Bases acadêmicas como \"IEEE Xplore\".",
+            "Comunidades técnicas como \"Stack Overflow\" e \"GitHub\"."
+          ],
+          "correct": [
+            "Documentação oficial de \"frameworks\" e APIs.",
+            "Bases acadêmicas como \"IEEE Xplore\".",
+            "Comunidades técnicas como \"Stack Overflow\" e \"GitHub\"."
+          ],
+          "correct": [
+            "Documentação oficial de \"frameworks\" e APIs.",
+            "Bases acadêmicas como \"IEEE Xplore\".",
+            "Comunidades técnicas como \"Stack Overflow\" e \"GitHub\"."
+          ],
+          "tip": "É fundamental buscar informações validadas por comunidades ou instituições respeitadas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PESQ",
+          "questions": "[NAME], na estruturação de uma pesquisa, por que a etapa de \"Revisão / Anterioridade\" é crucial?",
+          "answers": [
+            "Para definir o orçamento do projeto.",
+            "Para evitar retrabalho, verificando o que já foi pesquisado ou patenteado.",
+            "Para coletar dados dos usuários finais.",
+            "Para escrever as conclusões do relatório."
+          ],
+          "correct": "Para evitar retrabalho, verificando o que já foi pesquisado ou patenteado.",
+          "tip": "A anterioridade protege a propriedade intelectual e poupa tempo da equipe."
+        },
+        {
+          "type": "boolean",
+          "topics": "PESQ",
+          "questions": "[NAME], o \"Direito Autoral\" protege o código-fonte de um software automaticamente, embora o registro formal seja recomendado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A criação original do código já garante direitos ao autor, mas o registro no INPI facilita disputas legais."
+        },
+        {
+          "type": "combo",
+          "topics": "PESQ",
+          "questions": "Para proteger o nome, logotipo e a identidade visual de um aplicativo, a empresa deve solicitar o registro de [COMBO].",
+          "options": [
+            "Marca",
+            "Patente",
+            "Direito Autoral",
+            "Código"
+          ],
+          "correct": "Marca",
+          "tip": "Marcas protegem a identidade comercial do produto no mercado."
+        },
+        {
+          "type": "drag",
+          "topics": "PESQ",
+          "questions": "[NAME], ordene corretamente o fluxo padrão para estruturação de uma pesquisa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Definir problema e objetivos.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Mapear literatura e anterioridade.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Recolher e analisar os dados.",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Interpretar e aplicar resultados.",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Passo 1"
+            },
+            {
+              "id": "z2",
+              "label": "Passo 2"
+            },
+            {
+              "id": "z3",
+              "label": "Passo 3"
+            },
+            {
+              "id": "z4",
+              "label": "Passo 4"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A ordem lógica vai da definição do problema até a conclusão baseada em dados."
+        },
+        {
+          "type": "multi",
+          "topics": "PESQ",
+          "questions": "[NAME], sobre Patentes de Software no Brasil, quais requisitos são necessários?",
+          "answers": [
+            "Apenas ter um nome bonito.",
+            "Ser um método ou processo técnico inovador.",
+            "Ter aplicação industrial clara.",
+            "Ser apenas um código-fonte sem uso prático."
+          ],
+          "correct": [
+            "Ser um método ou processo técnico inovador.",
+            "Ter aplicação industrial clara."
+          ],
+          "tip": "O software em si é protegido por Direito Autoral; a patente foca no processo inovador implementado por ele."
+        },
+        {
+          "type": "boolean",
+          "topics": "PESQ",
+          "questions": "[NAME], utilizar algoritmos de terceiros encontrados na internet sem a devida licença não gera nenhum problema legal, pois o código é público.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Isso pode configurar violação de propriedade intelectual. É preciso respeitar as licenças (como MIT, GPL, etc)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PESQ",
+          "questions": "Se você precisa entender como os usuários de fato clicam em um sistema, qual tipo de pesquisa você deve conduzir?",
+          "answers": [
+            "Pesquisa Bibliográfica",
+            "Pesquisa Laboratorial fechada",
+            "Pesquisa Acadêmica teórica",
+            "Pesquisa de Campo"
+          ],
+          "correct": "Pesquisa de Campo",
+          "tip": "A pesquisa de campo envolve a coleta de dados diretamente no ambiente real do usuário.",
+          "trans": "INOV"
+        },
+        {
+          "type": "multiple",
+          "topics": "INOV",
+          "questions": "[NAME], o que diferencia \"Inovação\" de uma simples invenção?",
+          "answers": [
+            "A invenção usa tecnologia moderna, a inovação não.",
+            "A inovação é a aplicação prática de uma ideia gerando valor e resultado.",
+            "A inovação ocorre apenas em universidades.",
+            "Não existe diferença, são sinônimos perfeitos."
+          ],
+          "correct": "A inovação é a aplicação prática de uma ideia gerando valor e resultado.",
+          "tip": "Muitas invenções nunca saem do papel; a inovação transforma conhecimento em resultado prático."
+        },
+        {
+          "type": "boolean",
+          "topics": "INOV",
+          "questions": "[NAME], reduzir o tempo de carregamento de uma página de 3 para 1,5 segundos é um exemplo de \"Melhoria Contínua\", não de inovação disruptiva.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Melhorar o que já existe (otimização) é melhoria. Inovar seria substituir o modelo por uma abordagem inédita."
+        },
+        {
+          "type": "combo",
+          "topics": "INOV",
+          "questions": "A substituição de um sistema de planilhas estáticas por uma Inteligência Artificial que gera \"insights\" automáticos é um claro exemplo de [COMBO].",
+          "options": [
+            "Inovação",
+            "Melhoria",
+            "Manutenção",
+            "Backup"
+          ],
+          "correct": "Inovação",
+          "tip": "Cria-se algo fundamentalmente novo e com uma abordagem inédita que muda a operação."
+        },
+        {
+          "type": "drag",
+          "topics": "INOV",
+          "questions": "[NAME], relacione os tipos de inovação com suas definições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Novos produtos ou serviços digitais.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Novos métodos de produção ou entrega.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Novas práticas de gestão e estrutura na empresa.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Inovação de Produto"
+            },
+            {
+              "id": "z2",
+              "label": "Inovação de Processo"
+            },
+            {
+              "id": "z3",
+              "label": "Inovação Organizacional"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As organizações competitivas combinam vários tipos de inovação simultaneamente."
+        },
+        {
+          "type": "multi",
+          "topics": "INOV",
+          "questions": "[NAME], quais são características comuns de profissionais de TI com uma \"visão inovadora\"?",
+          "answers": [
+            "Aceitação cega do status quo.",
+            "Observação crítica dos processos.",
+            "Experimentação (testar hipóteses rapidamente).",
+            "Conexão de ideias de áreas diferentes."
+          ],
+          "correct": [
+            "Observação crítica dos processos.",
+            "Experimentação (testar hipóteses rapidamente).",
+            "Conexão de ideias de áreas diferentes."
+          ],
+          "tip": "A visão inovadora questiona o porquê das coisas e não tem medo de testar o novo."
+        },
+        {
+          "type": "multiple",
+          "topics": "INOV",
+          "questions": "[NAME], a inovação não acontece de forma isolada. O que compõe o \"Ecossistema de Inovação\"?",
+          "answers": [
+            "Apenas os programadores \"Sêniores\" da empresa.",
+            "Universidades, startups, governo, indústria, investidores e comunidades.",
+            "Apenas as empresas do Vale do Silício.",
+            "Somente bancos e fundos de investimento."
+          ],
+          "correct": "Universidades, startups, governo, indústria, investidores e comunidades.",
+          "tip": "É uma rede de atores (como o Firjan SENAI) que colaboram para sustentar a criação de novas soluções."
+        },
+        {
+          "type": "boolean",
+          "topics": "INOV",
+          "questions": "[NAME], o pensamento interdisciplinar, que combina conhecimentos de várias áreas, é prejudicial para a inovação em TI.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É exatamente o oposto: a conexão de ideias distintas é um dos maiores motores da inovação."
+        },
+        {
+          "type": "combo",
+          "topics": "INOV",
+          "questions": "Profissionais inovadores veem a [COMBO] como uma ferramenta ativa para construir soluções em equipe, valorizando a diversidade.",
+          "options": [
+            "Colaboração",
+            "Competição",
+            "Isolamento",
+            "Teimosia"
+          ],
+          "correct": "Colaboração",
+          "tip": "Ninguém inova sozinho. O compartilhamento de perspectivas enriquece o projeto."
+        },
+        {
+          "type": "multi",
+          "topics": "INOV",
+          "questions": "[NAME], no Case LogisTech, por que a migração das planilhas para a nuvem é crucial?",
+          "answers": [
+            "Para aumentar o uso de papel.",
+            "Para reduzir o risco de perda de dados.",
+            "Para permitir decisões baseadas em dados em tempo real.",
+            "Para integrar sistemas que antes não se comunicavam."
+          ],
+          "correct": [
+            "Para reduzir o risco de perda de dados.",
+            "Para permitir decisões baseadas em dados em tempo real.",
+            "Para integrar sistemas que antes não se comunicavam."
+          ],
+          "tip": "A nuvem destrava a automação e garante segurança e escala para a empresa de logística."
+        },
+        {
+          "type": "multiple",
+          "topics": "INOV",
+          "questions": "Quando a LogisTech passa a usar um aplicativo móvel para os motoristas interagirem diretamente com o cliente, isso é inovação de:",
+          "answers": [
+            "Gestão (Organizacional)",
+            "Processo e Serviço (Produto)",
+            "Laboratório de Pesquisa",
+            "Apenas melhoria contínua"
+          ],
+          "correct": "Processo e Serviço (Produto)",
+          "tip": "Muda a forma de entrega e cria um novo produto digital focado na experiência do usuário."
+        },
+        {
+          "type": "boolean",
+          "topics": "INOV",
+          "questions": "[NAME], uma inovação de \"marketing\" pode envolver novas estratégias de posicionamento e canais de venda digitais para a empresa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Inovar no marketing muda a forma como o valor do produto é percebido e entregue ao mercado."
+        },
+        {
+          "type": "drag",
+          "topics": "INOV",
+          "questions": "Associe as ações à sua respectiva classificação (Melhoria ou Inovação):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Corrigir um \"bug\" que deixava a tela de login lenta.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Substituir o login por senha por biometria e reconhecimento facial.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Criar um modelo de negócios SaaS (Software as a Service) do zero.",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Melhoria"
+            },
+            {
+              "id": "z2",
+              "label": "Inovação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Correção e otimização são melhorias; mudanças fundamentais e novos modelos são inovações."
+        },
+        {
+          "type": "combo",
+          "topics": "INOV",
+          "questions": "[NAME], a inovação é o motor que transforma a pesquisa teórica em [COMBO] de valor prático para a sociedade e mercado.",
+          "options": [
+            "Soluções",
+            "Problemas",
+            "Teorias",
+            "Planilhas"
+          ],
+          "correct": "Soluções",
+          "tip": "Sem a aplicação prática orientada à solução de um problema, a ideia permanece apenas no campo da pesquisa.",
+          "trans": "EMPR"
+        },
+        {
+          "type": "multiple",
+          "topics": "EMPR",
+          "questions": "[NAME], o que é o \"Intraempreendedorismo\"?",
+          "answers": [
+            "Abrir uma empresa concorrente usando dados do atual empregador.",
+            "Agir como um empreendedor e propor soluções inovadoras dentro da empresa onde já trabalha.",
+            "Trabalhar como \"freelancer\" nas horas vagas.",
+            "Comprar ações de empresas de tecnologia na bolsa de valores."
+          ],
+          "correct": "Agir como um empreendedor e propor soluções inovadoras dentro da empresa onde já trabalha.",
+          "tip": "É a capacidade de inovar e gerar valor 'de dentro para fora' da organização."
+        },
+        {
+          "type": "boolean",
+          "topics": "EMPR",
+          "questions": "[NAME], o empreendedorismo na área de TI se resume exclusivamente à criação de \"startups\".",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pode ser atuar como consultor, desenvolver produtos próprios ou até mesmo inovar dentro de uma empresa (intraempreendedorismo)."
+        },
+        {
+          "type": "combo",
+          "topics": "EMPR",
+          "questions": "A capacidade de recuperar-se de falhas, aprender com os erros e persistir diante de obstáculos é chamada de [COMBO].",
+          "options": [
+            "Resiliência",
+            "Teimosia",
+            "Proatividade",
+            "Networking"
+          ],
+          "correct": "Resiliência",
+          "tip": "Fundamental para qualquer empreendedor, pois falhas fazem parte do processo de inovação."
+        },
+        {
+          "type": "drag",
+          "topics": "EMPR",
+          "questions": "[NAME], relacione as etapas de constituição de um negócio com suas ações:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Pesquisa de mercado e validação da dor do cliente.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Criação do Canvas, projeção financeira e MVP.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Registro de CNPJ e licenças necessárias.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identificação"
+            },
+            {
+              "id": "z2",
+              "label": "Planejamento"
+            },
+            {
+              "id": "z3",
+              "label": "Formalização"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Todo negócio formal passa da ideia ao planejamento antes de se consolidar juridicamente."
+        },
+        {
+          "type": "multi",
+          "topics": "EMPR",
+          "questions": "[NAME], quais são os benefícios para as empresas que estimulam a cultura do intraempreendedorismo?",
+          "answers": [
+            "Retenção de talentos (equipes mais engajadas).",
+            "Inovação acelerada (ideias de quem opera o sistema).",
+            "Maior competitividade no mercado.",
+            "Aumento da burocracia e lentidão."
+          ],
+          "correct": [
+            "Retenção de talentos (equipes mais engajadas).",
+            "Inovação acelerada (ideias de quem opera o sistema).",
+            "Maior competitividade no mercado."
+          ],
+          "tip": "Profissionais com autonomia sentem-se donos do negócio e entregam mais valor."
+        },
+        {
+          "type": "multiple",
+          "topics": "EMPR",
+          "questions": "[NAME], qual órgão brasileiro foca no apoio, consultoria gratuita e cursos para micro e pequenos empreendedores?",
+          "answers": [
+            "BNDES",
+            "FINEP",
+            "SEBRAE",
+            "INPI"
+          ],
+          "correct": "SEBRAE",
+          "tip": "O SEBRAE é a porta de entrada e suporte para o pequeno empreendedor no Brasil."
+        },
+        {
+          "type": "boolean",
+          "topics": "EMPR",
+          "questions": "[NAME], a FINEP (Financiadora de Estudos e Projetos) oferece linhas de crédito focadas em inovação tecnológica.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É um importante órgão de fomento para alavancar projetos de tecnologia."
+        },
+        {
+          "type": "combo",
+          "topics": "EMPR",
+          "questions": "Manter consistência nos estudos técnicos, mesmo sem cobranças de chefes ou professores, demonstra a [COMBO] do autoempreendedor.",
+          "options": [
+            "Autodisciplina",
+            "Arrogância",
+            "Sorte",
+            "Competição"
+          ],
+          "correct": "Autodisciplina",
+          "tip": "A autodisciplina é o motor que mantém o profissional atualizado num mercado que muda rapidamente."
+        },
+        {
+          "type": "drag",
+          "topics": "EMPR",
+          "questions": "Associe os pilares do Autoempreendedorismo aos seus conceitos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Conhecer seus pontos fortes e fracos.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Estudar e praticar sem depender de ordens.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Não terceirizar a culpa e assumir os próprios resultados.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Autoconhecimento"
+            },
+            {
+              "id": "z2",
+              "label": "Autodisciplina"
+            },
+            {
+              "id": "z3",
+              "label": "Autorresponsabilidade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Empreender sobre si mesmo (na própria carreira) exige autogestão rigorosa."
+        },
+        {
+          "type": "multi",
+          "topics": "EMPR",
+          "questions": "[NAME], como um desenvolvedor júnior pode demonstrar \"Visão Estratégica\"?",
+          "answers": [
+            "Apenas codificando sem perguntar o motivo.",
+            "Entendendo o impacto do seu código no negócio geral.",
+            "Identificando tendências e sugerindo melhorias.",
+            "Recusando-se a interagir com os clientes."
+          ],
+          "correct": [
+            "Entendendo o impacto do seu código no negócio geral.",
+            "Identificando tendências e sugerindo melhorias."
+          ],
+          "tip": "Visão estratégica é enxergar a floresta, não apenas a árvore do seu próprio código."
+        },
+        {
+          "type": "boolean",
+          "topics": "EMPR",
+          "questions": "[NAME], no Case da LogisTech, se um funcionário propor e construir sozinho um \"script\" que reduz o trabalho manual de 4h para 15min, ele aplicou intraempreendedorismo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele agiu como dono do processo, solucionou uma dor e gerou valor enorme para a companhia."
+        },
+        {
+          "type": "multiple",
+          "topics": "EMPR",
+          "questions": "[NAME], qual habilidade do espírito empreendedor envolve construir e manter uma rede de contatos que potencializam oportunidades?",
+          "answers": [
+            "Proatividade",
+            "Resiliência",
+            "Networking",
+            "Design Thinking"
+          ],
+          "correct": "Networking",
+          "tip": "Relacionamentos profissionais são fundamentais para encontrar parceiros, sócios e clientes.",
+          "trans": "CARR"
+        },
+        {
+          "type": "multiple",
+          "topics": "CARR",
+          "questions": "[NAME], o que acontece com um profissional de TI que NÃO faz um Planejamento Profissional?",
+          "answers": [
+            "Ele é promovido a CTO mais rápido.",
+            "Ele navega por impulso e reage ao mercado em vez de liderar sua carreira.",
+            "Ele automaticamente vira um empreendedor de sucesso.",
+            "Ele domina novas linguagens sem precisar estudar."
+          ],
+          "correct": "Ele navega por impulso e reage ao mercado em vez de liderar sua carreira.",
+          "tip": "Sem mapa, você chega a qualquer lugar, e geralmente não é onde você gostaria."
+        },
+        {
+          "type": "boolean",
+          "topics": "CARR",
+          "questions": "[NAME], o planejamento profissional inclui a definição de metas de curto, médio e longo prazo, além da análise de tendências de mercado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "As metas direcionam o esforço de estudo para o que realmente tem demanda."
+        },
+        {
+          "type": "combo",
+          "topics": "CARR",
+          "questions": "Identificar a diferença entre as suas habilidades atuais e as exigidas pelo mercado é conhecido como mapeamento de [COMBO].",
+          "options": [
+            "Competências",
+            "Hardware",
+            "Bugs",
+            "Concorrentes"
+          ],
+          "correct": "Competências",
+          "tip": "Também conhecido como 'gap analysis', revela o que você precisa estudar a seguir."
+        },
+        {
+          "type": "drag",
+          "topics": "CARR",
+          "questions": "[NAME], ordene os níveis de maturidade técnica típicos da carreira em desenvolvimento de software:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Aprendizado intensivo e tarefas supervisionadas.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Autonomia técnica e mentoria de juniores.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Referência técnica e liderança em projetos complexos.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Júnior"
+            },
+            {
+              "id": "z2",
+              "label": "Pleno"
+            },
+            {
+              "id": "z3",
+              "label": "Sênior"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O crescimento traz mais autonomia e a responsabilidade de guiar os mais novos."
+        },
+        {
+          "type": "multi",
+          "topics": "CARR",
+          "questions": "[NAME], de acordo com o material, quais áreas de TI lideram a previsão de crescimento de vagas para 2025-2026?",
+          "answers": [
+            "Manutenção de disquetes.",
+            "Inteligência Artificial / Machine Learning.",
+            "Cloud Computing.",
+            "Cibersegurança e Dados."
+          ],
+          "correct": [
+            "Inteligência Artificial / Machine Learning.",
+            "Cloud Computing.",
+            "Cibersegurança e Dados."
+          ],
+          "tip": "Essas são as tecnologias base que suportam a transformação digital das empresas hoje."
+        },
+        {
+          "type": "multiple",
+          "topics": "CARR",
+          "questions": "[NAME], qual posição da carreira em TI exige \"visão executiva, inovação organizacional e definição da estratégia digital da empresa\"?",
+          "answers": [
+            "Desenvolvedor Júnior",
+            "Estagiário de Redes",
+            "CTO (Chief Technology Officer)",
+            "Scrum Master"
+          ],
+          "correct": "CTO (Chief Technology Officer)",
+          "tip": "O CTO é o Diretor de Tecnologia, responsável pela estratégia máxima do setor."
+        },
+        {
+          "type": "boolean",
+          "topics": "CARR",
+          "questions": "[NAME], certificações técnicas (como AWS, Azure, ITIL) não impactam o salário e são irrelevantes no mercado de TI atual.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Dados mostram que certificações aumentam a empregabilidade e geram saltos salariais de até 40% na área de Cloud."
+        },
+        {
+          "type": "combo",
+          "topics": "CARR",
+          "questions": "Comunicação, resolução de problemas e adaptabilidade são exemplos de [COMBO] Skills.",
+          "options": [
+            "Soft",
+            "Hard",
+            "Cloud",
+            "Tech"
+          ],
+          "correct": "Soft",
+          "tip": "Hard skills conseguem a entrevista; soft skills mantêm o emprego."
+        },
+        {
+          "type": "drag",
+          "topics": "CARR",
+          "questions": "Classifique as competências como Técnicas (Hard Skills) ou Comportamentais (Soft Skills):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Programação em Python e gestão de Banco de Dados.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Configuração de infraestrutura Cloud (AWS/Azure).",
+              "match": "z1"
+            },
+            {
+              "id": "d3",
+              "txt": "Trabalho em equipe e Pensamento Crítico.",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Hard Skills"
+            },
+            {
+              "id": "z2",
+              "label": "Soft Skills"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A empregabilidade depende do equilíbrio perfeito entre as duas."
+        },
+        {
+          "type": "multi",
+          "topics": "CARR",
+          "questions": "[NAME], o que sustenta a \"Empregabilidade\" na Era Digital?",
+          "answers": [
+            "Apenas saber a linguagem de programação da moda.",
+            "O equilíbrio contínuo entre Hard Skills e Soft Skills.",
+            "Ter indicação de diretores, dispensando estudo.",
+            "Adaptabilidade a novos cenários e tecnologias."
+          ],
+          "correct": [
+            "O equilíbrio contínuo entre Hard Skills e Soft Skills.",
+            "Adaptabilidade a novos cenários e tecnologias."
+          ],
+          "tip": "O mercado muda rápido; a sua capacidade de se adaptar vale mais que um conhecimento estático."
+        },
+        {
+          "type": "boolean",
+          "topics": "CARR",
+          "questions": "[NAME], segundo as métricas da aula, o mercado de TI sofre com falta de vagas, não havendo espaço para novos profissionais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Brasil tem um déficit projetado de quase 800 mil profissionais qualificados. Sobram vagas para quem estuda."
+        },
+        {
+          "type": "combo",
+          "topics": "CARR",
+          "questions": "Participar de comunidades, conferências e projetos \"open source\" faz parte do processo de aprendizado [COMBO] de um desenvolvedor.",
+          "options": [
+            "Contínuo",
+            "Opcional",
+            "Passado",
+            "Inútil"
+          ],
+          "correct": "Contínuo",
+          "tip": "A formação não acaba no diploma; o 'lifelong learning' é a regra em TI."
+        },
+        {
+          "type": "multiple",
+          "topics": "CARR",
+          "questions": "[NAME], qual é a mensagem central do fechamento desta aula em relação à sua carreira?",
+          "answers": [
+            "Esperar as oportunidades caírem do céu.",
+            "Ser protagonista: pesquisar com método, inovar com propósito e empreender com coragem.",
+            "Apostar na sorte para conseguir a primeira vaga.",
+            "Focar apenas em consertar computadores velhos."
+          ],
+          "correct": "Ser protagonista: pesquisar com método, inovar com propósito e empreender com coragem.",
+          "tip": "Você é o principal responsável pelo desenvolvimento e sucesso da sua jornada técnica.",
+          "trans": "END"
+        }
+      ]
+    },
+    {
+      "slug": "aula-30",
+      "lesson_info": {
+        "id": "Aula-30",
+        "title": "AULA 30 - FINANÇAS, APRESENTAÇÕES E PLANEJAMENTO DE CARREIRA",
+        "topics": [
+          {
+            "id": "FINA",
+            "name": "EDUCAÇÃO FINANCEIRA",
+            "desc": "Conceitos de administração financeira pessoal, tomada de decisões e regra 50-30-20.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "APRE",
+            "name": "EDITOR DE APRESENTAÇÕES",
+            "desc": "Modos de exibição, layout de slides, hierarquia visual e uso de Slides Mestres.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "STOR",
+            "name": "STORYTELLING E EFEITOS",
+            "desc": "Criação de narrativas, uso moderado de transições e transcrição de slides.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "CASE",
+            "name": "CASO PRÁTICO: LOGISTECH",
+            "desc": "Aplicação integrada de finanças e apresentações na resolução do desafio da LogisTech.",
+            "color": "#f39c12",
+            "img_url": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "M",
+          "E",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "[NAME], o que a aula define como a base da \"Educação Financeira Pessoal\"?",
+          "answers": [
+            "Apenas economizar dinheiro cortando todos os gastos possíveis.",
+            "Desenvolver a capacidade de tomar decisões conscientes sobre ganhos, gastos, investimentos e proteção patrimonial.",
+            "Delegar as finanças pessoais para um gerente de banco.",
+            "Gastar tudo o que se ganha, pois não se sabe o dia de amanhã."
+          ],
+          "correct": "Desenvolver a capacidade de tomar decisões conscientes sobre ganhos, gastos, investimentos e proteção patrimonial.",
+          "tip": "Educação financeira é um processo holístico de planejamento e tomada de decisões conscientes."
+        },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "[NAME], a educação financeira é considerada uma competência tanto técnica quanto comportamental, sendo tão importante quanto saber programar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Saber gerir os próprios recursos garante sustentabilidade na carreira e na vida pessoal."
+        },
+        {
+          "type": "drag",
+          "topics": "FINA",
+          "questions": "[NAME], associe os 4 Pilares da Administração Financeira Pessoal às suas descrições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Definir objetivos e traçar estratégias.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Categorizar receitas, despesas e criar orçamento.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Executar o plano com disciplina no dia a dia.",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Monitorar resultados e ajustar o plano.",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Planejar"
+            },
+            {
+              "id": "z2",
+              "label": "Organizar"
+            },
+            {
+              "id": "z3",
+              "label": "Dirigir"
+            },
+            {
+              "id": "z4",
+              "label": "Controlar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses quatro pilares seguem a lógica clássica da administração aplicada à sua vida."
+        },
+        {
+          "type": "combo",
+          "topics": "FINA",
+          "questions": "A qualidade das decisões financeiras depende da nossa capacidade de distinguir entre [COMBO] e importância.",
+          "options": [
+            "urgência",
+            "desejo",
+            "luxo",
+            "preço"
+          ],
+          "correct": "urgência",
+          "tip": "Muitas vezes, compramos algo por achar que é urgente (promoção relâmpago), sem ser importante."
+        },
+        {
+          "type": "multi",
+          "topics": "FINA",
+          "questions": "[NAME], quais são as etapas essenciais do processo de \"Tomada de Decisões Financeiras\" apresentadas?",
+          "answers": [
+            "Identificar a necessidade real.",
+            "Comprar por impulso na primeira loja.",
+            "Avaliar e comparar alternativas e custos.",
+            "Revisar o impacto da decisão para aprender no futuro."
+          ],
+          "correct": [
+            "Identificar a necessidade real.",
+            "Avaliar e comparar alternativas e custos.",
+            "Revisar o impacto da decisão para aprender no futuro."
+          ],
+          "tip": "Decidir bem envolve parar, analisar opções e refletir sobre a compra."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "[NAME], qual pergunta devemos nos fazer para diferenciar uma Necessidade Básica de um Desejo de Consumo?",
+          "answers": [
+            "\"Consigo viver sem isso?\"",
+            "\"Qual é a marca mais cara?\"",
+            "\"Meus amigos também têm?\"",
+            "\"Posso parcelar em 24 vezes?\""
+          ],
+          "correct": "\"Consigo viver sem isso?\"",
+          "tip": "As necessidades básicas são itens fundamentais para a sobrevivência e o bem-estar."
+        },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "[NAME], segundo o material, o mercado costuma criar \"necessidades artificiais\" através de estratégias como o marketing de escassez (\"últimas unidades\").",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É a clássica armadilha da criação de necessidades pelo marketing."
+        },
+        {
+          "type": "combo",
+          "topics": "FINA",
+          "questions": "A frase \"O consumidor que não [COMBO] está planejando ser consumido pelo mercado\" ilustra a importância da educação financeira.",
+          "options": [
+            "planeja",
+            "gasta",
+            "parcela",
+            "compra"
+          ],
+          "correct": "planeja",
+          "tip": "O planejamento é a sua defesa contra o marketing agressivo."
+        },
+        {
+          "type": "drag",
+          "topics": "FINA",
+          "questions": "Relacione os percentuais da regra do Orçamento Pessoal (50-30-20) com seus respectivos destinos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Moradia, transporte, alimentação e saúde.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Lazer, streaming, saídas e desejos de consumo.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Poupança, investimentos, cursos e fundo de emergência.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "50% (Necessidades)"
+            },
+            {
+              "id": "z2",
+              "label": "30% (Desejos)"
+            },
+            {
+              "id": "z3",
+              "label": "20% (Futuro)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A regra 50-30-20 é uma excelente bússola para equilibrar a vida presente e a preparação para o futuro."
+        },
+        {
+          "type": "multi",
+          "topics": "FINA",
+          "questions": "[NAME], quais dos itens a seguir são classificados como \"Necessidades Básicas\"?",
+          "answers": [
+            "Alimentação e moradia.",
+            "Educação e formação profissional.",
+            "O último modelo de \"smartphone\" lançado.",
+            "Saúde e higiene pessoal."
+          ],
+          "correct": [
+            "Alimentação e moradia.",
+            "Educação e formação profissional.",
+            "Saúde e higiene pessoal."
+          ],
+          "tip": "Aparelhos super caros e upgrades constantes são desejos, não necessidades."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "Aplicando a regra 50-30-20, se um estagiário de TI ganha R$ 1.500 líquidos, quanto ele deveria direcionar para investir no \"Futuro\"?",
+          "answers": [
+            "R$ 750",
+            "R$ 450",
+            "R$ 300",
+            "R$ 150"
+          ],
+          "correct": "R$ 300",
+          "tip": "20% de R$ 1.500 é igual a R$ 300."
+        },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "[NAME], ao comprar um notebook para trabalho, o cálculo do \"custo total\" deve incluir juros de parcelamento e a vida útil estimada do aparelho.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O verdadeiro preço de um produto inclui sua manutenção e o impacto financeiro dos juros."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "Ao decidir comprar um equipamento técnico, qual atitude demonstra maturidade financeira?",
+          "answers": [
+            "Comprar o \"top de linha\" independentemente do preço.",
+            "Escolher a opção que equilibra performance, preço e durabilidade sem ceder ao apelo comercial.",
+            "Evitar qualquer tipo de pesquisa e comprar na loja mais próxima.",
+            "Usar todo o fundo de emergência na compra de um celular."
+          ],
+          "correct": "Escolher a opção que equilibra performance, preço e durabilidade sem ceder ao apelo comercial.",
+          "tip": "Maturidade é saber dizer \"não\" ao apelo publicitário e focar nos requisitos reais.",
+          "trans": "APRE"
+        },
+        {
+          "type": "multiple",
+          "topics": "APRE",
+          "questions": "[NAME], qual é o modo de exibição ideal para verificar a coerência visual, reorganizar a ordem e excluir slides duplicados?",
+          "answers": [
+            "Modo Normal / Edição",
+            "Apresentação de Slides",
+            "Anotações do Apresentador",
+            "Classificador de Slides"
+          ],
+          "correct": "Classificador de Slides",
+          "tip": "O Classificador de Slides fornece uma visão geral (em miniatura) de toda a apresentação."
+        },
+        {
+          "type": "boolean",
+          "topics": "APRE",
+          "questions": "[NAME], o modo \"Normal / Edição\" é o formato padrão utilizado para apresentar o conteúdo ao público final através de um projetor.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O modo de Apresentação de Slides (tela cheia) é o correto para mostrar ao público. O Normal é para você editar."
+        },
+        {
+          "type": "combo",
+          "topics": "APRE",
+          "questions": "O modo [COMBO] / Notas permite adicionar um roteiro pessoal abaixo do slide, invisível para a plateia.",
+          "options": [
+            "Anotações",
+            "Desenho",
+            "Oculto",
+            "Mestre"
+          ],
+          "correct": "Anotações",
+          "tip": "Use a área de anotações para colocar os detalhes que você não quer lotar no slide visual."
+        },
+        {
+          "type": "drag",
+          "topics": "APRE",
+          "questions": "[NAME], associe o modo de exibição à sua respectiva funcionalidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Permite criar e editar conteúdo slide a slide.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Exibe em tela cheia com transições e animações.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Permite adicionar o roteiro lido pelo palestrante.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Modo Normal"
+            },
+            {
+              "id": "z2",
+              "label": "Modo Apresentação"
+            },
+            {
+              "id": "z3",
+              "label": "Anotações"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada modo tem um papel específico no fluxo de criação e entrega da palestra."
+        },
+        {
+          "type": "multi",
+          "topics": "APRE",
+          "questions": "[NAME], quais são os princípios de um bom layout de slide?",
+          "answers": [
+            "Hierarquia visual para guiar o olho.",
+            "Uso de espaços em branco (para a tela \"respirar\").",
+            "Preencher cada canto da tela com textos longos.",
+            "Alinhamento correto e contraste."
+          ],
+          "correct": [
+            "Hierarquia visual para guiar o olho.",
+            "Uso de espaços em branco (para a tela \"respirar\").",
+            "Alinhamento correto e contraste."
+          ],
+          "tip": "Slides lotados confundem a plateia; menos informação visual é mais retenção."
+        },
+        {
+          "type": "multiple",
+          "topics": "APRE",
+          "questions": "[NAME], o que é o \"Slide Mestre\" em uma apresentação?",
+          "answers": [
+            "O primeiro slide que contém o título da palestra.",
+            "Um modelo oculto que define o padrão visual global (fontes, cores, logos) para todos os slides.",
+            "A nota invisível que o palestrante lê.",
+            "O último slide de conclusão."
+          ],
+          "correct": "Um modelo oculto que define o padrão visual global (fontes, cores, logos) para todos os slides.",
+          "tip": "Ele serve como a \"planta baixa\" visual de toda a sua apresentação."
+        },
+        {
+          "type": "boolean",
+          "topics": "APRE",
+          "questions": "Alterar um elemento no Slide Mestre atualizará automaticamente todos os slides do projeto que utilizam aquele layout.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Por isso, em equipes de TI, ele é comparado a um \"template de código\" que evita retrabalhos."
+        },
+        {
+          "type": "combo",
+          "topics": "APRE",
+          "questions": "A padronização visual numa apresentação segue o princípio da qualidade da indústria: consistência gera [COMBO].",
+          "options": [
+            "confiança",
+            "dúvida",
+            "tédio",
+            "complexidade"
+          ],
+          "correct": "confiança",
+          "tip": "Uma apresentação visualmente coesa transmite profissionalismo e seriedade."
+        },
+        {
+          "type": "drag",
+          "topics": "APRE",
+          "questions": "No contexto da criação do Slide Mestre, relacione os elementos visuais com a recomendação da aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Família profissional, com no máximo 2 variações.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Consistentes e usando opções de destaque com moderação.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Logotipo e rodapé de forma fixa no mesmo local.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tipografia"
+            },
+            {
+              "id": "z2",
+              "label": "Paleta de Cores"
+            },
+            {
+              "id": "z3",
+              "label": "Elementos Fixos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A restrição criativa no Slide Mestre (como limitar fontes e cores) garante um design mais limpo."
+        },
+        {
+          "type": "multi",
+          "topics": "APRE",
+          "questions": "[NAME], ao inserir dados e elementos visuais no slide, quais práticas são indicadas?",
+          "answers": [
+            "Usar gráficos de barras para comparações e pizza para proporções.",
+            "Substituir listas com marcadores (\"bullets\") por ícones visuais.",
+            "Colocar vídeos de mais de 10 minutos para ocupar tempo.",
+            "Utilizar diagramas e fluxos para representar processos técnicos."
+          ],
+          "correct": [
+            "Usar gráficos de barras para comparações e pizza para proporções.",
+            "Substituir listas com marcadores (\"bullets\") por ícones visuais.",
+            "Utilizar diagramas e fluxos para representar processos técnicos."
+          ],
+          "tip": "Vídeos devem ser usados com moderação (ideais entre 30 e 60 segundos)."
+        },
+        {
+          "type": "multiple",
+          "topics": "APRE",
+          "questions": "[NAME], qual é o propósito da hierarquia visual em um slide?",
+          "answers": [
+            "Fazer a plateia ler primeiro o logotipo no canto.",
+            "Garantir que o olho do espectador saiba por onde começar a leitura.",
+            "Forçar o uso de letras gigantes no texto inteiro.",
+            "Misturar todas as cores para chamar atenção."
+          ],
+          "correct": "Garantir que o olho do espectador saiba por onde começar a leitura.",
+          "tip": "Títulos maiores, negritos ou cores de contraste ajudam o olhar a seguir a ordem certa."
+        },
+        {
+          "type": "boolean",
+          "topics": "APRE",
+          "questions": "Para ilustrar arquiteturas de sistema e fluxos de trabalho em apresentações de TI, o uso de diagramas é desencorajado por ser complexo demais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, diagramas e fluxos são essenciais para transformar informações abstratas e técnicas em representações claras."
+        },
+        {
+          "type": "multiple",
+          "topics": "APRE",
+          "questions": "[NAME], sobre vídeos em apresentações, qual é a recomendação feita no material?",
+          "answers": [
+            "São sempre a parte principal e devem ser longos.",
+            "Devem ser evitados a todo custo.",
+            "Devem ser curtos (30-60s) para ilustrar demonstrações técnicas ou depoimentos.",
+            "Devem sempre conter legendas piscantes."
+          ],
+          "correct": "Devem ser curtos (30-60s) para ilustrar demonstrações técnicas ou depoimentos.",
+          "tip": "Um vídeo curto mantém a energia da apresentação; os longos dão sono na plateia.",
+          "trans": "STOR"
+        },
+        {
+          "type": "multiple",
+          "topics": "STOR",
+          "questions": "[NAME], o que significa o uso de \"Storytelling\" em uma apresentação técnica?",
+          "answers": [
+            "Ler contos de fadas antes de apresentar um projeto de TI.",
+            "Contar a história da empresa desde sua fundação.",
+            "Criar uma narrativa lógica (contexto, conflito, solução e resultado) para comunicar ideias complexas.",
+            "Apenas utilizar muitas fotos e ilustrações artísticas."
+          ],
+          "correct": "Criar uma narrativa lógica (contexto, conflito, solução e resultado) para comunicar ideias complexas.",
+          "tip": "O storytelling envelopa a parte técnica em uma história envolvente e fácil de entender."
+        },
+        {
+          "type": "boolean",
+          "topics": "STOR",
+          "questions": "[NAME], a etapa de \"Contexto\" no storytelling técnico serve para descrever os benefícios concretos e mensuráveis que o projeto alcançou.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O \"Contexto\" mostra o cenário atual e o problema. Os benefícios mensuráveis entram no final, na fase de \"Resultado\"."
+        },
+        {
+          "type": "combo",
+          "topics": "STOR",
+          "questions": "No storytelling, a etapa de \"[COMBO]\" responde à pergunta: O que precisa mudar? Quais os desafios?",
+          "options": [
+            "Conflito",
+            "Solução",
+            "Contexto",
+            "Resultado"
+          ],
+          "correct": "Conflito",
+          "tip": "É o conflito (ou dor do cliente) que justifica a existência da sua solução."
+        },
+        {
+          "type": "drag",
+          "topics": "STOR",
+          "questions": "Associe a etapa do Storytelling com a pergunta principal que ela responde:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Qual é o problema ou cenário atual?",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Como a proposta resolve o problema?",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Quais os benefícios mensuráveis entregues?",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Contexto"
+            },
+            {
+              "id": "z2",
+              "label": "Solução"
+            },
+            {
+              "id": "z3",
+              "label": "Resultado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Toda boa história tem começo, meio (a virada/solução) e fim."
+        },
+        {
+          "type": "multi",
+          "topics": "STOR",
+          "questions": "[NAME], quais conselhos são dados pela aula em relação a Transições e Animações de objetos?",
+          "answers": [
+            "Evitar o uso de transições e animações.",
+            "Usar transições sutis e consistentes, como \"Esmaecer\" ou \"Empurrar\".",
+            "Usar animações como \"Aparecer\" para revelar \"bullets\" um a um.",
+            "Usar o efeito \"Redemoinho\" para causar grande impacto."
+          ],
+          "correct": [
+            "Usar transições sutis e consistentes, como \"Esmaecer\" ou \"Empurrar\".",
+            "Usar animações como \"Aparecer\" para revelar \"bullets\" um a um."
+          ],
+          "tip": "Efeitos chamativos como \"Redemoinho\" desviam a atenção do conteúdo principal e parecem amadores."
+        },
+        {
+          "type": "multiple",
+          "topics": "STOR",
+          "questions": "[NAME], ao utilizar a ferramenta \"Testar Intervalos\", qual é a regra geral de tempo recomendada para conteúdos técnicos?",
+          "answers": [
+            "1 a 2 minutos por slide.",
+            "5 segundos por slide.",
+            "5 a 10 minutos por slide.",
+            "O tempo que for necessário."
+          ],
+          "correct": "1 a 2 minutos por slide.",
+          "tip": "Um tempo entre 1 a 2 minutos mantém a dinâmica e impede que o público perca o foco."
+        },
+        {
+          "type": "boolean",
+          "topics": "STOR",
+          "questions": "[NAME], o excesso de animações e transições é considerado o erro número um de apresentadores iniciantes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A famosa regra \"menos é mais\" é fundamental para garantir o profissionalismo dos slides."
+        },
+        {
+          "type": "combo",
+          "topics": "STOR",
+          "questions": "A transcrição de slides consiste em converter o conteúdo visual em um documento [COMBO] completo e rastreável.",
+          "options": [
+            "textual",
+            "animado",
+            "sonoro",
+            "colorido"
+          ],
+          "correct": "textual",
+          "tip": "Isoladamente, um slide deve ter pouco texto. A transcrição documenta o que não estava escrito lá, mas foi dito."
+        },
+        {
+          "type": "drag",
+          "topics": "STOR",
+          "questions": "Relacione os elementos da técnica de Transcrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Otimizado para projeção (Textos curtos e imagens).",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Texto complementar com explicações detalhadas.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Versão completa do visual mais as notas.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Slide Visual"
+            },
+            {
+              "id": "z2",
+              "label": "Notas do Apresentador"
+            },
+            {
+              "id": "z3",
+              "label": "Documento Final"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A transcrição é muito usada em TI para que uma palestra vire um manual ou uma documentação oficial."
+        },
+        {
+          "type": "multi",
+          "topics": "STOR",
+          "questions": "[NAME], por que a prática da transcrição de slides é especialmente valorizada em equipes de TI?",
+          "answers": [
+            "Porque as decisões técnicas precisam ser claras e rastreáveis.",
+            "Para gastar folhas na impressora do escritório.",
+            "Porque serve para criar documentações e relatórios completos.",
+            "Para que quem faltou à reunião possa ler os detalhes explicados."
+          ],
+          "correct": [
+            "Porque as decisões técnicas precisam ser claras e rastreáveis.",
+            "Porque serve para criar documentações e relatórios completos.",
+            "Para que quem faltou à reunião possa ler os detalhes explicados."
+          ],
+          "tip": "A documentação sólida e o registro do conhecimento corporativo evitam a perda de informação."
+        },
+        {
+          "type": "multiple",
+          "topics": "STOR",
+          "questions": "Se você deseja que cada tópico de uma lista apareça na tela apenas quando você começar a falar dele, qual recurso usar?",
+          "answers": [
+            "Uma transição de slide do tipo \"Esmaecer\".",
+            "Um Efeito de Animação (Ex: \"Aparecer\") no texto do \"bullet\".",
+            "O Slide Mestre.",
+            "O Modo Classificador."
+          ],
+          "correct": "Um Efeito de Animação (Ex: \"Aparecer\") no texto do \"bullet\".",
+          "tip": "A animação controla a entrada dos elementos individuais DENTRO do slide."
+        },
+        {
+          "type": "boolean",
+          "topics": "STOR",
+          "questions": "[NAME], transições ocorrem \"entre\" os slides (ao mudar de página), enquanto animações ocorrem nos \"elementos\" dentro de um único slide.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Saber diferenciar os dois é fundamental para criar o timing correto e não poluir a apresentação.",
+          "trans": "CASE"
+        },
+        {
+          "type": "multiple",
+          "topics": "CASE",
+          "questions": "[NAME], no Case da LogisTech, qual é o principal problema que a empresa enfrenta atualmente?",
+          "answers": [
+            "Tem uma infraestrutura em nuvem cara.",
+            "A equipe sofre com excesso de automação robótica.",
+            "Os processos financeiros e operacionais são feitos em planilhas manuais e locais.",
+            "Possuem \"dashboards\" rápidos, mas com design feio."
+          ],
+          "correct": "Os processos financeiros e operacionais são feitos em planilhas manuais e locais.",
+          "tip": "Planilhas offline isoladas causam perda de dados e lentidão nos relatórios gerenciais."
+        },
+        {
+          "type": "boolean",
+          "topics": "CASE",
+          "questions": "[NAME], os servidores locais antigos (infraestrutura legada) da LogisTech são destacados como uma vantagem competitiva de baixo custo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O case aponta exatamente o contrário: servidores locais antigos geram \"alto custo de manutenção\"."
+        },
+        {
+          "type": "combo",
+          "topics": "CASE",
+          "questions": "O desafio prático é propor a migração da empresa para a [COMBO] e automatizar processos, ganhando eficiência e reduzindo custos.",
+          "options": [
+            "nuvem",
+            "planilha",
+            "agência",
+            "concorrência"
+          ],
+          "correct": "nuvem",
+          "tip": "A migração para a nuvem resolve o isolamento e o risco de dados locais da empresa."
+        },
+        {
+          "type": "drag",
+          "topics": "CASE",
+          "questions": "Relacione as características do cenário atual da LogisTech com os problemas que causam:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sem comunicação entre as áreas da empresa.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Alto custo de manutenção em hardware.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Dados desatualizados gerados por planilhas manuais.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Falta de integração"
+            },
+            {
+              "id": "z2",
+              "label": "Infraestrutura legada"
+            },
+            {
+              "id": "z3",
+              "label": "Relatórios lentos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas vulnerabilidades provam a urgência e a importância da modernização tecnológica."
+        },
+        {
+          "type": "multi",
+          "topics": "CASE",
+          "questions": "[NAME], de acordo com os dados apresentados do problema da LogisTech, quais fatores impactam a eficiência da equipe?",
+          "answers": [
+            "Relatórios de desempenho montados manualmente toda semana.",
+            "Planilhas do Excel locais operando sem backup (risco de perda).",
+            "Apresentações de resultados feitas sem padronização visual.",
+            "O excesso de treinamento e metas rigorosas de carreira."
+          ],
+          "correct": [
+            "Relatórios de desempenho montados manualmente toda semana.",
+            "Planilhas do Excel locais operando sem backup (risco de perda).",
+            "Apresentações de resultados feitas sem padronização visual."
+          ],
+          "tip": "A equipe não possui metas claras, o que contribui para a alta rotatividade de pessoal."
+        },
+        {
+          "type": "multiple",
+          "topics": "CASE",
+          "questions": "[NAME], no Exercício de análise de consumo da nuvem, a LogisTech tem 18 funcionários. Qual plano seria a recomendação mais madura considerando custo-benefício?",
+          "answers": [
+            "Plano Básico (R$ 500 / 5 usuários)",
+            "Plano Profissional (R$ 1.200 / 25 usuários)",
+            "Plano Enterprise (R$ 3.500 / usuários ilimitados)",
+            "Manter tudo no Excel e não comprar nada"
+          ],
+          "correct": "Plano Profissional (R$ 1.200 / 25 usuários)",
+          "tip": "O plano Profissional atende aos 18 usuários com folga, sendo a decisão mais equilibrada perante os custos."
+        },
+        {
+          "type": "boolean",
+          "topics": "CASE",
+          "questions": "[NAME], recomendar o Plano Enterprise só porque ele é o mais caro e ilimitado é uma atitude recomendada na boa \"Educação Financeira\" corporativa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Enterprise tem funções e limite muito acima da necessidade atual (18 pessoas), configurando desperdício financeiro."
+        },
+        {
+          "type": "combo",
+          "topics": "CASE",
+          "questions": "Para aprovar essa mudança, a diretoria exige que você use o [COMBO] na apresentação: começando com o contexto atual e indo até os benefícios mensuráveis.",
+          "options": [
+            "Storytelling",
+            "Excel",
+            "Plano",
+            "Email"
+          ],
+          "correct": "Storytelling",
+          "tip": "Uma história bem amarrada converte dados áridos em uma visão clara de futuro."
+        },
+        {
+          "type": "drag",
+          "topics": "CASE",
+          "questions": "[NAME], associe a etapa da criação da apresentação da LogisTech ao recurso técnico do editor de slides correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Definir paleta de cores da empresa e o logo em todas as páginas.",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Cronometrar o tempo para fechar em no máximo 10 minutos.",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Incluir fluxogramas de antes e depois da operação.",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Configurar Slide Mestre"
+            },
+            {
+              "id": "z2",
+              "label": "Testar Intervalos"
+            },
+            {
+              "id": "z3",
+              "label": "Inserir Elementos Visuais"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada ferramenta do editor de apresentações resolve um desafio específico no projeto."
+        },
+        {
+          "type": "multi",
+          "topics": "CASE",
+          "questions": "[NAME], ao apresentar a migração para a diretoria, quais elementos devem compor o design do seu material, conforme as regras da aula?",
+          "answers": [
+            "Uso de apenas um gráfico comparativo de custos.",
+            "Uso de dezenas de transições como \"Redemoinho\" entre os slides.",
+            "Hierarquia visual clara e muito espaço em branco.",
+            "Um limite máximo sugerido de 8 slides para o tempo proposto."
+          ],
+          "correct": [
+            "Uso de apenas um gráfico comparativo de custos.",
+            "Hierarquia visual clara e muito espaço em branco.",
+            "Um limite máximo sugerido de 8 slides para o tempo proposto."
+          ],
+          "tip": "Excesso de animações e transições tira o foco do que realmente importa: a solução proposta."
+        },
+        {
+          "type": "boolean",
+          "topics": "CASE",
+          "questions": "[NAME], o exercício final comprova que um profissional de tecnologia não pode se limitar apenas ao conhecimento de código; finanças e comunicação são vitais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A capacidade técnica 5 reforça exatamente a intersecção de TI com negócios, finanças e persuasão."
+        },
+        {
+          "type": "multiple",
+          "topics": "CASE",
+          "questions": "Como é concluída a aula e a proposta do curso sobre o futuro do aluno de TI?",
+          "answers": [
+            "O aluno deve apenas obedecer e nunca dar novas ideias.",
+            "A carreira começa com você assumindo o protagonismo: pesquisando, inovando, e tendo educação financeira e comunicacional.",
+            "O melhor a fazer é abandonar TI e focar em finanças exclusivas.",
+            "A sorte é o único fator que decide a carreira de sucesso no mercado de logística."
+          ],
+          "correct": "A carreira começa com você assumindo o protagonismo: pesquisando, inovando, e tendo educação financeira e comunicacional.",
+          "tip": "A frase final é: \"Agora é com você. A sua carreira começa agora!\""
         }
       ]
     }
