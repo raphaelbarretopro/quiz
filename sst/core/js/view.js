@@ -4,6 +4,7 @@ export default class View {
         this.els = {
             // Modal de login
             loginModalBackdrop: document.getElementById('login-modal-backdrop'),
+            loginModalTitle: document.querySelector('.login-modal-title'),
             btnLoginGoogle: document.getElementById('btn-login-google'),
             
             mainTitle: document.getElementById('main-title'),
@@ -600,8 +601,13 @@ export default class View {
     }
 
     initUI(lessonInfo) {
-        // Atualiza Título
-        this.els.mainTitle.innerText = lessonInfo.title;
+        // Atualiza titulos principais conforme a aula carregada dinamicamente.
+        const lessonTitle = String(lessonInfo?.title || '').trim() || 'Quiz do Conhecimento';
+        this.els.mainTitle.innerText = lessonTitle;
+        if (this.els.loginModalTitle) {
+            this.els.loginModalTitle.innerText = lessonTitle;
+        }
+        document.title = lessonTitle;
         if (this.els.startKnowledgeList) {
             this.els.startKnowledgeList.innerHTML = '';
             const topics = Array.isArray(lessonInfo.topics) ? lessonInfo.topics : [];
