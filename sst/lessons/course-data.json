@@ -16298,17 +16298,7 @@
               "id": "i2",
               "txt": "Especialização Alta",
               "match": "z2"
-            },
-            {
-              "id": "i3",
-              "txt": "Comunicação Vertical",
-              "match": "z1"
-            },
-            {
-              "id": "i4",
-              "txt": "Decisão Descentralizada",
-              "match": "z2"
-            }
+            }            
           ],
           "zones": [
             {
