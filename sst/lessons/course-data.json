@@ -23301,6 +23301,905 @@
           "tip": "O planejamento visa sustentar a aplicação; o código da aplicação é etapa do software. "
         }
       ]
+    },
+    {
+      "slug": "aula-34",
+      "lesson_info": {
+        "id": "Aula-34",
+        "title": "AULA 34 - VIRTUALIZAÇÃO E AMBIENTES DE DESENVOLVIMENTO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "CONCEITOS DE VIRTUALIZAÇÃO",
+            "desc": "Fundamentos, histórico e a evolução do hardware físico para o ambiente virtual.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "MÁQUINAS VIRTUAIS E HIPERVISORES",
+            "desc": "Arquitetura das VMs, componentes e as diferenças entre hipervisores Tipo 1 e Tipo 2.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "CONTAINERS E DOCKER",
+            "desc": "Estrutura de containers, plataforma Docker e as diferenças essenciais para as VMs.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1605745341112-85968b19335b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "VANTAGENS E APLICAÇÃO",
+            "desc": "Escalabilidade, isolamento, portabilidade e implementação prática com VirtualBox.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "H",
+          "O",
+          "S",
+          "T"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é virtualização segundo os conceitos fundamentais de TI?",
+          "answers": [
+            "A criação de uma versão virtual de recursos como sistemas operacionais ou servidores.",
+            "A montagem física de hardware em data centers de Nível IV.",
+            "O processo de resfriamento de servidores por meio de ar-condicionado de precisão.",
+            "A conexão direta entre cabos de rede em um ambiente on-premise."
+          ],
+          "correct": "A criação de uma versão virtual de recursos como sistemas operacionais ou servidores.",
+          "tip": "A virtualização permite criar instâncias isoladas usando um único hardware físico compartilhado."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], em um ambiente tradicional não virtualizado, a utilização dos recursos de hardware costuma ficar acima de 90%.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Em ambientes tradicionais (físicos), os recursos ficam subutilizados, com média de 10-15%."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A IBM desenvolveu as primeiras técnicas de [COMBO] lógico em mainframes na década de 1960.",
+          "options": [
+            "particionamento",
+            "desligamento",
+            "resfriamento",
+            "roteamento"
+          ],
+          "correct": "particionamento",
+          "tip": "Essa foi a base histórica para o que hoje chamamos de virtualização de servidores."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são as principais motivações de mercado para adotar a virtualização?",
+          "answers": [
+            "Redução de custos operacionais",
+            "Aumento do consumo de energia",
+            "Segurança e isolamento",
+            "Flexibilidade operacional"
+          ],
+          "correct": [
+            "Redução de custos operacionais",
+            "Segurança e isolamento",
+            "Flexibilidade operacional"
+          ],
+          "tip": "A virtualização reduz os custos com energia e hardware, além de melhorar a flexibilidade."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o período histórico ao seu respectivo marco na virtualização:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Anos 1960",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Anos 1990",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Anos 2000",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Anos 2010",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Técnicas em mainframes IBM"
+            },
+            {
+              "id": "z2",
+              "label": "Primeiras soluções VMware x86"
+            },
+            {
+              "id": "z3",
+              "label": "Consolidação nos Data Centers"
+            },
+            {
+              "id": "z4",
+              "label": "Surgimento dos containers (Docker)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A evolução tecnológica caminhou da virtualização de mainframes pesados até a agilidade dos containers modernos."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "No ambiente virtualizado, como é o provisionamento de novos servidores?",
+          "answers": [
+            "Rápido e dinâmico",
+            "Lento e dependente de fornecedores físicos",
+            "Impossível sem intervenção manual de hardware",
+            "Exige sempre a compra de um novo chip"
+          ],
+          "correct": "Rápido e dinâmico",
+          "tip": "Novas instâncias podem ser criadas em questão de minutos, apenas via software."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], falhas ocorridas em uma máquina virtual podem comprometer todas as demais máquinas virtuais no mesmo hardware.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O isolamento garante que falhas em uma VM não afetem as outras instâncias."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A virtualização é a base tecnológica para a computação em [COMBO], práticas DevOps e ambientes modernos.",
+          "options": [
+            "nuvem",
+            "cascata",
+            "papel",
+            "fita"
+          ],
+          "correct": "nuvem",
+          "tip": "Toda a infraestrutura de nuvem pública (AWS, Azure) é construída sobre virtualização."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Em um ambiente tradicional de hardware físico, identificamos quais características?",
+          "answers": [
+            "Um sistema operacional por servidor",
+            "Alto custo de aquisição e manutenção",
+            "Baixa flexibilidade para escalonamento",
+            "Utilização de recursos sempre acima de 70%"
+          ],
+          "correct": [
+            "Um sistema operacional por servidor",
+            "Alto custo de aquisição e manutenção",
+            "Baixa flexibilidade para escalonamento"
+          ],
+          "tip": "No ambiente tradicional, os recursos ficam subutilizados (cerca de 10-15%)."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Como cada instância virtualizada se comporta em relação ao hardware?",
+          "answers": [
+            "Acredita estar rodando em hardware dedicado",
+            "Sabe que está compartilhando recursos com outras VMs",
+            "Exige um cabo de rede exclusivo físico",
+            "Não possui acesso à memória RAM"
+          ],
+          "correct": "Acredita estar rodando em hardware dedicado",
+          "tip": "O hipervisor abstrai o hardware, fazendo com que cada SO convidado opere como se fosse o dono da máquina física."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a adoção da virtualização aumenta drasticamente os custos com espaço físico e refrigeração nos data centers.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, ao consolidar servidores, a virtualização REDUZ custos com espaço e refrigeração."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "No contexto da virtualização corporativa, a orquestração atual é amplamente realizada com a ferramenta [COMBO] e infraestrutura como código (IaC).",
+          "options": [
+            "Kubernetes",
+            "Excel",
+            "Photoshop",
+            "BIOS"
+          ],
+          "correct": "Kubernetes",
+          "tip": "O Kubernetes é o padrão da indústria para orquestração de containers."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], selecione os benefícios diretos do isolamento proporcionado pela virtualização:",
+          "answers": [
+            "Redução da superfície de ataque",
+            "Falhas de uma VM não afetam o host imediatamente",
+            "Ambientes de teste e produção podem coexistir",
+            "Aumento da temperatura dos processadores"
+          ],
+          "correct": [
+            "Redução da superfície de ataque",
+            "Falhas de uma VM não afetam o host imediatamente",
+            "Ambientes de teste e produção podem coexistir"
+          ],
+          "tip": "O isolamento traz segurança, estabilidade e organização, sem afetar o aquecimento diretamente.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que é uma Máquina Virtual (VM) de acordo com os conceitos de TI?",
+          "answers": [
+            "Um ambiente isolado que emula componentes de um computador real",
+            "Uma placa de vídeo dedicada para processamento de imagens",
+            "Um cabo lógico utilizado em redes de alta velocidade",
+            "Um sistema de refrigeração para hipervisores"
+          ],
+          "correct": "Um ambiente isolado que emula componentes de um computador real",
+          "tip": "Ela emula CPU, memória, disco e rede isoladamente do hardware físico."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a camada de software responsável por criar e gerenciar as máquinas virtuais é chamada de SO Hospedeiro (Host OS).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A camada responsável é o hipervisor (ou VMM - Virtual Machine Monitor)."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os componentes emulados de uma VM às suas respectivas descrições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "vCPU",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "RAM Virtual",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Disco Virtual",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Interface de Rede",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Processadores mapeados nos núcleos físicos"
+            },
+            {
+              "id": "z2",
+              "label": "Parcela de memória reservada à instância"
+            },
+            {
+              "id": "z3",
+              "label": "Arquivo no host que emula um HD"
+            },
+            {
+              "id": "z4",
+              "label": "Placa emulada para conectar à rede"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estes componentes virtuais garantem que a VM se comporte como uma máquina física completa."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O Hipervisor [COMBO] é instalado diretamente no hardware físico (Bare Metal), sem depender de um sistema operacional hospedeiro.",
+          "options": [
+            "Tipo 1",
+            "Tipo 2",
+            "Tipo 3",
+            "Híbrido"
+          ],
+          "correct": "Tipo 1",
+          "tip": "É a melhor opção para servidores de produção e ambientes críticos."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], selecione as características de um Hipervisor Tipo 2 (Hosted):",
+          "answers": [
+            "Instalado sobre um SO hospedeiro",
+            "Ideal para desenvolvimento e laboratórios",
+            "Menor desempenho comparado ao Tipo 1",
+            "Acesso direto e exclusivo ao processador físico"
+          ],
+          "correct": [
+            "Instalado sobre um SO hospedeiro",
+            "Ideal para desenvolvimento e laboratórios",
+            "Menor desempenho comparado ao Tipo 1"
+          ],
+          "tip": "O Tipo 2 depende do SO hospedeiro para acessar o hardware, criando um 'overhead' (custo extra de processamento)."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual destas opções é um exemplo clássico de Hipervisor Tipo 1?",
+          "answers": [
+            "VMware ESXi",
+            "Oracle VirtualBox",
+            "VMware Workstation",
+            "QEMU"
+          ],
+          "correct": "VMware ESXi",
+          "tip": "O ESXi é um padrão corporativo instalado diretamente no hardware (Bare Metal)."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o VirtualBox é classificado como um hipervisor Tipo 1, muito utilizado em Data Centers de alta disponibilidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O VirtualBox é um hipervisor Tipo 2 (Hosted), ideal para laboratórios e uso pessoal."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A máquina que hospeda o hipervisor é chamada de host, enquanto o sistema instalado dentro da VM é o sistema operacional [COMBO].",
+          "options": [
+            "Convidado",
+            "Hospedeiro",
+            "Anfitrião",
+            "Primário"
+          ],
+          "correct": "Convidado",
+          "tip": "Também chamado de Guest OS em inglês."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais dos formatos abaixo representam discos virtuais usados por VMs?",
+          "answers": [
+            "VMDK",
+            "VHD / VHDX",
+            "JPEG",
+            "MP4"
+          ],
+          "correct": [
+            "VMDK",
+            "VHD / VHDX"
+          ],
+          "tip": "VMDK (VMware) e VHD/VHDX (Microsoft) são arquivos que atuam como HDs para as VMs."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual a principal vantagem do Hipervisor Tipo 1 sobre o Tipo 2?",
+          "answers": [
+            "Maior desempenho e eficiência de recursos",
+            "Facilidade extrema de instalação no Windows 10",
+            "Gratuidade em todos os casos de uso",
+            "Não exige disco rígido para funcionar"
+          ],
+          "correct": "Maior desempenho e eficiência de recursos",
+          "tip": "Por acessar diretamente o hardware sem um SO intermediário, a latência é muito menor."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o hipervisor (VMM) atua como um intermediário entre o hardware físico e as VMs, alocando os recursos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa camada de abstração é o que permite a mágica da virtualização."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de hipervisor ao seu cenário de uso mais indicado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Bare Metal (Tipo 1)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Hosted (Tipo 2)",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Servidores de produção e Cloud"
+            },
+            {
+              "id": "z2",
+              "label": "Testes e desenvolvimento local"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Tipo 1 é foco em performance; Tipo 2 é foco em praticidade e desktop."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A sigla [COMBO] refere-se a Virtual Machine Monitor, um sinônimo para hipervisor.",
+          "options": [
+            "VMM",
+            "VLAN",
+            "VPN",
+            "VPC"
+          ],
+          "correct": "VMM",
+          "tip": "Virtual Machine Monitor é a camada que gerencia e monitora os sistemas convidados.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o conceito central que define um container?",
+          "answers": [
+            "Unidade que empacota código e dependências compartilhando o kernel",
+            "Emulador completo de hardware físico, incluindo CPU virtual",
+            "Servidor torre de baixo custo",
+            "Mecanismo de hardware para resfriamento de Data Center"
+          ],
+          "correct": "Unidade que empacota código e dependências compartilhando o kernel",
+          "tip": "Diferente das VMs, os containers são leves porque NÃO virtualizam o hardware."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Containers são mais leves que Máquinas Virtuais porque cada um deles executa seu próprio sistema operacional convidado completo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Eles são leves justamente por NÃO executarem um SO próprio; eles compartilham o SO Host."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O [COMBO] Engine é o daemon responsável por criar, executar e gerenciar os containers na máquina host.",
+          "options": [
+            "Docker",
+            "VMware",
+            "VirtualBox",
+            "Hyper-V"
+          ],
+          "correct": "Docker",
+          "tip": "A plataforma Docker revolucionou o uso de containers no desenvolvimento de software."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], selecione os componentes fundamentais do ecossistema Docker citados no material:",
+          "answers": [
+            "Docker Engine",
+            "Docker Image",
+            "Docker Hub",
+            "Docker Printer"
+          ],
+          "correct": [
+            "Docker Engine",
+            "Docker Image",
+            "Docker Hub"
+          ],
+          "tip": "O ecossistema é formado pelo daemon (Engine), pelo modelo (Image) e pelo repositório (Hub)."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os conceitos do Docker com suas definições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Docker Engine",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Docker Image",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Docker Hub",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Daemon que executa containers"
+            },
+            {
+              "id": "z2",
+              "label": "Modelo imutável com a aplicação"
+            },
+            {
+              "id": "z3",
+              "label": "Repositório público de imagens"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender essas três peças é essencial para atuar com containers em DevOps."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Em qual situação é MAIS INDICADO usar Máquinas Virtuais em vez de containers?",
+          "answers": [
+            "Quando é necessário isolamento total do SO e segurança máxima",
+            "Para iniciar uma aplicação em menos de 1 segundo",
+            "Para garantir empacotamento leve de microsserviços",
+            "Quando se quer compartilhar o kernel do sistema hospedeiro"
+          ],
+          "correct": "Quando é necessário isolamento total do SO e segurança máxima",
+          "tip": "VMs oferecem isolamento forte de hardware e núcleo (kernel), enquanto containers focam em leveza."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], pipelines de CI/CD utilizam frequentemente containers Docker para rodar testes porque eles garantem a reprodutibilidade dos ambientes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Os containers mitigam o famoso problema 'na minha máquina funciona'."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Uma imagem Docker define o conteúdo de um container, reunindo o sistema de arquivos, configurações e as [COMBO] da aplicação.",
+          "options": [
+            "dependências",
+            "máquinas físicas",
+            "fontes de energia",
+            "telas de login"
+          ],
+          "correct": "dependências",
+          "tip": "Empacotar as bibliotecas e libs é o que permite a aplicação rodar em qualquer lugar."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quando o uso de containers é a melhor opção estratégica?",
+          "answers": [
+            "Desenvolvimento de microsserviços independentes",
+            "Deploy rápido e replicável",
+            "Escalar horizontalmente com agilidade",
+            "Executar um sistema operacional completamente diferente do Host"
+          ],
+          "correct": [
+            "Desenvolvimento de microsserviços independentes",
+            "Deploy rápido e replicável",
+            "Escalar horizontalmente com agilidade"
+          ],
+          "tip": "Para SOs completamente diferentes (ex: Windows no Linux), a VM é necessária, não o container."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que acontece na camada de abstração de um ambiente com containers?",
+          "answers": [
+            "A aplicação se comunica diretamente com o Docker Engine sobre o SO Host",
+            "Um hipervisor simula componentes de hardware físico",
+            "O sistema acessa diretamente chips dedicados no Bare Metal",
+            "A máquina física é dividida por cabeamento estruturado"
+          ],
+          "correct": "A aplicação se comunica diretamente com o Docker Engine sobre o SO Host",
+          "tip": "Não há hipervisor emulando hardware; o Docker repassa as chamadas ao SO hospedeiro."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no ecossistema Docker, as imagens publicadas no Docker Hub são sempre pagas e restritas a corporações.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Docker Hub possui milhares de imagens oficiais e comunitárias disponíveis gratuitamente (ex: Ubuntu, Node, MySQL)."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Os containers eliminam problemas de configuração com o princípio de que se 'funciona na minha [COMBO]', funcionará na produção.",
+          "options": [
+            "máquina",
+            "rede",
+            "planilha",
+            "impressora"
+          ],
+          "correct": "máquina",
+          "tip": "A padronização do ambiente via imagens Docker garante que os testes locais sejam fiéis à produção.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], como é definida a escalabilidade horizontal (Scale Out) em ambientes virtuais?",
+          "answers": [
+            "Criar novas instâncias da VM em paralelo para atender à demanda",
+            "Adicionar mais vCPU e RAM à mesma VM existente",
+            "Trocar o processador físico do host por um melhor",
+            "Desligar máquinas virtuais ociosas"
+          ],
+          "correct": "Criar novas instâncias da VM em paralelo para atender à demanda",
+          "tip": "Escalar horizontalmente significa espalhar a carga entre múltiplos nós."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A escalabilidade vertical refere-se a adicionar mais recursos (CPU, RAM) à máquina virtual já existente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É como fazer um 'upgrade' nas peças virtuais daquele sistema em específico."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Uma das boas práticas de alocação de recursos em laboratórios é usar discos de tamanho [COMBO] para economizar espaço físico real.",
+          "options": [
+            "dinâmico",
+            "fixo",
+            "infinito",
+            "físico"
+          ],
+          "correct": "dinâmico",
+          "tip": "O disco dinâmico cresce apenas à medida que o espaço é efetivamente consumido dentro da VM."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais são os tipos de isolamento garantidos por um hipervisor em relação às VMs?",
+          "answers": [
+            "Isolamento de Falhas",
+            "Isolamento de Desempenho",
+            "Isolamento de Segurança",
+            "Isolamento de Hardware Físico Geográfico"
+          ],
+          "correct": [
+            "Isolamento de Falhas",
+            "Isolamento de Desempenho",
+            "Isolamento de Segurança"
+          ],
+          "tip": "A proteção de falhas, reserva de CPU/RAM (Quality of Service) e barreira de segurança são os 3 pilares lógicos do isolamento."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os pilares da virtualização aos seus benefícios reais:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Escalabilidade",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Custo-benefício",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Isolamento",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Portabilidade",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ajuste rápido de recursos na Black Friday"
+            },
+            {
+              "id": "z2",
+              "label": "Consolidação e menor uso de energia"
+            },
+            {
+              "id": "z3",
+              "label": "Proteção contra malwares entre ambientes"
+            },
+            {
+              "id": "z4",
+              "label": "Exportação da VM via arquivo OVA"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender estes 4 pilares justifica qualquer investimento empresarial em virtualização."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual é a 'Regra dos 80%' mencionada nas boas práticas de alocação de VMs?",
+          "answers": [
+            "Nunca alocar mais de 80% da RAM física total para as VMs",
+            "Manter o processador sempre acima de 80% de uso",
+            "Instalar apenas 80% do sistema operacional convidado",
+            "Reservar 80% do HD apenas para snapshots"
+          ],
+          "correct": "Nunca alocar mais de 80% da RAM física total para as VMs",
+          "tip": "O sistema operacional hospedeiro e o hipervisor precisam de memória livre para gerenciar a máquina física e não travarem."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a proporção recomendada para garantir o desempenho é não alocar mais de 4 vCPUs para cada núcleo físico do processador.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exceder essa proporção de 4:1 gera contenção de CPU e o desempenho cai significativamente."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Na prática recomendada, os [COMBO] não devem ser usados como substitutos de backup real em ambientes de produção, pois consomem muito disco.",
+          "options": [
+            "snapshots",
+            "processadores",
+            "cabos",
+            "hipervisores"
+          ],
+          "correct": "snapshots",
+          "tip": "Snapshots criam cadeias de dependência e podem corromper com facilidade a longo prazo."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "No caso da empresa LogisTech, por que a adoção da VM via VirtualBox (Cenário B) foi considerada a melhor opção?",
+          "answers": [
+            "Eliminou a necessidade de comprar um servidor físico de R$ 15.000",
+            "Permitiu isolar os ambientes de Dev, Teste e Produção",
+            "Permitiu exportar facilmente as VMs quando migrarem para a nuvem",
+            "Porque o VirtualBox executa containers de forma nativa e exclusiva"
+          ],
+          "correct": [
+            "Eliminou a necessidade de comprar um servidor físico de R$ 15.000",
+            "Permitiu isolar os ambientes de Dev, Teste e Produção",
+            "Permitiu exportar facilmente as VMs quando migrarem para a nuvem"
+          ],
+          "tip": "O VirtualBox trabalha com VMs, não é focado exclusivamente em containers (tarefa do Docker)."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em relação à conectividade de rede no laboratório, qual o tipo de configuração foi recomendada para a VM acessar a internet?",
+          "answers": [
+            "NAT",
+            "Bridge Dedicada",
+            "Host-Only",
+            "Rede Interna Isolada"
+          ],
+          "correct": "NAT",
+          "tip": "A rede NAT usa o IP do host (notebook) para dar saída transparente à internet para a máquina virtual."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], exportar uma VM em formatos como OVA ou OVF é o que garante a portabilidade entre servidores diferentes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esses padrões abertos empacotam o disco virtual e as configurações em um único arquivo fácil de mover."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione as recomendações da VM da LogisTech aos seus valores propostos no laboratório:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "SO Convidado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Memória RAM",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Disco Virtual",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Rede",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ubuntu Server 22.04 LTS"
+            },
+            {
+              "id": "z2",
+              "label": "2048 MB (2 GB)"
+            },
+            {
+              "id": "z3",
+              "label": "20 GB Dinâmico"
+            },
+            {
+              "id": "z4",
+              "label": "NAT"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas especificações seguem boas práticas de laboratório, evitando travamentos no notebook anfitrião."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para gerenciar as janelas com mais facilidade e garantir melhor integração com o SO host, recomenda-se a instalação dos VirtualBox Guest [COMBO].",
+          "options": [
+            "Additions",
+            "Removals",
+            "Engines",
+            "Daemons"
+          ],
+          "correct": "Additions",
+          "tip": "Esses adicionais instalam drivers de vídeo otimizados e permitem compartilhamento de área de transferência."
+        }
+      ]
     }
   ]
 }
