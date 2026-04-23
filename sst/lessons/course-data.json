@@ -22368,6 +22368,939 @@
           "tip": "O bom desempenho de um hardware de informação gira inteiramente em torno dos seus recursos básicos de IO."
         }
       ]
+    },
+    {
+      "slug": "aula-33",
+      "lesson_info": {
+        "id": "Aula-33",
+        "title": "AULA 33 - INFRAESTRUTURA DE TI: COMPONENTES E ARQUITETURAS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DE HARDWARE",
+            "desc": "Conceitos de CPU, memória, armazenamento e periféricos.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "SERVIDORES E ESTAÇÕES",
+            "desc": "Diferenças, formatos e componentes de alta disponibilidade.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "INFRAESTRUTURA E DATA CENTERS",
+            "desc": "Estrutura, virtualização e níveis de Data Centers.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "ESCALABILIDADE E NUVEM",
+            "desc": "Alta disponibilidade, modelos on-premise, cloud e híbridos.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "R",
+          "A",
+          "C",
+          "K"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que define o hardware em um sistema computacional? ",
+          "answers": [
+            "Conjunto de componentes físicos",
+            "Conjunto de instruções de rede",
+            "Sistemas operacionais virtuais",
+            "Aplicações de usuário final"
+          ],
+          "correct": "Conjunto de componentes físicos",
+          "tip": "Hardware inclui todos os elementos tangíveis, como circuitos e unidades de processamento. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o hardware e o software funcionam de forma totalmente independente, não sendo interdependentes. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ambos são interdependentes e essenciais ao funcionamento do sistema. "
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o componente principal do computador à sua respectiva descrição: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "CPU",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Memória RAM",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Armazenamento",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Dispositivos de E/S",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Executa instruções "
+            },
+            {
+              "id": "z2",
+              "label": "Armazena temporariamente "
+            },
+            {
+              "id": "z3",
+              "label": "Guarda de forma permanente "
+            },
+            {
+              "id": "z4",
+              "label": "Interação humano-máquina "
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada componente desempenha um papel crítico, seja processando, guardando ou permitindo entrada/saída de dados. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A [COMBO] é uma memória ultrarrápida integrada ao processador (L1, L2, L3). ",
+          "options": [
+            "Cache",
+            "RAM DDR5",
+            "EPROM",
+            "Flash NVMe"
+          ],
+          "correct": "Cache",
+          "tip": "Ela ajuda a CPU a acessar dados frequentemente usados com muito mais velocidade. "
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das opções abaixo são consideradas métricas de desempenho de uma CPU? ",
+          "answers": [
+            "Número de núcleos e threads",
+            "Frequência base e turbo",
+            "Capacidade do disco SSD",
+            "TDP (consumo e dissipação)"
+          ],
+          "correct": [
+            "Número de núcleos e threads",
+            "Frequência base e turbo",
+            "TDP (consumo e dissipação)"
+          ],
+          "tip": "A capacidade do SSD é uma métrica de armazenamento, não do processador. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual tipo de memória RAM é essencial em servidores modernos para detectar e corrigir erros automaticamente? ",
+          "answers": [
+            "ECC",
+            "DDR3 Standard",
+            "ROM",
+            "SD Card"
+          ],
+          "correct": "ECC",
+          "tip": "A sigla ECC significa Error-Correcting Code, garantindo a integridade dos dados. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a memória do tipo DDR5 consome mais energia em comparação às gerações anteriores. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A DDR5 oferece maior largura de banda e MENOR consumo energético. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A estratégia de armazenamento em [COMBO] combina NVMe para dados ativos com HDD para arquivamento. ",
+          "options": [
+            "camadas",
+            "silos",
+            "nuvem",
+            "blocos"
+          ],
+          "correct": "camadas",
+          "tip": "Conhecida como tiered storage, otimiza o custo e o desempenho em data centers. "
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destes dispositivos são classificados exclusivamente como dispositivos de saída? ",
+          "answers": [
+            "Monitores e displays",
+            "Impressoras e plotters",
+            "Alto-falantes",
+            "Leitores biométricos"
+          ],
+          "correct": [
+            "Monitores e displays",
+            "Impressoras e plotters",
+            "Alto-falantes"
+          ],
+          "tip": "Leitores biométricos servem para a entrada de dados no sistema. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual componente atua como a central que interliga todos os outros componentes do sistema? ",
+          "answers": [
+            "Placa-mãe",
+            "Fonte de alimentação",
+            "Gabinete de torre",
+            "Módulo de RAM"
+          ],
+          "correct": "Placa-mãe",
+          "tip": "Ela determina quais processadores e expansões são compatíveis com o computador. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o BIOS/UEFI é um firmware que inicializa o hardware antes do carregamento do sistema operacional. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse firmware é a camada intermediária geralmente gravada em um chip na placa-mãe. "
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os elementos presentes na placa-mãe às suas respectivas funções: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Chipset",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Slots PCIe",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Conectores",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "BIOS/UEFI",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Controla o fluxo de dados "
+            },
+            {
+              "id": "z2",
+              "label": "Para expansões como GPUs "
+            },
+            {
+              "id": "z3",
+              "label": "USB, SATA e alimentação "
+            },
+            {
+              "id": "z4",
+              "label": "Inicializa o hardware "
+            }
+          ],
+          "correct": "drag",
+          "tip": "O conjunto desses componentes viabiliza o fluxo de informações no sistema. ",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a principal distinção de um servidor em relação a uma estação de trabalho? ",
+          "answers": [
+            "Confiabilidade e capacidade multiusuário",
+            "Presença de um único processador",
+            "Uso exclusivo de HDDs magnéticos",
+            "Sistema operacional voltado para desktop"
+          ],
+          "correct": "Confiabilidade e capacidade multiusuário",
+          "tip": "Servidores são otimizados para disponibilidade contínua e escalabilidade. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], as estações de trabalho tradicionais normalmente contam com múltiplas fontes de alimentação redundantes de fábrica. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A redundância, como fontes duplas, é uma característica comum apenas em servidores. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Em servidores, a presença de uma fonte [COMBO] garante que, se uma falhar, a outra assume imediatamente o fornecimento. ",
+          "options": [
+            "Redundante",
+            "Genérica",
+            "Estabilizada",
+            "Monofásica"
+          ],
+          "correct": "Redundante",
+          "tip": "Esse é um requisito básico para ambientes de alta disponibilidade. "
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são os níveis de RAID mais comumente utilizados em servidores para redundância de discos? ",
+          "answers": [
+            "RAID 1",
+            "RAID 5",
+            "RAID 6",
+            "RAID 99"
+          ],
+          "correct": [
+            "RAID 1",
+            "RAID 5",
+            "RAID 6"
+          ],
+          "tip": "RAID 1, 5, 6 e 10 são os padrões para garantir a continuidade em caso de falha de disco. "
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os formatos físicos de servidores às suas descrições: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Tower",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Rack",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Blade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Formato semelhante a desktop "
+            },
+            {
+              "id": "z2",
+              "label": "Montados em gabinetes padronizados "
+            },
+            {
+              "id": "z3",
+              "label": "Lâminas que compartilham chassi "
+            }
+          ],
+          "correct": "drag",
+          "tip": "O formato Rack é o mais comum em Data Centers, enquanto Tower é ideal para pequenas empresas. "
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a medida padrão do gabinete no qual os servidores do tipo Rack são montados? ",
+          "answers": [
+            "19 polegadas",
+            "15 polegadas",
+            "24 polegadas",
+            "10 polegadas"
+          ],
+          "correct": "19 polegadas",
+          "tip": "Este padrão permite a alta densidade e gestão centralizada em data centers corporativos. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o formato de servidor Blade proporciona máxima densidade, pois as lâminas compartilham fonte e refrigeração. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles são inseridos em um chassi comum, otimizando o espaço físico e energético. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O servidor de [COMBO] hospeda e entrega aplicações e sites (ex: Apache, Nginx). ",
+          "options": [
+            "Web",
+            "Arquivos",
+            "Banco",
+            "Virtualização"
+          ],
+          "correct": "Web",
+          "tip": "Sistemas IIS e Nginx operam neste tipo de servidor. "
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], selecione os papéis lógicos que um servidor pode assumir na infraestrutura: ",
+          "answers": [
+            "Servidor de Banco de Dados",
+            "Servidor de Backup",
+            "Servidor de Aplicação",
+            "Servidor de Teclados"
+          ],
+          "correct": [
+            "Servidor de Banco de Dados",
+            "Servidor de Backup",
+            "Servidor de Aplicação"
+          ],
+          "tip": "As classificações lógicas definem a função do software hospedado na máquina. "
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que a tecnologia de Controladora RAID faz no servidor? ",
+          "answers": [
+            "Distribui/espelha dados entre discos",
+            "Fornece energia ininterrupta",
+            "Roteia pacotes de rede externos",
+            "Gera relatórios de temperatura"
+          ],
+          "correct": "Distribui/espelha dados entre discos",
+          "tip": "Isolando falhas de hardware, ela garante a continuidade mesmo se um disco pifar. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a estratégia de múltiplas placas de rede (NICs) em redundância no servidor é chamada de bonding/teaming. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso garante largura de banda contínua e evita quedas de conexão de rede. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Um servidor de banco de dados gerencia dados [COMBO] utilizando sistemas como MySQL ou Oracle. ",
+          "options": [
+            "estruturados",
+            "livres",
+            "aleatórios",
+            "temporais"
+          ],
+          "correct": "estruturados",
+          "tip": "Bancos relacionais necessitam de forte organização de dados para rápida consulta. "
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os papéis do servidor na infraestrutura às suas definições: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Arquivos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Banco de Dados",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Aplicação",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Backup",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Centraliza documentos "
+            },
+            {
+              "id": "z2",
+              "label": "Gerencia dados estruturados "
+            },
+            {
+              "id": "z3",
+              "label": "Executa lógica de negócio "
+            },
+            {
+              "id": "z4",
+              "label": "Armazena cópias de segurança "
+            }
+          ],
+          "correct": "drag",
+          "tip": "O servidor pode atuar em diversas frentes dependendo do serviço instalado. ",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que a virtualização permite fazer em um ambiente de servidores? ",
+          "answers": [
+            "Executar múltiplos sistemas operacionais",
+            "Aumentar o clock do processador físico",
+            "Desligar componentes redundantes",
+            "Impedir ataques cibernéticos em rede"
+          ],
+          "correct": "Executar múltiplos sistemas operacionais",
+          "answers_citations": [
+            "Executar múltiplos sistemas operacionais isolados "
+          ],
+          "tip": "Ela cria 'máquinas virtuais' dentro de um único host físico. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a virtualização geralmente aumenta os custos com hardware porque exige mais equipamentos físicos separados. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, ela promove a redução de custos por meio da consolidação de servidores. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para realizar a virtualização, utiliza-se uma camada de software chamada [COMBO] (ex: VMware ESXi). ",
+          "options": [
+            "hipervisor",
+            "firmware",
+            "bootloader",
+            "gateway"
+          ],
+          "correct": "hipervisor",
+          "tip": "O hipervisor gerencia e divide os recursos físicos para as VMs. "
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais opções são consideradas benefícios diretos da virtualização? ",
+          "answers": [
+            "Isolamento entre ambientes",
+            "Snapshots e recuperação rápida",
+            "Migração de VMs ao vivo",
+            "Melhoria na ventilação física do rack"
+          ],
+          "correct": [
+            "Isolamento entre ambientes",
+            "Snapshots e recuperação rápida",
+            "Migração de VMs ao vivo"
+          ],
+          "tip": "A ventilação física é uma questão estrutural do Data Center e do chassi. "
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os pilares da estrutura de um Data Center às suas implementações: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Energia",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Refrigeração",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Segurança Física",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Conectividade",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Geradores e nobreaks "
+            },
+            {
+              "id": "z2",
+              "label": "Sistemas de precisão (CRAC) "
+            },
+            {
+              "id": "z3",
+              "label": "Controle biométrico "
+            },
+            {
+              "id": "z4",
+              "label": "Múltiplos provedores "
+            }
+          ],
+          "correct": "drag",
+          "tip": "Todo o ambiente crítico de TI baseia-se nestes 4 pilares de sustentação. "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que define a Infraestrutura de TI de uma empresa? ",
+          "answers": [
+            "Todos os componentes tecnológicos que sustentam operações",
+            "Apenas os softwares de gerenciamento interno",
+            "O prédio corporativo e o estacionamento",
+            "Unicamente os dispositivos dos funcionários"
+          ],
+          "correct": "Todos os componentes tecnológicos que sustentam operações",
+          "tip": "Isso inclui hardware, software, redes, instalações e serviços. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um Data Center Nível I é altamente recomendável para sistemas críticos, pois apresenta redundância total. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Nível I é considerado 'Básico' e não possui redundância. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O Data Center de Nível III permite [COMBO] simultânea, sem necessidade de desligar os componentes. ",
+          "options": [
+            "Manutenção",
+            "Formatação",
+            "Evacuação",
+            "Desativação"
+          ],
+          "correct": "Manutenção",
+          "tip": "Sua disponibilidade chega a 99,982%. "
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são as características de um Data Center de Nível IV? ",
+          "answers": [
+            "Total redundância e tolerância a falhas",
+            "99,995% de disponibilidade",
+            "Sem redundância e baixo custo",
+            "Downtime de até 26,3 minutos ao ano"
+          ],
+          "correct": [
+            "Total redundância e tolerância a falhas",
+            "99,995% de disponibilidade",
+            "Downtime de até 26,3 minutos ao ano"
+          ],
+          "tip": "Trata-se da categoria mais robusta para hospedagem física. "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], como é chamado o sistema de refrigeração que divide corredores quentes e frios? ",
+          "answers": [
+            "Hot/cold aisle",
+            "Nobreaks de ar",
+            "Radiador passivo",
+            "Water cooling"
+          ],
+          "correct": "Hot/cold aisle",
+          "tip": "Essa técnica direciona o ar gelado para as frentes dos servidores e captura o ar quente exausto. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], servidores físicos, virtuais, redes LAN e WAN são considerados componentes da Infraestrutura de TI. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles formam o conjunto integrado tecnológico da organização. "
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe os Níveis (Tiers) de Data Centers às suas disponibilidades esperadas: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nível I",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nível II",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nível III",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Nível IV",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "99,671% "
+            },
+            {
+              "id": "z2",
+              "label": "99,741% "
+            },
+            {
+              "id": "z3",
+              "label": "99,982% "
+            },
+            {
+              "id": "z4",
+              "label": "99,995% "
+            }
+          ],
+          "correct": "drag",
+          "tip": "O nível de serviço melhora à medida que a redundância estrutural avança. ",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o que define a escalabilidade Vertical (Scale Up)? ",
+          "answers": [
+            "Adicionar mais recursos (CPU, RAM) à máquina existente",
+            "Distribuir o banco de dados em dez continentes",
+            "Clonar o servidor em várias máquinas baratas",
+            "Transferir os arquivos para fitas magnéticas"
+          ],
+          "correct": "Adicionar mais recursos (CPU, RAM) à máquina existente",
+          "tip": "A escalabilidade vertical possui o limite físico atrelado à placa-mãe. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a escalabilidade horizontal (Scale Out) consiste em adicionar novas instâncias ou máquinas ao conjunto. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa abordagem cria clusters e é o princípio de plataformas Cloud. "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O conceito de Alta [COMBO] busca manter o sistema operacional continuamente, minimizando o tempo de inatividade. ",
+          "options": [
+            "Disponibilidade",
+            "Latência",
+            "Pressão",
+            "Voltagem"
+          ],
+          "correct": "Disponibilidade",
+          "tip": "Abrevia-se por HA (High Availability). "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], identifique quais práticas são consideradas técnicas para Alta Disponibilidade: ",
+          "answers": [
+            "Failover automático",
+            "Clustering",
+            "Balanceamento de carga",
+            "Desligamento noturno manual"
+          ],
+          "correct": [
+            "Failover automático",
+            "Clustering",
+            "Balanceamento de carga"
+          ],
+          "tip": "O desligamento manual aumenta o downtime, indo contra o princípio de HA. "
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em métricas de disponibilidade, o que representam os \"Cinco Noves\" (99,999%)? ",
+          "answers": [
+            "Máximo de 5,26 minutos de downtime ao ano",
+            "Apenas 5 falhas permitidas por mês",
+            "Média de 9 horas de lentidão",
+            "Tempo de boot inferior a 9 segundos"
+          ],
+          "correct": "Máximo de 5,26 minutos de downtime ao ano",
+          "tip": "É o padrão de exigência para operadoras financeiras e de telecomunicação. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o MTTR representa o Tempo Médio de Reparo em sistemas operacionais. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele atua em conjunto com o MTBF (Tempo Médio entre Falhas). "
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os modelos de distribuição de infraestrutura às suas particularidades: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "On-Premise",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Cloud",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Híbrida",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Servidores físicos na própria sede "
+            },
+            {
+              "id": "z2",
+              "label": "Serviços sob demanda via Internet "
+            },
+            {
+              "id": "z3",
+              "label": "Combina ambiente local e nuvem "
+            }
+          ],
+          "correct": "drag",
+          "tip": "Atualmente, a arquitetura híbrida é a grande tendência nas médias e grandes empresas. "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "No modelo Cloud, os custos recorrentes baseados no uso são conhecidos como despesas do tipo [COMBO]. ",
+          "options": [
+            "OPEX",
+            "CAPEX",
+            "FIXAS",
+            "LIQUIDEZ"
+          ],
+          "correct": "OPEX",
+          "tip": "OPEX (Operational Expenditure) substitui o CAPEX da aquisição de hardware. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são as principais vantagens adotadas ao migrar a infraestrutura para a Cloud (nuvem)? ",
+          "answers": [
+            "Escalabilidade elástica",
+            "Modelo de cobrança OPEX",
+            "Não exige gestão de hardware físico",
+            "Garante total anonimato dos dados fiscais"
+          ],
+          "correct": [
+            "Escalabilidade elástica",
+            "Modelo de cobrança OPEX",
+            "Não exige gestão de hardware físico"
+          ],
+          "tip": "O sigilo ou anonimato dependem da arquitetura lógica de segurança, não apenas por ser Cloud. "
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual tecnologia de nuvem provisiona instâncias automaticamente durante picos de demanda? ",
+          "answers": [
+            "Auto Scaling",
+            "RAID Zero",
+            "Memória ECC Automática",
+            "Bonding de Placa"
+          ],
+          "correct": "Auto Scaling",
+          "tip": "Isso permite absorver acessos imprevistos e depois reduzir recursos para não gerar custos. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a estratégia de Backup 3-2-1 instrui a manter três cópias, em duas mídias distintas, sendo uma fora da empresa. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É a regra de ouro para assegurar a recuperação de desastres. "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para planejar servidores locais adequados, avalia-se o Retorno sobre o Investimento, conhecido pela sigla [COMBO]. ",
+          "options": [
+            "ROI",
+            "TCO",
+            "SLA",
+            "CPU"
+          ],
+          "correct": "ROI",
+          "tip": "Isso embasa financeiramente a escolha e o dimensionamento da infraestrutura. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], antes de decidir pela compra do hardware ou ida para cloud, quais itens da Checklist devem ser avaliados? ",
+          "answers": [
+            "Calcular requisitos de recursos (CPU/RAM)",
+            "Definir a carga de trabalho",
+            "Definir nível de SLA e disponibilidade",
+            "Escrever o código HTML das páginas"
+          ],
+          "correct": [
+            "Calcular requisitos de recursos (CPU/RAM)",
+            "Definir a carga de trabalho",
+            "Definir nível de SLA e disponibilidade"
+          ],
+          "tip": "O planejamento visa sustentar a aplicação; o código da aplicação é etapa do software. "
+        }
+      ]
     }
   ]
 }
