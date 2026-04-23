@@ -24992,7 +24992,7 @@
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], no Windows Server, se a permissão "Negar" entrar em conflito com uma permissão concedida ao grupo do usuário, qual vence?",
+          "questions": "[NAME], no Windows Server, se a permissão \"Negar\" entrar em conflito com uma permissão concedida ao grupo do usuário, qual vence?",
           "answers": [
             "A permissão Negar tem precedência absoluta",
             "O Windows pede autorização ao administrador",
