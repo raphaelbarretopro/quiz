@@ -24200,6 +24200,913 @@
           "tip": "Esses adicionais instalam drivers de vídeo otimizados e permitem compartilhamento de área de transferência."
         }
       ]
+    },
+    {
+      "slug": "aula-35",
+      "lesson_info": {
+        "id": "Aula-35",
+        "title": "AULA 35 - GERENCIAMENTO DE ARQUIVOS, PERMISSÕES E SISTEMAS DE ARQUIVOS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "SISTEMAS DE ARQUIVOS",
+            "desc": "Estrutura lógica, armazenamento e comparativo entre FAT32, NTFS e EXT4.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "GERENCIAMENTO DE MEMÓRIA",
+            "desc": "Hierarquia de memória, RAM, swap e impacto na performance do sistema.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "ARQUIVOS E PASTAS",
+            "desc": "Criação, diretórios hierárquicos, compressão e mídias externas.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "PERMISSÕES E SEGURANÇA",
+            "desc": "Modelos POSIX e ACL, herança e o Princípio do Menor Privilégio.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "R",
+          "A",
+          "I",
+          "Z"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a principal limitação do sistema FAT32 para um servidor corporativo moderno?",
+          "answers": [
+            "Tamanho máximo de arquivo de 4 GB",
+            "Apenas compatível com Linux",
+            "Exige discos SSD",
+            "Não suporta modo gráfico"
+          ],
+          "correct": "Tamanho máximo de arquivo de 4 GB",
+          "tip": "O FAT32 tem um limite de tamanho máximo de arquivo de 4 GB, inadequado para grandes volumes de dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o sistema NTFS possui suporte a permissões de segurança ou journaling.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Diferente do FAT32, o NTFS oferece suporte a journaling e permissões granulares ACL."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o sistema de arquivos à sua característica principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "FAT32",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "NTFS",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "EXT4",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Alta compatibilidade (Pendrives)"
+            },
+            {
+              "id": "z2",
+              "label": "Padrão corporativo Windows"
+            },
+            {
+              "id": "z3",
+              "label": "Padrão em distribuições Linux"
+            }
+          ],
+          "correct": "drag",
+          "tip": "FAT32 é focado em compatibilidade, NTFS em robustez para Windows, e EXT4 é padrão no Linux."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], o [COMBO] registra operações em um diário antes de executá-las, garantindo recuperação rápida.",
+          "options": [
+            "Journaling",
+            "Swapping",
+            "Clustering",
+            "Routing"
+          ],
+          "correct": "Journaling",
+          "tip": "O Journaling é fundamental para evitar a corrupção de dados em caso de falhas."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais opções são características exclusivas ou avançadas do EXT4?",
+          "answers": [
+            "Uso de extents contíguos",
+            "Journaling avançado",
+            "Nativo apenas no Windows DOS",
+            "Padrão no Ubuntu e Debian"
+          ],
+          "correct": [
+            "Uso de extents contíguos",
+            "Journaling avançado",
+            "Padrão no Ubuntu e Debian"
+          ],
+          "tip": "O EXT4 substitui a alocação por blocos por extents para reduzir fragmentação e é padrão no Linux."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual termo define a unidade mínima de alocação gerenciada pelo sistema de arquivos?",
+          "answers": [
+            "Cluster",
+            "Trilha",
+            "Byte",
+            "Platter"
+          ],
+          "correct": "Cluster",
+          "tip": "O sistema operacional agrupa setores físicos em clusters, que são a unidade mínima de alocação lógica."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a Tabela de Alocação é um índice que mapeia o nome de cada arquivo ao endereço físico no disco.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sem essa tabela, os dados gravados se tornam inacessíveis para o sistema."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], ordene corretamente os limites de tamanho máximo de arquivo de cada sistema:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "4 GB",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "16 TB",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "16 EB",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Limite do FAT32"
+            },
+            {
+              "id": "z2",
+              "label": "Limite do EXT4"
+            },
+            {
+              "id": "z3",
+              "label": "Limite do NTFS"
+            }
+          ],
+          "correct": "drag",
+          "tip": "FAT32 suporta 4GB, EXT4 suporta 16TB e o NTFS atinge a marca corporativa de 16EB."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A [COMBO] ocorre quando os clusters de um arquivo ficam espalhados pelo disco.",
+          "options": [
+            "Fragmentação",
+            "Compactação",
+            "Criptografia",
+            "Alocação"
+          ],
+          "correct": "Fragmentação",
+          "tip": "Esse espalhamento reduz consideravelmente a performance de leitura do disco."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais recursos são oferecidos nativamente pelo sistema de arquivos NTFS?",
+          "answers": [
+            "Permissões granulares via ACL",
+            "Journaling para recuperação de falhas",
+            "Suporte a partições de até 8 TB no máximo",
+            "Criptografia com BitLocker / EFS"
+          ],
+          "correct": [
+            "Permissões granulares via ACL",
+            "Journaling para recuperação de falhas",
+            "Criptografia com BitLocker / EFS"
+          ],
+          "tip": "O NTFS é robusto e possui suporte para permissões ACL, journaling e criptografia nativa."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], por que o EXT4 introduziu o conceito de extents?",
+          "answers": [
+            "Para reduzir a fragmentação e melhorar performance",
+            "Para tornar o Linux compatível com Windows NT",
+            "Para diminuir o tamanho máximo dos arquivos",
+            "Para substituir a criptografia BitLocker"
+          ],
+          "correct": "Para reduzir a fragmentação e melhorar performance",
+          "tip": "Os extents contíguos substituem a alocação bloco a bloco, otimizando o trato com arquivos grandes."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o FAT32 implementa o modelo de permissões Unix/Linux, utilizando proprietário, grupo e outros.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Quem implementa o modelo POSIX (rwx) é o EXT4, e não o FAT32, que não possui suporte a permissões."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], sem um sistema de arquivos, os dados no disco seriam uma sequência desordenada de [COMBO].",
+          "options": [
+            "Bits",
+            "Setores",
+            "Pastas",
+            "Swaps"
+          ],
+          "correct": "Bits",
+          "trans": "AGEN",
+          "tip": "É a estrutura lógica que dá nome e endereço aos dados armazenados."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], na hierarquia de memória, qual possui a maior velocidade e menor capacidade?",
+          "answers": [
+            "Registradores",
+            "Cache L1",
+            "Memória RAM",
+            "Disco SSD"
+          ],
+          "correct": "Registradores",
+          "tip": "Os registradores ficam dentro do processador e operam na velocidade máxima possível, armazenando apenas bytes."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a memória RAM é classificada como volátil, perdendo seus dados quando o sistema é desligado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É uma memória de acesso aleatório temporária, muito rápida, que depende de energia para manter os dados."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione o tipo de memória com sua característica correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cache L3",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "RAM",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Armazenamento HDD",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Integrada ao processador (KB a MB)"
+            },
+            {
+              "id": "z2",
+              "label": "Volátil e de acesso aleatório (GB)"
+            },
+            {
+              "id": "z3",
+              "label": "Persistente e de grande capacidade (TB)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Quanto mais rápida a memória, menor a capacidade e maior seu custo."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], no Linux, o espaço no disco reservado para memória virtual é conhecido como [COMBO].",
+          "options": [
+            "Swap",
+            "Paginação",
+            "Cache",
+            "Extents"
+          ],
+          "correct": "Swap",
+          "tip": "No Windows é chamado de arquivo de paginação, mas no Linux usa-se a partição ou arquivo de swap."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], o que acontece quando o sistema faz uso excessivo de memória virtual (swap)?",
+          "answers": [
+            "A performance do sistema cai drasticamente",
+            "O processador aumenta sua velocidade nativa",
+            "O disco lento é forçado a atuar como RAM",
+            "A memória Cache L1 é expandida"
+          ],
+          "correct": [
+            "A performance do sistema cai drasticamente",
+            "O disco lento é forçado a atuar como RAM"
+          ],
+          "tip": "Como o disco é infinitamente mais lento que a RAM, o uso exagerado de swap gera lentidão severa."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual nível da hierarquia de armazenamento é considerado persistente e base para o sistema de arquivos?",
+          "answers": [
+            "Armazenamento (SSD/HDD)",
+            "Cache do processador",
+            "Memória RAM",
+            "Registradores L1"
+          ],
+          "correct": "Armazenamento (SSD/HDD)",
+          "tip": "As unidades SSD e HDD mantêm dados salvos permanentemente (TB de capacidade) e hospedam os arquivos."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a função do sistema operacional ao criar memória virtual é permitir que mais processos executem simultaneamente quando a RAM enche.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele cria um espaço de armazenamento temporário no disco para aliviar a carga da memória volátil esgotada."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], ordene os elementos da base ao topo da pirâmide de memória (lento/barato ao rápido/caro):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Armazenamento (SSD)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Memória RAM",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Registradores",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Base (Grande capacidade, menor velocidade)"
+            },
+            {
+              "id": "z2",
+              "label": "Meio (Velocidade média, acesso aleatório)"
+            },
+            {
+              "id": "z3",
+              "label": "Topo (Máxima velocidade, mínima capacidade)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O topo da hierarquia foca em velocidade máxima, enquanto a base foca em retenção persistente de alto volume."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para planejar o espaço no servidor, um TI deve contabilizar arquivos temporários, logs e o arquivo de [COMBO].",
+          "options": [
+            "Swap",
+            "Boot",
+            "Registry",
+            "Cache L3"
+          ],
+          "correct": "Swap",
+          "tip": "Um servidor de arquivos mal dimensionado pode esgotar o disco e corromper dados ao necessitar usar o Swap."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], por que a compreensão da hierarquia de memória afeta o gerenciamento de arquivos?",
+          "answers": [
+            "Porque a memória swap consome espaço no disco principal",
+            "Porque o SSD substitui completamente os registradores",
+            "Porque a lentidão do swap afeta servidores mal dimensionados",
+            "Porque apenas a Cache salva permissões POSIX"
+          ],
+          "correct": [
+            "Porque a memória swap consome espaço no disco principal",
+            "Porque a lentidão do swap afeta servidores mal dimensionados"
+          ],
+          "tip": "Ignorar o swap em partições de sistema pode causar falta de espaço e falhas severas no servidor."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], onde a memória Cache é fisicamente integrada?",
+          "answers": [
+            "Ao processador",
+            "Na placa de vídeo (GPU)",
+            "Diretamente no HD externo",
+            "Em slots pendrives"
+          ],
+          "correct": "Ao processador",
+          "tip": "É uma memória de altíssima velocidade que atua como ponte entre a RAM e os registradores."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], a capacidade típica do Armazenamento (SSD/HDD) em servidores é medida na grandeza de [COMBO].",
+          "options": [
+            "Terabytes (TB)",
+            "Megabytes (MB)",
+            "Kilobytes (KB)",
+            "Bytes"
+          ],
+          "correct": "Terabytes (TB)",
+          "trans": "PROT",
+          "tip": "Enquanto registradores operam em bytes, discos de armazenamento oferecem persistência em grande escala (Terabytes)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], no Linux, qual símbolo representa o diretório raiz absoluto de todo o sistema de arquivos?",
+          "answers": [
+            "/",
+            "C:/",
+            "~",
+            "#"
+          ],
+          "correct": "/",
+          "tip": "Todo sistema de arquivos hierárquico inicia num diretório principal, que no Linux é o / (barra)."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o comando 'rm -rf /' pode ser executado rotineiramente sem riscos como forma de limpar a lixeira no Linux.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Esse comando remove TODOS os arquivos do sistema de forma irreversível e nunca deve ser usado inadvertidamente."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione os comandos do terminal Linux às suas respectivas funções de gerenciamento de arquivos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "mkdir",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "cp",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "find",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Criar nova pasta"
+            },
+            {
+              "id": "z2",
+              "label": "Copiar origem para destino"
+            },
+            {
+              "id": "z3",
+              "label": "Localizar arquivos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer as operações básicas na linha de comando é essencial para a administração de servidores."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para renomear ou mover arquivos e pastas via linha de comando no Linux, utilizamos o comando [COMBO].",
+          "options": [
+            "mv",
+            "cp",
+            "touch",
+            "rm"
+          ],
+          "correct": "mv",
+          "tip": "O comando 'mv' (move) desloca a origem para um destino especificado."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], por quais motivos a compressão de arquivos é uma rotina tão presente na área de TI?",
+          "answers": [
+            "Reduz o espaço ocupado em disco",
+            "Facilita o envio de grandes conjuntos por e-mail",
+            "Converte automaticamente arquivos em formato Linux",
+            "Agiliza rotinas de backup de servidores"
+          ],
+          "correct": [
+            "Reduz o espaço ocupado em disco",
+            "Facilita o envio de grandes conjuntos por e-mail",
+            "Agiliza rotinas de backup de servidores"
+          ],
+          "tip": "Formatos como ZIP, RAR e TAR otimizam tanto o armazenamento quanto o tempo de transporte na rede."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual formato de compressão é o padrão nativo no explorador de arquivos do Windows?",
+          "answers": [
+            "ZIP",
+            "RAR",
+            "TAR",
+            "GZIP"
+          ],
+          "correct": "ZIP",
+          "tip": "O formato ZIP não exige softwares de terceiros no Windows moderno, embora RAR e 7-Zip tenham melhor taxa."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a remoção abrupta de um pendrive durante uma cópia não afeta a integridade dos arquivos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Desconectar mídias externas sem antes ejetar com segurança pode causar corrupção e perda irreversível de dados."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione os formatos e ferramentas de compressão ao seu ecossistema principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "TAR/GZIP",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "WinRAR / 7-Zip",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "AES-256",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Padrão em servidores Linux"
+            },
+            {
+              "id": "z2",
+              "label": "Ferramentas potentes para Windows"
+            },
+            {
+              "id": "z3",
+              "label": "Padrão de criptografia com senha"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Aplicativos como o 7-Zip oferecem a proteção AES-256 para o envio de dados sensíveis compactados."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], um disco na rede da empresa acessível por múltiplos usuários para guardar arquivos é conhecido como [COMBO].",
+          "options": [
+            "NAS",
+            "SSD",
+            "RAM",
+            "Swap"
+          ],
+          "correct": "NAS",
+          "tip": "NAS significa Network Attached Storage, e atua diretamente como disco centralizador de compartilhamento."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], ao compartilhar pastas em um servidor de rede, quais boas práticas evitam perda de controle e erros organizacionais?",
+          "answers": [
+            "Planejar uma estrutura lógica de subdiretórios coerente",
+            "Permitir que qualquer pessoa crie pastas na raiz principal",
+            "Atribuir diferentes níveis de acesso conforme a necessidade",
+            "Refletir a estrutura da organização nos diretórios"
+          ],
+          "correct": [
+            "Planejar uma estrutura lógica de subdiretórios coerente",
+            "Atribuir diferentes níveis de acesso conforme a necessidade",
+            "Refletir a estrutura da organização nos diretórios"
+          ],
+          "tip": "Em servidores, compartilha-se a rede limitando acessos para que os setores operem sem invadir dados alheios."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual tipo de formatação é altamente compatível para pendrives, garantindo leitura no Linux, macOS e Windows?",
+          "answers": [
+            "exFAT / FAT32",
+            "NTFS estrito",
+            "EXT4 com Journal",
+            "Swap Virtual"
+          ],
+          "correct": "exFAT / FAT32",
+          "tip": "Devido à compatibilidade universal, discos transportáveis ainda usam essas formatações da Microsoft."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o atalho para exclusão permanente ou para enviar à lixeira arquivos no Windows é o comando 'mv'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "No Windows utiliza-se a tecla 'Del' ou a Lixeira. O 'mv' é para mover arquivos via terminal Linux."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], no Linux, utilizar o comando [COMBO] seguido de 'arquivo.txt' cria rapidamente um arquivo vazio.",
+          "options": [
+            "touch",
+            "make",
+            "mkdir",
+            "create"
+          ],
+          "correct": "touch",
+          "trans": "NORM",
+          "tip": "Esse utilitário rápido cria arquivos instantaneamente, ao passo que 'mkdir' atua criando pastas."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual comando no ambiente Linux altera as permissões de acesso aos arquivos?",
+          "answers": [
+            "chmod",
+            "chown",
+            "attrib",
+            "access"
+          ],
+          "correct": "chmod",
+          "tip": "Tanto na notação simbólica (u+x) quanto octal (755), o comando 'chmod' define quem lê, grava e executa."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o Princípio do Menor Privilégio afirma que cada usuário deve ter apenas o nível de acesso estritamente necessário para sua função.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso reduz imensamente a área de impacto em caso de sequestro de conta, infecção por malware ou erro humano acidental."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione os conjuntos do modelo POSIX às suas letras indicativas de permissão:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Leitura",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Escrita / Modificação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Execução de Script",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "r (read)"
+            },
+            {
+              "id": "z2",
+              "label": "w (write)"
+            },
+            {
+              "id": "z3",
+              "label": "x (execute)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas três letras determinam tudo o que o Proprietário, Grupo e Outros podem realizar no arquivo (rwx)."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], no Windows NTFS, a sigla [COMBO] define a lista exata que associa usuários aos seus níveis de segurança.",
+          "options": [
+            "ACL",
+            "POSIX",
+            "SUDO",
+            "EXT"
+          ],
+          "correct": "ACL",
+          "tip": "A Access Control List (ACL) possibilita definir Controle Total, Modificação, Leitura ou a negação explícita."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], ao administrar usuários em ambientes corporativos, quais atitudes são consideradas corretas e seguras?",
+          "answers": [
+            "Atribuir permissões diretamente aos grupos ao invés de indivíduos",
+            "Usar senhas genéricas compartilhadas para o setor financeiro",
+            "Proteger a integridade bloqueando acesso de edição não autorizado",
+            "Aplicar herança de permissões a partir da pasta raiz"
+          ],
+          "correct": [
+            "Atribuir permissões diretamente aos grupos ao invés de indivíduos",
+            "Proteger a integridade bloqueando acesso de edição não autorizado",
+            "Aplicar herança de permissões a partir da pasta raiz"
+          ],
+          "tip": "Contas genéricas violam as regras de auditoria de acessos individuais. Grupos e Herança facilitam a vida do TI."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no Windows Server, se a permissão "Negar" entrar em conflito com uma permissão concedida ao grupo do usuário, qual vence?",
+          "answers": [
+            "A permissão Negar tem precedência absoluta",
+            "O Windows pede autorização ao administrador",
+            "A permissão de Grupo sobrepõe a restrição",
+            "O acesso fica habilitado no modo Somente Leitura"
+          ],
+          "correct": "A permissão Negar tem precedência absoluta",
+          "tip": "O bloqueio explícito (Negar) bloqueia o acesso imediatamente, mesmo se existirem permissões positivas ativas no conjunto."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], na notação octal de permissões Linux, o número '7' equivale à permissão máxima (rwx) de Leitura, Escrita e Execução.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O 7 é a soma dos pesos do octal: 4 (leitura) + 2 (escrita) + 1 (execução)."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], defina a função de cada nível de segurança aplicável via ACL no sistema NTFS Windows:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Controle Total",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Leitura e Escrita",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Negar",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Para administradores; pode alterar permissões e excluir"
+            },
+            {
+              "id": "z2",
+              "label": "Para equipes colaborarem ativamente em projetos"
+            },
+            {
+              "id": "z3",
+              "label": "Bloqueio explícito que sobrepõe outras concessões"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer esses níveis ajuda na implementação prática do Menor Privilégio na infraestrutura de rede."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para aplicar regras em lote descendo pelas subpastas automaticamente, os administradores confiam na [COMBO] de permissões.",
+          "options": [
+            "Herança",
+            "Auditoria",
+            "Criptografia",
+            "Compactação"
+          ],
+          "correct": "Herança",
+          "tip": "Configurar na raiz e deixar fluir para baixo previne falhas manuais e simplifica a manutenção da hierarquia."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], de que formas práticas garantimos a integridade de um arquivo sensível (ex: relatórios financeiros) em ambiente produtivo?",
+          "answers": [
+            "Deixando com permissão global Total (rwx) para a equipe toda",
+            "Configurando backups automatizados",
+            "Habilitando permissões rígidas explícitas antes de compartilhar",
+            "Registrando acessos via auditoria (logs)"
+          ],
+          "correct": [
+            "Configurando backups automatizados",
+            "Habilitando permissões rígidas explícitas antes de compartilhar",
+            "Registrando acessos via auditoria (logs)"
+          ],
+          "tip": "A integridade assegura que as informações permaneçam precisas e a salvo de modificações indevidas ou apócrifas."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], um administrador rodou 'chmod 644 relatório.txt'. O que o grupo ao qual o arquivo pertence poderá fazer?",
+          "answers": [
+            "Poderá apenas ler o arquivo (r--)",
+            "Poderá ler e escrever (rw-)",
+            "Poderá ler, escrever e executar (rwx)",
+            "Não terá nenhum acesso ao conteúdo (---)"
+          ],
+          "correct": "Poderá apenas ler o arquivo (r--)",
+          "tip": "O primeiro dígito (6) é para o dono (rw), o segundo (4) é para o grupo (r) e o terceiro (4) para os outros (r)."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a criação de pastas corporativas abertas, sem restrição de leitura ou escrita, fomenta a integridade e segurança dos dados empresariais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "trans": "FIM",
+          "tip": "Pastas sem restrição de acesso propiciam deleções acidentais e são portas para desastres lógicos no negócio da empresa."
+        }
+      ]
     }
   ]
 }
