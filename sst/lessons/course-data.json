@@ -16298,7 +16298,7 @@
               "id": "i2",
               "txt": "Especialização Alta",
               "match": "z2"
-            }            
+            }
           ],
           "zones": [
             {
@@ -19139,7 +19139,7 @@
               "id": "d2",
               "txt": "Substituir o login por senha por biometria e reconhecimento facial.",
               "match": "z2"
-            }            
+            }
           ],
           "zones": [
             {
@@ -20510,942 +20510,1864 @@
       ]
     },
     {
-"slug": "aula-31",
-"lesson_info": {
-"id": "Aula-31",
-"title": "AULA 31 - CONCEITOS BÁSICOS DA COMPUTAÇÃO E PAPEL DA TI",
-"topics": [
-{
-"id": "ACID",
-"name": "EVOLUÇÃO DA COMPUTAÇÃO",
-"desc": "A jornada tecnológica das válvulas gigantes à inteligência artificial.",
-"color": "#3498db",
-"img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "AGEN",
-"name": "SISTEMAS DE INFORMAÇÃO",
-"desc": "O ciclo dos dados e a hierarquia dos sistemas nas organizações.",
-"color": "#f39c12",
-"img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "PROT",
-"name": "INFRAESTRUTURA E NUVEM",
-"desc": "Os pilares da TI corporativa e os modelos IaaS, PaaS e SaaS.",
-"color": "#9b59b6",
-"img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "NORM",
-"name": "SEGURANÇA E ESTRATÉGIA",
-"desc": "Os pilares CID e a TI como diferencial estratégico e competitivo.",
-"color": "#e74c3c",
-"img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
-}
-],
-"sokoban": [
-"B",
-"Y",
-"T",
-"E"
-]
-},
-"questions": [
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], na 1ª Geração da Computação, qual era o principal componente tecnológico utilizado por máquinas como o ENIAC?",
-"answers": [
-"Válvulas termiônicas",
-"Transistores",
-"Circuitos integrados",
-"Microprocessadores"
-],
-"correct": "Válvulas termiônicas",
-"tip": "Esses componentes ocupavam muito espaço, geravam um calor imenso e consumiam muita energia."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "É correto afirmar, [NAME], que os transistores marcaram a 2ª Geração, substituindo as válvulas e diminuindo drasticamente o consumo de energia.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Eles tornaram os computadores menores, mais rápidos e muito mais confiáveis comercialmente."
-},
-{
-"type": "drag",
-"topics": "ACID",
-"questions": "[NAME], relacione cada Geração da computação à sua tecnologia principal:",
-"items": [
-{
-"id": "d1",
-"txt": "1ª Geração",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "2ª Geração",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "3ª Geração",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "4ª Geração",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Válvulas"
-},
-{
-"id": "z2",
-"label": "Transistores"
-},
-{
-"id": "z3",
-"label": "Circuitos Integrados"
-},
-{
-"id": "z4",
-"label": "Microprocessadores"
-}
-],
-"correct": "drag",
-"tip": "Cada salto geracional reduziu o tamanho e aumentou o poder de processamento."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "Na 4ª Geração, o surgimento do [COMBO] revolucionou a indústria, encapsulando toda a unidade de processamento em um único chip.",
-"options": [
-"Microprocessador",
-"Transistor",
-"Cabo Óptico",
-"Sistema Operacional"
-],
-"correct": "Microprocessador",
-"tip": "O Intel 4004 (1971) é o grande marco histórico desta era."
-},
-{
-"type": "multi",
-"topics": "ACID",
-"questions": "[NAME], quais das inovações abaixo são marcas fundamentais da 5ª Geração da computação?",
-"answers": [
-"Internet global e World Wide Web",
-"Mobilidade extrema com smartphones",
-"Programação em cartões perfurados",
-"Inteligência Artificial Generativa"
-],
-"correct": [
-"Internet global e World Wide Web",
-"Mobilidade extrema com smartphones",
-"Inteligência Artificial Generativa"
-],
-"tip": "Cartões perfurados pertencem aos primórdios (1ª e 2ª gerações)."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "Qual a definição técnica correta de 'Computação' no contexto da Tecnologia da Informação, [NAME]?",
-"answers": [
-"Processamento automático de informações via algoritmos",
-"Montagem exclusiva de componentes físicos",
-"Redação de relatórios empresariais em planilhas",
-"Manutenção de cabos elétricos industriais"
-],
-"correct": "Processamento automático de informações via algoritmos",
-"tip": "Envolve a representação, armazenamento, transmissão e processamento inteligente."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], em sistemas de informação, os termos 'Dados' e 'Informação' representam exatamente a mesma coisa.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Dados são fatos brutos e isolados. Informação é o dado processado com significado útil."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "A famosa [COMBO] de Moore previa que o número de transistores em um chip dobraria aproximadamente a cada dois anos.",
-"options": [
-"Lei",
-"Hipótese",
-"Regra",
-"Teoria"
-],
-"correct": "Lei",
-"tip": "Essa projeção de Gordon Moore (1965) guiou a indústria tecnológica por décadas."
-},
-{
-"type": "multi",
-"topics": "ACID",
-"questions": "Quais foram os impactos da chegada dos computadores pessoais (PCs) na 4ª Geração, [NAME]?",
-"answers": [
-"Democratização do acesso à informação digital",
-"Uso restrito apenas a fins militares e bélicos",
-"Surgimento de sistemas operacionais amigáveis",
-"Transformação do trabalho de escritório com planilhas"
-],
-"correct": [
-"Democratização do acesso à informação digital",
-"Surgimento de sistemas operacionais amigáveis",
-"Transformação do trabalho de escritório com planilhas"
-],
-"tip": "Os PCs (como Apple II e IBM PC) tiraram a computação dos laboratórios."
-},
-{
-"type": "drag",
-"topics": "ACID",
-"questions": "[NAME], relacione os conceitos básicos de computação às suas definições:",
-"items": [
-{
-"id": "d1",
-"txt": "Hardware",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Software",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Dados",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Informação",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Componentes eletrônicos físicos"
-},
-{
-"id": "z2",
-"label": "Programas e instruções lógicas"
-},
-{
-"id": "z3",
-"label": "Fatos brutos sem contexto"
-},
-{
-"id": "z4",
-"label": "Resultado útil e processado"
-}
-],
-"correct": "drag",
-"tip": "Software é a alma lógica, o hardware é o corpo físico."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "Qual era a velocidade aproximada de operações por segundo do primeiro computador gigante, o ENIAC?",
-"answers": [
-"5.000 operações/s",
-"1 Milhão de operações/s",
-"3 Trilhões de operações/s",
-"5 operações/s"
-],
-"correct": "5.000 operações/s",
-"tip": "Para a época (1945) era revolucionário, hoje um celular supera os Trilhões (3T+)."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], o 'Software de Sistema' inclui ferramentas específicas de negócio, como um ERP corporativo.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Sistemas operacionais (Windows, Linux) são softwares de sistema. O ERP é um Software de Aplicação."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "Qual modelo de computador da 3ª Geração tornou as máquinas mais acessíveis e eficientes para empresas e governos, [NAME]?",
-"answers": [
-"IBM System/360",
-"Apple II",
-"ENIAC",
-"Intel 4004"
-],
-"correct": "IBM System/360",
-"tip": "Lançado em 1964, usava circuitos integrados."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], como definimos um Sistema de Informação em ambientes organizacionais?",
-"answers": [
-"Componentes que coletam, processam e distribuem dados para decisões",
-"Um conjunto exclusivo de servidores físicos interligados",
-"Um roteador Wi-Fi configurado para empresas",
-"Apenas o banco de dados de RH da empresa"
-],
-"correct": "Componentes que coletam, processam e distribuem dados para decisões",
-"tip": "Eles envolvem não só tecnologia, mas processos lógicos de apoio e controle corporativo."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "O ciclo básico de qualquer Sistema de Informação inclui: Entrada, Processamento, Saída e Feedback.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Desde uma planilha Excel até um mega ERP, todos operam segundo este ciclo fundamental."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "[NAME], relacione a etapa do ciclo da informação à sua característica correspondente:",
-"items": [
-{
-"id": "d1",
-"txt": "Entrada",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Processamento",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Saída",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Feedback",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Coleta dos dados brutos iniciais"
-},
-{
-"id": "z2",
-"label": "Algoritmos transformam dados"
-},
-{
-"id": "z3",
-"label": "Apresentação da informação útil"
-},
-{
-"id": "z4",
-"label": "Retorno para ajuste e decisão"
-}
-],
-"correct": "drag",
-"tip": "O feedback retroalimenta a entrada inicial para corrigir desvios no sistema."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "O nível de sistema de informação chamado [COMBO] lida com as operações transacionais do dia a dia da empresa.",
-"options": [
-"TPS",
-"DSS",
-"MIS",
-"ESS"
-],
-"correct": "TPS",
-"tip": "O Transaction Processing System (TPS) fica na base da pirâmide organizacional."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "Quais são as funções essenciais da Tecnologia da Informação nas organizações atuais, [NAME]?",
-"answers": [
-"Armazenamento e Gestão de Dados",
-"Isolamento de departamentos",
-"Comunicação e Integração em tempo real",
-"Apoio à Decisão via Dashboards"
-],
-"correct": [
-"Armazenamento e Gestão de Dados",
-"Comunicação e Integração em tempo real",
-"Apoio à Decisão via Dashboards"
-],
-"tip": "A TI moderna derruba os 'silos', não os isola."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "O Sistema de Suporte Executivo (ESS) é destinado majoritariamente a qual nível gerencial, [NAME]?",
-"answers": [
-"Diretoria e decisões estratégicas",
-"Supervisão tática",
-"Operadores de caixa",
-"Analistas de suporte de rede"
-],
-"correct": "Diretoria e decisões estratégicas",
-"tip": "O ESS fica no topo da pirâmide, visualizando grandes tendências e projeções."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "[NAME], um ERP (Enterprise Resource Planning) tem como principal defeito criar cópias redundantes de dados entre departamentos diferentes.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "O ERP elimina a redundância centralizando todas as áreas numa base única de dados."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "Ordene corretamente os tipos de sistemas de acordo com o foco da decisão corporativa:",
-"items": [
-{
-"id": "d1",
-"txt": "TPS",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "MIS",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "DSS",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "ESS",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Rotina Operacional"
-},
-{
-"id": "z2",
-"label": "Relatórios Táticos e Históricos"
-},
-{
-"id": "z3",
-"label": "Apoio a Decisões Complexas"
-},
-{
-"id": "z4",
-"label": "Visão Estratégica de Longo Prazo"
-}
-],
-"correct": "drag",
-"tip": "A pirâmide sobe das rotinas até as diretorias."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "Sistemas de [COMBO] Gerencial (MIS) focam em entregar relatórios táticos que auxiliam os gerentes em processos já estruturados.",
-"options": [
-"Informação",
-"Processamento",
-"Infraestrutura",
-"Cabeamento"
-],
-"correct": "Informação",
-"tip": "Management Information Systems (MIS) consolidam dados históricos."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "[NAME], quais são as principais vantagens de implementar um ERP consolidado?",
-"answers": [
-"Garante que todos trabalhem com a mesma informação",
-"Reduz retrabalho interdepartamental",
-"Aumenta a duplicação manual de dados em planilhas",
-"Integra processos como vendas, RH e logística"
-],
-"correct": [
-"Garante que todos trabalhem com a mesma informação",
-"Reduz retrabalho interdepartamental",
-"Integra processos como vendas, RH e logística"
-],
-"tip": "SAP e TOTVS são exemplos clássicos dessa robustez."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "Uma plataforma de CRM, focada em registrar o histórico do cliente para um atendimento personalizado, moderniza qual área de um negócio?",
-"answers": [
-"Atendimento e Relacionamento",
-"Gestão de Servidores Internos",
-"Compilação de Código de Máquina",
-"Instalação de Redes Físicas"
-],
-"correct": "Atendimento e Relacionamento",
-"tip": "CRM significa Customer Relationship Management."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "[NAME], a função primordial da TI passou de meramente operacional (reduzir erros) para assumir um núcleo puramente estratégico nas decisões de hoje.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Ela não é mais apenas suporte; ela cria vantagem competitiva ativa."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], os pilares que formam a Infraestrutura de TI moderna incluem Hardware, Software, Redes e:",
-"answers": [
-"Banco de Dados",
-"Periféricos Ópticos",
-"Linguagem de Máquina",
-"Cartões Perfurados"
-],
-"correct": "Banco de Dados",
-"tip": "Repositórios estruturados e eficientes são a fundação do armazenamento corporativo."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "Redes e Telecomunicações englobam elementos como roteadores, LAN, WAN e links de fibra óptica, [NAME].",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Eles compõem as vias de comunicação entre as máquinas corporativas."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "[NAME], combine as categorias de nuvem aos seus significados técnicos:",
-"items": [
-{
-"id": "d1",
-"txt": "IaaS",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "PaaS",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "SaaS",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Infraestrutura como Serviço (VMs, Redes)"
-},
-{
-"id": "z2",
-"label": "Plataforma como Serviço (Dev tools)"
-},
-{
-"id": "z3",
-"label": "Software como Serviço (Aplicações Prontas)"
-}
-],
-"correct": "drag",
-"tip": "Lembre-se: Infraestrutura = servidor cru; Plataforma = ambiente dev; Software = produto final."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "O modelo [COMBO] é ideal para empresas que só precisam usar uma aplicação final via navegador, sem gerenciar servidores.",
-"options": [
-"SaaS",
-"PaaS",
-"IaaS",
-"On-Premise"
-],
-"correct": "SaaS",
-"tip": "Google Workspace e Salesforce são grandes exemplos disso."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "Quais componentes pertencem exclusivamente à categoria de Hardware em uma infraestrutura corporativa?",
-"answers": [
-"Servidores de Rack",
-"Bancos de Dados SQL",
-"Storages (Unidades de armazenamento físico)",
-"Estações de trabalho (PCs físicos)"
-],
-"correct": [
-"Servidores de Rack",
-"Storages (Unidades de armazenamento físico)",
-"Estações de trabalho (PCs físicos)"
-],
-"tip": "Banco de dados SQL é estruturado via Software."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "Se a equipe de TI da LogisTech precisa criar um sistema do zero sem se preocupar com atualizações do sistema operacional do servidor, devem alugar:",
-"answers": [
-"PaaS",
-"IaaS",
-"SaaS",
-"Servidor Físico Local"
-],
-"correct": "PaaS",
-"tip": "PaaS oferece todo o ambiente pronto (banco, linguagens) para focar apenas no código."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "[NAME], a Computação em Nuvem força a empresa a investir pesadamente na compra antecipada de servidores locais gigantescos.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Pelo contrário, ela oferece infraestrutura sob demanda (paga pelo que usa)."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "[NAME], ligue o serviço comercial ao seu modelo em Nuvem correspondente:",
-"items": [
-{
-"id": "d1",
-"txt": "Amazon AWS EC2",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Google App Engine",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Microsoft 365 (Office Web)",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "IaaS"
-},
-{
-"id": "z2",
-"label": "PaaS"
-},
-{
-"id": "z3",
-"label": "SaaS"
-}
-],
-"correct": "drag",
-"tip": "No SaaS você não programa nada, só entra e usa a ferramenta."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "A nuvem proporciona uma grande vantagem técnica chamada [COMBO], permitindo aumentar recursos de máquina automaticamente quando há pico de tráfego.",
-"options": [
-"Escalabilidade",
-"Redundância Física",
-"Latência",
-"Programação"
-],
-"correct": "Escalabilidade",
-"tip": "A capacidade de encolher ou crescer sob demanda é o pilar da Cloud Computing."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "Quais são as atribuições de um componente de Middleware em uma infraestrutura corporativa, [NAME]?",
-"answers": [
-"Fazer a ponte de comunicação entre aplicações diferentes",
-"Funcionar como uma tela de monitor físico",
-"Permitir que sistemas antigos conversem com novos",
-"Substituir totalmente a necessidade de banco de dados"
-],
-"correct": [
-"Fazer a ponte de comunicação entre aplicações diferentes",
-"Permitir que sistemas antigos conversem com novos"
-],
-"tip": "Ele age como um tradutor ou orquestrador no meio lógico (software de sistema)."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "Sistemas Operacionais como Linux e Android entram em qual categoria da Infraestrutura, [NAME]?",
-"answers": [
-"Software",
-"Hardware",
-"Banco de Dados",
-"Telecomunicações"
-],
-"correct": "Software",
-"tip": "São a base lógica que permite que as aplicações rodem sobre o hardware."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "[NAME], a virtualização é a tecnologia essencial que viabiliza o conceito de Computação em Nuvem.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Ela permite fatiar um hardware robusto em múltiplas máquinas virtuais isoladas."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "Um banco de dados bem desenhado previne a anomalia técnica mais comum, que é a: ",
-"answers": [
-"Redundância desnecessária de informações",
-"Aceleração do processador local",
-"Limpeza automática do monitor",
-"Criação excessiva de interfaces gráficas"
-],
-"correct": "Redundância desnecessária de informações",
-"tip": "Os dados normalizados economizam espaço e evitam divergências."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], no contexto da Segurança da Informação (CID), o que a sigla 'CID' significa?",
-"answers": [
-"Confidencialidade, Integridade, Disponibilidade",
-"Computação, Inovação, Desenvolvimento",
-"Controle, Integração, Dados",
-"Criptografia, Inteligência, Dispositivos"
-],
-"correct": "Confidencialidade, Integridade, Disponibilidade",
-"tip": "Esses três formam a tríade sagrada da proteção de ativos de TI."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "Garantir que as informações sejam acessadas apenas pelas pessoas autorizadas é o pilar da Confidencialidade.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Senhas, biometria e criptografia protegem este pilar contra vazamentos."
-},
-{
-"type": "drag",
-"topics": "NORM",
-"questions": "Relacione o pilar da Segurança da Informação à sua função protetiva:",
-"items": [
-{
-"id": "d1",
-"txt": "Confidencialidade",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Integridade",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Disponibilidade",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Evita vazamento de dados"
-},
-{
-"id": "z2",
-"label": "Evita alterações indevidas ou corrompimento"
-},
-{
-"id": "z3",
-"label": "Mantém o sistema acessível no momento necessário"
-}
-],
-"correct": "drag",
-"tip": "Um ataque DDoS, por exemplo, quebra a Disponibilidade do sistema."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "Estatisticamente, as empresas com TI estratégica podem notar uma redução de até [COMBO]% em custos operacionais com processos automatizados.",
-"options": [
-"40",
-"10",
-"90",
-"5"
-],
-"correct": "40",
-"tip": "Automações substituem tarefas manuais e lentas, aliviando pesadamente as despesas."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "O papel prático de um desenvolvedor ao assumir uma visão estratégica engloba:",
-"answers": [
-"Compreender primeiro o problema do negócio (o 'Porquê')",
-"Escrever códigos imediatamente antes de falar com a equipe",
-"Traduzir necessidades corporativas em soluções viáveis",
-"Garantir a usabilidade e adoção pelas pessoas"
-],
-"correct": [
-"Compreender primeiro o problema do negócio (o 'Porquê')",
-"Traduzir necessidades corporativas em soluções viáveis",
-"Garantir a usabilidade e adoção pelas pessoas"
-],
-"tip": "Codar sem entender o domínio corporativo leva ao fracasso do projeto."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "Organizações de alto desempenho (High Performance) fundamentam quase 85% de suas decisões baseadas em:",
-"answers": [
-"Análise baseada em dados reais e relatórios gerenciais",
-"Intuição puramente instintiva dos diretores",
-"Testes cegos com clientes em lojas físicas",
-"Avisos em murais de papel no corredor"
-],
-"correct": "Análise baseada em dados reais e relatórios gerenciais",
-"tip": "Decisão Data-Driven (orientada a dados) minimiza fortemente o risco comercial."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], falhas de integridade em sistemas financeiros raramente geram impactos jurídicos de acordo com a LGPD.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Qualquer vazamento ou alteração criminosa de dados acarreta em multas severas pela LGPD."
-},
-{
-"type": "drag",
-"topics": "NORM",
-"questions": "Ligue a tecnologia moderna ao ganho estratégico que ela oferece, [NAME]:",
-"items": [
-{
-"id": "d1",
-"txt": "Painéis de Business Intelligence (BI)",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Sistemas de Rastreamento GPS/Logística",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Bancos de Dados Seguros Centralizados",
-"match": "z3"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Agiliza tomadas de decisão rápidas de gestão"
-},
-{
-"id": "z2",
-"label": "Gera visibilidade em tempo real do percurso"
-},
-{
-"id": "z3",
-"label": "Aumenta a Integridade e a Confidencialidade"
-}
-],
-"correct": "drag",
-"tip": "O BI lê os dados que os DBs centralizados guardam com segurança."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "O sucesso da TI não reside apenas na escolha de bons servidores, mas em garantir que as [COMBO] consigam operar o sistema com facilidade.",
-"options": [
-"Pessoas",
-"Placas de Vídeo",
-"Antenas",
-"Linguagens"
-],
-"correct": "Pessoas",
-"tip": "A usabilidade e o fator humano definem a adoção final de um software."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "As organizações que não abraçam a transformação digital na sua estratégia principal correm sérios riscos de:",
-"answers": [
-"Perda rápida de mercado para concorrência",
-"Incapacidade de responder às mudanças de consumo",
-"Aumento gigantesco da sua margem de lucro por economia de licenças",
-"Desempenho lento frente aos competidores dinâmicos"
-],
-"correct": [
-"Perda rápida de mercado para concorrência",
-"Incapacidade de responder às mudanças de consumo",
-"Desempenho lento frente aos competidores dinâmicos"
-],
-"tip": "Empresas analógicas tendem a ficar extintas no mercado conectado moderno."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], segundo o autor Albertin, 'a tecnologia da informação passou de um papel secundário administrativo para um papel central estratégico nas empresas'.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Esta citação resume exatamente a diferença de mentalidade corporativa entre os anos 90 e a era atual."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "E para finalizar nossa trilha reflexiva, [NAME]: qual deve ser a verdadeira competência-alvo de um profissional de TI no século XXI?",
-"answers": [
-"Usar a tecnologia para resolver problemas reais e criar valor organizacional",
-"Saber programar na linguagem C sem olhar tutoriais",
-"Montar racks de infraestrutura mais rápido que colegas",
-"Decorar os atalhos do sistema operacional Windows"
-],
-"correct": "Usar a tecnologia para resolver problemas reais e criar valor organizacional",
-"tip": "A técnica é a sua ferramenta, mas criar valor prático e resolver gargalos corporativos é o seu real propósito."
-}
-]
-}
+      "slug": "aula-31",
+      "lesson_info": {
+        "id": "Aula-31",
+        "title": "AULA 31 - CONCEITOS BÁSICOS DA COMPUTAÇÃO E PAPEL DA TI",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "EVOLUÇÃO DA COMPUTAÇÃO",
+            "desc": "A jornada tecnológica das válvulas gigantes à inteligência artificial.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "SISTEMAS DE INFORMAÇÃO",
+            "desc": "O ciclo dos dados e a hierarquia dos sistemas nas organizações.",
+            "color": "#f39c12",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "INFRAESTRUTURA E NUVEM",
+            "desc": "Os pilares da TI corporativa e os modelos IaaS, PaaS e SaaS.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "SEGURANÇA E ESTRATÉGIA",
+            "desc": "Os pilares CID e a TI como diferencial estratégico e competitivo.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "B",
+          "Y",
+          "T",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], na 1ª Geração da Computação, qual era o principal componente tecnológico utilizado por máquinas como o ENIAC?",
+          "answers": [
+            "Válvulas termiônicas",
+            "Transistores",
+            "Circuitos integrados",
+            "Microprocessadores"
+          ],
+          "correct": "Válvulas termiônicas",
+          "tip": "Esses componentes ocupavam muito espaço, geravam um calor imenso e consumiam muita energia."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "É correto afirmar, [NAME], que os transistores marcaram a 2ª Geração, substituindo as válvulas e diminuindo drasticamente o consumo de energia.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles tornaram os computadores menores, mais rápidos e muito mais confiáveis comercialmente."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione cada Geração da computação à sua tecnologia principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1ª Geração",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "2ª Geração",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "3ª Geração",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "4ª Geração",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Válvulas"
+            },
+            {
+              "id": "z2",
+              "label": "Transistores"
+            },
+            {
+              "id": "z3",
+              "label": "Circuitos Integrados"
+            },
+            {
+              "id": "z4",
+              "label": "Microprocessadores"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada salto geracional reduziu o tamanho e aumentou o poder de processamento."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na 4ª Geração, o surgimento do [COMBO] revolucionou a indústria, encapsulando toda a unidade de processamento em um único chip.",
+          "options": [
+            "Microprocessador",
+            "Transistor",
+            "Cabo Óptico",
+            "Sistema Operacional"
+          ],
+          "correct": "Microprocessador",
+          "tip": "O Intel 4004 (1971) é o grande marco histórico desta era."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das inovações abaixo são marcas fundamentais da 5ª Geração da computação?",
+          "answers": [
+            "Internet global e World Wide Web",
+            "Mobilidade extrema com smartphones",
+            "Programação em cartões perfurados",
+            "Inteligência Artificial Generativa"
+          ],
+          "correct": [
+            "Internet global e World Wide Web",
+            "Mobilidade extrema com smartphones",
+            "Inteligência Artificial Generativa"
+          ],
+          "tip": "Cartões perfurados pertencem aos primórdios (1ª e 2ª gerações)."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual a definição técnica correta de 'Computação' no contexto da Tecnologia da Informação, [NAME]?",
+          "answers": [
+            "Processamento automático de informações via algoritmos",
+            "Montagem exclusiva de componentes físicos",
+            "Redação de relatórios empresariais em planilhas",
+            "Manutenção de cabos elétricos industriais"
+          ],
+          "correct": "Processamento automático de informações via algoritmos",
+          "tip": "Envolve a representação, armazenamento, transmissão e processamento inteligente."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], em sistemas de informação, os termos 'Dados' e 'Informação' representam exatamente a mesma coisa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Dados são fatos brutos e isolados. Informação é o dado processado com significado útil."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A famosa [COMBO] de Moore previa que o número de transistores em um chip dobraria aproximadamente a cada dois anos.",
+          "options": [
+            "Lei",
+            "Hipótese",
+            "Regra",
+            "Teoria"
+          ],
+          "correct": "Lei",
+          "tip": "Essa projeção de Gordon Moore (1965) guiou a indústria tecnológica por décadas."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais foram os impactos da chegada dos computadores pessoais (PCs) na 4ª Geração, [NAME]?",
+          "answers": [
+            "Democratização do acesso à informação digital",
+            "Uso restrito apenas a fins militares e bélicos",
+            "Surgimento de sistemas operacionais amigáveis",
+            "Transformação do trabalho de escritório com planilhas"
+          ],
+          "correct": [
+            "Democratização do acesso à informação digital",
+            "Surgimento de sistemas operacionais amigáveis",
+            "Transformação do trabalho de escritório com planilhas"
+          ],
+          "tip": "Os PCs (como Apple II e IBM PC) tiraram a computação dos laboratórios."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione os conceitos básicos de computação às suas definições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Hardware",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Software",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Dados",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Informação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Componentes eletrônicos físicos"
+            },
+            {
+              "id": "z2",
+              "label": "Programas e instruções lógicas"
+            },
+            {
+              "id": "z3",
+              "label": "Fatos brutos sem contexto"
+            },
+            {
+              "id": "z4",
+              "label": "Resultado útil e processado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Software é a alma lógica, o hardware é o corpo físico."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual era a velocidade aproximada de operações por segundo do primeiro computador gigante, o ENIAC?",
+          "answers": [
+            "5.000 operações/s",
+            "1 Milhão de operações/s",
+            "3 Trilhões de operações/s",
+            "5 operações/s"
+          ],
+          "correct": "5.000 operações/s",
+          "tip": "Para a época (1945) era revolucionário, hoje um celular supera os Trilhões (3T+)."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o 'Software de Sistema' inclui ferramentas específicas de negócio, como um ERP corporativo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Sistemas operacionais (Windows, Linux) são softwares de sistema. O ERP é um Software de Aplicação."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual modelo de computador da 3ª Geração tornou as máquinas mais acessíveis e eficientes para empresas e governos, [NAME]?",
+          "answers": [
+            "IBM System/360",
+            "Apple II",
+            "ENIAC",
+            "Intel 4004"
+          ],
+          "correct": "IBM System/360",
+          "tip": "Lançado em 1964, usava circuitos integrados."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], como definimos um Sistema de Informação em ambientes organizacionais?",
+          "answers": [
+            "Componentes que coletam, processam e distribuem dados para decisões",
+            "Um conjunto exclusivo de servidores físicos interligados",
+            "Um roteador Wi-Fi configurado para empresas",
+            "Apenas o banco de dados de RH da empresa"
+          ],
+          "correct": "Componentes que coletam, processam e distribuem dados para decisões",
+          "tip": "Eles envolvem não só tecnologia, mas processos lógicos de apoio e controle corporativo."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O ciclo básico de qualquer Sistema de Informação inclui: Entrada, Processamento, Saída e Feedback.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Desde uma planilha Excel até um mega ERP, todos operam segundo este ciclo fundamental."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione a etapa do ciclo da informação à sua característica correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Entrada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Processamento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Saída",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Feedback",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Coleta dos dados brutos iniciais"
+            },
+            {
+              "id": "z2",
+              "label": "Algoritmos transformam dados"
+            },
+            {
+              "id": "z3",
+              "label": "Apresentação da informação útil"
+            },
+            {
+              "id": "z4",
+              "label": "Retorno para ajuste e decisão"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O feedback retroalimenta a entrada inicial para corrigir desvios no sistema."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O nível de sistema de informação chamado [COMBO] lida com as operações transacionais do dia a dia da empresa.",
+          "options": [
+            "TPS",
+            "DSS",
+            "MIS",
+            "ESS"
+          ],
+          "correct": "TPS",
+          "tip": "O Transaction Processing System (TPS) fica na base da pirâmide organizacional."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais são as funções essenciais da Tecnologia da Informação nas organizações atuais, [NAME]?",
+          "answers": [
+            "Armazenamento e Gestão de Dados",
+            "Isolamento de departamentos",
+            "Comunicação e Integração em tempo real",
+            "Apoio à Decisão via Dashboards"
+          ],
+          "correct": [
+            "Armazenamento e Gestão de Dados",
+            "Comunicação e Integração em tempo real",
+            "Apoio à Decisão via Dashboards"
+          ],
+          "tip": "A TI moderna derruba os 'silos', não os isola."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O Sistema de Suporte Executivo (ESS) é destinado majoritariamente a qual nível gerencial, [NAME]?",
+          "answers": [
+            "Diretoria e decisões estratégicas",
+            "Supervisão tática",
+            "Operadores de caixa",
+            "Analistas de suporte de rede"
+          ],
+          "correct": "Diretoria e decisões estratégicas",
+          "tip": "O ESS fica no topo da pirâmide, visualizando grandes tendências e projeções."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], um ERP (Enterprise Resource Planning) tem como principal defeito criar cópias redundantes de dados entre departamentos diferentes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O ERP elimina a redundância centralizando todas as áreas numa base única de dados."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Ordene corretamente os tipos de sistemas de acordo com o foco da decisão corporativa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "TPS",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "MIS",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "DSS",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "ESS",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Rotina Operacional"
+            },
+            {
+              "id": "z2",
+              "label": "Relatórios Táticos e Históricos"
+            },
+            {
+              "id": "z3",
+              "label": "Apoio a Decisões Complexas"
+            },
+            {
+              "id": "z4",
+              "label": "Visão Estratégica de Longo Prazo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A pirâmide sobe das rotinas até as diretorias."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Sistemas de [COMBO] Gerencial (MIS) focam em entregar relatórios táticos que auxiliam os gerentes em processos já estruturados.",
+          "options": [
+            "Informação",
+            "Processamento",
+            "Infraestrutura",
+            "Cabeamento"
+          ],
+          "correct": "Informação",
+          "tip": "Management Information Systems (MIS) consolidam dados históricos."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são as principais vantagens de implementar um ERP consolidado?",
+          "answers": [
+            "Garante que todos trabalhem com a mesma informação",
+            "Reduz retrabalho interdepartamental",
+            "Aumenta a duplicação manual de dados em planilhas",
+            "Integra processos como vendas, RH e logística"
+          ],
+          "correct": [
+            "Garante que todos trabalhem com a mesma informação",
+            "Reduz retrabalho interdepartamental",
+            "Integra processos como vendas, RH e logística"
+          ],
+          "tip": "SAP e TOTVS são exemplos clássicos dessa robustez."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Uma plataforma de CRM, focada em registrar o histórico do cliente para um atendimento personalizado, moderniza qual área de um negócio?",
+          "answers": [
+            "Atendimento e Relacionamento",
+            "Gestão de Servidores Internos",
+            "Compilação de Código de Máquina",
+            "Instalação de Redes Físicas"
+          ],
+          "correct": "Atendimento e Relacionamento",
+          "tip": "CRM significa Customer Relationship Management."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a função primordial da TI passou de meramente operacional (reduzir erros) para assumir um núcleo puramente estratégico nas decisões de hoje.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela não é mais apenas suporte; ela cria vantagem competitiva ativa."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], os pilares que formam a Infraestrutura de TI moderna incluem Hardware, Software, Redes e:",
+          "answers": [
+            "Banco de Dados",
+            "Periféricos Ópticos",
+            "Linguagem de Máquina",
+            "Cartões Perfurados"
+          ],
+          "correct": "Banco de Dados",
+          "tip": "Repositórios estruturados e eficientes são a fundação do armazenamento corporativo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Redes e Telecomunicações englobam elementos como roteadores, LAN, WAN e links de fibra óptica, [NAME].",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles compõem as vias de comunicação entre as máquinas corporativas."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], combine as categorias de nuvem aos seus significados técnicos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "IaaS",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "PaaS",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "SaaS",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Infraestrutura como Serviço (VMs, Redes)"
+            },
+            {
+              "id": "z2",
+              "label": "Plataforma como Serviço (Dev tools)"
+            },
+            {
+              "id": "z3",
+              "label": "Software como Serviço (Aplicações Prontas)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Lembre-se: Infraestrutura = servidor cru; Plataforma = ambiente dev; Software = produto final."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O modelo [COMBO] é ideal para empresas que só precisam usar uma aplicação final via navegador, sem gerenciar servidores.",
+          "options": [
+            "SaaS",
+            "PaaS",
+            "IaaS",
+            "On-Premise"
+          ],
+          "correct": "SaaS",
+          "tip": "Google Workspace e Salesforce são grandes exemplos disso."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais componentes pertencem exclusivamente à categoria de Hardware em uma infraestrutura corporativa?",
+          "answers": [
+            "Servidores de Rack",
+            "Bancos de Dados SQL",
+            "Storages (Unidades de armazenamento físico)",
+            "Estações de trabalho (PCs físicos)"
+          ],
+          "correct": [
+            "Servidores de Rack",
+            "Storages (Unidades de armazenamento físico)",
+            "Estações de trabalho (PCs físicos)"
+          ],
+          "tip": "Banco de dados SQL é estruturado via Software."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Se a equipe de TI da LogisTech precisa criar um sistema do zero sem se preocupar com atualizações do sistema operacional do servidor, devem alugar:",
+          "answers": [
+            "PaaS",
+            "IaaS",
+            "SaaS",
+            "Servidor Físico Local"
+          ],
+          "correct": "PaaS",
+          "tip": "PaaS oferece todo o ambiente pronto (banco, linguagens) para focar apenas no código."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a Computação em Nuvem força a empresa a investir pesadamente na compra antecipada de servidores locais gigantescos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, ela oferece infraestrutura sob demanda (paga pelo que usa)."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], ligue o serviço comercial ao seu modelo em Nuvem correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Amazon AWS EC2",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Google App Engine",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Microsoft 365 (Office Web)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "IaaS"
+            },
+            {
+              "id": "z2",
+              "label": "PaaS"
+            },
+            {
+              "id": "z3",
+              "label": "SaaS"
+            }
+          ],
+          "correct": "drag",
+          "tip": "No SaaS você não programa nada, só entra e usa a ferramenta."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A nuvem proporciona uma grande vantagem técnica chamada [COMBO], permitindo aumentar recursos de máquina automaticamente quando há pico de tráfego.",
+          "options": [
+            "Escalabilidade",
+            "Redundância Física",
+            "Latência",
+            "Programação"
+          ],
+          "correct": "Escalabilidade",
+          "tip": "A capacidade de encolher ou crescer sob demanda é o pilar da Cloud Computing."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são as atribuições de um componente de Middleware em uma infraestrutura corporativa, [NAME]?",
+          "answers": [
+            "Fazer a ponte de comunicação entre aplicações diferentes",
+            "Funcionar como uma tela de monitor físico",
+            "Permitir que sistemas antigos conversem com novos",
+            "Substituir totalmente a necessidade de banco de dados"
+          ],
+          "correct": [
+            "Fazer a ponte de comunicação entre aplicações diferentes",
+            "Permitir que sistemas antigos conversem com novos"
+          ],
+          "tip": "Ele age como um tradutor ou orquestrador no meio lógico (software de sistema)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Sistemas Operacionais como Linux e Android entram em qual categoria da Infraestrutura, [NAME]?",
+          "answers": [
+            "Software",
+            "Hardware",
+            "Banco de Dados",
+            "Telecomunicações"
+          ],
+          "correct": "Software",
+          "tip": "São a base lógica que permite que as aplicações rodem sobre o hardware."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a virtualização é a tecnologia essencial que viabiliza o conceito de Computação em Nuvem.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela permite fatiar um hardware robusto em múltiplas máquinas virtuais isoladas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Um banco de dados bem desenhado previne a anomalia técnica mais comum, que é a: ",
+          "answers": [
+            "Redundância desnecessária de informações",
+            "Aceleração do processador local",
+            "Limpeza automática do monitor",
+            "Criação excessiva de interfaces gráficas"
+          ],
+          "correct": "Redundância desnecessária de informações",
+          "tip": "Os dados normalizados economizam espaço e evitam divergências."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no contexto da Segurança da Informação (CID), o que a sigla 'CID' significa?",
+          "answers": [
+            "Confidencialidade, Integridade, Disponibilidade",
+            "Computação, Inovação, Desenvolvimento",
+            "Controle, Integração, Dados",
+            "Criptografia, Inteligência, Dispositivos"
+          ],
+          "correct": "Confidencialidade, Integridade, Disponibilidade",
+          "tip": "Esses três formam a tríade sagrada da proteção de ativos de TI."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Garantir que as informações sejam acessadas apenas pelas pessoas autorizadas é o pilar da Confidencialidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Senhas, biometria e criptografia protegem este pilar contra vazamentos."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o pilar da Segurança da Informação à sua função protetiva:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Confidencialidade",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Integridade",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Disponibilidade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Evita vazamento de dados"
+            },
+            {
+              "id": "z2",
+              "label": "Evita alterações indevidas ou corrompimento"
+            },
+            {
+              "id": "z3",
+              "label": "Mantém o sistema acessível no momento necessário"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um ataque DDoS, por exemplo, quebra a Disponibilidade do sistema."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Estatisticamente, as empresas com TI estratégica podem notar uma redução de até [COMBO]% em custos operacionais com processos automatizados.",
+          "options": [
+            "40",
+            "10",
+            "90",
+            "5"
+          ],
+          "correct": "40",
+          "tip": "Automações substituem tarefas manuais e lentas, aliviando pesadamente as despesas."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "O papel prático de um desenvolvedor ao assumir uma visão estratégica engloba:",
+          "answers": [
+            "Compreender primeiro o problema do negócio (o 'Porquê')",
+            "Escrever códigos imediatamente antes de falar com a equipe",
+            "Traduzir necessidades corporativas em soluções viáveis",
+            "Garantir a usabilidade e adoção pelas pessoas"
+          ],
+          "correct": [
+            "Compreender primeiro o problema do negócio (o 'Porquê')",
+            "Traduzir necessidades corporativas em soluções viáveis",
+            "Garantir a usabilidade e adoção pelas pessoas"
+          ],
+          "tip": "Codar sem entender o domínio corporativo leva ao fracasso do projeto."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Organizações de alto desempenho (High Performance) fundamentam quase 85% de suas decisões baseadas em:",
+          "answers": [
+            "Análise baseada em dados reais e relatórios gerenciais",
+            "Intuição puramente instintiva dos diretores",
+            "Testes cegos com clientes em lojas físicas",
+            "Avisos em murais de papel no corredor"
+          ],
+          "correct": "Análise baseada em dados reais e relatórios gerenciais",
+          "tip": "Decisão Data-Driven (orientada a dados) minimiza fortemente o risco comercial."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], falhas de integridade em sistemas financeiros raramente geram impactos jurídicos de acordo com a LGPD.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Qualquer vazamento ou alteração criminosa de dados acarreta em multas severas pela LGPD."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Ligue a tecnologia moderna ao ganho estratégico que ela oferece, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Painéis de Business Intelligence (BI)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sistemas de Rastreamento GPS/Logística",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Bancos de Dados Seguros Centralizados",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Agiliza tomadas de decisão rápidas de gestão"
+            },
+            {
+              "id": "z2",
+              "label": "Gera visibilidade em tempo real do percurso"
+            },
+            {
+              "id": "z3",
+              "label": "Aumenta a Integridade e a Confidencialidade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O BI lê os dados que os DBs centralizados guardam com segurança."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O sucesso da TI não reside apenas na escolha de bons servidores, mas em garantir que as [COMBO] consigam operar o sistema com facilidade.",
+          "options": [
+            "Pessoas",
+            "Placas de Vídeo",
+            "Antenas",
+            "Linguagens"
+          ],
+          "correct": "Pessoas",
+          "tip": "A usabilidade e o fator humano definem a adoção final de um software."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "As organizações que não abraçam a transformação digital na sua estratégia principal correm sérios riscos de:",
+          "answers": [
+            "Perda rápida de mercado para concorrência",
+            "Incapacidade de responder às mudanças de consumo",
+            "Aumento gigantesco da sua margem de lucro por economia de licenças",
+            "Desempenho lento frente aos competidores dinâmicos"
+          ],
+          "correct": [
+            "Perda rápida de mercado para concorrência",
+            "Incapacidade de responder às mudanças de consumo",
+            "Desempenho lento frente aos competidores dinâmicos"
+          ],
+          "tip": "Empresas analógicas tendem a ficar extintas no mercado conectado moderno."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], segundo o autor Albertin, 'a tecnologia da informação passou de um papel secundário administrativo para um papel central estratégico nas empresas'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esta citação resume exatamente a diferença de mentalidade corporativa entre os anos 90 e a era atual."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "E para finalizar nossa trilha reflexiva, [NAME]: qual deve ser a verdadeira competência-alvo de um profissional de TI no século XXI?",
+          "answers": [
+            "Usar a tecnologia para resolver problemas reais e criar valor organizacional",
+            "Saber programar na linguagem C sem olhar tutoriais",
+            "Montar racks de infraestrutura mais rápido que colegas",
+            "Decorar os atalhos do sistema operacional Windows"
+          ],
+          "correct": "Usar a tecnologia para resolver problemas reais e criar valor organizacional",
+          "tip": "A técnica é a sua ferramenta, mas criar valor prático e resolver gargalos corporativos é o seu real propósito."
+        }
+      ]
+    },
+    {
+      "slug": "aula-32",
+      "lesson_info": {
+        "id": "Aula-32",
+        "title": "AULA 32 - UNIDADES DE MEDIDA DE DADOS E SISTEMAS DE NUMERAÇÃO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "UNIDADES DE MEDIDA",
+            "desc": "Conceitos de \"bit\", \"byte\" e seus múltiplos na hierarquia de dados.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "SISTEMAS DECIMAL E BINÁRIO",
+            "desc": "A linguagem humana e a linguagem nativa dos processadores.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "BASES OCTAL E HEXADECIMAL",
+            "desc": "Aplicações de base 8 e base 16 em sistemas e desenvolvimento.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "CONEXÃO TEORIA-PRÁTICA",
+            "desc": "Dimensionamento de infraestrutura e projetos reais de TI.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "B",
+          "Y",
+          "T",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o \"bit\" é considerado a menor unidade de informação em computação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele só pode assumir dois valores: 0 (desligado) ou 1 (ligado)."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], quantos \"bits\" formam a unidade conhecida como \"byte\"?",
+          "answers": [
+            "4",
+            "8",
+            "16",
+            "32"
+          ],
+          "correct": "8",
+          "tip": "Um \"byte\" é o agrupamento de 8 \"bits\", suficiente para representar um caractere."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na computação, 1 \"Kilobyte\" (KB) corresponde exatamente a [COMBO] \"bytes\".",
+          "options": [
+            "1.000",
+            "1.024",
+            "10.000",
+            "1.048"
+          ],
+          "correct": "1.024",
+          "tip": "Os computadores operam na base 2, e 2 elevado a 10 resulta em 1.024."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], selecione as alternativas que representam múltiplos válidos do \"byte\".",
+          "answers": [
+            "Kilobyte (KB)",
+            "Megabyte (MB)",
+            "Metrobyte (MT)",
+            "Gigabyte (GB)"
+          ],
+          "correct": [
+            "Kilobyte (KB)",
+            "Megabyte (MB)",
+            "Gigabyte (GB)"
+          ],
+          "tip": "Metrobyte não existe na nomenclatura de sistemas de informação."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione as unidades de medida aos seus exemplos práticos de armazenamento:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1 caractere de texto",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Mensagem de texto curta",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Música MP3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Filme em HD",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Byte (B)"
+            },
+            {
+              "id": "z2",
+              "label": "Kilobyte (KB)"
+            },
+            {
+              "id": "z3",
+              "label": "Megabyte (MB)"
+            },
+            {
+              "id": "z4",
+              "label": "Gigabyte (GB)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As unidades crescem em múltiplos de 1.024 para abrigar arquivos cada vez maiores."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], um grupo de 4 \"bits\" é chamado de \"nibble\" (ou meio \"byte\").",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O \"nibble\" é exatamente a metade de um \"byte\"."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Para converter o valor de \"Megabytes\" (MB) para \"Gigabytes\" (GB), qual operação devemos realizar, [NAME]?",
+          "answers": [
+            "Multiplicar por 1.024",
+            "Dividir por 1.024",
+            "Multiplicar por 1.000",
+            "Dividir por 1.000"
+          ],
+          "correct": "Dividir por 1.024",
+          "tip": "Subindo na hierarquia (para uma unidade maior), nós dividimos o valor."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para descer na hierarquia, por exemplo, de \"Gigabytes\" para \"Megabytes\", devemos [COMBO] o valor por 1.024.",
+          "options": [
+            "somar",
+            "subtrair",
+            "multiplicar",
+            "dividir"
+          ],
+          "correct": "multiplicar",
+          "tip": "Descendo a hierarquia, a quantidade numérica aumenta."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione a unidade de medida com a sua equivalência matemática correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1 KB",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "1 MB",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "1 GB",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "1.024 Bytes"
+            },
+            {
+              "id": "z2",
+              "label": "1.024 KB"
+            },
+            {
+              "id": "z3",
+              "label": "1.024 MB"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada novo nível é formado por 1.024 vezes a unidade anterior."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], as siglas \"Mbps\" e \"MB/s\" representam exatamente a mesma velocidade de transferência.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O \"b\" minúsculo é \"bit\" e o \"B\" maiúsculo é \"byte\". A diferença é um fator de 8."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Em um data center corporativo, é comum vermos infraestruturas na casa dos \"Petabytes\" (PB). Selecione o que é equivalente a 1 PB, [NAME].",
+          "answers": [
+            "1.024 Terabytes",
+            "1.000 Gigabytes",
+            "1.048.576 Gigabytes",
+            "1.024 Kilobytes"
+          ],
+          "correct": [
+            "1.024 Terabytes",
+            "1.048.576 Gigabytes"
+          ],
+          "tip": "1 PB = 1.024 TB, e como 1 TB = 1.024 GB, multiplicando obtemos 1.048.576 GB."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "O padrão IEC criou novos prefixos para evitar confusões com o padrão SI. Qual prefixo IEC corresponde aos múltiplos de 1.024, [NAME]?",
+          "answers": [
+            "Kilo, Mega, Giga",
+            "Kibi, Mebi, Gibi",
+            "Mili, Centi, Deci",
+            "Deca, Hecto, Quilo"
+          ],
+          "correct": "Kibi, Mebi, Gibi",
+          "tip": "Esses termos diferenciam a base binária da base decimal.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o sistema numérico \"decimal\" (base 10) utiliza símbolos numéricos de 1 a 10.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O sistema decimal utiliza os dez símbolos de 0 a 9."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O processador de um computador realiza as suas operações internas utilizando nativamente qual base, [NAME]?",
+          "answers": [
+            "Decimal",
+            "Binária",
+            "Octal",
+            "Hexadecimal"
+          ],
+          "correct": "Binária",
+          "tip": "Circuitos eletrônicos interpretam variações de tensão representadas como 0 e 1."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O conjunto de símbolos e regras que define as quantidades numéricas é chamado de sistema de numeração, e a sua [COMBO] indica os dígitos disponíveis.",
+          "options": [
+            "potência",
+            "base",
+            "hierarquia",
+            "frequência"
+          ],
+          "correct": "base",
+          "tip": "A base (ou radix) define a quantidade de símbolos, como 10 no decimal."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais dos números a seguir são sequências perfeitamente válidas no sistema \"binário\"?",
+          "answers": [
+            "1010",
+            "111100",
+            "1021",
+            "0000"
+          ],
+          "correct": [
+            "1010",
+            "111100",
+            "0000"
+          ],
+          "tip": "O sistema binário não aceita o dígito 2; apenas 0 e 1."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione as posições da base \"binária\" aos seus valores na base \"decimal\":",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "2^0",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "2^1",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "2^2",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "2^3",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "1"
+            },
+            {
+              "id": "z2",
+              "label": "2"
+            },
+            {
+              "id": "z3",
+              "label": "4"
+            },
+            {
+              "id": "z4",
+              "label": "8"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Memorizar as potências de 2 é essencial para cálculos rápidos em TI."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], no sistema \"decimal\", a lógica posicional não altera o valor final do número.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O sistema é estritamente posicional (ex: 400 é diferente de 004)."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual é o valor \"decimal\" do número \"binário\" 1010, [NAME]?",
+          "answers": [
+            "8",
+            "10",
+            "12",
+            "14"
+          ],
+          "correct": "10",
+          "tip": "(1 x 8) + (0 x 4) + (1 x 2) + (0 x 1) = 10."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para converter um valor numérico \"decimal\" para \"binário\", utilizamos o método de [COMBO] sucessivas por 2.",
+          "options": [
+            "somas",
+            "subtrações",
+            "multiplicações",
+            "divisões"
+          ],
+          "correct": "divisões",
+          "tip": "Dividimos por 2 e anotamos os restos de baixo para cima."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], identifique os passos corretos para transformar um número de \"decimal\" para \"binário\":",
+          "answers": [
+            "Dividir o número original por 2.",
+            "Anotar o resto da divisão.",
+            "Ler os restos anotados de cima para baixo.",
+            "Ler os restos anotados de baixo para cima."
+          ],
+          "correct": [
+            "Dividir o número original por 2.",
+            "Anotar o resto da divisão.",
+            "Ler os restos anotados de baixo para cima."
+          ],
+          "tip": "A leitura final (bottom-up) garante a ordem correta dos bits mais significativos."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione o valor em \"binário\" ao seu equivalente em \"decimal\":",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1101",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "11111111",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "10000000",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "13"
+            },
+            {
+              "id": "z2",
+              "label": "255"
+            },
+            {
+              "id": "z3",
+              "label": "128"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A conversão baseia-se na soma das potências de 2 onde o bit for 1."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o valor máximo numérico que pode ser representado utilizando exatamente 1 \"byte\" (8 bits) é 256.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O valor máximo é 255 (pois o 0 também é contado, somando 256 estados totais)."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Como representamos de forma correta o número decimal 25 em \"binário\", [NAME]?",
+          "answers": [
+            "10011",
+            "11001",
+            "10101",
+            "11100"
+          ],
+          "correct": "11001",
+          "tip": "16 + 8 + 0 + 0 + 1 = 25."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O valor binário 10110 equivale ao número [COMBO] no nosso sistema decimal diário.",
+          "options": [
+            "20",
+            "22",
+            "24",
+            "26"
+          ],
+          "correct": "22",
+          "tip": "16 + 4 + 2 = 22.",
+          "trans": "PROT"
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o sistema de numeração \"octal\" utiliza algarismos numéricos que vão do 0 até o 8.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A base octal (base 8) utiliza símbolos de 0 a 7."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Na conversão direta, quantos \"bits\" são perfeitamente equivalentes a um único dígito no sistema \"octal\", [NAME]?",
+          "answers": [
+            "2",
+            "3",
+            "4",
+            "8"
+          ],
+          "correct": "3",
+          "tip": "Com 3 bits, podemos representar valores de 000 (0) a 111 (7)."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O sistema numérico \"hexadecimal\" é composto pelos dígitos de 0 a 9 e complementado pelas letras de A a [COMBO].",
+          "options": [
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "correct": "F",
+          "tip": "A letra F representa o valor 15 na base 16."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], indique quais são os usos práticos mais comuns para a notação \"hexadecimal\" na área de TI:",
+          "answers": [
+            "Endereços de memória RAM e ROM",
+            "Cálculos básicos de planilhas financeiras",
+            "Definição de cores em HTML/CSS",
+            "Representação de endereços MAC de rede"
+          ],
+          "correct": [
+            "Endereços de memória RAM e ROM",
+            "Definição de cores em HTML/CSS",
+            "Representação de endereços MAC de rede"
+          ],
+          "tip": "A base 16 é preferida por apresentar grandes valores binários de forma bem compacta."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione a letra utilizada no sistema \"hexadecimal\" ao seu valor em \"decimal\":",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "A",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "C",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "F",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "10"
+            },
+            {
+              "id": "z2",
+              "label": "12"
+            },
+            {
+              "id": "z3",
+              "label": "15"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Lembre-se da sequência lógica: A=10, B=11, C=12, D=13, E=14, F=15."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um único dígito no sistema \"hexadecimal\" substitui exatamente a representação de 4 \"bits\".",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Quatro bits (um nibble) formam valores de 0 a 15, o que encaixa perfeitamente num dígito hex."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Para converter o valor \"hexadecimal\" 1A para a base \"decimal\", qual é o resultado correto, [NAME]?",
+          "answers": [
+            "16",
+            "26",
+            "36",
+            "46"
+          ],
+          "correct": "26",
+          "tip": "(1 * 16) + (10 * 1) = 26."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Na área de programação, para indicar diretamente que um número é \"hexadecimal\", frequentemente utilizamos o prefixo [COMBO] antes do valor.",
+          "options": [
+            "hx",
+            "0b",
+            "0x",
+            "hex-"
+          ],
+          "correct": "0x",
+          "tip": "É uma notação padrão em muitas linguagens de programação, como C e JavaScript."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione as tecnologias e contextos com a base numérica que elas frequentemente adotam:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Permissões de pastas no Linux",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Linguagem dos transistores",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Códigos visuais de cores na Web",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Base Octal (8)"
+            },
+            {
+              "id": "z2",
+              "label": "Base Binária (2)"
+            },
+            {
+              "id": "z3",
+              "label": "Base Hexadecimal (16)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As bases são escolhidas por conveniência e facilidade de leitura na área em questão."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], para converter 255 de decimal para \"hexadecimal\", basta dividir por 16 e encontraremos as letras FF.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "255 dividido por 16 resulta num quociente 15 (F) e sobra resto 15 (F)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Ao agruparmos o número binário 10101111 em quartetos para obter o seu correspondente \"hexadecimal\", qual valor achamos, [NAME]?",
+          "answers": [
+            "9E",
+            "AA",
+            "AF",
+            "FA"
+          ],
+          "correct": "AF",
+          "tip": "O quarteto 1010 é A (10) e o quarteto 1111 é F (15)."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Dentre as opções abaixo, quais apresentam combinações impossíveis para o sistema \"octal\", [NAME]?",
+          "answers": [
+            "67",
+            "89",
+            "42",
+            "A1"
+          ],
+          "correct": [
+            "89",
+            "A1"
+          ],
+          "tip": "A base octal limita-se do 0 ao 7. Letras ou o dígito 8 já fogem dessa base."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O comando Unix \"chmod 755\" usa o dígito 7 que, convertido da base octal para a [COMBO], resulta em 111 (leitura, escrita e execução).",
+          "options": [
+            "decimal",
+            "hexadecimal",
+            "binária",
+            "quaternária"
+          ],
+          "correct": "binária",
+          "tip": "No fundo, as permissões são switches binários ativando privilégios.",
+          "trans": "NORM"
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], um provedor que oferece um link de 200 \"Mbps\" irá transferir arquivos do servidor a uma taxa prática de 200 \"MB/s\".",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Provedores vendem em Megabits (Mbps). Para achar o valor em Megabytes (MB/s), dividimos por 8."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Na \"LogisTech\", um link corporativo de internet de 200 Mbps fornece, na verdade, qual velocidade de transferência em MB/s, [NAME]?",
+          "answers": [
+            "12,5 MB/s",
+            "25 MB/s",
+            "50 MB/s",
+            "200 MB/s"
+          ],
+          "correct": "25 MB/s",
+          "tip": "Dividindo 200 Megabits por 8, chegamos a 25 Megabytes por segundo."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O endereço \"IPv4\" tradicional utiliza 4 partes, formando uma máscara interna totalizada em 32 [COMBO] para roteamento.",
+          "options": [
+            "bytes",
+            "bits",
+            "kilobytes",
+            "hertz"
+          ],
+          "correct": "bits",
+          "tip": "Cada parte do IPv4 (como 255.255.255.0) possui 8 bits, somando 32 no total."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], assinale as áreas de um profissional de TI que exigem conhecimentos sólidos de conversão de dados:",
+          "answers": [
+            "Dimensionamento de Cloud Computing",
+            "Design de tipografia criativa",
+            "Monitoramento do Banco de Dados",
+            "Gerenciamento de Backups da Empresa"
+          ],
+          "correct": [
+            "Dimensionamento de Cloud Computing",
+            "Monitoramento do Banco de Dados",
+            "Gerenciamento de Backups da Empresa"
+          ],
+          "tip": "O crescimento dos dados afeta severamente custos e planejamento da infraestrutura."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], analise o peso dos arquivos da \"LogisTech\" e relacione ao tamanho unitário aproximado de cada um:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Fichas em PDF",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fotos de Comprovantes",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Planilhas Consolidadas",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "80 KB"
+            },
+            {
+              "id": "z2",
+              "label": "2 MB"
+            },
+            {
+              "id": "z3",
+              "label": "150 MB"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Textos simples pesam pouco; arquivos de imagem e planilhas volumosas requerem dezenas de MB."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ignorar o correto dimensionamento das unidades de medida pode causar graves falhas de infraestrutura, encarecendo os serviços de nuvem.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Contratar o espaço sem prever o consumo real (MB/GB/TB) leva ao super ou subdimensionamento."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se o novo servidor corporativo possui 3,5 TB de capacidade, quantos \"Gigabytes\" (GB) isso representa fisicamente, [NAME]?",
+          "answers": [
+            "3.000 GB",
+            "3.500 GB",
+            "3.584 GB",
+            "35.000 GB"
+          ],
+          "correct": "3.584 GB",
+          "tip": "Lembre-se que 1 TB equivale a 1.024 GB, então 3,5 x 1.024 resulta em 3.584."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Se um banco de dados incha cerca de 512 MB por semana, em exatas 20 semanas ele atingirá 10 [COMBO] de dados adicionais.",
+          "options": [
+            "Megabytes",
+            "Gigabytes",
+            "Terabytes",
+            "Petabytes"
+          ],
+          "correct": "Gigabytes",
+          "tip": "512 MB x 20 resulta em 10.240 MB, e dividindo por 1.024 alcançamos 10 GB."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], ao configurar o servidor, relacione a permissão do \"chmod\" (octal) ao seu binário subjacente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "7 (rwx)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "5 (r-x)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "4 (r--)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "111"
+            },
+            {
+              "id": "z2",
+              "label": "101"
+            },
+            {
+              "id": "z3",
+              "label": "100"
+            }
+          ],
+          "correct": "drag",
+          "tip": "r=leitura (4), w=escrita (2), x=execução (1). O binário demonstra quais ações estão ativas (1)."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o código \"hexadecimal\" #FF5733 no CSS significa que a intensidade do canal azul (B) está no máximo possível.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Nesse caso, quem está no máximo (FF = 255) é o canal Vermelho (R)."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Na \"LogisTech\", o ID B7 foi recebido pelo sistema de tráfego. Somando-o com o código 2C, quais destas informações são verídicas, [NAME]?",
+          "answers": [
+            "B7 em decimal é 183.",
+            "2C em decimal é 44.",
+            "A soma decimal de ambos é 100.",
+            "A soma decimal de ambos é 227."
+          ],
+          "correct": [
+            "B7 em decimal é 183.",
+            "2C em decimal é 44.",
+            "A soma decimal de ambos é 227."
+          ],
+          "tip": "O domínio dessas conversões serve justamente para debugs avançados em TI."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Segundo os autores Stair e Reynolds da área de TI, quais são os dois principais parâmetros que afetam o desempenho dos sistemas, [NAME]?",
+          "answers": [
+            "Cor da interface e tipografia",
+            "Capacidade de armazenamento e velocidade de processamento",
+            "Idioma do código e IDE utilizada",
+            "Frequência do monitor e formato do gabinete"
+          ],
+          "correct": "Capacidade de armazenamento e velocidade de processamento",
+          "tip": "O bom desempenho de um hardware de informação gira inteiramente em torno dos seus recursos básicos de IO."
+        }
+      ]
+    }
   ]
 }
