@@ -26057,6 +26057,986 @@
           "tip": "Em servidores de banco de dados e nuvem, a confiabilidade e escalabilidade das distribuições Linux são largamente preferidas."
         }
       ]
+    },
+    {
+      "slug": "aula-37",
+      "lesson_info": {
+        "id": "Aula-37",
+        "title": "AULA 37 - GERENCIAMENTO DE PROCESSOS E THREADS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "O KERNEL E SUAS FUNÇÕES",
+            "desc": "O núcleo do sistema operacional, camadas de acesso e system calls.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "GERENCIAMENTO DE PROCESSOS",
+            "desc": "Estrutura do processo, estados de execução e o papel vital do PCB.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "THREADS E CONCORRÊNCIA",
+            "desc": "Execução paralela, compartilhamento de memória e condições de corrida.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "ESCALONAMENTO E MONITORAMENTO",
+            "desc": "Algoritmos de CPU, ferramentas de diagnóstico e boas práticas.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "T",
+          "A",
+          "S",
+          "K"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], como é definida a camada de software mais privilegiada do Sistema Operacional?",
+          "answers": [
+            "Kernel",
+            "Shell",
+            "GUI",
+            "Bootloader"
+          ],
+          "correct": "Kernel",
+          "tip": "Ele tem acesso direto ao hardware e gerencia todos os recursos da máquina."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no Modo Usuário, os aplicativos têm acesso irrestrito e executam instruções privilegiadas diretamente no hardware.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "No Modo Usuário o acesso é limitado, exigindo chamadas ao kernel para tarefas críticas."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o tipo de Kernel à sua característica principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Monolítico",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Microkernel",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Híbrido",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Serviços no mesmo espaço de endereço"
+            },
+            {
+              "id": "z2",
+              "label": "Apenas funções essenciais no núcleo"
+            },
+            {
+              "id": "z3",
+              "label": "Combina desempenho e modularidade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Linux é monolítico, Minix é microkernel e Windows NT é híbrido."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A interface de comunicação entre os aplicativos de usuário e o núcleo do SO é chamada de [COMBO].",
+          "options": [
+            "System Calls",
+            "Drivers",
+            "Interrupções",
+            "Registradores"
+          ],
+          "correct": "System Calls",
+          "tip": "Elas atuam como a ponte segura para solicitar recursos de hardware."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das seguintes opções representam funções principais do Kernel?",
+          "answers": [
+            "Gerenciamento de Processos",
+            "Gerenciamento de Memória",
+            "Renderização de Sites",
+            "Sistema de Arquivos"
+          ],
+          "correct": [
+            "Gerenciamento de Processos",
+            "Gerenciamento de Memória",
+            "Sistema de Arquivos"
+          ],
+          "tip": "O kernel cuida da base do sistema, não de tarefas específicas de aplicativos web."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com o material, qual é o tipo de arquitetura utilizada pelo Windows NT Kernel?",
+          "answers": [
+            "Kernel Híbrido",
+            "Microkernel Puro",
+            "Kernel Monolítico",
+            "Exokernel"
+          ],
+          "correct": "Kernel Híbrido",
+          "tip": "Ele combina a robustez do monolítico com a modularidade do microkernel."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "O Kernel Linux é conhecido por ser de código fechado e gerenciado exclusivamente via interface gráfica nativa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Linux é de código aberto, altamente configurável e gerenciado fortemente via terminal."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o sistema operacional com sua ferramenta típica de gerenciamento abordada no material:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Windows NT",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Linux",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gerenciador de Tarefas e PowerShell"
+            },
+            {
+              "id": "z2",
+              "label": "Comandos ps, top, htop"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada ambiente possui seu ecossistema nativo de monitoramento."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O [COMBO] atua como intermediário entre o hardware e os programas do usuário.",
+          "options": [
+            "Kernel",
+            "Navegador",
+            "Processador",
+            "Firmware"
+          ],
+          "correct": "Kernel",
+          "tip": "Ele garante que os recursos sejam usados com eficiência e segurança."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são características exclusivas do Kernel Linux listadas no material?",
+          "answers": [
+            "Suporte a módulos carregados dinamicamente",
+            "Amplamente usado em servidores e nuvem",
+            "Drivers certificados compulsoriamente pela Microsoft",
+            "Modo de usuário restrito apenas a administradores"
+          ],
+          "correct": [
+            "Suporte a módulos carregados dinamicamente",
+            "Amplamente usado em servidores e nuvem"
+          ],
+          "tip": "A modularidade do Linux permite adaptar o sistema sem precisar reiniciar frequentemente."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Em qual modo de operação as instruções privilegiadas de hardware são executadas de forma direta?",
+          "answers": [
+            "Modo Kernel",
+            "Modo Usuário",
+            "Modo de Segurança",
+            "Modo Suspenso"
+          ],
+          "correct": "Modo Kernel",
+          "tip": "É a área de acesso irrestrito do sistema."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o Kernel não possui responsabilidade sobre as permissões e a segurança do sistema operacional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A segurança e as permissões são funções centrais integradas ao Kernel."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "trans": "AGEN",
+          "questions": "[NAME], qual é o principal motivo que leva as aplicações a rodarem no Modo Usuário e não diretamente no Kernel?",
+          "answers": [
+            "Garantir estabilidade, evitando que um erro no app derrube todo o sistema",
+            "Aumentar o aquecimento do processador de forma controlada",
+            "Diminuir a velocidade intencionalmente",
+            "Permitir que o aplicativo modifique o hardware livremente"
+          ],
+          "correct": "Garantir estabilidade, evitando que um erro no app derrube todo o sistema",
+          "tip": "O particionamento de acesso protege o núcleo do SO de falhas de terceiros."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione as partes que compõem um processo às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Código (Text)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Dados (Data)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pilha (Stack)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Heap",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Instruções do programa na memória"
+            },
+            {
+              "id": "z2",
+              "label": "Variáveis globais e estáticas"
+            },
+            {
+              "id": "z3",
+              "label": "Chamadas de funções e variáveis locais"
+            },
+            {
+              "id": "z4",
+              "label": "Memória alocada dinamicamente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um processo é muito mais complexo do que apenas seu arquivo executável."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], a estrutura de dados que o kernel usa para armazenar todas as informações vitais de um processo é a [COMBO].",
+          "options": [
+            "PCB",
+            "MBR",
+            "CLI",
+            "USB"
+          ],
+          "correct": "PCB",
+          "tip": "O PCB (Process Control Block) funciona como o passaporte do processo."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais destas informações ficam armazenadas no PCB (Process Control Block)?",
+          "answers": [
+            "Identificador do processo (PID)",
+            "Valor dos registradores da CPU",
+            "Lista de arquivos abertos",
+            "Código fonte original não compilado"
+          ],
+          "correct": [
+            "Identificador do processo (PID)",
+            "Valor dos registradores da CPU",
+            "Lista de arquivos abertos"
+          ],
+          "tip": "O código fonte em si não faz parte do PCB durante a execução."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual o estado de um processo que está aguardando recursos de I/O ou um evento para poder continuar?",
+          "answers": [
+            "Bloqueado",
+            "Pronto",
+            "Novo",
+            "Em Execução"
+          ],
+          "correct": "Bloqueado",
+          "tip": "Nesse estado, ele não consome CPU enquanto espera."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A troca de contexto acontece quando o Kernel salva o estado atual do processo no PCB e carrega o estado do próximo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa ação contínua gera a ilusão de multitarefa para o usuário."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione as funções de ciclo de vida de processo no Linux às suas ações:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "fork()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "exec()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "exit()",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "wait()",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Cria um processo filho idêntico"
+            },
+            {
+              "id": "z2",
+              "label": "Substitui o código por um novo app"
+            },
+            {
+              "id": "z3",
+              "label": "Libera os recursos do processo"
+            },
+            {
+              "id": "z4",
+              "label": "Pai aguarda o encerramento do filho"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas quatro funções gerenciam toda a criação e destruição no mundo Linux."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Um processo que já foi carregado na memória, mas ainda aguarda a vez de usar a CPU, encontra-se no estado [COMBO].",
+          "options": [
+            "Pronto",
+            "Bloqueado",
+            "Encerrado",
+            "Novo"
+          ],
+          "correct": "Pronto",
+          "tip": "Logo que o escalonador permitir, ele entrará Em Execução."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais afirmações são verdadeiras sobre o ciclo de vida dos processos no Windows?",
+          "answers": [
+            "Usa a API CreateProcess() para criar instâncias",
+            "Usa a API TerminateProcess() para encerramento forçado",
+            "Usa fork() como comando nativo principal",
+            "Não possui blocos de controle de processos (PCBs)"
+          ],
+          "correct": [
+            "Usa a API CreateProcess() para criar instâncias",
+            "Usa a API TerminateProcess() para encerramento forçado"
+          ],
+          "tip": "O Windows tem funções próprias equivalentes ao fork/exec do Unix."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que ocorre exatamente durante a execução da instrução exec()?",
+          "answers": [
+            "O código do processo é substituído por um novo programa, mantendo o PID",
+            "Um novo processo filho é clonado com PID diferente",
+            "O processo entra em estado de hibernação na RAM",
+            "O processo destrói sua tabela de arquivos abertos"
+          ],
+          "correct": "O código do processo é substituído por um novo programa, mantendo o PID",
+          "tip": "Geralmente é usada imediatamente após o fork() para lançar um novo aplicativo."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o identificador de processo (PID) é um número que muda constantemente a cada ciclo de relógio do processador.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O PID é único e fixo para cada processo enquanto ele estiver vivo no sistema."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Organize o fluxo natural básico de estados pelo qual um processo costuma passar:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Fase 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fase 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Fase 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Fase 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Novo (Sendo criado)"
+            },
+            {
+              "id": "z2",
+              "label": "Pronto (Aguardando CPU)"
+            },
+            {
+              "id": "z3",
+              "label": "Em Execução (Processando)"
+            },
+            {
+              "id": "z4",
+              "label": "Encerrado (Fim de vida)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O estado Bloqueado pode ocorrer entre 'Execução' e 'Pronto' caso precise de I/O."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "No contexto geral do sistema, uma única instância de um programa em execução é formalmente chamada de [COMBO].",
+          "options": [
+            "Processo",
+            "Código-fonte",
+            "Classe",
+            "Pasta"
+          ],
+          "correct": "Processo",
+          "tip": "Abrir o mesmo aplicativo 3 vezes cria 3 processos independentes."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "trans": "PROT",
+          "questions": "[NAME], por que entender a estrutura da 'Pilha' (Stack) e do 'Heap' é essencial para um desenvolvedor full-stack?",
+          "answers": [
+            "Porque erros nelas causam falhas graves como vazamento de memória ou estouro de pilha",
+            "Porque elas controlam fisicamente a rotação do disco rígido",
+            "Porque substituem a necessidade de usar o processador",
+            "Porque determinam a resolução de tela do software"
+          ],
+          "correct": "Porque erros nelas causam falhas graves como vazamento de memória ou estouro de pilha",
+          "tip": "A gestão incorreta da memória alocada dinamicamente é a causa raiz de muitos 'memory leaks'."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são características que diferenciam as Threads dos Processos?",
+          "answers": [
+            "Criar threads é mais rápido e barato para o SO",
+            "Threads compartilham a mesma memória do processo pai",
+            "Cada thread tem seu próprio espaço de memória totalmente isolado",
+            "Erros em uma thread nunca afetam o restante do processo"
+          ],
+          "correct": [
+            "Criar threads é mais rápido e barato para o SO",
+            "Threads compartilham a mesma memória do processo pai"
+          ],
+          "tip": "As threads são mais leves, mas o compartilhamento exige cuidado redobrado."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que é uma condição de corrida (race condition) em um ambiente de concorrência?",
+          "answers": [
+            "Quando threads acessam e modificam um dado compartilhado simultaneamente sem controle",
+            "Quando o processador atinge velocidade máxima sem superaquecer",
+            "Quando dois processos são encerrados no mesmo milissegundo",
+            "Quando o sistema de rede não suporta as conexões ativas"
+          ],
+          "correct": "Quando threads acessam e modificam um dado compartilhado simultaneamente sem controle",
+          "tip": "Esse problema pode gerar dados corrompidos, como saldos incorretos em bancos."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], dentro de um mesmo processo, todas as threads compartilham a mesma pilha (stack) e os mesmos registradores da CPU.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Elas compartilham código e heap, mas CADA thread precisa de sua própria pilha e registradores."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o tipo de Thread à sua descrição técnica:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ULT",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "KLT",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Híbrido (M:N)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Rápidas, gerenciadas no espaço do usuário"
+            },
+            {
+              "id": "z2",
+              "label": "Suportam paralelismo real, gerenciadas pelo kernel"
+            },
+            {
+              "id": "z3",
+              "label": "Combina vantagens de ULT e KLT (ex: Go)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O modelo híbrido permite alta performance com paralelismo eficiente."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], a menor unidade de processamento gerenciável pelo sistema operacional dentro de um programa é a [COMBO].",
+          "options": [
+            "Thread",
+            "Pilha",
+            "Core",
+            "Node"
+          ],
+          "correct": "Thread",
+          "tip": "Elas são as linhas de produção operando simultaneamente na 'fábrica' (processo)."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais dos itens abaixo representam elementos de sincronização para resolver condições de corrida?",
+          "answers": [
+            "Mutex",
+            "Semáforo",
+            "Round Robin",
+            "Monitor"
+          ],
+          "correct": [
+            "Mutex",
+            "Semáforo",
+            "Monitor"
+          ],
+          "tip": "Round Robin é um algoritmo de escalonamento de CPU, não um mecanismo de sincronização."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], como um mecanismo Mutex age ao proteger um dado crítico?",
+          "answers": [
+            "Cria uma trava de exclusão mútua onde apenas uma thread acessa por vez",
+            "Distribui o dado para vários núcleos processarem ao mesmo tempo",
+            "Deleta a thread que tentar acessar o dado sem permissão",
+            "Pausa todo o sistema operacional até a tarefa terminar"
+          ],
+          "correct": "Cria uma trava de exclusão mútua onde apenas uma thread acessa por vez",
+          "tip": "O Mutex garante que a fila seja respeitada de forma rigorosa."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Um erro grave em uma única thread pode derrubar e encerrar todo o processo pai.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Como compartilham o mesmo espaço de memória, a falha de uma prejudica o conjunto."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o exemplo de uso prático da separação de tarefas por Threads em aplicativos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Navegador",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Editor de Texto",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Vídeo",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Servidor",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Processar abas e abas com JavaScript"
+            },
+            {
+              "id": "z2",
+              "label": "Verificar ortografia enquanto renderiza"
+            },
+            {
+              "id": "z3",
+              "label": "Decodificar vídeo e áudio simultâneos"
+            },
+            {
+              "id": "z4",
+              "label": "Atender requisições HTTP simultâneas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Sem threads, os aplicativos pareceriam congelados enquanto executassem uma tarefa pesada."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No problema apresentado pela LogisTech, 50 caminhões travavam o sistema que usava loops sequenciais. A solução era implementar um pool de [COMBO].",
+          "options": [
+            "Threads",
+            "Memórias",
+            "Discos",
+            "Servidores"
+          ],
+          "correct": "Threads",
+          "tip": "Um pool processaria múltiplos pedidos em paralelo."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais elementos uma Thread precisa possuir exclusivamente (não compartilhado) para funcionar?",
+          "answers": [
+            "Contador de programa (PC)",
+            "Pilha de execução (Stack)",
+            "Variáveis Globais",
+            "Código executável principal"
+          ],
+          "correct": [
+            "Contador de programa (PC)",
+            "Pilha de execução (Stack)"
+          ],
+          "tip": "Esses itens dizem respeito ao fluxo imediato de execução, não podendo ser misturados."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "trans": "NORM",
+          "questions": "[NAME], diferentemente do Mutex, um 'Semáforo' é um controle de sincronização que tem qual habilidade extra?",
+          "answers": [
+            "Controlar o acesso a N recursos simultâneos predefinidos",
+            "Agir diretamente na placa de vídeo",
+            "Converter código Python para código binário",
+            "Forçar a inicialização mais rápida do hardware"
+          ],
+          "correct": "Controlar o acesso a N recursos simultâneos predefinidos",
+          "tip": "Isso permite, por exemplo, que no máximo 5 threads entrem na fila de uma conexão de banco de dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o objetivo do algoritmo FCFS (Primeiro a Chegar, Primeiro Atendido) é penalizar processos curtos de propósito.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele penaliza processos curtos sem intenção, por ser apenas muito simples, gerando atraso por filas."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe o objetivo do escalonamento com sua descrição prática:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Máxima Utilização",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Justiça",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Throughput",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Tempo de Resposta",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Evitar ociosidade da CPU"
+            },
+            {
+              "id": "z2",
+              "label": "Tempo equitativo para todos os processos"
+            },
+            {
+              "id": "z3",
+              "label": "Concluir mais processos por unidade de tempo"
+            },
+            {
+              "id": "z4",
+              "label": "Minimizar a espera para o usuário"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses parâmetros norteiam o desenvolvimento do Kernel no controle do hardware."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], o algoritmo Round Robin distribui a CPU conferindo a cada processo um [COMBO] de tempo exato.",
+          "options": [
+            "Quantum",
+            "Byte",
+            "Sinal",
+            "Bug"
+          ],
+          "correct": "Quantum",
+          "tip": "Se a tarefa não terminar no seu quantum, ela volta para o fim da fila."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais afirmações descrevem as ferramentas de monitoramento nativas do Windows?",
+          "answers": [
+            "O Gerenciador de Tarefas pode ser aberto com Ctrl + Shift + Esc",
+            "O Monitor de Recursos detalha o uso das threads e I/O de disco",
+            "O comando Get-Process no PowerShell exibe dados pelo terminal",
+            "O htop é a ferramenta padrão de monitoramento de tela cheia"
+          ],
+          "correct": [
+            "O Gerenciador de Tarefas pode ser aberto com Ctrl + Shift + Esc",
+            "O Monitor de Recursos detalha o uso das threads e I/O de disco",
+            "O comando Get-Process no PowerShell exibe dados pelo terminal"
+          ],
+          "tip": "O htop é exclusivo do ambiente Linux."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], se durante o diagnóstico da LogisTech um processo está consumindo pouca CPU, mas 90% da memória e crescendo sem parar, qual é o diagnóstico provável?",
+          "answers": [
+            "Memory Leak (Vazamento de memória por erro de código)",
+            "Throughput excessivo do disco SSD",
+            "Configuração incorreta do DHCP na rede",
+            "Atualização nativa do Windows agendada"
+          ],
+          "correct": "Memory Leak (Vazamento de memória por erro de código)",
+          "tip": "Ocorre quando o desenvolvedor aloca espaço no Heap, mas esquece de liberar após o uso."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O comando 'killall firefox' no terminal do Linux encerrará de forma brusca todas as instâncias e processos atrelados ao nome 'firefox'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É um comando útil quando o programa não responde, mas evite usar em serviços de banco de dados sem diagnóstico."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o comando e a ferramenta do terminal Linux à sua ação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "htop",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ps aux",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "kill -9",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "vmstat",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Exibição visual e interativa em tempo real"
+            },
+            {
+              "id": "z2",
+              "label": "Lista processos detalhados em modo texto"
+            },
+            {
+              "id": "z3",
+              "label": "Força encerramento imediato pelo PID"
+            },
+            {
+              "id": "z4",
+              "label": "Monitora dados agregados de I/O e CPU"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um bom analista DevOps tem o domínio dessas ferramentas no seu terminal."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], ao visualizar o htop, a métrica RSS indica o tamanho do 'Resident Set Size', que é a memória [COMBO] ocupada no momento.",
+          "options": [
+            "Física",
+            "Virtual",
+            "Cache",
+            "Swap"
+          ],
+          "correct": "Física",
+          "tip": "Indica a RAM real presa pelo processo."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Entre as boas práticas de produção corporativa descritas na aula, quais atitudes o técnico de TI deve tomar?",
+          "answers": [
+            "Nunca encerrar processos sem identificá-los ou pesquisar o que fazem",
+            "Agendar varreduras de antivírus para os horários de pico comercial",
+            "Documentar sempre a intervenção realizada (histórico)",
+            "Analisar as tendências ao invés de picos isolados de poucos segundos"
+          ],
+          "correct": [
+            "Nunca encerrar processos sem identificá-los ou pesquisar o que fazem",
+            "Documentar sempre a intervenção realizada (histórico)",
+            "Analisar as tendências ao invés de picos isolados de poucos segundos"
+          ],
+          "tip": "Agendar tarefas pesadas (backups, varreduras) deve ocorrer FORA do horário de pico."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no algoritmo de escalonamento SJF (Shortest Job First), qual o risco inerente se tarefas curtas continuarem chegando sem parar?",
+          "answers": [
+            "Starvation (fome de recursos) para as tarefas mais longas, que nunca rodarão",
+            "Aumento imediato do tamanho do disco rígido",
+            "Troca de contexto a cada 1 milissegundo, congelando o PC",
+            "Desligamento automático da fonte de alimentação"
+          ],
+          "correct": "Starvation (fome de recursos) para as tarefas mais longas, que nunca rodarão",
+          "tip": "Starvation ocorre quando um processo não ganha CPU nunca, sendo negligenciado pelo algoritmo."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A sigla 'NI' exibida nos monitores de recursos (como no htop) refere-se ao 'Nice Value', que é o nível de prioridade atribuído àquele processo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Valores menores (ex: -20) indicam a mais alta prioridade."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com o fluxo de diagnóstico ensinado, qual a última etapa antes de concluir o processo de mitigação de lentidão no servidor?",
+          "answers": [
+            "Corrigir: Otimizar o código, ajustar a prioridade ou reiniciar o serviço problemático",
+            "Identificar: Executar htop",
+            "Investigar: Ligar imediatamente para o cliente final",
+            "Formatar: Apagar o servidor completamente e instalar um novo SO"
+          ],
+          "correct": "Corrigir: Otimizar o código, ajustar a prioridade ou reiniciar o serviço problemático",
+          "tip": "O ciclo é: Identificar -> Analisar -> Investigar -> Corrigir."
+        }
+      ]
     }
   ]
 }
