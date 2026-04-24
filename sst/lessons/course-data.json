@@ -16998,7 +16998,7 @@
               "id": "i2",
               "txt": "Sinergia Positiva",
               "match": "z2"
-            }            
+            }
           ],
           "zones": [
             {
@@ -17302,7 +17302,7 @@
               "id": "i2",
               "txt": "Horários de convivência (café)",
               "match": "z2"
-            }            
+            }
           ],
           "zones": [
             {
@@ -25085,6 +25085,976 @@
           "correct": "Falso",
           "trans": "FIM",
           "tip": "Pastas sem restrição de acesso propiciam deleções acidentais e são portas para desastres lógicos no negócio da empresa."
+        }
+      ]
+    },
+    {
+      "slug": "aula-36",
+      "lesson_info": {
+        "id": "Aula-36",
+        "title": "AULA 36 - INSTALAÇÃO DE SISTEMAS OPERACIONAIS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DE SISTEMAS OPERACIONAIS",
+            "desc": "Conceitos, funções principais e classificação dos SOs modernos.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "BOOT E PARTICIONAMENTO",
+            "desc": "BIOS vs UEFI, esquemas MBR e GPT, e sistemas de arquivos.",
+            "color": "#f39c12",
+            "img_url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "INSTALAÇÃO DO WINDOWS",
+            "desc": "Preparação da mídia, particionamento NTFS e contas de usuário.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "LINUX E VIRTUALIZAÇÃO",
+            "desc": "Ambiente Live, partições Linux e uso de máquinas virtuais.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1623282033815-40b05d96c903?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "B",
+          "O",
+          "O",
+          "T"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o papel principal de um Sistema Operacional?",
+          "answers": [
+            "Intermediário entre usuário e hardware",
+            "Criar arquivos de texto",
+            "Proteger apenas a internet",
+            "Ser uma peça física do computador"
+          ],
+          "correct": "Intermediário entre usuário e hardware",
+          "tip": "Ele controla o processador, memória e dispositivos para garantir que aplicativos funcionem."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], sem um Sistema Operacional, os softwares de aplicação ainda poderiam ser executados normalmente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Sem o SO, nenhum software de aplicação poderia ser executado."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o gerenciamento do SO à sua respectiva descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Processos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Memória",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Arquivos",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Dispositivos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Controla execução simultânea e CPU"
+            },
+            {
+              "id": "z2",
+              "label": "Distribui e libera a RAM"
+            },
+            {
+              "id": "z3",
+              "label": "Controla gravação e permissões"
+            },
+            {
+              "id": "z4",
+              "label": "Comunica-se via drivers"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas quatro funções formam o pilar do gerenciamento do sistema."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], um sistema que executa vários processos simultaneamente é classificado como [COMBO].",
+          "options": [
+            "Multitarefa",
+            "Monotarefa",
+            "Linear",
+            "Unificado"
+          ],
+          "correct": "Multitarefa",
+          "tip": "Windows e Linux são sistemas operacionais multitarefa."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais opções representam classificações de um Sistema Operacional quanto à sua interface?",
+          "answers": [
+            "CLI (Linha de Comando)",
+            "GUI (Interface Gráfica)",
+            "Monousuário",
+            "MBR"
+          ],
+          "correct": [
+            "CLI (Linha de Comando)",
+            "GUI (Interface Gráfica)"
+          ],
+          "tip": "A CLI utiliza textos e a GUI utiliza janelas visuais."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual SO domina amplamente o mercado corporativo e doméstico com versões como a 10 e a 11?",
+          "answers": [
+            "Microsoft Windows",
+            "Linux",
+            "macOS",
+            "MS-DOS"
+          ],
+          "correct": "Microsoft Windows",
+          "tip": "O Windows possui licenciamento proprietário e é o mais utilizado em estações de trabalho."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "O Linux é um sistema de código aberto (open source) e altamente configurável.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele também é gratuito e muito preferido em servidores."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe o Sistema Operacional ao seu cenário típico de uso:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Windows",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Linux",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "macOS",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "MS-DOS",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Desktop corporativo e doméstico"
+            },
+            {
+              "id": "z2",
+              "label": "Servidores e desenvolvimento"
+            },
+            {
+              "id": "z3",
+              "label": "Ecossistema exclusivo Apple"
+            },
+            {
+              "id": "z4",
+              "label": "Antigo sistema CLI monousuário"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A escolha do SO deve ser alinhada à necessidade da organização."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], o sistema da Apple baseado em Unix que oferece grande estabilidade chama-se [COMBO].",
+          "options": [
+            "macOS",
+            "Windows",
+            "Ubuntu",
+            "CentOS"
+          ],
+          "correct": "macOS",
+          "tip": "Ele roda de forma exclusiva no hardware da própria Apple."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais características da tabela comparativa pertencem ao Linux?",
+          "answers": [
+            "Open source (gratuito)",
+            "Mais robusto e seguro",
+            "Mais vulnerável a vírus",
+            "Personalização limitada"
+          ],
+          "correct": [
+            "Open source (gratuito)",
+            "Mais robusto e seguro"
+          ],
+          "tip": "O Linux permite personalização total do código."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Por que a escolha correta do Sistema Operacional é crítica para uma infraestrutura, como no caso da LogisTech?",
+          "answers": [
+            "Evita incompatibilidade de hardware e falhas de segurança",
+            "Aumenta permanentemente a velocidade da internet",
+            "Elimina a necessidade de particionamento",
+            "Transforma computadores antigos em novos"
+          ],
+          "correct": "Evita incompatibilidade de hardware e falhas de segurança",
+          "tip": "A seleção inadequada pode gerar retrabalho e riscos aos dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], segundo o material, o Windows é menos vulnerável a vírus do que o Linux.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A tabela comparativa indica que o Windows é mais vulnerável a vírus do que o Linux."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "trans": "AGEN",
+          "questions": "De acordo com Albertin, a gestão da tecnologia da informação exige decisões alinhadas às necessidades organizacionais, sendo que o Sistema Operacional atua como:",
+          "answers": [
+            "A base de qualquer decisão tecnológica",
+            "Um software opcional para a empresa",
+            "Uma limitação ao desenvolvimento",
+            "Um acessório descartável"
+          ],
+          "correct": "A base de qualquer decisão tecnológica",
+          "tip": "Toda a infraestrutura depende de um SO operando corretamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], durante o processo de inicialização, qual componente é o responsável direto por chamar o Kernel do SO?",
+          "answers": [
+            "Bootloader",
+            "POST",
+            "BIOS",
+            "Placa de Vídeo"
+          ],
+          "correct": "Bootloader",
+          "tip": "A sequência é: POST > BIOS/UEFI > Bootloader > Kernel."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A interface de firmware padrão em hardwares modernos, que possui interface gráfica e Fast Boot, é chamada de BIOS Legacy.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essas são características exclusivas do UEFI Moderno."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione o esquema de particionamento e firmware aos seus respectivos limites:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "MBR",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "GPT",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "BIOS Legacy",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "UEFI Moderno",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Suporta até 4 partições primárias"
+            },
+            {
+              "id": "z2",
+              "label": "Suporta até 128 partições"
+            },
+            {
+              "id": "z3",
+              "label": "Interface em modo texto"
+            },
+            {
+              "id": "z4",
+              "label": "Suporte a Secure Boot"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O GPT juntamente com UEFI quebrou antigas limitações de capacidade de disco."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], em sistemas baseados no firmware UEFI, a partição obrigatória de boot é a [COMBO].",
+          "options": [
+            "EFI",
+            "MBR",
+            "Swap",
+            "Raiz"
+          ],
+          "correct": "EFI",
+          "tip": "Ela armazena o bootloader e o tamanho recomendado é entre 100 e 500 MB."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Sobre os sistemas de arquivos, quais opções são características do formato NTFS?",
+          "answers": [
+            "Padrão do Windows",
+            "Suporta criptografia e permissões de segurança",
+            "Limite de 4 GB por arquivo",
+            "Padrão principal do Linux"
+          ],
+          "correct": [
+            "Padrão do Windows",
+            "Suporta criptografia e permissões de segurança"
+          ],
+          "tip": "Por conta do journaling e segurança, ele é o recomendado para a partição C:."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual sistema de arquivos compatível com quase todos os SOs possui a desvantagem de não suportar arquivos maiores que 4 GB?",
+          "answers": [
+            "FAT32",
+            "exFAT",
+            "ext4",
+            "NTFS"
+          ],
+          "correct": "FAT32",
+          "tip": "Para remover esse limite em mídias portáteis multiplataforma, costuma-se usar o exFAT."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O sistema de arquivos 'ext4' é padrão do Windows e não suporta partições raiz de grande volume.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O ext4 é o padrão adotado pelas distribuições Linux e possui alto desempenho."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o sistema de arquivos ao seu cenário de uso mais frequente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "NTFS",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "FAT32",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "ext4",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "exFAT",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Partição do sistema (C:) no Windows"
+            },
+            {
+              "id": "z2",
+              "label": "Partições EFI e pequenos pendrives"
+            },
+            {
+              "id": "z3",
+              "label": "Partição raiz ( / ) no Linux"
+            },
+            {
+              "id": "z4",
+              "label": "Cartões SD e discos portáteis grandes"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Aplicar o sistema de arquivos errado durante a instalação gerará incompatibilidade ou limitação."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], a Microsoft exige obrigatoriamente um chip TPM versão [COMBO] para a instalação do Windows 11.",
+          "options": [
+            "2.0",
+            "1.2",
+            "3.0",
+            "1.0"
+          ],
+          "correct": "2.0",
+          "tip": "Sem o TPM 2.0 e o Secure Boot, a instalação padrão é bloqueada."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Comparando com o Windows 11, quais afirmações são corretas sobre os requisitos do Ubuntu Linux 22.04 LTS?",
+          "answers": [
+            "O uso do TPM não é obrigatório",
+            "Ainda suporta instalação sob a interface BIOS Legacy",
+            "Exige no mínimo 64 GB de armazenamento obrigatório",
+            "Bloqueia discos não formatados em MBR"
+          ],
+          "correct": [
+            "O uso do TPM não é obrigatório",
+            "Ainda suporta instalação sob a interface BIOS Legacy"
+          ],
+          "tip": "O Ubuntu aceita hardware mais antigo com maior flexibilidade do que o Windows 11."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Durante a instalação de um novo SO, o técnico deve acessar a BIOS/UEFI primariamente para configurar:",
+          "answers": [
+            "A ordem de boot (para carregar o pendrive/mídia)",
+            "O layout do teclado",
+            "A senha da rede Wi-Fi",
+            "A criação de pastas pessoais"
+          ],
+          "correct": "A ordem de boot (para carregar o pendrive/mídia)",
+          "tip": "Sem configurar o pendrive como primeiro dispositivo, a placa-mãe tentará ler o HD vazio."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], em computadores modernos com discos de 3 TB, o técnico deve sempre adotar o particionamento do tipo MBR para evitar erros.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Discos maiores que 2 TB exigem obrigatoriamente o esquema de particionamento GPT."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "trans": "PROT",
+          "questions": "Em ambientes de laboratório com máquinas virtuais (VMs), recomenda-se alocar no mínimo [COMBO] GB de RAM para que os sistemas operem com estabilidade básica.",
+          "options": [
+            "2",
+            "1",
+            "4",
+            "8"
+          ],
+          "correct": "2",
+          "tip": "Além disso, recomenda-se ao menos 20 GB de disco virtual."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual software é muito utilizado para gravar a imagem ISO do Windows em um pendrive e torná-lo bootável?",
+          "answers": [
+            "Rufus",
+            "Netplan",
+            "Hyper-V",
+            "GParted"
+          ],
+          "correct": "Rufus",
+          "tip": "O Media Creation Tool, oficial da Microsoft, também é excelente para essa tarefa."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Ao instalar o Windows, manter o sistema operacional e os dados pessoais em partições diferentes é uma má prática de gerenciamento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, separar dados do sistema facilita bastante os backups e reinstalações."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Ordene as 4 etapas fundamentais da preparação da mídia de instalação do Windows:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Etapa 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Etapa 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Etapa 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Etapa 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Baixar a ISO oficial"
+            },
+            {
+              "id": "z2",
+              "label": "Criar mídia bootável (Rufus)"
+            },
+            {
+              "id": "z3",
+              "label": "Configurar boot na BIOS/UEFI"
+            },
+            {
+              "id": "z4",
+              "label": "Iniciar o Setup de Instalação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Seguir essa cronologia rigorosamente impede erros antes mesmo da tela de formatação aparecer."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], na seleção de teclado durante a instalação do Windows, o padrão brasileiro recomendado que suporta acentos é o layout [COMBO].",
+          "options": [
+            "ABNT2",
+            "US-International",
+            "QWERTY",
+            "Latino"
+          ],
+          "correct": "ABNT2",
+          "tip": "Certifique-se de configurar o idioma para Português (Brasil) também."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Para técnicos que desejam controle absoluto sobre a criação e formatação de todas as partições do HD, qual tipo de instalação do Windows deve ser selecionada?",
+          "answers": [
+            "Personalizada",
+            "Atualização",
+            "Recuperação Automática",
+            "Expressa"
+          ],
+          "correct": [
+            "Personalizada"
+          ],
+          "tip": "Apenas a instalação Personalizada abrirá o gerenciador de discos antes de copiar os arquivos."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que a sigla OOBE (Out-of-Box Experience) representa ao final da instalação do Windows?",
+          "answers": [
+            "A tela de configuração inicial (nome, conta de usuário, privacidade)",
+            "O formato técnico de compressão da ISO",
+            "A atualização automática da placa de vídeo",
+            "A exclusão segura dos dados do HD"
+          ],
+          "correct": "A tela de configuração inicial (nome, conta de usuário, privacidade)",
+          "tip": "É o momento em que o sistema interage com o usuário para personalizar a máquina."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a partição de 100 MB reservada para o EFI Bootloader em sistemas UEFI deve ser formatada em NTFS para funcionar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A partição EFI exige o uso do sistema de arquivos FAT32 e não NTFS."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe as diretrizes e boas práticas ao seu respectivo tópico na pós-instalação do Windows:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Usuário Padrão",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Usuário Administrador",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Windows Update",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Comando ping",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Para uso diário sem riscos graves"
+            },
+            {
+              "id": "z2",
+              "label": "Reservado para tarefas técnicas"
+            },
+            {
+              "id": "z3",
+              "label": "Garante correções de segurança"
+            },
+            {
+              "id": "z4",
+              "label": "Usado para testar conectividade de rede"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Políticas adequadas de usuários e atualizações constantes evitam vulnerabilidades futuras na corporação."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], na área de TI da LogisTech, o comando rápido no prompt para testar se a máquina possui internet externa consultando o Google DNS é ping [COMBO].",
+          "options": [
+            "8.8.8.8",
+            "192.168.0.1",
+            "127.0.0.1",
+            "1.1.1.1"
+          ],
+          "correct": "8.8.8.8",
+          "tip": "Se a rede responder a este IP, o gateway padrão está funcionando."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "A instalação do Windows 11 exige que a partição de sistema (C:) tenha espaço mínimo alocado. Qual é a recomendação indicada no material?",
+          "answers": [
+            "Mínimo de 80 GB",
+            "Mínimo de 10 GB",
+            "Apenas 4 GB",
+            "Não existe mínimo, depende da ISO"
+          ],
+          "correct": [
+            "Mínimo de 80 GB"
+          ],
+          "tip": "Este espaço é necessário para abrigar o SO, os pacotes de atualizações pesadas e aplicativos básicos."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O protocolo DHCP facilita a configuração pois permite que a máquina obtenha um endereço IP, Gateway e DNS de forma totalmente automática.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso evita os erros manuais comuns de configuração de IP estático."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "trans": "NORM",
+          "questions": "[NAME], qual é a justificativa técnica para instalar o Windows 10/11 nas estações de trabalho dos operadores logísticos da LogisTech?",
+          "answers": [
+            "Ele será focado no acesso fácil ao sistema de rastreamento de entregas e uso corporativo",
+            "Ele será o núcleo do banco de dados central",
+            "Ele consumirá menos recursos em nuvem que o Linux",
+            "Ele servirá como roteador principal da rede da empresa"
+          ],
+          "correct": "Ele será focado no acesso fácil ao sistema de rastreamento de entregas e uso corporativo",
+          "tip": "Estações de trabalho finais no meio corporativo frequentemente preferem ambientes familiares e produtivos."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual distribuição Linux mencionada na aula oferece grande suporte a hardware, interface amigável e terá 5 anos de suporte na versão LTS?",
+          "answers": [
+            "Ubuntu Desktop",
+            "CentOS",
+            "Debian",
+            "Fedora"
+          ],
+          "correct": "Ubuntu Desktop",
+          "tip": "É excelente para iniciantes e muito utilizada em laboratórios didáticos."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A distribuição Debian é conhecida por sua extrema instabilidade, sendo usada apenas por alunos iniciantes para testar bugs.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ao contrário! O Debian é famoso por ser ultra estável e serve de base para várias outras distros (como o Ubuntu)."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione as distribuições Linux baseadas em suas forças técnicas descritas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ubuntu",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Debian",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Fedora",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "CentOS",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Base ideal para ensino e desktops"
+            },
+            {
+              "id": "z2",
+              "label": "Base muito segura para servidores"
+            },
+            {
+              "id": "z3",
+              "label": "Testa tecnologias de ponta da Red Hat"
+            },
+            {
+              "id": "z4",
+              "label": "Focado em aplicações críticas corporativas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "No mundo Open Source, as ramificações existem para suprir nichos."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], diferente da instalação do Windows, no Linux nós podemos usar o ambiente [COMBO] para testar hardware e rede sem instalar nada no HD.",
+          "options": [
+            "Live",
+            "Setup",
+            "Root",
+            "Recovery"
+          ],
+          "correct": "Live",
+          "tip": "No modo Live, o SO carrega inteiramente na memória RAM."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Por que o ambiente Live do Ubuntu é útil para o técnico de suporte da LogisTech?",
+          "answers": [
+            "Permite testar Wi-Fi, vídeo e periféricos antecipadamente",
+            "Possibilita rodar o GParted para planejar partições sem riscos",
+            "Possibilita navegar em fóruns e ver tutoriais se der erro",
+            "Aumenta permanentemente a quantidade de RAM física"
+          ],
+          "correct": [
+            "Permite testar Wi-Fi, vídeo e periféricos antecipadamente",
+            "Possibilita rodar o GParted para planejar partições sem riscos",
+            "Possibilita navegar em fóruns e ver tutoriais se der erro"
+          ],
+          "tip": "É uma potente ferramenta de diagnóstico que não sobregrava dados de imediato."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], ao particionar manualmente um disco no Linux, qual ponto de montagem deve receber o sistema de arquivos FAT32 para o armazenamento do bootloader?",
+          "answers": [
+            "/boot/efi",
+            "/home",
+            "swap",
+            "/"
+          ],
+          "correct": "/boot/efi",
+          "tip": "Essa regra é mandatória para sistemas inicializados sob UEFI."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "No modelo Linux, o ponto de montagem equivalente à unidade C: do Windows, onde o núcleo do sistema e aplicativos ficam, é representado apenas pela barra ( / ).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O ponto ( / ) é chamado de diretório raiz. Recomenda-se de 20 a 40 GB."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe a partição sugerida para Linux com sua finalidade principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "/boot/efi",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "/",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "/home",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "swap",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Armazena inicializadores de boot (512MB)"
+            },
+            {
+              "id": "z2",
+              "label": "Partição Raiz do sistema (20 a 40GB)"
+            },
+            {
+              "id": "z3",
+              "label": "Arquivos pessoais dos usuários"
+            },
+            {
+              "id": "z4",
+              "label": "Complemento para a memória RAM cheia"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um particionamento elegante melhora a segurança e facilita upgrades."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], a partição [COMBO] não utiliza o sistema ext4, pois serve como uma memória virtual de apoio quando a RAM está cheia.",
+          "options": [
+            "swap",
+            "efi",
+            "home",
+            "root"
+          ],
+          "correct": "swap",
+          "tip": "Tamanho típico sugerido varia entre 2 a 4 GB."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais comandos de terminal o técnico utilizará no Ubuntu recém-instalado para tarefas fundamentais?",
+          "answers": [
+            "sudo netplan apply (Aplicar regras de rede)",
+            "sudo usermod -aG sudo (Elevar privilégio)",
+            "sudo apt update (Buscar atualizações de pacotes)",
+            "ipconfig /renew (Renovar IP)"
+          ],
+          "correct": [
+            "sudo netplan apply (Aplicar regras de rede)",
+            "sudo usermod -aG sudo (Elevar privilégio)",
+            "sudo apt update (Buscar atualizações de pacotes)"
+          ],
+          "tip": "Lembre-se que ipconfig é exclusivo do Windows; no Linux usa-se 'ip addr'."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Na área de virtualização do laboratório, qual dos softwares listados é conhecido por ser gratuito, multiplataforma e muito amigável a usuários acadêmicos?",
+          "answers": [
+            "VirtualBox",
+            "VMware Workstation",
+            "Hyper-V",
+            "Rufus"
+          ],
+          "correct": "VirtualBox",
+          "tip": "O Hyper-V também pode ser usado, mas é um serviço atrelado apenas às versões Pro do Windows."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com o plano corporativo da LogisTech, instâncias baseadas em sistemas operacionais Linux serão o pilar adotado para seus ambientes em nuvem na AWS.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Em servidores de banco de dados e nuvem, a confiabilidade e escalabilidade das distribuições Linux são largamente preferidas."
         }
       ]
     }
