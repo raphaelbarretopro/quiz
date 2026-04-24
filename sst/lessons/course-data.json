@@ -16998,17 +16998,7 @@
               "id": "i2",
               "txt": "Sinergia Positiva",
               "match": "z2"
-            },
-            {
-              "id": "i3",
-              "txt": "Comunicação contínua e aberta",
-              "match": "z2"
-            },
-            {
-              "id": "i4",
-              "txt": "Responsabilidade apenas individual",
-              "match": "z1"
-            }
+            }            
           ],
           "zones": [
             {
