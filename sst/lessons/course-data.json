@@ -19499,12 +19499,7 @@
               "id": "d2",
               "txt": "Configuração de infraestrutura Cloud (AWS/Azure).",
               "match": "z1"
-            },
-            {
-              "id": "d3",
-              "txt": "Trabalho em equipe e Pensamento Crítico.",
-              "match": "z2"
-            }
+            }            
           ],
           "zones": [
             {
