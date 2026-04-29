@@ -31589,6 +31589,988 @@
           "tip": "O recorte de tempo isolou o incidente, identificando o latência prévia às 02:01:44."
         }
       ]
+    },
+    {
+      "slug": "aula-43",
+      "lesson_info": {
+        "id": "Aula-43",
+        "title": "AULA 43 - REDES DE COMPUTADORES: MODELOS DE REFERÊNCIA E PROTOCOLOS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DE REDES",
+            "desc": "Conceitos, componentes e classificações geográficas de redes (LAN, MAN, WAN, PAN).",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "MODELO OSI",
+            "desc": "As 7 camadas teóricas de interconexão, desde a Física até a Aplicação, e o encapsulamento.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "MODELO TCP/IP",
+            "desc": "Arquitetura prática da Internet e protocolos vitais como HTTP, HTTPS, DNS, TCP e IP.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "DIAGNÓSTICO E PRÁTICA",
+            "desc": "Resolução de problemas reais na LogisTech utilizando o Wireshark e análise de tráfego.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "R",
+          "E",
+          "D",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com os conceitos fundamentais, o que define uma rede de computadores?",
+          "answers": [
+            "Dispositivos interligados para compartilhar recursos e dados.",
+            "Um software para edição de imagens na web.",
+            "Processadores que executam códigos em isolamento.",
+            "Um servidor que armazena energia elétrica."
+          ],
+          "correct": "Dispositivos interligados para compartilhar recursos e dados.",
+          "tip": "As redes existem fundamentalmente para trocar informações e recursos entre si. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Para a LogisTech, eliminar planilhas desconectadas e integrar setores são motivos cruciais para se implementar uma rede. [NAME], isso é Verdadeiro ou Falso?",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso garante acesso em tempo real a dados e prepara a empresa para a nuvem. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Uma rede do tipo [COMBO] abrange um único edifício ou campus, como a sede interna de uma empresa.",
+          "options": [
+            "LAN",
+            "WAN",
+            "MAN",
+            "PAN"
+          ],
+          "correct": "LAN",
+          "tip": "Local Area Network (LAN) é a infraestrutura padrão para redes corporativas locais. "
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], selecione as classificações de redes que abrangem áreas maiores que um único edifício corporativo:",
+          "answers": [
+            "MAN (Metropolitana)",
+            "WAN (Longa distância)",
+            "LAN (Local)",
+            "PAN (Pessoal)"
+          ],
+          "correct": [
+            "MAN (Metropolitana)",
+            "WAN (Longa distância)"
+          ],
+          "tip": "MAN interliga cidades e WAN conecta locais a longas distâncias ou à nuvem. "
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o tipo de rede (sigla) à sua correta abrangência geográfica:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "PAN",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "LAN",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "MAN",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "WAN",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Uso pessoal/Bluetooth"
+            },
+            {
+              "id": "z2",
+              "label": "Único prédio/Sede"
+            },
+            {
+              "id": "z3",
+              "label": "Vários prédios na cidade"
+            },
+            {
+              "id": "z4",
+              "label": "Interligação global/Nuvem"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas siglas vêm do inglês: Personal, Local, Metropolitan e Wide Area Network. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Na arquitetura de redes, computadores, servidores e smartphones são classificados como:",
+          "answers": [
+            "Dispositivos Finais",
+            "Meios de Transmissão",
+            "Dispositivos de Interconexão",
+            "Protocolos Nativos"
+          ],
+          "correct": "Dispositivos Finais",
+          "tip": "Eles são conhecidos como os 'pontos de origem e destino' dos dados. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], cabos de fibra óptica e canais sem fio (Wi-Fi) são considerados Dispositivos de Interconexão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Eles são 'Meios de Transmissão' por onde trafegam os sinais físicos. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Switches e roteadores direcionam e encaminham os dados, servindo como dispositivos de [COMBO] da rede.",
+          "options": [
+            "Interconexão",
+            "Armazenamento",
+            "Descarte",
+            "Geração"
+          ],
+          "correct": "Interconexão",
+          "tip": "Eles funcionam como cruzamentos que guiam os pacotes pelo caminho certo. "
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais dos itens abaixo representam os quatro componentes essenciais de uma rede vistos na aula?",
+          "answers": [
+            "Dispositivos Finais",
+            "Meios de Transmissão",
+            "Dispositivos de Interconexão",
+            "Protocolos e Software",
+            "Monitores e Teclados"
+          ],
+          "correct": [
+            "Dispositivos Finais",
+            "Meios de Transmissão",
+            "Dispositivos de Interconexão",
+            "Protocolos e Software"
+          ],
+          "tip": "Esses quatro pilares formam a infraestrutura completa de qualquer rede corporativa. "
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], correlacione o componente da rede ao seu exemplo prático na LogisTech:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Dispositivo Final",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Meio de Transmissão",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Dispositivo de Interconexão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Protocolos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tablet do entregador"
+            },
+            {
+              "id": "z2",
+              "label": "Cabo UTP e Wi-Fi"
+            },
+            {
+              "id": "z3",
+              "label": "Roteador do galpão"
+            },
+            {
+              "id": "z4",
+              "label": "Regras de comunicação (HTTP)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A visualização prática facilita o diagnóstico de problemas na infraestrutura. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "A necessidade de comunicação entre a sede e a nuvem caracteriza o uso de uma rede do tipo:",
+          "answers": [
+            "WAN",
+            "LAN",
+            "PAN",
+            "CAN"
+          ],
+          "correct": "WAN",
+          "tip": "As conexões com a nuvem exigem redes Wide Area Network de longa distância. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a perda de prazos e prejuízos na LogisTech ocorriam pela eficiência do uso de planilhas isoladas offline.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As planilhas desconectadas e processos lentos causavam os problemas e clientes insatisfeitos. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O conjunto de regras que governam a comunicação digital é denominado formalmente como [COMBO].",
+          "options": [
+            "Protocolos",
+            "Algoritmos",
+            "Hardwares",
+            "Sistemas"
+          ],
+          "correct": "Protocolos",
+          "tip": "Sem protocolos definidos (como TCP ou IP), os computadores não 'falariam a mesma língua'. ",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o Modelo de Referência OSI divide o processo de comunicação em rede em quantas camadas?",
+          "answers": [
+            "7",
+            "4",
+            "5",
+            "3"
+          ],
+          "correct": "7",
+          "tip": "O OSI (Open Systems Interconnection) usa 7 camadas independentes para padronizar o fluxo. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Uma das razões para usar modelos em camadas é reduzir a complexidade e permitir desenvolvimento independente por camada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso também facilita o diagnóstico de falhas e promove interoperabilidade global. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O processo em que cada camada adiciona seu próprio cabeçalho aos dados é chamado de [COMBO].",
+          "options": [
+            "Encapsulamento",
+            "Roteamento",
+            "Decodificação",
+            "Divisão"
+          ],
+          "correct": "Encapsulamento",
+          "tip": "No destino, ocorre o processo inverso, o desencapsulamento. "
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais opções representam corretamente camadas do Modelo OSI?",
+          "answers": [
+            "Física",
+            "Transporte",
+            "Apresentação",
+            "Internet"
+          ],
+          "correct": [
+            "Física",
+            "Transporte",
+            "Apresentação"
+          ],
+          "tip": "A camada 'Internet' pertence ao modelo prático TCP/IP, não ao OSI. "
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o número da camada OSI à sua nomenclatura correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Camada 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Camada 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Camada 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Camada 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Física"
+            },
+            {
+              "id": "z2",
+              "label": "Enlace de Dados"
+            },
+            {
+              "id": "z3",
+              "label": "Rede"
+            },
+            {
+              "id": "z4",
+              "label": "Transporte"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A numeração inicia na base física (cabeamento) e sobe em direção ao software (aplicação). "
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual camada OSI trabalha diretamente com bits brutos (0 e 1) e características elétricas?",
+          "answers": [
+            "Física",
+            "Enlace",
+            "Sessão",
+            "Rede"
+          ],
+          "correct": "Física",
+          "tip": "Envolve cabos, tensões, conectores e luz infravermelha/fibra óptica. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A Camada de Enlace (Camada 2) organiza bits em quadros e utiliza endereços IP para roteamento mundial.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A Camada de Enlace usa endereços MAC para identificar dispositivos na rede local. Roteamento IP é na Camada 3. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A camada de [COMBO] é responsável pelo endereçamento lógico IP e roteamento de pacotes entre diferentes redes.",
+          "options": [
+            "Rede",
+            "Transporte",
+            "Sessão",
+            "Enlace"
+          ],
+          "correct": "Rede",
+          "tip": "É a Camada 3 que permite que pacotes naveguem na internet até seu destino. "
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Na Camada de Transporte, o protocolo TCP (Controle de Transmissão) garante entrega:",
+          "answers": [
+            "Confiável",
+            "Ordenada",
+            "Sem erros",
+            "Em tempo real e descartável"
+          ],
+          "correct": [
+            "Confiável",
+            "Ordenada",
+            "Sem erros"
+          ],
+          "tip": "Diferente do UDP, o TCP é orientado a conexão e faz retransmissões se houver falhas. "
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Associe a camada OSI superior à sua funcionalidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sessão (5)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Apresentação (6)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Aplicação (7)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Transporte (4)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Controla e mantém diálogos"
+            },
+            {
+              "id": "z2",
+              "label": "Formatação e criptografia"
+            },
+            {
+              "id": "z3",
+              "label": "Interface direta do software"
+            },
+            {
+              "id": "z4",
+              "label": "Guardia da qualidade (TCP/UDP)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As camadas superiores são cruciais para o funcionamento visível das páginas e apps modernos. "
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], se um desenvolvedor precisa implementar criptografia SSL/TLS e compressão JPEG, com qual camada ele está lidando?",
+          "answers": [
+            "Apresentação",
+            "Física",
+            "Sessão",
+            "Rede"
+          ],
+          "correct": "Apresentação",
+          "tip": "Esta camada garante que os dados cheguem num formato que a aplicação receptora entenda e confie. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O protocolo UDP da camada de transporte exige verificação rigorosa e retransmite dados perdidos para garantir a ordem.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O UDP não é orientado a conexão. Entrega pacotes rapidamente e sem garantias. Ideal para VoIP e jogos. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Protocolos como HTTP, FTP e DNS habitam a camada visível ao desenvolvedor, chamada de camada de [COMBO].",
+          "options": [
+            "Aplicação",
+            "Apresentação",
+            "Sessão",
+            "Transporte"
+          ],
+          "correct": "Aplicação",
+          "tip": "É a interface direta entre a rede e as aplicações consumidas pelo usuário. ",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], enquanto o modelo OSI tem 7 camadas teóricas, a arquitetura prática do TCP/IP foi reduzida para:",
+          "answers": [
+            "4 camadas",
+            "5 camadas",
+            "3 camadas",
+            "6 camadas"
+          ],
+          "correct": "4 camadas",
+          "tip": "O modelo TCP/IP condensa as 7 camadas OSI priorizando a praticidade da implementação da Internet. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O modelo TCP/IP funde as camadas de Aplicação, Apresentação e Sessão do OSI em uma única camada chamada 'Aplicação'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa fusão facilita a criação de softwares que gerenciam todo o empacotamento lógico superior. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para traduzir 'www.logitech.com.br' em um IP que o servidor entenda, usamos o protocolo [COMBO].",
+          "options": [
+            "DNS",
+            "HTTPS",
+            "FTP",
+            "TCP"
+          ],
+          "correct": "DNS",
+          "tip": "O DNS (Domain Name System) age como o catálogo telefônico da Internet. "
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais dos protocolos listados pertencem à camada de Aplicação no modelo TCP/IP?",
+          "answers": [
+            "HTTP",
+            "HTTPS",
+            "DNS",
+            "IP",
+            "UDP"
+          ],
+          "correct": [
+            "HTTP",
+            "HTTPS",
+            "DNS"
+          ],
+          "tip": "IP pertence à camada Internet e UDP à camada de Transporte. "
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], correlacione o protocolo com sua porta padrão utilizada em rede:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "HTTP",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "HTTPS",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "DNS",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "FTP",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Porta 80"
+            },
+            {
+              "id": "z2",
+              "label": "Porta 443"
+            },
+            {
+              "id": "z3",
+              "label": "Porta 53"
+            },
+            {
+              "id": "z4",
+              "label": "Porta 21"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer as portas é vital na configuração de firewalls e servidores web. "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Na escolha de proteção para o CRM da LogisTech, por que o HTTPS é obrigatório em detrimento do HTTP?",
+          "answers": [
+            "Porque adiciona criptografia TLS aos dados",
+            "Porque aumenta o tamanho do cabeçalho físico",
+            "Porque é mais lento e evita robôs",
+            "Porque elimina a necessidade de IPs"
+          ],
+          "correct": "Porque adiciona criptografia TLS aos dados",
+          "tip": "Isso impede que dados sensíveis e senhas de clientes sejam interceptados. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o protocolo IP, responsável por rotear pacotes até seu destino mundial, está localizado na camada 'Internet' do TCP/IP.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa camada no modelo TCP/IP equivale à camada de 'Rede' no modelo OSI. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No tráfego de rede HTTP puro sem TLS, os dados transitam expostos, o que chamamos de [COMBO] puro.",
+          "options": [
+            "Texto",
+            "Bit",
+            "Cripto",
+            "Frame"
+          ],
+          "correct": "Texto",
+          "tip": "Qualquer intermediário conectado à mesma rede poderia espelhar e ler senhas nesse formato. "
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Ao implementar o HTTPS em um servidor, o que a tecnologia de segurança de rede assegura?",
+          "answers": [
+            "Autenticidade",
+            "Integridade",
+            "Confidencialidade",
+            "Desempenho Gráfico"
+          ],
+          "correct": [
+            "Autenticidade",
+            "Integridade",
+            "Confidencialidade"
+          ],
+          "tip": "O HTTPS previne, inclusive, os temidos ataques 'man-in-the-middle'. "
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Vincule a camada do modelo TCP/IP à sua camada equivalente no OSI:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Acesso à Rede",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Internet",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Transporte",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Aplicação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Física + Enlace de Dados"
+            },
+            {
+              "id": "z2",
+              "label": "Rede"
+            },
+            {
+              "id": "z3",
+              "label": "Transporte (TCP/UDP)"
+            },
+            {
+              "id": "z4",
+              "label": "Aplicação + Apres. + Sessão"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber transitar entre a teoria (OSI) e a prática (TCP/IP) define o arquiteto de rede. "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], uma consulta de conversão de endereço DNS é extremamente rápida. Ela tipicamente dura menos de:",
+          "answers": [
+            "100 milissegundos",
+            "5 segundos",
+            "1 minuto",
+            "2 horas"
+          ],
+          "correct": "100 milissegundos",
+          "tip": "É um processo quase instantâneo operando na porta 53 via protocolo UDP. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Falhas não identificadas de DNS provocam um bloqueio total de sistemas baseados em [COMBO] de domínio, simulando queda de internet.",
+          "options": [
+            "Nomes",
+            "Cabos",
+            "Luz",
+            "Baterias"
+          ],
+          "correct": "Nomes",
+          "tip": "Mesmo que a rede física e o roteamento IP estejam perfeitos, sem DNS o usuário só acessa sites decorando os números de IP. ",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Na Situação de Aprendizagem, a 'Falha A' relatava um roteador principal sem luz de link. Qual camada OSI está primariamente em colapso?",
+          "answers": [
+            "Camada 1 - Física",
+            "Camada 3 - Rede",
+            "Camada 4 - Transporte",
+            "Camada 7 - Aplicação"
+          ],
+          "correct": "Camada 1 - Física",
+          "tip": "Ausência de luz de link em uma interface indica que os meios físicos ou pulsos elétricos foram perdidos. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o software Wireshark é uma ferramenta profissional usada no laboratório para capturar, filtrar e analisar pacotes na rede.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É vital para monitorar anomalias de tráfego (como pacotes perdidos em upload). "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Na 'Falha C', o envio de arquivos foi interrompido na metade devido a pacotes perdidos na Camada de [COMBO].",
+          "options": [
+            "Transporte",
+            "Física",
+            "Apresentação",
+            "Sessão"
+          ],
+          "correct": "Transporte",
+          "tip": "Isso reflete uma falha de confiabilidade (TCP), onde a retransmissão de segmentos parou de funcionar. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais são passos corretos que um aprendiz deve executar na atividade prática com Wireshark?",
+          "answers": [
+            "Capturar tráfego real na interface",
+            "Filtrar pacotes HTTP, DNS e TCP",
+            "Registrar falhas na ficha de diagnóstico",
+            "Cortar cabos do switch central"
+          ],
+          "correct": [
+            "Capturar tráfego real na interface",
+            "Filtrar pacotes HTTP, DNS e TCP",
+            "Registrar falhas na ficha de diagnóstico"
+          ],
+          "tip": "A abordagem é analítica e via software, preservando a infraestrutura de hardware ilesa. "
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], correlacione os cenários práticos da LogisTech ao sintoma provável analisado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Falha A (Física)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Falha B (DNS)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Falha C (TCP)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Desconexão Geral",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sem luz de link"
+            },
+            {
+              "id": "z2",
+              "label": "Acesso só via número de IP"
+            },
+            {
+              "id": "z3",
+              "label": "Upload caindo pela metade"
+            },
+            {
+              "id": "z4",
+              "label": "Planilhas offline não salvam"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Isolar a camada do problema é o primeiro passo de qualquer Troubleshooting. "
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se o sistema da LogisTech está inacessível pelo endereço 'sistema.logis.com', mas acessa perfeitamente pelo IP numérico direto, a falha encontra-se onde?",
+          "answers": [
+            "No servidor ou resolução DNS",
+            "Na queima do cabo de rede",
+            "No monitor do entregador",
+            "Na formatação da página HTML"
+          ],
+          "correct": "No servidor ou resolução DNS",
+          "tip": "Trata-se de um problema clássico de resolução de nomes na camada de Aplicação. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], usar o Modelo OSI no dia a dia como diagnóstico não tem utilidade prática porque toda rede funciona com base em TCP/IP.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O OSI continua sendo o principal modelo e mapa mental para um diagnóstico sistemático de falhas em TI. "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para resolver os problemas iniciais, a LogisTech planeja uma API REST, integrando a aplicação via protocolos robustos como [COMBO].",
+          "options": [
+            "HTTP/HTTPS",
+            "USB/Bluetooth",
+            "Ping/Echo",
+            "VGA/HDMI"
+          ],
+          "correct": "HTTP/HTTPS",
+          "tip": "Essa solução ocorre na camada superior garantindo conexão universal ao banco de dados pela WAN e LAN. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais são capacidades técnicas esperadas dos desenvolvedores/alunos ao final deste desafio?",
+          "answers": [
+            "Identificar e classificar camadas do modelo OSI",
+            "Relacionar protocolos às suas camadas",
+            "Analisar tráfego de rede com ferramentas (Wireshark)",
+            "Montar racks físicos com furadeira de impacto"
+          ],
+          "correct": [
+            "Identificar e classificar camadas do modelo OSI",
+            "Relacionar protocolos às suas camadas",
+            "Analisar tráfego de rede com ferramentas (Wireshark)"
+          ],
+          "tip": "O foco é em arquitetura de redes lógicas e análise avançada de pacotes, não em montagem infraestrutural braçal. "
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe os termos práticos da ficha de diagnóstico ao seu conceito referencial OSI:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ausência de conectividade",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sem ping entre sub-redes",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Upload/Sincronia travando",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Site retorna erro 404/500",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Falha na Camada Física (C1)"
+            },
+            {
+              "id": "z2",
+              "label": "Falha na Camada de Rede (C3)"
+            },
+            {
+              "id": "z3",
+              "label": "Falha de Transporte TCP (C4)"
+            },
+            {
+              "id": "z4",
+              "label": "Falha de Aplicação (C7)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses atalhos mentais permitem diagnósticos ultrarrápidos em ambientes corporativos de alta pressão. "
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o principal risco que a LogisTech sofreu por não ter uma infraestrutura de rede adequada nos primeiros anos?",
+          "answers": [
+            "Aumentar demasiadamente as velocidades de entrega.",
+            "Prazos perdidos, clientes insatisfeitos e prejuízo competitivo.",
+            "Invasão por alienígenas digitais.",
+            "Saturação de redes de rádio frequência longínquas."
+          ],
+          "correct": "Prazos perdidos, clientes insatisfeitos e prejuízo competitivo.",
+          "tip": "A transformação digital requer que a base de dados não flutue em documentos impressos offline. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A infraestrutura invisível descrita pelos autores significa que toda solução em nuvem e APIs repousam sobre as fundações das redes e protocolos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Como diz a frase final, 'nas redes digitais, os protocolos são o idioma universal dessa civilização'. "
+        }
+      ]
     }
   ]
 }
