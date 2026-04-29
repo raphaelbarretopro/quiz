@@ -33467,6 +33467,890 @@
           "tip": "Sistemas com visibilidade pública jamais ficam na LAN interna, eles residem na DMZ."
         }
       ]
+    },
+    {
+      "slug": "aula-45",
+      "lesson_info": {
+        "id": "Aula-45",
+        "title": "AULA 45 - CONFIGURAÇÃO BÁSICA DE REDES",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "ENDEREÇAMENTO IP",
+            "desc": "Fundamentos de IPv4, IPv6, classes e máscaras de sub-rede.",
+            "color": "#3f51b5",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "GATEWAYS E DNS",
+            "desc": "Roteamento estático, função do gateway e resolução de nomes.",
+            "color": "#009688",
+            "img_url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "CONECTIVIDADE",
+            "desc": "Wi-Fi vs Ethernet, compartilhamento e comandos CLI.",
+            "color": "#ff9800",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "SEGURANÇA",
+            "desc": "Proteção de redes, antivírus, firewall e Case LogisTech.",
+            "color": "#607d8b",
+            "img_url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "P",
+          "I",
+          "N",
+          "G"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das seguintes opções são funções do endereço IP?",
+          "answers": [
+            "Identificação única na rede",
+            "Localização do dispositivo",
+            "Criptografia de disco",
+            "Comunicação e roteamento de pacotes"
+          ],
+          "correct": [
+            "Identificação única na rede",
+            "Localização do dispositivo",
+            "Comunicação e roteamento de pacotes"
+          ],
+          "tip": "Sem o IP, os pacotes não saberiam seu destino. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o protocolo IPv4 utiliza endereços de 32 bits escritos em quatro octetos decimais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles são separados por pontos, como 192.168.1.10. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Endereços da classe [COMBO] são comumente usados em redes domésticas e pequenas.",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "correct": "C",
+          "tip": "A classe C abrange a faixa 192.0.0.0 a 223.x.x.x. "
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione as classes IPv4 ao seu uso típico:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Classe A",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Classe B",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Classe D",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Redes muito grandes"
+            },
+            {
+              "id": "z2",
+              "label": "Redes médias"
+            },
+            {
+              "id": "z3",
+              "label": "Multicast"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As classes facilitam a organização das redes. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a função da máscara de sub-rede?",
+          "answers": [
+            "Aumentar a velocidade da rede",
+            "Ocultar o endereço IP do usuário",
+            "Determinar qual parte do IP é rede e qual é host",
+            "Traduzir nomes em endereços lógicos"
+          ],
+          "correct": "Determinar qual parte do IP é rede e qual é host",
+          "tip": "Ela pode ser escrita como 255.255.255.0 ou em notação CIDR como /24. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "O protocolo IPv6 foi criado porque os endereços IPv4 se esgotaram.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O IPv6 possui 128 bits, oferecendo um espaço praticamente ilimitado. "
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe as características aos protocolos IPv4 ou IPv6:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "128 bits e Hexadecimal",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "NAT necessário",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "IPSec Nativo",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "IPv6"
+            },
+            {
+              "id": "z2",
+              "label": "IPv4"
+            },
+            {
+              "id": "z3",
+              "label": "Segurança no IPv6"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O IPv6 traz melhorias nativas de segurança e roteamento. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O protocolo IPv6 suporta 340 [COMBO] de endereços possíveis.",
+          "options": [
+            "milhões",
+            "bilhões",
+            "trilhões",
+            "undecilhões"
+          ],
+          "correct": "undecilhões",
+          "tip": "Este número colossal garante o futuro do endereçamento global. "
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], selecione os benefícios diretos do IPv6 em relação ao IPv4:",
+          "answers": [
+            "Espaço de endereçamento ampliado",
+            "Uso exclusivo de 32 bits",
+            "Segurança IPSec embutida",
+            "Autoconfiguração (SLAAC)"
+          ],
+          "correct": [
+            "Espaço de endereçamento ampliado",
+            "Segurança IPSec embutida",
+            "Autoconfiguração (SLAAC)"
+          ],
+          "tip": "A autoconfiguração permite que os dispositivos gerem seus próprios IPs. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "A notação CIDR /24 corresponde a qual máscara de sub-rede decimal?",
+          "answers": [
+            "255.0.0.0",
+            "255.255.0.0",
+            "255.255.255.0",
+            "255.255.255.255"
+          ],
+          "correct": "255.255.255.0",
+          "tip": "Essa máscara permite até 254 hosts por rede. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a faixa de endereços 192.168.x.x é reservada para uso público na internet.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essa faixa é reservada para uso privado (RFC 1918) em redes locais. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A coexistência de IPv4 e IPv6 na mesma rede é chamada de pilha dupla ou [COMBO].",
+          "options": [
+            "dual-stack",
+            "NAT",
+            "SLAAC",
+            "CIDR"
+          ],
+          "correct": "dual-stack",
+          "tip": "É a estratégia de migração gradual mais comum nas empresas. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Quando um pacote precisa sair da rede local, para onde ele é enviado primeiramente?",
+          "answers": [
+            "Servidor DNS",
+            "Gateway Padrão",
+            "Switch",
+            "Access Point"
+          ],
+          "correct": "Gateway Padrão",
+          "tip": "O gateway é o intermediário para outras redes.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que é o Gateway Padrão em uma rede?",
+          "answers": [
+            "Um software antivírus",
+            "A porta de saída para endereços fora da rede local",
+            "O cabo que conecta o switch ao servidor",
+            "Um protocolo de segurança"
+          ],
+          "correct": "A porta de saída para endereços fora da rede local",
+          "tip": "Geralmente é o roteador que decide o próximo salto. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "No roteamento estático, o administrador de rede configura manualmente as rotas nos roteadores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É indicado para redes pequenas e estáveis. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A [COMBO] de rotas funciona como o 'mapa' do roteador.",
+          "options": [
+            "tabela",
+            "máscara",
+            "lista",
+            "fila"
+          ],
+          "correct": "tabela",
+          "tip": "Nela, constam informações como a rede de destino e a interface de saída. "
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais elementos estão contidos em uma entrada da tabela de rotas?",
+          "answers": [
+            "Rede de destino",
+            "Endereço MAC da impressora",
+            "Gateway do próximo salto",
+            "Interface de saída"
+          ],
+          "correct": [
+            "Rede de destino",
+            "Gateway do próximo salto",
+            "Interface de saída"
+          ],
+          "tip": "Esses dados dizem para onde o roteador deve despachar o pacote. "
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Ordene as ações de roteamento ao enviar um pacote externo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Origem envia"
+            },
+            {
+              "id": "z2",
+              "label": "Consulta tabela"
+            },
+            {
+              "id": "z3",
+              "label": "Encaminha pacote"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O roteador consulta seu 'mapa' antes de encaminhar. "
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual é a principal função do DNS (Domain Name System)?",
+          "answers": [
+            "Bloquear ataques de negação de serviço",
+            "Traduzir nomes amigáveis em endereços IP",
+            "Distribuir IPs dinamicamente",
+            "Proteger a rede Wi-Fi"
+          ],
+          "correct": "Traduzir nomes amigáveis em endereços IP",
+          "tip": "Ele funciona como uma agenda telefônica da rede. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], um servidor DNS Interno é usado exclusivamente para acessar sites da internet pública.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele resolve nomes de máquinas da própria rede corporativa. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O IP 8.8.8.8, pertencente ao Google, é um exemplo de DNS [COMBO].",
+          "options": [
+            "Público",
+            "Interno",
+            "Estático",
+            "Privado"
+          ],
+          "correct": "Público",
+          "tip": "Servidores públicos são usados para acessar a internet. "
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Ao configurar a conexão típica de um host, quais parâmetros devem ser informados?",
+          "answers": [
+            "Endereço IP",
+            "Máscara de Sub-rede",
+            "Gateway Padrão",
+            "Tabela BGP"
+          ],
+          "correct": [
+            "Endereço IP",
+            "Máscara de Sub-rede",
+            "Gateway Padrão"
+          ],
+          "tip": "O DNS primário também é comumente informado. "
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Associe os exemplos aos conceitos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "192.168.1.1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "8.8.8.8",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "www.logistech.com.br",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gateway Típico"
+            },
+            {
+              "id": "z2",
+              "label": "DNS Público"
+            },
+            {
+              "id": "z3",
+              "label": "Nome Amigável"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O DNS traduz o nome amigável para o IP correspondente. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o roteamento estático não é adequado para infraestruturas massivas com mudanças diárias de topologia.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele exige configuração manual a cada mudança, sendo melhor para redes estáveis. "
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Dentro da rede local, se o tráfego não precisar ir para o gateway, qual tecnologia física é mais estável para os servidores?",
+          "answers": [
+            "Ethernet",
+            "Wi-Fi",
+            "Bluetooth",
+            "5G"
+          ],
+          "correct": "Ethernet",
+          "tip": "Servidores requerem máxima estabilidade.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é uma vantagem fundamental da conexão Ethernet em relação ao Wi-Fi?",
+          "answers": [
+            "Maior mobilidade física",
+            "Alta estabilidade e baixa latência",
+            "Instalação sem cabos estruturados",
+            "Uso de padrões 802.11ax"
+          ],
+          "correct": "Alta estabilidade e baixa latência",
+          "tip": "Ela é menos suscetível a interferências e ideal para estações fixas. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O Wi-Fi é altamente suscetível a interferências e obstáculos físicos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Apesar da mobilidade, paredes e outros sinais degradam a conexão. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para validar a comunicação entre dispositivos, utiliza-se a linha de comando no aplicativo [COMBO].",
+          "options": [
+            "CMD",
+            "Word",
+            "Paint",
+            "Navegador"
+          ],
+          "correct": "CMD",
+          "tip": "O Prompt de Comando abriga ferramentas de diagnóstico vitais. "
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais dos seguintes comandos são utilizados para diagnóstico de rede no CLI?",
+          "answers": [
+            "ping",
+            "ipconfig",
+            "tracert",
+            "format"
+          ],
+          "correct": [
+            "ping",
+            "ipconfig",
+            "tracert"
+          ],
+          "tip": "Estes comandos testam acessibilidade, configurações e caminhos. "
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe o comando CLI à sua principal função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ping",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ipconfig",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "tracert",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Testa acesso e mede latência"
+            },
+            {
+              "id": "z2",
+              "label": "Exibe configurações de rede"
+            },
+            {
+              "id": "z3",
+              "label": "Rastreia o caminho dos pacotes"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas são ferramentas fundamentais para qualquer técnico. "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Para iniciar a configuração de um IP estático no Windows, qual menu deve ser acessado?",
+          "answers": [
+            "Gerenciador de Tarefas",
+            "Central de Rede e Compartilhamento",
+            "Opções de Energia",
+            "Windows Update"
+          ],
+          "correct": "Central de Rede e Compartilhamento",
+          "tip": "A partir daí, acessam-se as configurações do adaptador. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o compartilhamento de pastas na rede elimina a necessidade de pendrives corporativos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele centraliza arquivos, permitindo acesso imediato e seguro. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O comando [COMBO] \\PC-01 lista os recursos compartilhados de outro computador.",
+          "options": [
+            "net view",
+            "ping",
+            "ipconfig",
+            "route print"
+          ],
+          "correct": "net view",
+          "tip": "Esse comando é excelente para validar se a pasta foi publicada corretamente. "
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são passos essenciais ao compartilhar uma pasta no Windows?",
+          "answers": [
+            "Clicar com botão direito e ir em Propriedades",
+            "Definir permissões (Leitura/Gravação)",
+            "Alterar a memória RAM do computador",
+            "Adicionar usuários ao compartilhamento"
+          ],
+          "correct": [
+            "Clicar com botão direito e ir em Propriedades",
+            "Definir permissões (Leitura/Gravação)",
+            "Adicionar usuários ao compartilhamento"
+          ],
+          "tip": "A gestão de permissões é vital para a segurança local. "
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Compare Ethernet e Wi-Fi de acordo com a recomendação da LogisTech:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Servidores",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Tablets de Entregadores",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Conexão Ethernet (Cabeada)"
+            },
+            {
+              "id": "z2",
+              "label": "Conexão Wi-Fi (Sem fio)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Servidores precisam de estabilidade total, enquanto coletores precisam de mobilidade. "
+        },        
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Configurar IP estático é inútil para servidores, pois eles preferem IPs que mudam diariamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Servidores e impressoras precisam ser sempre encontrados no mesmo endereço estático. "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Após conectar todos os cabos, qual fator crítico pode comprometer a operação da rede?",
+          "answers": [
+            "Falta de proteção e ameaças de segurança",
+            "Excesso de velocidade da Ethernet",
+            "Tamanho dos pacotes ICMP do ping",
+            "A cor do cabo de rede"
+          ],
+          "correct": "Falta de proteção e ameaças de segurança",
+          "tip": "Sem defesas, a rede fica vulnerável a ataques.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o que define um Malware?",
+          "answers": [
+            "Programas maliciosos que se instalam sem consentimento",
+            "Um tipo de hardware danificado",
+            "Apenas mensagens de spam por e-mail",
+            "Ferramentas nativas do Windows"
+          ],
+          "correct": "Programas maliciosos que se instalam sem consentimento",
+          "tip": "Eles corrompem dados e roubam informações. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Phishing é uma técnica de enganar usuários para que revelem senhas ou dados sensíveis.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso ocorre geralmente por e-mails falsos disfarçados de instituições legítimas. "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Um ataque de Negação de Serviço ([COMBO]) visa sobrecarregar a rede para torná-la indisponível.",
+          "options": [
+            "DoS",
+            "DNS",
+            "CLI",
+            "SMB"
+          ],
+          "correct": "DoS",
+          "tip": "DoS significa Denial of Service. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são os três pilares fundamentais da Segurança da Informação?",
+          "answers": [
+            "Confidencialidade",
+            "Integridade",
+            "Disponibilidade",
+            "Agilidade"
+          ],
+          "correct": [
+            "Confidencialidade",
+            "Integridade",
+            "Disponibilidade"
+          ],
+          "tip": "Segundo a literatura técnica, esses três pilares guiam a proteção dos dados. "
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe as boas práticas às suas ações de segurança:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Antivírus",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "WPA2/WPA3",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Firewall",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Atualizar definições contra vírus"
+            },
+            {
+              "id": "z2",
+              "label": "Senhas fortes para Wi-Fi"
+            },
+            {
+              "id": "z3",
+              "label": "Bloquear conexões indesejadas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Práticas simples fortalecem o ambiente corporativo. "
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que instalar atualizações e patches do sistema operacional é vital?",
+          "answers": [
+            "Para melhorar os gráficos dos jogos",
+            "Elas corrigem vulnerabilidades conhecidas exploradas por invasores",
+            "Para mudar o endereço IP local",
+            "Aumenta o limite de ping da rede"
+          ],
+          "correct": "Elas corrigem vulnerabilidades conhecidas exploradas por invasores",
+          "tip": "Softwares desatualizados são as portas de entrada favoritas de hackers. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Conectar dispositivos em rede apenas aumenta a produtividade, sem nenhum risco adicional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A conexão também amplia a superfície de ataque, exigindo proteção constante. "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Redes Wi-Fi com senhas fracas facilitam o [COMBO] não autorizado por invasores.",
+          "options": [
+            "acesso",
+            "roteamento",
+            "ping",
+            "sinal"
+          ],
+          "correct": "acesso",
+          "tip": "O isolamento e a criptografia WPA2 previnem essa ameaça. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Na Situação de Aprendizagem (Case LogisTech), os alunos devem resolver problemas como:",
+          "answers": [
+            "Troca manual de pen drives entre setores",
+            "Planilhas isoladas e lentidão na atualização",
+            "Instalação de roteadores BGP",
+            "Configurar a rede para colaboração via pastas"
+          ],
+          "correct": [
+            "Troca manual de pen drives entre setores",
+            "Planilhas isoladas e lentidão na atualização",
+            "Configurar a rede para colaboração via pastas"
+          ],
+          "tip": "O desafio prático simula dores reais da logística. "
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], no diagnóstico de falha de ping, relacione o sintoma à possível causa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cabo desconectado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Firewall Ativo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sub-redes diferentes",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Hipótese C (Físico)"
+            },
+            {
+              "id": "z2",
+              "label": "Hipótese B (Bloqueio ICMP)"
+            },
+            {
+              "id": "z3",
+              "label": "Hipótese A (Lógico Isolado)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O 'Host de destino inacessível' requer investigação estruturada. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Em ambientes corporativos, as configurações de IP e de compartilhamento são fundamentais para iniciar a transformação digital.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Como no Case da LogisTech, conectar as máquinas baseia o fluxo colaborativo. "
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], ao concluir a configuração dos PCs Depósito e Escritório na SA, o que deve ser capturado como evidência final?",
+          "answers": [
+            "Um vídeo do processo",
+            "Capturas de tela do ping bem-sucedido e da pasta compartilhada",
+            "O log do antivírus",
+            "O manual do switch Ethernet"
+          ],
+          "correct": "Capturas de tela do ping bem-sucedido e da pasta compartilhada",
+          "tip": "O registro em ficha garante a avaliação correta do desafio. "
+        }
+      ]
     }
   ]
 }
