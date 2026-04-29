@@ -27065,7 +27065,7 @@
             "name": "LINUX E TERMINAL",
             "desc": "Comandos essenciais e navegação em distribuições Linux para uso profissional.",
             "color": "#2ecc71",
-            "img_url": "https://images.unsplash.com/photo-1629654261662-7396a58eb738?auto=format&fit=crop&q=80&w=1600"
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
           }
         ],
         "sokoban": [
@@ -27953,6 +27953,941 @@
           ],
           "correct": "Garantir a base de funcionamento para aplicações e infraestruturas corporativas",
           "tip": "Todo sistema de software robusto repousa sobre um sistema operacional bem configurado.",
+          "trans": "END"
+        }
+      ]
+    },
+    {
+      "slug": "aula-39",
+      "lesson_info": {
+        "id": "Aula-39",
+        "title": "AULA 39 - FERRAMENTAS E UTILITÁRIOS DO SISTEMA OPERACIONAL",
+        "topics": [
+          {
+            "id": "FUNC",
+            "name": "CONCEITOS E FUNÇÕES",
+            "desc": "Visão geral sobre ferramentas de monitoramento, diagnóstico e configuração nativas do SO.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "TASK",
+            "name": "GERENCIADOR DE TAREFAS",
+            "desc": "Uso prático do Task Manager para monitoramento de processos e desempenho.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "DIAG",
+            "name": "FERRAMENTAS DE DIAGNÓSTICO",
+            "desc": "Exploração avançada do Visualizador de Eventos e Monitor de Recursos.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "CONF",
+            "name": "CONFIGURAÇÃO E OTIMIZAÇÃO",
+            "desc": "Isolamento de problemas com MSConfig e Diagnóstico de Memória.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "L",
+          "O",
+          "G",
+          "S"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "FUNC",
+          "questions": "[NAME], de acordo com o material, o que são ferramentas utilitárias do sistema operacional? ",
+          "answers": [
+            "Programas integrados que permitem monitorar, diagnosticar e configurar o computador",
+            "Softwares de terceiros focados em edição de imagem",
+            "Apenas drivers de impressoras instalados na rede",
+            "Arquivos de texto com logs apagados automaticamente"
+          ],
+          "correct": "Programas integrados que permitem monitorar, diagnosticar e configurar o computador",
+          "tip": "Elas auxiliam na administração e otimização dos recursos computacionais."
+        },
+        {
+          "type": "boolean",
+          "topics": "FUNC",
+          "questions": "[NAME], as ferramentas utilitárias diferem de aplicações comuns por atuarem diretamente sobre os recursos do sistema, como memória e rede. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Elas fornecem informações técnicas em tempo real para o técnico."
+        },
+        {
+          "type": "combo",
+          "topics": "FUNC",
+          "questions": "As ferramentas de Monitoramento acompanham o uso de [COMBO], RAM e disco em tempo real. ",
+          "options": [
+            "CPU",
+            "Vírus",
+            "Teclado",
+            "Bateria"
+          ],
+          "correct": "CPU",
+          "tip": "O acompanhamento em tempo real é vital para estabilidade."
+        },
+        {
+          "type": "multi",
+          "topics": "FUNC",
+          "questions": "[NAME], quais categorias principais de ferramentas utilitárias são destacadas no material? ",
+          "answers": [
+            "Monitoramento",
+            "Diagnóstico",
+            "Configuração",
+            "Criação de Jogos"
+          ],
+          "correct": [
+            "Monitoramento",
+            "Diagnóstico",
+            "Configuração"
+          ],
+          "tip": "Cada categoria atende a uma fase do suporte técnico."
+        },
+        {
+          "type": "drag",
+          "topics": "FUNC",
+          "questions": "[NAME], relacione a categoria da ferramenta à sua respectiva função nativa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Monitoramento ",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Diagnóstico ",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Configuração ",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Acompanha uso em tempo real"
+            },
+            {
+              "id": "z2",
+              "label": "Identifica erros e anomalias"
+            },
+            {
+              "id": "z3",
+              "label": "Ajusta parâmetros de inicialização"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas ações compõem o ciclo de manutenção preventiva e corretiva."
+        },
+        {
+          "type": "multiple",
+          "topics": "FUNC",
+          "questions": "[NAME], por que agir sem diagnóstico é considerado uma falha para o profissional de TI? ",
+          "answers": [
+            "É como receitar remédio sem examinar o paciente",
+            "Porque os sistemas sempre se consertam sozinhos",
+            "Porque gasta mais energia elétrica do servidor",
+            "Porque o usuário prefere resolver sozinho"
+          ],
+          "correct": "É como receitar remédio sem examinar o paciente",
+          "tip": "Diagnosticar o sistema antes de intervir é regra de ouro no suporte."
+        },
+        {
+          "type": "boolean",
+          "topics": "FUNC",
+          "questions": "[NAME], o Windows oferece um arsenal robusto de ferramentas nativas, exigindo obrigatoriamente instalações adicionais pagas para o diagnóstico básico. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As ferramentas nativas são acessíveis sem nenhuma instalação extra."
+        },
+        {
+          "type": "combo",
+          "topics": "FUNC",
+          "questions": "O [COMBO] de Eventos é uma ferramenta nativa da categoria de Diagnóstico do Windows. ",
+          "options": [
+            "Visualizador",
+            "Criador",
+            "Excluidor",
+            "Reprodutor"
+          ],
+          "correct": "Visualizador",
+          "tip": "Ele age como o diário do sistema operacional."
+        },
+        {
+          "type": "multi",
+          "topics": "FUNC",
+          "questions": "[NAME], quais são as opções nativas de Monitoramento e Diagnóstico citadas no material? ",
+          "answers": [
+            "Gerenciador de Tarefas",
+            "Visualizador de Eventos",
+            "Diagnóstico de Memória",
+            "Photoshop Diagnostics"
+          ],
+          "correct": [
+            "Gerenciador de Tarefas",
+            "Visualizador de Eventos",
+            "Diagnóstico de Memória"
+          ],
+          "tip": "Ferramentas nativas vêm pré-instaladas com o Windows."
+        },
+        {
+          "type": "drag",
+          "topics": "FUNC",
+          "questions": "Relacione a ferramenta do Windows à sua categoria principal: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Monitor de Recursos ",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Visualizador de Eventos ",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "MSConfig ",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Monitoramento"
+            },
+            {
+              "id": "z2",
+              "label": "Diagnóstico"
+            },
+            {
+              "id": "z3",
+              "label": "Configuração"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer a função de cada uma facilita a escolha na hora do problema."
+        },
+        {
+          "type": "multiple",
+          "topics": "FUNC",
+          "questions": "[NAME], o que a Otimização visa alcançar utilizando essas ferramentas? ",
+          "answers": [
+            "Auxiliar na liberação de recursos e melhoria de desempenho",
+            "Formatar o disco rígido diariamente",
+            "Desligar a tela para economizar bateria",
+            "Aumentar o número de vírus identificados"
+          ],
+          "correct": "Auxiliar na liberação de recursos e melhoria de desempenho",
+          "tip": "A otimização busca sempre deixar o ambiente mais rápido e estável."
+        },
+        {
+          "type": "boolean",
+          "topics": "FUNC",
+          "questions": "[NAME], segundo o material, identificar a causa raiz de um problema é uma das habilidades mais valorizadas no profissional de TI. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Trabalhar de forma analítica e não por achismos destaca o bom técnico."
+        },
+        {
+          "type": "multi",
+          "topics": "FUNC",
+          "questions": "Quais objetivos de aprendizagem foram propostos para esta aula técnica? ",
+          "answers": [
+            "Compreender e identificar as ferramentas nativas",
+            "Analisar e interpretar informações do Gerenciador",
+            "Aplicar e simular a resolução de travamentos",
+            "Memorizar códigos hexadecimais de erro"
+          ],
+          "correct": [
+            "Compreender e identificar as ferramentas nativas",
+            "Analisar e interpretar informações do Gerenciador",
+            "Aplicar e simular a resolução de travamentos"
+          ],
+          "tip": "O foco é diagnosticar a causa raiz das falhas em aplicações.",
+          "trans": "TASK"
+        },
+        {
+          "type": "multiple",
+          "topics": "TASK",
+          "questions": "[NAME], qual é uma das formas corretas de abrir o Gerenciador de Tarefas no Windows? ",
+          "answers": [
+            "Ctrl + Shift + Esc",
+            "Alt + F4",
+            "Win + L",
+            "Shift + Enter"
+          ],
+          "correct": "Ctrl + Shift + Esc",
+          "tip": "Esse atalho abre a ferramenta de monitoramento instantaneamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "TASK",
+          "questions": "[NAME], processos vitais do sistema como 'svchost' e 'lsass' devem ser encerrados imediatamente sempre que aparecerem na lista. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Nunca encerre processos do sistema sem conhecimento técnico profundo."
+        },
+        {
+          "type": "drag",
+          "topics": "TASK",
+          "questions": "[NAME], relacione as abas do Gerenciador de Tarefas com suas funcionalidades principais: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Processos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Desempenho",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Inicializar",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Usuários",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Lista processos e permite encerrar tarefas"
+            },
+            {
+              "id": "z2",
+              "label": "Gráficos em tempo real de hardware"
+            },
+            {
+              "id": "z3",
+              "label": "Programas que iniciam com o Windows"
+            },
+            {
+              "id": "z4",
+              "label": "Sessões ativas e consumo por conta"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Navegar corretamente pelas abas acelera a identificação do gargalo."
+        },
+        {
+          "type": "combo",
+          "topics": "TASK",
+          "questions": "O Gerenciador de Tarefas é a [COMBO] ferramenta a ser consultada diante de lentidão ou travamento do sistema. ",
+          "options": [
+            "Primeira",
+            "Última",
+            "Única",
+            "Opcional"
+          ],
+          "correct": "Primeira",
+          "tip": "Ele oferece um panorama rápido de toda a máquina."
+        },
+        {
+          "type": "multi",
+          "topics": "TASK",
+          "questions": "[NAME], na aba Processos, quais métricas devem ser observadas com atenção durante um travamento? ",
+          "answers": [
+            "% de uso de CPU e RAM",
+            "Leitura/Escrita em disco (MB/s)",
+            "Tráfego de rede (Mbps)",
+            "Brilho da tela em %"
+          ],
+          "correct": [
+            "% de uso de CPU e RAM",
+            "Leitura/Escrita em disco (MB/s)",
+            "Tráfego de rede (Mbps)"
+          ],
+          "tip": "Essas métricas revelam qual hardware está sendo sobrecarregado."
+        },
+        {
+          "type": "multiple",
+          "topics": "TASK",
+          "questions": "O que costuma indicar quando a memória RAM de um processo está crescendo continuamente sem parar? ",
+          "answers": [
+            "Vazamento de memória (memory leak)",
+            "Atualização normal do Windows",
+            "Resfriamento do processador",
+            "Limpeza do disco rígido"
+          ],
+          "correct": "Vazamento de memória (memory leak)",
+          "tip": "Isso ocorre por falha de programação no software que não libera a memória."
+        },
+        {
+          "type": "boolean",
+          "topics": "TASK",
+          "questions": "[NAME], desabilitar itens não essenciais na aba Inicializar é uma das formas mais eficazes de reduzir o tempo de boot do sistema. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Muitos programas tentam iniciar junto com o SO desnecessariamente."
+        },
+        {
+          "type": "combo",
+          "topics": "TASK",
+          "questions": "Um processo com consumo de [COMBO] acima de 90% pode indicar um loop infinito ou a presença de um vírus. ",
+          "options": [
+            "CPU",
+            "Monitor",
+            "Mouse",
+            "Teclado"
+          ],
+          "correct": "CPU",
+          "tip": "Isso monopoliza o processador, deixando a máquina inoperante."
+        },
+        {
+          "type": "multi",
+          "topics": "TASK",
+          "questions": "Quais informações detalhadas a aba Desempenho fornece sobre a CPU? ",
+          "answers": [
+            "Frequência atual",
+            "Núcleos físicos e lógicos",
+            "Velocidade de clock em tempo real",
+            "Senhas salvas no cache"
+          ],
+          "correct": [
+            "Frequência atual",
+            "Núcleos físicos e lógicos",
+            "Velocidade de clock em tempo real"
+          ],
+          "tip": "Estas informações ajudam a saber se a CPU está atuando no limite térmico."
+        },
+        {
+          "type": "drag",
+          "topics": "TASK",
+          "questions": "[NAME], conecte o sinal de alerta visto na aba Processos à sua provável causa: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "CPU constante > 90%",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Status 'Sem resposta'",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "RAM inflando sem parar",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Loop infinito ou anomalia"
+            },
+            {
+              "id": "z2",
+              "label": "Processo travado (crash)"
+            },
+            {
+              "id": "z3",
+              "label": "Memory leak"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Reconhecer esses padrões agiliza a identificação de incidentes."
+        },
+        {
+          "type": "multiple",
+          "topics": "TASK",
+          "questions": "O que um disco a 100% de uso contínuo geralmente causa no computador? ",
+          "answers": [
+            "Extrema lentidão no sistema operacional",
+            "Desligamento automático seguro",
+            "Aumento na resolução da tela",
+            "Melhoria na velocidade da internet"
+          ],
+          "correct": "Extrema lentidão no sistema operacional",
+          "tip": "Gargalos de leitura/escrita travam todas as aplicações que tentam acessar arquivos."
+        },
+        {
+          "type": "boolean",
+          "topics": "TASK",
+          "questions": "[NAME], para organizar o fluxo, o impacto na inicialização é classificado pelo sistema como: Nenhum, Baixo, Médio ou Alto. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso ajuda o técnico a saber quais programas atrasam mais a inicialização."
+        },
+        {
+          "type": "multi",
+          "topics": "TASK",
+          "questions": "Para otimizar o boot pela aba Inicializar, o técnico deve: ",
+          "answers": [
+            "Avaliar a necessidade diária do programa",
+            "Ordenar por impacto na inicialização",
+            "Desabilitar processos não essenciais",
+            "Desinstalar todos os softwares da máquina"
+          ],
+          "correct": [
+            "Avaliar a necessidade diária do programa",
+            "Ordenar por impacto na inicialização",
+            "Desabilitar processos não essenciais"
+          ],
+          "tip": "A regra de ouro é desabilitar com critério, mantendo apenas o necessário.",
+          "trans": "DIAG"
+        },
+        {
+          "type": "multiple",
+          "topics": "DIAG",
+          "questions": "[NAME], qual ferramenta nativa funciona como o 'Diário do Sistema'? ",
+          "answers": [
+            "Visualizador de Eventos (Event Viewer)",
+            "Paint 3D",
+            "Calculadora do Windows",
+            "Gerenciador de Janelas"
+          ],
+          "correct": "Visualizador de Eventos (Event Viewer)",
+          "tip": "Ele registra silenciosamente quase tudo que ocorre na máquina."
+        },
+        {
+          "type": "boolean",
+          "topics": "DIAG",
+          "questions": "[NAME], o comando rápido para acessar o Visualizador de Eventos através do Executar (Win+R) é 'eventvwr.msc'. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Decorar esse atalho salva muito tempo no dia a dia do suporte."
+        },
+        {
+          "type": "drag",
+          "topics": "DIAG",
+          "questions": "Relacione os tipos de registro do Visualizador de Eventos às suas definições: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Aviso",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Erro",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Crítico",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Informação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Pode causar problemas futuros"
+            },
+            {
+              "id": "z2",
+              "label": "Falha com perda de função"
+            },
+            {
+              "id": "z3",
+              "label": "Requer atenção imediata (ex: tela azul)"
+            },
+            {
+              "id": "z4",
+              "label": "Operação concluída com êxito"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Filtre sempre por Erros e Críticos quando estiver caçando problemas."
+        },
+        {
+          "type": "combo",
+          "topics": "DIAG",
+          "questions": "O log de [COMBO] registra tentativas de login e acessos suspeitos à máquina. ",
+          "options": [
+            "Segurança",
+            "Aplicativo",
+            "Sistema",
+            "Instalação"
+          ],
+          "correct": "Segurança",
+          "tip": "Muito utilizado em auditorias para verificar acessos indevidos."
+        },
+        {
+          "type": "multi",
+          "topics": "DIAG",
+          "questions": "[NAME], o Monitor de Recursos (resmon.exe) permite uma análise aprofundada revelando: ",
+          "answers": [
+            "Quais arquivos um processo está acessando",
+            "Conexões ativas de rede por cada programa",
+            "Fila de espera de leitura e escrita do disco",
+            "As senhas digitadas pelo usuário no dia"
+          ],
+          "correct": [
+            "Quais arquivos um processo está acessando",
+            "Conexões ativas de rede por cada programa",
+            "Fila de espera de leitura e escrita do disco"
+          ],
+          "tip": "Ele fornece detalhes cruciais que o Gerenciador de Tarefas oculta."
+        },
+        {
+          "type": "multiple",
+          "topics": "DIAG",
+          "questions": "Na visão de Memória do Monitor de Recursos, como o mapa detalhado se apresenta? ",
+          "answers": [
+            "Em uso, em espera, disponível e modificada",
+            "Livre, cheia, quebrada e virtual",
+            "C: , D: , E: e F:",
+            "Rápida, Lenta, Quente e Fria"
+          ],
+          "correct": "Em uso, em espera, disponível e modificada",
+          "tip": "Essa segmentação permite achar programas monopolizando espaço vital."
+        },
+        {
+          "type": "boolean",
+          "topics": "DIAG",
+          "questions": "[NAME], a visão de Rede do Monitor de Recursos é inútil para detectar comunicações não autorizadas, pois não mostra os endereços IP. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, ela exibe as conexões TCP ativas, IPs e portas."
+        },
+        {
+          "type": "combo",
+          "topics": "DIAG",
+          "questions": "Para buscar a causa exata de um erro na base da Microsoft, devemos utilizar o [COMBO] do Evento fornecido pelo Visualizador. ",
+          "options": [
+            "ID",
+            "Nome",
+            "Tamanho",
+            "Dono"
+          ],
+          "correct": "ID",
+          "tip": "O ID funciona como um código único que facilita as buscas em fóruns."
+        },
+        {
+          "type": "multi",
+          "topics": "DIAG",
+          "questions": "[NAME], quais desses itens pertencem aos 'Logs Principais' do Visualizador de Eventos? ",
+          "answers": [
+            "Aplicativo",
+            "Sistema",
+            "Instalação",
+            "Log de Jogos"
+          ],
+          "correct": [
+            "Aplicativo",
+            "Sistema",
+            "Instalação"
+          ],
+          "tip": "As falhas do SO geralmente ficam no log 'Sistema'."
+        },
+        {
+          "type": "drag",
+          "topics": "DIAG",
+          "questions": "Relacione o log principal ao seu uso correto: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Aplicativo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sistema",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Instalação",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Falha em software como ERP ou Office"
+            },
+            {
+              "id": "z2",
+              "label": "Serviços e drivers do Windows corrompidos"
+            },
+            {
+              "id": "z3",
+              "label": "Histórico de updates e programas adicionados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber onde procurar economiza horas de investigação."
+        },
+        {
+          "type": "multiple",
+          "topics": "DIAG",
+          "questions": "Na Situação de Aprendizagem, qual ferramenta foi sugerida para identificar IPs de destino de conexões ativas? ",
+          "answers": [
+            "Monitor de Recursos → Rede",
+            "Calculadora",
+            "Painel de Controle",
+            "Visualizador de Imagens"
+          ],
+          "correct": "Monitor de Recursos → Rede",
+          "tip": "É a forma mais rápida de inspecionar comunicações em segundo plano."
+        },
+        {
+          "type": "boolean",
+          "topics": "DIAG",
+          "questions": "[NAME], as ferramentas de diagnóstico atuam com foco no registro e monitoramento proativo para evitar incidentes críticos. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Analisar logs constantemente evita que um erro simples vire uma catástrofe sistêmica.",
+          "trans": "CONF"
+        },
+        {
+          "type": "multiple",
+          "topics": "CONF",
+          "questions": "[NAME], para que serve a ferramenta MSConfig do Windows? ",
+          "answers": [
+            "Configurar como o sistema operacional inicializa",
+            "Formatar pen drives em NTFS",
+            "Criar documentos de texto",
+            "Desinstalar o Windows permanentemente"
+          ],
+          "correct": "Configurar como o sistema operacional inicializa",
+          "tip": "Pode ser acessada digitando 'msconfig' no Executar."
+        },
+        {
+          "type": "boolean",
+          "topics": "CONF",
+          "questions": "[NAME], a Inicialização Diagnóstica no MSConfig carrega o Windows de forma mais pesada, ativando todos os serviços do computador. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ela faz o oposto: carrega apenas serviços essenciais para isolar problemas."
+        },
+        {
+          "type": "drag",
+          "topics": "CONF",
+          "questions": "Relacione a aba do MSConfig à sua função: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Geral",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Inicialização",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Serviços",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Modos Normal, Diagnóstico ou Seletiva"
+            },
+            {
+              "id": "z2",
+              "label": "Opções de boot como 'Modo de segurança'"
+            },
+            {
+              "id": "z3",
+              "label": "Esconder e desabilitar serviços de terceiros"
+            }
+          ],
+          "correct": "drag",
+          "tip": "É a técnica ideal para isolamento de problemas por exclusão."
+        },
+        {
+          "type": "combo",
+          "topics": "CONF",
+          "questions": "Após resolver um problema com o MSConfig, o técnico deve sempre retornar à inicialização [COMBO]. ",
+          "options": [
+            "Normal",
+            "Seletiva",
+            "Segura",
+            "Diagnóstica"
+          ],
+          "correct": "Normal",
+          "tip": "Isso evita deixar serviços importantes inativos em ambiente de produção."
+        },
+        {
+          "type": "multi",
+          "topics": "CONF",
+          "questions": "[NAME], o Diagnóstico de Memória do Windows atua na verificação de RAM para investigar quais problemas? ",
+          "answers": [
+            "Travamentos aleatórios sem explicação",
+            "Telas azuis da morte (BSOD)",
+            "Comportamentos imprevisíveis confundidos com software",
+            "Apenas aquecimento do monitor"
+          ],
+          "correct": [
+            "Travamentos aleatórios sem explicação",
+            "Telas azuis da morte (BSOD)",
+            "Comportamentos imprevisíveis confundidos com software"
+          ],
+          "tip": "Muitas vezes, uma falha de tela azul é causada por poeira ou defeito no pente de RAM."
+        },
+        {
+          "type": "multiple",
+          "topics": "CONF",
+          "questions": "Qual comando executa o Diagnóstico de Memória nativo do Windows? ",
+          "answers": [
+            "mdsched.exe",
+            "resmon.exe",
+            "cmd.exe",
+            "dxdiag"
+          ],
+          "correct": "mdsched.exe",
+          "tip": "Ele geralmente agenda o teste para a próxima reinicialização da máquina."
+        },
+        {
+          "type": "boolean",
+          "topics": "CONF",
+          "questions": "[NAME], um relatório de diagnóstico técnico bem preenchido é o diferencial de um verdadeiro profissional de TI, registrando hipóteses e ações corretivas. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Documente sempre o sintoma observado, dados coletados e a solução proposta."
+        },
+        {
+          "type": "drag",
+          "topics": "CONF",
+          "questions": "Relacione o cenário prático à ferramenta de diagnóstico recomendada: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Aplicação sem resposta",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Erro logo após instalar um app",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Telas azuis e desligamentos",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gerenciador de Tarefas"
+            },
+            {
+              "id": "z2",
+              "label": "MSConfig e Visualizador de Eventos"
+            },
+            {
+              "id": "z3",
+              "label": "Diagnóstico de Memória"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber qual ferramenta usar diminui drasticamente o tempo de indisponibilidade (downtime)."
+        },
+        {
+          "type": "combo",
+          "topics": "CONF",
+          "questions": "A gestão eficaz de [COMBO] computacionais impacta a produtividade das organizações. ",
+          "options": [
+            "Recursos",
+            "Textos",
+            "Monitores",
+            "Cadeiras"
+          ],
+          "correct": "Recursos",
+          "tip": "Sistemas bem gerenciados evitam gargalos no fluxo de negócios."
+        },
+        {
+          "type": "multi",
+          "topics": "CONF",
+          "questions": "[NAME], no contexto da LogisTech simulado nesta aula, quais informações compõem o preenchimento de um Relatório Técnico de Diagnóstico? ",
+          "answers": [
+            "Identificação do sintoma observado",
+            "Registro dos percentuais de recursos (RAM/CPU)",
+            "Ação corretiva proposta",
+            "Receita culinária para o refeitório"
+          ],
+          "correct": [
+            "Identificação do sintoma observado",
+            "Registro dos percentuais de recursos (RAM/CPU)",
+            "Ação corretiva proposta"
+          ],
+          "tip": "Ele garante que a solução encontrada possa ser repetida futuramente."
+        },
+        {
+          "type": "multiple",
+          "topics": "CONF",
+          "questions": "Qual a principal vantagem da técnica de 'isolamento de problemas por exclusão' utilizando o MSConfig? ",
+          "answers": [
+            "Permite confirmar se a falha é nativa do SO ou causada por softwares instalados recentemente",
+            "Desinstala fisicamente vírus de pen drives inseridos",
+            "Limpa a memória cache do processador permanentemente",
+            "Configura roteadores Wi-Fi locais"
+          ],
+          "correct": "Permite confirmar se a falha é nativa do SO ou causada por softwares instalados recentemente",
+          "tip": "Desabilitando itens não essenciais, removemos variáveis que poluem o diagnóstico."
+        },
+        {
+          "type": "multiple",
+          "topics": "CONF",
+          "questions": "[NAME], o pensamento final desta aula destaca que a tecnologia da informação é principalmente sobre o quê? ",
+          "answers": [
+            "Como dados, processos e pessoas interagem para criar valor nas organizações",
+            "Apenas conectar cabos em data centers gelados",
+            "Desenvolver jogos sem se importar com a memória usada",
+            "Decorar atalhos sem entender a lógica do hardware"
+          ],
+          "correct": "Como dados, processos e pessoas interagem para criar valor nas organizações",
+          "tip": "Diagnosticar falhas é o que transforma um mero usuário em um profissional analítico.",
           "trans": "END"
         }
       ]
