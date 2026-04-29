@@ -32571,6 +32571,902 @@
           "tip": "Como diz a frase final, 'nas redes digitais, os protocolos são o idioma universal dessa civilização'. "
         }
       ]
+    },
+    {
+      "slug": "aula-44",
+      "lesson_info": {
+        "id": "Aula-44",
+        "title": "AULA 44 - TOPOLOGIAS DE REDES E DISPOSITIVOS DE CONECTIVIDADE",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "CONCEITOS DE REDES",
+            "desc": "Fundamentos sobre o que é uma rede, abrangência e modelos de arquitetura.",
+            "color": "#ff5722",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "TOPOLOGIAS DE REDE",
+            "desc": "Estudo das topologias estrela, barramento e malha (físicas e lógicas).",
+            "color": "#9c27b0",
+            "img_url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "DISPOSITIVOS",
+            "desc": "Análise de Switches, Roteadores, Access Points e Firewalls na rede.",
+            "color": "#00bcd4",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "APLICAÇÃO E PROJETO",
+            "desc": "Conexão teoria-prática e projeto de infraestrutura do Case LogisTech.",
+            "color": "#4caf50",
+            "img_url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "R",
+          "E",
+          "D",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal objetivo de uma rede de computadores?",
+          "answers": [
+            "Compartilhar recursos, dados e serviços",
+            "Aumentar o gasto com equipamentos físicos",
+            "Isolar computadores em departamentos",
+            "Descentralizar a administração de TI"
+          ],
+          "correct": "Compartilhar recursos, dados e serviços",
+          "tip": "Redes existem para integrar ambientes e otimizar acessos centralizados."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], uma LAN (Local Area Network) é caracterizada por interligar continentes e países inteiros.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A LAN abrange apenas um ambiente físico local, como um escritório ou andar."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O modelo [COMBO] centraliza recursos e serviços, sendo o padrão em ambientes corporativos.",
+          "options": [
+            "Cliente-Servidor",
+            "Peer-to-Peer",
+            "Descentralizado",
+            "Isolado"
+          ],
+          "correct": "Cliente-Servidor",
+          "tip": "Esse modelo traz maior segurança e controle gerencial."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das opções abaixo são vantagens de uma rede de computadores?",
+          "answers": [
+            "Compartilhamento de impressoras",
+            "Centralização de dados seguros",
+            "Aumento dos custos operacionais",
+            "Comunicação em tempo real"
+          ],
+          "correct": [
+            "Compartilhamento de impressoras",
+            "Centralização de dados seguros",
+            "Comunicação em tempo real"
+          ],
+          "tip": "Redes reduzem custos operacionais, ao invés de aumentá-los."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione a classificação da rede à sua abrangência:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "LAN",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "MAN",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "WAN",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Escritório ou prédio"
+            },
+            {
+              "id": "z2",
+              "label": "Cidade ou campus"
+            },
+            {
+              "id": "z3",
+              "label": "Países ou continentes"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As classificações dependem da distância geográfica entre os dispositivos."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no modelo Peer-to-Peer (P2P), todos os dispositivos têm funções equivalentes, não havendo um servidor central dedicado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Cada nó é cliente e servidor ao mesmo tempo neste modelo."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "A Internet é o maior exemplo existente de qual tipo de rede, [NAME]?",
+          "answers": [
+            "WAN",
+            "LAN",
+            "MAN",
+            "PAN"
+          ],
+          "correct": "WAN",
+          "tip": "A Internet conecta todo o globo, tratando-se de uma rede de longa distância."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], no modelo Cliente-Servidor, quais são os benefícios diretos?",
+          "answers": [
+            "Maior segurança centralizada",
+            "Escalabilidade para a empresa",
+            "Qualquer PC gerencia todos os acessos",
+            "Controle fácil de usuários"
+          ],
+          "correct": [
+            "Maior segurança centralizada",
+            "Escalabilidade para a empresa",
+            "Controle fácil de usuários"
+          ],
+          "tip": "Nesse modelo, apenas o servidor atua como gerenciador principal da rede."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Uma rede metropolitana usada por grandes empresas com múltiplas unidades próximas é chamada de [COMBO].",
+          "options": [
+            "MAN",
+            "LAN",
+            "WAN",
+            "WLAN"
+          ],
+          "correct": "MAN",
+          "tip": "MAN significa Metropolitan Area Network."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os modelos arquitetônicos às suas características, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cliente",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Servidor",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nó P2P",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Faz requisições"
+            },
+            {
+              "id": "z2",
+              "label": "Centraliza serviços e respostas"
+            },
+            {
+              "id": "z3",
+              "label": "Age como cliente e servidor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender os papéis ajuda na hora de montar a segurança da rede."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], a LogisTech, por ser um ambiente corporativo com foco em segurança, deve adotar primordialmente qual modelo?",
+          "answers": [
+            "Cliente-Servidor",
+            "Peer-to-Peer",
+            "Comunicação Isolada",
+            "Apenas LAN sem servidor"
+          ],
+          "correct": "Cliente-Servidor",
+          "tip": "Corporações exigem a centralização que apenas servidores dedicados oferecem."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Uma rede corporativa substitui o transporte físico de mídias para transferir arquivos entre setores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Não é mais preciso usar pendrives ou papéis; a comunicação ocorre via dados na rede."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], considerando os tipos de rede, qual delas é conhecida por ter instalação simples, baixo custo e ser não recomendada para empresas?",
+          "answers": [
+            "Rede Peer-to-Peer (P2P)",
+            "Rede WAN",
+            "Rede Cliente-Servidor",
+            "Data Center Mesh"
+          ],
+          "correct": "Rede Peer-to-Peer (P2P)",
+          "tip": "A falta de controle central inviabiliza o P2P em ambientes críticos.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que descreve o arranjo físico ou lógico dos nós e conexões de uma rede, [NAME]?",
+          "answers": [
+            "Topologia",
+            "Protocolo IP",
+            "Sistema Operacional",
+            "Endereçamento MAC"
+          ],
+          "correct": "Topologia",
+          "tip": "A topologia define como a estrutura da rede é desenhada e montada."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], na topologia estrela, a falha em uma máquina cliente derruba toda a comunicação da rede.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A estrela é resiliente à falha das pontas, a rede só cai se o nó central (switch) falhar."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Na topologia [COMBO], todos os dispositivos compartilham um único canal de comunicação principal.",
+          "options": [
+            "Barramento",
+            "Estrela",
+            "Malha",
+            "Anel"
+          ],
+          "correct": "Barramento",
+          "tip": "Os dados trafegam em broadcast por um único cabo backbone."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], selecione as características marcantes da topologia Estrela:",
+          "answers": [
+            "Uso de equipamento central (Switch)",
+            "Fácil identificação de falhas isoladas",
+            "Único cabo onde todos se conectam",
+            "Ponto único de falha no centro"
+          ],
+          "correct": [
+            "Uso de equipamento central (Switch)",
+            "Fácil identificação de falhas isoladas",
+            "Ponto único de falha no centro"
+          ],
+          "tip": "Esta é a estrutura mais comum devido ao equilíbrio entre segurança e manutenção."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Associe a topologia à sua principal característica, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Estrela",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Barramento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Malha",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Dispositivos num ponto central"
+            },
+            {
+              "id": "z2",
+              "label": "Compartilham um único canal"
+            },
+            {
+              "id": "z3",
+              "label": "Múltiplas conexões redundantes"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada topologia atende a um tipo diferente de resiliência esperada."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a topologia em barramento é a mais recomendada e moderna para novos data centers industriais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ela é considerada obsoleta, sofrendo com problemas de colisão em redes com muitos nós."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual destas topologias exige o maior custo e complexidade devido ao excesso de conexões, [NAME]?",
+          "answers": [
+            "Malha Total",
+            "Estrela Simples",
+            "Barramento",
+            "Ponto a Ponto"
+          ],
+          "correct": "Malha Total",
+          "tip": "Por interligar todos a todos fisicamente, consome muito cabeamento e portas."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], em quais cenários a topologia malha (mesh) é altamente indicada?",
+          "answers": [
+            "Data centers críticos",
+            "Redes militares",
+            "Pequenos escritórios caseiros",
+            "Backbones de Internet"
+          ],
+          "correct": [
+            "Data centers críticos",
+            "Redes militares",
+            "Backbones de Internet"
+          ],
+          "tip": "Cenários críticos onde a disponibilidade não pode sofrer interrupções usam redes malha."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para cobrir grandes áreas com Wi-Fi contínuo, utiliza-se a topologia de malha [COMBO] residencial e industrial.",
+          "options": [
+            "Parcial",
+            "Total",
+            "Única",
+            "Hierárquica"
+          ],
+          "correct": "Parcial",
+          "tip": "A malha parcial equilibra bem os custos e a redundância do sinal Wi-Fi."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], classifique os conceitos de desenho da rede:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Física",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Lógica",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Layout real dos cabos"
+            },
+            {
+              "id": "z2",
+              "label": "Como os dados circulam de fato"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O caminho que a eletricidade faz pode ser diferente da rota do dado protocolar."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], para a LogisTech, qual topologia é dominante no projeto de LAN para os escritórios administrativos?",
+          "answers": [
+            "Estrela",
+            "Barramento",
+            "Malha Total",
+            "Nenhuma, apenas Wi-Fi direto"
+          ],
+          "correct": "Estrela",
+          "tip": "A topologia estrela hierárquica é o padrão ouro no mundo corporativo."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Na topologia em barramento, os dados transmitidos geram broadcast e cada nó precisa verificar se a mensagem é para si.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Como compartilham o mesmo fio, o sinal elétrico chega a todos."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], em uma arquitetura de alta disponibilidade onde o orçamento é equilibrado, a melhor escolha em malha é a:",
+          "answers": [
+            "Malha Parcial",
+            "Malha Total",
+            "Estrela Total",
+            "Barramento em Cascata"
+          ],
+          "correct": "Malha Parcial",
+          "tip": "Ela cria caminhos alternativos essenciais, sem os custos abusivos da total.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual dispositivo central opera na Camada 2 (Enlace) aprendendo o endereço MAC?",
+          "answers": [
+            "Switch",
+            "Roteador",
+            "Firewall",
+            "Hub"
+          ],
+          "correct": "Switch",
+          "tip": "Diferente de equipamentos antigos, o switch endereça o quadro para a porta certa."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O roteador é responsável por tomar decisões de encaminhamento baseado exclusivamente no endereço MAC do destinatário.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Roteadores usam o endereço IP na Camada 3, interligando as redes distintas."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Dispositivo que estende a rede LAN para o ambiente sem fio usando o padrão Wi-Fi é o [COMBO].",
+          "options": [
+            "Access Point",
+            "Firewall",
+            "Switch Core",
+            "Servidor"
+          ],
+          "correct": "Access Point",
+          "tip": "APs (Pontos de Acesso) são cruciais para mobilidade corporativa."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], indique quais são responsabilidades diretas de um roteador corporativo:",
+          "answers": [
+            "Interligar a rede LAN à WAN",
+            "Realizar tradução NAT",
+            "Bloquear exclusivamente ameaças de Camada 7",
+            "Executar protocolos RIP ou OSPF"
+          ],
+          "correct": [
+            "Interligar a rede LAN à WAN",
+            "Realizar tradução NAT",
+            "Executar protocolos RIP ou OSPF"
+          ],
+          "tip": "A inspeção profunda de Camada 7 é papel de um NGFW, não do roteador padrão."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os equipamentos de rede às suas camadas no modelo OSI, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Switch LAN",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Roteador",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "NG Firewall",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Camada 2 (Enlace)"
+            },
+            {
+              "id": "z2",
+              "label": "Camada 3 (Rede)"
+            },
+            {
+              "id": "z3",
+              "label": "Camadas 3 a 7 (Inspeção Profunda)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber a camada do equipamento dita que tipo de dado ele sabe interpretar."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um switch não gerenciável (plug-and-play) é suficiente para implementar VLANs em uma grande empresa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Para criar VLANs e segurança, é obrigatório usar Switches Gerenciáveis."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Como se chama o firewall moderno capaz de fazer controle de aplicações e integrar IPS, [NAME]?",
+          "answers": [
+            "Next-Generation Firewall (NGFW)",
+            "Stateful Inspection Simples",
+            "Filtro de Pacotes Antigo",
+            "Access Point Shield"
+          ],
+          "correct": "Next-Generation Firewall (NGFW)",
+          "tip": "O NGFW atua como uma barreira hiperinteligente além do tráfego comum de IP/Porta."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Ao posicionar o Firewall na rede LogisTech, ele será capaz de criar quais destas zonas de segurança?",
+          "answers": [
+            "WAN (Rede Externa Não Confiável)",
+            "LAN (Rede Interna Protegida)",
+            "DMZ (Zona Desmilitarizada)",
+            "VLAN Física Exclusiva no Cabo"
+          ],
+          "correct": [
+            "WAN (Rede Externa Não Confiável)",
+            "LAN (Rede Interna Protegida)",
+            "DMZ (Zona Desmilitarizada)"
+          ],
+          "tip": "O firewall isola áreas de confiança lógicas."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], os pontos de acesso corporativos geralmente recebem energia pelo cabo de rede, tecnologia chamada de [COMBO].",
+          "options": [
+            "PoE",
+            "USB",
+            "Wi-Fi Power",
+            "BGP"
+          ],
+          "correct": "PoE",
+          "tip": "Power over Ethernet evita o uso de tomadas elétricas extras no teto."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe os dispositivos da rede LogisTech aos seus papéis fundamentais:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Switch",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Roteador",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Firewall",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Encaminhar interno (MAC)"
+            },
+            {
+              "id": "z2",
+              "label": "Mandar p/ Internet (IP)"
+            },
+            {
+              "id": "z3",
+              "label": "Porteiro de segurança"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada equipamento resolve um degrau no trânsito seguro do dado."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], os roteadores oferecidos pelas operadoras de Internet domésticas reúnem as funções de roteador, switch e AP num só equipamento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles são dispositivos multifunções para baratear custos domésticos."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Se dois dispositivos dentro de um mesmo escritório precisam trocar um arquivo, o quadro (frame) transita principalmente pelo:",
+          "answers": [
+            "Switch daquele andar",
+            "Roteador de Borda",
+            "Firewall Exclusivo da WAN",
+            "Backbone Público"
+          ],
+          "correct": "Switch daquele andar",
+          "tip": "Tráfego na mesma LAN local Camada 2 só precisa do switch para encaminhar aos endereços MAC.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que um desenvolvedor de soluções de TI deve estudar infraestrutura de redes?",
+          "answers": [
+            "Para garantir que seus sistemas funcionem dentro da infraestrutura real da empresa",
+            "Porque os programadores vão substituir os técnicos de cabos em breve",
+            "Para poder construir seus próprios switches caseiros",
+            "Apenas para cumprir grade curricular"
+          ],
+          "correct": "Para garantir que seus sistemas funcionem dentro da infraestrutura real da empresa",
+          "tip": "Sistemas, APIs e nuvens dependem intimamente do desenho da rede para funcionar bem."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a LogisTech perdia prazos devido aos processos de controle em papéis isolados entre setores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Erros manuais e planilhas desconexas geram sérias perdas operacionais em logística."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A tecnologia lógica usada para separar o setor de RH do setor Operacional no mesmo switch físico é a [COMBO].",
+          "options": [
+            "VLAN",
+            "WAN",
+            "VPN",
+            "DHCP"
+          ],
+          "correct": "VLAN",
+          "tip": "Virtual LAN isola domínios de broadcast garantindo organização e segurança."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], o que a LogisTech ganhará com a implantação da nova infraestrutura digital?",
+          "answers": [
+            "Rastreamento de pedidos em tempo real",
+            "Isolamento da rede do Financeiro das máquinas do armazém",
+            "Aumento dos processos manuais e papéis",
+            "Integração do ERP central"
+          ],
+          "correct": [
+            "Rastreamento de pedidos em tempo real",
+            "Isolamento da rede do Financeiro das máquinas do armazém",
+            "Integração do ERP central"
+          ],
+          "tip": "A infraestrutura é o alicerce da eficiência digital prometida na logística."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o setor da LogisTech ao recurso ideal na sua nova infraestrutura:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Armazém/Galpão",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "RH e Financeiro",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Servidores Locais",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Pontos de Acesso em Malha (AP Wi-Fi)"
+            },
+            {
+              "id": "z2",
+              "label": "Rede Cabeada Gigabit + VLAN isolada"
+            },
+            {
+              "id": "z3",
+              "label": "Ligação direta ao Switch Core"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Coletores de dados no galpão exigem mobilidade constante via Wi-Fi."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], durante o desenvolvimento, produzir diagramas técnicos claros da topologia é uma perda de tempo, devendo focar apenas no código.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Documentar a rede e os acessos do sistema é o entregável de sucesso em projetos de TI."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Em um projeto prático corporativo, qual elemento central atua ligando os switches das diversas alas do prédio?",
+          "answers": [
+            "Core Switch",
+            "Modem Residencial",
+            "Access Point Mestre",
+            "Servidor de Aplicação"
+          ],
+          "correct": "Core Switch",
+          "tip": "O Core Switch é o coração de alta capacidade que interliga todos os access switches da rede hierárquica."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], ao expor uma nova API da LogisTech para a Internet pública, onde as regras de liberação de portas devem atuar primordialmente?",
+          "answers": [
+            "No Firewall de Borda",
+            "No Roteador que faz o NAT para frente",
+            "Nos Switches não-gerenciáveis",
+            "No cabo UTP Cat 6 físico"
+          ],
+          "correct": [
+            "No Firewall de Borda",
+            "No Roteador que faz o NAT para frente"
+          ],
+          "tip": "Portas são configuradas nos ativos de camada 3 e superiores que conectam com o meio externo."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "As falhas do chão de fábrica não paralisarão a empresa porque switches industriais utilizam redes com caminhos redundantes de topologia [COMBO] parcial.",
+          "options": [
+            "Malha",
+            "Estrela",
+            "Barramento",
+            "Anel"
+          ],
+          "correct": "Malha",
+          "tip": "Caminhos alternativos (redundância) são a essência da topologia em malha."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe os requisitos da aplicação aos desafios da rede, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sistemas Web públicos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Banco de Dados Sigiloso",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Coletores Móveis",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Hospedados na DMZ protegida"
+            },
+            {
+              "id": "z2",
+              "label": "Isolado na VLAN Interna"
+            },
+            {
+              "id": "z3",
+              "label": "Precisam de APs sem quedas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A topologia molda o comportamento e local da implantação do software."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a informação é o recurso mais estratégico, e sem uma infraestrutura de redes resiliente, a melhor aplicação jamais terá performance.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Redes e software andam de mãos dadas; gargalos de rede travam qualquer código excelente."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Como se chama a área protegida criada pelo Firewall para isolar servidores que precisam ficar acessíveis a visitantes da Internet?",
+          "answers": [
+            "DMZ (Zona Desmilitarizada)",
+            "LAN Restrita",
+            "VLAN Financeira",
+            "Núcleo Core"
+          ],
+          "correct": "DMZ (Zona Desmilitarizada)",
+          "tip": "Sistemas com visibilidade pública jamais ficam na LAN interna, eles residem na DMZ."
+        }
+      ]
     }
   ]
 }
