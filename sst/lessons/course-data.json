@@ -28891,6 +28891,807 @@
           "trans": "END"
         }
       ]
+    },
+    {
+      "slug": "aula-40",
+      "lesson_info": {
+        "id": "Aula-40",
+        "title": "AULA 40 - LINHA DE COMANDO: FUNDAMENTOS E PRÁTICA ",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DA CLI",
+            "desc": "A CLI permite interagir com o SO via comandos textuais, essencial para automação e administração remota.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "SINTAXE E CAMINHOS",
+            "desc": "Estrutura gramatical dos comandos e compreensão da navegação por caminhos absolutos e relativos.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "ARQUIVOS E DIRETÓRIOS",
+            "desc": "Gerenciamento e organização do sistema de arquivos usando utilitários como mkdir, cd, ls e dir.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "DIAGNÓSTICO DE REDE",
+            "desc": "Utilização de ferramentas de rede no terminal, como ipconfig, ping e netstat para resolver problemas.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "B",
+          "A",
+          "S",
+          "H"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com o material, o que significa a sigla CLI?",
+          "answers": [
+            "Command Line Interface",
+            "Computer Line Integration",
+            "Central Logic Interface",
+            "Common Local Input"
+          ],
+          "correct": "Command Line Interface",
+          "tip": "A CLI é uma interface de usuário textual que interage com o sistema operacional."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a interface gráfica (GUI) oferece acesso mais direto, rápido e poderoso ao sistema do que a CLI.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Na verdade, é a CLI que oferece acesso direto e poderoso, não a GUI."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], nos anos 1960-70, os terminais de [COMBO] eram a única forma de interação com mainframes.",
+          "options": [
+            "texto",
+            "video",
+            "voz",
+            "imagem"
+          ],
+          "correct": "texto",
+          "tip": "Estes eram conhecidos como TTY (Terminais de texto)."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são os motivos para um profissional aprender CLI hoje?",
+          "answers": [
+            "Automação de tarefas",
+            "Criação de animações 3D",
+            "Administração remota",
+            "Base para DevOps e Cloud"
+          ],
+          "correct": [
+            "Automação de tarefas",
+            "Administração remota",
+            "Base para DevOps e Cloud"
+          ],
+          "tip": "A CLI é essencial para automação, DevOps, Cloud Computing e administração de servidores."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o interpretador de linha de comando nativo do Windows?",
+          "answers": [
+            "cmd.exe",
+            "bash",
+            "terminal.app",
+            "powershell.sh"
+          ],
+          "correct": "cmd.exe",
+          "tip": "O Prompt de Comando (cmd.exe) permite executar programas e gerenciar o Windows."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no Linux, o Terminal geralmente executa o shell Bash.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Bash é o shell padrão na maioria das distribuições Linux."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], o atalho para acesso rápido ao comando cmd no Windows é a tecla Win + [COMBO].",
+          "options": [
+            "R",
+            "T",
+            "C",
+            "E"
+          ],
+          "correct": "R",
+          "tip": "Pressionar Win + R abre o 'Executar', onde você pode digitar cmd."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com a trajetória histórica, o que ocorreu nos anos 1980 em relação à CLI?",
+          "answers": [
+            "MS-DOS populariza a CLI",
+            "Unix populariza a CLI para corporações",
+            "Nascimento do Windows 11",
+            "Criação do DevOps"
+          ],
+          "correct": [
+            "MS-DOS populariza a CLI",
+            "Unix populariza a CLI para corporações"
+          ],
+          "tip": "MS-DOS e Unix popularizaram o uso da linha de comando nessa década."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual o atalho padrão mencionado no material para abrir o Terminal no Linux?",
+          "answers": [
+            "Ctrl + Alt + T",
+            "Win + R",
+            "Ctrl + Shift + Esc",
+            "Alt + F4"
+          ],
+          "correct": "Ctrl + Alt + T",
+          "tip": "Este atalho rápido lança o terminal em ambientes gráficos Linux."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], antes das interfaces gráficas, toda interação com o computador ocorria por vídeo e mouse.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Antes das interfaces gráficas, toda interação ocorria exclusivamente por texto."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que recolocou a CLI como uma habilidade central em TI a partir dos anos 2000?",
+          "answers": [
+            "Cloud, DevOps e automação",
+            "A criação do Windows XP",
+            "A invenção do mouse",
+            "A queda dos mainframes"
+          ],
+          "correct": "Cloud, DevOps e automação",
+          "tip": "O avanço da computação em nuvem e DevOps exigiu forte uso de automação baseada em CLI."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione as décadas com seus marcos na evolução da CLI:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Anos 1960-70",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Anos 1990",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Anos 2000-hoje",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Terminais de texto TTY"
+            },
+            {
+              "id": "z2",
+              "label": "Introdução da GUI (Windows/macOS)"
+            },
+            {
+              "id": "z3",
+              "label": "Cloud e DevOps recolocam CLI no topo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A CLI foi a única forma no início, perdeu espaço para a GUI nos anos 90, e voltou com força na era DevOps.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], a estrutura geral de um comando no terminal segue qual lógica?",
+          "answers": [
+            "comando [opções] [argumentos]",
+            "argumentos [comando] [opções]",
+            "[opções] comando argumentos",
+            "comando argumentos [opções]"
+          ],
+          "correct": "comando [opções] [argumentos]",
+          "tip": "Primeiro declara-se o comando, seguido de opções modificadoras e, por fim, os alvos/argumentos."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], as opções (ou flags) servem para modificar o comportamento padrão de um comando.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exemplos incluem 'ls -la' ou 'dir /w', onde '-la' e '/w' alteram como a listagem é feita."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], o [COMBO] de um comando representa o alvo ou objeto no qual a instrução será executada, como um nome de arquivo.",
+          "options": [
+            "Argumento",
+            "Sinalizador",
+            "Atalho",
+            "Processo"
+          ],
+          "correct": "Argumento",
+          "tip": "Em 'mkdir projetos', 'projetos' é o argumento."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione os atalhos de caminhos relativos às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "cd documentos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "cd ..",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "cd ../..",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Entra na subpasta"
+            },
+            {
+              "id": "z2",
+              "label": "Volta um nível"
+            },
+            {
+              "id": "z3",
+              "label": "Volta dois níveis"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os caminhos relativos têm como ponto de partida o diretório atual onde você se encontra."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual comando no Linux informa exatamente o caminho do diretório em que você está no momento?",
+          "answers": [
+            "pwd",
+            "showdir",
+            "whereami",
+            "cd /"
+          ],
+          "correct": "pwd",
+          "tip": "No Linux utiliza-se o 'pwd' (Print Working Directory) para mostrar o diretório atual."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], um caminho absoluto no terminal depende exclusivamente do diretório em que o usuário se encontra no momento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O caminho absoluto não depende do diretório atual, pois inicia sempre da raiz do sistema."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], para descobrir o diretório atual no Windows sem usar argumentos, basta digitar [COMBO] e apertar Enter.",
+          "options": [
+            "cd",
+            "dir",
+            "pwd",
+            "path"
+          ],
+          "correct": "cd",
+          "tip": "Digitar 'cd' sozinho no Windows exibe o caminho atual."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], selecione exemplos de opções/flags mostradas no material:",
+          "answers": [
+            "ls -la",
+            "dir /w",
+            "mkdir pasta",
+            "cd .."
+          ],
+          "correct": [
+            "ls -la",
+            "dir /w"
+          ],
+          "tip": "'-la' e '/w' são indicadores de opções para alterar a exibição da listagem."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], no comando 'mkdir projetos', qual é o papel da palavra 'projetos'?",
+          "answers": [
+            "Argumento",
+            "Comando",
+            "Opção",
+            "Variável"
+          ],
+          "correct": "Argumento",
+          "tip": "Ele define o objeto da ação, ou seja, o nome da pasta a ser criada."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a sintaxe para opções geralmente usa traços (-) no Linux e barras (/) no Windows CMD.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sim, como em 'ls -la' (Linux) e 'dir /w' (Windows)."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], de acordo com a sintaxe apresentada, todo comando segue uma lógica. Qual destas NÃO faz parte da estrutura básica de um comando?",
+          "answers": [
+            "Interface Gráfica (GUI)",
+            "Comando",
+            "Opções",
+            "Argumentos"
+          ],
+          "correct": "Interface Gráfica (GUI)",
+          "tip": "A estrutura da linha de comando envolve Comando, Opções e Argumentos.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], para que serve o comando 'mkdir' no terminal?",
+          "answers": [
+            "Criar um ou mais diretórios",
+            "Excluir arquivos ocultos",
+            "Mover pastas do sistema",
+            "Copiar permissões"
+          ],
+          "correct": "Criar um ou mais diretórios",
+          "tip": "A sigla vem de 'make directory', e funciona identicamente no Windows e Linux."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o comando 'mkdir -p' no Linux permite criar uma estrutura de pastas aninhadas de uma só vez.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exemplo: 'mkdir -p projetos/logitech/dados' cria toda a hierarquia necessária."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], você pode usar a tecla [COMBO] para autocompletar nomes de diretórios e evitar erros de digitação.",
+          "options": [
+            "Tab",
+            "Enter",
+            "Shift",
+            "Espaço"
+          ],
+          "correct": "Tab",
+          "tip": "O Tab é o atalho essencial para acelerar o uso do terminal."
+        },        
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione os comandos de listagem no Linux e Windows:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ls -l",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "dir /w",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "ls -a",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "dir /a",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Linux: Detalhes"
+            },
+            {
+              "id": "z2",
+              "label": "Windows: Formato largo"
+            },
+            {
+              "id": "z3",
+              "label": "Linux: Ocultos"
+            },
+            {
+              "id": "z4",
+              "label": "Windows: Ocultos e sistema"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada sistema operacional tem sua sintaxe específica para modificar listagens."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual comando Linux é utilizado para exibir a listagem contendo arquivos ocultos e detalhes como permissões simultaneamente?",
+          "answers": [
+            "ls -la",
+            "ls -l",
+            "ls -a",
+            "dir /s"
+          ],
+          "correct": "ls -la",
+          "tip": "Ele combina as opções '-l' (detalhes) e '-a' (ocultos)."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o comando 'dir /s' no Windows lista os subdiretórios recursivamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso permite ver tudo dentro das pastas filhas de uma vez."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], para excluir uma pasta inteira no Windows CMD, utiliza-se o comando [COMBO].",
+          "options": [
+            "rmdir",
+            "del",
+            "rm",
+            "erase"
+          ],
+          "correct": "rmdir",
+          "tip": "O 'rmdir' exclui diretórios no Windows."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], selecione os comandos equivalentes para copiar arquivos no Windows e Linux:",
+          "answers": [
+            "copy",
+            "cp",
+            "move",
+            "mv"
+          ],
+          "correct": [
+            "copy",
+            "cp"
+          ],
+          "tip": "'copy' é usado no Windows e 'cp' é o padrão do Linux."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual comando no Windows permite renomear e mover um arquivo ao mesmo tempo?",
+          "answers": [
+            "move / ren",
+            "copy",
+            "mv",
+            "rmdir"
+          ],
+          "correct": "move / ren",
+          "tip": "O comando 'move' e 'ren' (rename) tratam do deslocamento e alteração de nome no Windows."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o comando 'touch novo.txt' é usado no Windows para criar um arquivo vazio.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O comando 'touch' é nativo do Linux, não do Windows."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], para visualizar o conteúdo de um arquivo de texto 'arquivo.txt' diretamente no terminal Linux, você usaria:",
+          "answers": [
+            "cat arquivo.txt",
+            "type arquivo.txt",
+            "view arquivo.txt",
+            "show arquivo.txt"
+          ],
+          "correct": "cat arquivo.txt",
+          "tip": "O comando 'cat' concatena e exibe o texto no terminal Linux."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione os comandos de visualização e exclusão aos seus sistemas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "type",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "cat",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "rm -r",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ver arquivo (Windows)"
+            },
+            {
+              "id": "z2",
+              "label": "Ver arquivo (Linux)"
+            },
+            {
+              "id": "z3",
+              "label": "Excluir pasta (Linux)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Linux utiliza o 'rm -r' para remover diretórios com arquivos dentro de forma recursiva.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o comando 'ipconfig' executado no CMD do Windows exibe o que por padrão?",
+          "answers": [
+            "As configurações básicas de rede",
+            "A tabela de roteamento da máquina",
+            "A latência dos pacotes até o gateway",
+            "As conexões ativas na porta 80"
+          ],
+          "correct": "As configurações básicas de rede",
+          "tip": "Mostra o IP, máscara de sub-rede e gateway padrão do computador."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a opção '/release' no ipconfig tem como função solicitar um novo IP ao servidor DHCP imediatamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O '/release' libera o endereço IP atual. O '/renew' é que solicita um novo IP."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], o comando moderno equivalente ao ifconfig para exibir interfaces no Linux é o [COMBO].",
+          "options": [
+            "ip addr",
+            "netstat",
+            "ipconfig",
+            "traceroute"
+          ],
+          "correct": "ip addr",
+          "tip": "O 'ip addr' substitui o antigo ifconfig na maioria das distribuições atuais."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], o comando 'ping' testa a conectividade e indica quais dados essenciais na sua resposta?",
+          "answers": [
+            "Latência (tempo de resposta)",
+            "Perda de pacotes",
+            "Tabela de roteamento",
+            "Portas lógicas abertas"
+          ],
+          "correct": [
+            "Latência (tempo de resposta)",
+            "Perda de pacotes"
+          ],
+          "tip": "O ping usa pacotes ICMP para medir o tempo e identificar a perda de dados."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione os comandos de diagnóstico de rede:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ping",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "tracert / traceroute",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "netstat",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Testa conectividade via ICMP"
+            },
+            {
+              "id": "z2",
+              "label": "Mapeia gargalos e caminhos na rota"
+            },
+            {
+              "id": "z3",
+              "label": "Exibe portas e conexões ativas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada ferramenta oferece uma camada de análise, desde o destino até as portas locais."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o utilitário usado no Windows para rastrear a rota dos pacotes até o destino?",
+          "answers": [
+            "tracert",
+            "traceroute",
+            "ping route",
+            "ip route"
+          ],
+          "correct": "tracert",
+          "tip": "No Windows, o comando é abreviado para 'tracert', enquanto no Linux é 'traceroute'."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o comando 'netstat -an' é inútil para identificar processos que estão consumindo muito tráfego na rede.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O netstat é extremamente útil exatamente para exibir portas abertas e conexões ativas do sistema."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], para obter todas as informações detalhadas de rede, como endereço MAC e servidores DNS no CMD, usamos ipconfig /[COMBO].",
+          "options": [
+            "all",
+            "full",
+            "detail",
+            "show"
+          ],
+          "correct": "all",
+          "tip": "A flag '/all' expande o relatório padrão de conectividade do Windows."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], sobre o comando 'ip route' executado no terminal Linux, selecione a afirmativa correta:",
+          "answers": [
+            "Exibe a tabela de roteamento da máquina",
+            "Mostra por onde o tráfego de rede deve ser encaminhado",
+            "Zera as configurações do servidor DHCP",
+            "Muda o endereço MAC temporariamente"
+          ],
+          "correct": [
+            "Exibe a tabela de roteamento da máquina",
+            "Mostra por onde o tráfego de rede deve ser encaminhado"
+          ],
+          "tip": "Ele é focado no roteamento dos pacotes da máquina para fora da rede."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual comando limpa a tela de saída do Terminal no Linux?",
+          "answers": [
+            "clear",
+            "cls",
+            "clean",
+            "reset"
+          ],
+          "correct": "clear",
+          "tip": "No Linux usa-se 'clear', já no Windows CMD o comando é 'cls'."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o endereço IP exibido pelo ipconfig atua como a 'identidade' temporária do computador na rede local.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sim, é fundamental para o roteamento e comunicação entre máquinas em rede."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], quando o terminal precisa ser usado para pedir o manual de ajuda de um comando específico no Linux, qual prefixo é usado?",
+          "answers": [
+            "man comando",
+            "help comando",
+            "comando /?",
+            "info comando"
+          ],
+          "correct": "man comando",
+          "tip": "O 'man' abre as 'man pages' (páginas do manual) para um comando no Linux."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com o material, por que o domínio dos comandos de rede no terminal é tão importante para um profissional?",
+          "answers": [
+            "É a base para identificar problemas de conectividade e entender a infraestrutura",
+            "Acelera a compilação de código Java e Python",
+            "Permite que o usuário acesse a interface gráfica do servidor remotamente",
+            "Atua como um antivírus protegendo contra intrusos locais"
+          ],
+          "correct": "É a base para identificar problemas de conectividade e entender a infraestrutura",
+          "tip": "As ferramentas de rede CLI são essenciais no diagnóstico e resolução rápida de falhas infraestruturais."
+        }
+      ]
     }
   ]
 }
