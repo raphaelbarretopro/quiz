@@ -30611,6 +30611,984 @@
           "tip": "Seguir essa metodologia assegura que o sistema operacional irá recarregar as subrotinas corretamente, evitando falhas ocultas. "
         }
       ]
+    },
+    {
+      "slug": "aula-42",
+      "lesson_info": {
+        "id": "Aula-42",
+        "title": "AULA 42 - MONITORAMENTO E ANÁLISE DE LOGS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "CONCEITOS E TIPOS DE LOGS",
+            "desc": "Fundamentos, anatomia, níveis de severidade e a importância dos logs operacionais.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "FERRAMENTAS DE ANÁLISE",
+            "desc": "Visualizador de Eventos, syslog, journalctl e soluções avançadas como ELK e Splunk.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "AUDITORIA E PROATIVIDADE",
+            "desc": "Diferenças entre monitoramento reativo e proativo, LGPD e o ciclo de monitoramento.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "PRÁTICA E INCIDENTES",
+            "desc": "Logs no dia a dia do desenvolvedor e a elaboração de Relatórios de Incidentes.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "L",
+          "O",
+          "G",
+          "S"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], segundo a literatura técnica, como são definidos os logs de sistema?",
+          "answers": [
+            "Registros manuais de operações",
+            "Registros automáticos de eventos",
+            "Arquivos executáveis do sistema",
+            "Backups incrementais"
+          ],
+          "correct": "Registros automáticos de eventos",
+          "tip": "São gerados sem intervenção do usuário, documentando eventos, erros e operações."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], arquivos de log servem como a principal fonte de evidência em auditorias e investigações de incidentes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Logs formam um diário eletrônico indispensável para diagnósticos e segurança."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para a análise de falhas, os logs facilitam o [COMBO] da causa raiz de erros no sistema.",
+          "options": [
+            "Diagnóstico",
+            "Ocultamento",
+            "Mapeamento",
+            "Descarte"
+          ],
+          "correct": "Diagnóstico",
+          "tip": "Permitem a identificação rápida da causa de falhas e lentidão."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são os principais pilares da importância dos logs estudados nesta aula?",
+          "answers": [
+            "Diagnóstico",
+            "Auditoria",
+            "Segurança",
+            "Otimização de Hardware"
+          ],
+          "correct": [
+            "Diagnóstico",
+            "Auditoria",
+            "Segurança"
+          ],
+          "tip": "Eles também são vitais para análise de Performance (consumo de recursos)."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o tipo de log com a sua origem ou função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sistema",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Aplicação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Segurança",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Rede",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Erros de hardware e drivers"
+            },
+            {
+              "id": "z2",
+              "label": "Falhas de banco de dados"
+            },
+            {
+              "id": "z3",
+              "label": "Tentativas de login"
+            },
+            {
+              "id": "z4",
+              "label": "Firewalls e proxies"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada componente de TI gera logs específicos para sua camada de atuação."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Na anatomia de uma linha de log, o que é o 'Timestamp'?",
+          "answers": [
+            "A identificação do usuário",
+            "A data e hora exata do evento",
+            "O nível de perigo do erro",
+            "O serviço que gerou o log"
+          ],
+          "correct": "A data e hora exata do evento",
+          "tip": "O timestamp é essencial para correlacionar temporalmente múltiplas ocorrências."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], em um ambiente de produção, o técnico de TI deve ignorar os logs de nível WARNING e focar apenas em DEBUG.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Em produção, o foco recai sobre WARNING, ERROR e CRITICAL."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O nível de severidade [COMBO] indica uma falha séria em uma função específica, embora o sistema como um todo possa não ter parado.",
+          "options": [
+            "ERROR",
+            "INFO",
+            "CRITICAL",
+            "DEBUG"
+          ],
+          "correct": "ERROR",
+          "tip": "Diferencia-se do CRITICAL, onde o sistema todo corre o risco de falhar."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais desses campos compõem a anatomia padrão de uma linha de log?",
+          "answers": [
+            "Timestamp",
+            "Nível de Severidade",
+            "Origem/Serviço",
+            "Preço de Custo"
+          ],
+          "correct": [
+            "Timestamp",
+            "Nível de Severidade",
+            "Origem/Serviço"
+          ],
+          "tip": "Além desses, a 'Mensagem do Evento' traz a descrição detalhada da ocorrência."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o nível de severidade à sua definição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "CRITICAL",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "WARNING",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "INFO",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "DEBUG",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Erro grave, sistema pode falhar"
+            },
+            {
+              "id": "z2",
+              "label": "Problema potencial"
+            },
+            {
+              "id": "z3",
+              "label": "Operação normal"
+            },
+            {
+              "id": "z4",
+              "label": "Diagnóstico detalhado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A pirâmide de severidade orienta a priorização da equipe de suporte."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual tipo de log seria utilizado primariamente para rastrear quem acessou um sistema específico às 14h?",
+          "answers": [
+            "Log de Sistema",
+            "Log de Aplicação",
+            "Log de Auditoria",
+            "Log de Rede"
+          ],
+          "correct": "Log de Auditoria",
+          "tip": "Voltados à conformidade, rastreiam quem fez o quê e quando."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Os logs de segurança incluem tentativas de logon e alterações de permissões em arquivos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles são a base para detectar invasões e comportamentos suspeitos."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O uso sistemático dos registros garante a disponibilidade, [COMBO] e segurança dos ativos tecnológicos.",
+          "options": [
+            "Integridade",
+            "Latência",
+            "Exclusividade",
+            "Ociosidade"
+          ],
+          "correct": "Integridade",
+          "tip": "Segundo Albertin (2019), esses são os pilares mantidos por uma boa gestão de logs.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a ferramenta nativa do Windows para visualização centralizada de logs?",
+          "answers": [
+            "Monitor de Recursos",
+            "Prompt de Comando",
+            "Visualizador de Eventos",
+            "Gerenciador de Tarefas"
+          ],
+          "correct": "Visualizador de Eventos",
+          "tip": "O Event Viewer (eventvwr.msc) concentra logs de Sistema, Aplicativo e Segurança."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "No Windows, o evento ID 4625 representa um logon bem-sucedido.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O ID 4625 indica falha de logon. O logon bem-sucedido é o ID 4624."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "No Visualizador de Eventos, é possível aplicar [COMBO] para buscar apenas eventos do nível 'Crítico' ou de origens específicas.",
+          "options": [
+            "Filtros",
+            "Módulos",
+            "Scripts",
+            "Plugins"
+          ],
+          "correct": "Filtros",
+          "tip": "Os filtros evitam sobrecarga visual buscando ocorrências precisas."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são eventos comumente monitorados por IDs específicos no Windows em nome da segurança?",
+          "answers": [
+            "Falhas de logon (4625)",
+            "Criação de contas (4720)",
+            "Novo serviço instalado (7045)",
+            "Abertura do navegador (1001)"
+          ],
+          "correct": [
+            "Falhas de logon (4625)",
+            "Criação de contas (4720)",
+            "Novo serviço instalado (7045)"
+          ],
+          "tip": "Esses IDs podem ser indícios de ataques de força bruta ou instalação de malware."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os arquivos de log do Linux às suas respectivas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "/var/log/syslog",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "/var/log/auth.log",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "/var/log/kern.log",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "/var/log/dmesg",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Registro geral do sistema e daemons"
+            },
+            {
+              "id": "z2",
+              "label": "Registros de autenticação e sudo"
+            },
+            {
+              "id": "z3",
+              "label": "Mensagens e erros do kernel"
+            },
+            {
+              "id": "z4",
+              "label": "Eventos de inicialização (boot)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada arquivo tem um papel claro na auditoria em ambientes baseados em Unix/Linux."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual utilitário de linha de comando é padrão do systemd para consultar logs estruturados em distros Linux modernas?",
+          "answers": [
+            "journalctl",
+            "grep",
+            "tail",
+            "cat"
+          ],
+          "correct": "journalctl",
+          "tip": "Substitui ferramentas antigas na manipulação robusta de registros no Ubuntu/Fedora."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O comando grep \"Failed password\" /var/log/auth.log é útil para procurar ativamente por falhas de autenticação no Linux.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O grep atua como um filtro poderoso para localizar cadeias de texto específicas."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A ferramenta [COMBO] é uma plataforma avançada líder em indexação e análise de logs para SOC (Security Operations Center).",
+          "options": [
+            "Splunk",
+            "Excel",
+            "Notepad",
+            "syslog"
+          ],
+          "correct": "Splunk",
+          "tip": "Trata-se de uma solução comercial de alto desempenho para big data de segurança."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais softwares compõem nativamente o conjunto open-source conhecido como ELK Stack?",
+          "answers": [
+            "Elasticsearch",
+            "Logstash",
+            "Kibana",
+            "Splunk"
+          ],
+          "correct": [
+            "Elasticsearch",
+            "Logstash",
+            "Kibana"
+          ],
+          "tip": "Elasticsearch indexa, Logstash processa e Kibana gera os painéis visuais."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Associe os comandos Linux à sua finalidade no terminal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "tail -f",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "grep",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "journalctl --since",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "journalctl -p crit",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ver últimas linhas em tempo real"
+            },
+            {
+              "id": "z2",
+              "label": "Buscar palavras específicas"
+            },
+            {
+              "id": "z3",
+              "label": "Filtrar por janela de tempo"
+            },
+            {
+              "id": "z4",
+              "label": "Listar apenas logs críticos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O terminal exige a combinação desses comandos para análises eficientes."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], Graylog é destacado na aula por ser:",
+          "answers": [
+            "Uma ferramenta nativa exclusiva do Windows.",
+            "Um gerenciador centralizado com fluxos configuráveis.",
+            "Um utilitário de hardware de firewall.",
+            "Uma linguagem de programação."
+          ],
+          "correct": "Um gerenciador centralizado com fluxos configuráveis.",
+          "tip": "Ele funciona de forma similar ao ELK, mas com foco em facilidade de dashboards e alertas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O Monitor de Recursos (Windows) analisa apenas espaço em disco e ignora rede e CPU em tempo real.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele analisa em tempo real CPU, memória, disco e rede simultaneamente."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Com o Windows Server, o ID 1074 evidencia [COMBO] inesperadas que podem exigir investigação.",
+          "options": [
+            "Reinicializações",
+            "Ativações",
+            "Impressões",
+            "Exclusões"
+          ],
+          "correct": "Reinicializações",
+          "tip": "Um desligamento forçado ou falha térmica muitas vezes inicia a análise por esse ID.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "A principal vantagem do monitoramento proativo em relação ao reativo é:",
+          "answers": [
+            "Aguardar a falha para agir.",
+            "Descartar logs não críticos.",
+            "Antecipar falhas e prevenir incidentes.",
+            "Depender de denúncias de usuários."
+          ],
+          "correct": "Antecipar falhas e prevenir incidentes.",
+          "tip": "No modelo proativo, há análise contínua gerando alertas imediatos."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um volume incomum de erros (dezenas de ERROR em minutos) é considerado um padrão de operação saudável.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Trata-se de uma anomalia clara, indicando falha crítica ou ataque em curso."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Múltiplas falhas de login vindas do mesmo IP sinalizam uma anomalia comum conhecida como ataque de [COMBO] bruta.",
+          "options": [
+            "Força",
+            "Rede",
+            "Senha",
+            "Carga"
+          ],
+          "correct": "Força",
+          "tip": "Um atacante testa milhares de senhas até encontrar a correta."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Na auditoria de segurança baseada em logs, quais fatores são revisados?",
+          "answers": [
+            "Quem acessou quais recursos e quando",
+            "Alterações em configurações críticas",
+            "Cópia ou deleção de arquivos sensíveis",
+            "O layout da interface do usuário"
+          ],
+          "correct": [
+            "Quem acessou quais recursos e quando",
+            "Alterações em configurações críticas",
+            "Cópia ou deleção de arquivos sensíveis"
+          ],
+          "tip": "A auditoria busca garantir conformidade com políticas e leis como a LGPD."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione as fases do Ciclo de Monitoramento Proativo às suas descrições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Configurar",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Coletar",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Analisar",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Alertar",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Definir o que monitorar"
+            },
+            {
+              "id": "z2",
+              "label": "Centralizar em repositório único"
+            },
+            {
+              "id": "z3",
+              "label": "Aplicar filtros e achar padrões"
+            },
+            {
+              "id": "z4",
+              "label": "Notificar a equipe automaticamente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A última etapa do ciclo é 'Reportar', que garante a documentação do aprendizado."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é a principal regra sobre a manipulação de arquivos de log originais durante uma investigação?",
+          "answers": [
+            "Eles devem ser apagados após leitura.",
+            "Eles nunca devem ser editados.",
+            "Erros de digitação nos logs devem ser corrigidos.",
+            "Devem ser compactados em formatos de imagem."
+          ],
+          "correct": "Eles nunca devem ser editados.",
+          "tip": "Logs alterados comprometem toda a cadeia de evidências e auditoria."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A recomendação de boas práticas de segurança indica que logs de auditoria tenham um período mínimo de retenção de 90 dias.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Muitas leis e normas regulatórias exigem retenções de 90 dias ou mais."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Uma conta de visitante que adquire direitos de administrador não planejados evidencia uma anomalia de [COMBO] de privilégios.",
+          "options": [
+            "Escalada",
+            "Redução",
+            "Manutenção",
+            "Criação"
+          ],
+          "correct": "Escalada",
+          "tip": "A escalada de privilégios é frequentemente o objetivo inicial de um invasor no sistema."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Dentre as boas práticas de segurança de logs, quais atitudes protegem o ambiente?",
+          "answers": [
+            "Centralizar logs em soluções SIEM",
+            "Proteger logs contra alteração não autorizada",
+            "Revisar logs periodicamente mesmo sem incidentes",
+            "Desativar logs para economizar processamento"
+          ],
+          "correct": [
+            "Centralizar logs em soluções SIEM",
+            "Proteger logs contra alteração não autorizada",
+            "Revisar logs periodicamente mesmo sem incidentes"
+          ],
+          "tip": "Desativar logs cria um ponto cego imperdoável em qualquer infraestrutura séria."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Combine a evidência de anomalia ao seu respectivo risco potencial:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Login às 03h",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "1000 erros ERROR/min",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Falhas seguidas de login",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Conta alterada para ADMIN",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Horário atípico (roubo de conta)"
+            },
+            {
+              "id": "z2",
+              "label": "Ataque ou serviço fora do ar"
+            },
+            {
+              "id": "z3",
+              "label": "Ataque de força bruta em curso"
+            },
+            {
+              "id": "z4",
+              "label": "Comprometimento por escalada"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A leitura crítica exige do analista correlacionar os eventos anômalos à ação técnica esperada."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Como é chamada a abordagem em que a equipe de TI atua na resolução APENAS após a queda do sistema ter ocorrido?",
+          "answers": [
+            "Monitoramento Proativo",
+            "Auditoria Sistêmica",
+            "Monitoramento Reativo",
+            "Ciclo Centralizado"
+          ],
+          "correct": "Monitoramento Reativo",
+          "tip": "Resulta em resolução demorada e tempo de indisponibilidade maior para o cliente."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], segundo o ciclo proativo, 'Reportar' é documentar incidentes para extrair lições aprendidas e promover melhoria contínua.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O relatório retroalimenta o sistema impedindo que o mesmo erro ocorra no futuro.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual a principal finalidade de um Relatório de Incidentes?",
+          "answers": [
+            "Demitir funcionários responsáveis.",
+            "Documentar impacto, causa raiz e ações corretivas.",
+            "Gerar boletos de cobrança do servidor.",
+            "Acelerar o banco de dados."
+          ],
+          "correct": "Documentar impacto, causa raiz e ações corretivas.",
+          "tip": "Ele torna a análise rastreável e objetiva, encerrando a investigação."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao desenvolver aplicações, inserir logs no código fonte é inútil para processos de Debug.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O desenvolvedor rastreia o fluxo de execução pelo código via logs para achar falhas."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Endpoints expostos sofrem ataques. Analisar os logs de [COMBO] ajuda a detectar injeção SQL e abusos (DDoS).",
+          "options": [
+            "APIs",
+            "Impressoras",
+            "Mouses",
+            "Cabos"
+          ],
+          "correct": "APIs",
+          "tip": "Uma API sem rastreio de logs é vulnerável a manipulações silenciosas."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais dos campos abaixo pertencem à estrutura oficial de um Relatório de Incidentes, conforme visto em aula?",
+          "answers": [
+            "Sistemas Afetados",
+            "Causa Raiz",
+            "Ações Corretivas",
+            "Previsão do Tempo"
+          ],
+          "correct": [
+            "Sistemas Afetados",
+            "Causa Raiz",
+            "Ações Corretivas"
+          ],
+          "tip": "Dados como impacto operacional, data, hora e severidade também são mandatórios."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione o campo do Relatório de Incidentes ao seu respectivo conteúdo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Severidade",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Impacto",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Causa Raiz",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Ações Corretivas",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Classificação (Crítico/Alto...)"
+            },
+            {
+              "id": "z2",
+              "label": "Usuários afetados e tempo off"
+            },
+            {
+              "id": "z3",
+              "label": "Origem técnica identificada"
+            },
+            {
+              "id": "z4",
+              "label": "Medidas aplicadas de resolução"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A clareza nesses campos facilita o trabalho da diretoria na compreensão do cenário."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "No contexto da 'LogisTech', qual evento evidenciou a CAUSA RAIZ imediata da queda no sistema de rastreamento?",
+          "answers": [
+            "Timeout e latência elevada na conexão com o Banco de Dados.",
+            "Atualização falha no Windows Event Viewer.",
+            "Falta de espaço no servidor de nuvem.",
+            "Problema de cabeamento nas docas."
+          ],
+          "correct": "Timeout e latência elevada na conexão com o Banco de Dados.",
+          "tip": "Os logs de [WARNING] DBConnector indicavam latência antes de chegar a 3 timeouts."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "No caso da LogisTech, o serviço 'AuthService' falhou por indisponibilidade decorrente da queda no Banco de Dados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A cadeia de logs indica que, ao cair a base, a autenticação de motoristas passou a dar erro."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Ambientes modernos hospedados na [COMBO] (AWS, GCP, Azure) oferecem acesso a logs via painéis centralizados.",
+          "options": [
+            "Nuvem",
+            "Bancada",
+            "Rede local",
+            "Virtualização"
+          ],
+          "correct": "Nuvem",
+          "tip": "Cloud computing exige forte dependência de logs para atestar a saúde das instâncias."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], como o uso constante de logs se manifesta no dia a dia prático de um desenvolvedor?",
+          "answers": [
+            "Validando deploys em produção",
+            "Investigando falhas na nuvem",
+            "Assegurando integridade de endpoints (APIs)",
+            "Evitando o uso da linha de comando"
+          ],
+          "correct": [
+            "Validando deploys em produção",
+            "Investigando falhas na nuvem",
+            "Assegurando integridade de endpoints (APIs)"
+          ],
+          "tip": "O uso da linha de comando, aliás, aumenta devido à necessidade de utilizar 'tail' e 'grep'."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Vincule o cenário profissional à utilidade dos logs:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Debug de Aplicações",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Monitoramento Cloud",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Segurança de APIs",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Relatório Técnico",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Rastrear fluxo no código"
+            },
+            {
+              "id": "z2",
+              "label": "Validar deploys e health checks"
+            },
+            {
+              "id": "z3",
+              "label": "Detectar padrão de DDoS"
+            },
+            {
+              "id": "z4",
+              "label": "Prestar contas à gerência"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar essas vertentes converte dados de log em inteligência de negócio."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Segundo o material base de FTI, qual é o papel primário do profissional de TI com relação aos dados gerados por sistemas?",
+          "answers": [
+            "Apagá-los para salvar armazenamento.",
+            "Transformar dados em inteligência operacional.",
+            "Apenas armazená-los sem analisar.",
+            "Vender os dados a terceiros."
+          ],
+          "correct": "Transformar dados em inteligência operacional.",
+          "tip": "Monitorar não é opcional, é responsabilidade para responder rapidamente a problemas."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A extração de eventos críticos durante a atividade LogisTech dependeu de analisar o período exato (02h00 às 03h00) filtrando ruídos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O recorte de tempo isolou o incidente, identificando o latência prévia às 02:01:44."
+        }
+      ]
     }
   ]
 }
