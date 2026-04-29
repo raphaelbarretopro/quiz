@@ -29320,7 +29320,7 @@
           ],
           "correct": "Tab",
           "tip": "O Tab é o atalho essencial para acelerar o uso do terminal."
-        },        
+        },
         {
           "type": "drag",
           "topics": "PROT",
@@ -29690,6 +29690,925 @@
           ],
           "correct": "É a base para identificar problemas de conectividade e entender a infraestrutura",
           "tip": "As ferramentas de rede CLI são essenciais no diagnóstico e resolução rápida de falhas infraestruturais."
+        }
+      ]
+    },
+    {
+      "slug": "aula-41",
+      "lesson_info": {
+        "id": "Aula-41",
+        "title": "AULA 41 - INSTALAÇÃO, DESINSTALAÇÃO E ATUALIZAÇÃO DE SOFTWARE E DRIVERS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DE SOFTWARE",
+            "desc": "Conceitos sobre o que é software, seus principais tipos e modelos de licenciamento aplicáveis no mercado.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "INSTALAÇÃO E DESINSTALAÇÃO",
+            "desc": "Os métodos de instalação via pacotes .exe, MSI e Store, além de boas práticas de desinstalação.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "ATUALIZAÇÕES DO SISTEMA",
+            "desc": "Gerenciamento do Windows Update, correções de vulnerabilidades e lições de incidentes como o WannaCry.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "GERENCIAMENTO DE DRIVERS",
+            "desc": "Como os drivers funcionam, diagnóstico no Gerenciador de Dispositivos e fontes seguras para download.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "S",
+          "O",
+          "F",
+          "T"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], conceitualmente, como o software é definido na arquitetura de computadores? ",
+          "answers": [
+            "Conjunto de instruções lógicas que controla o hardware",
+            "Componente físico que armazena dados voláteis",
+            "Placa de circuito responsável pela renderização gráfica",
+            "Interface de energia do sistema operacional"
+          ],
+          "correct": "Conjunto de instruções lógicas que controla o hardware",
+          "tip": "Sem ele, o hardware é apenas um conjunto inerte de componentes eletrônicos. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], é correto afirmar que, na ausência de software, o hardware funciona de forma independente para executar tarefas complexas do usuário. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Sem software, o hardware é apenas um conjunto de componentes inertes. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O [COMBO] atua na gestão dos recursos do hardware, tendo como exemplo o Windows e o Linux. ",
+          "options": [
+            "Software de Sistema",
+            "Software Aplicativo",
+            "Software Utilitário",
+            "Software Firmware"
+          ],
+          "correct": "Software de Sistema",
+          "tip": "Sistemas operacionais compõem a camada base para o funcionamento da máquina. "
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], selecione as alternativas que representam tipos válidos de licenciamento de software: ",
+          "answers": [
+            "Proprietário",
+            "Gratuito (Freeware)",
+            "Código Aberto (Open Source)",
+            "Físico (Hardware Locked)"
+          ],
+          "correct": [
+            "Proprietário",
+            "Gratuito (Freeware)",
+            "Código Aberto (Open Source)"
+          ],
+          "tip": "As categorias ajudam a garantir a conformidade legal da empresa. "
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione os tipos de licença às suas características: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Proprietário",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Freeware",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Open Source",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Shareware",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Uso restrito ao pagamento"
+            },
+            {
+              "id": "z2",
+              "label": "Uso livre, sem código-fonte"
+            },
+            {
+              "id": "z3",
+              "label": "Modificação e redistribuição"
+            },
+            {
+              "id": "z4",
+              "label": "Versão de teste por tempo limitado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Diferenciar licenciamentos evita multas e processos jurídicos contra a empresa. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual a diferença fundamental entre software Freeware e Open Source? ",
+          "answers": [
+            "O Open Source disponibiliza o código para estudo e modificação, o Freeware não",
+            "O Freeware exige pagamento após 30 dias, o Open Source é eterno",
+            "O Open Source é pago, enquanto o Freeware é de código aberto",
+            "Não há diferença, são sinônimos no meio corporativo"
+          ],
+          "correct": "O Open Source disponibiliza o código para estudo e modificação, o Freeware não",
+          "tip": "Ambos não têm custo de aquisição, mas o Freeware mantém seu código-fonte fechado. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a licença Shareware permite que o usuário utilize a versão completa ou restrita de um programa gratuitamente para sempre. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Shareware é gratuito apenas por tempo limitado. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Navegadores e editores de texto são classificados como Software [COMBO], pois fornecem ferramentas diretas ao usuário. ",
+          "options": [
+            "Aplicativo",
+            "De Sistema",
+            "Utilitário",
+            "Firmware"
+          ],
+          "correct": "Aplicativo",
+          "tip": "Eles executam tarefas específicas solicitadas pelo usuário final. "
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais os exemplos clássicos de Software Utilitário, responsáveis pela manutenção do sistema? ",
+          "answers": [
+            "Antivírus",
+            "Compactadores de arquivos",
+            "Editores de imagem (ex: Photoshop)",
+            "Sistemas Operacionais (ex: Linux)"
+          ],
+          "correct": [
+            "Antivírus",
+            "Compactadores de arquivos"
+          ],
+          "tip": "Softwares utilitários atuam na otimização, segurança e organização da máquina. "
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], associe a classificação de software ao seu exemplo prático: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Software de Sistema",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Software Aplicativo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Software Utilitário",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Windows 11"
+            },
+            {
+              "id": "z2",
+              "label": "Google Chrome"
+            },
+            {
+              "id": "z3",
+              "label": "WinRAR / Antivírus"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A classificação é baseada na finalidade: operar o hardware, servir o usuário ou manter o sistema. "
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], por que é essencial para um profissional de TI conhecer os tipos de licença de software? ",
+          "answers": [
+            "Para garantir conformidade legal corporativa e evitar penalidades",
+            "Para aumentar o clock do processador dos computadores",
+            "Para conseguir instalar o sistema operacional sem drivers",
+            "Para converter arquivos .exe em pacotes .msi"
+          ],
+          "correct": "Para garantir conformidade legal corporativa e evitar penalidades",
+          "tip": "O uso de software não licenciado pode causar graves processos jurídicos. "
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], programas com licença Proprietária, como o Microsoft Office, sempre disponibilizam seu código-fonte para a comunidade. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O código-fonte da licença Proprietária é fechado e restrito. "
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O LibreOffice é um exemplo clássico de licença de [COMBO], permitindo livre redistribuição. ",
+          "options": [
+            "Código Aberto",
+            "Freeware restrito",
+            "Shareware",
+            "Proprietário pago"
+          ],
+          "correct": "Código Aberto",
+          "tip": "Você pode baixar, usar, alterar e distribuir versões derivadas deste pacote office. ",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], como operam os instaladores do formato Executável (.exe)? ",
+          "answers": [
+            "Apresentam um assistente (wizard) que guia o usuário pelas etapas",
+            "Baixam arquivos isolados que só funcionam pelo terminal",
+            "Operam exclusivamente via linha de comando silenciosa",
+            "Necessitam que o código-fonte seja compilado manualmente"
+          ],
+          "correct": "Apresentam um assistente (wizard) que guia o usuário pelas etapas",
+          "tip": "Esses arquivos autoexecutáveis trazem uma interface gráfica intuitiva para facilitar o processo. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], baixar instaladores .exe de qualquer fórum na internet é uma prática segura desde que ele seja executado como Administrador. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Deve-se baixar somente de fontes oficiais, pois muitos .exe podem conter malwares. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Antes de rodar um .exe, é altamente recomendado verificar o hash [COMBO] do arquivo para atestar sua integridade. ",
+          "options": [
+            "SHA-256",
+            "MD5-Old",
+            "TXT-Hash",
+            "MSI-Check"
+          ],
+          "correct": "SHA-256",
+          "tip": "A verificação de hash assegura que o arquivo não foi alterado ou infectado após a compilação. "
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], selecione cuidados cruciais ao se instalar um programa via arquivo executável (.exe): ",
+          "answers": [
+            "Desmarcar softwares adicionais (bloatware) durante a instalação",
+            "Verificar a integridade através do hash",
+            "Clicar em 'Avançar' o mais rápido possível sem ler as etapas",
+            "Sempre executar como Administrador, mesmo para aplicativos simples"
+          ],
+          "correct": [
+            "Desmarcar softwares adicionais (bloatware) durante a instalação",
+            "Verificar a integridade através do hash"
+          ],
+          "tip": "A leitura atenta do wizard impede a instalação de barras de pesquisa e spywares embutidos. "
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], associe as vantagens e metodologias aos seus respectivos formatos de instalação: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Interface gráfica intuitiva (Assistente)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ideal para Group Policy (GPO)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Novo formato MSIX (Isolamento)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Instalador .exe"
+            },
+            {
+              "id": "z2",
+              "label": "Pacote .msi"
+            },
+            {
+              "id": "z3",
+              "label": "Microsoft Store"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Enquanto o .exe foca no usuário final, o .msi brilha no ambiente de TI corporativo centralizado. "
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que difere internamente o formato de instalação MSI do tradicional executável? ",
+          "answers": [
+            "Ele contém instruções em um banco de dados estruturado gerido pelo Windows Installer",
+            "Ele é incompatível com o sistema operacional Windows 11",
+            "Ele não necessita de nenhuma permissão de administrador na rede",
+            "Ele instala os programas exclusivamente na nuvem"
+          ],
+          "correct": "Ele contém instruções em um banco de dados estruturado gerido pelo Windows Installer",
+          "tip": "Isso permite que a instalação seja previsível, registrável e facilmente reversível (rollback). "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], pacotes MSI são excelentes para corporações porque NÃO permitem instalação silenciosa, forçando o usuário a aprovar os termos. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, o grande trunfo do MSI é permitir a instalação silenciosa via linha de comando para implantação em massa. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Devido ao registro de todas as alterações feitas no sistema, pacotes MSI facilitam o [COMBO] caso haja falha na instalação. ",
+          "options": [
+            "Rollback",
+            "Download cego",
+            "Format C:",
+            "Bloatware"
+          ],
+          "correct": "Rollback",
+          "tip": "A capacidade de desfazer a instalação corrompida mantendo a estabilidade do SO é uma das forças do MSI. "
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais os principais benefícios de distribuir softwares por meio da Microsoft Store? ",
+          "answers": [
+            "Segurança verificada (análise prévia da Microsoft)",
+            "Atualizações automáticas em segundo plano",
+            "Isolamento do aplicativo via formato MSIX",
+            "Acesso livre para instalação de malwares"
+          ],
+          "correct": [
+            "Segurança verificada (análise prévia da Microsoft)",
+            "Atualizações automáticas em segundo plano",
+            "Isolamento do aplicativo via formato MSIX"
+          ],
+          "tip": "A Store oferece o método com a desinstalação mais limpa entre todas as opções. "
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], de acordo com o comparativo de métodos, avalie o nível de controle corporativo de cada um: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Executável (.exe)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Microsoft Store",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pacote MSI",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Controle corporativo Baixo"
+            },
+            {
+              "id": "z2",
+              "label": "Controle corporativo Médio"
+            },
+            {
+              "id": "z3",
+              "label": "Controle corporativo Alto (GPO)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O MSI, através do Windows Installer, interage perfeitamente com as políticas de grupo do Active Directory. "
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o caminho correto no Windows para iniciar uma desinstalação segura de um aplicativo? ",
+          "answers": [
+            "Acessar Configurações > Aplicativos e Recursos",
+            "Excluir a pasta do programa em C:Program Files",
+            "Mover o ícone da Área de Trabalho para a Lixeira",
+            "Apagar as chaves principais do Regedit"
+          ],
+          "correct": "Acessar Configurações > Aplicativos e Recursos",
+          "tip": "Esta opção invoca o desinstalador oficial, garantindo a remoção de serviços e atalhos atrelados. "
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], excluir os arquivos de um programa manualmente em C:Program Files é a forma mais rápida e segura de desinstalação. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Nunca faça isso. Essa prática deixa entradas órfãs no registro, o que pode causar forte instabilidade no Windows. "
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Após rodar o desinstalador nativo, o técnico pode usar um utilitário como o [COMBO] Uninstaller para limpar pastas e registros residuais. ",
+          "options": [
+            "Revo",
+            "Nmap",
+            "Wireshark",
+            "GPO"
+          ],
+          "correct": "Revo",
+          "tip": "Ferramentas de limpeza auxiliam na eliminação de arquivos mortos deixados para trás na desinstalação. ",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], segundo o material, qual é o principal motivo relacionado à segurança para manter o sistema operacional atualizado? ",
+          "answers": [
+            "Aplicar patches de segurança que corrigem vulnerabilidades",
+            "Garantir que a interface do usuário sempre mude de cor",
+            "Desinstalar pacotes MSI de aplicativos obsoletos",
+            "Reduzir o tamanho em disco ocupado pelos dados do usuário"
+          ],
+          "correct": "Aplicar patches de segurança que corrigem vulnerabilidades",
+          "tip": "As vulnerabilidades conhecidas (CVEs) são ativamente exploradas por malwares e hackers se não corrigidas. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], atualizações do sistema apenas agregam recursos visuais, não oferecendo nenhuma otimização de uso de memória ou processamento. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, atualizações frequentemente melhoram o desempenho e otimizam o consumo de recursos. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "As atualizações de [COMBO] são pacotes cumulativos lançados mensalmente, focados em correções de bugs e falhas de segurança. ",
+          "options": [
+            "Qualidade",
+            "Recursos",
+            "Definição",
+            "Bios"
+          ],
+          "correct": "Qualidade",
+          "tip": "Elas são conhecidas como 'Patch Tuesday' devido ao calendário histórico de lançamentos da Microsoft. "
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], sobre as Atualizações de Recursos do Windows, quais afirmativas estão corretas? ",
+          "answers": [
+            "São lançadas semestralmente ou anualmente",
+            "Introduzem novas funcionalidades ao SO",
+            "Requerem mais espaço e tempo de instalação do que os patches de qualidade",
+            "São atualizadas diariamente contra novos vírus"
+          ],
+          "correct": [
+            "São lançadas semestralmente ou anualmente",
+            "Introduzem novas funcionalidades ao SO",
+            "Requerem mais espaço e tempo de instalação do que os patches de qualidade"
+          ],
+          "tip": "Elas promovem as grandes mudanças geracionais no Windows, por isso são pesadas e demoradas. "
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], associe o tipo de atualização à sua descrição: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Atualizações de Definição",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Atualizações de Driver",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Atualizações de Qualidade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Diárias, ligadas ao antivírus (Defender)"
+            },
+            {
+              "id": "z2",
+              "label": "Firmware de comunicação de hardware"
+            },
+            {
+              "id": "z3",
+              "label": "Cumulativas mensais de segurança"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada atualização cumpre um papel crítico em diferentes camadas (segurança, hardware e sistema). "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é uma boa prática corporativa ao aplicar atualizações distribuídas pelo Windows Update em uma grande empresa? ",
+          "answers": [
+            "Testar em uma máquina piloto antes de distribuir a todos",
+            "Adiar as atualizações de segurança para o fim do ano fiscal",
+            "Liberar a instalação simultânea imediata via Wi-Fi público",
+            "Desativar o serviço Windows Update permanentemente"
+          ],
+          "correct": "Testar em uma máquina piloto antes de distribuir a todos",
+          "tip": "Isso previne que um patch mal projetado paralise centenas de computadores na rede de uma só vez. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o ataque global do WannaCry prosperou exclusivamente devido à inteligência avançada do vírus, e não por falhas na gestão de atualizações das vítimas. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A causa raiz do grande impacto foi a negligência das empresas em não aplicar o patch MS17-010, disponível 2 meses antes. "
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para realizar o controle centralizado e gestão de distribuição de atualizações na rede local, utiliza-se o serviço corporativo da Microsoft chamado [COMBO]. ",
+          "options": [
+            "WSUS",
+            "DHCP",
+            "WannaCry",
+            "GPO"
+          ],
+          "correct": "WSUS",
+          "tip": "O Windows Server Update Services (WSUS) permite aprovar e agendar instalações. "
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], de acordo com o caso real do WannaCry exposto no material, quais foram os impactos gerados nas corporações infectadas? ",
+          "answers": [
+            "Hospitais pararam de operar",
+            "Empresas perderam dados críticos por criptografia",
+            "Melhoria imediata do tempo de inicialização",
+            "Prejuízos estimados em bilhões de dólares"
+          ],
+          "correct": [
+            "Hospitais pararam de operar",
+            "Empresas perderam dados críticos por criptografia",
+            "Prejuízos estimados em bilhões de dólares"
+          ],
+          "tip": "Foi um dos incidentes mais desastrosos da história provocados por falha na gestão de TI. "
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], organize os elementos fundamentais da gestão de TI nas organizações segundo o material: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Inventário de Software",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Política de Atualização",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Alinhamento Estratégico",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Manter registro atualizado de licenças"
+            },
+            {
+              "id": "z2",
+              "label": "Definir janelas e aprovações"
+            },
+            {
+              "id": "z3",
+              "label": "Decidir baseado no negócio/conformidade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O controle vai além da máquina técnica, abrangendo processos de governança e controle de orçamento. "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], para STAIR e REYNOLDS (2020), onde se enquadra a prática de aplicar patches regularmente? ",
+          "answers": [
+            "Gestão de riscos através de controles de segurança preventivos",
+            "Metodologia ágil de desenvolvimento de software",
+            "Gestão de hardware e ciclo de vida do processador",
+            "Processos de auditoria fiscal e contábil"
+          ],
+          "correct": "Gestão de riscos através de controles de segurança preventivos",
+          "tip": "A prevenção é a camada inicial de defesa contra incidentes graves cibernéticos. "
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], realizar o controle rigoroso de patches ajuda a manter a conformidade com leis de proteção de dados, como a LGPD. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Evitar invasões assegura a integridade dos dados de terceiros, exigência das normativas de privacidade. ",
+          "trans": "NORM"
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para que o sistema operacional interaja corretamente e entenda a complexidade da placa de vídeo e placa de rede, ele depende de abstrações lógicas chamadas de [COMBO]. ",
+          "options": [
+            "Drivers",
+            "Plugins",
+            "Codecs",
+            "Patches"
+          ],
+          "correct": "Drivers",
+          "tip": "Os drivers traduzem os comandos do sistema em ações interpretáveis pelo hardware específico. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais problemas podem surgir caso um Driver de Rede esteja ausente ou obsoleto no sistema? ",
+          "answers": [
+            "Impossibilidade de conectividade com a internet",
+            "Perda de acesso aos servidores e pastas locais da rede",
+            "Queda na taxa de quadros e resolução da tela 3D",
+            "Falha na detecção dos decibéis da placa de som"
+          ],
+          "correct": [
+            "Impossibilidade de conectividade com a internet",
+            "Perda de acesso aos servidores e pastas locais da rede"
+          ],
+          "tip": "Sem o driver de rede (NIC), o equipamento fica isolado e incapaz de comunicar-se. "
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], associe o driver à sua respectiva função principal: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Driver de Vídeo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Driver de Áudio",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Driver de Impressora",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Controla a GPU e resolução"
+            },
+            {
+              "id": "z2",
+              "label": "Controla saída/entrada de som"
+            },
+            {
+              "id": "z3",
+              "label": "Formata dados para o dispositivo de saída física"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada componente conectado à placa-mãe exige seu arquivo instrutivo nativo para funcionar. "
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em qual cenário o técnico deve recorrer à instalação de drivers de forma estritamente manual? ",
+          "answers": [
+            "Quando o Windows Update não encontra o driver automático em hardware antigo ou industrial",
+            "Quando o Windows Update conclui a instalação de hardware de rede sem erros",
+            "Para todos os mouses e teclados padrão recém conectados via porta USB 3.0",
+            "Sempre que comprar uma placa-mãe moderna de uma fabricante homologada"
+          ],
+          "correct": "Quando o Windows Update não encontra o driver automático em hardware antigo ou industrial",
+          "tip": "Sistemas industriais possuem bases de usuários pequenas, frequentemente ausentes na lista automática da Microsoft. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o Gerenciador de Dispositivos pode ser acessado no Windows utilizando o atalho de teclado Win + X. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse menu de contexto para administradores facilita o acesso direto a ferramentas gerenciais vitais. "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Ao abrir o Gerenciador de Dispositivos, um ícone de [COMBO] amarelo significa que o hardware está com o driver problemático ou desatualizado. ",
+          "options": [
+            "Triângulo",
+            "Quadrado",
+            "X vermelho",
+            "Interrogação"
+          ],
+          "correct": "Triângulo",
+          "tip": "Preste atenção aos símbolos: triângulo indica problema; 'X', dispositivo desabilitado; '?', não reconhecido. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], selecione os métodos corretos para se atualizar um driver após clicar com o botão direito no hardware listado: ",
+          "answers": [
+            "Pesquisar e atualizar automaticamente (via Windows Update)",
+            "Procurar software de driver no computador (instalação manual)",
+            "Compilar o arquivo binário diretamente no Bloco de Notas",
+            "Executar um Desfragmentador de Disco"
+          ],
+          "correct": [
+            "Pesquisar e atualizar automaticamente (via Windows Update)",
+            "Procurar software de driver no computador (instalação manual)"
+          ],
+          "tip": "O sistema oferece tanto o rastreio em seus catálogos de nuvem quanto a busca offline em pasta local. "
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], onde é o melhor local para obter os arquivos de instalação? Associe as fontes de download seguras com as suas características: ",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Site Oficial do Fabricante",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Windows Update",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Catálogo Microsoft Update",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "A fonte mais segura. Ex: Intel, HP, Dell."
+            },
+            {
+              "id": "z2",
+              "label": "Garante estabilidade via certificação WHQL."
+            },
+            {
+              "id": "z3",
+              "label": "Repositório em catalog.update útil para offline."
+            }
+          ],
+          "correct": "drag",
+          "tip": "Garantir a originalidade das fontes previne infecções persistentes que ocorrem no núcleo (kernel) da máquina. "
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que sites de terceiros que oferecem 'pacotes automáticos de drivers' devem ser evitados por profissionais de TI? ",
+          "answers": [
+            "Eles frequentemente distribuem adwares, spywares ou instalam pacotes não assinados",
+            "Porque eles cobram taxas excessivas em criptomoedas para a Microsoft",
+            "Eles apagam os dados e planilhas confidenciais do usuário de imediato",
+            "Esses sites geralmente bloqueiam a conexão Wi-Fi da placa-mãe permanentemente"
+          ],
+          "correct": "Eles frequentemente distribuem adwares, spywares ou instalam pacotes não assinados",
+          "tip": "Essas suítes prometem facilidade, mas trazem lixos eletrônicos e brechas graves no sistema corporativo. "
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no onboarding corporativo, é correto afirmar que a preparação de uma nova estação de trabalho engloba instalar SO, drivers, apps corretos e aplicar atualizações. ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É o roteiro padronizado para inserir equipamentos na rede com a devida segurança e rastreabilidade esperada. "
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para atestar que um driver instalado de modo invisível pelo Windows é confiável e compatível sem tela azul, ele geralmente recebe a certificação [COMBO] Hardware Quality Labs. ",
+          "options": [
+            "Windows",
+            "Worldwide",
+            "Website",
+            "Wireless"
+          ],
+          "correct": "Windows",
+          "tip": "O selo WHQL (Windows Hardware Quality Labs) assegura que a Microsoft atestou o funcionamento daquele código. "
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais os passos corretos listados no roteiro de Instalação Manual de Drivers? ",
+          "answers": [
+            "Identificar",
+            "Baixar",
+            "Instalar",
+            "Reiniciar",
+            "Desmontar hardware"
+          ],
+          "correct": [
+            "Identificar",
+            "Baixar",
+            "Instalar",
+            "Reiniciar"
+          ],
+          "tip": "Seguir essa metodologia assegura que o sistema operacional irá recarregar as subrotinas corretamente, evitando falhas ocultas. "
         }
       ]
     }
