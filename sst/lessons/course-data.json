@@ -19499,7 +19499,7 @@
               "id": "d2",
               "txt": "Configuração de infraestrutura Cloud (AWS/Azure).",
               "match": "z1"
-            }            
+            }
           ],
           "zones": [
             {
@@ -27030,6 +27030,930 @@
           ],
           "correct": "Corrigir: Otimizar o código, ajustar a prioridade ou reiniciar o serviço problemático",
           "tip": "O ciclo é: Identificar -> Analisar -> Investigar -> Corrigir."
+        }
+      ]
+    },
+    {
+      "slug": "aula-38",
+      "lesson_info": {
+        "id": "Aula-38",
+        "title": "AULA 38 - CONFIGURAÇÃO E PERSONALIZAÇÃO DE SISTEMAS OPERACIONAIS",
+        "topics": [
+          {
+            "id": "CONC",
+            "name": "CONCEITOS DE S.O.",
+            "desc": "Funções do Sistema Operacional, gerenciamento de recursos e tipos de sistemas.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "WIND",
+            "name": "INTERFACE WINDOWS",
+            "desc": "Navegação no Menu Iniciar, Explorador de Arquivos e Painel de Controle.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AVAN",
+            "name": "AJUSTES AVANÇADOS",
+            "desc": "Configurações de rede, IP estático, fuso horário, data e configurações regionais.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "LINU",
+            "name": "LINUX E TERMINAL",
+            "desc": "Comandos essenciais e navegação em distribuições Linux para uso profissional.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1629654261662-7396a58eb738?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "B",
+          "O",
+          "O",
+          "T"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "CONC",
+          "questions": "[NAME], de acordo com o material, qual é a principal função de um Sistema Operacional?",
+          "answers": [
+            "Atuar como intermediário entre hardware e aplicativos",
+            "Proteger a placa-mãe de surtos elétricos",
+            "Servir apenas como editor de textos corporativos",
+            "Processar dados exclusivamente em nuvem"
+          ],
+          "correct": "Atuar como intermediário entre hardware e aplicativos",
+          "tip": "Sem o S.O., nenhum programa conseguiria acessar a memória ou processador de forma organizada."
+        },
+        {
+          "type": "boolean",
+          "topics": "CONC",
+          "questions": "[NAME], o sistema operacional atua no gerenciamento de processos, mas não tem controle sobre os dispositivos de entrada e saída.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O S.O. também controla periféricos via drivers, como impressoras e teclados."
+        },
+        {
+          "type": "drag",
+          "topics": "CONC",
+          "questions": "[NAME], relacione o tipo de gerenciamento do S.O. à sua função correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Processos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Memória",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Arquivos",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Dispositivos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Controla a execução e aloca CPU"
+            },
+            {
+              "id": "z2",
+              "label": "Aloca e libera espaço na RAM"
+            },
+            {
+              "id": "z3",
+              "label": "Organiza dados em disco"
+            },
+            {
+              "id": "z4",
+              "label": "Controla periféricos via drivers"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O S.O. divide suas tarefas em gerenciadores específicos para manter o computador funcionando."
+        },
+        {
+          "type": "combo",
+          "topics": "CONC",
+          "questions": "O Windows e o macOS são classificados como Sistemas Operacionais de uso [COMBO], possuindo interface gráfica para usuários.",
+          "options": [
+            "Geral",
+            "Restrito",
+            "Embarcado",
+            "Militar"
+          ],
+          "correct": "Geral",
+          "tip": "Eles são projetados para o público em geral e empresas, suportando muitos aplicativos."
+        },
+        {
+          "type": "multi",
+          "topics": "CONC",
+          "questions": "[NAME], selecione as características que geralmente definem o sistema Linux:",
+          "answers": [
+            "Código aberto",
+            "Licença de altíssimo custo padrão",
+            "Alta configurabilidade",
+            "Exclusivo para uso doméstico sem servidores"
+          ],
+          "correct": [
+            "Código aberto",
+            "Alta configurabilidade"
+          ],
+          "tip": "O Linux é famoso por ser open-source e extremamente flexível para servidores e automação."
+        },
+        {
+          "type": "multiple",
+          "topics": "CONC",
+          "questions": "Qual dos seguintes sistemas é considerado um Sistema Operacional Especializado?",
+          "answers": [
+            "Android (Sistema Embarcado)",
+            "Windows 11 Home",
+            "Linux Mint (Desktop)",
+            "macOS Ventura"
+          ],
+          "correct": "Android (Sistema Embarcado)",
+          "tip": "Sistemas especializados são focados em contextos específicos como smartphones, IoT ou tempo real."
+        },
+        {
+          "type": "boolean",
+          "topics": "CONC",
+          "questions": "[NAME], no ambiente industrial e corporativo atual, apenas o Windows é utilizado de forma predominante, não havendo espaço para o Linux.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ambos dominam o mercado; o Linux é fortíssimo em servidores e automação industrial."
+        },
+        {
+          "type": "drag",
+          "topics": "CONC",
+          "questions": "Relacione o sistema operacional com sua característica ou ambiente típico de uso:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Windows",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Linux Server",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "RTOS",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Mainframe",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Escritórios e compatibilidade corporativa"
+            },
+            {
+              "id": "z2",
+              "label": "Alta segurança e desenvolvimento"
+            },
+            {
+              "id": "z3",
+              "label": "Sistema de tempo real"
+            },
+            {
+              "id": "z4",
+              "label": "Uso em grandes corporações"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada S.O. brilha em um nicho diferente da arquitetura de TI."
+        },
+        {
+          "type": "combo",
+          "topics": "CONC",
+          "questions": "A organização de dados no disco, controlando leitura e permissões, é feita pelo Sistema de [COMBO].",
+          "options": [
+            "Arquivos",
+            "Memória",
+            "Dispositivos",
+            "Energia"
+          ],
+          "correct": "Arquivos",
+          "tip": "Ele determina como pastas e documentos são salvos fisicamente."
+        },
+        {
+          "type": "multi",
+          "topics": "CONC",
+          "questions": "[NAME], quais são consideradas funções essenciais de qualquer Sistema Operacional?",
+          "answers": [
+            "Gerenciar a Memória RAM",
+            "Criar imagens em 3D",
+            "Alocar tempo de CPU para processos",
+            "Navegar na internet nativamente sem browser"
+          ],
+          "correct": [
+            "Gerenciar a Memória RAM",
+            "Alocar tempo de CPU para processos"
+          ],
+          "tip": "O foco básico do S.O. é administrar o hardware."
+        },
+        {
+          "type": "multiple",
+          "topics": "CONC",
+          "questions": "Para que serve o gerenciamento de processos?",
+          "answers": [
+            "Controlar a execução simultânea de programas",
+            "Aumentar o brilho da tela",
+            "Trocar o idioma do teclado",
+            "Baixar atualizações do Windows"
+          ],
+          "correct": "Controlar a execução simultânea de programas",
+          "tip": "Ele divide a atenção do processador entre os vários aplicativos abertos."
+        },
+        {
+          "type": "multiple",
+          "topics": "CONC",
+          "questions": "[NAME], por que o Linux costuma ser a escolha principal para servidores em nuvem e infraestrutura?",
+          "answers": [
+            "Maior segurança, estabilidade e menor custo de licença",
+            "Por possuir a suíte Microsoft Office nativa",
+            "Por ser o único sistema com interface gráfica em 4K",
+            "Porque é impossível invadir um servidor Linux"
+          ],
+          "correct": "Maior segurança, estabilidade e menor custo de licença",
+          "tip": "A natureza open-source reduz custos e permite configurações profundas.",
+          "trans": "WIND"
+        },
+        {
+          "type": "combo",
+          "topics": "WIND",
+          "questions": "O Menu [COMBO] é considerado o portal de acesso a todos os recursos do sistema Windows.",
+          "options": [
+            "Iniciar",
+            "Explorar",
+            "Ferramentas",
+            "Controle"
+          ],
+          "correct": "Iniciar",
+          "tip": "Pode ser aberto rapidamente com a tecla Windows no teclado."
+        },
+        {
+          "type": "boolean",
+          "topics": "WIND",
+          "questions": "[NAME], a busca integrada ao Menu Iniciar no Windows 10/11 é uma das formas mais lentas de acessar configurações do Painel de Controle.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Na verdade, é a forma mais rápida! Basta apertar a tecla Windows e digitar o que procura."
+        },
+        {
+          "type": "multiple",
+          "topics": "WIND",
+          "questions": "Qual ferramenta do Windows permite navegar pela estrutura de diretórios, copiar e mover arquivos?",
+          "answers": [
+            "Explorador de Arquivos",
+            "Painel de Controle",
+            "Prompt de Comando",
+            "Gerenciador de Tarefas"
+          ],
+          "correct": "Explorador de Arquivos",
+          "tip": "Conhecido em inglês como File Explorer."
+        },
+        {
+          "type": "drag",
+          "topics": "WIND",
+          "questions": "[NAME], relacione as partes do Explorador de Arquivos com suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Painel de Navegação",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Barra de Endereços",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Faixa de Opções (Ribbon)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Acesso rápido lateral (Este Computador)"
+            },
+            {
+              "id": "z2",
+              "label": "Exibe o caminho e permite digitação"
+            },
+            {
+              "id": "z3",
+              "label": "Ações contextuais (Copiar, Renomear)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O explorador é dividido em áreas visuais para facilitar o uso diário."
+        },
+        {
+          "type": "multi",
+          "topics": "WIND",
+          "questions": "Quais tarefas podem ser executadas através do Menu Iniciar?",
+          "answers": [
+            "Desligar ou reiniciar o computador",
+            "Alternar entre contas de usuário",
+            "Formatar o disco C: silenciosamente com 1 clique",
+            "Realizar buscas por arquivos"
+          ],
+          "correct": [
+            "Desligar ou reiniciar o computador",
+            "Alternar entre contas de usuário",
+            "Realizar buscas por arquivos"
+          ],
+          "tip": "O Menu Iniciar centraliza as operações básicas da sessão do usuário."
+        },
+        {
+          "type": "combo",
+          "topics": "WIND",
+          "questions": "O Painel de [COMBO] ainda é essencial para ajustes avançados em ambientes corporativos, mesmo com o app Configurações.",
+          "options": [
+            "Controle",
+            "Ajustes",
+            "Rede",
+            "Administração"
+          ],
+          "correct": "Controle",
+          "tip": "Ele abriga recursos legados e detalhados da administração do Windows."
+        },
+        {
+          "type": "boolean",
+          "topics": "WIND",
+          "questions": "[NAME], a tecla de atalho (Win) abre o Menu Iniciar instantaneamente a partir de qualquer janela aberta no Windows.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É o atalho mais importante para produtividade no sistema."
+        },
+        {
+          "type": "multiple",
+          "topics": "WIND",
+          "questions": "Em qual seção do Painel de Controle você ajusta o fuso horário e o idioma de exibição?",
+          "answers": [
+            "Região e Idioma",
+            "Contas de Usuário",
+            "Rede e Internet",
+            "Hardware e Sons"
+          ],
+          "correct": "Região e Idioma",
+          "tip": "Essa configuração afeta até mesmo a visualização de moedas no sistema."
+        },
+        {
+          "type": "drag",
+          "topics": "WIND",
+          "questions": "[NAME], conecte a categoria do Painel de Controle com sua utilidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Contas de Usuário",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Rede e Internet",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sistema e Segurança",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gerencia permissões e senhas"
+            },
+            {
+              "id": "z2",
+              "label": "Configura adaptadores e VPN"
+            },
+            {
+              "id": "z3",
+              "label": "Firewall, atualizações e backup"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Painel de Controle agrupa as configurações por temas lógicos."
+        },
+        {
+          "type": "multi",
+          "topics": "WIND",
+          "questions": "O Explorador de Arquivos permite acesso direto a quais recursos?",
+          "answers": [
+            "Dispositivos USB externos",
+            "Unidades mapeadas de rede",
+            "Pastas do sistema interno protegidas sem aviso",
+            "Apenas os arquivos da área de trabalho"
+          ],
+          "correct": [
+            "Dispositivos USB externos",
+            "Unidades mapeadas de rede"
+          ],
+          "tip": "Ele gerencia todo o armazenamento visível para o usuário."
+        },
+        {
+          "type": "combo",
+          "topics": "WIND",
+          "questions": "Fixar os aplicativos mais utilizados na barra de [COMBO] acelera o fluxo de trabalho do profissional.",
+          "options": [
+            "Tarefas",
+            "Rolagem",
+            "Menus",
+            "Status"
+          ],
+          "correct": "Tarefas",
+          "tip": "Fica normalmente na parte inferior da tela."
+        },
+        {
+          "type": "boolean",
+          "topics": "WIND",
+          "questions": "[NAME], a Faixa de Opções (Ribbon) do Explorador de arquivos não permite compactar arquivos, sendo necessário instalar sempre o WinRAR.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Windows possui ferramenta nativa para criar pastas zipadas pela Ribbon."
+        },
+        {
+          "type": "multiple",
+          "topics": "WIND",
+          "questions": "Qual configuração administrativa envolve ajustes de Firewall e Restauração?",
+          "answers": [
+            "Sistema e Segurança",
+            "Contas de Usuário",
+            "Região",
+            "Aparência"
+          ],
+          "correct": "Sistema e Segurança",
+          "tip": "É a área focada em manter o Windows protegido contra ameaças externas e perda de dados.",
+          "trans": "AVAN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AVAN",
+          "questions": "[NAME], por que a configuração de Idioma e Região importa tanto em empresas multinacionais?",
+          "answers": [
+            "Garante que datas, valores monetários e separadores decimais sejam processados corretamente",
+            "Para que o teclado ganhe luzes automáticas",
+            "Para melhorar o ping nos jogos online",
+            "Para traduzir automaticamente os PDFs enviados"
+          ],
+          "correct": "Garante que datas, valores monetários e separadores decimais sejam processados corretamente",
+          "tip": "Um separador de milhar errado pode arruinar o fechamento financeiro no ERP."
+        },
+        {
+          "type": "boolean",
+          "topics": "AVAN",
+          "questions": "A sincronização correta de data e hora só afeta a exibição do relógio na tela, não interferindo nos logs de segurança ou certificados SSL.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Horários errados causam falhas graves em autenticações e criptografia HTTPS."
+        },
+        {
+          "type": "combo",
+          "topics": "AVAN",
+          "questions": "O Windows permite sincronizar automaticamente a hora com servidores [COMBO] na internet.",
+          "options": [
+            "NTP",
+            "FTP",
+            "HTTP",
+            "SMTP"
+          ],
+          "correct": "NTP",
+          "tip": "A sigla significa Network Time Protocol."
+        },
+        {
+          "type": "drag",
+          "topics": "AVAN",
+          "questions": "[NAME], ordene os passos para sincronização de fuso horário no Brasil:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Acesso",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ajuste do Fuso",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sincronização",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Painel de Controle -> Data e Hora"
+            },
+            {
+              "id": "z2",
+              "label": "Selecione UTC-03:00 (Brasília)"
+            },
+            {
+              "id": "z3",
+              "label": "Aba Hora na Internet -> time.windows.com"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses três passos garantem que a máquina estará em conformidade com o horário nacional."
+        },
+        {
+          "type": "multi",
+          "topics": "AVAN",
+          "questions": "Sobre as configurações de rede IP estático vs DHCP, escolha as afirmativas corretas:",
+          "answers": [
+            "Servidores e impressoras geralmente utilizam IP estático",
+            "Estações de trabalho comuns preferem usar DHCP",
+            "DHCP obriga o usuário a digitar o IP manualmente todo dia",
+            "IP estático muda toda vez que o PC é reiniciado"
+          ],
+          "correct": [
+            "Servidores e impressoras geralmente utilizam IP estático",
+            "Estações de trabalho comuns preferem usar DHCP"
+          ],
+          "tip": "Equipamentos que precisam ser achados na rede (impressoras) precisam de IP fixo."
+        },
+        {
+          "type": "multiple",
+          "topics": "AVAN",
+          "questions": "[NAME], o que é essencial configurar para que o computador consiga converter nomes de domínio (como google.com) em endereços IP?",
+          "answers": [
+            "Servidor DNS",
+            "Fuso horário",
+            "Endereço MAC",
+            "Idioma do teclado"
+          ],
+          "correct": "Servidor DNS",
+          "tip": "O DNS age como a lista telefônica da internet."
+        },
+        {
+          "type": "boolean",
+          "topics": "AVAN",
+          "questions": "Em ambientes corporativos rigorosos, deve-se utilizar um servidor NTP interno ao invés do padrão da internet para garantir sincronização na rede local.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso garante que toda máquina do domínio tenha exatamente o mesmo milissegundo em seus logs."
+        },
+        {
+          "type": "combo",
+          "topics": "AVAN",
+          "questions": "O [COMBO] padrão é a configuração de rede que diz ao computador qual roteador ele deve usar para acessar a internet.",
+          "options": [
+            "Gateway",
+            "Proxy",
+            "Switch",
+            "Modem"
+          ],
+          "correct": "Gateway",
+          "tip": "Geralmente é o IP do roteador local da empresa."
+        },
+        {
+          "type": "drag",
+          "topics": "AVAN",
+          "questions": "Relacione os parâmetros de rede ao seu conceito:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "IP Estático",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "DHCP",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "DNS",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Endereço manual fixado na máquina"
+            },
+            {
+              "id": "z2",
+              "label": "Atribuição automática de endereços IP"
+            },
+            {
+              "id": "z3",
+              "label": "Resolução de nomes para IP"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender o IPv4 é fundamental para o suporte técnico."
+        },
+        {
+          "type": "multi",
+          "topics": "AVAN",
+          "questions": "[NAME], quais opções costumam fazer parte da configuração manual IPv4 no Windows?",
+          "answers": [
+            "Endereço IP e Máscara de Sub-rede",
+            "Gateway Padrão e Servidores DNS",
+            "Caminho da pasta do usuário",
+            "Brilho da tela de login"
+          ],
+          "correct": [
+            "Endereço IP e Máscara de Sub-rede",
+            "Gateway Padrão e Servidores DNS"
+          ],
+          "tip": "Apenas as opções lógicas de conectividade de rede compõem o IPv4."
+        },
+        {
+          "type": "multiple",
+          "topics": "AVAN",
+          "questions": "Se uma máquina precisa acessar um ERP interno que tem um IP fixo, por que devemos configurar a máscara de sub-rede corretamente?",
+          "answers": [
+            "Para definir quais IPs fazem parte da rede local",
+            "Para esconder o computador de hackers",
+            "Para criptografar a senha do ERP",
+            "Para acelerar o processador"
+          ],
+          "correct": "Para definir quais IPs fazem parte da rede local",
+          "tip": "A máscara diz até onde vai a rede da empresa."
+        },
+        {
+          "type": "multiple",
+          "topics": "AVAN",
+          "questions": "[NAME], no desafio da LogisTech, o formato regional incorreto das datas causava qual problema principal?",
+          "answers": [
+            "Inconsistências em relatórios e corrompimento de planilhas",
+            "Desligamento repentino do computador",
+            "Exclusão dos dados no banco de dados",
+            "O mouse parava de funcionar"
+          ],
+          "correct": "Inconsistências em relatórios e corrompimento de planilhas",
+          "tip": "Mudar a data de MM/DD para DD/MM altera profundamente cálculos de idade e prazos.",
+          "trans": "LINU"
+        },
+        {
+          "type": "multiple",
+          "topics": "LINU",
+          "questions": "No Linux, qual ferramenta administrativa oferece controle e precisão avançada por linha de comando?",
+          "answers": [
+            "Terminal",
+            "Painel de Controle",
+            "Gerenciador de Tarefas",
+            "Calculadora"
+          ],
+          "correct": "Terminal",
+          "tip": "Muitos servidores sequer possuem interface gráfica, dependendo 100% do Terminal."
+        },
+        {
+          "type": "boolean",
+          "topics": "LINU",
+          "questions": "[NAME], a maioria das distribuições Linux modernas não possui interface gráfica e só pode ser operada via texto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Distribuições Desktop modernas como Ubuntu ou Mint possuem belas interfaces gráficas comparáveis ao Windows."
+        },
+        {
+          "type": "combo",
+          "topics": "LINU",
+          "questions": "O comando [COMBO] no Linux permite executar instruções como administrador do sistema (root).",
+          "options": [
+            "sudo",
+            "ls",
+            "cd",
+            "chmod"
+          ],
+          "correct": "sudo",
+          "tip": "Sudo significa 'Superuser do' (Fazer como superusuário)."
+        },
+        {
+          "type": "drag",
+          "topics": "LINU",
+          "questions": "Relacione os ambientes gráficos populares do Linux com suas características:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "GNOME",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "KDE Plasma",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "XFCE",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Moderno e intuitivo (Ubuntu, Fedora)"
+            },
+            {
+              "id": "z2",
+              "label": "Altamente personalizável e com muitos efeitos"
+            },
+            {
+              "id": "z3",
+              "label": "Leve, ideal para hardware antigo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "No Linux, você pode trocar toda a aparência escolhendo um 'Desktop Environment' diferente."
+        },
+        {
+          "type": "multi",
+          "topics": "LINU",
+          "questions": "[NAME], quais componentes de interface gráfica são comuns tanto no Linux Desktop quanto no Windows?",
+          "answers": [
+            "Gerenciador de arquivos",
+            "Painel ou barra de tarefas",
+            "Prompt de Comando do MS-DOS",
+            "Registro do Windows (.reg)"
+          ],
+          "correct": [
+            "Gerenciador de arquivos",
+            "Painel ou barra de tarefas"
+          ],
+          "tip": "A experiência básica do usuário de desktop é muito similar em ambos."
+        },
+        {
+          "type": "multiple",
+          "topics": "LINU",
+          "questions": "O comando ls no terminal do Linux serve para:",
+          "answers": [
+            "Listar os arquivos e pastas do diretório atual",
+            "Aumentar o volume do som",
+            "Criar um novo usuário admin",
+            "Desligar o sistema imediatamente"
+          ],
+          "correct": "Listar os arquivos e pastas do diretório atual",
+          "tip": "Ele mostra todo o conteúdo de onde você está logado."
+        },
+        {
+          "type": "boolean",
+          "topics": "LINU",
+          "questions": "Para configurar a rede manualmente no Linux via terminal, muitas vezes editamos o arquivo localizado em /etc/network/interfaces.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Lá ficam definidos se o IP será DHCP ou estático nas distros baseadas em Debian."
+        },
+        {
+          "type": "combo",
+          "topics": "LINU",
+          "questions": "Para gerenciar data, hora e fuso pelo terminal Linux, utiliza-se o utilitário [COMBO].",
+          "options": [
+            "timedatectl",
+            "ifconfig",
+            "localectl",
+            "cd"
+          ],
+          "correct": "timedatectl",
+          "tip": "Sua execução com o parâmetro set-timezone ajusta o relógio regional."
+        },
+        {
+          "type": "drag",
+          "topics": "LINU",
+          "questions": "[NAME], compare as ferramentas de configuração do Windows com seus equivalentes em comandos Linux:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Painel - Data/Hora",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Painel - Região",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Configurações de Rede",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "timedatectl"
+            },
+            {
+              "id": "z2",
+              "label": "localectl"
+            },
+            {
+              "id": "z3",
+              "label": "ifconfig / nmcli"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber mapear os conhecimentos do Windows para os comandos do Linux agiliza a transição de carreira."
+        },
+        {
+          "type": "multi",
+          "topics": "LINU",
+          "questions": "Sobre a configuração de Idioma e Localização no terminal Linux, quais comandos são úteis?",
+          "answers": [
+            "sudo localectl set-locale LANG=pt_BR.UTF-8",
+            "localectl list-locales",
+            "sudo format /C",
+            "cd /home/user"
+          ],
+          "correct": [
+            "sudo localectl set-locale LANG=pt_BR.UTF-8",
+            "localectl list-locales"
+          ],
+          "tip": "O comando format pertence ao ambiente Microsoft."
+        },
+        {
+          "type": "multiple",
+          "topics": "LINU",
+          "questions": "[NAME], qual é o gerenciador de arquivos padrão em ambientes KDE Plasma e popular no Linux?",
+          "answers": [
+            "Dolphin",
+            "Windows Explorer",
+            "Finder",
+            "Cortana"
+          ],
+          "correct": "Dolphin",
+          "tip": "O Nautilus é mais popular no GNOME, enquanto o Dolphin reina no KDE."
+        },
+        {
+          "type": "multiple",
+          "topics": "LINU",
+          "questions": "Como você navega entre pastas através do terminal de comandos?",
+          "answers": [
+            "Usando o comando 'cd' (change directory)",
+            "Pressionando a seta para a direita",
+            "Usando o comando 'ip a'",
+            "Apertando a barra de espaço repetidamente"
+          ],
+          "correct": "Usando o comando 'cd' (change directory)",
+          "tip": "Por exemplo: cd /etc levará você para a pasta de configurações."
+        },
+        {
+          "type": "multiple",
+          "topics": "LINU",
+          "questions": "Ao final desta aula, compreendemos que dominar a configuração de Sistemas Operacionais, seja Linux ou Windows, serve primariamente para:",
+          "answers": [
+            "Garantir a base de funcionamento para aplicações e infraestruturas corporativas",
+            "Saber programar jogos em 3D mais rápido",
+            "Desinstalar todos os aplicativos padrões desnecessários",
+            "Pular a etapa de aprendizado de lógica de programação"
+          ],
+          "correct": "Garantir a base de funcionamento para aplicações e infraestruturas corporativas",
+          "tip": "Todo sistema de software robusto repousa sobre um sistema operacional bem configurado.",
+          "trans": "END"
         }
       ]
     }
