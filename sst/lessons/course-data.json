@@ -27993,6 +27993,884 @@
           "tip": "Pastas mapeadas aparecem como unidades de disco nativas no Windows."
         }
       ]
+    },
+    {
+      "slug": "aula-39",
+      "lesson_info": {
+        "id": "Aula-39",
+        "title": "AULA 39 - DOMÍNIOS E ACTIVE DIRECTORY",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "DOMÍNIOS E WORKGROUPS",
+            "desc": "Conceito de domínio, benefícios e diferenças em relação a grupos de trabalho locais.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "ACTIVE DIRECTORY E ESTRUTURA",
+            "desc": "Serviço de diretório AD DS, Controladores de Domínio, Florestas e Árvores.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "INSTALAÇÃO E PROMOÇÃO",
+            "desc": "Passo a passo para instalar a Role AD DS e promover o servidor a Domain Controller.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "OUS E POLÍTICAS DE GRUPO",
+            "desc": "Organização do diretório com Unidades Organizacionais e aplicação de GPOs.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "A",
+          "D",
+          "D",
+          "S"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal benefício de usar um Domínio em vez de um Grupo de Trabalho (Workgroup)?",
+          "answers": [
+            "Gerenciamento centralizado, escalável e seguro",
+            "Gerenciamento local em cada máquina individualmente",
+            "Custo nulo de implementação",
+            "Não requer uso de senhas"
+          ],
+          "correct": "Gerenciamento centralizado, escalável e seguro",
+          "tip": "Domínios centralizam a gestão de toda a rede no servidor."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Para uma rede de empresa com 50 computadores, o uso de Grupo de Trabalho (Workgroup) é a abordagem mais eficiente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Grupos de Trabalho são limitados e ideais apenas para redes pequenas (menos de 15 usuários)."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Um domínio permite [COMBO] a autenticação, regras e políticas de todos os dispositivos.",
+          "options": [
+            "Centralizar",
+            "Descentralizar",
+            "Excluir",
+            "Ignorar"
+          ],
+          "correct": "Centralizar",
+          "tip": "A centralização é o pilar da infraestrutura baseada em domínio."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o modelo de rede com as suas características:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Grupos de Trabalho",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Domínios",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Autenticação em Workgroup",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Autenticação em Domínio",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gerenciamento máquina por máquina"
+            },
+            {
+              "id": "z2",
+              "label": "Ideal para médias e grandes empresas"
+            },
+            {
+              "id": "z3",
+              "label": "Feita localmente no próprio PC"
+            },
+            {
+              "id": "z4",
+              "label": "Feita centralizadamente no servidor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender essa diferença é fundamental para a transição de redes pequenas para corporativas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual destes é um sufixo de domínio comumente recomendado para redes fechadas de pequenas e médias empresas?",
+          "answers": [
+            ".local",
+            ".com",
+            ".gov",
+            ".org"
+          ],
+          "correct": ".local",
+          "tip": "O sufixo .local é padrão para domínios gerenciados exclusivamente de forma interna."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "No modelo de Domínio, um usuário criado no servidor deve ser recriado manualmente em todas as máquinas da rede.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A conta é criada apenas no servidor e replicada. O usuário pode logar em qualquer máquina."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O Administrador do Domínio gerencia a rede sem precisar [COMBO] fisicamente cada máquina.",
+          "options": [
+            "Acessar",
+            "Comprar",
+            "Vender",
+            "Desmontar"
+          ],
+          "correct": "Acessar",
+          "tip": "Toda a configuração e liberação de permissões ocorre via servidor central."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "O que um domínio permite agrupar estruturalmente dentro de uma rede?",
+          "answers": [
+            "Usuários",
+            "Computadores",
+            "Impressoras",
+            "Cabos de rede físicos"
+          ],
+          "correct": [
+            "Usuários",
+            "Computadores",
+            "Impressoras"
+          ],
+          "tip": "O domínio agrupa recursos lógicos e dispositivos identificáveis, não a infraestrutura passiva (cabos)."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe os tipos de domínio aos seus respectivos exemplos de uso:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Domínio Local (PME)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Institucional Externo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Corporativo Externo",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "empresa.local"
+            },
+            {
+              "id": "z2",
+              "label": "universidade.edu.br"
+            },
+            {
+              "id": "z3",
+              "label": "empresa.com.br"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada sufixo possui um propósito, sendo o '.local' o mais simples de gerir internamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Se uma empresa opta por usar 'empresa.com.br' como seu domínio Active Directory, qual serviço precisará de configuração rigorosa?",
+          "answers": [
+            "DNS (Domain Name System)",
+            "Serviço de Impressão",
+            "Painel de Controle",
+            "Gerenciador de Tarefas"
+          ],
+          "correct": "DNS (Domain Name System)",
+          "tip": "Domínios públicos exigem que o DNS interno resolva os nomes adequadamente para não conflitar com a internet."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], em um domínio, é possível criar uma política que impeça todos os usuários de trocar o papel de parede.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse é um exemplo clássico de regra aplicada via políticas de domínio."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "A estrutura de domínio encerra o gerenciamento 'máquina por máquina'. Qual é o nome do servidor que centraliza isso?",
+          "answers": [
+            "Controlador de Domínio",
+            "Servidor Web",
+            "Servidor de Arquivos Local",
+            "Roteador de Borda"
+          ],
+          "correct": "Controlador de Domínio",
+          "trans": "AGEN",
+          "tip": "O Controlador de Domínio (DC) é o coração da rede Windows."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que significa a sigla AD DS no contexto de servidores Microsoft?",
+          "answers": [
+            "Active Directory Domain Services",
+            "Automatic Domain Data System",
+            "Advanced Directory Distribution Server",
+            "Assigned Domain Device Security"
+          ],
+          "correct": "Active Directory Domain Services",
+          "tip": "É o serviço de diretório oficial da Microsoft que roda no Windows Server."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O Active Directory utiliza nativamente o protocolo [COMBO] para comunicação e consulta.",
+          "options": [
+            "LDAP",
+            "HTTP",
+            "SMTP",
+            "FTP"
+          ],
+          "correct": "LDAP",
+          "tip": "O Lightweight Directory Access Protocol (LDAP) é a base das consultas no AD."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Se o Controlador de Domínio (DC) for desligado, os usuários poderão continuar autenticando normalmente pela nuvem.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Se o DC estiver fora do ar, nenhum usuário conseguirá autenticar na rede local."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais destas nomenclaturas representam estruturas de organização lógica dentro do Active Directory?",
+          "answers": [
+            "Floresta",
+            "Árvore",
+            "Domínio",
+            "Placa-mãe"
+          ],
+          "correct": [
+            "Floresta",
+            "Árvore",
+            "Domínio"
+          ],
+          "tip": "O AD utiliza termos botânicos para representar a hierarquia de domínios."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Organize a hierarquia do Active Directory da maior para a menor estrutura:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Maior estrutura (Raiz)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ramificação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Estrutura Base",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Pasta Interna",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Floresta"
+            },
+            {
+              "id": "z2",
+              "label": "Árvore"
+            },
+            {
+              "id": "z3",
+              "label": "Domínio"
+            },
+            {
+              "id": "z4",
+              "label": "Unidade Organizacional (OU)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Uma Floresta contém Árvores, que contêm Domínios, que contêm OUs."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], em vez de criar múltiplos subdomínios para filiais físicas distantes, o que a Microsoft recomenda?",
+          "answers": [
+            "Uso de Sites mantendo o mesmo domínio",
+            "Criar múltiplos domínios independentes",
+            "Retornar ao uso de Grupos de Trabalho",
+            "Utilizar roteadores domésticos"
+          ],
+          "correct": "Uso de Sites mantendo o mesmo domínio",
+          "tip": "Sites organizam geograficamente um único domínio, economizando infraestrutura e simplificando a gestão."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Empresas sem recursos financeiros para Windows Server podem usar o Samba 4 no Linux como substituto para gerenciar usuários Windows.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Samba 4 no Linux é uma alternativa open source capaz de simular um AD DS, embora com menos recursos nativos."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Todo novo domínio criado inicia automaticamente uma nova [COMBO] no Active Directory.",
+          "options": [
+            "Floresta",
+            "Árvore",
+            "OU",
+            "GPO"
+          ],
+          "correct": "Floresta",
+          "tip": "O primeiro domínio é a raiz da sua nova Floresta."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais responsabilidades são atribuídas diretamente ao Controlador de Domínio (DC)?",
+          "answers": [
+            "Autenticar logins de usuários",
+            "Replicar objetos do diretório",
+            "Distribuir Políticas de Grupo (GPOs)",
+            "Trocar memórias RAM queimadas"
+          ],
+          "correct": [
+            "Autenticar logins de usuários",
+            "Replicar objetos do diretório",
+            "Distribuir Políticas de Grupo (GPOs)"
+          ],
+          "tip": "O DC é um serviço lógico de software, focado em gestão, acesso e segurança."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Analise o diagrama do Active Directory e relacione os usuários às permissões delegadas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Michael",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "John",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Richard",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Tom",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Pode redefinir senhas"
+            },
+            {
+              "id": "z2",
+              "label": "Possui Controle Total"
+            },
+            {
+              "id": "z3",
+              "label": "Gerencia impressoras"
+            },
+            {
+              "id": "z4",
+              "label": "Modifica membros de grupos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Isso demonstra a capacidade do AD de delegar permissões granulares por OU."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual a melhor prática para garantir que os usuários sempre consigam logar, caso o DC principal falhe?",
+          "answers": [
+            "Ter ao menos dois Controladores de Domínio (DCs)",
+            "Desligar o DHCP",
+            "Salvar senhas num bloco de notas",
+            "Usar exclusivamente Workgroup"
+          ],
+          "correct": "Ter ao menos dois Controladores de Domínio (DCs)",
+          "tip": "A redundância é chave. Se um DC cair, o secundário assume as autenticações."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], uma 'Árvore' no contexto do AD é um subconjunto de pastas dentro do disco C:.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Árvore refere-se a domínios ramificados (ex: filial.empresa.local), não a pastas locais."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Tendo a estrutura do Active Directory bem definida, qual é o próximo passo prático num servidor novo?",
+          "answers": [
+            "A instalação da Role AD DS",
+            "A formatação do disco C:",
+            "A exclusão de todos os usuários",
+            "A compra de licenças de antivírus"
+          ],
+          "correct": "A instalação da Role AD DS",
+          "trans": "PROT",
+          "tip": "Devemos instalar a função (Role) no Server Manager para iniciar o uso."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], onde clicamos no Server Manager para iniciar a instalação do Active Directory?",
+          "answers": [
+            "Add Roles and Features",
+            "Local Security Policy",
+            "Windows Update",
+            "Disk Management"
+          ],
+          "correct": "Add Roles and Features",
+          "tip": "A instalação de qualquer serviço principal no Windows Server inicia em 'Add Roles and Features'."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A opção de instalação correta para o AD é a baseada em [COMBO] ou features.",
+          "options": [
+            "Roles",
+            "Arquivos",
+            "Redes",
+            "Domínios"
+          ],
+          "correct": "Roles",
+          "tip": "Selecione 'Role-based or feature-based installation'."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Para criar um domínio básico, devemos instalar a Role 'Active Directory Certificate Services'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A correta é 'Active Directory Domain Services'. Certificate Services é para emissão de certificados digitais."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Durante a instalação do AD DS, quais ferramentas complementares são sugeridas e obrigatórias?",
+          "answers": [
+            "Group Policy Management",
+            "AD DS Tools",
+            "Active Directory module for PowerShell",
+            "Xbox Game Bar"
+          ],
+          "correct": [
+            "Group Policy Management",
+            "AD DS Tools",
+            "Active Directory module for PowerShell"
+          ],
+          "tip": "Estas ferramentas fornecem as interfaces gráficas e de linha de comando para gestão."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe as ferramentas instaladas com as suas funções no AD:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Group Policy Management",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Active Directory Admin Center",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "AD module for PowerShell",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Criação e gerência de GPOs"
+            },
+            {
+              "id": "z2",
+              "label": "Gerenciamento visual moderno do diretório"
+            },
+            {
+              "id": "z3",
+              "label": "Automação e scripts administrativos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada ferramenta é vital para a operação diária do administrador."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Após a instalação da Role AD DS estar concluída no assistente, o servidor já se comporta como Controlador de Domínio?",
+          "answers": [
+            "Não, ele precisa ser promovido a Controlador de Domínio",
+            "Sim, imediatamente após a barra de progresso",
+            "Sim, após apertar Ctrl+Alt+Del",
+            "Não, precisa aguardar 24 horas"
+          ],
+          "correct": "Não, ele precisa ser promovido a Controlador de Domínio",
+          "tip": "A instalação da Role apenas baixa os binários. A promoção aplica as configurações de fato."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], ao configurar o Deployment Configuration, selecionamos 'Add a new forest' pois não havia nenhum domínio existente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Como este é o primeiro servidor do ambiente, iniciamos do zero com uma nova floresta."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A sigla DSRM refere-se à senha de [COMBO] Mode para os Serviços de Diretório.",
+          "options": [
+            "Restore",
+            "Remote",
+            "Reading",
+            "Routing"
+          ],
+          "correct": "Restore",
+          "tip": "Directory Services Restore Mode. É crucial não esquecer essa senha de recuperação."
+        },        
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual será o nome NetBIOS gerado automaticamente durante a configuração do domínio empresa.local?",
+          "answers": [
+            "EMPRESA",
+            "LOCAL",
+            "SERVER1",
+            "ADMIN"
+          ],
+          "correct": "EMPRESA",
+          "tip": "O NetBIOS extrai a parte principal do nome do domínio para compatibilidade com sistemas legados."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Aviso de 'Delegação DNS não encontrada' no Prerequisites Check indica uma falha fatal que impede a instalação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É um aviso esperado quando o servidor atual não encontra um DNS pai autoritativo na rede local. A instalação prossegue normalmente."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que ocorre logo após o sistema notificar que o servidor foi configurado com sucesso como controlador de domínio?",
+          "answers": [
+            "O Windows é reiniciado automaticamente",
+            "O painel de controle é bloqueado",
+            "A placa de rede é desativada",
+            "O servidor formata o disco D:"
+          ],
+          "correct": "O Windows é reiniciado automaticamente",
+          "trans": "NORM",
+          "tip": "O reinício é necessário para carregar o sistema operacional em modo Controlador de Domínio."
+        },        
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para criar os setores da empresa, utilizamos as Unidades [COMBO] (OUs).",
+          "options": [
+            "Organizacionais",
+            "Operacionais",
+            "Opcionais",
+            "Ocultas"
+          ],
+          "correct": "Organizacionais",
+          "tip": "As OUs funcionam como pastas dentro do diretório."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A ferramenta principal utilizada na aula para criar OUs foi o 'Active Directory Users and Computers'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Também conhecida como dsa.msc, é a interface gráfica clássica para gerir a estrutura do AD."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais tarefas administrativas podem ser delegadas a um subadministrador especificamente em uma OU?",
+          "answers": [
+            "Resetar senhas de usuários daquela OU",
+            "Criar novos usuários nela",
+            "Desligar fisicamente o servidor DC",
+            "Desinstalar o Active Directory"
+          ],
+          "correct": [
+            "Resetar senhas de usuários daquela OU",
+            "Criar novos usuários nela"
+          ],
+          "tip": "A delegação ocorre sobre objetos do diretório, não sobre o hardware ou o serviço raiz."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe o conceito da Group Policy (GPO) à sua possível aplicação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Restrições de Desktop",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Scripts de Inicialização",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Controle de Software",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Cotas de Disco",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Impedir troca do papel de parede"
+            },
+            {
+              "id": "z2",
+              "label": "Mapear uma unidade de rede (Ex: Z:) no logon"
+            },
+            {
+              "id": "z3",
+              "label": "Bloquear instalação de programas perigosos"
+            },
+            {
+              "id": "z4",
+              "label": "Limitar cada usuário a 10GB de armazenamento"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As GPOs são a maior força da gestão Windows corporativa."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], ao abrir a ferramenta Active Directory Users and Computers, nota-se contêineres padrões criados automaticamente. Qual é o nome do contêiner que guarda contas como Domain Admins?",
+          "answers": [
+            "Users",
+            "Computers",
+            "Builtin",
+            "Domain Controllers"
+          ],
+          "correct": "Users",
+          "tip": "O contêiner genérico 'Users' guarda as contas e grupos padrão do domínio."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Ao criar as OUs ADM e VND, a opção 'Protect container from accidental deletion' não deve ser ativada por questões de desempenho.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ela DEVE ser ativada para proteger a OU contra exclusões acidentais."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Nossa árvore terá as OUs [COMBO] (Administrativo) e VND (Vendas).",
+          "options": [
+            "ADM",
+            "FIN",
+            "RH",
+            "TI"
+          ],
+          "correct": "ADM",
+          "tip": "A aula especifica a criação das OUs ADM e VND."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais elementos são considerados Objetos dentro de uma Unidade Organizacional (OU)?",
+          "answers": [
+            "Usuários",
+            "Grupos de Segurança",
+            "Computadores Membros",
+            "Documentos de Word"
+          ],
+          "correct": [
+            "Usuários",
+            "Grupos de Segurança",
+            "Computadores Membros"
+          ],
+          "tip": "Documentos são arquivos no disco, não objetos de diretório do Active Directory."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Organize a visualização da árvore na console após os exercícios da aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Raiz da console",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Domínio Principal",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Contêiner Padrão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Nova OU criada",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Active Directory Users and Computers"
+            },
+            {
+              "id": "z2",
+              "label": "empresa.local"
+            },
+            {
+              "id": "z3",
+              "label": "Users"
+            },
+            {
+              "id": "z4",
+              "label": "ADM"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer o posicionamento gráfico ajuda na administração diária."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], uma GPO aplicada na Unidade Organizacional (OU) 'VND' afetará automaticamente os usuários da Unidade Organizacional 'ADM'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "GPOs aplicadas a uma OU afetam apenas os objetos contidos nela (e nas suas sub-OUs)."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual o principal propósito organizacional das OUs que foram criadas ao final da prática?",
+          "answers": [
+            "Aguardar a futura criação e separação de usuários por setor",
+            "Armazenar backups de banco de dados SQL",
+            "Servir como servidor DNS substituto",
+            "Hospedar o site público da empresa"
+          ],
+          "correct": "Aguardar a futura criação e separação de usuários por setor",
+          "tip": "A criação de OUs prepara a base estrutural para a importação e gestão das contas dos colaboradores."
+        }
+      ]
     }
   ]
 }
