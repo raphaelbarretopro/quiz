@@ -28619,7 +28619,7 @@
           ],
           "correct": "Restore",
           "tip": "Directory Services Restore Mode. É crucial não esquecer essa senha de recuperação."
-        },        
+        },
         {
           "type": "multiple",
           "topics": "PROT",
@@ -28657,7 +28657,7 @@
           "correct": "O Windows é reiniciado automaticamente",
           "trans": "NORM",
           "tip": "O reinício é necessário para carregar o sistema operacional em modo Controlador de Domínio."
-        },        
+        },
         {
           "type": "combo",
           "topics": "NORM",
@@ -28869,6 +28869,863 @@
           ],
           "correct": "Aguardar a futura criação e separação de usuários por setor",
           "tip": "A criação de OUs prepara a base estrutural para a importação e gestão das contas dos colaboradores."
+        }
+      ]
+    },
+    {
+      "slug": "aula-40",
+      "lesson_info": {
+        "id": "Aula-40",
+        "title": "AULA 40 - INFRAESTRUTURA WINDOWS SERVER: DOMÍNIO, DHCP E ACESSO REMOTO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "POLÍTICAS DE SEGURANÇA LOCAL",
+            "desc": "Configuração do secpol.msc e opções de logon interativo para proteção de credenciais.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "ACESSO REMOTO E HYPER-V",
+            "desc": "Gestão de acessos virtuais e configuração do grupo Remote Desktop Users via PowerShell.",
+            "color": "#f39c12",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "INGRESSO NO DOMÍNIO E DHCP",
+            "desc": "Validação de DNS, autorização de DHCP e integração do Windows 11 ao domínio.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "UTILIZADORES E PERMISSÕES",
+            "desc": "Criação de contas no Active Directory, gestão de SIDs e permissões de rede.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "H",
+          "C",
+          "P"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual comando de atalho é utilizado no 'Executar' (Win + R) para abrir as Políticas de Segurança Local?",
+          "answers": [
+            "secpol.msc",
+            "services.msc",
+            "lusrmgr.msc",
+            "gpedit.msc"
+          ],
+          "correct": "secpol.msc",
+          "tip": "A extensão .msc refere-se ao Microsoft Management Console, e 'secpol' vem de Security Policies."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a política 'Interactive logon: Don't display last signed-in', quando ativada, aumenta o risco de engenharia social.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É exatamente o oposto: ela AUMENTA a segurança ao ocultar o nome do último utilizador."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Ao ativar a política de logon, o ecrã passará a exibir a opção '[COMBO] User' no lugar do nome do utilizador anterior.",
+          "options": [
+            "Other",
+            "Admin",
+            "Guest",
+            "New"
+          ],
+          "correct": "Other",
+          "tip": "O Windows mostrará 'Other User' (Outro Utilizador), forçando a digitação manual do login."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são os riscos de manter a política de exibição do último utilizador DESATIVADA num ambiente corporativo?",
+          "answers": [
+            "Facilita ataques de engenharia social",
+            "Expõe o padrão de nomenclatura de logins da empresa",
+            "Diminui a velocidade do processador",
+            "Aumenta o consumo de RAM"
+          ],
+          "correct": [
+            "Facilita ataques de engenharia social",
+            "Expõe o padrão de nomenclatura de logins da empresa"
+          ],
+          "tip": "Revelar metadados de acesso (como nomes de utilizadores válidos) é um risco de segurança."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Ordene o caminho correto no secpol.msc para encontrar a política de logon interativo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Passo 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Security Settings"
+            },
+            {
+              "id": "z2",
+              "label": "Local Policies"
+            },
+            {
+              "id": "z3",
+              "label": "Security Options"
+            },
+            {
+              "id": "z4",
+              "label": "Interactive logon: Don't display..."
+            }
+          ],
+          "correct": "drag",
+          "tip": "A navegação em árvore é padrão na gestão do Windows Server."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "O que as Políticas de Segurança Local (Local Security Policy) controlam primariamente?",
+          "answers": [
+            "Comportamento de autenticação, logon e permissões",
+            "Atualizações do Windows Update",
+            "Configurações da placa de vídeo",
+            "Mapeamento de impressoras Wi-Fi"
+          ],
+          "correct": "Comportamento de autenticação, logon e permissões",
+          "tip": "Elas são o núcleo da defesa local do sistema operativo."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], em ambientes corporativos, a recomendação oficial do curso é manter a política de exibição do último utilizador DESATIVADA.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A recomendação é manter ATIVADA para que o sistema não exiba o último utilizador logado."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A política de [COMBO] Interativo foca no momento em que o utilizador digita as suas credenciais no ecrã.",
+          "options": [
+            "Logon",
+            "Logout",
+            "Download",
+            "Boot"
+          ],
+          "correct": "Logon",
+          "tip": "O termo técnico para o processo de entrada no Windows é Logon."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais elementos são ocultados quando ativamos corretamente a política 'Don't display last signed-in'?",
+          "answers": [
+            "O nome do utilizador anterior",
+            "O e-mail ou conta Microsoft do último login",
+            "A imagem de perfil do último utilizador",
+            "O relógio do ecrã de bloqueio"
+          ],
+          "correct": [
+            "O nome do utilizador anterior",
+            "O e-mail ou conta Microsoft do último login",
+            "A imagem de perfil do último utilizador"
+          ],
+          "tip": "Qualquer dado que identifique a última sessão é substituído por um formulário em branco."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe o estado da política ao seu efeito visual no ecrã de logon:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Enabled (Ativada)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Disabled (Desativada)",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Exibe apenas o campo 'Other User'"
+            },
+            {
+              "id": "z2",
+              "label": "Exibe o nome e foto do último login"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Habilitar a política significa habilitar a restrição visual."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], onde se localiza o menu 'Local Policies' no qual a regra de logon se encontra?",
+          "answers": [
+            "Dentro de Security Settings",
+            "Dentro de Account Policies",
+            "Dentro de Windows Firewall",
+            "Dentro de Software Restriction"
+          ],
+          "correct": "Dentro de Security Settings",
+          "tip": "Security Settings é a raiz da consola secpol.msc."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Após dominar as políticas de segurança de logon local, qual o próximo desafio abordado na aula envolvendo máquinas virtuais?",
+          "answers": [
+            "Acesso Remoto via Hyper-V",
+            "Configuração de Servidor de Email",
+            "Instalação de Antivírus Local",
+            "Criação de um Banco de Dados SQL"
+          ],
+          "correct": "Acesso Remoto via Hyper-V",
+          "trans": "AGEN",
+          "tip": "A transição vai da segurança de acesso físico para a segurança do acesso remoto."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a diferença crucial que o Hyper-V faz ao tentar aceder a uma Máquina Virtual?",
+          "answers": [
+            "Ele distingue Acesso Direto de Acesso Remoto (Connect)",
+            "Ele converte a VM num servidor físico",
+            "Ele desativa a rede automaticamente",
+            "Ele exige que todas as VMs usem Linux"
+          ],
+          "correct": "Ele distingue Acesso Direto de Acesso Remoto (Connect)",
+          "tip": "Essa distinção define quais regras e grupos de segurança o Windows aplicará ao login."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Se fechar a janela da VM no Hyper-V sem clicar em 'Connect', a VM é desligada imediatamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A VM continua em execução em segundo plano; o que fecha é apenas a visualização do acesso direto."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para aceder remotamente com sucesso, o utilizador deve estar no grupo local Remote [COMBO] Users da máquina de destino.",
+          "options": [
+            "Desktop",
+            "Access",
+            "Control",
+            "Server"
+          ],
+          "correct": "Desktop",
+          "tip": "O grupo responsável por permitir acesso RDP e Hyper-V Connect é o Remote Desktop Users."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], o que pode acontecer se um utilizador de domínio não estiver no grupo Remote Desktop Users de uma VM?",
+          "answers": [
+            "Ele fará logon com Acesso Direto normalmente",
+            "O seu logon falhará se tentar via Acesso Remoto (Connect)",
+            "A VM será deletada pelo servidor",
+            "Ele terá a sua conta bloqueada permanentemente"
+          ],
+          "correct": [
+            "Ele fará logon com Acesso Direto normalmente",
+            "O seu logon falhará se tentar via Acesso Remoto (Connect)"
+          ],
+          "tip": "O acesso direto não exige a mesma permissão do grupo de desktop remoto."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de conexão no Hyper-V com a sua definição técnica:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Acesso Direto",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Acesso Remoto",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Janela aberta sem o uso do botão Connect"
+            },
+            {
+              "id": "z2",
+              "label": "Iniciado ativamente através do botão Connect"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender como o Hyper-V intercepta a sessão é vital para gerir permissões."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Para adicionar utilizadores a grupos locais via interface gráfica, qual ferramenta nativa é recomendada?",
+          "answers": [
+            "Computer Management",
+            "Gerenciador de Tarefas",
+            "Visualizador de Eventos",
+            "Monitor de Recursos"
+          ],
+          "correct": "Computer Management",
+          "tip": "Através do Computer Management acede-se à secção Local Users and Groups."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o PowerShell permite automatizar a adição de todos os 'Domain Users' ao grupo 'Remote Desktop Users' com um script curto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A automação via PowerShell (Add-LocalGroupMember) é preferível a adicionar um por um."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Se o Windows bloquear a execução do seu script, deve-se usar o comando Set-ExecutionPolicy [COMBO].",
+          "options": [
+            "Unrestricted",
+            "Restricted",
+            "Blocked",
+            "Locked"
+          ],
+          "correct": "Unrestricted",
+          "tip": "Isso liberta o PowerShell para rodar scripts locais criados pelo administrador."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais são as considerações importantes ao usar um script local para atualizar o grupo Remote Desktop Users?",
+          "answers": [
+            "É necessário re-executar quando novos utilizadores entrarem",
+            "Exige privilégios de Administrador do Domínio",
+            "Pode ser substituído futuramente por GPOs",
+            "Causa a queima imediata do processador"
+          ],
+          "correct": [
+            "É necessário re-executar quando novos utilizadores entrarem",
+            "Exige privilégios de Administrador do Domínio",
+            "Pode ser substituído futuramente por GPOs"
+          ],
+          "tip": "Scripts locais são práticos no curto prazo, mas GPOs são o padrão ouro corporativo."
+        },        
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que o botão 'Check Names' faz na interface de adicionar membros a um grupo no Computer Management?",
+          "answers": [
+            "Valida se o utilizador digitado realmente existe no diretório/máquina",
+            "Altera o nome do utilizador",
+            "Exclui o utilizador da rede",
+            "Reinicia o computador"
+          ],
+          "correct": "Valida se o utilizador digitado realmente existe no diretório/máquina",
+          "tip": "Sempre clique em 'Check Names' para evitar erros de digitação ao atribuir permissões."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], utilizar uma Group Policy Object (GPO) é uma abordagem ineficiente para adicionar utilizadores ao Remote Desktop Users em 50 computadores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É exatamente o oposto: a GPO é a forma mais eficiente e automatizada para grandes volumes de máquinas."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Antes de nos preocuparmos com permissões em máquinas no domínio, qual é a etapa técnica fundamental que a própria máquina cliente deve passar?",
+          "answers": [
+            "Ingresso no Domínio",
+            "Abertura na base de dados SQL",
+            "Instalação do Pacote Office",
+            "Acesso a redes sociais"
+          ],
+          "correct": "Ingresso no Domínio",
+          "trans": "PROT",
+          "tip": "A máquina precisa fazer parte da rede corporativa oficialmente para reconhecer esses utilizadores."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], ao preparar o Windows 11 para ingressar no domínio, o que a aula sugere fazer com utilizadores locais como Carlos e Maria?",
+          "answers": [
+            "Excluir, pois serão substituídos por utilizadores de domínio",
+            "Manter e dar privilégios de administrador",
+            "Renomear para Carlos2 e Maria2",
+            "Exportar as suas senhas para um ficheiro de texto"
+          ],
+          "correct": "Excluir, pois serão substituídos por utilizadores de domínio",
+          "tip": "Para evitar confusões de perfil e conflitos locais, limpa-se as contas locais de utilizadores normais."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Para ingressar no domínio com sucesso, o campo DNS da placa de rede do cliente deve apontar para o servidor do domínio (ex: 192.168.100.10).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O DNS é o pilar do Active Directory. Sem resolver o nome do domínio, a máquina não o encontra."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Após instalar o AD, o servidor DHCP pode parar e precisa ser [COMBO] no console antes de distribuir IPs.",
+          "options": [
+            "Autorizado",
+            "Deletado",
+            "Clonado",
+            "Formatado"
+          ],
+          "correct": "Autorizado",
+          "tip": "Servidores DHCP em ambiente de Domínio devem receber permissão (Authorize) do AD para operar."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais comandos de rede no Prompt ou PowerShell ajudam a diagnosticar e forçar a receção de um novo IP do DHCP?",
+          "answers": [
+            "ipconfig /all",
+            "ipconfig /renew",
+            "format C:",
+            "diskpart"
+          ],
+          "correct": [
+            "ipconfig /all",
+            "ipconfig /renew"
+          ],
+          "tip": "O 'all' mostra as configs atuais, e o 'renew' força um novo pedido de IP ao DHCP."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Ordene os passos para verificar a conectividade do cliente antes do ingresso no domínio:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Abrir o PowerShell ou CMD"
+            },
+            {
+              "id": "z2",
+              "label": "Executar o comando ipconfig /all"
+            },
+            {
+              "id": "z3",
+              "label": "Validar se Endereço IP e DNS estão corretos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "É o troubleshooting básico para evitar frustrações ao digitar o nome do domínio."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], em Propriedades do Computador, a qual grupo a máquina pertence inicialmente antes de se juntar ao AD?",
+          "answers": [
+            "Workgroup (Grupo de Trabalho)",
+            "Forest (Floresta)",
+            "Cluster",
+            "HomeGroup"
+          ],
+          "correct": "Workgroup (Grupo de Trabalho)",
+          "tip": "Toda máquina Windows nasce num Workgroup."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A janela 'Computer Name/Domain Changes' requer a senha de um Administrador Local para adicionar a máquina ao Domínio.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Requer as credenciais de um Administrador do DOMÍNIO."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No console DHCP, um ícone na cor [COMBO] no nó IPv4 indica que o serviço está ativo e autorizado.",
+          "options": [
+            "Verde",
+            "Vermelho",
+            "Amarelo",
+            "Preto"
+          ],
+          "correct": "Verde",
+          "tip": "Se for vermelho, o DHCP não está autorizado ou está em falha."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Após a caixa de autenticação confirmar as credenciais, quais eventos ocorrem?",
+          "answers": [
+            "Mensagem de boas-vindas ao domínio é exibida",
+            "O Windows exige um reinício (reboot) da máquina",
+            "Todos os ficheiros do disco D: são apagados",
+            "O monitor desliga-se permanentemente"
+          ],
+          "correct": [
+            "Mensagem de boas-vindas ao domínio é exibida",
+            "O Windows exige um reinício (reboot) da máquina"
+          ],
+          "tip": "O reboot é essencial para que o Windows troque os seus protocolos de segurança para os do domínio."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe as ações no Console DHCP aos seus objetivos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Authorize (Autorizar)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Refresh (Atualizar/F5)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Scope (Escopo)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Aprova o servidor no AD"
+            },
+            {
+              "id": "z2",
+              "label": "Atualiza o status visual do ícone (ex: vermelho para verde)"
+            },
+            {
+              "id": "z3",
+              "label": "Define a faixa de IPs entregues na Rede-Local"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Sem autorização, o DHCP permanece ocioso para proteger a rede contra servidores DHCP falsos."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Ao alterar as configurações da máquina cliente de 'Workgroup' para 'Domain', qual texto deve ser inserido no campo Domínio?",
+          "answers": [
+            "O nome do domínio (ex: empresa.local)",
+            "Apenas o IP do servidor",
+            "O nome do utilizador",
+            "A chave do produto do Windows"
+          ],
+          "correct": "O nome do domínio (ex: empresa.local)",
+          "tip": "A máquina junta-se através do Fully Qualified Domain Name (FQDN)."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], é seguro excluir a conta de Administrador Local após ingressar a máquina no domínio e nunca mais utilizá-la.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Manter o admin local com senha forte é útil para instalar drivers se o PC perder o contacto com o AD."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Com a máquina devidamente ingressada no domínio, o que falta para que Maria consiga efetuar o seu login nela?",
+          "answers": [
+            "Criar a conta da Maria no Active Directory",
+            "Comprar um novo monitor para a Maria",
+            "Desinstalar o Windows e instalar o Linux",
+            "Desligar o servidor de vez"
+          ],
+          "correct": "Criar a conta da Maria no Active Directory",
+          "trans": "NORM",
+          "tip": "As contas devem existir na base do servidor (AD) para que a máquina as aceite."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o caminho rápido pelo menu Tools no Server Manager para criar utilizadores?",
+          "answers": [
+            "Active Directory Users and Computers (ADUC)",
+            "DNS Manager",
+            "DHCP Manager",
+            "Local Security Policy"
+          ],
+          "correct": "Active Directory Users and Computers (ADUC)",
+          "tip": "Esta ferramenta é o coração da gestão diária do Active Directory."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Ao preencher o 'User logon name' no formulário, o sufixo @empresa.local tem de ser digitado manualmente todas as vezes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A ferramenta anexa automaticamente o sufixo do domínio disponível num menu de dropdown."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Uma política comum de segurança ao criar um novo utilizador é forçá-lo a [COMBO] a password no primeiro logon.",
+          "options": [
+            "Trocar",
+            "Ignorar",
+            "Copiar",
+            "Apagar"
+          ],
+          "correct": "Trocar",
+          "tip": "A opção 'User must change password at next logon' garante a privacidade do colaborador."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais são as opções avançadas disponíveis na secção 'Configurações de Senha' ao criar um utilizador?",
+          "answers": [
+            "User must change password at next logon",
+            "User cannot change password",
+            "Password never expires",
+            "Make password visible to everyone"
+          ],
+          "correct": [
+            "User must change password at next logon",
+            "User cannot change password",
+            "Password never expires"
+          ],
+          "tip": "As políticas ajustam a conta às necessidades: um utilizador comum vs conta de sistema genérica."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe as informações solicitadas no formulário ao seu preenchimento para a utilizadora do exemplo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "First name",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Last name",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "User logon name",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Maria"
+            },
+            {
+              "id": "z2",
+              "label": "Graça"
+            },
+            {
+              "id": "z3",
+              "label": "maria.graca"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A padronização dos nomes de login (nome.sobrenome) ajuda muito a organização corporativa."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o que acontece com o SID (Security Identifier) quando você exclui um utilizador do AD e cria outro com o exato mesmo nome?",
+          "answers": [
+            "O SID muda, são tratados como contas totalmente diferentes",
+            "O SID mantém-se o mesmo",
+            "O SID é apagado para sempre do servidor",
+            "O sistema impede a criação da nova conta"
+          ],
+          "correct": "O SID muda, são tratados como contas totalmente diferentes",
+          "tip": "Para o Windows, o nome é só um detalhe; a identidade real é o SID."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Se uma pasta tinha permissões para a conta antiga da Maria, e ela foi recriada no AD, não é preciso fazer mais nada, o acesso está garantido.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Como o SID mudou, as permissões na aba Security da pasta precisam ser adicionadas novamente para a 'nova' Maria."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O Active [COMBO] Users and Computers é o local onde verificamos se a máquina cliente (ex: Admin1) e o utilizador foram registados.",
+          "options": [
+            "Directory",
+            "Desktop",
+            "Domain",
+            "Drive"
+          ],
+          "correct": "Directory",
+          "tip": "Esta ferramenta é sempre referida como ADUC."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Para atestar que o ambiente foi migrado com sucesso, o que devemos verificar no ADUC e servidor?",
+          "answers": [
+            "A máquina Admin1 no grupo Computers",
+            "O utilizador maria.graca na OU ADM",
+            "Permissões da pasta compartilhada",
+            "O saldo bancário da LogisTech"
+          ],
+          "correct": [
+            "A máquina Admin1 no grupo Computers",
+            "O utilizador maria.graca na OU ADM",
+            "Permissões da pasta compartilhada"
+          ],
+          "tip": "Verificar as pontas garante que a teoria da sala de aula funciona na prática."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe os elementos do ambiente do laboratório ao seu local de verificação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Computador Admin1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Utilizador maria.graca",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Permissões de Acesso",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Lista de Computadores do AD"
+            },
+            {
+              "id": "z2",
+              "label": "Unidade Organizacional (OU) ADM"
+            },
+            {
+              "id": "z3",
+              "label": "Propriedades da Pasta -> Aba Security"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Auditoria pós-configuração evita problemas no suporte a clientes."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Segundo o autor Bruce Schneier citado na aula, a segurança não é um produto, mas sim um...",
+          "answers": [
+            "Processo",
+            "Acidente",
+            "Hardware",
+            "Cabo de rede"
+          ],
+          "correct": "Processo",
+          "tip": "A segurança é uma jornada contínua de aprendizagem e adaptação."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no caso LogisTech, automatizar o acesso remoto a 50 VMs demonstra que as soluções devem ser escaláveis, evitando intervenção manual.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse é o objetivo de usar ferramentas como o PowerShell e o próprio Active Directory."
         }
       ]
     }
