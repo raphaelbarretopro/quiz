@@ -26054,980 +26054,1945 @@
       ]
     },
     {
-"slug": "aula-37",
-"lesson_info": {
-"id": "Aula-37",
-"title": "AULA 37 - INSTALAÇÃO E CONFIGURAÇÃO DO SERVIDOR DHCP",
-"topics": [
-{
-"id": "ACID",
-"name": "FUNDAMENTOS DO DHCP",
-"desc": "Conceitos básicos e vantagens do protocolo DHCP para automatizar a entrega de IPs.",
-"color": "#e74c3c",
-"img_url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "AGEN",
-"name": "INSTALAÇÃO DO SERVIÇO",
-"desc": "Passo a passo para adicionar a função DHCP no Windows Server.",
-"color": "#f1c40f",
-"img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "PROT",
-"name": "CONFIGURAÇÃO DE ESCOPO",
-"desc": "Criação do pool de endereços, exclusões, duração de lease e opções de rede.",
-"color": "#3498db",
-"img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
-},
-{
-"id": "NORM",
-"name": "TESTES E VALIDAÇÃO",
-"desc": "Verificação da entrega de IP nos clientes utilizando comandos do sistema.",
-"color": "#2ecc71",
-"img_url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600"
-}
-],
-"sokoban": [
-"D",
-"H",
-"C",
-"P"
-]
-},
-"questions": [
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], o que significa a sigla DHCP?",
-"answers": [
-"Dynamic Host Configuration Protocol",
-"Domain Host Control Protocol",
-"Data Handling Configuration Process",
-"Dynamic Hardware Control Protocol"
-],
-"correct": "Dynamic Host Configuration Protocol",
-"tip": "É o protocolo padrão para entrega automatizada de endereços de rede."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "[NAME], o uso do DHCP elimina a necessidade de configurar manualmente o IP em cada nova máquina da rede.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Essa é a principal vantagem do DHCP, poupando trabalho e evitando erros manuais."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "O DHCP atua no modelo [COMBO]-servidor para fornecer as configurações.",
-"options": [
-"cliente",
-"ponto",
-"mestre",
-"nó"
-],
-"correct": "cliente",
-"tip": "A máquina solicita (cliente) e o DHCP entrega (servidor)."
-},
-{
-"type": "multi",
-"topics": "ACID",
-"questions": "[NAME], selecione os dados que são frequentemente entregues por um servidor DHCP:",
-"answers": [
-"Endereço IP",
-"Máscara de Sub-rede",
-"Gateway Padrão",
-"Endereço MAC"
-],
-"correct": [
-"Endereço IP",
-"Máscara de Sub-rede",
-"Gateway Padrão"
-],
-"tip": "O endereço MAC já vem gravado fisicamente na placa de rede, não é entregue pelo DHCP."
-},
-{
-"type": "drag",
-"topics": "ACID",
-"questions": "[NAME], relacione a configuração entregue à sua função:",
-"items": [
-{
-"id": "d1",
-"txt": "Endereço IP",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Máscara de Sub-rede",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Gateway Padrão",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Servidor DNS",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Identificação exclusiva na rede"
-},
-{
-"id": "z2",
-"label": "Define o segmento da rede"
-},
-{
-"id": "z3",
-"label": "Roteador de saída"
-},
-{
-"id": "z4",
-"label": "Resolução de nomes para IP"
-}
-],
-"correct": "drag",
-"tip": "Cada parâmetro tem um papel fundamental na comunicação TCP/IP."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "Qual problema clássico o DHCP resolve em grandes redes?",
-"answers": [
-"Conflitos e erros na digitação manual de IPs",
-"Lentidão no cabeamento físico",
-"Falta de espaço de armazenamento",
-"Incompatibilidade de sistemas operacionais"
-],
-"correct": "Conflitos e erros na digitação manual de IPs",
-"tip": "Configurar IPs manualmente gera grande risco de IPs duplicados."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "O serviço DHCP só consegue entregar o Endereço IP, exigindo que o Gateway seja colocado manualmente.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Ele entrega IP, máscara, gateway, DNS e outras opções."
-},
-{
-"type": "combo",
-"topics": "ACID",
-"questions": "Para que o cliente receba um IP, sua placa de rede deve estar configurada para 'Obter um IP [COMBO]'.",
-"options": [
-"automaticamente",
-"estaticamente",
-"manualmente",
-"aleatoriamente"
-],
-"correct": "automaticamente",
-"tip": "Isso instrui o Windows a buscar um servidor DHCP na rede."
-},
-{
-"type": "multi",
-"topics": "ACID",
-"questions": "Quais cenários justificam a implementação do DHCP?",
-"answers": [
-"Redes com muitos dispositivos móveis",
-"Empresas em constante crescimento",
-"Redes domésticas isoladas (ex: roteador Wi-Fi)",
-"Servidores que precisam de IP fixo"
-],
-"correct": [
-"Redes com muitos dispositivos móveis",
-"Empresas em constante crescimento",
-"Redes domésticas isoladas (ex: roteador Wi-Fi)"
-],
-"tip": "Servidores de infraestrutura normalmente não usam DHCP, pois precisam de IP fixo."
-},
-{
-"type": "drag",
-"topics": "ACID",
-"questions": "Relacione os conceitos básicos:",
-"items": [
-{
-"id": "d1",
-"txt": "Servidor",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Cliente",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Protocolo",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Automação",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Quem entrega o IP"
-},
-{
-"id": "z2",
-"label": "Quem solicita o IP"
-},
-{
-"id": "z3",
-"label": "Regras de comunicação (DHCP)"
-},
-{
-"id": "z4",
-"label": "Principal benefício"
-}
-],
-"correct": "drag",
-"tip": "Compreender os papéis é essencial no modelo cliente-servidor."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], de acordo com a topologia do laboratório, qual é o IP estático do servidor?",
-"answers": [
-"192.168.100.10",
-"192.168.100.50",
-"192.168.0.1",
-"10.0.0.1"
-],
-"correct": "192.168.100.10",
-"tip": "O servidor principal precisa de um IP estático para ser encontrado na rede."
-},
-{
-"type": "boolean",
-"topics": "ACID",
-"questions": "Em uma rede sem servidor DHCP, todos os dispositivos precisam ter IP fixo configurado um a um.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Sem automação, o administrador deve acessar cada máquina individualmente."
-},
-{
-"type": "multiple",
-"topics": "ACID",
-"questions": "[NAME], antes de iniciar a instalação do DHCP no Windows Server, o que é fundamental que o servidor já possua?",
-"answers": [
-"Um IP estático",
-"Duas placas de rede",
-"Antivírus de terceiros",
-"IP dinâmico"
-],
-"correct": "Um IP estático",
-"tip": "Servidores que entregam IPs não podem ter seus próprios IPs mudando constantemente.",
-"trans": "AGEN"
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], em qual ferramenta do Windows Server iniciamos a instalação do DHCP?",
-"answers": [
-"Server Manager (Add Roles and Features)",
-"Control Panel",
-"Active Directory",
-"Computer Management"
-],
-"correct": "Server Manager (Add Roles and Features)",
-"tip": "As 'Roles' (Funções) do servidor são adicionadas no Gerenciador do Servidor."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "A opção de instalação 'Remote Desktop Services installation' é a correta para instalar o servidor DHCP.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "A opção correta é 'Role-based or feature-based installation'."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "Ao selecionar a Role 'DHCP Server', o assistente pede para adicionar as [COMBO] de administração (Tools).",
-"options": [
-"ferramentas",
-"senhas",
-"licenças",
-"contas"
-],
-"correct": "ferramentas",
-"tip": "O 'DHCP Server Tools' é necessário para gerenciar o serviço via console."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "[NAME], quais são os pré-requisitos listados no assistente antes da instalação?",
-"answers": [
-"Conta de Administrador com senha forte",
-"Configurações de rede com IP estático",
-"Atualizações de segurança instaladas",
-"Memória RAM superior a 32GB"
-],
-"correct": [
-"Conta de Administrador com senha forte",
-"Configurações de rede com IP estático",
-"Atualizações de segurança instaladas"
-],
-"tip": "Estes três itens garantem a segurança e a estabilidade antes da instalação."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "Relacione as telas do assistente de instalação (Wizard) ao seu objetivo:",
-"items": [
-{
-"id": "d1",
-"txt": "Installation Type",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Server Selection",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Server Roles",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Confirmation",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Escolher Role-based"
-},
-{
-"id": "z2",
-"label": "Selecionar o Server1 no pool"
-},
-{
-"id": "z3",
-"label": "Marcar DHCP Server"
-},
-{
-"id": "z4",
-"label": "Revisar e clicar em Install"
-}
-],
-"correct": "drag",
-"tip": "O processo segue uma sequência lógica desde o tipo até a confirmação."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "É obrigatório reiniciar o servidor Windows após a instalação da Role de DHCP?",
-"answers": [
-"Não, diferente de outras roles, o DHCP não exige reinicialização",
-"Sim, sempre é necessário",
-"Sim, apenas se for Windows 11",
-"Não, mas é recomendado desligar o roteador"
-],
-"correct": "Não, diferente de outras roles, o DHCP não exige reinicialização",
-"tip": "O serviço sobe instantaneamente após o 'Install' ser concluído."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "[NAME], após o 'Install', o processo está concluído e nada mais precisa ser feito.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "É necessário executar a pós-instalação (Post-Install configuration wizard)."
-},
-{
-"type": "combo",
-"topics": "AGEN",
-"questions": "O assistente pós-instalação cria os grupos de segurança DHCP [COMBO] e DHCP Users.",
-"options": [
-"Administrators",
-"Managers",
-"Masters",
-"Controllers"
-],
-"correct": "Administrators",
-"tip": "Estes grupos servem para delegar a administração do servidor DHCP."
-},
-{
-"type": "multi",
-"topics": "AGEN",
-"questions": "[NAME], na pós-instalação (Post-Install), quais grupos de segurança são criados?",
-"answers": [
-"DHCP Administrators",
-"DHCP Users",
-"Domain Admins",
-"Enterprise Admins"
-],
-"correct": [
-"DHCP Administrators",
-"DHCP Users"
-],
-"tip": "O assistente cuida automaticamente da criação destes grupos locais."
-},
-{
-"type": "drag",
-"topics": "AGEN",
-"questions": "Relacione as ações da instalação:",
-"items": [
-{
-"id": "d1",
-"txt": "Add Roles",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Features",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Commit",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Close",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Início no Server Manager"
-},
-{
-"id": "z2",
-"label": "Nenhuma adicional além das Tools"
-},
-{
-"id": "z3",
-"label": "Botão final da pós-instalação"
-},
-{
-"id": "z4",
-"label": "Fechar o assistente"
-}
-],
-"correct": "drag",
-"tip": "Commit aplica as permissões finais após a instalação dos binários."
-},
-{
-"type": "boolean",
-"topics": "AGEN",
-"questions": "Durante a instalação, o assistente obriga a ativação do IPAM (IP Address Management) para funcionar.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "O IPAM é útil em grandes ambientes com domínio, mas não é obrigatório."
-},
-{
-"type": "multiple",
-"topics": "AGEN",
-"questions": "[NAME], com o DHCP instalado e a pós-instalação feita, qual é a próxima etapa?",
-"answers": [
-"Configurar o Escopo de distribuição",
-"Desinstalar o Active Directory",
-"Formatar as máquinas clientes",
-"Mudar a senha do Administrador"
-],
-"correct": "Configurar o Escopo de distribuição",
-"tip": "Sem um escopo criado, o servidor não saberá quais IPs entregar aos clientes.",
-"trans": "PROT"
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], o que é o 'Scope' (Escopo) no servidor DHCP?",
-"answers": [
-"A faixa de IPs configurada para ser distribuída aos clientes",
-"O nome do computador do servidor",
-"Um antivírus de rede integrado",
-"Um cabo de conexão de alta velocidade"
-],
-"correct": "A faixa de IPs configurada para ser distribuída aos clientes",
-"tip": "O escopo delimita o IP inicial e final que o DHCP usará."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "É possível utilizar o final .255 na faixa de IPs para distribuição aos computadores.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "O final .255 é o endereço de broadcast e não pode ser atribuído a uma máquina."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "[NAME], as exclusões de IP são feitas para proteger dispositivos que possuem IP [COMBO].",
-"options": [
-"fixo",
-"móvel",
-"público",
-"vazio"
-],
-"correct": "fixo",
-"tip": "Servidores e impressoras geralmente têm IPs fixos que não podem ser entregues a outros."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "Quais dispositivos tipicamente precisam ter seus IPs excluídos da distribuição automática?",
-"answers": [
-"Servidores de arquivos",
-"Impressoras de rede",
-"Câmeras IP",
-"Smartphones de visitantes"
-],
-"correct": [
-"Servidores de arquivos",
-"Impressoras de rede",
-"Câmeras IP"
-],
-"tip": "Visitantes recebem IPs móveis dinâmicos normalmente."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "[NAME], relacione as configurações de escopo criadas no laboratório:",
-"items": [
-{
-"id": "d1",
-"txt": "Start IP Address",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "End IP Address",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Faixa de Exclusão",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Máscara",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "192.168.100.50"
-},
-{
-"id": "z2",
-"label": "192.168.100.254"
-},
-{
-"id": "z3",
-"label": "100.100 a 100.130"
-},
-{
-"id": "z4",
-"label": "255.255.255.0"
-}
-],
-"correct": "drag",
-"tip": "Esses parâmetros definem exatamente o pool de endereços disponíveis (Address Pool)."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "O que define o 'Lease Duration' (Concessão)?",
-"answers": [
-"O tempo que o cliente pode ficar com o IP antes de renovar",
-"A vida útil do servidor DHCP",
-"O tempo de instalação do Windows",
-"A velocidade da internet na rede"
-],
-"correct": "O tempo que o cliente pode ficar com o IP antes de renovar",
-"tip": "Se o tempo expirar e o PC não renovar, o IP volta para a distribuição."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "Para redes muito dinâmicas, com muitos celulares entrando e saindo (como um aeroporto), o ideal é um tempo de lease longo, como 8 dias.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Falso",
-"tip": "Redes dinâmicas exigem leases curtos (horas) para não esgotar os IPs."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "O servidor [COMBO] sugerido nas opções do DHCP é responsável pela resolução de nomes (traduzir domínios para IP).",
-"options": [
-"DNS",
-"WINS",
-"HTTP",
-"FTP"
-],
-"correct": "DNS",
-"tip": "O DNS (Domain Name System) é uma das Opções DHCP vitais."
-},
-{
-"type": "multi",
-"topics": "PROT",
-"questions": "[NAME], selecione as Opções de DHCP (DHCP Options) que podem ser entregues junto com o IP:",
-"answers": [
-"Gateway Padrão (Router)",
-"Servidor DNS",
-"Servidor WINS",
-"Placa de Vídeo"
-],
-"correct": [
-"Gateway Padrão (Router)",
-"Servidor DNS",
-"Servidor WINS"
-],
-"tip": "A placa de vídeo é um hardware e não tem relação com as Opções DHCP."
-},
-{
-"type": "drag",
-"topics": "PROT",
-"questions": "Associe as Opções de DHCP às suas funções:",
-"items": [
-{
-"id": "d1",
-"txt": "Router / Gateway",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "Servidor DNS",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Servidor WINS",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Lease",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Saída para outras redes/internet"
-},
-{
-"id": "z2",
-"label": "Tradução de domínios"
-},
-{
-"id": "z3",
-"label": "Suporte NetBIOS legado"
-},
-{
-"id": "z4",
-"label": "Tempo de empréstimo do IP"
-}
-],
-"correct": "drag",
-"tip": "Entender as opções ajuda a diagnosticar falhas de rede."
-},
-{
-"type": "boolean",
-"topics": "PROT",
-"questions": "Se o IP do roteador inserido nas Opções do DHCP for inválido, o serviço DHCP apagará a entrada automaticamente.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "O sistema faz uma verificação de consistência simples."
-},
-{
-"type": "combo",
-"topics": "PROT",
-"questions": "Para concluir o processo e começar a distribuir IPs, o assistente pergunta se você deseja [COMBO] o escopo agora.",
-"options": [
-"ativar",
-"apagar",
-"criptografar",
-"exportar"
-],
-"correct": "ativar",
-"tip": "Um escopo criado, mas não ativado (Activate), não entregará nenhum IP."
-},
-{
-"type": "multiple",
-"topics": "PROT",
-"questions": "[NAME], onde verificamos a faixa configurada e os IPs excluídos dentro do console DHCP?",
-"answers": [
-"Na pasta Address Pool",
-"Na lixeira do Windows",
-"No Event Viewer",
-"Nas políticas de firewall"
-],
-"correct": "Na pasta Address Pool",
-"tip": "O Pool de Endereços reflete o que foi definido no escopo.",
-"trans": "NORM"
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], qual comando no Prompt de Comando (CMD) força o computador cliente a solicitar um IP ao servidor DHCP?",
-"answers": [
-"ipconfig /renew",
-"ipconfig /flushdns",
-"ping 8.8.8.8",
-"tracert"
-],
-"correct": "ipconfig /renew",
-"tip": "O parâmetro /renew forçará a placa de rede a renovar o seu Lease (concessão)."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "O comando 'ipconfig /all' exibe informações avançadas, como a data exata de vencimento da concessão (Lease Expires).",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "O '/all' é essencial para validar todas as configurações entregues pelo DHCP."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "Segundo o material, a máquina ADM1 obteve sucesso ao receber o IP 192.168.100.[COMBO].",
-"options": [
-"51",
-"10",
-"255",
-"200"
-],
-"correct": "51",
-"tip": "192.168.100.51 está dentro da faixa configurada (50 a 254)."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "[NAME], de acordo com o resultado do comando ipconfig /all no laboratório, quais informações foram validadas?",
-"answers": [
-"O IP recebido foi 192.168.100.51",
-"O DHCP Server apontou para 192.168.100.10",
-"O Gateway Padrão foi 192.168.100.10",
-"A máquina mudou para sistema Linux"
-],
-"correct": [
-"O IP recebido foi 192.168.100.51",
-"O DHCP Server apontou para 192.168.100.10",
-"O Gateway Padrão foi 192.168.100.10"
-],
-"tip": "Tudo funcionou conforme configurado no escopo do Server1."
-},
-{
-"type": "drag",
-"topics": "NORM",
-"questions": "Relacione os comandos às suas funções no Windows:",
-"items": [
-{
-"id": "d1",
-"txt": "ipconfig",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "ipconfig /renew",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "ipconfig /all",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "CMD",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "Exibe IP, Máscara e Gateway"
-},
-{
-"id": "z2",
-"label": "Força a renovação do DHCP"
-},
-{
-"id": "z3",
-"label": "Mostra detalhes (Lease, MAC, Servidores)"
-},
-{
-"id": "z4",
-"label": "Interpretador de comandos"
-}
-],
-"correct": "drag",
-"tip": "Dominar o CMD é essencial para suporte de rede."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "Se o servidor DHCP estivesse desligado, o que aconteceria ao executar ipconfig /renew no cliente?",
-"answers": [
-"A máquina ficaria sem IP de rede válido (geralmente gerando um IP APIPA 169.254.x.x)",
-"O cliente inventaria um IP da faixa 192.168 magicamente",
-"O Windows bloquearia a tela",
-"O computador desligaria por segurança"
-],
-"correct": "A máquina ficaria sem IP de rede válido (geralmente gerando um IP APIPA 169.254.x.x)",
-"tip": "A falta do DHCP gera falha na obtenção, recorrendo ao protocolo APIPA."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "[NAME], a máquina só recebe o IP se a placa de rede estiver nas Propriedades configurada como 'Obtain an IP address automatically'.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Se houver um IP manual (estático) fixado lá, o DHCP será ignorado pelo cliente."
-},
-{
-"type": "combo",
-"topics": "NORM",
-"questions": "Nos testes com o 'ipconfig /all', vimos que o parâmetro DHCP Enabled estava listado como '[COMBO]'.",
-"options": [
-"Yes",
-"No",
-"Maybe",
-"Error"
-],
-"correct": "Yes",
-"tip": "Isto confirma que a placa de rede da máquina cliente está esperando ordens do DHCP."
-},
-{
-"type": "multi",
-"topics": "NORM",
-"questions": "O comando 'ipconfig /renew' poupa o técnico de quais ações demoradas?",
-"answers": [
-"Reiniciar o computador",
-"Desativar e reativar a placa de rede graficamente",
-"Trocar o cabo de rede",
-"Desinstalar o Windows"
-],
-"correct": [
-"Reiniciar o computador",
-"Desativar e reativar a placa de rede graficamente"
-],
-"tip": "É a forma mais rápida e profissional de validar uma alteração de IP."
-},
-{
-"type": "drag",
-"topics": "NORM",
-"questions": "Relacione as máquinas do laboratório aos seus respectivos IPs finais após a configuração:",
-"items": [
-{
-"id": "d1",
-"txt": "Server1",
-"match": "z1"
-},
-{
-"id": "d2",
-"txt": "ADM1 (Teste no CMD)",
-"match": "z2"
-},
-{
-"id": "d3",
-"txt": "Excluído / Gateway",
-"match": "z3"
-},
-{
-"id": "d4",
-"txt": "Início da faixa distribuível",
-"match": "z4"
-}
-],
-"zones": [
-{
-"id": "z1",
-"label": "192.168.100.10"
-},
-{
-"id": "z2",
-"label": "192.168.100.51"
-},
-{
-"id": "z3",
-"label": "Mesmo IP do Server1"
-},
-{
-"id": "z4",
-"label": "192.168.100.50"
-}
-],
-"correct": "drag",
-"tip": "Mapear a topologia mentalmente garante o sucesso do administrador de redes."
-},
-{
-"type": "boolean",
-"topics": "NORM",
-"questions": "O teste de ipconfig pode ser feito também pelo PowerShell, obtendo os mesmos resultados do CMD.",
-"answers": [
-"Verdadeiro",
-"Falso"
-],
-"correct": "Verdadeiro",
-"tip": "Tanto o CMD quanto o PowerShell reconhecem o comando ipconfig no Windows."
-},
-{
-"type": "multiple",
-"topics": "NORM",
-"questions": "[NAME], de acordo com o print do teste final, se a concessão foi obtida no dia 9 de maio para 8 dias, quando ela irá expirar?",
-"answers": [
-"17 de maio",
-"10 de maio",
-"20 de maio",
-"Nunca expira"
-],
-"correct": "17 de maio",
-"tip": "Exatamente 8 dias corridos após a obtenção do lease."
-}
-]
-}
+      "slug": "aula-37",
+      "lesson_info": {
+        "id": "Aula-37",
+        "title": "AULA 37 - INSTALAÇÃO E CONFIGURAÇÃO DO SERVIDOR DHCP",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DO DHCP",
+            "desc": "Conceitos básicos e vantagens do protocolo DHCP para automatizar a entrega de IPs.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "INSTALAÇÃO DO SERVIÇO",
+            "desc": "Passo a passo para adicionar a função DHCP no Windows Server.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "CONFIGURAÇÃO DE ESCOPO",
+            "desc": "Criação do pool de endereços, exclusões, duração de lease e opções de rede.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "TESTES E VALIDAÇÃO",
+            "desc": "Verificação da entrega de IP nos clientes utilizando comandos do sistema.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "H",
+          "C",
+          "P"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que significa a sigla DHCP?",
+          "answers": [
+            "Dynamic Host Configuration Protocol",
+            "Domain Host Control Protocol",
+            "Data Handling Configuration Process",
+            "Dynamic Hardware Control Protocol"
+          ],
+          "correct": "Dynamic Host Configuration Protocol",
+          "tip": "É o protocolo padrão para entrega automatizada de endereços de rede."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o uso do DHCP elimina a necessidade de configurar manualmente o IP em cada nova máquina da rede.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa é a principal vantagem do DHCP, poupando trabalho e evitando erros manuais."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O DHCP atua no modelo [COMBO]-servidor para fornecer as configurações.",
+          "options": [
+            "cliente",
+            "ponto",
+            "mestre",
+            "nó"
+          ],
+          "correct": "cliente",
+          "tip": "A máquina solicita (cliente) e o DHCP entrega (servidor)."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], selecione os dados que são frequentemente entregues por um servidor DHCP:",
+          "answers": [
+            "Endereço IP",
+            "Máscara de Sub-rede",
+            "Gateway Padrão",
+            "Endereço MAC"
+          ],
+          "correct": [
+            "Endereço IP",
+            "Máscara de Sub-rede",
+            "Gateway Padrão"
+          ],
+          "tip": "O endereço MAC já vem gravado fisicamente na placa de rede, não é entregue pelo DHCP."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione a configuração entregue à sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Endereço IP",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Máscara de Sub-rede",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Gateway Padrão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Servidor DNS",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identificação exclusiva na rede"
+            },
+            {
+              "id": "z2",
+              "label": "Define o segmento da rede"
+            },
+            {
+              "id": "z3",
+              "label": "Roteador de saída"
+            },
+            {
+              "id": "z4",
+              "label": "Resolução de nomes para IP"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada parâmetro tem um papel fundamental na comunicação TCP/IP."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual problema clássico o DHCP resolve em grandes redes?",
+          "answers": [
+            "Conflitos e erros na digitação manual de IPs",
+            "Lentidão no cabeamento físico",
+            "Falta de espaço de armazenamento",
+            "Incompatibilidade de sistemas operacionais"
+          ],
+          "correct": "Conflitos e erros na digitação manual de IPs",
+          "tip": "Configurar IPs manualmente gera grande risco de IPs duplicados."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "O serviço DHCP só consegue entregar o Endereço IP, exigindo que o Gateway seja colocado manualmente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele entrega IP, máscara, gateway, DNS e outras opções."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para que o cliente receba um IP, sua placa de rede deve estar configurada para 'Obter um IP [COMBO]'.",
+          "options": [
+            "automaticamente",
+            "estaticamente",
+            "manualmente",
+            "aleatoriamente"
+          ],
+          "correct": "automaticamente",
+          "tip": "Isso instrui o Windows a buscar um servidor DHCP na rede."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais cenários justificam a implementação do DHCP?",
+          "answers": [
+            "Redes com muitos dispositivos móveis",
+            "Empresas em constante crescimento",
+            "Redes domésticas isoladas (ex: roteador Wi-Fi)",
+            "Servidores que precisam de IP fixo"
+          ],
+          "correct": [
+            "Redes com muitos dispositivos móveis",
+            "Empresas em constante crescimento",
+            "Redes domésticas isoladas (ex: roteador Wi-Fi)"
+          ],
+          "tip": "Servidores de infraestrutura normalmente não usam DHCP, pois precisam de IP fixo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os conceitos básicos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Servidor",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Cliente",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Protocolo",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Automação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Quem entrega o IP"
+            },
+            {
+              "id": "z2",
+              "label": "Quem solicita o IP"
+            },
+            {
+              "id": "z3",
+              "label": "Regras de comunicação (DHCP)"
+            },
+            {
+              "id": "z4",
+              "label": "Principal benefício"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender os papéis é essencial no modelo cliente-servidor."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com a topologia do laboratório, qual é o IP estático do servidor?",
+          "answers": [
+            "192.168.100.10",
+            "192.168.100.50",
+            "192.168.0.1",
+            "10.0.0.1"
+          ],
+          "correct": "192.168.100.10",
+          "tip": "O servidor principal precisa de um IP estático para ser encontrado na rede."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Em uma rede sem servidor DHCP, todos os dispositivos precisam ter IP fixo configurado um a um.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sem automação, o administrador deve acessar cada máquina individualmente."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], antes de iniciar a instalação do DHCP no Windows Server, o que é fundamental que o servidor já possua?",
+          "answers": [
+            "Um IP estático",
+            "Duas placas de rede",
+            "Antivírus de terceiros",
+            "IP dinâmico"
+          ],
+          "correct": "Um IP estático",
+          "tip": "Servidores que entregam IPs não podem ter seus próprios IPs mudando constantemente.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], em qual ferramenta do Windows Server iniciamos a instalação do DHCP?",
+          "answers": [
+            "Server Manager (Add Roles and Features)",
+            "Control Panel",
+            "Active Directory",
+            "Computer Management"
+          ],
+          "correct": "Server Manager (Add Roles and Features)",
+          "tip": "As 'Roles' (Funções) do servidor são adicionadas no Gerenciador do Servidor."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A opção de instalação 'Remote Desktop Services installation' é a correta para instalar o servidor DHCP.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A opção correta é 'Role-based or feature-based installation'."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Ao selecionar a Role 'DHCP Server', o assistente pede para adicionar as [COMBO] de administração (Tools).",
+          "options": [
+            "ferramentas",
+            "senhas",
+            "licenças",
+            "contas"
+          ],
+          "correct": "ferramentas",
+          "tip": "O 'DHCP Server Tools' é necessário para gerenciar o serviço via console."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são os pré-requisitos listados no assistente antes da instalação?",
+          "answers": [
+            "Conta de Administrador com senha forte",
+            "Configurações de rede com IP estático",
+            "Atualizações de segurança instaladas",
+            "Memória RAM superior a 32GB"
+          ],
+          "correct": [
+            "Conta de Administrador com senha forte",
+            "Configurações de rede com IP estático",
+            "Atualizações de segurança instaladas"
+          ],
+          "tip": "Estes três itens garantem a segurança e a estabilidade antes da instalação."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione as telas do assistente de instalação (Wizard) ao seu objetivo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Installation Type",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Server Selection",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Server Roles",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Confirmation",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Escolher Role-based"
+            },
+            {
+              "id": "z2",
+              "label": "Selecionar o Server1 no pool"
+            },
+            {
+              "id": "z3",
+              "label": "Marcar DHCP Server"
+            },
+            {
+              "id": "z4",
+              "label": "Revisar e clicar em Install"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O processo segue uma sequência lógica desde o tipo até a confirmação."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "É obrigatório reiniciar o servidor Windows após a instalação da Role de DHCP?",
+          "answers": [
+            "Não, diferente de outras roles, o DHCP não exige reinicialização",
+            "Sim, sempre é necessário",
+            "Sim, apenas se for Windows 11",
+            "Não, mas é recomendado desligar o roteador"
+          ],
+          "correct": "Não, diferente de outras roles, o DHCP não exige reinicialização",
+          "tip": "O serviço sobe instantaneamente após o 'Install' ser concluído."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], após o 'Install', o processo está concluído e nada mais precisa ser feito.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É necessário executar a pós-instalação (Post-Install configuration wizard)."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O assistente pós-instalação cria os grupos de segurança DHCP [COMBO] e DHCP Users.",
+          "options": [
+            "Administrators",
+            "Managers",
+            "Masters",
+            "Controllers"
+          ],
+          "correct": "Administrators",
+          "tip": "Estes grupos servem para delegar a administração do servidor DHCP."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], na pós-instalação (Post-Install), quais grupos de segurança são criados?",
+          "answers": [
+            "DHCP Administrators",
+            "DHCP Users",
+            "Domain Admins",
+            "Enterprise Admins"
+          ],
+          "correct": [
+            "DHCP Administrators",
+            "DHCP Users"
+          ],
+          "tip": "O assistente cuida automaticamente da criação destes grupos locais."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione as ações da instalação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Add Roles",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Features",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Commit",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Close",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Início no Server Manager"
+            },
+            {
+              "id": "z2",
+              "label": "Nenhuma adicional além das Tools"
+            },
+            {
+              "id": "z3",
+              "label": "Botão final da pós-instalação"
+            },
+            {
+              "id": "z4",
+              "label": "Fechar o assistente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Commit aplica as permissões finais após a instalação dos binários."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Durante a instalação, o assistente obriga a ativação do IPAM (IP Address Management) para funcionar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O IPAM é útil em grandes ambientes com domínio, mas não é obrigatório."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], com o DHCP instalado e a pós-instalação feita, qual é a próxima etapa?",
+          "answers": [
+            "Configurar o Escopo de distribuição",
+            "Desinstalar o Active Directory",
+            "Formatar as máquinas clientes",
+            "Mudar a senha do Administrador"
+          ],
+          "correct": "Configurar o Escopo de distribuição",
+          "tip": "Sem um escopo criado, o servidor não saberá quais IPs entregar aos clientes.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que é o 'Scope' (Escopo) no servidor DHCP?",
+          "answers": [
+            "A faixa de IPs configurada para ser distribuída aos clientes",
+            "O nome do computador do servidor",
+            "Um antivírus de rede integrado",
+            "Um cabo de conexão de alta velocidade"
+          ],
+          "correct": "A faixa de IPs configurada para ser distribuída aos clientes",
+          "tip": "O escopo delimita o IP inicial e final que o DHCP usará."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "É possível utilizar o final .255 na faixa de IPs para distribuição aos computadores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O final .255 é o endereço de broadcast e não pode ser atribuído a uma máquina."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], as exclusões de IP são feitas para proteger dispositivos que possuem IP [COMBO].",
+          "options": [
+            "fixo",
+            "móvel",
+            "público",
+            "vazio"
+          ],
+          "correct": "fixo",
+          "tip": "Servidores e impressoras geralmente têm IPs fixos que não podem ser entregues a outros."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais dispositivos tipicamente precisam ter seus IPs excluídos da distribuição automática?",
+          "answers": [
+            "Servidores de arquivos",
+            "Impressoras de rede",
+            "Câmeras IP",
+            "Smartphones de visitantes"
+          ],
+          "correct": [
+            "Servidores de arquivos",
+            "Impressoras de rede",
+            "Câmeras IP"
+          ],
+          "tip": "Visitantes recebem IPs móveis dinâmicos normalmente."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione as configurações de escopo criadas no laboratório:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Start IP Address",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "End IP Address",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Faixa de Exclusão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Máscara",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "192.168.100.50"
+            },
+            {
+              "id": "z2",
+              "label": "192.168.100.254"
+            },
+            {
+              "id": "z3",
+              "label": "100.100 a 100.130"
+            },
+            {
+              "id": "z4",
+              "label": "255.255.255.0"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses parâmetros definem exatamente o pool de endereços disponíveis (Address Pool)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que define o 'Lease Duration' (Concessão)?",
+          "answers": [
+            "O tempo que o cliente pode ficar com o IP antes de renovar",
+            "A vida útil do servidor DHCP",
+            "O tempo de instalação do Windows",
+            "A velocidade da internet na rede"
+          ],
+          "correct": "O tempo que o cliente pode ficar com o IP antes de renovar",
+          "tip": "Se o tempo expirar e o PC não renovar, o IP volta para a distribuição."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Para redes muito dinâmicas, com muitos celulares entrando e saindo (como um aeroporto), o ideal é um tempo de lease longo, como 8 dias.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Redes dinâmicas exigem leases curtos (horas) para não esgotar os IPs."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O servidor [COMBO] sugerido nas opções do DHCP é responsável pela resolução de nomes (traduzir domínios para IP).",
+          "options": [
+            "DNS",
+            "WINS",
+            "HTTP",
+            "FTP"
+          ],
+          "correct": "DNS",
+          "tip": "O DNS (Domain Name System) é uma das Opções DHCP vitais."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], selecione as Opções de DHCP (DHCP Options) que podem ser entregues junto com o IP:",
+          "answers": [
+            "Gateway Padrão (Router)",
+            "Servidor DNS",
+            "Servidor WINS",
+            "Placa de Vídeo"
+          ],
+          "correct": [
+            "Gateway Padrão (Router)",
+            "Servidor DNS",
+            "Servidor WINS"
+          ],
+          "tip": "A placa de vídeo é um hardware e não tem relação com as Opções DHCP."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe as Opções de DHCP às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Router / Gateway",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Servidor DNS",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Servidor WINS",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Lease",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Saída para outras redes/internet"
+            },
+            {
+              "id": "z2",
+              "label": "Tradução de domínios"
+            },
+            {
+              "id": "z3",
+              "label": "Suporte NetBIOS legado"
+            },
+            {
+              "id": "z4",
+              "label": "Tempo de empréstimo do IP"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender as opções ajuda a diagnosticar falhas de rede."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Se o IP do roteador inserido nas Opções do DHCP for inválido, o serviço DHCP apagará a entrada automaticamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O sistema faz uma verificação de consistência simples."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para concluir o processo e começar a distribuir IPs, o assistente pergunta se você deseja [COMBO] o escopo agora.",
+          "options": [
+            "ativar",
+            "apagar",
+            "criptografar",
+            "exportar"
+          ],
+          "correct": "ativar",
+          "tip": "Um escopo criado, mas não ativado (Activate), não entregará nenhum IP."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], onde verificamos a faixa configurada e os IPs excluídos dentro do console DHCP?",
+          "answers": [
+            "Na pasta Address Pool",
+            "Na lixeira do Windows",
+            "No Event Viewer",
+            "Nas políticas de firewall"
+          ],
+          "correct": "Na pasta Address Pool",
+          "tip": "O Pool de Endereços reflete o que foi definido no escopo.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual comando no Prompt de Comando (CMD) força o computador cliente a solicitar um IP ao servidor DHCP?",
+          "answers": [
+            "ipconfig /renew",
+            "ipconfig /flushdns",
+            "ping 8.8.8.8",
+            "tracert"
+          ],
+          "correct": "ipconfig /renew",
+          "tip": "O parâmetro /renew forçará a placa de rede a renovar o seu Lease (concessão)."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O comando 'ipconfig /all' exibe informações avançadas, como a data exata de vencimento da concessão (Lease Expires).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O '/all' é essencial para validar todas as configurações entregues pelo DHCP."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Segundo o material, a máquina ADM1 obteve sucesso ao receber o IP 192.168.100.[COMBO].",
+          "options": [
+            "51",
+            "10",
+            "255",
+            "200"
+          ],
+          "correct": "51",
+          "tip": "192.168.100.51 está dentro da faixa configurada (50 a 254)."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com o resultado do comando ipconfig /all no laboratório, quais informações foram validadas?",
+          "answers": [
+            "O IP recebido foi 192.168.100.51",
+            "O DHCP Server apontou para 192.168.100.10",
+            "O Gateway Padrão foi 192.168.100.10",
+            "A máquina mudou para sistema Linux"
+          ],
+          "correct": [
+            "O IP recebido foi 192.168.100.51",
+            "O DHCP Server apontou para 192.168.100.10",
+            "O Gateway Padrão foi 192.168.100.10"
+          ],
+          "tip": "Tudo funcionou conforme configurado no escopo do Server1."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os comandos às suas funções no Windows:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ipconfig",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ipconfig /renew",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "ipconfig /all",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "CMD",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Exibe IP, Máscara e Gateway"
+            },
+            {
+              "id": "z2",
+              "label": "Força a renovação do DHCP"
+            },
+            {
+              "id": "z3",
+              "label": "Mostra detalhes (Lease, MAC, Servidores)"
+            },
+            {
+              "id": "z4",
+              "label": "Interpretador de comandos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar o CMD é essencial para suporte de rede."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se o servidor DHCP estivesse desligado, o que aconteceria ao executar ipconfig /renew no cliente?",
+          "answers": [
+            "A máquina ficaria sem IP de rede válido (geralmente gerando um IP APIPA 169.254.x.x)",
+            "O cliente inventaria um IP da faixa 192.168 magicamente",
+            "O Windows bloquearia a tela",
+            "O computador desligaria por segurança"
+          ],
+          "correct": "A máquina ficaria sem IP de rede válido (geralmente gerando um IP APIPA 169.254.x.x)",
+          "tip": "A falta do DHCP gera falha na obtenção, recorrendo ao protocolo APIPA."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a máquina só recebe o IP se a placa de rede estiver nas Propriedades configurada como 'Obtain an IP address automatically'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se houver um IP manual (estático) fixado lá, o DHCP será ignorado pelo cliente."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Nos testes com o 'ipconfig /all', vimos que o parâmetro DHCP Enabled estava listado como '[COMBO]'.",
+          "options": [
+            "Yes",
+            "No",
+            "Maybe",
+            "Error"
+          ],
+          "correct": "Yes",
+          "tip": "Isto confirma que a placa de rede da máquina cliente está esperando ordens do DHCP."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "O comando 'ipconfig /renew' poupa o técnico de quais ações demoradas?",
+          "answers": [
+            "Reiniciar o computador",
+            "Desativar e reativar a placa de rede graficamente",
+            "Trocar o cabo de rede",
+            "Desinstalar o Windows"
+          ],
+          "correct": [
+            "Reiniciar o computador",
+            "Desativar e reativar a placa de rede graficamente"
+          ],
+          "tip": "É a forma mais rápida e profissional de validar uma alteração de IP."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione as máquinas do laboratório aos seus respectivos IPs finais após a configuração:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Server1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ADM1 (Teste no CMD)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Excluído / Gateway",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Início da faixa distribuível",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "192.168.100.10"
+            },
+            {
+              "id": "z2",
+              "label": "192.168.100.51"
+            },
+            {
+              "id": "z3",
+              "label": "Mesmo IP do Server1"
+            },
+            {
+              "id": "z4",
+              "label": "192.168.100.50"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Mapear a topologia mentalmente garante o sucesso do administrador de redes."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O teste de ipconfig pode ser feito também pelo PowerShell, obtendo os mesmos resultados do CMD.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Tanto o CMD quanto o PowerShell reconhecem o comando ipconfig no Windows."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com o print do teste final, se a concessão foi obtida no dia 9 de maio para 8 dias, quando ela irá expirar?",
+          "answers": [
+            "17 de maio",
+            "10 de maio",
+            "20 de maio",
+            "Nunca expira"
+          ],
+          "correct": "17 de maio",
+          "tip": "Exatamente 8 dias corridos após a obtenção do lease."
+        }
+      ]
+    },
+    {
+      "slug": "aula-38",
+      "lesson_info": {
+        "id": "Aula-38",
+        "title": "AULA 38 - SCRIPT PARA NOVA MÁQUINA DO GRUPO DE TRABALHO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "ESTADO INICIAL E REDE",
+            "desc": "Configuração padrão do Windows, criação de administrador local e DHCP.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "IDENTIFICAÇÃO DA MÁQUINA",
+            "desc": "Renomear o computador para Admin2 e ingressar no grupo EMPRESA.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "GESTÃO DE USUÁRIOS",
+            "desc": "Criação das contas Carlos e Maria no ambiente local.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "MAPEAMENTO E AUTOMAÇÃO",
+            "desc": "Mapeamento de pastas compartilhadas e automação na LogisTech.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "R",
+          "E",
+          "D",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], como o IP da máquina foi configurado inicialmente no ambiente da LogisTech?",
+          "answers": [
+            "Automaticamente via DHCP",
+            "Manualmente pelo usuário",
+            "Por um script Python",
+            "Pelo roteador externo"
+          ],
+          "correct": "Automaticamente via DHCP",
+          "tip": "O IP foi configurado automaticamente via DHCP da rede interna."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o Windows já estava instalado de forma padrão na máquina.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "No estado inicial, o Windows está instalado de forma padrão."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O usuário adm-local foi criado via [COMBO] no sistema.",
+          "options": [
+            "lusrmgr.msc",
+            "regedit",
+            "gpedit.msc",
+            "services.msc"
+          ],
+          "correct": "lusrmgr.msc",
+          "tip": "A criação do adm-local utilizou a ferramenta nativa lusrmgr.msc."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destas ações fazem parte do 'Estado Inicial' que já está pronto?",
+          "answers": [
+            "Windows instalado",
+            "Usuário adm-local criado",
+            "IP via DHCP configurado",
+            "Pastas de rede mapeadas"
+          ],
+          "correct": [
+            "Windows instalado",
+            "Usuário adm-local criado",
+            "IP via DHCP configurado"
+          ],
+          "tip": "O mapeamento de pastas é algo que ainda falta configurar."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os elementos do estado inicial com suas descrições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Windows",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "DHCP",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "adm-local",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Conectividade",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Instalado de forma padrão"
+            },
+            {
+              "id": "z2",
+              "label": "Configura o IP automaticamente"
+            },
+            {
+              "id": "z3",
+              "label": "Usuário criado via lusrmgr.msc"
+            },
+            {
+              "id": "z4",
+              "label": "Verificada com a rede interna"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses são os pilares do estado inicial da máquina."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Além do IP configurado via DHCP, o que mais foi garantido em relação à rede?",
+          "answers": [
+            "Conectividade com a rede verificada",
+            "Bloqueio de firewall configurado",
+            "Regras de roteamento aplicadas",
+            "VPN estabelecida"
+          ],
+          "correct": "Conectividade com a rede verificada",
+          "tip": "A conectividade com a rede foi devidamente verificada no estado inicial."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o protocolo DHCP exige que você digite o endereço IP manualmente em cada nova máquina.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O DHCP configura automaticamente o IP da rede interna."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A automação visa configurar computadores no ambiente corporativo da [COMBO].",
+          "options": [
+            "LogisTech",
+            "Firjan SENAI",
+            "Microsoft",
+            "Google"
+          ],
+          "correct": "LogisTech",
+          "tip": "O projeto ocorre no ambiente corporativo da LogisTech."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Por que a criação prévia do adm-local é importante antes do script final?",
+          "answers": [
+            "Garante acesso administrativo contínuo",
+            "Permite executar comandos de alto privilégio",
+            "Evita o bloqueio da máquina em caso de falha",
+            "Aumenta a velocidade do processador"
+          ],
+          "correct": [
+            "Garante acesso administrativo contínuo",
+            "Permite executar comandos de alto privilégio",
+            "Evita o bloqueio da máquina em caso de falha"
+          ],
+          "tip": "O usuário adm-local assegura a gestão técnica local."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe a ação ao seu momento de execução no script da LogisTech:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Instalar Windows",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Configurar IP",
+              "match": "z1"
+            },
+            {
+              "id": "d3",
+              "txt": "Renomear PC",
+              "match": "z2"
+            },
+            {
+              "id": "d4",
+              "txt": "Criar usuários Carlos e Maria",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Já está pronto (Estado Inicial)"
+            },
+            {
+              "id": "z2",
+              "label": "Ainda falta configurar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "É essencial separar o estado inicial do que ainda será feito."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual a principal vantagem de verificar a conectividade de rede antes de rodar os scripts de configuração?",
+          "answers": [
+            "Assegurar que mapeamentos de rede futuros funcionarão",
+            "Aumentar o brilho da tela do usuário",
+            "Reduzir o consumo de energia",
+            "Validar a chave do Windows"
+          ],
+          "correct": "Assegurar que mapeamentos de rede futuros funcionarão",
+          "tip": "Sem conectividade, não é possível ingressar no grupo nem mapear pastas."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a sigla 'lusrmgr.msc' refere-se ao Gerenciador de Dispositivos do Windows.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Refere-se ao 'Local Users and Groups' (Usuários e Grupos Locais)."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Após garantir o estado inicial, qual é uma das próximas etapas que devem ser configuradas?",
+          "answers": [
+            "Renomear o computador para Admin2",
+            "Formatar o disco C:",
+            "Desinstalar o Windows",
+            "Desligar o DHCP"
+          ],
+          "correct": "Renomear o computador para Admin2",
+          "trans": "AGEN",
+          "tip": "Renomear a máquina é a próxima etapa descrita."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], para qual nome específico este computador do grupo de trabalho deve ser renomeado?",
+          "answers": [
+            "Admin2",
+            "Server1",
+            "LogisTech-PC",
+            "Desktop-01"
+          ],
+          "correct": "Admin2",
+          "tip": "O objetivo é renomear o computador para Admin2."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O computador deve ingressar em um domínio chamado EMPRESA.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele deve ingressar no grupo de trabalho EMPRESA, não em um domínio."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A máquina será configurada para ingressar no [COMBO] de trabalho EMPRESA.",
+          "options": [
+            "Grupo",
+            "Domínio",
+            "Hub",
+            "VLAN"
+          ],
+          "correct": "Grupo",
+          "tip": "O computador ingressará no grupo de trabalho EMPRESA."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais informações são essenciais para identificar esta máquina na rede após o script?",
+          "answers": [
+            "O nome Admin2",
+            "O grupo EMPRESA",
+            "O IP fornecido via DHCP",
+            "A marca do monitor"
+          ],
+          "correct": [
+            "O nome Admin2",
+            "O grupo EMPRESA",
+            "O IP fornecido via DHCP"
+          ],
+          "tip": "Nome, grupo de trabalho e IP formam a identificação lógica na rede."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os termos de identificação com seus valores esperados no script:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nome da Máquina",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Grupo de Trabalho",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Endereçamento",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Organização",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Admin2"
+            },
+            {
+              "id": "z2",
+              "label": "EMPRESA"
+            },
+            {
+              "id": "z3",
+              "label": "DHCP"
+            },
+            {
+              "id": "z4",
+              "label": "LogisTech"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estes são os parâmetros exatos extraídos do cenário proposto."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], por que é importante renomear o computador num ambiente corporativo?",
+          "answers": [
+            "Para facilitar a identificação e gerência na rede",
+            "Para aumentar a velocidade da internet",
+            "Para evitar vírus de computador",
+            "Para liberar mais espaço no disco rígido"
+          ],
+          "correct": "Para facilitar a identificação e gerência na rede",
+          "tip": "Nomes padronizados como 'Admin2' facilitam o suporte de TI."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Um 'Grupo de Trabalho' utiliza um servidor centralizado para gerenciar todas as senhas da rede.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Grupos de trabalho são descentralizados; a gestão centralizada ocorre em Domínios."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A renomeação do computador e a entrada no grupo fazem parte da configuração [COMBO].",
+          "options": [
+            "Lógica",
+            "Física",
+            "Mecânica",
+            "Óptica"
+          ],
+          "correct": "Lógica",
+          "tip": "Estas são configurações lógicas de sistema operacional."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais comandos ou ferramentas do Windows podem ser usados para renomear um PC?",
+          "answers": [
+            "Propriedades do Sistema (sysdm.cpl)",
+            "PowerShell (Rename-Computer)",
+            "Prompt de Comando (wmic)",
+            "Bloco de Notas (notepad)"
+          ],
+          "correct": [
+            "Propriedades do Sistema (sysdm.cpl)",
+            "PowerShell (Rename-Computer)",
+            "Prompt de Comando (wmic)"
+          ],
+          "tip": "Existem várias formas de aplicar o nome Admin2."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Associe as ferramentas nativas às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "DHCP",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "sysdm.cpl",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "lusrmgr.msc",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Workgroup",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Distribui IPs"
+            },
+            {
+              "id": "z2",
+              "label": "Renomeia a máquina"
+            },
+            {
+              "id": "z3",
+              "label": "Cria usuários"
+            },
+            {
+              "id": "z4",
+              "label": "Agrupamento de PCs"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas são as funções por trás das tarefas do script."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual o principal efeito após renomear um computador e ingressá-lo no grupo EMPRESA?",
+          "answers": [
+            "O computador exigirá uma reinicialização para aplicar as mudanças",
+            "O sistema apagará todos os arquivos locais",
+            "A placa de rede será desativada",
+            "O Windows fará um upgrade de versão"
+          ],
+          "correct": "O computador exigirá uma reinicialização para aplicar as mudanças",
+          "tip": "Mudanças de nome e grupo de trabalho no Windows exigem reboot."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o nome 'Admin2' sugere que esta é a única máquina administrativa da LogisTech.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "trans": "PROT",
+          "tip": "O sufixo '2' implica a existência de pelo menos uma máquina 'Admin1'."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], quais são os nomes dos usuários que ainda faltam ser criados na máquina?",
+          "answers": [
+            "Carlos e Maria",
+            "João e Pedro",
+            "Admin e Guest",
+            "LogisTech e EMPRESA"
+          ],
+          "correct": "Carlos e Maria",
+          "tip": "O script indica que falta criar os usuários Carlos e Maria."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "As contas do Carlos e da Maria serão contas vinculadas à nuvem da Microsoft obrigatoriamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O script trata de contas em uma máquina de Grupo de Trabalho, tipicamente contas locais."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Além do adm-local já criado, falta configurar os usuários [COMBO] e Maria.",
+          "options": [
+            "Carlos",
+            "José",
+            "Marcos",
+            "Antônio"
+          ],
+          "correct": "Carlos",
+          "tip": "Falta criar os usuários Carlos e Maria."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais perfis de usuário coexistirão na máquina Admin2 após a execução completa do script?",
+          "answers": [
+            "adm-local",
+            "Carlos",
+            "Maria",
+            "Administrador de Domínio"
+          ],
+          "correct": [
+            "adm-local",
+            "Carlos",
+            "Maria"
+          ],
+          "tip": "A máquina não faz parte de um domínio, logo não terá Administrador de Domínio."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os usuários criados às suas origens/status no projeto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "adm-local",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Carlos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Maria",
+              "match": "z2"
+            },
+            {
+              "id": "d4",
+              "txt": "lusrmgr.msc",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Já está pronto (Estado Inicial)"
+            },
+            {
+              "id": "z2",
+              "label": "Ainda falta configurar (Script)"
+            },
+            {
+              "id": "z3",
+              "label": "Ferramenta de criação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O adm-local foi feito antes; Carlos e Maria virão pelo script."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], por que criar usuários separados para Carlos e Maria no mesmo computador?",
+          "answers": [
+            "Para garantir privacidade, segurança e pastas distintas",
+            "Para aumentar o desempenho do processador",
+            "Para forçar o uso do protocolo DHCP",
+            "Para que possam usar dois mouses simultaneamente"
+          ],
+          "correct": "Para garantir privacidade, segurança e pastas distintas",
+          "tip": "Contas distintas separam arquivos e perfis no Windows."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O comando 'net user Carlos /add' pode ser utilizado num script para criar o usuário Carlos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse é o comando padrão do CMD para criar contas locais de forma automatizada."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O controle de contas ajuda na gestão de permissões das pastas [COMBO] de rede.",
+          "options": [
+            "Compartilhadas",
+            "Ocultas",
+            "Compactadas",
+            "Temporárias"
+          ],
+          "correct": "Compartilhadas",
+          "tip": "O script também irá mapear pastas compartilhadas, onde permissões são cruciais."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são boas práticas ao criar contas como Carlos e Maria via script?",
+          "answers": [
+            "Definir senhas fortes iniciais",
+            "Forçar a troca de senha no primeiro logon",
+            "Colocá-los no grupo Administradores sem necessidade",
+            "Registrar a execução em um arquivo de log"
+          ],
+          "correct": [
+            "Definir senhas fortes iniciais",
+            "Forçar a troca de senha no primeiro logon",
+            "Registrar a execução em um arquivo de log"
+          ],
+          "tip": "Usuários padrão não devem ser administradores sem justificativa técnica."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe os grupos locais do Windows às suas características:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Administradores",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Usuários",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Convidados",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "adm-local",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Acesso total ao sistema"
+            },
+            {
+              "id": "z2",
+              "label": "Acesso restrito, não instalam software"
+            },
+            {
+              "id": "z3",
+              "label": "Acesso temporário e volátil"
+            },
+            {
+              "id": "z4",
+              "label": "Conta já criada no cenário"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Carlos e Maria provavelmente serão membros do grupo Usuários."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "No contexto da LogisTech, qual ferramenta gráfica foi usada para criar o 'adm-local'?",
+          "answers": [
+            "lusrmgr.msc",
+            "devmgmt.msc",
+            "diskmgmt.msc",
+            "taskmgr"
+          ],
+          "correct": "lusrmgr.msc",
+          "tip": "O usuário adm-local foi criado via lusrmgr.msc."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], uma conta de usuário criada no Grupo de Trabalho EMPRESA sincroniza automaticamente sua senha com outros computadores do grupo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Contas em Grupos de Trabalho são puramente locais."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Após configurar as contas de Carlos e Maria, o que falta para finalizar as diretrizes do script?",
+          "answers": [
+            "Mapear pastas compartilhadas de rede",
+            "Instalar o pacote Office",
+            "Configurar o IP manualmente",
+            "Deletar a conta adm-local"
+          ],
+          "correct": "Mapear pastas compartilhadas de rede",
+          "trans": "NORM",
+          "tip": "A última etapa descrita é o mapeamento de pastas compartilhadas."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o último objetivo listado na seção 'Ainda falta configurar'?",
+          "answers": [
+            "Mapear pastas compartilhadas de rede",
+            "Instalar o antivírus corporativo",
+            "Atualizar os drivers de vídeo",
+            "Criar um backup do disco C:"
+          ],
+          "correct": "Mapear pastas compartilhadas de rede",
+          "tip": "A última etapa do script é mapear pastas compartilhadas de rede."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O mapeamento de pastas permite acessar arquivos da rede como se fossem um disco local (ex: unidade Z:).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esta é a principal função de mapear unidades de rede no Windows."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O script de automação para a [COMBO] visa economizar tempo na configuração.",
+          "options": [
+            "LogisTech",
+            "Escola",
+            "Clínica",
+            "Loja"
+          ],
+          "correct": "LogisTech",
+          "tip": "O ambiente corporativo em questão é da empresa LogisTech."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais são as vantagens de usar um script para configurar a máquina Admin2 e mapear pastas?",
+          "answers": [
+            "Padronização das configurações",
+            "Redução de erros humanos",
+            "Agilidade no processo de setup",
+            "Melhoria na placa de vídeo"
+          ],
+          "correct": [
+            "Padronização das configurações",
+            "Redução de erros humanos",
+            "Agilidade no processo de setup"
+          ],
+          "tip": "Automatizar tarefas de TI traz eficiência e segurança."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os elementos técnicos de automação com suas finalidades no Windows:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "net use",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "net user",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "wmic computersystem",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Script (.bat ou .ps1)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Mapear pastas de rede"
+            },
+            {
+              "id": "z2",
+              "label": "Criar/gerenciar contas"
+            },
+            {
+              "id": "z3",
+              "label": "Renomear ou ingressar grupo"
+            },
+            {
+              "id": "z4",
+              "label": "Arquivo que executa os comandos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estes comandos são essenciais para transformar o cenário manual em script."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual protocolo é comumente utilizado em segundo plano pelo Windows para acessar pastas compartilhadas na rede?",
+          "answers": [
+            "SMB (Server Message Block)",
+            "FTP (File Transfer Protocol)",
+            "HTTP (Hypertext Transfer Protocol)",
+            "SMTP (Simple Mail Transfer Protocol)"
+          ],
+          "correct": "SMB (Server Message Block)",
+          "tip": "O compartilhamento de pastas no Windows opera predominantemente sobre SMB."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a automação de configurações anula a necessidade do usuário adm-local.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O script precisa de privilégios de administrador para ser executado; o adm-local é essencial."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "As pastas a serem mapeadas já devem estar [COMBO] em algum servidor ou máquina da rede.",
+          "options": [
+            "Compartilhadas",
+            "Apagadas",
+            "Criptografadas",
+            "Bloqueadas"
+          ],
+          "correct": "Compartilhadas",
+          "tip": "O objetivo é mapear pastas que já foram compartilhadas na rede."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Se o mapeamento de rede falhar pelo script, quais itens verificados no Estado Inicial devem ser reavaliados?",
+          "answers": [
+            "O IP configurado via DHCP",
+            "A conectividade com a rede",
+            "O modelo do teclado",
+            "A versão do monitor"
+          ],
+          "correct": [
+            "O IP configurado via DHCP",
+            "A conectividade com a rede"
+          ],
+          "tip": "Problemas de rede geralmente impedem o mapeamento de pastas."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Organize a sequência cronológica correta da configuração da máquina da LogisTech:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Passo 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Instalar Windows e obter IP (DHCP)"
+            },
+            {
+              "id": "z2",
+              "label": "Renomear (Admin2) e Grupo (EMPRESA)"
+            },
+            {
+              "id": "z3",
+              "label": "Criar usuários locais (Carlos e Maria)"
+            },
+            {
+              "id": "z4",
+              "label": "Mapear pastas de rede"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta é a ordem lógica descrita no documento base."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Para automatizar estas tarefas corporativas na LogisTech, qual linguagem moderna da Microsoft é altamente recomendada em substituição aos antigos arquivos .bat?",
+          "answers": [
+            "PowerShell",
+            "Java",
+            "HTML",
+            "CSS"
+          ],
+          "correct": "PowerShell",
+          "tip": "PowerShell é a ferramenta padrão atual para scripts administrativos no Windows."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], após o script mapear as pastas de rede, Carlos e Maria poderão acessá-las diretamente pelo 'Este Computador' do Windows.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Pastas mapeadas aparecem como unidades de disco nativas no Windows."
+        }
+      ]
+    }
   ]
 }
