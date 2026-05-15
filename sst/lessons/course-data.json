@@ -29728,6 +29728,913 @@
           "tip": "Esse é o objetivo de usar ferramentas como o PowerShell e o próprio Active Directory."
         }
       ]
-    }
+    },
+    {
+"slug": "aula-42",
+"lesson_info": {
+"id": "Aula-42",
+"title": "AULA 42 - RESTRIÇÕES DE LOGON, COMPARTILHAMENTOS E POLÍTICAS DE GRUPO",
+"topics": [
+{
+"id": "ACID",
+"name": "RESTRIÇÕES DE DATA E HORA",
+"desc": "Controle de horários de logon e importância do fuso horário no Active Directory.",
+"color": "#FF5733",
+"img_url": "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "AGEN",
+"name": "REPLICAÇÃO EM MASSA",
+"desc": "Uso de contas template e scripts PowerShell para aplicar restrições em múltiplas contas.",
+"color": "#9B59B6",
+"img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "PROT",
+"name": "COMPARTILHAMENTOS DE PASTAS",
+"desc": "Criação de grupos de segurança, permissões de acesso e configuração de pastas ocultas.",
+"color": "#3498DB",
+"img_url": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "NORM",
+"name": "GPO E VERIFICAÇÃO",
+"desc": "Mapeamento automático de drives via Group Policy e comandos de diagnóstico.",
+"color": "#2ECC71",
+"img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+}
+],
+"sokoban": [
+"G",
+"P",
+"O",
+"S"
+]
+},
+"questions": [
+{
+"type": "multiple",
+"topics": "ACID",
+"questions": "[NAME], por que devemos verificar o fuso horário do servidor antes de aplicar restrições de logon?",
+"answers": [
+"Para evitar que as restrições sejam aplicadas em horários errados.",
+"Para melhorar a velocidade da rede local.",
+"Para ativar o protocolo de horário de verão.",
+"Para permitir o acesso remoto via VPN."
+],
+"correct": "Para evitar que as restrições sejam aplicadas em horários errados.",
+"tip": "Se o servidor estiver no fuso errado, bloqueios e permissões ocorrerão fora do previsto."
+},
+{
+"type": "boolean",
+"topics": "ACID",
+"questions": "É verdade, [NAME]? Por padrão, ao expirar o horário de logon, o usuário que já está logado é desconectado automaticamente pelo sistema.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Essa é uma limitação nativa; o sistema impede novos logons, mas não derruba a sessão ativa por padrão."
+},
+{
+"type": "combo",
+"topics": "ACID",
+"questions": "[NAME], na matriz de Logon Hours, os blocos marcados com a cor [COMBO] indicam que o acesso está permitido.",
+"options": [
+"Azul",
+"Branco",
+"Verde",
+"Vermelho"
+],
+"correct": "Azul",
+"tip": "Azul significa 'Logon Permitted' e branco significa 'Logon Denied'."
+},
+{
+"type": "multi",
+"topics": "ACID",
+"questions": "[NAME], quais são características corretas sobre a configuração de Logon Hours?",
+"answers": [
+"Pode bloquear acesso aos fins de semana.",
+"Por padrão, contas novas têm todos os horários liberados.",
+"Exige reinicialização imediata do servidor para funcionar.",
+"Pode restringir horários noturnos."
+],
+"correct": [
+"Pode bloquear acesso aos fins de semana.",
+"Por padrão, contas novas têm todos os horários liberados.",
+"Pode restringir horários noturnos."
+],
+"tip": "Restringir o acesso ajuda na segurança do ambiente, evitando acessos fora do expediente."
+},
+{
+"type": "drag",
+"topics": "ACID",
+"questions": "[NAME], relacione as cores da matriz de horário ao seu significado no Active Directory:",
+"items": [
+{
+"id": "d1",
+"txt": "Células Azuis",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Células Brancas",
+"match": "z2"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Logon Permitido"
+},
+{
+"id": "z2",
+"label": "Logon Negado"
+}
+],
+"correct": "drag",
+"tip": "A interface gráfica exibe de forma clara e visual os blocos de permissão."
+},
+{
+"type": "boolean",
+"topics": "ACID",
+"questions": "[NAME], o fuso horário recomendado para a maioria das regiões do Brasil no Windows Server é America/Sao_Paulo (UTC-3).",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Sempre confirme o timezone correto do servidor para evitar conflitos na política de horários."
+},
+{
+"type": "multiple",
+"topics": "ACID",
+"questions": "[NAME], qual mensagem o usuário recebe ao tentar acessar a rede fora do horário permitido?",
+"answers": [
+"Sua conta tem restrições de tempo que impedem o logon nesse momento.",
+"Senha incorreta ou expirada.",
+"Acesso negado devido a falha de hardware.",
+"Sua conta foi excluída do servidor."
+],
+"correct": "Sua conta tem restrições de tempo que impedem o logon nesse momento.",
+"tip": "A mensagem nativa do Windows é clara sobre o motivo da restrição."
+},
+{
+"type": "combo",
+"topics": "ACID",
+"questions": "Para configurar restrições para um usuário individual, acessamos a guia [COMBO] e depois 'Logon Hours' nas suas propriedades.",
+"options": [
+"Account",
+"General",
+"Security",
+"Profile"
+],
+"correct": "Account",
+"tip": "É na aba de conta (Account) que residem as propriedades de bloqueio e expiração."
+},
+{
+"type": "drag",
+"topics": "ACID",
+"questions": "Ordene os passos para configurar um horário restrito do zero, [NAME]:",
+"items": [
+{
+"id": "d1",
+"txt": "Selecionar toda a matriz",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Marcar Logon Denied",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Selecionar faixa horária permitida",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "Clicar em Apply e OK",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Passo 1"
+},
+{
+"id": "z2",
+"label": "Passo 2"
+},
+{
+"id": "z3",
+"label": "Passo 3"
+},
+{
+"id": "z4",
+"label": "Passo 4"
+}
+],
+"correct": "drag",
+"tip": "Negar tudo primeiro é a forma mais segura de recomeçar a matriz."
+},
+{
+"type": "multi",
+"topics": "ACID",
+"questions": "[NAME], quais métodos podem ser usados para contornar a falta de logoff automático quando o horário de conta expira?",
+"answers": [
+"Utilizar Objetos de Política de Grupo (GPOs).",
+"Configurar scripts de sistema.",
+"Comprar mais memória RAM.",
+"Excluir e recriar o usuário diariamente."
+],
+"correct": [
+"Utilizar Objetos de Política de Grupo (GPOs).",
+"Configurar scripts de sistema."
+],
+"tip": "Recursos nativos do AD limitam-se ao bloqueio de login inicial; GPOs cuidam do controle contínuo."
+},
+{
+"type": "boolean",
+"topics": "ACID",
+"questions": "[NAME], uma conta recém-criada no AD vem com bloqueio em todos os finais de semana por padrão.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "O padrão de qualquer nova conta é ter a matriz 100% permitida (toda azul)."
+},
+{
+"type": "multiple",
+"topics": "ACID",
+"questions": "[NAME], qual ferramenta nativa usamos para visualizar graficamente a matriz de horas de um usuário?",
+"answers": [
+"Active Directory Users and Computers (ADUC)",
+"DNS Manager",
+"IIS Manager",
+"Task Manager"
+],
+"correct": "Active Directory Users and Computers (ADUC)",
+"trans": "AGEN",
+"tip": "O ADUC é a console principal para a gestão de propriedades de usuários individuais."
+},
+{
+"type": "boolean",
+"topics": "AGEN",
+"questions": "A interface gráfica do ADUC permite selecionar 50 usuários simultaneamente para alterar as horas de logon de uma vez, [NAME].",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "A GUI do ADUC possui limitação e permite configurar o horário apenas de um usuário por vez."
+},
+{
+"type": "multiple",
+"topics": "AGEN",
+"questions": "Para resolver a limitação da interface gráfica na aplicação de regras em lote, qual tecnologia é recomendada, [NAME]?",
+"answers": [
+"Script PowerShell",
+"Prompt de Comando (CMD)",
+"Painel de Controle",
+"Gerenciador de Dispositivos"
+],
+"correct": "Script PowerShell",
+"tip": "O PowerShell é a ferramenta ideal para automatizar modificações em larga escala no Active Directory."
+},
+{
+"type": "combo",
+"topics": "AGEN",
+"questions": "[NAME], para aplicar restrições em massa, criamos uma conta de referência chamada de [COMBO].",
+"options": [
+"User_Template",
+"Admin_Master",
+"Root_User",
+"Guest_Pro"
+],
+"correct": "User_Template",
+"tip": "Essa conta serve apenas como molde para extrair as configurações base."
+},
+{
+"type": "multi",
+"topics": "AGEN",
+"questions": "[NAME], quais comandos do PowerShell são fundamentais num script para replicar as horas de logon?",
+"answers": [
+"Get-ADUser",
+"Set-ADUser",
+"Ping",
+"Ipconfig"
+],
+"correct": [
+"Get-ADUser",
+"Set-ADUser"
+],
+"tip": "Get-ADUser recupera as informações do template, e Set-ADUser aplica nos usuários destino."
+},
+{
+"type": "drag",
+"topics": "AGEN",
+"questions": "[NAME], associe a função ao comando utilizado no script PowerShell de replicação:",
+"items": [
+{
+"id": "d1",
+"txt": "Get-ADUser",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Set-ADUser",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "SearchBase",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Ler dados do template"
+},
+{
+"id": "z2",
+"label": "Aplicar os dados"
+},
+{
+"id": "z3",
+"label": "Limitar o escopo da busca"
+}
+],
+"correct": "drag",
+"tip": "Entender o papel de cada cmdlet é vital para a automação do ambiente."
+},
+{
+"type": "boolean",
+"topics": "AGEN",
+"questions": "[NAME], o bloco 'try / catch' no script PowerShell serve para capturar e mostrar erros sem parar a execução de todos os usuários.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "O tratamento de erros assegura que se uma conta falhar, o loop continuará para a próxima."
+},
+{
+"type": "multiple",
+"topics": "AGEN",
+"questions": "O script PowerShell copia os dados de horário lendo qual propriedade específica do Active Directory, [NAME]?",
+"answers": [
+"logonHours",
+"pwdLastSet",
+"accountExpires",
+"userAccountControl"
+],
+"correct": "logonHours",
+"tip": "A matriz gráfica visual é convertida no atributo de array de bytes chamado logonHours."
+},
+{
+"type": "combo",
+"topics": "AGEN",
+"questions": "A unidade de organização destino no script, definida pela variável $ou, usa o parâmetro [COMBO] para isolar os usuários afetados.",
+"options": [
+"SearchBase",
+"SearchScope",
+"Filter",
+"Identity"
+],
+"correct": "SearchBase",
+"tip": "O SearchBase garante que apenas os usuários daquela UO específica receberão a regra."
+},
+{
+"type": "drag",
+"topics": "AGEN",
+"questions": "[NAME], ordene a lógica correta do script de aplicação em lote:",
+"items": [
+{
+"id": "d1",
+"txt": "Extrair matriz do User_Template",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Definir UO alvo (SearchBase)",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Loop entre usuários (foreach)",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "Sobrescrever propriedade (Replace)",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Passo 1"
+},
+{
+"id": "z2",
+"label": "Passo 2"
+},
+{
+"id": "z3",
+"label": "Passo 3"
+},
+{
+"id": "z4",
+"label": "Passo 4"
+}
+],
+"correct": "drag",
+"tip": "Automatizar via PowerShell segue uma lógica sequencial de captura e iteração."
+},
+{
+"type": "multi",
+"topics": "AGEN",
+"questions": "[NAME], quais são as principais vantagens de usar um usuário-template para replicação?",
+"answers": [
+"Padronização das configurações.",
+"Redução drástica de falhas humanas (cliques errados).",
+"Velocidade ao aplicar regras para centenas de usuários.",
+"Criação automática de backups."
+],
+"correct": [
+"Padronização das configurações.",
+"Redução drástica de falhas humanas (cliques errados).",
+"Velocidade ao aplicar regras para centenas de usuários."
+],
+"tip": "A abordagem em lote (batching) é a melhor prática em infraestruturas médias e grandes."
+},
+{
+"type": "boolean",
+"topics": "AGEN",
+"questions": "[NAME], o 'User_Template' é uma conta operacional usada ativamente pelo administrador da rede para checar emails.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Ele serve apenas como referência ou 'molde'; não deve ser usado por pessoas no dia a dia."
+},
+{
+"type": "multiple",
+"topics": "AGEN",
+"questions": "Após executar o script PowerShell, como validamos com sucesso visualmente, [NAME]?",
+"answers": [
+"Abrindo o ADUC e checando a aba Account de um dos usuários afetados.",
+"Reiniciando o Domain Controller.",
+"Analisando o uso de memória do servidor.",
+"Rodando o antivírus."
+],
+"correct": "Abrindo o ADUC e checando a aba Account de um dos usuários afetados.",
+"tip": "A aba Account mostrará a mesma matriz azul desenhada no template."
+},
+{
+"type": "combo",
+"topics": "AGEN",
+"questions": "O comando do PowerShell Write-[COMBO] no script exibe mensagens coloridas ou alertas caso ocorra um erro de execução, [NAME].",
+"options": [
+"Warning",
+"Error",
+"Text",
+"Log"
+],
+"correct": "Warning",
+"trans": "PROT",
+"tip": "Write-Warning é ótimo para alertar o operador de problemas sem parar o script completamente."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "Devemos sempre usar o grupo Everyone (Todos) nas pastas compartilhadas da rede corporativa para facilitar o acesso, [NAME].",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "O grupo Everyone dá acesso a máquinas não autenticadas no domínio. Substitua sempre por Domain Users."
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "[NAME], para tornar uma pasta oculta na rede, que símbolo deve ser adicionado ao final de seu nome de compartilhamento?",
+"answers": [
+"Cifrão ($)",
+"Hashtag (#)",
+"Asterisco (*)",
+"Arroba (@)"
+],
+"correct": "Cifrão ($)",
+"tip": "A adição do $ impede que o compartilhamento apareça na listagem de rede (Network Explorer)."
+},
+{
+"type": "combo",
+"topics": "PROT",
+"questions": "[NAME], o tipo de grupo mais comum usado para agrupar perfis de acesso por departamento no AD é o [COMBO] Security.",
+"options": [
+"Global",
+"Local",
+"Universal",
+"Machine"
+],
+"correct": "Global",
+"tip": "Grupos de escopo Global Security são o padrão para agrupar usuários no mesmo domínio."
+},
+{
+"type": "multi",
+"topics": "PROT",
+"questions": "[NAME], quais são as características de uma pasta mapeada como ADM$?",
+"answers": [
+"Não aparece ao explorar a rede do Windows.",
+"Pode ser acessada digitando o caminho completo.",
+"É imune a ataques de ransomware e vírus.",
+"Requer permissões configuradas separadamente para liberar seu conteúdo."
+],
+"correct": [
+"Não aparece ao explorar a rede do Windows.",
+"Pode ser acessada digitando o caminho completo.",
+"Requer permissões configuradas separadamente para liberar seu conteúdo."
+],
+"tip": "A ocultação é apenas visual; não protege contra malwares."
+},
+{
+"type": "drag",
+"topics": "PROT",
+"questions": "[NAME], correlacione o grupo de segurança à sua permissão recomendada na Pasta Pública:",
+"items": [
+{
+"id": "d1",
+"txt": "Everyone",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Domain Users",
+"match": "z2"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Remover do compartilhamento"
+},
+{
+"id": "z2",
+"label": "Permissão Full Control"
+}
+],
+"correct": "drag",
+"tip": "Trocar Everyone por Domain Users é regra de ouro em segurança Windows."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "[NAME], o princípio do menor privilégio dita que cada funcionário deve ter acesso apenas às informações essenciais de sua função.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Isso previne o acesso a setores como RH ou Financeiro por pessoas não autorizadas."
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "[NAME], ao configurar o acesso da diretoria a uma pasta do setor de Vendas (VND$), qual seria uma configuração de permissão comum (dupla)?",
+"answers": [
+"GRP_VND com Full Control, GRP_ADM com Read.",
+"Apenas Everyone com Read.",
+"GRP_VND negado, GRP_ADM total.",
+"Ambos os grupos com Deny Access."
+],
+"correct": "GRP_VND com Full Control, GRP_ADM com Read.",
+"tip": "A diretoria audita (Read), e o setor atua (Full Control)."
+},
+{
+"type": "combo",
+"topics": "PROT",
+"questions": "Para encontrar rapidamente um grupo ao adicionar membros, utilizamos o botão Check [COMBO] na interface de seleção, [NAME].",
+"options": [
+"Names",
+"Groups",
+"Users",
+"Lists"
+],
+"correct": "Names",
+"tip": "O Check Names autocompleta e sublinha os objetos de AD válidos digitados na caixa de texto."
+},
+{
+"type": "multi",
+"topics": "PROT",
+"questions": "[NAME], quais opções estão disponíveis na janela Advanced Sharing ao compartilhar uma pasta?",
+"answers": [
+"Definir o nome da partilha (Share name).",
+"Adicionar ou remover grupos e permissões.",
+"Formatar o disco rígido remotamente.",
+"Controlar limite de conexões simultâneas."
+],
+"correct": [
+"Definir o nome da partilha (Share name).",
+"Adicionar ou remover grupos e permissões.",
+"Controlar limite de conexões simultâneas."
+],
+"tip": "Essa aba é o coração da camada de acesso à rede SMB no Windows."
+},
+{
+"type": "drag",
+"topics": "PROT",
+"questions": "[NAME], relacione as permissões ao nível de acesso provido:",
+"items": [
+{
+"id": "d1",
+"txt": "Full control",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Read",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Deny",
+"match": "z3"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Alterar, criar e apagar arquivos"
+},
+{
+"id": "z2",
+"label": "Apenas visualizar conteúdos"
+},
+{
+"id": "z3",
+"label": "Bloqueia acesso explicitamente"
+}
+],
+"correct": "drag",
+"tip": "A opção Deny sempre sobrepõe outras permissões permitidas."
+},
+{
+"type": "boolean",
+"topics": "PROT",
+"questions": "[NAME], pastas que começam com a palavra ADMIN são automaticamente ocultadas pelo Windows sem a necessidade do cifrão.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Somente a presença do caractere especial '$' no final do nome da partilha causa a ocultação."
+},
+{
+"type": "multiple",
+"topics": "PROT",
+"questions": "Se um usuário de Vendas descobrir o caminho oculto \\\\Servidor1\\ADM$ e tentar acessá-lo, o que ocorrerá, [NAME]?",
+"answers": [
+"Receberá mensagem de Acesso Negado.",
+"Verá as pastas, mas vazias.",
+"O computador dele será reiniciado.",
+"Ganhará privilégios administrativos temporários."
+],
+"correct": "Receberá mensagem de Acesso Negado.",
+"tip": "A segurança real é gerida pelas permissões NTFS e de Compartilhamento, e não pelo fato de ser oculta."
+},
+{
+"type": "multi",
+"topics": "PROT",
+"questions": "[NAME], por que planejar a estrutura em diagrama antes de criar as OUs e Grupos é recomendável?",
+"answers": [
+"Evita sobreposição de permissões.",
+"Garante que OUs, Grupos e Pastas tenham escopos alinhados.",
+"Economiza eletricidade dos servidores.",
+"Facilita a manutenção futura e auditorias."
+],
+"correct": [
+"Evita sobreposição de permissões.",
+"Garante que OUs, Grupos e Pastas tenham escopos alinhados.",
+"Facilita a manutenção futura e auditorias."
+],
+"trans": "NORM",
+"tip": "O planejamento reduz o caos administrativo em estruturas complexas."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "[NAME], Group Policy Objects (GPOs) são ferramentas que automatizam a gestão, evitando a configuração máquina a máquina.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Elas são o principal pilar para gerenciar milhares de computadores de forma centralizada."
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "[NAME], onde devemos criar uma GPO que mapeia a pasta PÚBLICA, sabendo que todos os usuários da empresa precisam dela?",
+"answers": [
+"No Nível do Domínio.",
+"Na Unidade Organizacional Financeiro.",
+"Na Unidade Organizacional Administrativo.",
+"No nível dos Domain Controllers."
+],
+"correct": "No Nível do Domínio.",
+"tip": "Regras criadas no topo da raiz (Domínio) se propagam para todas as OUs filhas."
+},
+{
+"type": "combo",
+"topics": "NORM",
+"questions": "A ação preferencial ao criar o mapeamento de drive via GPO, para evitar erros e permitir atualizações automáticas, é [COMBO], [NAME].",
+"options": [
+"Update",
+"Create",
+"Replace",
+"Delete"
+],
+"correct": "Update",
+"tip": "A ação 'Update' cria se não existir e modifica caso algum parâmetro de rede seja alterado no futuro."
+},
+{
+"type": "multi",
+"topics": "NORM",
+"questions": "[NAME], quais são comandos CMD vitais para trabalhar e diagnosticar GPOs no Windows?",
+"answers": [
+"gpupdate",
+"gpresult",
+"format c:",
+"chkdisk"
+],
+"correct": [
+"gpupdate",
+"gpresult"
+],
+"tip": "gpupdate atualiza as políticas forçadamente, e gpresult emite relatórios do que foi aplicado."
+},
+{
+"type": "drag",
+"topics": "NORM",
+"questions": "[NAME], associe o comando à sua função no diagnóstico de políticas:",
+"items": [
+{
+"id": "d1",
+"txt": "gpupdate /force",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "gpresult /r",
+"match": "z2"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Baixa e aplica as GPOs imediatamente"
+},
+{
+"id": "z2",
+"label": "Exibe as GPOs vigentes na sessão"
+}
+],
+"correct": "drag",
+"tip": "Estes dois comandos formam o kit básico de troubleshooting do Sysadmin."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "É correto afirmar, [NAME], que configurações da seção 'Computer Configuration' afetam a máquina não importando qual usuário faça login.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Computer Configuration molda o hardware/SO, enquanto User Configuration segue o perfil do indivíduo."
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "[NAME], qual console nativo utilizamos para gerenciar as Group Policies?",
+"answers": [
+"Group Policy Management (GPMC)",
+"Active Directory Domains and Trusts",
+"Hyper-V Manager",
+"Registry Editor"
+],
+"correct": "Group Policy Management (GPMC)",
+"tip": "O GPMC (gpmc.msc) consolida a visualização, criação e linkagem em um único ambiente."
+},
+{
+"type": "combo",
+"topics": "NORM",
+"questions": "Para mapear drives em GPO navegamos: User Config > Preferences > Windows Settings > [COMBO] Maps.",
+"options": [
+"Drive",
+"Folder",
+"Disk",
+"Network"
+],
+"correct": "Drive",
+"tip": "As preferências contêm dezenas de utilitários, e o Drive Maps é específico para compartilhamentos de rede."
+},
+{
+"type": "drag",
+"topics": "NORM",
+"questions": "[NAME], coloque os passos de diagnóstico de GPO na ordem lógica:",
+"items": [
+{
+"id": "d1",
+"txt": "Alterar GPO no servidor",
+"match": "z1"
+},
+{
+"id": "d2",
+"txt": "Rodar gpupdate /force no cliente",
+"match": "z2"
+},
+{
+"id": "d3",
+"txt": "Checar gpresult /r",
+"match": "z3"
+},
+{
+"id": "d4",
+"txt": "Conferir o Mapeamento no Explorer",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Passo 1"
+},
+{
+"id": "z2",
+"label": "Passo 2"
+},
+{
+"id": "z3",
+"label": "Passo 3"
+},
+{
+"id": "z4",
+"label": "Passo 4"
+}
+],
+"correct": "drag",
+"tip": "Sempre force a atualização nas máquinas clientes após mexer no servidor para ver os efeitos."
+},
+{
+"type": "multi",
+"topics": "NORM",
+"questions": "[NAME], se uma GPO aparece na lista do gpresult, mas a unidade não mapeia no Windows Explorer, quais são os suspeitos comuns?",
+"answers": [
+"Caminho de rede digitado incorretamente no GPMC.",
+"Falta do cifrão ($) no final de pastas ocultas na GPO.",
+"Cabo de força do monitor desconectado.",
+"Falta de permissões do usuário para acessar o caminho na rede."
+],
+"correct": [
+"Caminho de rede digitado incorretamente no GPMC.",
+"Falta do cifrão ($) no final de pastas ocultas na GPO.",
+"Falta de permissões do usuário para acessar o caminho na rede."
+],
+"tip": "A GPO apenas entrega o atalho; se houver erro no atalho ou bloqueio na segurança NTFS, o mapeamento falha."
+},
+{
+"type": "boolean",
+"topics": "NORM",
+"questions": "[NAME], GPOs vinculadas (Linked) na OU Financeiro serão automaticamente propagadas para os usuários da UO Vendas.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "O escopo de OUs irmãs é isolado. As heranças ocorrem apenas verticalmente (Domínio para Filhas)."
+},
+{
+"type": "multiple",
+"topics": "NORM",
+"questions": "Por fim, [NAME], a ação 'Replace' numa regra de Mapeamento de GPO possui qual impacto principal durante um ciclo de atualização da máquina?",
+"answers": [
+"Apaga a unidade da rede antiga e recria uma nova, o que pode interromper transferências no momento.",
+"Apenas renomeia a unidade localmente sem afetar arquivos abertos.",
+"Exclui os arquivos dentro da pasta compartilhada remotamente.",
+"Altera as permissões de acesso do grupo no AD."
+],
+"correct": "Apaga a unidade da rede antiga e recria uma nova, o que pode interromper transferências no momento.",
+"tip": "É por esta razão de quebra de conexão (Drop/Remap) que 'Update' é o método recomendado, por ser não-destrutivo."
+}
+]
+}
   ]
 }
