@@ -31324,8 +31324,8 @@
           "topics": "NORM",
           "questions": "[NAME], ao configurar a GPO de Wallpaper, qual é o formato correto para preencher o caminho da imagem?",
           "answers": [
-          "Caminho de rede (ex: \\\\Server\\img)",
-          "Caminho local (ex: C:\\Imagens)",
+            "Caminho de rede (ex: \\\\Server\\img)",
+            "Caminho local (ex: C:\\Imagens)",
             "Caminho web HTTP",
             "Atalho na área de trabalho"
           ],
@@ -31463,7 +31463,7 @@
             "Garantir Conformidade e evitar imagens inapropriadas"
           ],
           "tip": "O wallpaper é o primeiro ponto de contato visual do colaborador ao logar no PC."
-        },        
+        },
         {
           "type": "boolean",
           "topics": "NORM",
@@ -31487,6 +31487,894 @@
           ],
           "correct": "Administrative Templates -> Desktop -> Desktop",
           "tip": "Fica profundamente aninhado na categoria Desktop dentro do escopo User Configuration."
+        }
+      ]
+    },
+    {
+      "slug": "aula-41",
+      "lesson_info": {
+        "id": "Aula-41",
+        "title": "AULA 41 - ADMINISTRAÇÃO DE DOMÍNIO E USUÁRIOS NO ACTIVE DIRECTORY",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "ADMINISTRADOR LOCAL VS DOMÍNIO",
+            "desc": "Diferenças, riscos e boas práticas de uso para suporte e segurança.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "CRIANDO USUÁRIOS COM SCRIPT",
+            "desc": "Criação em lote via PowerShell usando vetores e o comando New-ADUser.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "IMPORTAÇÃO VIA ARQUIVO CSV",
+            "desc": "Automatização de cadastros importando dados de planilhas formatadas.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1510511459019-5bea14db5a5f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "EXPORTAÇÃO E BACKUP CSV",
+            "desc": "Geração de relatórios com Get-ADUser para auditoria e recuperação.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1614064641913-6b7140414c71?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "U",
+          "S",
+          "E",
+          "R"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal risco de usar o Administrador do Domínio para tarefas diárias de suporte?",
+          "answers": [
+            "Vazamento da senha comprometendo toda a rede",
+            "O computador ficar mais lento",
+            "Conflito de IP na rede",
+            "Perda dos arquivos locais do usuário"
+          ],
+          "correct": "Vazamento da senha comprometendo toda a rede",
+          "tip": "Se a senha do administrador do domínio vazar, o invasor terá controle total, inclusive para derrubar o servidor."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], um usuário local aparece na lista do domínio do Active Directory.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O usuário local existe apenas na máquina onde foi criado."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O Princípio do Menor Privilégio afirma que cada usuário deve ter apenas as [COMBO] necessárias para sua função.",
+          "options": [
+            "permissões",
+            "senhas",
+            "máquinas",
+            "pastas"
+          ],
+          "correct": "permissões",
+          "tip": "Isso reduz significativamente a superfície de ataque na rede."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são as características de um usuário do domínio?",
+          "answers": [
+            "Autenticado pelo servidor",
+            "Políticas centralizadas",
+            "Acesso restrito apenas a uma máquina específica",
+            "Acesso controlado pelo administrador do domínio"
+          ],
+          "correct": [
+            "Autenticado pelo servidor",
+            "Políticas centralizadas",
+            "Acesso controlado pelo administrador do domínio"
+          ],
+          "tip": "O usuário do domínio pode logar em qualquer máquina da rede, desde que permitido."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o tipo de conta à sua característica:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Administrador do Domínio",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Usuário Local",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Usuário do Domínio",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Reservado para tarefas críticas"
+            },
+            {
+              "id": "z2",
+              "label": "Não expõe credenciais da rede"
+            },
+            {
+              "id": "z3",
+              "label": "Sujeito a políticas centralizadas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender as diferenças ajuda a proteger a infraestrutura."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a criação de um administrador local é útil para suporte técnico pontual.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso evita que o técnico precise digitar a senha do admin do domínio na frente do usuário."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Para logar com um usuário local em uma máquina que está no domínio, qual prefixo usamos antes do nome de usuário?",
+          "answers": [
+          ".\\","//",
+            "local@",
+            "admin:"
+          ],
+          "correct": ".\\","tip": "O ponto seguido de barra invertida (.\\) força o Windows a buscar o usuário apenas no banco local da máquina."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A decisão de manter um administrador local deve ser alinhada com a política de [COMBO] da empresa.",
+          "options": [
+            "segurança",
+            "vendas",
+            "marketing",
+            "rh"
+          ],
+          "correct": "segurança",
+          "tip": "Contas locais também podem ser vetores de ataque se forem mal gerenciadas."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], por que devemos remover mapeamentos e compartilhamentos criados localmente nas máquinas?",
+          "answers": [
+            "Para centralizar os compartilhamentos no servidor",
+            "Para aplicar políticas de segurança de forma uniforme",
+            "Para economizar energia da máquina local",
+            "Para evitar falhas de redundância"
+          ],
+          "correct": [
+            "Para centralizar os compartilhamentos no servidor",
+            "Para aplicar políticas de segurança de forma uniforme"
+          ],
+          "tip": "Compartilhamentos no AD são mais seguros e fáceis de gerir."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Ordene os passos para realizar suporte local com segurança:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Selecionar o prefixo .\\"
+            },
+            {
+              "id": "z2",
+              "label": "Informar nome do admin local"
+            },
+            {
+              "id": "z3",
+              "label": "Acessar e executar correções"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses passos garantem que a intervenção será feita sem usar os privilégios da rede."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], expor as credenciais do administrador do domínio em máquinas de usuários comuns aumenta a superfície de ataque.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Qualquer keylogger ou malware na máquina poderia roubar essa credencial crítica."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "No caso da usuária Maria da Graça, por que o script PowerShell de criação de usuários locais foi bloqueado?",
+          "answers": [
+            "Ela é uma usuária convencional sem privilégios administrativos",
+            "O PowerShell estava desinstalado",
+            "A máquina estava sem internet",
+            "A licença do Windows expirou"
+          ],
+          "correct": "Ela é uma usuária convencional sem privilégios administrativos",
+          "trans": "AGEN",
+          "tip": "Scripts que alteram configurações do sistema requerem elevação de privilégio."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual comando do PowerShell usamos para criar um novo usuário no Active Directory?",
+          "answers": [
+            "New-ADUser",
+            "Add-UserAD",
+            "Create-ADAccount",
+            "Set-ADUser"
+          ],
+          "correct": "New-ADUser",
+          "tip": "Esse é o cmdlet nativo do módulo do Active Directory no PowerShell."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a criação de usuários usando a interface gráfica do ADUC é a forma mais eficiente para grandes volumes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A interface gráfica é lenta e suscetível a erros manuais para grandes quantidades de usuários."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para automatizar a criação, armazenamos os dados em um [COMBO] (@{}) dentro do script PowerShell.",
+          "options": [
+            "vetor",
+            "arquivo",
+            "banco",
+            "cookie"
+          ],
+          "correct": "vetor",
+          "tip": "Os vetores (arrays) no PowerShell permitem organizar listas de usuários e percorrê-las rapidamente."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais desses parâmetros são comuns ao usar o comando New-ADUser?",
+          "answers": [
+            "Name",
+            "SamAccountName",
+            "AccountPassword",
+            "MacAddress"
+          ],
+          "correct": [
+            "Name",
+            "SamAccountName",
+            "AccountPassword"
+          ],
+          "tip": "O MacAddress é usado em redes DHCP, mas não é um parâmetro de criação de usuário no AD."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os parâmetros do comando New-ADUser à sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Name",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "SamAccountName",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Path",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Nome completo de exibição"
+            },
+            {
+              "id": "z2",
+              "label": "Nome de logon (login)"
+            },
+            {
+              "id": "z3",
+              "label": "Localização (OU) no domínio"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber os parâmetros é essencial para configurar scripts corretamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o parâmetro ChangePasswordAtLogon configurado como $true obriga o usuário a mudar a senha no primeiro acesso.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esta é a melhor prática de segurança em ambientes de produção."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que o comando ConvertTo-SecureString faz no script de criação de usuários?",
+          "answers": [
+            "Criptografa a senha para ser aceita pelo AD",
+            "Transforma a senha em um número",
+            "Verifica se a senha tem 8 caracteres",
+            "Deleta a senha após o uso"
+          ],
+          "correct": "Criptografa a senha para ser aceita pelo AD",
+          "tip": "O Active Directory exige que senhas passadas via script sejam strings seguras (SecureString)."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para criar vários usuários de um vetor, o script utiliza um [COMBO] (como foreach).",
+          "options": [
+            "loop",
+            "filtro",
+            "log",
+            "ping"
+          ],
+          "correct": "loop",
+          "tip": "O loop foreach percorre cada elemento do vetor aplicando o comando de criação."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], o parâmetro Path exige o formato correto. O que compõe o Path?",
+          "answers": [
+            "O nome da Unidade Organizacional (OU=)",
+            "O domínio local (DC=)",
+            "A senha do usuário",
+            "O IP do servidor"
+          ],
+          "correct": [
+            "O nome da Unidade Organizacional (OU=)",
+            "O domínio local (DC=)"
+          ],
+          "tip": "Exemplo: OU=ADM, DC=empresa, DC=local."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Ordene o fluxo correto para executar a criação por script:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Criar a pasta e arquivo de script"
+            },
+            {
+              "id": "z2",
+              "label": "Executar script no PowerShell"
+            },
+            {
+              "id": "z3",
+              "label": "Verificar as OUs no ADUC"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Seguir o processo de validação previne que usuários sejam criados no lugar errado."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], no ambiente de laboratório Hyper-V foi usado ChangePasswordAtLogon=$false devido a limitações técnicas temporárias.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Porém, na vida real, isso deve ser sempre verdadeiro."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Para onde vão os usuários caso você não especifique o parâmetro Path no script?",
+          "answers": [
+            "Para a pasta Users padrão do domínio",
+            "Para a lixeira",
+            "O script retorna erro e não cria",
+            "Ficam sem domínio"
+          ],
+          "correct": "Para a pasta Users padrão do domínio",
+          "tip": "Por padrão, o AD armazena usuários no container 'Users' genérico."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "No script com vetores, para adicionar um novo usuário basta criar uma nova entrada @{Nome=\"...\"; Nome[COMBO]=\"...\"}.",
+          "options": [
+            "Completo",
+            "Rede",
+            "Email",
+            "Login"
+          ],
+          "correct": "Completo",
+          "trans": "PROT",
+          "tip": "Siga sempre o mesmo padrão do vetor para não causar erros de sintaxe no script."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que significa a sigla CSV?",
+          "answers": [
+            "Comma-Separated Values",
+            "Computer System Validation",
+            "Control Server Virtualization",
+            "Central Security Variables"
+          ],
+          "correct": "Comma-Separated Values",
+          "tip": "É um formato universal de dados estruturados em texto puro, separados por vírgula."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], é altamente recomendado usar acentos e espaços nos cabeçalhos (primeira linha) do arquivo CSV.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Acentos e espaços nos nomes de colunas podem causar falhas na leitura pelo PowerShell."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Qual cmdlet do PowerShell utilizamos para ler o conteúdo de uma planilha? [COMBO]-Csv.",
+          "options": [
+            "Import",
+            "Export",
+            "Read",
+            "Get"
+          ],
+          "correct": "Import",
+          "tip": "O Import-Csv converte as linhas do arquivo em objetos manipuláveis no script."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são colunas essenciais na estrutura do nosso CSV de importação?",
+          "answers": [
+            "NomeUsuario",
+            "NomeCompleto",
+            "OU",
+            "TamanhoDoDisco"
+          ],
+          "correct": [
+            "NomeUsuario",
+            "NomeCompleto",
+            "OU"
+          ],
+          "tip": "Essas três variáveis são mapeadas diretamente para criar a conta de login, nome de tela e localização."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os elementos do bloco Try/Catch:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Try",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Catch",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "$_.Exception.Message",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Onde o comando New-ADUser é executado"
+            },
+            {
+              "id": "z2",
+              "label": "Bloco que captura e trata a falha"
+            },
+            {
+              "id": "z3",
+              "label": "Exibe o motivo exato do erro"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Tratamento de erros evita que o script pare de rodar no meio de uma importação."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o Excel ou Google Sheets podem ser usados para gerar um arquivo CSV válido.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Basta escolher a opção 'Salvar como / Baixar -> Valores separados por vírgula'."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual a principal vantagem da criação de usuários via CSV em relação aos vetores?",
+          "answers": [
+            "Totalmente automatizado, lida com grandes volumes sem alterar o código",
+            "Usa menos memória RAM do servidor",
+            "As senhas não precisam ser seguras",
+            "Dispensa o uso do comando New-ADUser"
+          ],
+          "correct": "Totalmente automatizado, lida com grandes volumes sem alterar o código",
+          "tip": "O CSV separa os dados (planilha) da lógica (script), ideal para integração com RH."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O método [COMBO] é usado nas strings do script (ex: $ou.Trim()) para remover espaços em branco acidentais.",
+          "options": [
+            "Trim()",
+            "Cut()",
+            "Clean()",
+            "Format()"
+          ],
+          "correct": "Trim()",
+          "tip": "Espaços ao final de um nome de OU causariam falha na localização do container."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], no script CSV da aula, o que acontece caso um registro falhe?",
+          "answers": [
+            "O Catch exibe uma mensagem de Warning com o motivo",
+            "O loop continua processando os próximos usuários",
+            "O servidor reinicia imediatamente",
+            "O Active Directory apaga os usuários anteriores"
+          ],
+          "correct": [
+            "O Catch exibe uma mensagem de Warning com o motivo",
+            "O loop continua processando os próximos usuários"
+          ],
+          "tip": "A robustez do Try/Catch é justamente não deixar a automação travar."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o parâmetro do script de CSV à sua origem:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "$senhaPadrao",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "$user.NomeCompleto",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "DC=empresa, DC=local",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Definido fixo no corpo do script"
+            },
+            {
+              "id": "z2",
+              "label": "Lido diretamente da coluna do CSV"
+            },
+            {
+              "id": "z3",
+              "label": "O domínio base fixo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Algumas informações vêm da planilha, outras são regras fixas do script."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um arquivo CSV usa cada linha para representar um campo e cada coluna para um registro.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É o contrário: cada linha é um registro (usuário) e as colunas são os campos (Nome, OU)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Por que devemos nos atentar à codificação UTF-8 ao importar o CSV?",
+          "answers": [
+            "Para não quebrar os caracteres especiais e acentuações nos nomes",
+            "Para melhorar a segurança do Active Directory",
+            "Para reduzir o tamanho do arquivo",
+            "Para impedir injeção de SQL"
+          ],
+          "correct": "Para não quebrar os caracteres especiais e acentuações nos nomes",
+          "trans": "NORM",
+          "tip": "Usar a flag -Encoding UTF8 preserva nomes como 'João Gonçalves'."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual comando utilizamos para consultar e listar os usuários existentes no Active Directory?",
+          "answers": [
+            "Get-ADUser",
+            "Show-Users",
+            "Find-ADAccount",
+            "Read-ADUser"
+          ],
+          "correct": "Get-ADUser",
+          "tip": "O Get-ADUser é capaz de filtrar e exportar dados de qualquer conta no domínio."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o atributo DistinguishedName contém o caminho completo do usuário, incluindo a OU e o Domínio.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exemplo: CN=Maria, OU=VND, DC=empresa, DC=local."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para isolar apenas o nome da Unidade Organizacional do texto completo, o script usa o recurso [COMBO] com uma expressão regular.",
+          "options": [
+            "replace",
+            "cut",
+            "split",
+            "trim"
+          ],
+          "correct": "replace",
+          "tip": "Isso permite extrair 'ADM' de dentro da string complexa do DistinguishedName."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], por que é uma boa prática exportar os usuários do domínio em formato CSV periodicamente?",
+          "answers": [
+            "Criar um backup preventivo em caso de falha do servidor",
+            "Acelerar processos de auditoria",
+            "Facilitar migrações para novos sistemas",
+            "Aumentar o espaço em disco do servidor"
+          ],
+          "correct": [
+            "Criar um backup preventivo em caso de falha do servidor",
+            "Acelerar processos de auditoria",
+            "Facilitar migrações para novos sistemas"
+          ],
+          "tip": "Com o CSV salvo, recriar o ambiente após um desastre leva apenas minutos."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o elemento do comando Exportação CSV à sua ação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Get-ADUser -Filter *",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Set-Content",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Add-Content",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Busca todos os usuários do domínio"
+            },
+            {
+              "id": "z2",
+              "label": "Cria o arquivo com o cabeçalho"
+            },
+            {
+              "id": "z3",
+              "label": "Adiciona linha por linha ao arquivo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta estrutura garante que o arquivo seja preenchido corretamente no loop."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o arquivo CSV com a lista de colaboradores deve ser armazenado em pastas públicas para fácil acesso de todos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Por conter nomes e logins (dados sensíveis), deve ficar em repositório seguro do TI."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Para visualizar rapidamente o conteúdo de um CSV sem sair do PowerShell, usamos o comando:",
+          "answers": [
+            "type",
+            "open",
+            "view",
+            "read"
+          ],
+          "correct": "type",
+          "tip": "Também equivalente ao Get-Content; ele imprime o arquivo direto na tela preta."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Após a exportação, devemos [COMBO] o arquivo, removendo usuários padrão como o Administrador e contas de sistema.",
+          "options": [
+            "limpar",
+            "criptografar",
+            "compactar",
+            "renomear"
+          ],
+          "correct": "limpar",
+          "tip": "Se o script tentar recriar o Administrador nativo durante um restore, causará erros."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais métodos de criação de usuários estudamos e comparamos nesta aula?",
+          "answers": [
+            "Interface Gráfica (ADUC)",
+            "Script com Vetores",
+            "Importação via CSV",
+            "Clonagem de Disco Rígido"
+          ],
+          "correct": [
+            "Interface Gráfica (ADUC)",
+            "Script com Vetores",
+            "Importação via CSV"
+          ],
+          "tip": "A evolução vai do método manual ao mais escalável."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o cenário à melhor ferramenta de criação de usuário:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Apenas 1 usuário novo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "5 usuários para um setor fixo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Planilha do RH com 200 pessoas",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Interface Gráfica (ADUC)"
+            },
+            {
+              "id": "z2",
+              "label": "Script com Vetor"
+            },
+            {
+              "id": "z3",
+              "label": "Importação via CSV"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A ferramenta ideal depende do volume e frequência da tarefa."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o comando Get-ADUser pode usar o parâmetro -Properties para especificar quais campos queremos extrair do banco do AD.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso permite puxar dados que não vêm por padrão, garantindo eficiência na extração."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se uma empresa como a LogisTech precisar reconstruir seu domínio amanhã, o que a exportação regular para CSV lhes garante?",
+          "answers": [
+            "Recuperação rápida de toda a estrutura de contas",
+            "Que os usuários não precisem de senhas nunca mais",
+            "Que o domínio local mude automaticamente para nuvem",
+            "Que os computadores formtem sozinhos"
+          ],
+          "correct": "Recuperação rápida de toda a estrutura de contas",
+          "tip": "É um pilar fundamental da continuidade de negócios na administração de redes."
         }
       ]
     }
