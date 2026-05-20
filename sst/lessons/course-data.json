@@ -33294,6 +33294,910 @@
           "tip": "O comando DISM restaura a imagem nativa que o SFC usa como base de reparo."
         }
       ]
+    },
+    {
+      "slug": "aula-45",
+      "lesson_info": {
+        "id": "Aula-45",
+        "title": "AULA 45 - UBUNTU NA PRÁTICA: DO GNOME AOS CONTAINERS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "INTERFACE GNOME E ESTRUTURA",
+            "desc": "Navegação visual, gerenciador Nautilus e a árvore de diretórios do Linux.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1629654291663-b91ad427698f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "TERMINAL E PERMISSÕES",
+            "desc": "Comandos essenciais, manipulação de arquivos e os privilégios do Superusuário.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "SERVIÇOS CORPORATIVOS",
+            "desc": "Configuração de SSH, servidores Web, Samba e introdução ao Docker.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "DIAGNÓSTICO E MERCADO",
+            "desc": "Monitoramento de sistema, segurança avançada e oportunidades na nuvem.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "S",
+          "U",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é o GNOME no ambiente do sistema operacional Ubuntu?",
+          "answers": [
+            "A interface gráfica padrão do sistema",
+            "O núcleo principal de processamento",
+            "Um antivírus nativo de código aberto",
+            "O terminal de comandos de texto"
+          ],
+          "correct": "A interface gráfica padrão do sistema",
+          "tip": "Ele é moderno, limpo e atua como a 'área de trabalho' oficial do Ubuntu."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no Linux, o gerenciador de arquivos organiza unidades separadas por letras como C:\\ e D:\\, de forma idêntica ao Windows.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "No Linux tudo começa no diretório raiz (/). Não existem letras de unidade separadas."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O gerenciador de arquivos padrão utilizado no ambiente GNOME do Ubuntu chama-se [COMBO].",
+          "options": [
+            "Nautilus",
+            "Explorer",
+            "Finder",
+            "Thunar"
+          ],
+          "correct": "Nautilus",
+          "tip": "O Nautilus permite navegar pela árvore de diretórios graficamente."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destes elementos visuais fazem parte da interface GNOME no Ubuntu?",
+          "answers": [
+            "Dock (barra lateral para acesso rápido)",
+            "Menu Iniciar estilo Windows 98",
+            "Barra superior (notificações e relógio)",
+            "Áreas de trabalho (múltiplos desktops virtuais)"
+          ],
+          "correct": [
+            "Dock (barra lateral para acesso rápido)",
+            "Barra superior (notificações e relógio)",
+            "Áreas de trabalho (múltiplos desktops virtuais)"
+          ],
+          "tip": "O GNOME usa um 'Menu de Aplicativos' em grid, em vez de um menu clássico estilo Iniciar."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione as pastas raiz do Linux às suas respectivas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "/home",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "/etc",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "/var",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "/bin",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Arquivos dos Usuários"
+            },
+            {
+              "id": "z2",
+              "label": "Configurações do sistema"
+            },
+            {
+              "id": "z3",
+              "label": "Logs e variáveis"
+            },
+            {
+              "id": "z4",
+              "label": "Programas e executáveis"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essa estrutura centralizada ajuda na organização e segurança do servidor."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que significa a sigla LTS nos lançamentos do Ubuntu?",
+          "answers": [
+            "Long Term Support (Suporte de longo prazo)",
+            "Linux Terminal System",
+            "Lightweight Technical Server",
+            "Local Traffic Security"
+          ],
+          "correct": "Long Term Support (Suporte de longo prazo)",
+          "tip": "As versões LTS são focadas em estabilidade para ambientes corporativos."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Uma versão não-LTS do Ubuntu recebe atualizações por apenas 9 meses, enquanto a versão LTS recebe por 5 anos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Por isso a versão LTS é a escolha absoluta para servidores e produção."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Diferente do Windows, a filosofia central do Linux diz que [COMBO] é um arquivo.",
+          "options": [
+            "tudo",
+            "nada",
+            "apenas texto",
+            "somente o kernel"
+          ],
+          "correct": "tudo",
+          "tip": "Dispositivos de hardware, processos de memória e configurações são todos tratados como arquivos."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais tarefas abaixo podem ser feitas na Central de Configurações gráfica do Ubuntu?",
+          "answers": [
+            "Configurar IP fixo ou DHCP",
+            "Adicionar e remover usuários locais",
+            "Controlar permissões de localização e privacidade",
+            "Recompilar o kernel do sistema"
+          ],
+          "correct": [
+            "Configurar IP fixo ou DHCP",
+            "Adicionar e remover usuários locais",
+            "Controlar permissões de localização e privacidade"
+          ],
+          "tip": "Recompilar o kernel é uma tarefa técnica complexa feita exclusivamente via terminal."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], compare como a raiz do sistema funciona no Windows e no Linux:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Raiz única representada por ( / )",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Unidades isoladas com letras (C:\\, D:\\)",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sistema Linux"
+            },
+            {
+              "id": "z2",
+              "label": "Sistema Windows"
+            }
+          ],
+          "correct": "drag",
+          "tip": "No Linux, se você plugar um pen drive, ele será montado dentro da raiz /, e não como uma letra E:."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Se o Ubuntu 22.04 LTS foi lançado em abril de 2022, até quando ele terá atualizações de segurança garantidas nativamente?",
+          "answers": [
+            "Abril de 2027",
+            "Abril de 2025",
+            "Dezembro de 2022",
+            "Janeiro de 2030"
+          ],
+          "correct": "Abril de 2027",
+          "tip": "O suporte base do LTS é de exatamente 5 anos."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a área 'Menu de Aplicativos' no GNOME organiza os programas instalados em formato de lista textual contínua.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O menu exibe os aplicativos instalados em formato de 'grid' (grade) com ícones grandes."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], por que o terminal (tela de comandos) ainda é considerado essencial, mesmo com interfaces gráficas excelentes como o GNOME?",
+          "answers": [
+            "É mais rápido, preciso e permite automação profunda do sistema",
+            "A interface gráfica não consegue acessar a internet",
+            "O GNOME possui limite de tempo de uso diário",
+            "O terminal bloqueia vírus automaticamente"
+          ],
+          "correct": "É mais rápido, preciso e permite automação profunda do sistema",
+          "tip": "No terminal você se comunica diretamente com o sistema operacional, sem intermediários visuais.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual comando de navegação responde à pergunta 'Onde eu estou no sistema agora?'",
+          "answers": [
+            "pwd",
+            "ls",
+            "cd",
+            "mkdir"
+          ],
+          "correct": "pwd",
+          "tip": "pwd significa 'Print Working Directory' (Imprimir Diretório de Trabalho)."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O comando 'ls -la' lista todos os arquivos da pasta, incluindo arquivos ocultos que iniciam com um ponto (.) no nome.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O parâmetro '-a' significa 'all' (todos), e '-l' gera o formato de lista longa com detalhes."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para retornar diretamente à sua pasta de usuário (home directory), você deve usar o atalho [COMBO].",
+          "options": [
+            "cd ~",
+            "cd ..",
+            "cd /",
+            "cd home"
+          ],
+          "correct": "cd ~",
+          "tip": "O til (~) é um atalho universal no Linux para a pasta raiz do usuário atual."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], no sistema de permissões do Linux, os caracteres 'r', 'w' e 'x' significam, respectivamente:",
+          "answers": [
+            "Leitura (Read)",
+            "Escrita (Write)",
+            "Execução (Execute)",
+            "Remoção (Remove)"
+          ],
+          "correct": [
+            "Leitura (Read)",
+            "Escrita (Write)",
+            "Execução (Execute)"
+          ],
+          "tip": "A combinação destas três letras dita toda a segurança de acesso a um arquivo."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de permissão ao seu respectivo valor numérico no Linux:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Leitura (r)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Escrita (w)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Execução (x)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Valor numérico 4"
+            },
+            {
+              "id": "z2",
+              "label": "Valor numérico 2"
+            },
+            {
+              "id": "z3",
+              "label": "Valor numérico 1"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Para dar acesso total (rwx), soma-se 4+2+1, resultando no número 7."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao listar um arquivo e ver as permissões 'rwxr-xr--', como lemos os blocos de permissão para 'Dono, Grupo, Outros'?",
+          "answers": [
+            "Dono lê, escreve e executa; Grupo lê e executa; Outros apenas leem",
+            "Dono apenas lê; Grupo escreve; Outros executam",
+            "Todos têm permissão total de sistema",
+            "O arquivo está bloqueado para edição"
+          ],
+          "correct": "Dono lê, escreve e executa; Grupo lê e executa; Outros apenas leem",
+          "tip": "As permissões são separadas de 3 em 3: [rwx] [r-x] [r--]."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O comando 'mkdir' é utilizado para criar arquivos de texto em branco rapidamente via terminal.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "mkdir cria diretórios (pastas). Para criar arquivos vazios, usa-se o comando 'touch'."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O usuário [COMBO] tem acesso irrestrito, podendo modificar qualquer parte crítica do sistema sem restrições.",
+          "options": [
+            "root",
+            "admin",
+            "guest",
+            "sudoer"
+          ],
+          "correct": "root",
+          "tip": "É o equivalente ao perfil 'Administrador' supremo no Linux, devendo ser usado com extrema cautela."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais os comandos básicos para copiar e renomear/mover arquivos, respectivamente?",
+          "answers": [
+            "cp (Copy)",
+            "mv (Move)",
+            "rm (Remove)",
+            "touch (Create)"
+          ],
+          "correct": [
+            "cp (Copy)",
+            "mv (Move)"
+          ],
+          "tip": "O comando 'mv' altera o arquivo de local; se o destino for na mesma pasta, ele atua renomeando o arquivo."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o atalho de teclado do editor Nano à sua função de salvamento:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ctrl+O",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Enter",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Ctrl+X",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Escrever/Salvar o arquivo"
+            },
+            {
+              "id": "z2",
+              "label": "Confirmar o nome do arquivo"
+            },
+            {
+              "id": "z3",
+              "label": "Sair do editor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Nano é excelente para iniciantes pois exibe a maioria de seus atalhos na borda inferior da tela."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que o prefixo 'sudo' antes de um comando Linux faz?",
+          "answers": [
+            "Executa o comando com privilégios temporários de superusuário",
+            "Pausa o comando atual temporariamente",
+            "Gera um backup automático da instrução",
+            "Ignora qualquer erro gerado na tela"
+          ],
+          "correct": "Executa o comando com privilégios temporários de superusuário",
+          "tip": "Significa 'SuperUser DO', exigindo autenticação do usuário."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Por razões de segurança, entrar diretamente com a conta 'root' é uma prática fortemente desencorajada no Linux.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Usa-se o sudo para registrar logs de quem executou a ação crítica."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], se você precisa editar o arquivo restrito do sistema '/etc/hosts', qual a sintaxe correta no terminal?",
+          "answers": [
+            "sudo nano /etc/hosts",
+            "nano /etc/hosts",
+            "cp /etc/hosts",
+            "touch /etc/hosts"
+          ],
+          "correct": "sudo nano /etc/hosts",
+          "tip": "Sem o sudo, você conseguirá ler o arquivo, mas não terá permissão para salvá-lo.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual protocolo é utilizado como padrão mundial corporativo para acessar e administrar servidores Linux remotamente de forma segura?",
+          "answers": [
+            "SSH (Secure Shell)",
+            "Telnet",
+            "FTP",
+            "HTTP"
+          ],
+          "correct": "SSH (Secure Shell)",
+          "tip": "O SSH criptografa a conexão ponta a ponta, sendo o padrão em plataformas Cloud como a AWS."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O Apache HTTP Server é um serviço recente e focado exclusivamente em conexões Windows, sendo incompatível com WordPress.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O Apache é antiquíssimo, robusto e é a fundação para a maioria das instalações de WordPress/PHP no mundo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Reconhecido pela alta performance em tráfego intenso, o [COMBO] é frequentemente utilizado como proxy reverso.",
+          "options": [
+            "Nginx",
+            "Samba",
+            "Docker",
+            "Apache"
+          ],
+          "correct": "Nginx",
+          "tip": "O Nginx lidando com tráfego estático na frente de um Apache é uma arquitetura altamente escalável."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], como dois servidores web predominam no mercado, respondendo por mais de 60% dos sites ativos globalmente?",
+          "answers": [
+            "Apache",
+            "Nginx",
+            "IIS (Microsoft)",
+            "Tomcat"
+          ],
+          "correct": [
+            "Apache",
+            "Nginx"
+          ],
+          "tip": "A combinação de estabilidade do Apache com a velocidade do Nginx domina o ecossistema Web Open Source."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o serviço corporativo de rede à sua funcionalidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "SSH",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Samba",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Docker",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Acesso remoto com terminal criptografado"
+            },
+            {
+              "id": "z2",
+              "label": "Compartilhamento de pastas com PCs Windows"
+            },
+            {
+              "id": "z3",
+              "label": "Isolamento de aplicações em containers"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Ubuntu Server atua como a espinha dorsal gerenciando todos esses serviços simultaneamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], como o serviço Samba permite a comunicação nativa de rede com computadores rodando Windows?",
+          "answers": [
+            "Utilizando o protocolo SMB",
+            "Emulando uma interface GNOME",
+            "Instalando plugins da Microsoft no kernel",
+            "Convertendo os arquivos para .exe"
+          ],
+          "correct": "Utilizando o protocolo SMB",
+          "tip": "O protocolo Server Message Block (SMB) é nativo do Windows e plenamente suportado via Samba no Linux."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A analogia comum para entender o Docker é pensar nele como um container de navio: carrega a aplicação com tudo que precisa, rodando igual em qualquer lugar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse encapsulamento elimina o clássico problema 'na minha máquina funciona, no servidor não'."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A maioria das imagens base usadas para construir ambientes no Docker utiliza o [COMBO] como sistema subjacente.",
+          "options": [
+            "Ubuntu",
+            "Windows",
+            "macOS",
+            "FreeBSD"
+          ],
+          "correct": "Ubuntu",
+          "tip": "O Ubuntu é leve, seguro e possui vasto suporte de pacotes vitais para desenvolvedores."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são as características do Docker citadas em nossa documentação?",
+          "answers": [
+            "Permite rodar múltiplas aplicações isoladas no mesmo servidor",
+            "Base essencial para arquiteturas de microsserviços",
+            "Aumenta drasticamente o uso de memória em relação a Máquinas Virtuais pesadas",
+            "A imagem do Ubuntu é comumente sua base"
+          ],
+          "correct": [
+            "Permite rodar múltiplas aplicações isoladas no mesmo servidor",
+            "Base essencial para arquiteturas de microsserviços",
+            "A imagem do Ubuntu é comumente sua base"
+          ],
+          "tip": "Ao contrário das Máquinas Virtuais (VMs), os containers Docker não trazem um SO completo repetido, economizando recursos."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Organize os comandos para instalar os serviços essenciais através do gerenciador de pacotes apt:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "sudo apt install openssh-server",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "sudo apt install apache2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "sudo apt install samba",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Habilita acesso remoto seguro"
+            },
+            {
+              "id": "z2",
+              "label": "Instala o servidor Web tradicional"
+            },
+            {
+              "id": "z3",
+              "label": "Habilita compartilhamento de arquivos com Windows"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Sempre faça atualizações de cache (apt update) antes de instalar novos pacotes em um servidor."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], onde se localiza o arquivo central de configuração do serviço Samba?",
+          "answers": [
+            "/etc/samba/smb.conf",
+            "/home/samba.txt",
+            "/bin/samba/config",
+            "/var/logs/samba.conf"
+          ],
+          "correct": "/etc/samba/smb.conf",
+          "tip": "Lembre-se que a pasta raiz '/etc' é o santuário das configurações globais no Linux."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Para iniciar uma conexão SSH com um servidor remoto, o usuário deve digitar 'ssh usuario@ip-do-servidor' no seu terminal local.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Você precisará inserir a senha logo em seguida ou ter configurado uma chave RSA privada.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual comando de diagnóstico mostra de forma legível a memória RAM total, usada e disponível no Ubuntu?",
+          "answers": [
+            "free -h",
+            "ip a",
+            "uptime",
+            "ram -show"
+          ],
+          "correct": "free -h",
+          "tip": "O parâmetro '-h' significa 'human-readable', exibindo os valores em MB e GB em vez de bytes brutos."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O comando 'uptime' exibe há quanto tempo o servidor está ligado de forma ininterrupta e também mostra a carga média do sistema.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Servidores Linux bem mantidos podem ostentar números de uptime contínuo de anos sem reiniciar."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para visualizar os registros e logs mais recentes e diagnosticar erros em serviços do sistema, o comando correto é o [COMBO].",
+          "options": [
+            "journalctl -xe",
+            "logs -show",
+            "sudo readlog",
+            "history"
+          ],
+          "correct": "journalctl -xe",
+          "tip": "O journalctl é o leitor nativo do Systemd para gerenciar a central de logs do Ubuntu."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], o que faz o Linux/Ubuntu ser arquiteturalmente mais seguro contra vírus do que sistemas concorrentes?",
+          "answers": [
+            "Arquitetura de permissões rígida desde o início (rwx)",
+            "Nenhum programa roda como 'root' (administrador) por padrão",
+            "A comunidade global corrige falhas de código aberto rapidamente",
+            "O terminal não possui acesso nativo à internet"
+          ],
+          "correct": [
+            "Arquitetura de permissões rígida desde o início (rwx)",
+            "Nenhum programa roda como 'root' (administrador) por padrão",
+            "A comunidade global corrige falhas de código aberto rapidamente"
+          ],
+          "tip": "Embora imune a grande maioria dos vírus focados em desktop, vulnerabilidades específicas a servidores existem e exigem atenção."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os comandos de diagnóstico com a sua saída correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "free -h",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ip a",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "journalctl -xe",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Memória RAM utilizada e livre"
+            },
+            {
+              "id": "z2",
+              "label": "Interfaces de rede e endereços IPv4/IPv6"
+            },
+            {
+              "id": "z3",
+              "label": "Logs detalhados para debugar serviços"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Uma auditoria diária envolvendo estes comandos garante a saúde proativa do servidor."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o percentual aproximado de instâncias nas principais plataformas de nuvem pública (AWS, Azure, Google) que rodam Linux?",
+          "answers": [
+            "96%",
+            "40%",
+            "15%",
+            "50%"
+          ],
+          "correct": "96%",
+          "tip": "Dominar o Ubuntu Server é literalmente dominar a base técnica atual da computação em nuvem."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A implementação corporativa do Ubuntu exige o pagamento de pesadas taxas de licenciamento por cada CPU ativada no servidor.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O Ubuntu é totalmente gratuito e de código aberto. Custo de licença zero!"
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A segurança da informação ofensiva utiliza uma distribuição famosa baseada na família Debian/Ubuntu chamada [COMBO] Linux, padrão para pentests.",
+          "options": [
+            "Kali",
+            "Fedora",
+            "Arch",
+            "Suse"
+          ],
+          "correct": "Kali",
+          "tip": "Profissionais de cibersegurança necessitam de extrema fluência em linha de comando Linux."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], sabendo que nenhum sistema é 100% impenetrável, de onde vem a segurança 'real' ao administrar servidores Ubuntu?",
+          "answers": [
+            "Manter pacotes e o sistema atualizados (sudo apt upgrade)",
+            "Usar senhas fortes e preferir chaves SSH criptográficas",
+            "Configurar adequadamente o firewall via ufw",
+            "Depender unicamente de que ele não pega vírus de Windows"
+          ],
+          "correct": [
+            "Manter pacotes e o sistema atualizados (sudo apt upgrade)",
+            "Usar senhas fortes e preferir chaves SSH criptográficas",
+            "Configurar adequadamente o firewall via ufw"
+          ],
+          "tip": "Segurança no Linux é um estado ativo. Administradores configuram barreiras explícitas, não dependem de sorte."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os pilares da carreira e mercado tech com sua respectiva relevância Linux:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "DevOps",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nuvem Pública",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Segurança da Informação",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Docker e automação CI/CD rodam sobre Linux"
+            },
+            {
+              "id": "z2",
+              "label": "Infraestruturas inteiras na AWS ou Azure"
+            },
+            {
+              "id": "z3",
+              "label": "Ambientes controlados e ferramentas de pentest (Kali)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A fundação que sustenta a era moderna da internet comercial depende do Linux e seus administradores."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Na visão de Richard Stallman, fundador do software livre, a liberdade não é apenas poder fazer o que quer, mas também:",
+          "answers": [
+            "Ter o conhecimento e as ferramentas para fazer o que precisa ser feito",
+            "Ter hardware caro disponível na nuvem",
+            "Possuir lucros através de patentes de código",
+            "Omitir o código fonte para proteger o usuário final"
+          ],
+          "correct": "Ter o conhecimento e as ferramentas para fazer o que precisa ser feito",
+          "tip": "O Ubuntu materializa essa filosofia ao empoderar quem senta na frente do terminal para moldar a própria ferramenta."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o comando 'sudo apt upgrade' é responsável por instalar as interfaces gráficas Windows sobre um núcleo Ubuntu desatualizado.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Apt upgrade atualiza todos os pacotes e programas instalados no Ubuntu para tapar buracos de segurança."
+        }
+      ]
     }
   ]
 }
