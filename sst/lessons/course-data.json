@@ -31641,11 +31641,13 @@
           "topics": "ACID",
           "questions": "Para logar com um usuário local em uma máquina que está no domínio, qual prefixo usamos antes do nome de usuário?",
           "answers": [
-          ".\\","//",
+            ".\\",
+            "//",
             "local@",
             "admin:"
           ],
-          "correct": ".\\","tip": "O ponto seguido de barra invertida (.\\) força o Windows a buscar o usuário apenas no banco local da máquina."
+          "correct": ".\\",
+          "tip": "O ponto seguido de barra invertida (.\\) força o Windows a buscar o usuário apenas no banco local da máquina."
         },
         {
           "type": "combo",
@@ -32375,6 +32377,921 @@
           ],
           "correct": "Recuperação rápida de toda a estrutura de contas",
           "tip": "É um pilar fundamental da continuidade de negócios na administração de redes."
+        }
+      ]
+    },
+    {
+      "slug": "aula-44",
+      "lesson_info": {
+        "id": "Aula-44",
+        "title": "AULA 44 - CMD MASTERY: DOMINANDO A LINHA DE COMANDO DO WINDOWS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS E NAVEGAÇÃO",
+            "desc": "Conceitos básicos do CMD, anatomia dos comandos e navegação no sistema de arquivos.",
+            "color": "#1abc9c",
+            "img_url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "GESTÃO DE ARQUIVOS E PASTAS",
+            "desc": "Criação, cópia, movimentação e exclusão de diretórios e arquivos com precisão.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "SISTEMA, PROCESSOS E REDES",
+            "desc": "Monitoramento de hardware, gestão de processos ativos e diagnóstico de conectividade.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1551808525-51a94da548ce?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "MANUTENÇÃO DE DISCO E AUTOMAÇÃO",
+            "desc": "Verificação de disco, reparo de sistema e introdução à automação com scripts Batch.",
+            "color": "#34495e",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "B",
+          "O",
+          "O",
+          "T"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é tecnicamente o cmd.exe no sistema operacional Windows?",
+          "answers": [
+            "O interpretador de linha de comando oficial",
+            "O núcleo (kernel) do sistema",
+            "A interface gráfica principal",
+            "Um antivírus nativo"
+          ],
+          "correct": "O interpretador de linha de comando oficial",
+          "tip": "Ele é herdeiro direto do MS-DOS e permite controlar o sistema por texto puro."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no Windows CMD, os comandos DIR, dir e Dir são tratados de forma diferente devido ao 'Case Sensitivity'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Diferente do Linux/Bash, no Windows CMD maiúsculas e minúsculas não importam."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O comando [COMBO] limpa todo o conteúdo exibido no terminal.",
+          "options": [
+            "CLS",
+            "CLEAR",
+            "EXIT",
+            "DEL"
+          ],
+          "correct": "CLS",
+          "tip": "CLS vem de 'Clear Screen', ajudando na organização visual da sessão."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são as vantagens de utilizar o terminal (Shell) em vez da interface gráfica (GUI)?",
+          "answers": [
+            "Velocidade em tarefas repetitivas",
+            "Possibilidade de automação via scripts",
+            "Criação de ícones animados",
+            "Acesso a funções ocultas do sistema"
+          ],
+          "correct": [
+            "Velocidade em tarefas repetitivas",
+            "Possibilidade de automação via scripts",
+            "Acesso a funções ocultas do sistema"
+          ],
+          "tip": "O terminal ignora processamento gráfico, focando em eficiência técnica."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o parâmetro do comando DIR com a sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "/p",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "/w",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "/s",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "/a",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Pausa a cada tela cheia"
+            },
+            {
+              "id": "z2",
+              "label": "Formato de lista larga"
+            },
+            {
+              "id": "z3",
+              "label": "Inclui subpastas recursivamente"
+            },
+            {
+              "id": "z4",
+              "label": "Mostra arquivos ocultos e do sistema"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Use 'dir /?' no terminal para ver a lista completa de opções."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual o comando correto para subir exatamente um nível na hierarquia de pastas?",
+          "answers": [
+            "cd ..",
+            "cd \\",
+            "dir ..",
+            "cd /"
+          ],
+          "correct": "cd ..",
+          "tip": "Os dois pontos representam o diretório pai."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o comando 'cd \\' retorna diretamente para a raiz da unidade atual (ex: C:\\).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A barra invertida (\\) representa o diretório raiz no Windows."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A tecla [COMBO] autocompleta nomes de pastas e arquivos para evitar erros de digitação.",
+          "options": [
+            "TAB",
+            "ENTER",
+            "SHIFT",
+            "CTRL"
+          ],
+          "correct": "TAB",
+          "tip": "Você pode pressionar várias vezes para alternar entre as opções disponíveis."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais comandos a seguir são exclusivos para navegação e visualização de diretórios?",
+          "answers": [
+            "DIR",
+            "CD",
+            "TREE",
+            "MKDIR"
+          ],
+          "correct": [
+            "DIR",
+            "CD",
+            "TREE"
+          ],
+          "tip": "MKDIR cria diretórios, não apenas navega ou visualiza."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os atalhos de produtividade do terminal às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Setas para Cima/Baixo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "CTRL + C",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "F7",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Navega pelo histórico de comandos"
+            },
+            {
+              "id": "z2",
+              "label": "Cancela comando em execução"
+            },
+            {
+              "id": "z3",
+              "label": "Exibe histórico visual"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar atalhos dobra a velocidade de trabalho no CMD."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], por que alguns comandos, como CHKDSK, exigem o modo Administrador?",
+          "answers": [
+            "Porque eles realizam alterações profundas nas configurações do sistema.",
+            "Porque eles usam mais memória RAM.",
+            "Porque requerem acesso à internet.",
+            "Para evitar que arquivos ocultos sejam exibidos."
+          ],
+          "correct": "Porque eles realizam alterações profundas nas configurações do sistema.",
+          "tip": "Comandos que afetam hardware ou arquivos vitais exigem privilégios elevados."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "Na anatomia do prompt (ex: C:\\Usuários\\Nome>), o símbolo > sinaliza que o terminal aguarda a sua instrução.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É o indicador padrão de que o shell está pronto."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o comando 'tree /f' realiza qual ação específica?",
+          "answers": [
+            "Exibe a árvore de diretórios incluindo os arquivos em cada pasta.",
+            "Formata o disco local.",
+            "Força a exclusão de todas as pastas visíveis.",
+            "Apenas exibe as pastas em formato ASCII."
+          ],
+          "correct": "Exibe a árvore de diretórios incluindo os arquivos em cada pasta.",
+          "tip": "O parâmetro /f vem de 'files' (arquivos).",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Para remover silenciosamente uma pasta com todo o seu conteúdo sem pedir confirmação, qual comando deve ser usado?",
+          "answers": [
+            "rd /s /q",
+            "rmdir",
+            "del .",
+            "format"
+          ],
+          "correct": "rd /s /q",
+          "tip": "O '/s' remove subpastas e o '/q' (quiet) não pede confirmação. Cuidado!"
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], arquivos excluídos através do comando DEL são enviados para a Lixeira do Windows.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Não há 'Ctrl+Z' no CMD. O DEL exclui permanentemente."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O comando [COMBO] é uma ferramenta de backup robusta que pode retomar cópias interrompidas e registrar logs.",
+          "options": [
+            "ROBOCOPY",
+            "XCOPY",
+            "COPY",
+            "MOVE"
+          ],
+          "correct": "ROBOCOPY",
+          "tip": "É o padrão ouro para cópias profissionais no Windows."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais desses são coringas (wildcards) aceitos no CMD?",
+          "answers": [
+            "* (substitui qualquer sequência)",
+            "? (substitui exatamente um caractere)",
+            "@ (substitui um número)",
+            "# (substitui uma pasta)"
+          ],
+          "correct": [
+            "* (substitui qualquer sequência)",
+            "? (substitui exatamente um caractere)"
+          ],
+          "tip": "Eles permitem selecionar múltiplos arquivos, como '*.txt'."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione a ferramenta de cópia ao seu nível de funcionalidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "COPY",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "XCOPY",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "ROBOCOPY",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Básico (Arquivos simples)"
+            },
+            {
+              "id": "z2",
+              "label": "Avançado (Pastas e atributos)"
+            },
+            {
+              "id": "z3",
+              "label": "Profissional (Backup e sincronização)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Escolha a ferramenta certa conforme a complexidade da cópia."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual comando altera o nome de um arquivo sem alterar o seu local original?",
+          "answers": [
+            "REN",
+            "MOVE",
+            "EDIT",
+            "ALTER"
+          ],
+          "correct": "REN",
+          "tip": "Abreviação de 'rename'. Ex: ren antigo.txt novo.txt."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O comando MKDIR A\\B\\C cria múltiplos níveis de pastas de uma só vez.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O MKDIR é inteligente o suficiente para criar a árvore inteira de diretórios."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O comando [COMBO] pode ser usado tanto para transferir arquivos de local quanto para renomear pastas.",
+          "options": [
+            "MOVE",
+            "REN",
+            "COPY",
+            "XFER"
+          ],
+          "correct": "MOVE",
+          "tip": "Movendo uma pasta para o mesmo local com nome diferente atua como renomeação."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], para excluir todos os arquivos .log em uma pasta, forçando exclusão silenciosa, usamos 'del /f /q .log'. O que os parâmetros /f e /q fazem?",
+          "answers": [
+            "/f força exclusão de arquivos somente leitura",
+            "/q ativa o modo silencioso (quiet)",
+            "/f envia para a lixeira",
+            "/q fecha a janela após exclusão"
+          ],
+          "correct": [
+            "/f força exclusão de arquivos somente leitura",
+            "/q ativa o modo silencioso (quiet)"
+          ],
+          "tip": "Esses parâmetros são ideais para scripts automatizados."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o comando à sua ação de remoção:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "rmdir Pasta",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "rd /s /q Pasta",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "del arquivo.txt",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Remove apenas pasta vazia"
+            },
+            {
+              "id": "z2",
+              "label": "Remove pasta e todo o conteúdo"
+            },
+            {
+              "id": "z3",
+              "label": "Exclui arquivo permanente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Sempre verifique o conteúdo de pastas antes de usar rd /s /q."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que ocorre se você tentar usar RMDIR em uma pasta que contém um arquivo dentro?",
+          "answers": [
+            "Retorna um erro e não exclui a pasta",
+            "Exclui a pasta silenciosamente",
+            "Move o arquivo para a área de trabalho",
+            "Comprime a pasta em um arquivo ZIP"
+          ],
+          "correct": "Retorna um erro e não exclui a pasta",
+          "tip": "RMDIR básico atua como medida de segurança contra exclusão acidental."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "É possível usar coringas com o comando REN, como 'ren .txt .bak' para renomear vários arquivos de uma vez.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isto é excelente para alterar a extensão de um lote inteiro de arquivos."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], a ação primária do comando 'del .' é:",
+          "answers": [
+            "Excluir todos os arquivos na pasta atual",
+            "Apagar o disco rígido",
+            "Deletar a lixeira",
+            "Desinstalar um programa"
+          ],
+          "correct": "Excluir todos os arquivos na pasta atual",
+          "tip": "Os asteriscos representam 'qualquer nome' e 'qualquer extensão'.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual comando gera um inventário técnico completo da máquina, exibindo versão do SO, RAM e uptime?",
+          "answers": [
+            "SYSTEMINFO",
+            "TASKLIST",
+            "VER",
+            "HOSTNAME"
+          ],
+          "correct": "SYSTEMINFO",
+          "tip": "Ideal para gerar relatórios detalhados para documentação."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "No comando IPCONFIG, o parâmetro '/release' serve para limpar o cache DNS local.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O /release libera o IP do DHCP. Para limpar o cache, usa-se /flushdns."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Todo programa em execução no Windows tem um identificador único chamado [COMBO].",
+          "options": [
+            "PID",
+            "MAC",
+            "IP",
+            "SSID"
+          ],
+          "correct": "PID",
+          "tip": "PID significa 'Process ID' e é listado pelo comando TASKLIST."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais parâmetros podem ser lidos nos resultados do comando PING?",
+          "answers": [
+            "TTL (Tempo de vida)",
+            "Tempo em milissegundos (Latência)",
+            "Porcentagem de perda de pacotes",
+            "Endereço MAC do roteador final"
+          ],
+          "correct": [
+            "TTL (Tempo de vida)",
+            "Tempo em milissegundos (Latência)",
+            "Porcentagem de perda de pacotes"
+          ],
+          "tip": "O PING usa pacotes ICMP para avaliar apenas a saúde da conectividade."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o comando de sistema/rede à sua função principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "VER",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "HOSTNAME",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "TRACERT",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "NETSTAT",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Versão do kernel do Windows"
+            },
+            {
+              "id": "z2",
+              "label": "Nome do computador na rede"
+            },
+            {
+              "id": "z3",
+              "label": "Mapeia os saltos de rota"
+            },
+            {
+              "id": "z4",
+              "label": "Monitora conexões e portas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas quatro ferramentas são indispensáveis para suporte e diagnóstico."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], ao executar o comando 'taskkill /f /im notepad.exe', o que o parâmetro '/im' especifica?",
+          "answers": [
+            "O nome da imagem (executável)",
+            "A memória alocada",
+            "O número PID",
+            "A prioridade da tarefa"
+          ],
+          "correct": "O nome da imagem (executável)",
+          "tip": "IM vem de Image Name. O /f é para forçar a ação."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Um salto (hop) no comando TRACERT representa cada roteador pelo qual o pacote de dados passa até o destino.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se um salto mostrar asteriscos (), significa que aquele roteador não respondeu."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O comando netstat com o parâmetro [COMBO] exibe o executável responsável por cada conexão de rede, exigindo privilégios de Admin.",
+          "options": [
+            "-b",
+            "-a",
+            "-n",
+            "-r"
+          ],
+          "correct": "-b",
+          "tip": "A letra b de 'binário'. É excelente para caçar malwares que usam a rede."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], sobre o TASKLIST, quais alternativas são corretas?",
+          "answers": [
+            "Ele lista processos ativos em tempo real",
+            "Pode exportar a saída para formato CSV com /fo csv",
+            "Pode filtrar processos em execução com /fi",
+            "Ele corrige os processos que estão travados"
+          ],
+          "correct": [
+            "Ele lista processos ativos em tempo real",
+            "Pode exportar a saída para formato CSV com /fo csv",
+            "Pode filtrar processos em execução com /fi"
+          ],
+          "tip": "O TASKLIST é passivo (apenas exibe). Quem fecha processos é o TASKKILL."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o comando IPCONFIG com a sua saída:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ipconfig",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ipconfig /all",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "ipconfig /flushdns",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "IP, Máscara e Gateway"
+            },
+            {
+              "id": "z2",
+              "label": "Detalhes como MAC e servidor DHCP"
+            },
+            {
+              "id": "z3",
+              "label": "Resolve erros de carregamento de sites"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Para diagnóstico avançado, comece sempre pelo ipconfig /all."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que o comando 'ping -t google.com' realiza?",
+          "answers": [
+            "Ping contínuo até que seja pressionado Ctrl+C",
+            "Ping com tamanho de pacote reduzido",
+            "Testa o tempo limite (timeout)",
+            "Faz ping apenas para a porta web"
+          ],
+          "correct": "Ping contínuo até que seja pressionado Ctrl+C",
+          "tip": "Excelente para monitorar a rede enquanto se troca um cabo ou reinicia o roteador."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o comando 'taskkill /f /im chrome.exe /t' encerra a árvore de processos inteira, fechando todas as abas e instâncias vinculadas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O parâmetro /t (tree) garante que os processos filhos também sejam encerrados."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual a principal métrica avaliada pelo comando PING para identificar lentidão na rede?",
+          "answers": [
+            "Latência (ms)",
+            "Tamanho do pacote",
+            "Endereço MAC",
+            "Tempo de vida do roteador"
+          ],
+          "correct": "Latência (ms)",
+          "tip": "Tempo abaixo de 50ms é ótimo; acima de 200ms indica lentidão severa.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o comando CHKDSK /f serve principalmente para qual finalidade?",
+          "answers": [
+            "Corrigir erros lógicos no sistema de arquivos",
+            "Formatar totalmente a unidade",
+            "Desfragmentar o disco rígido",
+            "Criar uma partição de backup"
+          ],
+          "correct": "Corrigir erros lógicos no sistema de arquivos",
+          "tip": "O /f (fix) agendará a verificação para o próximo reinício se o disco estiver em uso."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A ferramenta nativa 'sfc /scannow' verifica e repara os arquivos críticos do sistema operacional corrompidos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "SFC significa System File Checker, obrigatório uso de Administrador."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O comando ATTRIB permite ocultar um arquivo usando o parâmetro [COMBO].",
+          "options": [
+            "+h",
+            "+r",
+            "+s",
+            "+a"
+          ],
+          "correct": "+h",
+          "tip": "H significa Hidden (Oculto). O '+' ativa o atributo."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], em um arquivo script Batch (.BAT), quais são consideradas boas práticas segundo o material?",
+          "answers": [
+            "Usar @echo off na primeira linha",
+            "Documentar o código usando o comando rem",
+            "Usar o comando pause ao final para o usuário ler o resultado",
+            "Salvar sempre com a extensão .exe"
+          ],
+          "correct": [
+            "Usar @echo off na primeira linha",
+            "Documentar o código usando o comando rem",
+            "Usar o comando pause ao final para o usuário ler o resultado"
+          ],
+          "tip": "Scripts são salvos como .bat ou .cmd, nunca como .exe."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os símbolos de redirecionamento de saída do CMD às suas ações:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": ">",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": ">>",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sobrescreve (Cria um arquivo novo ou substitui)"
+            },
+            {
+              "id": "z2",
+              "label": "Acrescenta (Adiciona o texto ao final do arquivo)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essa técnica transforma o terminal em uma poderosa máquina de gerar relatórios."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual o limite de caracteres para o nome de um volume (LABEL) no sistema de arquivos NTFS?",
+          "answers": [
+            "32 caracteres",
+            "11 caracteres",
+            "256 caracteres",
+            "8 caracteres"
+          ],
+          "correct": "32 caracteres",
+          "tip": "Em FAT32 o limite é menor (11), mas o padrão hoje é NTFS."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o comando 'vol D:' altera imediatamente o nome da unidade D no Windows Explorer.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O comando VOL apenas exibe o nome e a série. Para renomear, usamos o comando LABEL."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O comando CHKDSK com o parâmetro [COMBO] não apenas corrige erros lógicos, mas localiza setores defeituosos para tentar recuperar dados legíveis.",
+          "options": [
+            "/r",
+            "/f",
+            "/scan",
+            "/v"
+          ],
+          "correct": "/r",
+          "tip": "O /r (recover) demora consideravelmente mais tempo para finalizar."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], como proteger uma pasta chamada Backup_Senhas contra exclusão acidental e curiosos comuns, usando o comando ATTRIB?",
+          "answers": [
+            "+h (Oculto)",
+            "+s (Sistema)",
+            "+r (Somente leitura)",
+            "-a (Remover backup)"
+          ],
+          "correct": [
+            "+h (Oculto)",
+            "+s (Sistema)",
+            "+r (Somente leitura)"
+          ],
+          "tip": "Combinar múltiplos atributos torna a segurança muito mais espessa."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o comando Batch à sua finalidade no script:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "echo Mensagem",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "rem Anotação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "pause",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Exibe o texto no terminal"
+            },
+            {
+              "id": "z2",
+              "label": "Insere um comentário invisível"
+            },
+            {
+              "id": "z3",
+              "label": "Interrompe e pede uma tecla"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A sintaxe 'echo.' serve para pular uma linha na exibição."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se o comando sfc /scannow reportar 'Não foi possível reparar arquivos corrompidos', qual ferramenta auxiliar deve ser usada em conjunto?",
+          "answers": [
+            "DISM",
+            "CHKDSK",
+            "DEFRAG",
+            "ROBOCOPY"
+          ],
+          "correct": "DISM",
+          "tip": "O comando DISM restaura a imagem nativa que o SFC usa como base de reparo."
         }
       ]
     }
