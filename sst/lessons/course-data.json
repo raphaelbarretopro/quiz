@@ -35969,6 +35969,911 @@
           "tip": "Manuais técnicos, relatórios de diagnóstico e TCCs seguem as regras de padronização estrutural[cite: 3435, 3438, 3440]."
         }
       ]
+    },
+    {
+      "slug": "aula-48",
+      "lesson_info": {
+        "id": "Aula-48",
+        "title": "AULA 48 - CONCLUSÃO DO WORD",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "CAPA E SUMÁRIO",
+            "desc": "Criação da folha de rosto e atualização de índices automáticos segundo a ABNT.",
+            "color": "#E74C3C",
+            "img_url": "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "NUMERAÇÃO ABNT",
+            "desc": "Aplicação de quebras de seção para numerar páginas adequadamente.",
+            "color": "#1ABC9C",
+            "img_url": "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "PROTEÇÃO E PDF",
+            "desc": "Configuração de senhas de segurança e exportação profissional para PDF.",
+            "color": "#F39C12",
+            "img_url": "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "IA E MALA DIRETA",
+            "desc": "Como integrar o Word com planilhas Excel e gerar conteúdos com IA.",
+            "color": "#3498DB",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "C",
+          "A",
+          "P",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a folha de rosto (capa) é a primeira página do trabalho e deve conter informações organizadas conforme a ABNT.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Seja escolar ou empresarial, a estrutura é adaptada para identificar o documento e responsáveis."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que deve ficar obrigatoriamente no topo da capa de um trabalho escolar ABNT?",
+          "answers": [
+            "Nome do Aluno",
+            "Título do trabalho",
+            "Nome da Instituição em letras maiúsculas",
+            "Cidade e Ano"
+          ],
+          "correct": "Nome da Instituição em letras maiúsculas",
+          "tip": "O nome da instituição inicia o documento de cima para baixo."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na capa ABNT, o [COMBO] do documento deve estar em destaque com a formatação negrito.",
+          "options": [
+            "Título",
+            "Nome",
+            "Curso",
+            "Ano"
+          ],
+          "correct": "Título",
+          "tip": "O título precisa ter o maior destaque visual da página."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione as linhas padrão de uma capa ABNT aos seus conteúdos essenciais:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Linha 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Linha 3",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Linha 5",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Nome da Instituição"
+            },
+            {
+              "id": "z2",
+              "label": "Nome do Autor"
+            },
+            {
+              "id": "z3",
+              "label": "Cidade e Ano"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Seguir a ordem garante que o documento passe na revisão acadêmica."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais formatações básicas aplicamos a todo o texto da Capa ABNT?",
+          "answers": [
+            "Alinhamento Centralizado",
+            "Fonte Arial ou Times New Roman 12",
+            "Espaçamento de 1,5",
+            "Alinhamento à Esquerda"
+          ],
+          "correct": [
+            "Alinhamento Centralizado",
+            "Fonte Arial ou Times New Roman 12"
+          ],
+          "tip": "A capa difere do corpo do texto no quesito alinhamento, sendo sempre centralizada."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], os modelos de 'Folha de Rosto' prontos do Word não podem ser apagados ou alterados, devendo ser usados estritamente como vêm de fábrica.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Você pode usar um modelo do Word e alterá-lo livremente ou apagar a tabela e criar do zero."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em qual guia do Word encontramos a opção de adicionar uma 'Folha de Rosto' automática?",
+          "answers": [
+            "Página Inicial",
+            "Layout",
+            "Inserir",
+            "Referências"
+          ],
+          "correct": "Inserir",
+          "tip": "No menu Inserir, no canto esquerdo, fica o atalho rápido para a Folha de Rosto."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], o sumário de figuras deve ter o título escrito em letras [COMBO], segundo as exigências da ABNT.",
+          "options": [
+            "Minúsculas",
+            "Maiúsculas",
+            "Coloridas",
+            "Itálicas"
+          ],
+          "correct": "Maiúsculas",
+          "tip": "Como é um título principal, precisa respeitar a regra de caixa alta."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], o Sumário de Figuras do Word exibe automaticamente quais informações?",
+          "answers": [
+            "O número e a descrição da figura",
+            "O número da página onde ela está",
+            "Hyperlinks para navegar até a imagem",
+            "A data que a imagem foi baixada"
+          ],
+          "correct": [
+            "O número e a descrição da figura",
+            "O número da página onde ela está",
+            "Hyperlinks para navegar até a imagem"
+          ],
+          "tip": "Essas três informações tornam o documento interativo e fácil de consultar."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione os atalhos de formatação cruciais ensinados na aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ctrl + A",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ctrl + E",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Ctrl + J",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Selecionar todo o texto"
+            },
+            {
+              "id": "z2",
+              "label": "Centralizar texto"
+            },
+            {
+              "id": "z3",
+              "label": "Justificar texto"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Ctrl+A e Ctrl+E são muito úteis na hora de construir a folha de rosto de forma ágil."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], sempre que você alterar um título no corpo do documento, o sumário automático se atualiza sozinho imediatamente sem precisar do seu comando.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O sumário precisa de atualização manual. Você deve clicar nele e escolher 'Atualizar Sumário'."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para aplicar a alteração de páginas no sumário, clique nele e escolha 'Atualizar o sumário [COMBO]'.",
+          "options": [
+            "Inteiro",
+            "Parcial",
+            "Formatado",
+            "Colorido"
+          ],
+          "correct": "Inteiro",
+          "trans": "AGEN",
+          "tip": "Sempre escolha atualizar o índice inteiro para evitar falhas em subtítulos que possam ter mudado."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], segundo as regras da ABNT, onde deve aparecer a numeração da página no documento?",
+          "answers": [
+            "Canto inferior direito",
+            "Canto superior esquerdo",
+            "Canto superior direito",
+            "Centralizado no rodapé"
+          ],
+          "correct": "Canto superior direito",
+          "tip": "O número deve ficar no cabeçalho (topo), à direita, sem adornos."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], na norma ABNT, a capa e o sumário não devem receber numeração de página visível impressa neles.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A contagem existe internamente, mas os números só devem ser exibidos a partir da página do conteúdo principal (ex: página 3)."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para separar as formatações do cabeçalho da capa e do conteúdo, dividimos o documento usando a Quebra de [COMBO].",
+          "options": [
+            "Texto",
+            "Seção",
+            "Imagem",
+            "Tabela"
+          ],
+          "correct": "Seção",
+          "tip": "A Quebra de Seção cria partes independentes no mesmo documento."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais configurações são necessárias para numerar o documento a partir do conteúdo (página 3) na ABNT?",
+          "answers": [
+            "Inserir Quebra de Seção",
+            "Desativar 'Vincular ao Anterior'",
+            "Iniciar a numeração em 3",
+            "Apagar o texto do sumário"
+          ],
+          "correct": [
+            "Inserir Quebra de Seção",
+            "Desativar 'Vincular ao Anterior'",
+            "Iniciar a numeração em 3"
+          ],
+          "tip": "Com esses 3 passos, você isola a capa e sumário e foca a numeração apenas no corpo textual."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], associe as seções criadas no documento às suas páginas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Seção 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Seção 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Quebra de Seção",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Capa e Sumário (Sem número visível)"
+            },
+            {
+              "id": "z2",
+              "label": "Conteúdo (A partir do número 3)"
+            },
+            {
+              "id": "z3",
+              "label": "Divide as partes para permitir numerações independentes"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A visão de blocos ajuda muito a entender porque a quebra é tão necessária."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], marcar a opção 'Primeira Página Diferente' ajuda a ocultar a numeração apenas da página 1 (capa) em numerações simples.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É um truque útil quando o documento tem apenas a capa e não possui sumário complexo."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o caminho correto no Word para inserir uma Quebra de Seção avançada para a próxima página?",
+          "answers": [
+            "Inserir > Quebra de Página",
+            "Layout > Quebras > Próxima Página",
+            "Design > Quebra de Texto",
+            "Arquivo > Separar"
+          ],
+          "correct": "Layout > Quebras > Próxima Página",
+          "tip": "Não confunda Quebra de Página (Ctrl+Enter) com Quebra de Seção. A de seção fica na aba Layout."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], antes de inserir a numeração isolada na Seção 2, devemos desativar o botão 'Vincular ao [COMBO]'.",
+          "options": [
+            "Sumário",
+            "Texto",
+            "Anterior",
+            "Próximo"
+          ],
+          "correct": "Anterior",
+          "tip": "Isso corta a dependência e impede que o número 'vaze' para as páginas da capa."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], se o Word apresentar um erro de software e sumir com o número de uma página no meio do documento, como corrigir?",
+          "answers": [
+            "Ativar o cabeçalho nessa página",
+            "Desativar 'Vincular ao Anterior' de novo se estiver ativado indevidamente",
+            "Reinsirir o número de página no menu",
+            "Deletar o documento inteiro"
+          ],
+          "correct": [
+            "Ativar o cabeçalho nessa página",
+            "Desativar 'Vincular ao Anterior' de novo se estiver ativado indevidamente",
+            "Reinsirir o número de página no menu"
+          ],
+          "tip": "É um bug comum, mas refazendo esses três passos na página problemática a sequência se reestabelece."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os menus de inserção da numeração ABNT às opções corretas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Posição",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Alinhamento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Formatar Número",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Início da Página (Superior)"
+            },
+            {
+              "id": "z2",
+              "label": "Número sem formatação 3 (Direita)"
+            },
+            {
+              "id": "z3",
+              "label": "Iniciar em 3"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses são os três pilares do menu Inserir para fechar a numeração perfeita."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], embora a Quebra de Seção divida o documento em blocos, a contagem final no Sumário continuará correta se o atualizarmos no final.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A contagem estrutural continua a mesma; a quebra só serve para isolar a exibição visual do cabeçalho."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao dar um duplo clique na área vazia no topo da folha, o Word ativa automaticamente qual espaço do programa?",
+          "answers": [
+            "Margem Personalizada",
+            "Cabeçalho e Rodapé",
+            "Menu de Imagens",
+            "Sumário"
+          ],
+          "correct": "Cabeçalho e Rodapé",
+          "tip": "Essa é a forma mais rápida de acessar a área onde os números de página ficam armazenados."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para fechar o modo de edição focado do Cabeçalho e Rodapé de forma rápida, basta apertar a tecla [COMBO] do teclado.",
+          "options": [
+            "Enter",
+            "Shift",
+            "ESC",
+            "Delete"
+          ],
+          "correct": "ESC",
+          "trans": "PROT",
+          "tip": "A tecla ESC sai do modo focado e te devolve para a edição do corpo do texto normal."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é a principal vantagem de exportar (salvar) o trabalho finalizado em formato PDF?",
+          "answers": [
+            "Diminuir as cores do texto",
+            "Permitir edição no Bloco de Notas",
+            "Preservar a formatação original em qualquer dispositivo",
+            "Apagar as senhas automaticamente"
+          ],
+          "correct": "Preservar a formatação original em qualquer dispositivo",
+          "tip": "O PDF 'congela' a página, impedindo que seu chefe ou professor veja tabelas ou margens tortas devido a versões antigas do Office deles."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], os documentos do Word salvos com senha não perdem a proteção ao serem convertidos para PDF, o próprio PDF herda a senha do Word automaticamente sem avisos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Documentos com senha perdem a proteção no PDF, e o Word emitirá um alerta avisando que o arquivo final ficará desprotegido."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A Senha de [COMBO] colocada no Word impede que pessoas não autorizadas sequer abram e leiam o conteúdo do documento.",
+          "options": [
+            "Gravação",
+            "Proteção",
+            "Layout",
+            "Impressão"
+          ],
+          "correct": "Proteção",
+          "tip": "É a barreira mais forte, garantindo o sigilo de arquivos confidenciais."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais opções de senhas de segurança podem ser configuradas no menu 'Opções Gerais' do Word ao salvar um documento?",
+          "answers": [
+            "Senha de Proteção",
+            "Senha de Nuvem",
+            "Senha de Gravação",
+            "Senha de Wi-Fi"
+          ],
+          "correct": [
+            "Senha de Proteção",
+            "Senha de Gravação"
+          ],
+          "tip": "Proteção bloqueia a visualização; Gravação permite a leitura, mas bloqueia alterações indesejadas."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], associe o tipo de segurança do Word com a sua barreira imposta ou ação associada:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Senha de Proteção",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Senha de Gravação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Remover Senha",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Bloqueia a abertura do arquivo"
+            },
+            {
+              "id": "z2",
+              "label": "Bloqueia a modificação do arquivo"
+            },
+            {
+              "id": "z3",
+              "label": "Apagar os campos na janela e salvar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber transitar entre proteção máxima e arquivos abertos garante autonomia corporativa."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O caminho exato para aplicar as senhas de segurança no Word é indo em Arquivo > Salvar Como > Ferramentas > Opções Gerais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ao lado do botão Salvar, fica o menu Ferramentas, que dá acesso à configuração de senhas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], por que é ideal compartilhar currículos, relatórios e documentos oficiais no mercado de trabalho sempre em formato PDF?",
+          "answers": [
+            "Porque o destinatário não precisa ter o Word instalado para visualizar.",
+            "Porque funciona como um aplicativo avançado de planilhas.",
+            "Porque gera uma imagem pesada e difícil de carregar.",
+            "Porque apaga automaticamente o texto oculto."
+          ],
+          "correct": "Porque o destinatário não precisa ter o Word instalado para visualizar.",
+          "tip": "Essa facilidade de compartilhamento faz do PDF um formato universal."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O PDF facilita o envio porque o destinatário consegue abrir o currículo ou relatório no computador sem precisar ter o [COMBO] instalado.",
+          "options": [
+            "Excel",
+            "Windows",
+            "Word",
+            "Navegador"
+          ],
+          "correct": "Word",
+          "tip": "O próprio Google Chrome e leitores gratuitos comuns já conseguem abrir arquivos PDF."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], por que é ideal compartilhar currículos e documentos oficiais usando o PDF?",
+          "answers": [
+            "Preserva toda a formatação original",
+            "O destinatário não precisa ter o Word",
+            "É o padrão exigido por empresas e seleções",
+            "Funciona como editor de planilhas numéricas"
+          ],
+          "correct": [
+            "Preserva toda a formatação original",
+            "O destinatário não precisa ter o Word",
+            "É o padrão exigido por empresas e seleções"
+          ],
+          "tip": "O PDF é prático, confiável e considerado profissional em todos os canais eletrônicos."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione as abas de salvamento e proteção ensinadas na aula com suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ctrl + S",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Arquivo > Salvar Como",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Ferramentas > Opções Gerais",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Salva as atualizações do documento no mesmo lugar"
+            },
+            {
+              "id": "z2",
+              "label": "Permite mudar o formato para PDF ou criar nova versão"
+            },
+            {
+              "id": "z3",
+              "label": "Local interno na janela onde digitamos as senhas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar esses atalhos e menus previne a perda total de documentos essenciais."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a aula recomenda que o uso de senhas como '1234' é totalmente adequado para proteger planilhas e relatórios vitais das empresas, por ser fácil de memorizar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Isso foi apenas um exemplo didático; você nunca deve usar senhas tão óbvias em ambientes reais."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para compartilhar o arquivo formatado sem o risco de desconfigurar margens na tela do chefe, salve o documento no tipo [COMBO].",
+          "options": [
+            "DOCX",
+            "TXT",
+            "PDF",
+            "HTML"
+          ],
+          "correct": "PDF",
+          "trans": "NORM",
+          "tip": "Isso garante tranquilidade de que o seu trabalho de estruturação sairá idêntico na impressão dele."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o que é a ferramenta Mala Direta dentro do Microsoft Word?",
+          "answers": [
+            "Um serviço de correios digital do Windows.",
+            "Uma integração com um banco de dados que preenche dados automaticamente em um documento base.",
+            "Um sistema integrado para criar planilhas de gastos mensais.",
+            "Um filtro de correção ortográfica em espanhol."
+          ],
+          "correct": "Uma integração com um banco de dados que preenche dados automaticamente em um documento base.",
+          "tip": "Isso evita que o funcionário tenha que redigir 1.000 cartas de forma manual, poupando meses de trabalho."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a ferramenta de Mala Direta pode buscar dados como nomes e endereços diretamente de uma planilha do Excel para gerar dezenas de cartas personalizadas de uma vez.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Excel é o banco de dados e o Word cria o layout das correspondências; ambos funcionam em sintonia."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O Campo de [COMBO] aparece no documento entre chaves duplas (ex: «Nome») e é o código mágico que puxará a informação contida no cabeçalho da planilha Excel.",
+          "options": [
+            "Pesquisa",
+            "Mesclagem",
+            "Dados",
+            "Busca"
+          ],
+          "correct": "Mesclagem",
+          "tip": "Você clica nele e, ao gerar os resultados finais, esse código desaparece e o nome real assume o lugar."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são exemplos clássicos do dia a dia de documentos comerciais que são gerados através da tecnologia de Mala Direta?",
+          "answers": [
+            "Cartas de cobrança de dívidas para clientes",
+            "Faturas e faturas de cartão de crédito",
+            "Boletos impressos de água e luz",
+            "Publicações automáticas de posts para redes sociais"
+          ],
+          "correct": [
+            "Cartas de cobrança de dívidas para clientes",
+            "Faturas e faturas de cartão de crédito",
+            "Boletos impressos de água e luz"
+          ],
+          "tip": "Para qualquer rotina onde o layout do texto permanece o mesmo, mas só mudam o nome, a data e o valor, usa-se mala direta."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], associe as famosas ferramentas de Inteligência Artificial mencionadas na aula com suas empresas criadoras:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ChatGPT",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Copilot",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Gemini",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "OpenAI"
+            },
+            {
+              "id": "z2",
+              "label": "Microsoft"
+            },
+            {
+              "id": "z3",
+              "label": "Google"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas três plataformas revolucionaram a forma de elaborar cartas e relatórios complexos."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao copiar um texto gerado por Inteligência Artificial e colar no Word, você deve preferencialmente usar a opção 'Manter Formatação Original' para não perder a estilização das IAs.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Deve-se colar na opção 'Manter Somente Texto' (Ctrl+Shift+V) e formatar o conteúdo nas exigências ABNT usando o próprio Word, prevenindo códigos quebrados."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "O que significa a expressão 'Prompt' ao utilizar Inteligências Artificiais generativas?",
+          "answers": [
+            "O tempo de latência que a IA demora para responder",
+            "A instrução ou comando específico que o usuário digita na ferramenta pedindo algo",
+            "A mensagem de erro retornada por sobrecarga do sistema",
+            "O nome do arquivo final do Word salvo na nuvem"
+          ],
+          "correct": "A instrução ou comando específico que o usuário digita na ferramenta pedindo algo",
+          "tip": "A qualidade do documento gerado será inteiramente proporcional à riqueza de detalhes que você inserir no prompt."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para ter um bom documento estruturado, a [COMBO] da resposta gerada pela IA depende diretamente da especificidade do seu prompt.",
+          "options": [
+            "Qualidade",
+            "Cor",
+            "Formatação",
+            "Fonte"
+          ],
+          "correct": "Qualidade",
+          "tip": "Quanto mais dados de contexto você fornecer para a máquina, mais pronta a resposta virá."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], o que transforma um comando genérico em um excelente prompt enriquecido para criar cartas empresariais no ChatGPT/Gemini?",
+          "answers": [
+            "Incluir o nome da empresa e do remetente",
+            "Informar o tom desejado ao texto (amigável, cobrança assertiva, formal)",
+            "Fornecer detalhes pontuais como canais de contato e e-mail de retorno",
+            "Pedir para a IA usar linguagem de programação HTML"
+          ],
+          "correct": [
+            "Incluir o nome da empresa e do remetente",
+            "Informar o tom desejado ao texto (amigável, cobrança assertiva, formal)",
+            "Fornecer detalhes pontuais como canais de contato e e-mail de retorno"
+          ],
+          "tip": "Uma IA sem guia entregará uma resposta robótica. Dê a ela os insumos de quem você é."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Ordene as etapas corretas ao utilizar IA para estruturar um documento profissional do zero no Word:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1: Prompt",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2: Colagem",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3: Revisão",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Pedir o texto detalhado para a Inteligência Artificial"
+            },
+            {
+              "id": "z2",
+              "label": "Colar no Word com a opção Somente Texto"
+            },
+            {
+              "id": "z3",
+              "label": "Ajustar espaçamento e dados específicos do negócio"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esse fluxo de trabalho garante velocidade e precisão técnica."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a ferramenta de Mala Direta do Word permite também que você envie as cartas de cobrança diretamente por e-mail, desde que você tenha o Outlook configurado no PC e a planilha possua os endereços eletrônicos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa é a opção 'Enviar Mensagens de E-mail' presente no botão final de Mesclagem, o disparo massivo fica fácil e direto."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "O que o botão 'Editar Individualmente' faz na etapa de conclusão e mesclagem da Mala Direta do Word?",
+          "answers": [
+            "Abre o Excel para apagar nomes",
+            "Gera um único documento do Word gigantesco contendo todas as cartas personalizadas separadas por página para revisão visual",
+            "Exclui automaticamente as fontes com serifa do seu trabalho",
+            "Envia a versão em branco direto para a lixeira do Windows"
+          ],
+          "correct": "Gera um único documento do Word gigantesco contendo todas as cartas personalizadas separadas por página para revisão visual",
+          "tip": "Essa opção é ótima caso precise alterar o valor na carta de apenas um cliente que ligou negociando de última hora."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], na etapa final, clique no botão Visualizar [COMBO] para conferir o visual e garantir que os dados dos clientes estão substituindo os códigos adequadamente antes de imprimir sua Mala Direta.",
+          "options": [
+            "Resultados",
+            "Cartas",
+            "Arquivos",
+            "Planilhas"
+          ],
+          "correct": "Resultados",
+          "trans": "FIM",
+          "tip": "Use as setinhas dessa função para ir folheando o resultado final de Maria para o de Roberto."
+        }
+      ]
     }
   ]
 }
