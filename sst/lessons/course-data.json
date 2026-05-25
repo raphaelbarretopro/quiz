@@ -35091,6 +35091,884 @@
           "tip": "Um botão no canto superior esquerdo pode ser ativado para salvar todas as mudanças em tempo real."
         }
       ]
+    },
+    {
+      "slug": "aula-47",
+      "lesson_info": {
+        "id": "Aula-47",
+        "title": "AULA 47 - WORD INTERMEDIÁRIO E ACADÊMICO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "PESQUISA E COLAGEM",
+            "desc": "Uso inteligente de ferramentas de busca e opções de colagem adequadas para o Word.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "PARÁGRAFOS E REVISÃO",
+            "desc": "Configuração de espaçamento, alinhamento e uso do corretor ortográfico.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "MARGENS E ESTILOS",
+            "desc": "Aplicação de margens no padrão ABNT e formatação hierárquica de títulos.",
+            "color": "#34495e",
+            "img_url": "https://images.unsplash.com/photo-1616628188550-808682f3926d?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "SUMÁRIOS E IMAGENS",
+            "desc": "Geração de sumários automáticos, quebras de texto e legendas de figuras.",
+            "color": "#c0392b",
+            "img_url": "https://images.unsplash.com/photo-1544396821-4dd40b938ad3?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "A",
+          "B",
+          "N",
+          "T"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], ao pesquisar para trabalhos acadêmicos, textos gerados por IAs (como o ChatGPT) podem ser colados diretamente sem revisão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essas ferramentas são ótimas para rascunhos, mas o resultado precisa ser revisado e adaptado ao seu contexto antes de colar no Word[cite: 3057]."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a melhor fonte de pesquisa para encontrar textos estruturados em formato de artigo para o Word?",
+          "answers": [
+            "Redes sociais",
+            "Wikipedia e sites especializados",
+            "Fóruns de opinião",
+            "Apenas o topo de resultados do Gemini"
+          ],
+          "correct": "Wikipedia e sites especializados",
+          "tip": "Para textos acadêmicos e relatórios profissionais, prefira fontes como a Wikipedia ou artigos de sites especializados[cite: 3058]."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para encontrar um artigo completo, é útil adicionar o nome do site à busca, como 'O que é analista de sistemas [COMBO]'.",
+          "options": [
+            "Imagens",
+            "Wikipedia",
+            "Vídeos",
+            "Notícias"
+          ],
+          "correct": "Wikipedia",
+          "tip": "Isso direciona o Google para entregar o artigo com texto corrido e bem estruturado[cite: 3063]."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são as formas de colagem disponibilizadas pelo Word?",
+          "answers": [
+            "Manter Formatação Original",
+            "Colar como Imagem Oculta",
+            "Mesclar Formatação",
+            "Manter Somente Texto"
+          ],
+          "correct": [
+            "Manter Formatação Original",
+            "Mesclar Formatação",
+            "Manter Somente Texto"
+          ],
+          "tip": "O Word oferece essas três opções principais para resolver problemas de formatações indesejadas[cite: 3068]."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o tipo de pesquisa à sua característica principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Google Tradicional",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Google + Gemini",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "ChatGPT",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Links, artigos e notícias"
+            },
+            {
+              "id": "z2",
+              "label": "Respostas rápidas de IA no topo"
+            },
+            {
+              "id": "z3",
+              "label": "Geração de rascunhos longos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender o uso de cada ferramenta facilita muito na hora de buscar informações[cite: 3051, 3053, 3056]."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], usar apenas Ctrl+C e Ctrl+V para colar textos da internet no Word é a prática mais recomendada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Copiar com Ctrl+C e colar com Ctrl+V traz links, cores e formatações indesejadas[cite: 3067]."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a opção de colagem correta para uso em trabalhos e relatórios profissionais?",
+          "answers": [
+            "Manter Formatação Original",
+            "Colagem Especial em PDF",
+            "Manter Somente Texto",
+            "Mesclar Formatação"
+          ],
+          "correct": "Manter Somente Texto",
+          "tip": "Esta é a opção correta para uso em trabalhos, pois cola apenas o texto puro, sem formatação[cite: 3081, 3082]."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A opção 'Manter Formatação [COMBO]' cola o texto exatamente como está na internet, com links e cores.",
+          "options": [
+            "Invisível",
+            "Original",
+            "Mesclada",
+            "Pura"
+          ],
+          "correct": "Original",
+          "tip": "Não é recomendado para trabalhos acadêmicos ou relatórios[cite: 3073, 3075]."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], o que a opção 'Mesclar Formatação' faz ao ser selecionada?",
+          "answers": [
+            "Combina o estilo da internet com o do documento atual",
+            "Remove todas as letras maiúsculas",
+            "Pode ter um resultado inconsistente",
+            "Transforma o texto em tabela"
+          ],
+          "correct": [
+            "Combina o estilo da internet com o do documento atual",
+            "Pode ter um resultado inconsistente"
+          ],
+          "tip": "Combina o estilo da internet com o estilo do documento atual, mas o resultado pode ser inconsistente[cite: 3078, 3079]."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe a opção de colagem ao seu comportamento prático:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Manter Formatação Original",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Mesclar Formatação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Manter Somente Texto",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Traz links clicáveis e cores"
+            },
+            {
+              "id": "z2",
+              "label": "Combina estilo web e local"
+            },
+            {
+              "id": "z3",
+              "label": "Remove todas formatações externas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A terceira opção (Manter Somente Texto) é a mais segura[cite: 3074, 3078, 3082]."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o botão com as opções de colagem pode ser acessado diretamente na guia Página Inicial do Word.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Para acessar as opções: clique na seta embaixo do botão Colar (guia Página Inicial)[cite: 3084]."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], ao preparar o texto antes da formatação, qual atalho seleciona todo o conteúdo do documento de uma só vez?",
+          "answers": [
+            "Ctrl + C",
+            "Ctrl + T",
+            "Ctrl + V",
+            "Ctrl + P"
+          ],
+          "correct": "Ctrl + T",
+          "trans": "AGEN",
+          "tip": "Com o texto selecionado (Ctrl+T para selecionar tudo), você pode aplicar a configuração geral de forma rápida[cite: 3098]."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o espaçamento entre linhas recomendado para tornar a leitura de trabalhos mais fluida?",
+          "answers": [
+            "1,0 (Simples)",
+            "1,5",
+            "2,0 (Duplo)",
+            "3,0"
+          ],
+          "correct": "1,5",
+          "tip": "O espaço 1,5 entre linhas separa visualmente as linhas do texto, tornando a leitura mais fluida[cite: 3105]."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o alinhamento Justificado alinha o texto apenas na margem esquerda, deixando a direita irregular.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O alinhamento justificado cria um bloco visual uniforme, com o texto alinhado nas duas margens - esquerda e direita ao mesmo tempo[cite: 3107]."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O recuo de parágrafo padrão na primeira linha, conforme a ABNT, deve ser configurado em [COMBO] cm.",
+          "options": [
+            "1,00",
+            "1,25",
+            "1,50",
+            "2,00"
+          ],
+          "correct": "1,25",
+          "tip": "O recuo de parágrafo padrão conforme a ABNT é de 1,25 cm na primeira linha[cite: 3114]."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são as fontes padrão recomendadas para trabalhos com formatação ABNT?",
+          "answers": [
+            "Arial",
+            "Comic Sans",
+            "Times New Roman",
+            "Impact"
+          ],
+          "correct": [
+            "Arial",
+            "Times New Roman"
+          ],
+          "tip": "As configurações recomendadas indicam o uso das fontes Arial ou Times New Roman[cite: 3099]."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Associe a configuração de texto ao seu valor ABNT correto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Tamanho da Fonte",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Espaçamento de Linha",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Cor do Texto",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "12pt"
+            },
+            {
+              "id": "z2",
+              "label": "1,5"
+            },
+            {
+              "id": "z3",
+              "label": "Preto (Automático)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas são as configurações padrão exigidas em quase todo relatório técnico[cite: 3100, 3101, 3103]."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a régua horizontal no topo do Word pode ser ativada na aba 'Exibir' e ajuda a configurar recuos visualmente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A régua horizontal no topo do Word permite configurar visualmente o recuo de parágrafo. Se não estiver visível, ative em Exibir → Régua[cite: 3109, 3110]."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], no corretor ortográfico do Word, o que indica um sublinhado vermelho abaixo da palavra?",
+          "answers": [
+            "Erro de concordância",
+            "Possível erro ortográfico",
+            "Palavra com formatação incorreta",
+            "Texto sem parágrafo"
+          ],
+          "correct": "Possível erro ortográfico",
+          "tip": "Indica um possível erro ortográfico - o Word não reconhece aquela palavra[cite: 3177]."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O sublinhado [COMBO] indica um possível erro de concordância verbal ou nominal no Word.",
+          "options": [
+            "Vermelho",
+            "Azul",
+            "Verde",
+            "Amarelo"
+          ],
+          "correct": "Azul",
+          "tip": "Indica um possível erro de concordância verbal ou nominal[cite: 3180]."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais problemas o corretor ortográfico e gramatical do Word pode apontar além da escrita errada de palavras?",
+          "answers": [
+            "Vírgulas desnecessárias",
+            "Erros de acentuação",
+            "Espaçamento inconsistente entre palavras",
+            "Problemas na placa de vídeo do PC"
+          ],
+          "correct": [
+            "Vírgulas desnecessárias",
+            "Erros de acentuação",
+            "Espaçamento inconsistente entre palavras"
+          ],
+          "tip": "O verificador também aponta vírgulas desnecessárias, erros de acentuação e problemas de espaçamento entre palavras[cite: 3182]."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione as opções do Painel de Revisão (F7) às suas ações:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Alterar",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ignorar",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Adicionar ao dicionário",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Aceitar a sugestão do Word"
+            },
+            {
+              "id": "z2",
+              "label": "Manter a palavra como está"
+            },
+            {
+              "id": "z3",
+              "label": "Ensinar ao Word aquele termo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Usar essas opções ajuda a limpar rapidamente o documento de avisos falsos ou erros reais[cite: 3199, 3200, 3201]."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o corretor ortográfico do Word é 100% confiável, portanto você pode aceitar todas as suas sugestões sem revisar o contexto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O corretor não é 100% confiável sempre revise as sugestões antes de aceitar[cite: 3184]."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao clicar com o botão direito do mouse sobre uma palavra com sublinhado vermelho, o que o Word exibe?",
+          "answers": [
+            "Apaga a palavra",
+            "Abre o menu de impressão",
+            "Sugestões de substituição ortográfica",
+            "Altera a fonte da palavra"
+          ],
+          "correct": "Sugestões de substituição ortográfica",
+          "trans": "PROT",
+          "tip": "O Word oferece sugestões de substituição ou a opção 'Ignorar Tudo'[cite: 3192]."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], de acordo com a norma da ABNT, qual é a configuração correta das margens para um trabalho acadêmico?",
+          "answers": [
+            "Esquerda 2cm, Superior 2cm, Direita 3cm, Inferior 3cm",
+            "Esquerda 3cm, Superior 3cm, Direita 2cm, Inferior 2cm",
+            "Todas em 2,5cm",
+            "Esquerda 4cm, Direita 4cm, Topo 2cm, Base 2cm"
+          ],
+          "correct": "Esquerda 3cm, Superior 3cm, Direita 2cm, Inferior 2cm",
+          "tip": "A regra fácil de memorizar: 3322-Esquerda, Superior, Direita, Inferior[cite: 3220]."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a margem esquerda deve ser maior (3cm) para acomodar a encadernação, como espiral ou grampo, sem que o texto seja comprometido.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Margem maior para acomodar a encadernação (espiral, grampo ou capa dura) sem comprometer o texto[cite: 3215]."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para configurar as margens no Word, devemos acessar a guia [COMBO] e escolher 'Margens Personalizadas'.",
+          "options": [
+            "Página Inicial",
+            "Inserir",
+            "Layout",
+            "Exibir"
+          ],
+          "correct": "Layout",
+          "tip": "É nessa guia que as estruturas físicas da página, como margens e orientação, são modificadas[cite: 3225]."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], por que é fundamental o uso dos 'Estilos de Título' (ex: Título 1) no Word?",
+          "answers": [
+            "Gera sumários de forma automática",
+            "Cria uma hierarquia visual e estrutural",
+            "Colore o texto de vermelho",
+            "Permite navegar pelos tópicos através do Painel de Navegação"
+          ],
+          "correct": [
+            "Gera sumários de forma automática",
+            "Cria uma hierarquia visual e estrutural",
+            "Permite navegar pelos tópicos através do Painel de Navegação"
+          ],
+          "tip": "Marcar os títulos corretamente no Word não é apenas estética é o passo essencial para gerar sumários e navegar[cite: 3246, 3254, 3257, 3259]."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione as margens da ABNT aos seus devidos tamanhos em cm:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Margem Superior",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Margem Esquerda",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Margem Direita",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "3 cm (topo)"
+            },
+            {
+              "id": "z2",
+              "label": "3 cm (lado da encadernação)"
+            },
+            {
+              "id": "z3",
+              "label": "2 cm (lado solto)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Lembrando da regra do 3-3-2-2 (Esquerda/Superior, Direita/Inferior)[cite: 3214, 3216, 3218]."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], segundo as normas da ABNT, todos os títulos principais de um trabalho devem terminar com ponto final.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Conforme a ABNT, títulos não levam ponto final. Revise cada título e remova qualquer pontuação no final[cite: 3280]."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], ao formatar títulos para ABNT, qual é a ferramenta rápida para transformar o texto do título todo em letras maiúsculas?",
+          "answers": [
+            "Apagar e digitar novamente",
+            "Botão 'Maiúsculas' no grupo Fonte (Página Inicial)",
+            "Pressionar a tecla Shift repetidamente",
+            "Aumentar o tamanho da fonte para 24"
+          ],
+          "correct": "Botão 'Maiúsculas' no grupo Fonte (Página Inicial)",
+          "tip": "Isso converte o texto para caixa alta sem precisar redigitar[cite: 3275, 3276]."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Além de colocar os títulos principais em maiúsculas, a ABNT exige que eles fiquem com alinhamento à [COMBO].",
+          "options": [
+            "Direita",
+            "Centro",
+            "Esquerda",
+            "Justificado"
+          ],
+          "correct": "Esquerda",
+          "tip": "Com os títulos selecionados, clique no botão de alinhamento Esquerda na guia Página Inicial[cite: 3278]."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], além de fonte 12pt, que outras formatações a ABNT estipula especificamente para CITAÇÕES longas e rodapé?",
+          "answers": [
+            "Tamanho 10pt",
+            "Espaçamento entre linhas Simples",
+            "Recuo à esquerda de 4 cm",
+            "Tamanho 16pt em negrito"
+          ],
+          "correct": [
+            "Tamanho 10pt",
+            "Espaçamento entre linhas Simples",
+            "Recuo à esquerda de 4 cm"
+          ],
+          "tip": "As citações longas seguem regras diferentes do corpo do texto padrão[cite: 3240]."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Associe a função dos Estilos com seu benefício no Word:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sumário Automático",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Painel de Navegação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Hierarquia",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gera um índice de páginas na hora"
+            },
+            {
+              "id": "z2",
+              "label": "Menu lateral para pular tópicos"
+            },
+            {
+              "id": "z3",
+              "label": "Mostra a relação estrutural do documento"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O grupo 'Estilos' é o cérebro da organização no Microsoft Word[cite: 3254, 3257, 3259]."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a orientação e o tipo de página não podem ser modificados na janela de margens personalizadas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Na janela de margens personalizadas, também é possível configurar a orientação do papel (retrato ou paisagem) e o tipo de páginas[cite: 3230]."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], a norma ABNT que regulamenta a apresentação de trabalhos acadêmicos no Brasil é conhecida como:",
+          "answers": [
+            "ISO 9001",
+            "NBR 14724",
+            "IEEE 802.11",
+            "ABNT 2026"
+          ],
+          "correct": "NBR 14724",
+          "trans": "NORM",
+          "tip": "A configuração 3-3-2-2 faz parte das normas da ABNT NBR 14724[cite: 3232]."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em qual guia do Word você deve ir para gerar um Sumário Automático?",
+          "answers": [
+            "Página Inicial",
+            "Inserir",
+            "Layout",
+            "Referências"
+          ],
+          "correct": "Referências",
+          "tip": "Clique na guia Referências > Sumário[cite: 3290, 3292]."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o sumário automático do Word capta as páginas dos títulos independentemente da formatação que eles possuam.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O sumário automático captura APENAS os títulos marcados com os estilos (como 'Título 1')[cite: 3296]."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Após alterar algo no corpo do trabalho acadêmico, você deve clicar sobre o sumário e mandar [COMBO] o sumário inteiro.",
+          "options": [
+            "Deletar",
+            "Copiar",
+            "Atualizar",
+            "Imprimir"
+          ],
+          "correct": "Atualizar",
+          "tip": "Sempre que você alterar o conteúdo do documento (adicionar páginas, mudar títulos), é necessário atualizar o sumário[cite: 3306, 3307]."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais opções de Quebra Automática de Texto ajudam a integrar a imagem ao longo do texto sem desorganizar as linhas?",
+          "answers": [
+            "Quadrado",
+            "Em linha com o texto (Padrão inicial)",
+            "Justo",
+            "Atrás do Texto"
+          ],
+          "correct": [
+            "Quadrado",
+            "Justo"
+          ],
+          "tip": "A opção 'Quadrado' faz o texto contornar a imagem e a 'Justo' adapta o contorno organicamente[cite: 3334, 3336]."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione as opções de quebra de texto das imagens às suas definições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Em Linha com o Texto",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Quadrado",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Atrás do Texto",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tratada como um caractere (Padrão)"
+            },
+            {
+              "id": "z2",
+              "label": "O texto contorna formando um bloco retangular"
+            },
+            {
+              "id": "z3",
+              "label": "Funciona como um fundo/marca d'água"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Escolher a quebra de texto certa evita que o layout do documento 'quebre' quando inserir a imagem[cite: 3332, 3334, 3338]."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], redimensionar imagens arrastando pelos pontos laterais (cima, baixo, esquerda, direita) não distorce a foto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Sempre redimensione imagens pelas alças dos cantos (diagonais) para manter a proporção original - largura e altura são ajustadas ao mesmo tempo[cite: 3326]."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual recurso o Word utiliza para gerar um 'Sumário de Figuras' automaticamente?",
+          "answers": [
+            "Nomes dos arquivos de imagem inseridos",
+            "Legendas inseridas nas imagens",
+            "Marcadores da página inicial",
+            "Tamanho das imagens"
+          ],
+          "correct": "Legendas inseridas nas imagens",
+          "tip": "Assim como os títulos geram o sumário, as legendas de figuras geram o Sumário de Figuras automaticamente[cite: 3357]."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O recurso 'Texto [COMBO] (ALT)' fornece uma descrição da imagem para uso em acessibilidade digital.",
+          "options": [
+            "Alternativo",
+            "Aleatório",
+            "Artístico",
+            "Ativo"
+          ],
+          "correct": "Alternativo",
+          "tip": "O Word pode exibir uma caixa de Texto Alternativo (ALT) uma descrição da imagem para acessibilidade[cite: 3323]."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], como adicionar uma Legenda da forma certa em uma imagem, segundo ensinado?",
+          "answers": [
+            "Apertar Enter várias vezes e digitar texto solto abaixo",
+            "Clicar na imagem com botão direito",
+            "Escolher 'Inserir Legenda'",
+            "Manter o rótulo como Figura X e escrever o texto do lado"
+          ],
+          "correct": [
+            "Clicar na imagem com botão direito",
+            "Escolher 'Inserir Legenda'",
+            "Manter o rótulo como Figura X e escrever o texto do lado"
+          ],
+          "tip": "Essa formatação via menu garante que a imagem vá para o Sumário de Figuras[cite: 3371, 3373, 3375]."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe os requisitos de padronização ABNT de elementos de apoio aos seus formatações:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Título SUMÁRIO",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Texto da Legenda de Figura",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Fonte Padrão (Geral)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Maiúsculo e Centralizado"
+            },
+            {
+              "id": "z2",
+              "label": "Tamanho 10 e Centralizada"
+            },
+            {
+              "id": "z3",
+              "label": "Arial, Tamanho 12"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses são os detalhes que compõem uma formatação impecável e padronizada[cite: 3309, 3377]."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o Sumário de Figuras traz apenas o nome da figura, sem indicar o número da página ou gerar link de navegação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Sumário de Figuras exibe o número da página onde ela está e Hyperlinks para navegar diretamente até a imagem[cite: 3412, 3413]."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por qual motivo as ferramentas do Word (Sumários, Legendas e Títulos) são amplamente exigidas em ambientes corporativos de TI?",
+          "answers": [
+            "Apenas para desenhar os quadros organizacionais.",
+            "Para programar o código fonte de sites.",
+            "Para documentação de sistemas, relatórios de projeto e TCCs formatados.",
+            "Para criar apresentações de slides dinâmicas."
+          ],
+          "correct": "Para documentação de sistemas, relatórios de projeto e TCCs formatados.",
+          "trans": "FIM",
+          "tip": "Manuais técnicos, relatórios de diagnóstico e TCCs seguem as regras de padronização estrutural[cite: 3435, 3438, 3440]."
+        }
+      ]
     }
   ]
 }
