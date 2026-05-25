@@ -607,7 +607,7 @@ export default class View {
         if (this.els.loginModalTitle) {
             this.els.loginModalTitle.innerText = lessonTitle;
         }
-        document.title = lessonTitle;
+        document.title = `QUIZ - ${lessonTitle}`;
         if (this.els.startKnowledgeList) {
             this.els.startKnowledgeList.innerHTML = '';
             const topics = Array.isArray(lessonInfo.topics) ? lessonInfo.topics : [];
