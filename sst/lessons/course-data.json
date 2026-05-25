@@ -37141,7 +37141,7 @@
             "Erro"
           ],
           "correct": "Texto",
-          "tip": "Digitando 2+2 sem igual, o Excel apenas mostra o texto "2+2"."
+          "tip": "Digitando 2+2 sem igual, o Excel apenas mostra o texto 2+2."
         },
         {
           "type": "multi",
