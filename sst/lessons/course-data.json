@@ -36874,6 +36874,944 @@
           "tip": "Use as setinhas dessa função para ir folheando o resultado final de Maria para o de Roberto."
         }
       ]
+    },
+    {
+      "slug": "aula-49",
+      "lesson_info": {
+        "id": "Aula-49",
+        "title": "AULA 49 - EXCEL BÁSICO E FINANCEIRO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "CONCEITOS E INTERFACE",
+            "desc": "Estrutura do Excel, colunas, linhas e células.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "CÁLCULOS E OPERAÇÕES",
+            "desc": "O uso do sinal de igual, operações matemáticas e alça de repetição.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "FUNÇÕES E FORMATAÇÃO",
+            "desc": "A função SOMA e padrões profissionais de formatação visual.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "APLICAÇÃO FINANCEIRA",
+            "desc": "Controle de receitas, gastos, saldo final e métodos de salvamento.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "S",
+          "O",
+          "M",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é o Excel? ",
+          "answers": [
+            "Software de Planilhas",
+            "Editor de Vídeo",
+            "Processador de Texto",
+            "Navegador de Internet"
+          ],
+          "correct": "Software de Planilhas",
+          "tip": "O Excel é o principal software de cálculos do mundo."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a versão online do Excel é totalmente paga? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A versão online é gratuita, com alguns recursos limitados."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "As [COMBO] são representadas por letras horizontais que categorizam dados.",
+          "options": [
+            "Colunas",
+            "Linhas",
+            "Guias",
+            "Células"
+          ],
+          "correct": "Colunas",
+          "tip": "As colunas ficam na horizontal indicadas por letras (A, B, C...)."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais opções representam partes da interface do Excel? ",
+          "answers": [
+            "Guias",
+            "Barra de Fórmulas",
+            "Área de Células",
+            "Painel de Renderização"
+          ],
+          "correct": [
+            "Guias",
+            "Barra de Fórmulas",
+            "Área de Células"
+          ],
+          "tip": "A tela é dividida em regiões fundamentais como Guias e Barra de Fórmulas."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o conceito com sua definição estrutural:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Colunas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Linhas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Célula",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Letras horizontais "
+            },
+            {
+              "id": "z2",
+              "label": "Números verticais "
+            },
+            {
+              "id": "z3",
+              "label": "Interseção "
+            }
+          ],
+          "correct": "drag",
+          "tip": "A interseção de coluna e linha forma a célula."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], onde aparece o endereço da célula selecionada? ",
+          "answers": [
+            "Caixa de Nome",
+            "Barra de Tarefas",
+            "Menu Iniciar",
+            "Rodapé"
+          ],
+          "correct": "Caixa de Nome",
+          "tip": "O endereço aparece na caixa de nome, no canto superior esquerdo."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], toda célula tem um endereço único formado pelo número da linha e depois a letra? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É formado pela letra da coluna + número da linha (Ex: B3)."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A [COMBO] de uma coluna com uma linha forma uma célula.",
+          "options": [
+            "Interseção",
+            "Subtração",
+            "Divisão",
+            "Borda"
+          ],
+          "correct": "Interseção",
+          "tip": "Célula é a interseção exata de coluna e linha."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], como você pode selecionar um intervalo de células? ",
+          "answers": [
+            "Clicar na primeira, segurar o botão e arrastar",
+            "Clicar na primeira, segurar Shift, clicar na última",
+            "Digitar o texto da célula no rodapé",
+            "Apertar a barra de espaço repetidamente"
+          ],
+          "correct": [
+            "Clicar na primeira, segurar o botão e arrastar",
+            "Clicar na primeira, segurar Shift, clicar na última"
+          ],
+          "tip": "O intervalo seleciona várias células juntas."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione a área da interface com sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Guias (Abas)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Barra de Fórmulas",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Agrupa ferramentas "
+            },
+            {
+              "id": "z2",
+              "label": "Exibe e edita conteúdo "
+            }
+          ],
+          "correct": "drag",
+          "tip": "A Barra de Fórmulas garante que o cálculo está correto."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que significa o intervalo B1:B5? ",
+          "answers": [
+            "Da célula B1 até B5",
+            "Apenas a B1 e a B5",
+            "A célula B1 dividida pela B5",
+            "Nenhuma das anteriores"
+          ],
+          "correct": "Da célula B1 até B5",
+          "tip": "Um intervalo é representado com dois-pontos."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O atalho rápido Ctrl + Roda do Mouse controla o [COMBO] da visualização.",
+          "options": [
+            "Zoom",
+            "Salvamento",
+            "Filtro",
+            "Alinhamento"
+          ],
+          "correct": "Zoom",
+          "trans": "AGEN",
+          "tip": "Fica no canto inferior direito para ampliar ou reduzir a visualização."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o Excel só realiza cálculos quando você começa digitando o sinal de igual (=)? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa é a Regra de Ouro fundamental do Excel."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Sem o sinal de igual, o Excel trata o conteúdo digitado como [COMBO] simples.",
+          "options": [
+            "Texto",
+            "Número",
+            "Código",
+            "Erro"
+          ],
+          "correct": "Texto",
+          "tip": "Digitando 2+2 sem igual, o Excel apenas mostra o texto "2+2"."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são os símbolos corretos para multiplicação e divisão no Excel? ",
+          "answers": [
+            "* (asterisco)",
+            "/ (barra)",
+            "X (letra x)",
+            ": (dois pontos)"
+          ],
+          "correct": [
+            "* (asterisco)",
+            "/ (barra)"
+          ],
+          "tip": "A divisão usa barra e a multiplicação usa asterisco."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione a operação matemática ao seu símbolo correto no Excel:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Adição",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Subtração",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Multiplicação",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Divisão",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "+ "
+            },
+            {
+              "id": "z2",
+              "label": "- "
+            },
+            {
+              "id": "z3",
+              "label": "* "
+            },
+            {
+              "id": "z4",
+              "label": "/ "
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os operadores são inseridos diretamente na fórmula, após o sinal de igual."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual a grande vantagem de usar referências de células em vez de números fixos numa fórmula? ",
+          "answers": [
+            "O resultado se atualiza automaticamente se o valor mudar",
+            "A fonte fica em negrito",
+            "O Excel salva o arquivo mais rápido",
+            "A planilha imprime sem bordas"
+          ],
+          "correct": "O resultado se atualiza automaticamente se o valor mudar",
+          "tip": "Ao atualizar o valor base em uma célula, todos os totais são recalculados."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a alça de repetição não pode ser usada para fórmulas, servindo apenas para textos? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ao criar uma fórmula na primeira linha, você pode arrastá-la para as demais com a alça."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para ativar a alça de repetição, encoste o mouse no canto inferior [COMBO] da célula.",
+          "options": [
+            "Direito",
+            "Esquerdo",
+            "Central",
+            "Superior"
+          ],
+          "correct": "Direito",
+          "tip": "Aguarde até o cursor virar um sinal de +."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais destas operações matemáticas você pode realizar facilmente no Excel? ",
+          "answers": [
+            "Adição",
+            "Subtração",
+            "Multiplicação",
+            "Divisão"
+          ],
+          "correct": [
+            "Adição",
+            "Subtração",
+            "Multiplicação",
+            "Divisão"
+          ],
+          "tip": "Você aprenderá as quatro operações como coração do Excel."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione o tipo de dado ao seu comportamento numa fórmula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Referência de Célula (ex: A1)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Valor Fixo (ex: 5)",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Atualiza o resultado automaticamente "
+            },
+            {
+              "id": "z2",
+              "label": "Não recalcula se outra célula mudar "
+            }
+          ],
+          "correct": "drag",
+          "tip": "A grande vantagem do Excel não é calcular números fixos."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual operador você usaria na fórmula para multiplicar a quantidade pelo preço? ",
+          "answers": [
+            "* (asterisco)",
+            "+ (mais)",
+            "/ (barra)",
+            "- (menos)"
+          ],
+          "correct": "* (asterisco)",
+          "tip": "A tecla * serve para multiplicação de valores."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], ao arrastar a alça de repetição para baixo, o Excel ajusta as referências automaticamente (ex: B2 vira B3)? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Excel adapta automaticamente cada linha."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], ordene os passos para calcular o Total:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Clique na célula de Total "
+            },
+            {
+              "id": "z2",
+              "label": "Digite = para iniciar "
+            },
+            {
+              "id": "z3",
+              "label": "Tecle Enter para finalizar "
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dados dinâmicos e resultados sempre corretos são a base de planilhas."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], o que acontece se você alterar o valor de uma célula que está sendo usada por uma referência em uma fórmula? ",
+          "answers": [
+            "Os totais são recalculados automaticamente",
+            "O resultado se atualiza imediatamente",
+            "A planilha exibe um erro de hashtag",
+            "O Excel exclui a fórmula"
+          ],
+          "correct": [
+            "Os totais são recalculados automaticamente",
+            "O resultado se atualiza imediatamente"
+          ],
+          "trans": "PROT",
+          "tip": "Esse recálculo instantâneo é o poder do Excel! "
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o propósito principal da função SOMA? ",
+          "answers": [
+            "Fazer cálculos de adição para um intervalo inteiro automaticamente",
+            "Subtrair duas células distantes",
+            "Mudar a cor da fonte para vermelho",
+            "Remover casas decimais de números"
+          ],
+          "correct": "Fazer cálculos de adição para um intervalo inteiro automaticamente",
+          "tip": "Em vez de somar célula por célula, você usa a função que faz isso automaticamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a sintaxe da fórmula =SOMA[C2:C10] usando colchetes está correta? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Excel usa parênteses () para funções, nunca colchetes []."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Se você vir [COMBO] em uma célula, o valor numérico não cabe no espaço e a coluna precisa ser alargada.",
+          "options": [
+            "### (hashtags)",
+            "$$$ (cifrões)",
+            "*** (asteriscos)",
+            "--- (traços)"
+          ],
+          "correct": "### (hashtags)",
+          "tip": "Isso é normal e basta dar duplo clique ou arrastar a coluna para corrigir."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são regras de ouro profissionais para o padrão de cores? ",
+          "answers": [
+            "Usar no máximo 2 a 3 cores em uma planilha",
+            "Priorizar contraste: texto escuro em fundo claro",
+            "Reservar cores vibrantes para títulos e totais",
+            "Usar fundo vermelho forte no corpo da tabela"
+          ],
+          "correct": [
+            "Usar no máximo 2 a 3 cores em uma planilha",
+            "Priorizar contraste: texto escuro em fundo claro",
+            "Reservar cores vibrantes para títulos e totais"
+          ],
+          "tip": "Evite fundos com cores muito fortes no corpo da tabela."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione a ferramenta de formatação à sua função na Página Inicial:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Negrito",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Balde",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "\"A\" sublinhado colorido",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Para títulos e totais "
+            },
+            {
+              "id": "z2",
+              "label": "Cor de fundo/preenchimento "
+            },
+            {
+              "id": "z3",
+              "label": "Trocar a cor da letra "
+            }
+          ],
+          "correct": "drag",
+          "tip": "O atalho Ctrl+N aplica Negrito rapidamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], as linhas de grade cinzas da tela aparecem na impressão por padrão? ",
+          "answers": [
+            "Não, elas não aparecem na impressão",
+            "Sim, aparecem sempre",
+            "Depende da cor escolhida",
+            "Só aparecem se a impressora for colorida"
+          ],
+          "correct": "Não, elas não aparecem na impressão",
+          "tip": "Para a tabela ficar visível na impressão, é preciso adicionar bordas manualmente."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], formatar uma célula como Moeda adiciona automaticamente o R$, o ponto de milhar e as casas decimais? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso agiliza o trabalho e garante a formatação financeira correta."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Pressione a tecla de atalho [COMBO] com uma célula selecionada para entrar no modo de edição diretamente nela.",
+          "options": [
+            "F2",
+            "F5",
+            "Esc",
+            "Ctrl+C"
+          ],
+          "correct": "F2",
+          "tip": "Ideal para ver e corrigir a fórmula rapidamente sem usar a Barra de Fórmulas."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], como você pode ajustar o tamanho de uma coluna para o conteúdo não transbordar? ",
+          "answers": [
+            "Aponte o mouse entre duas letras e arraste manualmente",
+            "Dê um duplo clique na divisão entre colunas",
+            "Aperte Delete no teclado",
+            "Use o atalho Ctrl+Z"
+          ],
+          "correct": [
+            "Aponte o mouse entre duas letras e arraste manualmente",
+            "Dê um duplo clique na divisão entre colunas"
+          ],
+          "tip": "O duplo clique realiza um ajuste automático rápido."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione os tamanhos de fonte recomendados para uma planilha profissional:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Títulos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Cabeçalhos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Dados",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "16-20pt "
+            },
+            {
+              "id": "z2",
+              "label": "12pt "
+            },
+            {
+              "id": "z3",
+              "label": "11pt "
+            }
+          ],
+          "correct": "drag",
+          "tip": "Use os botões A+ e A- para ajustar rapidamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], planilhas alegóricas cheias de cores e fontes variadas são consideradas mais profissionais no mercado? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Planilhas profissionais usam paleta restrita e hierarquia clara."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Na função SOMA, o sinal de [COMBO] indica um intervalo contínuo de células, como C2 até C10.",
+          "options": [
+            "dois-pontos (:)",
+            "ponto e vírgula (;)",
+            "vírgula (,)",
+            "asterisco (*)"
+          ],
+          "correct": "dois-pontos (:)",
+          "tip": "É a forma correta e mais eficiente de usar a função."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o recurso que facilita centralizar cabeçalhos e números, melhorando a leitura? ",
+          "answers": [
+            "Alinhamento",
+            "Negrito",
+            "Bordas",
+            "SOMA"
+          ],
+          "correct": "Alinhamento",
+          "trans": "NORM",
+          "tip": "Textos descritivos devem ser alinhados à esquerda para leitura limpa."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o salvamento em Nuvem (OneDrive) requer uma conta da Microsoft? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse tipo de salvamento garante colaboração em equipe."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Nossa planilha financeira será dividida em três grandes blocos: Contas/Gastos, Resultado e [COMBO].",
+          "options": [
+            "Recebimentos",
+            "Despesas",
+            "Empréstimos",
+            "Investimentos"
+          ],
+          "correct": "Recebimentos",
+          "tip": "Tudo que entra no mês vai no bloco de recebimentos."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais configurações de permissão você pode definir ao compartilhar uma planilha por e-mail? ",
+          "answers": [
+            "Pode editar (alterar dados)",
+            "Pode exibir (somente leitura)",
+            "Não pode baixar (visualiza mas não salva)",
+            "Excluir arquivo do remetente"
+          ],
+          "correct": [
+            "Pode editar (alterar dados)",
+            "Pode exibir (somente leitura)",
+            "Não pode baixar (visualiza mas não salva)"
+          ],
+          "tip": "Controlar quem edita garante a segurança dos dados."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione as opções de salvamento às suas vantagens e características:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nuvem (OneDrive)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Local (Computador)",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Compartilhamento em tempo real "
+            },
+            {
+              "id": "z2",
+              "label": "Funciona sem internet "
+            }
+          ],
+          "correct": "drag",
+          "tip": "Para colaboração em equipe, prefira o OneDrive."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o formato de arquivo padrão ao salvar o Excel localmente (Arquivo > Salvar Como)? ",
+          "answers": [
+            ".xlsx",
+            ".pdf",
+            ".docx",
+            ".jpg"
+          ],
+          "correct": ".xlsx",
+          "tip": "O atalho de salvamento rápido no teclado é Ctrl+S."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], se você digitar Janeiro e arrastar a alça de repetição para os lados, o Excel preencherá os próximos meses automaticamente? ",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Excel reconhece sequências lógicas de meses e dias da semana."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O Saldo Final é calculado subtraindo o Total de [COMBO] do Total de Recebimentos.",
+          "options": [
+            "Gastos",
+            "Empréstimos",
+            "Lucros",
+            "Bancos"
+          ],
+          "correct": "Gastos",
+          "tip": "Fórmula típica de Saldo Final: Recebimentos - Gastos."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais dos itens abaixo podem compor a seção de recebimentos na sua planilha financeira? ",
+          "answers": [
+            "Salário",
+            "Saldo Bancário",
+            "Renda Extra",
+            "Imprevistos"
+          ],
+          "correct": [
+            "Salário",
+            "Saldo Bancário",
+            "Renda Extra"
+          ],
+          "tip": "Imprevistos e compras entram na parte de contas/gastos."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione o resultado do Saldo Final com a sua respectiva interpretação financeira:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Positivo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Próximo de zero",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Negativo",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sobrou dinheiro para poupar "
+            },
+            {
+              "id": "z2",
+              "label": "Qualquer imprevisto gera déficit "
+            },
+            {
+              "id": "z3",
+              "label": "Gastos superaram as receitas "
+            }
+          ],
+          "correct": "drag",
+          "tip": "O controle de saldo permite visualizar a saúde financeira do mês."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], para poder gerar e enviar um link de compartilhamento, onde sua planilha precisa obrigatoriamente estar salva? ",
+          "answers": [
+            "No OneDrive (Nuvem)",
+            "No Disco Rígido (C:)",
+            "Num Pendrive",
+            "Apenas em PDF"
+          ],
+          "correct": "No OneDrive (Nuvem)",
+          "tip": "Arquivos locais não geram link direto de compartilhamento nativo do Excel."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione cada elemento da planilha ao bloco em que ele deve ser registrado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Água, Luz, Celular",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Salário, Renda Extra",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Contas/Gastos "
+            },
+            {
+              "id": "z2",
+              "label": "Recebimentos "
+            }
+          ],
+          "correct": "drag",
+          "tip": "Manter a planilha separada nestes blocos simplifica o cálculo do saldo."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], como você pode inserir uma nova linha na planilha, como para incluir um novo gasto imprevisto? ",
+          "answers": [
+            "Clicar com o botão direito no número da linha e Inserir",
+            "Selecionar várias linhas, clicar com direito e Inserir múltiplas",
+            "Apagar os dados de toda a coluna",
+            "Mudar a cor da fonte para branco"
+          ],
+          "correct": [
+            "Clicar com o botão direito no número da linha e Inserir",
+            "Selecionar várias linhas, clicar com direito e Inserir múltiplas"
+          ],
+          "trans": "FIM",
+          "tip": "O Excel empurra as linhas abaixo para acomodar a nova perfeitamente."
+        }
+      ]
     }
   ]
 }
