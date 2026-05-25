@@ -34198,6 +34198,899 @@
           "tip": "Apt upgrade atualiza todos os pacotes e programas instalados no Ubuntu para tapar buracos de segurança."
         }
       ]
+    },
+    {
+      "slug": "aula-46",
+      "lesson_info": {
+        "id": "Aula-46",
+        "title": "AULA 46 - FERRAMENTAS DE ESCRITÓRIO: WORD BÁSICO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "O OFFICE NO MERCADO",
+            "desc": "A importância do Pacote Office, suas versões e modelos de assinatura.",
+            "color": "#0078D7",
+            "img_url": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "FORMATAÇÃO DE TEXTO",
+            "desc": "Interface do Word, atalhos de seleção, fontes e alinhamentos.",
+            "color": "#2B579A",
+            "img_url": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "TABELAS E LISTAS",
+            "desc": "Inserção de tabelas, guias contextuais, layout e uso de marcadores.",
+            "color": "#107C41",
+            "img_url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "CABEÇALHO E RODAPÉ",
+            "desc": "Padronização visual, salvamento de arquivos e marca d'água.",
+            "color": "#D83B01",
+            "img_url": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "W",
+          "O",
+          "R",
+          "D"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o Pacote Office é um requisito comum em vagas de emprego apenas para cargos de gerência.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele aparece constantemente em requisitos para estágios, auxiliares e assistentes em diversas áreas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a principal característica da versão Microsoft 365?",
+          "answers": [
+            "Pagamento único sem atualizações.",
+            "Assinatura com atualizações constantes e nuvem.",
+            "Funciona apenas em computadores Apple.",
+            "Não permite salvar arquivos."
+          ],
+          "correct": "Assinatura com atualizações constantes e nuvem.",
+          "tip": "O Microsoft 365 é um modelo de assinatura (mensal ou anual) que mantém os aplicativos sempre atualizados."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A versão do Office de pagamento [COMBO] é instalada localmente e tem atualizações mais limitadas.",
+          "options": [
+            "Único",
+            "Mensal",
+            "Recorrente",
+            "Compartilhado"
+          ],
+          "correct": "Único",
+          "tip": "O Office 2021/2024 (Home) é um exemplo de compra avulsa."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o plano do Microsoft 365 para empresas com sua característica:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Business Basic",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Business Standard",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Business Premium",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Apenas Web, uso leve"
+            },
+            {
+              "id": "z2",
+              "label": "Inclui apps desktop"
+            },
+            {
+              "id": "z3",
+              "label": "Recursos avançados de segurança"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os planos escalam de acordo com as necessidades de instalação e segurança da empresa."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais aplicativos estão disponíveis na versão Office Online Gratuita?",
+          "answers": [
+            "Word",
+            "Excel",
+            "PowerPoint",
+            "Access Desktop"
+          ],
+          "correct": [
+            "Word",
+            "Excel",
+            "PowerPoint"
+          ],
+          "tip": "A versão web gratuita engloba as principais ferramentas, mas possui limitações em recursos avançados."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o plano Microsoft 365 Family permite acesso completo para até 6 pessoas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "E cada usuário ainda recebe 1TB de armazenamento no OneDrive."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O [COMBO] é o serviço de armazenamento em nuvem da Microsoft integrado ao Office.",
+          "options": [
+            "Google Drive",
+            "OneDrive",
+            "iCloud",
+            "Dropbox"
+          ],
+          "correct": "OneDrive",
+          "tip": "É nele que os arquivos são salvos automaticamente com o Microsoft 365."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é necessário para usar o Office gratuitamente no navegador?",
+          "answers": [
+            "Comprar uma licença do Windows.",
+            "Ter um pen drive.",
+            "Criar uma conta Microsoft gratuita e acessar o site.",
+            "Baixar um aplicativo pago no celular."
+          ],
+          "correct": "Criar uma conta Microsoft gratuita e acessar o site.",
+          "tip": "Basta acessar office.com, entrar com a conta e usar."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são limitações do Office Online Gratuito?",
+          "answers": [
+            "Requer conexão com a internet.",
+            "Alguns recursos avançados não estão disponíveis.",
+            "Só funciona de madrugada.",
+            "Armazenamento gratuito limitado."
+          ],
+          "correct": [
+            "Requer conexão com a internet.",
+            "Alguns recursos avançados não estão disponíveis.",
+            "Armazenamento gratuito limitado."
+          ],
+          "tip": "Por ser via navegador e grátis, ele é mais focado nas funções essenciais."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione a situação com o impacto do Office na carreira:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Primeira Vaga",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Promoção Interna",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Recolocação",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Requisito para estágio e auxiliar"
+            },
+            {
+              "id": "z2",
+              "label": "Demonstra organização e competência"
+            },
+            {
+              "id": "z3",
+              "label": "Atualização exigida por recrutadores"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Office é um diferencial em todas as fases da vida profissional."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], os planos E3, E5 e E7 são voltados para uso doméstico.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Esses planos (Enterprise) são focados em grandes corporações, exigindo contrato com equipe de vendas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o foco do aplicativo Microsoft Word?",
+          "answers": [
+            "Edição de imagens.",
+            "Edição de vídeos.",
+            "Edição de planilhas de cálculo.",
+            "Edição de textos para criar documentos profissionais."
+          ],
+          "correct": "Edição de textos para criar documentos profissionais.",
+          "trans": "AGEN",
+          "tip": "Ele é usado para cartas, relatórios, trabalhos escolares e currículos."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o Word aplica formatações (como cor ou tamanho) apenas ao texto que está previamente selecionado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sempre selecione a palavra ou parágrafo antes de clicar no botão de formatação."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para selecionar todo o texto de um documento de uma só vez, usamos o atalho Ctrl + [COMBO].",
+          "options": [
+            "T",
+            "A",
+            "C",
+            "S"
+          ],
+          "correct": "T",
+          "tip": "No Word em Português, o atalho é Ctrl + T (Tudo)."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais dessas fontes são consideradas 'Sem Serifa' (limpas e padrão digital)?",
+          "answers": [
+            "Arial",
+            "Times New Roman",
+            "Aptos",
+            "Calibri"
+          ],
+          "correct": [
+            "Arial",
+            "Aptos",
+            "Calibri"
+          ],
+          "tip": "Times New Roman possui pequenos traços decorativos e é uma fonte Serifada."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione a forma de seleção de texto à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Duplo Clique",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Shift + Clique",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Clicar e Arrastar",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Seleciona uma palavra inteira"
+            },
+            {
+              "id": "z2",
+              "label": "Seleciona com precisão trechos longos"
+            },
+            {
+              "id": "z3",
+              "label": "Mão arrasta até o fim da seleção"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas técnicas ajudam a editar o documento muito mais rápido."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o tamanho de fonte padrão mais recomendado e exigido pela norma ABNT para documentos profissionais?",
+          "answers": [
+            "10",
+            "12",
+            "14",
+            "16"
+          ],
+          "correct": "12",
+          "tip": "Tamanho 12 em fontes como Arial ou Times New Roman é o padrão universal para leitura fluída."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o alinhamento 'Justificado' distribui os espaços para que o texto fique alinhado apenas na margem esquerda.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O texto Justificado fica alinhado em AMBAS as margens (esquerda e direita), criando um bloco uniforme."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], em quais situações o uso do Negrito é altamente recomendado?",
+          "answers": [
+            "Títulos de seções",
+            "Em todo o parágrafo do documento",
+            "Termos técnicos importantes",
+            "Cabeçalhos de tabelas"
+          ],
+          "correct": [
+            "Títulos de seções",
+            "Termos técnicos importantes",
+            "Cabeçalhos de tabelas"
+          ],
+          "tip": "O negrito destaca informações cruciais. Usá-lo no texto inteiro faz perder o efeito de destaque."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O alinhamento padrão que o Word usa ao abrir um documento em branco é o alinhado à [COMBO].",
+          "options": [
+            "Esquerda",
+            "Direita",
+            "Centro",
+            "Margem"
+          ],
+          "correct": "Esquerda",
+          "tip": "O texto começa da margem esquerda, deixando a margem direita irregular."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione os atalhos de teclado às suas funções de formatação no Word:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ctrl + N",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ctrl + I",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Ctrl + Z",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Aplicar Negrito"
+            },
+            {
+              "id": "z2",
+              "label": "Aplicar Itálico"
+            },
+            {
+              "id": "z3",
+              "label": "Desfazer última ação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Memorizar atalhos aumenta muito a sua produtividade."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o controle de Zoom no Word, que permite ampliar ou reduzir a folha, fica localizado em qual parte da interface?",
+          "answers": [
+            "No canto superior esquerdo.",
+            "Dentro da aba Arquivo.",
+            "No canto inferior direito da tela.",
+            "Na aba Inserir."
+          ],
+          "correct": "No canto inferior direito da tela.",
+          "tip": "Fica na barra de status inferior, sendo uma barra deslizante com os sinais de - e +."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], fontes com ícone de 'nuvem' ao lado do nome precisam ser pagas à parte na loja da Microsoft.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O ícone significa que a fonte está disponível para download rápido e gratuito; basta clicar para instalá-la."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para documentos formais, reserve as [COMBO] do texto apenas para destacar alertas ou títulos de seção, usando o preto como padrão.",
+          "options": [
+            "Imagens",
+            "Cores",
+            "Tabelas",
+            "Fontes"
+          ],
+          "correct": "Cores",
+          "tip": "Muitas cores em um texto formal podem tirar a credibilidade do documento."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao clicar na aba 'Página Inicial' (Início), qual recurso básico NÃO é encontrado lá?",
+          "answers": [
+            "Tamanho da fonte",
+            "Opções de negrito e cor",
+            "Alinhamento de texto",
+            "Inserir Quebra de Página"
+          ],
+          "correct": "Inserir Quebra de Página",
+          "trans": "PROT",
+          "tip": "Para inserir elementos como quebra de página, imagens ou tabelas, usa-se a guia 'Inserir'."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], ao configurar uma tabela, o comportamento 'Largura de coluna fixa' evita que as colunas mudem de tamanho enquanto você digita.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso ajuda a manter o layout da tabela estável e organizado desde o início."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para avançar célula por célula dentro de uma tabela de forma correta, devemos utilizar a tecla [COMBO].",
+          "options": [
+            "Enter",
+            "Espaço",
+            "Tab",
+            "Shift"
+          ],
+          "correct": "Tab",
+          "tip": "Usar o Enter dentro da tabela cria um novo parágrafo na mesma célula, em vez de pular para a próxima."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais novas guias contextuais aparecem automaticamente quando clicamos dentro de uma tabela?",
+          "answers": [
+            "Design da Tabela",
+            "Revisão",
+            "Layout (da tabela)",
+            "Correspondências"
+          ],
+          "correct": [
+            "Design da Tabela",
+            "Layout (da tabela)"
+          ],
+          "tip": "Guias contextuais do Office só ficam visíveis quando você clica em um elemento especial."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione o recurso de organização visual com a sua aplicação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Marcadores",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Numeração",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Lista de Vários Níveis",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Usa símbolos como bolinhas ou setas"
+            },
+            {
+              "id": "z2",
+              "label": "Organiza em ordem (1, 2, 3)"
+            },
+            {
+              "id": "z3",
+              "label": "Cria hierarquia com subitens"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Eles facilitam a leitura e destacam itens cruciais no documento."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], na guia 'Layout' de uma tabela, qual dessas ações é possível realizar?",
+          "answers": [
+            "Mudar a cor da fonte.",
+            "Inserir ou excluir linhas e colunas.",
+            "Salvar o documento em PDF.",
+            "Criar uma marca d'água."
+          ],
+          "correct": "Inserir ou excluir linhas e colunas.",
+          "tip": "A guia Layout cuida da estrutura da tabela: dividir células, ajustar tamanho, mesclar e apagar bordas."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], não é possível utilizar imagens ou símbolos personalizados (como uma estrela) na função de Marcadores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Você pode clicar em 'Definir Novo Marcador' e usar qualquer símbolo disponível no sistema."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], na guia 'Design da Tabela', o que podemos configurar?",
+          "answers": [
+            "Estilos prontos com cores.",
+            "Espessura das bordas.",
+            "Cor do sombreamento da célula.",
+            "Criar mala direta."
+          ],
+          "correct": [
+            "Estilos prontos com cores.",
+            "Espessura das bordas.",
+            "Cor do sombreamento da célula."
+          ],
+          "tip": "O Design altera a estética, enquanto o Layout altera a estrutura."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para inserir uma tabela, devemos clicar na guia [COMBO] e, em seguida, em Tabela.",
+          "options": [
+            "Início",
+            "Inserir",
+            "Design",
+            "Exibir"
+          ],
+          "correct": "Inserir",
+          "tip": "A guia Inserir é a porta de entrada para tabelas, imagens, formas e ícones."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], associe as partes da inserção de tabelas com seus conceitos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Colunas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Linhas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Células",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Estruturas na vertical"
+            },
+            {
+              "id": "z2",
+              "label": "Estruturas na horizontal"
+            },
+            {
+              "id": "z3",
+              "label": "Interseção onde se digita o texto"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber a diferença ajuda muito ao configurar a caixa 'Inserir Tabela'."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], se ao preencher uma tabela eu acidentalmente pressionar a tecla Enter em uma célula, o que ocorre?",
+          "answers": [
+            "O Word apaga o texto.",
+            "A tabela é dividida ao meio.",
+            "É criado um novo parágrafo na mesma célula, aumentando a altura da linha.",
+            "O cursor vai automaticamente para a próxima célula."
+          ],
+          "correct": "É criado um novo parágrafo na mesma célula, aumentando a altura da linha.",
+          "tip": "Por isso é recomendável usar a tecla TAB ou as setas do teclado para navegar."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], os marcadores só podem ser aplicados se você criá-los linha por linha; o Word não permite transformar um texto existente em lista.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Basta selecionar os vários parágrafos de texto já digitados e clicar no botão Marcadores."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O uso de [COMBO] de vários níveis é excelente para organizar documentos complexos como relatórios com capítulos e seções.",
+          "options": [
+            "Tabelas",
+            "Listas",
+            "Fontes",
+            "Imagens"
+          ],
+          "correct": "Listas",
+          "trans": "NORM",
+          "tip": "Elas automatizam a numeração (ex: 1., 1.1., 1.1.1.)."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], tudo o que é inserido na área do Cabeçalho ou do Rodapé se repete automaticamente em todas as páginas do documento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso ajuda a criar um padrão profissional em trabalhos escolares e relatórios corporativos."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais informações são tipicamente colocadas na área de rodapé de um documento comercial?",
+          "answers": [
+            "O corpo principal da carta",
+            "Endereço e Telefone/WhatsApp da empresa",
+            "Número da página",
+            "CNPJ"
+          ],
+          "correct": [
+            "Endereço e Telefone/WhatsApp da empresa",
+            "Número da página",
+            "CNPJ"
+          ],
+          "tip": "O rodapé serve para manter dados fixos de contato e referência visual das páginas."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para ativar rapidamente o cabeçalho, basta dar um [COMBO] na margem superior da página do documento.",
+          "options": [
+            "Duplo Clique",
+            "Clique Direito",
+            "Enter",
+            "Arraste"
+          ],
+          "correct": "Duplo Clique",
+          "tip": "Essa é a forma mais ágil. Outra forma é ir pela guia Inserir > Cabeçalho e Rodapé."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione a forma de compartilhamento ou salvamento com sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Salvar Localmente",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Salvamento na Nuvem",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Copiar Link",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Armazena o arquivo no HD do computador"
+            },
+            {
+              "id": "z2",
+              "label": "Salva no OneDrive em tempo real"
+            },
+            {
+              "id": "z3",
+              "label": "Gera URL para envio via WhatsApp"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A nuvem é ótima para backup e evitar perdas de arquivos por quedas de energia."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], para que serve a opção 'Desbotar' ao inserir uma imagem como Marca D'água?",
+          "answers": [
+            "Para apagar o texto principal do documento.",
+            "Para deixar a imagem mais clara e discreta, não atrapalhando a leitura.",
+            "Para diminuir o tamanho do arquivo.",
+            "Para imprimir o documento sem cor."
+          ],
+          "correct": "Para deixar a imagem mais clara e discreta, não atrapalhando a leitura.",
+          "tip": "É o padrão de papel timbrado; a marca (logo) fica ao fundo sem ofuscar o texto."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao visualizar o documento no modo de edição normal, o cabeçalho aparece levemente desbotado, mas na impressão ele sai totalmente apagado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele aparece desbotado apenas para diferenciar do texto principal na tela, mas na impressão ele sai normal."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], o Word possui modelos prontos de Marca D'água. Quais são exemplos clássicos para sinalizar o status de um arquivo?",
+          "answers": [
+            "Rascunho",
+            "Colorido Master",
+            "Confidencial",
+            "Não Copiar"
+          ],
+          "correct": [
+            "Rascunho",
+            "Confidencial",
+            "Não Copiar"
+          ],
+          "tip": "Eles são aplicados com um único clique pela guia 'Design'."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para sair da área de edição do Cabeçalho e Rodapé, você pode dar um duplo clique no corpo do texto ou apertar a tecla [COMBO].",
+          "options": [
+            "ESC",
+            "Enter",
+            "Shift",
+            "Delete"
+          ],
+          "correct": "ESC",
+          "tip": "A tecla ESC (Escape) cancela a ação ou sai do modo focado."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no Word, se você errar alguma formatação ou apagar algo acidentalmente, qual o atalho padrão para desfazer a ação?",
+          "answers": [
+            "Ctrl + S",
+            "Ctrl + V",
+            "Ctrl + T",
+            "Ctrl + Z"
+          ],
+          "correct": "Ctrl + Z",
+          "tip": "O Ctrl+Z é seu maior aliado em todos os programas do Pacote Office."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a Marca D'água pode ser configurada de forma personalizada, permitindo incluir o CPF ou número de matrícula do aluno.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso é muito feito por instituições de ensino para evitar pirataria de apostilas."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], conecte a função de organização do Office ao seu local na barra de ferramentas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Marca D'água",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Inserir Tabela",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Salvar Como",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Guia Design"
+            },
+            {
+              "id": "z2",
+              "label": "Guia Inserir"
+            },
+            {
+              "id": "z3",
+              "label": "Guia Arquivo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber onde estão os recursos principais poupa tempo ao montar documentos."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O Salvamento [COMBO] funciona no Word quando estamos logados na conta Microsoft e salvando o arquivo na nuvem.",
+          "options": [
+            "Automático",
+            "Local",
+            "Imediato",
+            "Diário"
+          ],
+          "correct": "Automático",
+          "trans": "FIM",
+          "tip": "Um botão no canto superior esquerdo pode ser ativado para salvar todas as mudanças em tempo real."
+        }
+      ]
     }
   ]
 }
