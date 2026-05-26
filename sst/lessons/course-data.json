@@ -37812,6 +37812,866 @@
           "tip": "O Excel empurra as linhas abaixo para acomodar a nova perfeitamente."
         }
       ]
+    },
+    {
+      "slug": "aula-50",
+      "lesson_info": {
+        "id": "Aula-50",
+        "title": "AULA 50 - EXCEL: ESTATÍSTICAS E LÓGICA",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "TRANSFERÊNCIA E CÁLCULOS",
+            "desc": "Transferência de saldos, uso de fórmulas encadeadas e inserção de benefícios.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "FORMATAÇÃO E PROTEÇÃO",
+            "desc": "Melhores práticas de formatação visual e proteção de planilhas com senhas.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1614064641936-38998970c710?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "ESTATÍSTICAS",
+            "desc": "Uso das funções SOMA, MÉDIA, MÁXIMO e MÍNIMO para análises de finanças.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "ANÁLISE E SOFT SKILLS",
+            "desc": "Interpretação de dados, sazonalidade e a diferença entre Hard e Soft Skills.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "S",
+          "O",
+          "M",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], na lógica da transferência de saldos, o que ocorre com o saldo que sobra ao final de um mês?",
+          "answers": [
+            "É automaticamente levado para o mês seguinte.",
+            "Deve ser redigitado manualmente no mês posterior.",
+            "É subtraído das despesas do ano anterior.",
+            "Fica retido até o fechamento anual."
+          ],
+          "correct": "É automaticamente levado para o mês seguinte.",
+          "tip": "Essa transferência garante que o saldo seja continuamente atualizado na cadeia de meses."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], ao configurar o saldo inicial para buscar o saldo final do mês anterior, é necessário repetir a digitação da fórmula mês a mês.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Não é necessário repetir a fórmula; basta marcar e arrastar pela alça de preenchimento."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para aplicar reajustes, deve-se selecionar [COMBO] antes de arrastar a alça, indicando uma repetição intencional.",
+          "options": [
+            "um único valor",
+            "dois valores",
+            "a coluna inteira",
+            "apenas a fórmula"
+          ],
+          "correct": "dois valores",
+          "tip": "Selecionar dois valores evita que o Excel crie uma progressão aritmética não desejada."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são os benefícios de utilizar a transferência de saldos no Excel?",
+          "answers": [
+            "Correções retroativas se propagam automaticamente.",
+            "O recálculo de toda a cadeia é automático.",
+            "Exige retrabalho manual a cada mês.",
+            "Permite ver a realidade financeira em tempo real."
+          ],
+          "correct": [
+            "Correções retroativas se propagam automaticamente.",
+            "O recálculo de toda a cadeia é automático.",
+            "Permite ver a realidade financeira em tempo real."
+          ],
+          "tip": "Essas são as maiores vantagens das fórmulas encadeadas na planilha."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o benefício trabalhista ao momento de seu lançamento na planilha didática:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Férias",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "13º (1ª parcela)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "13º (2ª parcela)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Mês de saída (ex: julho)"
+            },
+            {
+              "id": "z2",
+              "label": "Novembro (50% do salário)"
+            },
+            {
+              "id": "z3",
+              "label": "Dezembro (com descontos)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A distribuição de lançamentos ajuda no controle exato das entradas ao longo do ano."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], como é calculada a base de férias de forma estruturada no Excel?",
+          "answers": [
+            "O salário multiplicado por 3.",
+            "O salário acrescido de 1/3 do seu valor.",
+            "Apenas a divisão do salário por 3.",
+            "O salário menos os descontos anuais."
+          ],
+          "correct": "O salário acrescido de 1/3 do seu valor.",
+          "tip": "As férias equivalem ao salário mais o adicional de um terço constitucional."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], ao criar a fórmula de férias, os parênteses são irrelevantes porque o Excel sempre soma primeiro.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Os parênteses garantem a ordem correta, realizando a divisão antes da soma."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para revisar as células incluídas em uma fórmula de total, pode-se pressionar a tecla [COMBO].",
+          "options": [
+            "F4",
+            "F2",
+            "F12",
+            "F5"
+          ],
+          "correct": "F2",
+          "tip": "O F2 ativa o modo de edição e exibe bordas coloridas nas células vinculadas à fórmula."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais elementos garantem que a nova parcela adicionada (como o 13º) seja devidamente calculada?",
+          "answers": [
+            "Acessar a barra de fórmulas ou pressionar F2.",
+            "Ignorar os totais, pois o Excel faz sozinho.",
+            "Expandir a seleção na área pontilhada.",
+            "Pressionar Enter para confirmar a revisão."
+          ],
+          "correct": [
+            "Acessar a barra de fórmulas ou pressionar F2.",
+            "Expandir a seleção na área pontilhada.",
+            "Pressionar Enter para confirmar a revisão."
+          ],
+          "tip": "Novas linhas exigem que a fórmula do total seja revisada e expandida."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Se uma prestação de carro terminará em maio, como isso deve ser tratado na planilha contínua?",
+          "answers": [
+            "Lançar zero em todos os meses.",
+            "Inserir o valor até maio e deixar os demais em branco.",
+            "Criar uma nova planilha só para as prestações.",
+            "Diluir o valor até dezembro."
+          ],
+          "correct": "Inserir o valor até maio e deixar os demais em branco.",
+          "tip": "As prestações com prazo definido são inseridas apenas nos meses pertinentes."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], as regras reais de DP para cálculos de férias são exatamente iguais para qualquer trabalhador no Brasil.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As regras variam de acordo com o regime trabalhista e a convenção coletiva."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Ao adicionar lançamentos de despesas retroativas, o recálculo acontece graças à funcionalidade de [COMBO].",
+          "options": [
+            "Filtros de dados",
+            "Transferência de saldos",
+            "Gráficos dinâmicos",
+            "Validação de dados"
+          ],
+          "correct": "Transferência de saldos",
+          "trans": "AGEN",
+          "tip": "É a transferência de saldos encadeada que propaga os ajustes automaticamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], segundo as boas práticas corporativas, qual a recomendação sobre o uso de cores em planilhas profissionais?",
+          "answers": [
+            "Usar todas as cores possíveis para chamar atenção.",
+            "Usar cores com moderação, destacando apenas o crítico.",
+            "Deixar a planilha sem formatação alguma.",
+            "Colorir todas as linhas de maneira idêntica."
+          ],
+          "correct": "Usar cores com moderação, destacando apenas o crítico.",
+          "tip": "O excesso de cores é um erro comum; a estética nunca deve sobrepor a clareza."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], células que contêm cálculos e fórmulas são as mais recomendadas para receber a formatação 'Mesclar e Centralizar'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Mesclar células com cálculos pode causar erros nas funções de busca e referência."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para deixar a planilha com aparência limpa, podemos desativar as [COMBO] no menu Exibir.",
+          "options": [
+            "Fórmulas",
+            "Linhas de grade",
+            "Bordas",
+            "Células ativas"
+          ],
+          "correct": "Linhas de grade",
+          "tip": "Remover linhas de grade padrão cria um ambiente visual mais profissional."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais destas ações fazem parte da formatação visual adequada em uma planilha financeira?",
+          "answers": [
+            "Uso de negrito nas linhas de totais.",
+            "Destacar saídas (despesas) em vermelho.",
+            "Mesclar todas as colunas de valores.",
+            "Aplicar bordas para delimitar áreas de entrada."
+          ],
+          "correct": [
+            "Uso de negrito nas linhas de totais.",
+            "Destacar saídas (despesas) em vermelho.",
+            "Aplicar bordas para delimitar áreas de entrada."
+          ],
+          "tip": "Estes são recursos indicados para organizar e ler os dados rapidamente."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os tipos de seleção e ações do teclado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Tecla Ctrl",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Tecla Shift",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Botão direito -> Inserir",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Selecionar áreas não contíguas"
+            },
+            {
+              "id": "z2",
+              "label": "Selecionar intervalos contínuos"
+            },
+            {
+              "id": "z3",
+              "label": "Criar espaçamentos entre linhas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar o uso conjunto do teclado e do mouse agiliza as rotinas."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual a diferença central entre a senha de proteção e a senha de gravação no Excel?",
+          "answers": [
+            "Ambas fazem a mesma coisa.",
+            "A de proteção impede visualização; a de gravação impede salvar edições.",
+            "A de proteção apaga os dados e a de gravação os recupera.",
+            "A de gravação cria backups criptografados."
+          ],
+          "correct": "A de proteção impede visualização; a de gravação impede salvar edições.",
+          "tip": "Com a senha de gravação, o arquivo pode ser aberto como 'Somente Leitura'."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], se você esquecer a senha de proteção de uma planilha do Excel, poderá utilizar o recurso nativo de 'Recuperar Senha' facilmente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Excel não possui recurso nativo de recuperação; o acesso pode ser perdido em definitivo."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para acessar as configurações de senhas, deve-se usar o caminho: Arquivo -> Salvar Como -> Ferramentas -> [COMBO].",
+          "options": [
+            "Opções Gerais",
+            "Opções Avançadas",
+            "Segurança Máxima",
+            "Bloquear Planilha"
+          ],
+          "correct": "Opções Gerais",
+          "tip": "É nesse menu que você configura a proteção e a gravação."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais destas ações são consideradas Boas Práticas de Segurança no uso de senhas?",
+          "answers": [
+            "Usar a mesma senha de '1234' para tudo.",
+            "Utilizar letras, números e símbolos.",
+            "Compartilhar a senha abertamente por e-mail.",
+            "Revisar periodicamente quem tem acesso aos arquivos."
+          ],
+          "correct": [
+            "Utilizar letras, números e símbolos.",
+            "Revisar periodicamente quem tem acesso aos arquivos."
+          ],
+          "tip": "Senhas óbvias e anotadas no próprio arquivo comprometem totalmente a segurança corporativa."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Como é o procedimento para remover uma senha de um arquivo que já está protegido?",
+          "answers": [
+            "Basta renomear o arquivo no Windows.",
+            "Acessar 'Opções Gerais', apagar o campo da senha e salvar substituindo.",
+            "Clicar na planilha e deletar as colunas.",
+            "Não é possível remover a senha."
+          ],
+          "correct": "Acessar 'Opções Gerais', apagar o campo da senha e salvar substituindo.",
+          "tip": "Para remover a senha, você primeiramente precisa conhecê-la e abrir o arquivo."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], é tecnicamente possível aplicar a senha de proteção e a senha de gravação de maneira simultânea no mesmo arquivo do Excel.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É possível usar as duas, embora a maioria dos cenários demande apenas uma."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para formatar células ignorando títulos e totais, a seleção ideal é a Aleatória com o uso da tecla [COMBO].",
+          "options": [
+            "Shift",
+            "Alt",
+            "Ctrl",
+            "Tab"
+          ],
+          "correct": "Ctrl",
+          "tip": "A seleção aleatória soma novos intervalos de seleção mantendo os anteriores."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de acesso à planilha com a sua limitação quando as senhas são ativadas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sem a senha de Proteção",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sem a senha de Gravação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Com a senha de Gravação",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Impossível visualizar os dados"
+            },
+            {
+              "id": "z2",
+              "label": "Abre como Somente Leitura"
+            },
+            {
+              "id": "z3",
+              "label": "Permite editar e salvar"
+            }
+          ],
+          "correct": "drag",
+          "trans": "PROT",
+          "tip": "Entender as restrições evita perdas de informações críticas da empresa."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o principal papel da função MÉDIA na análise financeira de uma empresa?",
+          "answers": [
+            "Somar todos os lucros do ano sem considerar as despesas.",
+            "Demonstrar o valor típico mensal de receita ou gasto para nortear o planejamento.",
+            "Encontrar o pior momento de vendas.",
+            "Apenas indicar o mês com maior pico de faturamento."
+          ],
+          "correct": "Demonstrar o valor típico mensal de receita ou gasto para nortear o planejamento.",
+          "tip": "A média suaviza os picos e quedas (sazonalidade), criando uma base de projeção."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no Excel, se o resultado de uma soma ou média aparecer na célula exibindo vários símbolos de cerquilha (###), isso significa que ocorreu um erro matemático na fórmula.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Isso apenas indica que a largura da coluna é insuficiente para exibir o número formatado."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para encontrar o melhor mês de vendas e replicar seu sucesso, utiliza-se a função estatística [COMBO].",
+          "options": [
+            "MÍNIMO",
+            "SOMA",
+            "MÁXIMO",
+            "PROCV"
+          ],
+          "correct": "MÁXIMO",
+          "tip": "A função MÁXIMO retorna o maior valor do intervalo selecionado."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Para que situações a função MÍNIMO é estrategicamente valiosa para o gestor?",
+          "answers": [
+            "Identificar o pior mês de faturamento.",
+            "Calcular os impostos da empresa.",
+            "Planejar reservas para cobrir quedas de receita.",
+            "Saber qual foi a despesa mais barata e menos prioritária."
+          ],
+          "correct": [
+            "Identificar o pior mês de faturamento.",
+            "Planejar reservas para cobrir quedas de receita."
+          ],
+          "tip": "Conhecer o 'fundo do poço' ajuda a desenhar planos de contingência assertivos."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione as funções estatísticas do Excel com suas aplicações na prática:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "SOMA",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "MÉDIA",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "MÁXIMO",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "MÍNIMO",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Total geral de receitas"
+            },
+            {
+              "id": "z2",
+              "label": "Valor típico e limite seguro"
+            },
+            {
+              "id": "z3",
+              "label": "Melhor mês e análise de picos"
+            },
+            {
+              "id": "z4",
+              "label": "Pior mês e contingência"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas métricas unidas formam a base analítica fundamental na gestão corporativa."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Como se calcula o resultado final médio, que aponta se a empresa é saudável ou deficitária?",
+          "answers": [
+            "Somando a Média de Faturamento com a Função MÁXIMO.",
+            "Subtraindo a Média de Despesas da Média de Faturamento.",
+            "Dividindo as receitas totais pelas despesas mínimas.",
+            "A média mensal menos o imposto."
+          ],
+          "correct": "Subtraindo a Média de Despesas da Média de Faturamento.",
+          "tip": "O resultado final (se positivo ou negativo) é a prova definitiva da estabilidade do negócio."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a função SOMA no Excel opera exclusivamente na orientação vertical (por colunas), sendo impossível somar linhas inteiras num relatório sem adaptá-lo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A função SOMA funciona tanto para colunas quanto para extensos intervalos horizontais."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O faturamento de ovos de chocolate é altamente atrelado à Páscoa; esse fenômeno de vendas atípicas recebe o nome de [COMBO].",
+          "options": [
+            "Elasticidade",
+            "Sazonalidade",
+            "Progressão",
+            "Máximo Ocasional"
+          ],
+          "correct": "Sazonalidade",
+          "tip": "A sazonalidade explica as grandes variações temporais do desempenho do negócio."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais desses cenários podem ser detectados imediatamente com a análise do Resultado final?",
+          "answers": [
+            "Empresa saudável (saldo final positivo).",
+            "Senha do Excel esquecida pelo gestor.",
+            "Equilíbrio frágil (saldo muito próximo de zero).",
+            "Alerta de déficit (despesas maiores que as receitas)."
+          ],
+          "correct": [
+            "Empresa saudável (saldo final positivo).",
+            "Equilíbrio frágil (saldo muito próximo de zero).",
+            "Alerta de déficit (despesas maiores que as receitas)."
+          ],
+          "tip": "O indicador de resultado evidencia a urgência das correções financeiras."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Ao alterar a conta de luz do mês de março na sua planilha já finalizada, o que ocorre com o gráfico das estatísticas e com a média anual?",
+          "answers": [
+            "Apenas a célula da luz se altera.",
+            "Tudo é recalculado e atualizado instantaneamente.",
+            "É necessário reabrir o arquivo para visualizar.",
+            "O gráfico se desconfigura exigindo formatação."
+          ],
+          "correct": "Tudo é recalculado e atualizado instantaneamente.",
+          "tip": "A inteligência do Excel faz com que todas as médias e painéis se ajustem automaticamente aos novos dados inseridos."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], espelhar ou repassar resultados entre células na planilha é feito utilizando o sinal de = seguido pelo clique na célula alvo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso cria uma referência vinculada, ideal para alimentar dashboards e painéis de resumo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Nos meses de excelente faturamento, o excedente deve ir para a [COMBO] da empresa para suprir os meses fracos.",
+          "options": [
+            "Previdência",
+            "Reserva financeira",
+            "Divisão de Sócios",
+            "Conta corrente"
+          ],
+          "correct": "Reserva financeira",
+          "tip": "Criar reservas é o movimento responsável gerado pela leitura correta da média de faturamento."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione a análise lógica com a etapa financeira que ela propõe:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Faturamento acima da Média",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Faturamento abaixo da Média",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Análise Constante da Média",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Guarda-se o excedente (Reserva)"
+            },
+            {
+              "id": "z2",
+              "label": "A reserva cobre a diferença"
+            },
+            {
+              "id": "z3",
+              "label": "Orienta o limite de custos fixos"
+            }
+          ],
+          "correct": "drag",
+          "trans": "NORM",
+          "tip": "A análise protege o negócio da falta de fluxo de caixa gerada pela sazonalidade."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no ecossistema corporativo, qual é a melhor definição prática para as chamadas Hard Skills?",
+          "answers": [
+            "São as habilidades emocionais de comunicação.",
+            "É a capacidade de mediar conflitos na equipe.",
+            "Refere-se ao conhecimento técnico operável (fórmulas, gráficos).",
+            "São habilidades inatas que não podem ser treinadas."
+          ],
+          "correct": "Refere-se ao conhecimento técnico operável (fórmulas, gráficos).",
+          "tip": "Hard skills contemplam todo o aparato e destreza na operação técnica do Excel."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], Soft Skills englobam competências como a comunicação interpessoal e o trabalho em equipe, essenciais para o mercado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dominar as ferramentas é apenas metade; a comunicação é imprescindível para atuar de forma estratégica."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A atitude de dialogar e perguntar ativamente ao gestor sobre qual métrica exibir ilustra uma exímia [COMBO] Skill.",
+          "options": [
+            "Hard",
+            "Technical",
+            "Soft",
+            "Static"
+          ],
+          "correct": "Soft",
+          "tip": "A empatia analítica demonstra que a pessoa se importa com a tomada de decisão que a planilha irá balizar."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Na área de TI e de negócios, como um profissional se diferencia no uso do Excel segundo as diretrizes de Análise?",
+          "answers": [
+            "Calculando tudo às cegas imediatamente.",
+            "Lendo todas as informações disponíveis antes de agir.",
+            "Entendendo o resultado esperado (o destino dos dados).",
+            "Planejando mentalmente a estratégia antes de escrever a fórmula."
+          ],
+          "correct": [
+            "Lendo todas as informações disponíveis antes de agir.",
+            "Entendendo o resultado esperado (o destino dos dados).",
+            "Planejando mentalmente a estratégia antes de escrever a fórmula."
+          ],
+          "tip": "O nome 'Analista' exige, por natureza, interpretação crítica e ponderada da demanda."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Vincule a atitude com o modelo de Skill que ela representa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Criar senha e criptografar a tabela",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Entender o porquê do usuário pedir o painel",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Utilizar a Função MÁXIMO",
+              "match": "z1"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Hard Skill (Técnico)"
+            },
+            {
+              "id": "z2",
+              "label": "Soft Skill (Comportamento)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As habilidades comportamentais conduzem e direcionam os recursos das Hard Skills."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual a primeira atitude a tomar ao receber do gestor uma tabela bruta (sem nenhum resultado prévio) nas mãos?",
+          "answers": [
+            "Digitar a função SOMA em todas as colunas vazias.",
+            "Interpretar e identificar os rótulos de cada coluna.",
+            "Colorir de vermelho as despesas.",
+            "Inserir senhas para não precisar alterar."
+          ],
+          "correct": "Interpretar e identificar os rótulos de cada coluna.",
+          "tip": "Sem saber qual o destino ou significado dos dados, qualquer operação tem altas chances de estar imprecisa."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no Excel, Gráficos possuem o principal propósito de dificultar a cópia de informações sigilosas na empresa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Eles representam dados visualmente de forma simplificada, permitindo rápida e ampla interpretação."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para o crescimento no aprendizado, deve-se assistir, [COMBO] nas planilhas e, finalmente, avaliar o progresso alcançado.",
+          "options": [
+            "ignorar",
+            "praticar",
+            "imprimir",
+            "arquivar"
+          ],
+          "correct": "praticar",
+          "tip": "O Excel demanda imersão constante para que as fórmulas tornem-se movimentos automáticos do usuário."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], ao mesclar ambos os tipos de habilidades (Hard e Soft), quais resultados práticos o profissional alcança?",
+          "answers": [
+            "Painéis limpos que entregam exatamente a métrica solicitada.",
+            "Capacidade de questionar prazos e objetivos da planilha pedida.",
+            "Planilhas lotadas de gráficos excessivos sem utilidade real.",
+            "Confiabilidade e autonomia delegadas pelo gestor do setor."
+          ],
+          "correct": [
+            "Painéis limpos que entregam exatamente a métrica solicitada.",
+            "Capacidade de questionar prazos e objetivos da planilha pedida.",
+            "Confiabilidade e autonomia delegadas pelo gestor do setor."
+          ],
+          "tip": "Essa dupla maestria forma o verdadeiro Analista, capaz de transcender a mera digitação de dados corporativos."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Ao realizar avaliações baseadas apenas num pico isolado no Natal, que risco o gestor corre em seu planejamento se ignorar a sazonalidade?",
+          "answers": [
+            "Nenhum, pois vendas recordes garantem o próximo ano.",
+            "Assumir erroneamente que aquela média se repetirá e gastar mais que o devido.",
+            "Receber as métricas financeiras bloqueadas pelo Excel.",
+            "Atingir perfeitamente as projeções de abril e maio."
+          ],
+          "correct": "Assumir erroneamente que aquela média se repetirá e gastar mais que o devido.",
+          "tip": "Sem usar as médias estatísticas, a leitura da Sazonalidade fica distorcida e fatalmente enviesada."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], na análise profunda, um faturamento sazonal alto em um dado mês elimina categoricamente o impacto dos gastos fixos estagnados da empresa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O faturamento não atenua o impacto de custos fixos mal desenhados; pelo contrário, mascara as falhas até a chegada dos meses fracos."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Cada novo dashboard construído com dedicação o aproxima da almejada [COMBO] Profissional e estratégica.",
+          "options": [
+            "Estagnação",
+            "Excelência",
+            "Formatação",
+            "Proteção"
+          ],
+          "correct": "Excelência",
+          "trans": "FIM",
+          "tip": "O refinamento na jornada da elaboração analítica solidifica gradativamente a autoridade técnica do colaborador."
+        }
+      ]
     }
   ]
 }
