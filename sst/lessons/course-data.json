@@ -36945,7 +36945,7 @@
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "As [COMBO] são representadas por letras horizontais que categorizam dados.",
+          "questions": "As [COMBO] são representadas por letras verticais que categorizam dados.",
           "options": [
             "Colunas",
             "Linhas",
@@ -36996,11 +36996,11 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Letras horizontais "
+              "label": "Letras Verticais "
             },
             {
               "id": "z2",
-              "label": "Números verticais "
+              "label": "Números horizontais "
             },
             {
               "id": "z3",
