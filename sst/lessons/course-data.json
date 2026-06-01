@@ -38559,12 +38559,7 @@
               "id": "d2",
               "txt": "Entender o porquê do usuário pedir o painel",
               "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Utilizar a Função MÁXIMO",
-              "match": "z1"
-            }
+            }            
           ],
           "zones": [
             {
