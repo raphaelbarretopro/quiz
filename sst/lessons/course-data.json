@@ -38559,7 +38559,7 @@
               "id": "d2",
               "txt": "Entender o porquê do usuário pedir o painel",
               "match": "z2"
-            }            
+            }
           ],
           "zones": [
             {
@@ -38665,6 +38665,811 @@
           "correct": "Excelência",
           "trans": "FIM",
           "tip": "O refinamento na jornada da elaboração analítica solidifica gradativamente a autoridade técnica do colaborador."
+        }
+      ]
+    },
+    {
+      "slug": "aula-53",
+      "lesson_info": {
+        "id": "Aula-53",
+        "title": "AULA 53 - EXCEL: FIXAÇÃO E ANÁLISE DE DADOS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FIXAÇÃO DE CÉLULAS",
+            "desc": "Travamento de referências com F4 e cifrão para fórmulas reutilizáveis.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "PROCX NA PRÁTICA",
+            "desc": "Busca avançada inteligente, superando as limitações do antigo PROCV.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "GRÁFICOS E FORMATAÇÃO",
+            "desc": "Criação de visualizações profissionais e boas práticas de design corporativo.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "ANÁLISE DE DADOS",
+            "desc": "Limpeza de dados, remoção de duplicatas e aplicação de funções estatísticas.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que acontece quando arrastamos uma fórmula sem fixar as células?",
+          "answers": [
+            "O Excel desloca automaticamente as referências de linha e coluna",
+            "O Excel copia o mesmo valor exato para todas as células",
+            "O Excel apaga a fórmula original",
+            "A fórmula apresenta um erro de divisão por zero"
+          ],
+          "correct": "O Excel desloca automaticamente as referências de linha e coluna",
+          "tip": "Esse é o comportamento padrão do Excel para facilitar somas sequenciais, mas pode causar erros se a referência for única."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], fixar uma célula garante que ela não se mova, independentemente de onde a fórmula for copiada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa é a exata função do uso do cifrão nas fórmulas."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para fixar rapidamente uma célula numa fórmula, deves pressionar a tecla [COMBO].",
+          "options": [
+            "F4",
+            "F2",
+            "F9",
+            "Enter"
+          ],
+          "correct": "F4",
+          "tip": "Em alguns portáteis, pode ser necessário pressionar FN + F4."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione os atalhos e conceitos da fixação de células:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "F4",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "$",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Shift + 4",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Arrastar",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Atalho principal para fixar"
+            },
+            {
+              "id": "z2",
+              "label": "Símbolo que trava a referência"
+            },
+            {
+              "id": "z3",
+              "label": "Comando para digitar o cifrão manualmente"
+            },
+            {
+              "id": "z4",
+              "label": "Ação que desloca referências não fixadas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O símbolo $ indica ao Excel qual parte da referência deve ser congelada."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das alternativas representam formas válidas de inserir a fixação em uma célula?",
+          "answers": [
+            "Pressionar F4 com o cursor na referência",
+            "Digitar o cifrão manualmente com Shift + 4",
+            "Clicar com o botão direito e escolher 'Travar'",
+            "Pressionar CTRL + T"
+          ],
+          "correct": [
+            "Pressionar F4 com o cursor na referência",
+            "Digitar o cifrão manualmente com Shift + 4"
+          ],
+          "tip": "O Excel aceita tanto o atalho quanto a digitação manual do símbolo na barra de fórmulas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Como é representada uma célula com linha e coluna totalmente travadas?",
+          "answers": [
+            "$B$12",
+            "B$12",
+            "$B12",
+            "B12"
+          ],
+          "correct": "$B$12",
+          "tip": "O cifrão antes da letra trava a coluna, e antes do número trava a linha."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], se a tecla F4 não funcionar, não é possível fixar a célula no Excel.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Podes sempre digitar manualmente o cifrão antes da letra e do número."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Numa fórmula como =SOMA($B$4:$B$12), a referência permanecerá [COMBO] ao ser arrastada.",
+          "options": [
+            "a mesma",
+            "deslocada",
+            "zerada",
+            "oculta"
+          ],
+          "correct": "a mesma",
+          "tip": "A fixação impede qualquer deslocamento."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que acontece na referência $B12 se a fórmula for copiada para a direita?",
+          "answers": [
+            "A coluna B permanece fixa, mas a linha pode mudar se copiada para baixo",
+            "A coluna muda para C",
+            "A linha e a coluna permanecem travadas",
+            "Dá erro de valor"
+          ],
+          "correct": "A coluna B permanece fixa, mas a linha pode mudar se copiada para baixo",
+          "tip": "O cifrão está apenas antes da letra."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais cenários exigem a fixação de células?",
+          "answers": [
+            "Cálculo de percentual usando um total geral numa célula única",
+            "Conversão de moedas baseada numa taxa de câmbio fixa",
+            "Soma simples de duas colunas linha a linha",
+            "Uso de uma matriz de busca no PROCX"
+          ],
+          "correct": [
+            "Cálculo de percentual usando um total geral numa célula única",
+            "Conversão de moedas baseada numa taxa de câmbio fixa",
+            "Uso de uma matriz de busca no PROCX"
+          ],
+          "tip": "Sempre que um valor único não deve deslizar ao arrastar a fórmula, deves fixá-lo."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a fixação manual usando Shift + 4 é mais trabalhosa, mas funciona sempre, independentemente do teclado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Alguns portáteis exigem FN para as teclas de função, tornando a digitação manual uma alternativa segura."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual destas células terá a linha travada, mas a coluna livre para deslocar?",
+          "answers": [
+            "B$12",
+            "$B$12",
+            "$B12",
+            "B12"
+          ],
+          "correct": "B$12",
+          "tip": "O cifrão deve estar apenas antes do número da linha.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a principal função que substituiu e melhorou o antigo PROCV?",
+          "answers": [
+            "PROCX",
+            "PROCH",
+            "ÍNDICE",
+            "CORRESP"
+          ],
+          "correct": "PROCX",
+          "tip": "O PROCX é a função atual e recomendada, sendo muito mais flexível."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O PROCX tem a limitação de apenas conseguir procurar valores da esquerda para a direita, tal como o PROCV.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O PROCX consegue procurar valores em qualquer direção, não tendo limitação de colunas."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Na sintaxe do PROCX, o primeiro argumento é o [COMBO], ou seja, aquilo que queres encontrar.",
+          "options": [
+            "Valor Procurado",
+            "Matriz de Procura",
+            "Matriz de Retorno",
+            "Se não encontrar"
+          ],
+          "correct": "Valor Procurado",
+          "tip": "É o dado de origem, como o nome de um funcionário que digitas na pesquisa."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os argumentos do PROCX com os seus significados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Valor Procurado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Matriz de Procura",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Matriz de Retorno",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Se não encontrar",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O item específico que estamos a pesquisar"
+            },
+            {
+              "id": "z2",
+              "label": "A lista/coluna onde o valor será buscado"
+            },
+            {
+              "id": "z3",
+              "label": "A coluna que contém a resposta desejada"
+            },
+            {
+              "id": "z4",
+              "label": "Mensagem personalizada em caso de falha"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A sintaxe básica requer os 3 primeiros elementos para funcionar."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], por que devemos fixar com F4 a Matriz de Procura e a Matriz de Retorno no PROCX?",
+          "answers": [
+            "Para que a base de dados de pesquisa não se desloque ao arrastar a fórmula",
+            "Para evitar erros de #N/D ao pesquisar outras linhas",
+            "Para mudar a cor da célula automaticamente",
+            "Para obrigar o Excel a apagar linhas vazias"
+          ],
+          "correct": [
+            "Para que a base de dados de pesquisa não se desloque ao arrastar a fórmula",
+            "Para evitar erros de #N/D ao pesquisar outras linhas"
+          ],
+          "tip": "As matrizes de dados (as listas) devem ser sempre absolutas (travadas)."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que acontece se um nome digitado no PROCX tiver um espaço oculto no final (ex: 'Lucas ')?",
+          "answers": [
+            "Retorna a mensagem de não encontrado, pois não é exatamente igual",
+            "O Excel apaga o espaço automaticamente e acha o resultado",
+            "A fórmula dá um erro fatal e fecha o Excel",
+            "Ele traz o resultado do nome mais parecido"
+          ],
+          "correct": "Retorna a mensagem de não encontrado, pois não é exatamente igual",
+          "tip": "Inconsistências invisíveis como espaços causam erros silenciosos nas pesquisas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o argumento 'Se não encontrar' no PROCX elimina a necessidade de usar a função SEERRO em muitos casos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O próprio PROCX já tem um argumento nativo para tratar erros quando não encontra o dado."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Ao montar o PROCX, é vital selecionar primeiro a coluna de pesquisa e depois a de [COMBO].",
+          "options": [
+            "Retorno",
+            "Títulos",
+            "Fórmulas",
+            "Macros"
+          ],
+          "correct": "Retorno",
+          "tip": "Matriz de Procura seguida da Matriz de Retorno."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Em ambientes profissionais, quando deves usar o PROCV em vez do PROCX?",
+          "answers": [
+            "Apenas para manter a compatibilidade com versões muito antigas do Excel",
+            "Sempre, porque é mais rápido",
+            "Quando a tabela tem mais de 1000 linhas",
+            "Nunca, pois o PROCV foi removido do Excel"
+          ],
+          "correct": "Apenas para manter a compatibilidade com versões muito antigas do Excel",
+          "tip": "O PROCV é considerado uma função legada hoje em dia."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais são as vantagens diretas do PROCX sobre os métodos antigos?",
+          "answers": [
+            "Não exige contar colunas da esquerda para a direita",
+            "Permite pesquisar da direita para a esquerda",
+            "Tratamento nativo caso o valor não exista",
+            "Cria gráficos de pizza automaticamente"
+          ],
+          "correct": [
+            "Não exige contar colunas da esquerda para a direita",
+            "Permite pesquisar da direita para a esquerda",
+            "Tratamento nativo caso o valor não exista"
+          ],
+          "tip": "O PROCX resolve os maiores problemas históricos do PROCV."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], se não inserires a mensagem de erro (quarto argumento) e o PROCX falhar, ele exibirá #N/D.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O erro #N/D (Não Disponível) é o padrão se não especificares uma mensagem amigável."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Na sintaxe =PROCX($F$4; $A$4:$A$12; $B$4:$B$12; \"Sem dados\"), o que representa $F$4?",
+          "answers": [
+            "O valor procurado fixado",
+            "A matriz de retorno",
+            "A mensagem de erro",
+            "A matriz de pesquisa"
+          ],
+          "correct": "O valor procurado fixado",
+          "tip": "É a célula singular que contém o nome ou código que estamos a tentar localizar.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o princípio número um das boas práticas de formatação de planilhas?",
+          "answers": [
+            "Menos é mais (evitar excessos)",
+            "Usar cores néon para destacar células",
+            "Aplicar 3D em todos os gráficos",
+            "Deixar sempre as linhas de grade visíveis"
+          ],
+          "correct": "Menos é mais (evitar excessos)",
+          "tip": "Planilhas profissionais usam paletas restritas e fáceis de ler."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "No contexto corporativo, é altamente recomendado usar as cores da identidade visual da empresa nos relatórios.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso gera padronização e profissionalismo nos documentos."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os passos da criação de um gráfico:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Passo 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Selecionar os dados do relatório"
+            },
+            {
+              "id": "z2",
+              "label": "Inserir gráfico pelo menu"
+            },
+            {
+              "id": "z3",
+              "label": "Ajustar layout e rótulos"
+            },
+            {
+              "id": "z4",
+              "label": "Remover excessos e aplicar cores"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A seleção dos dados é sempre a primeira etapa na criação visual."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para deixar um relatório com visual limpo, devemos [COMBO] as Linhas de Grade no menu Exibir.",
+          "options": [
+            "desmarcar",
+            "engrossar",
+            "pintar",
+            "piscar"
+          ],
+          "correct": "desmarcar",
+          "tip": "Remover as linhas de grade cria o efeito de 'folha em branco' do relatório."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são consideradas boas práticas na finalização visual de uma planilha?",
+          "answers": [
+            "Remover Linhas de Grade",
+            "Usar bordas externas para delimitar blocos",
+            "Mesclar e centralizar títulos",
+            "Pintar cada coluna com uma cor primária forte"
+          ],
+          "correct": [
+            "Remover Linhas de Grade",
+            "Usar bordas externas para delimitar blocos",
+            "Mesclar e centralizar títulos"
+          ],
+          "tip": "Evita o uso excessivo de cores diferentes para não criar cansaço visual."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Como se aplica uma 'Barra de Dados' proporcional dentro de uma célula?",
+          "answers": [
+            "Formatação Condicional -> Barras de Dados",
+            "Inserir -> Gráfico de Barras",
+            "Desenhar -> Retângulo",
+            "Pincel de Formatação"
+          ],
+          "correct": "Formatação Condicional -> Barras de Dados",
+          "tip": "Isso cria um mini gráfico diretamente dentro da célula de acordo com o valor."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o Pincel de Formatação permite copiar rapidamente o visual de uma célula e aplicar noutra.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É uma ferramenta fantástica para poupar tempo e garantir padrões visuais."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Em gráficos de pizza, o que significa a regra de 'Remover Excessos'?",
+          "answers": [
+            "Eliminar legendas repetitivas e elementos inúteis que poluem a visão",
+            "Apagar os números pequenos da tabela base",
+            "Deixar o gráfico transparente",
+            "Retirar a fatia maior do gráfico"
+          ],
+          "correct": "Eliminar legendas repetitivas e elementos inúteis que poluem a visão",
+          "tip": "Muitas vezes o gráfico fala por si só com os rótulos internos, dispensando caixas de legenda isoladas."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O uso de bom [COMBO] entre a fonte e o fundo facilita a legibilidade.",
+          "options": [
+            "contraste",
+            "peso",
+            "tamanho",
+            "ruído"
+          ],
+          "correct": "contraste",
+          "tip": "Texto escuro em fundo claro ou vice-versa garante a leitura fácil."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Para destacar os maiores valores de vendas numa tabela sem criar um gráfico solto, podes usar:",
+          "answers": [
+            "Formatação Condicional",
+            "Barras de Dados em tons de azul da empresa",
+            "Alteração da cor da fonte para vermelho",
+            "Ocultar as linhas pequenas"
+          ],
+          "correct": [
+            "Formatação Condicional",
+            "Barras de Dados em tons de azul da empresa"
+          ],
+          "tip": "A formatação condicional é a forma mais nativa e limpa de evidenciar proporções in-cell."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], remover linhas de grade altera os valores contidos na planilha.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As linhas de grade são puramente visuais e não afetam os dados reais ou fórmulas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Por que usar bordas externas simples no lugar de preencher toda a grelha de bordas?",
+          "answers": [
+            "Para delimitar os blocos de dados sem poluir visualmente a tabela",
+            "Porque o Excel trava com muitas linhas internas",
+            "Para impedir que os dados sejam apagados",
+            "Porque bordas internas gastam mais tinta na impressão"
+          ],
+          "correct": "Para delimitar os blocos de dados sem poluir visualmente a tabela",
+          "tip": "O minimalismo ajuda a focar no conteúdo, ou seja, nos números e não nas linhas.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], ao limpar uma base de dados reais, qual é frequentemente o primeiro passo para evitar contagens falsas?",
+          "answers": [
+            "Remover Duplicadas",
+            "Aplicar função SE",
+            "Mudar a fonte para Arial",
+            "Criar um gráfico dinâmico"
+          ],
+          "correct": "Remover Duplicadas",
+          "tip": "Cadastros repetidos distorcem severamente médias, modas e métricas de conversão."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Ao usar a ferramenta 'Remover Duplicadas', é perigoso selecionar apenas uma coluna, pois pode deixar dados 'órfãos'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se não expandires a seleção, misturarás os nomes com as idades das linhas vizinhas."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione a função de texto ao seu resultado no nome 'simone infante':",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "=MAIÚSCULA()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "=MINÚSCULA()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "=PRI.MAIÚSCULA()",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "SIMONE INFANTE"
+            },
+            {
+              "id": "z2",
+              "label": "simone infante"
+            },
+            {
+              "id": "z3",
+              "label": "Simone Infante"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A função PRI.MAIÚSCULA é a mais indicada para padronização corporativa de nomes."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para encontrar erros como a idade absurda '213' rapidamente, podes pressionar o atalho CTRL + [COMBO].",
+          "options": [
+            "L",
+            "P",
+            "Z",
+            "C"
+          ],
+          "correct": "L",
+          "tip": "Ctrl + L abre a caixa de diálogo 'Localizar'."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais destas são medidas estatísticas comuns para análise de perfil numérico no Excel?",
+          "answers": [
+            "Média",
+            "Mediana",
+            "Modo",
+            "PRI.MAIÚSCULA"
+          ],
+          "correct": [
+            "Média",
+            "Mediana",
+            "Modo"
+          ],
+          "tip": "PRI.MAIÚSCULA é para texto, as restantes tratam de estatística de números."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual função estatística localiza o valor exato no meio da distribuição (50% acima e 50% abaixo)?",
+          "answers": [
+            "MED",
+            "MÉDIA",
+            "MODO.ÚNICO",
+            "MÍNIMO"
+          ],
+          "correct": "MED",
+          "tip": "A Mediana não sofre tanta distorção com valores extremos gigantes."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a função MODO do Excel legado foi substituída pela função atual MODO.ÚNICO.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sempre usa MODO.ÚNICO para descobrir o valor que mais se repete (a maior frequência)."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "O que a função =MÁXIMO faz num intervalo de idades?",
+          "answers": [
+            "Retorna a idade mais alta presente na lista",
+            "Soma as maiores idades",
+            "Faz um ranqueamento do 1º ao último",
+            "Mostra quantos registos têm a maior idade"
+          ],
+          "correct": "Retorna a idade mais alta presente na lista",
+          "tip": "Diferente de MAIOR, o MÁXIMO apenas traz o teto absoluto."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Se a média der 34,91, podemos usar os botões de [COMBO] casas decimais na aba Página Inicial para ver '35'.",
+          "options": [
+            "aumentar/diminuir",
+            "pintar",
+            "multiplicar",
+            "apagar"
+          ],
+          "correct": "aumentar/diminuir",
+          "tip": "O arredondamento visual é útil em dashboards gerenciais."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Na rotina de um Desenvolvedor de TI que mexe com dados, a limpeza envolve:",
+          "answers": [
+            "Padronizar caixa de texto de nomes",
+            "Corrigir valores incorretos de entrada (ex: erros de digitação)",
+            "Remover dados duplicados no banco/tabela",
+            "Adicionar nomes falsos para inflar relatórios"
+          ],
+          "correct": [
+            "Padronizar caixa de texto de nomes",
+            "Corrigir valores incorretos de entrada (ex: erros de digitação)",
+            "Remover dados duplicados no banco/tabela"
+          ],
+          "tip": "Esses três passos garantem a integridade para sistemas de ERP e CRM."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao aplicar a limpeza de dados com funções como PRI.MAIÚSCULA numa coluna auxiliar, depois não podes ocultar a original.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Podes perfeitamente ocultar a coluna original suja para deixar o relatório visualmente limpo."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se o MODO.ÚNICO das idades de clientes é 21 anos, o que isso significa comercialmente?",
+          "answers": [
+            "Que a idade de 21 anos é a que mais aparece (perfil mais frequente)",
+            "Que a média de todos é 21 anos",
+            "Que a empresa atua no século 21",
+            "Que metade tem 21 anos exatos"
+          ],
+          "correct": "Que a idade de 21 anos é a que mais aparece (perfil mais frequente)",
+          "tip": "Modo significa a repetição. É excelente para campanhas focadas num público-alvo principal.",
+          "trans": "FIM"
         }
       ]
     }
