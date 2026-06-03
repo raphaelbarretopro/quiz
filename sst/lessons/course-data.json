@@ -39472,6 +39472,867 @@
           "trans": "FIM"
         }
       ]
+    },
+    {
+      "slug": "aula-52",
+      "lesson_info": {
+        "id": "Aula-52",
+        "title": "AULA 52 - EXCEL INTERMEDIÁRIO: FUNÇÕES DE BUSCA E LÓGICA",
+        "topics": [
+          {
+            "id": "LOGI",
+            "name": "FUNÇÕES LÓGICAS",
+            "desc": "O poder da função SE para automatizar decisões em suas planilhas.",
+            "color": "#E91E63",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PRCV",
+            "name": "FUNÇÃO PROCV",
+            "desc": "Aprenda a realizar buscas verticais e cruzar informações em tabelas de dados grandes.",
+            "color": "#FF9800",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PRCX",
+            "name": "FUNÇÃO PROCX",
+            "desc": "A evolução da busca no Excel, garantindo pesquisa em qualquer direção e flexibilidade.",
+            "color": "#00BCD4",
+            "img_url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "ESTA",
+            "name": "ESTATÍSTICAS BÁSICAS",
+            "desc": "Crie rankings e análises completas utilizando MAIOR, MENOR, MÁXIMO, MÍNIMO e MÉDIA.",
+            "color": "#4CAF50",
+            "img_url": "https://images.unsplash.com/photo-1543286386-2e659306cd6c?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "B",
+          "U",
+          "S",
+          "C"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "LOGI",
+          "questions": "[NAME], a função SE avalia uma condição e pode retornar dois resultados possíveis dependendo se é verdadeira ou falsa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela é útil para responder automaticamente perguntas como 'Atingiu a meta?'."
+        },
+        {
+          "type": "multiple",
+          "topics": "LOGI",
+          "questions": "[NAME], qual é o primeiro argumento da sintaxe da função SE?",
+          "answers": [
+            "Teste Lógico",
+            "Valor se Falso",
+            "Valor se Verdadeiro",
+            "Condição Final"
+          ],
+          "correct": "Teste Lógico",
+          "tip": "O 'Teste Lógico' é a condição a ser avaliada inicialmente pelo Excel."
+        },
+        {
+          "type": "combo",
+          "topics": "LOGI",
+          "questions": "Além de exibir textos, a função SE pode executar [COMBO] de forma automática.",
+          "options": [
+            "Cálculos",
+            "Exclusões",
+            "Filtros",
+            "Gráficos"
+          ],
+          "correct": "Cálculos",
+          "tip": "Você pode, por exemplo, fazer o Excel calcular 10% de comissão apenas se a meta for atingida."
+        },
+        {
+          "type": "multi",
+          "topics": "LOGI",
+          "questions": "[NAME], quais das opções abaixo representam os três argumentos essenciais da função SE?",
+          "answers": [
+            "Teste Lógico",
+            "Valor se Verdadeiro",
+            "Valor se Falso",
+            "Matriz Tabela"
+          ],
+          "correct": [
+            "Teste Lógico",
+            "Valor se Verdadeiro",
+            "Valor se Falso"
+          ],
+          "tip": "A 'Matriz Tabela' pertence às funções de busca (como o PROCV), não à função SE."
+        },
+        {
+          "type": "drag",
+          "topics": "LOGI",
+          "questions": "[NAME], relacione o argumento da função SE ao seu propósito prático:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Teste Lógico",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Valor Verdadeiro",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Valor Falso",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Condição avaliada"
+            },
+            {
+              "id": "z2",
+              "label": "Ação se atendida"
+            },
+            {
+              "id": "z3",
+              "label": "Ação se não atendida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada argumento tem sua função específica na tomada de decisão da fórmula."
+        },
+        {
+          "type": "boolean",
+          "topics": "LOGI",
+          "questions": "[NAME], a função SE não permite calcular comissão caso a meta de vendas seja atingida, ela exibe apenas textos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A função SE permite perfeitamente realizar cálculos (ex: multiplicar valores por 10%)."
+        },        
+        {
+          "type": "combo",
+          "topics": "LOGI",
+          "questions": "[NAME], quando o vendedor não bate a meta estabelecida, o Excel exibe o resultado do argumento Valor se [COMBO].",
+          "options": [
+            "Falso",
+            "Verdadeiro",
+            "Erro",
+            "Vazio"
+          ],
+          "correct": "Falso",
+          "tip": "O valor se falso atua justamente como o 'Plano B' quando a condição falha."
+        },
+        {
+          "type": "multi",
+          "topics": "LOGI",
+          "questions": "[NAME], de acordo com a aula, quais situações de negócios podem ser facilmente automatizadas com a função SE?",
+          "answers": [
+            "Verificar se gerou lucro ou prejuízo",
+            "Checar as metas dos vendedores",
+            "Avisar de estoque baixo",
+            "Localizar os itens pelo código"
+          ],
+          "correct": [
+            "Verificar se gerou lucro ou prejuízo",
+            "Checar as metas dos vendedores",
+            "Avisar de estoque baixo"
+          ],
+          "tip": "A busca de itens por código é tarefa para o PROCV ou PROCX."
+        },        
+        {
+          "type": "boolean",
+          "topics": "LOGI",
+          "questions": "[NAME], as funções lógicas no Excel servem para que você possa delegar decisões automáticas para a sua planilha.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dessa forma, sempre que um dado mudar, o resultado atualiza sozinho."
+        },
+        {
+          "type": "combo",
+          "topics": "LOGI",
+          "questions": "O resultado da função SE aparecerá de forma imediata e reagirá a cada [COMBO] dos dados na planilha, [NAME].",
+          "options": [
+            "Atualização",
+            "Exclusão",
+            "Seleção",
+            "Impressão"
+          ],
+          "correct": "Atualização",
+          "tip": "O grande poder da função SE é a sua dinamicidade."
+        },
+        {
+          "type": "multiple",
+          "topics": "LOGI",
+          "questions": "[NAME], em um teste lógico '$C2>=5000', o que a combinação do símbolo '>=' representa?",
+          "answers": [
+            "Maior ou igual a",
+            "Menor ou igual a",
+            "Exatamente igual a",
+            "Diferente de"
+          ],
+          "correct": "Maior ou igual a",
+          "tip": "A operação engloba tanto os valores acima de 5000, quanto o próprio valor 5000.",
+          "trans": "PRCV"
+        },
+        {
+          "type": "boolean",
+          "topics": "PRCV",
+          "questions": "[NAME], a função PROCV possui uma limitação severa: ela só consegue buscar informações da esquerda para a direita.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se a resposta estiver à esquerda da coluna de pesquisa, o PROCV falha."
+        },
+        {
+          "type": "multiple",
+          "topics": "PRCV",
+          "questions": "[NAME], na função PROCV, qual parâmetro costuma ser colocado no final da fórmula para garantir que o Excel busque o resultado exato?",
+          "answers": [
+            "0 (Zero)",
+            "1 (Um)",
+            "Falso",
+            "Matriz"
+          ],
+          "correct": "0 (Zero)",
+          "tip": "O zero '0' (ou a palavra FALSO) sinaliza que a correspondência deve ser exata, sem margem de erro."
+        },
+        {
+          "type": "combo",
+          "topics": "PRCV",
+          "questions": "A função PROCV é ideal para você buscar um código e obter o nome do produto quase [COMBO], [NAME].",
+          "options": [
+            "Instantaneamente",
+            "Manualmente",
+            "Lentamente",
+            "Mensalmente"
+          ],
+          "correct": "Instantaneamente",
+          "tip": "Essas funções varrem dados enormes em frações de segundos."
+        },
+        {
+          "type": "multi",
+          "topics": "PRCV",
+          "questions": "[NAME], quais são os argumentos principais e obrigatórios na função PROCV?",
+          "answers": [
+            "Valor Procurado",
+            "Matriz Tabela",
+            "Núm. Índice Coluna",
+            "Valor se Falso"
+          ],
+          "correct": [
+            "Valor Procurado",
+            "Matriz Tabela",
+            "Núm. Índice Coluna"
+          ],
+          "tip": "O Valor se Falso é um argumento pertencente à função SE, não ao PROCV."
+        },
+        {
+          "type": "drag",
+          "topics": "PRCV",
+          "questions": "[NAME], relacione os argumentos do PROCV de forma lógica:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Valor Procurado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Matriz Tabela",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Núm_índice",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Correspondência 0",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O que estou buscando"
+            },
+            {
+              "id": "z2",
+              "label": "Onde estão os dados"
+            },
+            {
+              "id": "z3",
+              "label": "Qual a coluna da resposta"
+            },
+            {
+              "id": "z4",
+              "label": "Busca 100% exata"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essa estrutura de perguntas lógicas (o que, onde, qual, como) resume a função de busca."
+        },
+        {
+          "type": "boolean",
+          "topics": "PRCV",
+          "questions": "[NAME], ao selecionar os dados para a Matriz Tabela no PROCV, os títulos do cabeçalho e as linhas de totais devem ser preferencialmente deixados de fora.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Incluir títulos ou totais pode causar ruído ou resultados indesejados durante a busca."
+        },
+        {
+          "type": "multiple",
+          "topics": "PRCV",
+          "questions": "[NAME], o que indica especificamente o 'Núm_índice_coluna' em um PROCV?",
+          "answers": [
+            "A posição da coluna com a resposta",
+            "A linha da busca final",
+            "O formato de texto desejado",
+            "A mensagem de erro exibida"
+          ],
+          "correct": "A posição da coluna com a resposta",
+          "tip": "Por exemplo: A=1, B=2, C=3."
+        },
+        {
+          "type": "combo",
+          "topics": "PRCV",
+          "questions": "Com as planilhas crescendo, a função PROCV ajuda a cruzar informações sem precisar [COMBO] nada, [NAME].",
+          "options": [
+            "Redigitar",
+            "Excluir",
+            "Imprimir",
+            "Sublinhar"
+          ],
+          "correct": "Redigitar",
+          "tip": "Isso evita erros de transcrição humana."
+        },
+        {
+          "type": "multi",
+          "topics": "PRCV",
+          "questions": "[NAME], de acordo com a aula, quais são as grandes limitações da PROCV comparada a opções mais modernas?",
+          "answers": [
+            "Pesquisa somente para a direita",
+            "Exige que você conte o número da coluna",
+            "Não suporta pesquisar por códigos numéricos",
+            "Apaga os dados se errar"
+          ],
+          "correct": [
+            "Pesquisa somente para a direita",
+            "Exige que você conte o número da coluna"
+          ],
+          "tip": "O PROCX resolveu as limitações de contagem manual e restrição direcional do PROCV."
+        },
+        {
+          "type": "drag",
+          "topics": "PRCV",
+          "questions": "[NAME], relacione as colunas da tabela com seus índices equivalentes para um PROCV (onde A é o início):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Coluna A",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Coluna B",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Coluna C",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Coluna D",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Índice 1"
+            },
+            {
+              "id": "z2",
+              "label": "Índice 2"
+            },
+            {
+              "id": "z3",
+              "label": "Índice 3"
+            },
+            {
+              "id": "z4",
+              "label": "Índice 4"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Você deve informar esse número no 3º argumento do PROCV."
+        },
+        {
+          "type": "boolean",
+          "topics": "PRCV",
+          "questions": "[NAME], o 'Valor Procurado' é aquele dado inicial que você possui e informa (digita) para iniciar a sua pesquisa no PROCV.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É a sua 'chave' de busca, como por exemplo, um código numérico único."
+        },
+        {
+          "type": "combo",
+          "topics": "PRCV",
+          "questions": "[NAME], lembre-se: uma desvantagem do PROCV é não buscar em colunas que estejam [COMBO] do valor de pesquisa principal.",
+          "options": [
+            "Antes",
+            "Depois",
+            "Sombreadas",
+            "Em vermelho"
+          ],
+          "correct": "Antes",
+          "tip": "O PROCV pesquisa a primeira coluna à esquerda e retorna dados que estão à direita."
+        },
+        {
+          "type": "multiple",
+          "topics": "PRCV",
+          "questions": "[NAME], em tabelas que possuem centenas de linhas, por que a aula diz que o PROCV é fundamental?",
+          "answers": [
+            "Buscar dados apenas pelo visual é impossível e gera erros",
+            "Ele apaga registros antigos sozinho",
+            "As funções de busca consertam a grafia dos textos automaticamente",
+            "Tabelas grandes não permitem usar Ctrl+L"
+          ],
+          "correct": "Buscar dados apenas pelo visual é impossível e gera erros",
+          "tip": "A automação traz velocidade e segurança total contra trocas de linhas na visualização.",
+          "trans": "PRCX"
+        },
+        {
+          "type": "boolean",
+          "topics": "PRCX",
+          "questions": "[NAME], o PROCX é uma função exclusiva de versões mais antigas do Excel (como 2010), e está caindo em desuso.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O PROCX é moderno, disponível a partir do Microsoft 365, e representa a evolução das buscas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PRCX",
+          "questions": "[NAME], qual característica a função PROCX possui nativamente que resolve o incômodo retorno visual '#N/D'?",
+          "answers": [
+            "O parâmetro de mensagem de erro [se_não_encontrado]",
+            "Um corretor ortográfico imbutido",
+            "Um sistema visual com cores nativas",
+            "O modo de precisão absoluta"
+          ],
+          "correct": "O parâmetro de mensagem de erro [se_não_encontrado]",
+          "tip": "Esse parâmetro final permite definir um aviso claro para o usuário, como 'Item Inexistente'."
+        },
+        {
+          "type": "combo",
+          "topics": "PRCX",
+          "questions": "Na função PROCX, você pode simplesmente indicar a matriz (coluna) [COMBO] da resposta, em vez de contar números.",
+          "options": [
+            "Diretamente",
+            "Indiretamente",
+            "Manualmente",
+            "Colorida"
+          ],
+          "correct": "Diretamente",
+          "tip": "Isso agiliza muito a criação da fórmula e evita erros se as colunas da planilha mudarem de lugar."
+        },
+        {
+          "type": "multi",
+          "topics": "PRCX",
+          "questions": "[NAME], quais das opções refletem as vantagens e o poder da PROCX sobre o antigo PROCV?",
+          "answers": [
+            "Pesquisa os dados em qualquer direção",
+            "Seleciona a coluna de resposta de forma direta",
+            "Permite adicionar texto personalizado se não houver resultado",
+            "Converte os nomes dos produtos em códigos automaticamente"
+          ],
+          "correct": [
+            "Pesquisa os dados em qualquer direção",
+            "Seleciona a coluna de resposta de forma direta",
+            "Permite adicionar texto personalizado se não houver resultado"
+          ],
+          "tip": "O PROCX é a evolução natural do PROCV."
+        },
+        {
+          "type": "drag",
+          "topics": "PRCX",
+          "questions": "[NAME], relacione as funções e recursos às suas definições baseadas em aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "PROCV",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "PROCX",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Matriz_Retorno",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Se_não_encontrado",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Busca presa à direita"
+            },
+            {
+              "id": "z2",
+              "label": "Busca multidirecional"
+            },
+            {
+              "id": "z3",
+              "label": "Coluna final da resposta"
+            },
+            {
+              "id": "z4",
+              "label": "Texto em vez de #N/D"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A anatomia do PROCX foi simplificada para facilitar o dia a dia do usuário corporativo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PRCX",
+          "questions": "[NAME], buscar pelo nome usando a PROCX é uma prática totalmente segura pois a ferramenta tem baixa precisão textual, flexibilizando a digitação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A PROCX exige precisão rigorosa; nomes com espaços extras falham na busca."
+        },
+        {
+          "type": "multiple",
+          "topics": "PRCX",
+          "questions": "[NAME], qual a recomendação de campo chave da aula para utilizar como Valor Procurado na função PROCX visando a maior precisão e evitando ambiguidades?",
+          "answers": [
+            "O código numérico ou identificador",
+            "O nome do cliente",
+            "A marca do produto",
+            "A cor"
+          ],
+          "correct": "O código numérico ou identificador",
+          "tip": "O código é de precisão alta, enquanto nomes possuem precisão baixa por causarem confusão e ambiguidades."
+        },
+        {
+          "type": "combo",
+          "topics": "PRCX",
+          "questions": "Buscar pelo nome usando PROCX é perigoso, pois nomes [COMBO] e repetidos na sua base de dados geram resultados imprecisos.",
+          "options": [
+            "Ambíguos",
+            "Curtos",
+            "Longos",
+            "Simples"
+          ],
+          "correct": "Ambíguos",
+          "tip": "Se houverem dois motoristas chamados João da Silva, a fórmula pode não saber qual trazer."
+        },
+        {
+          "type": "multi",
+          "topics": "PRCX",
+          "questions": "[NAME], quais pequenos detalhes de digitação, se incorretos, farão a sua PROCX retornar um erro de não encontrado ao pesquisar um nome de produto?",
+          "answers": [
+            "Espaços em branco sobressalentes",
+            "Ponto no final do nome",
+            "Capitalização de letras incorreta",
+            "Formatar a cor da fonte da célula"
+          ],
+          "correct": [
+            "Espaços em branco sobressalentes",
+            "Ponto no final do nome",
+            "Capitalização de letras incorreta"
+          ],
+          "tip": "A cor da fonte ou estilo da célula é apenas estético e não interfere na pesquisa de texto da PROCX."
+        },        
+        {
+          "type": "boolean",
+          "topics": "PRCX",
+          "questions": "Na PROCX, [NAME], o recurso chamado 'Matriz Busca' indica a coluna onde você deseja que ele faça a varredura e localize seu valor referencial.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Diferente do PROCV onde você marcava toda a tabela gigante, na PROCX você só indica uma coluna para pesquisa."
+        },
+        {
+          "type": "combo",
+          "topics": "PRCX",
+          "questions": "[NAME], ao testar um código ou dado que não existe na sua lista, a PROCX pode mostrar um texto [COMBO], entregando uma tabela mais profissional.",
+          "options": [
+            "Personalizado",
+            "Numérico",
+            "Binário",
+            "Colorido"
+          ],
+          "correct": "Personalizado",
+          "tip": "Exemplo: Se usar a mensagem 'Produto Falta', é isso que ele exibirá caso a busca falhe.",
+          "trans": "ESTA"
+        },
+        {
+          "type": "multiple",
+          "topics": "ESTA",
+          "questions": "[NAME], o que a função MÁXIMO retorna se aplicada sobre a coluna do faturamento das lojas de uma empresa?",
+          "answers": [
+            "O maior valor faturado",
+            "O menor valor faturado",
+            "A soma de todos faturamentos",
+            "O número total de lojas cadastradas"
+          ],
+          "correct": "O maior valor faturado",
+          "tip": "Ela varre a série de números informados e expõe apenas aquele que atingiu o topo numérico global."
+        },
+        {
+          "type": "boolean",
+          "topics": "ESTA",
+          "questions": "[NAME], a função MÍNIMO funciona no mesmo mecanismo da MÁXIMO, só que retornando obrigatoriamente o valor mais baixo do seu intervalo de dados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Elas são ferramentas de extremidades. Um acha o teto, o outro encontra o piso dos valores."
+        },
+        {
+          "type": "combo",
+          "topics": "ESTA",
+          "questions": "Se você desejar descobrir o ponto central em um faturamento irregular, você precisará apurar os totais com a função de [COMBO].",
+          "options": [
+            "MÉDIA",
+            "SOMA",
+            "MAIOR",
+            "MÁXIMO"
+          ],
+          "correct": "MÉDIA",
+          "tip": "A média estatística soma todos os dados e divide pela quantidade de ocorrências na coluna."
+        },
+        {
+          "type": "multi",
+          "topics": "ESTA",
+          "questions": "[NAME], em análises estatísticas no Excel focadas no desempenho individual e criação de rankings e avaliações gerais, usamos rotineiramente:",
+          "answers": [
+            "As funções MAIOR e MENOR",
+            "A função MÉDIA",
+            "A função PROCV",
+            "A Função PROCX"
+          ],
+          "correct": [
+            "As funções MAIOR e MENOR",
+            "A função MÉDIA"
+          ],
+          "tip": "PROCV e PROCX desempenham papéis focados exclusivamente na busca e no rastreamento vertical ou direcional."
+        },
+        {
+          "type": "drag",
+          "topics": "ESTA",
+          "questions": "[NAME], ligue as funções estatísticas apresentadas em aula ao seu comportamento exato frente aos dados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "MÁXIMO()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "MÍNIMO()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "MAIOR(... ; 2)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "MENOR(... ; 2)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Maior número da coluna"
+            },
+            {
+              "id": "z2",
+              "label": "Menor número da coluna"
+            },
+            {
+              "id": "z3",
+              "label": "O vice-campeão (2º Lugar)"
+            },
+            {
+              "id": "z4",
+              "label": "O penúltimo (2º pior)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Para criar os pódios de melhores vendedores, as funções com índice (MAIOR/MENOR) são vitais."
+        },
+        {
+          "type": "boolean",
+          "topics": "ESTA",
+          "questions": "Para a fórmula '=MENOR(A1:A10; 3)' funcionar, ela necessitará do parâmetro numérico no fim indicando sua posição, [NAME].",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sem apontar o ranking desejado (ex. o 3º, o 4º lugar), a função MAIOR/MENOR vai dar erro de estrutura."
+        },
+        {
+          "type": "multiple",
+          "topics": "ESTA",
+          "questions": "[NAME], qual a diferença que separa especificamente a funcionalidade da opção MAIOR da antiga e conhecida opção MÁXIMO?",
+          "answers": [
+            "O MÁXIMO é estático entregando só o 1º lugar absoluto, e o MAIOR permite selecionar pódios variáveis (2º, 3º)",
+            "O MAIOR não funciona em tabelas formatadas de azul",
+            "A MÁXIMO possui um limite inferior na casa dos milhões",
+            "O MAIOR analisa letras em conjunto com os números em sequência lógica"
+          ],
+          "correct": "O MÁXIMO é estático entregando só o 1º lugar absoluto, e o MAIOR permite selecionar pódios variáveis (2º, 3º)",
+          "tip": "Com MAIOR você não trava em análises focadas num só indivíduo absoluto."
+        },
+        {
+          "type": "combo",
+          "topics": "ESTA",
+          "questions": "Para destacar de cor vermelha todas as células de faturamentos que mostram prejuízos de forma automatizada e visual, utilizamos a Formatação [COMBO].",
+          "options": [
+            "Condicional",
+            "Estatística",
+            "Visual",
+            "Matemática"
+          ],
+          "correct": "Condicional",
+          "tip": "Vá em Página Inicial > Formatação Condicional > Realçar regras, para configurar visuais com limites."
+        },
+        {
+          "type": "multi",
+          "topics": "ESTA",
+          "questions": "[NAME], o que a aula menciona explicitamente como vantagem sobre saber utilizar as estatísticas dentro de planilhas do Excel?",
+          "answers": [
+            "Dominar essas lógicas é dominar a linguagem de decisões de alto impacto",
+            "As métricas como a Função MÉDIA facilitam painéis avaliativos de performance do time",
+            "Funções ligadas as hierarquias possibilitam ranquear campanhas em painéis numéricos",
+            "O método formata relatórios para exclusão visual"
+          ],
+          "correct": [
+            "Dominar essas lógicas é dominar a linguagem de decisões de alto impacto",
+            "As métricas como a Função MÉDIA facilitam painéis avaliativos de performance do time",
+            "Funções ligadas as hierarquias possibilitam ranquear campanhas em painéis numéricos"
+          ],
+          "tip": "A informação virou o novo petróleo das empresas corporativas."
+        },
+        {
+          "type": "drag",
+          "topics": "ESTA",
+          "questions": "[NAME], associe as metas numéricas de um painel gerencial às equações correspondentes da aula do SENAI:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "O grande ganhador da rodada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "O ganhador do bronze (3º L)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "O pior resultado individual",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "O segundo resultado mais fraco",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "=MAIOR(coluna; 1)"
+            },
+            {
+              "id": "z2",
+              "label": "=MAIOR(coluna; 3)"
+            },
+            {
+              "id": "z3",
+              "label": "=MENOR(coluna; 1)"
+            },
+            {
+              "id": "z4",
+              "label": "=MENOR(coluna; 2)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Mapear as metas com os rankings garante exatidão nas premiações gerenciais."
+        },
+        {
+          "type": "boolean",
+          "topics": "ESTA",
+          "questions": "[NAME], um painel de estatísticas, como feito no 'Desafio LogisTech', pode agrupar MÁXIMO, MINIMO e MÉDIA todos unidos baseados na mesma coluna.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O apontamento a uma só coluna de métricas com diferentes funções garante uma visão múltipla do cenário em um único painel de consulta."
+        },
+        {
+          "type": "multiple",
+          "topics": "ESTA",
+          "questions": "[NAME], de acordo com a citação mostrada na aula final, o que a análise de dados representa sobre as planilhas do século XXI?",
+          "answers": [
+            "É o motor de combustão",
+            "É o petróleo oculto das empresas",
+            "É uma rotina ultrapassada no Excel",
+            "É dispensável com o avanço da internet"
+          ],
+          "correct": "É o motor de combustão",
+          "tip": "Dominar as funções de busca e lógica garante o processamento vital para o mundo do trabalho.",
+          "trans": "END"
+        }
+      ]
     }
   ]
 }
