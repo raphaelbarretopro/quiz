@@ -39618,7 +39618,7 @@
           ],
           "correct": "Falso",
           "tip": "A função SE permite perfeitamente realizar cálculos (ex: multiplicar valores por 10%)."
-        },        
+        },
         {
           "type": "combo",
           "topics": "LOGI",
@@ -39648,7 +39648,7 @@
             "Avisar de estoque baixo"
           ],
           "tip": "A busca de itens por código é tarefa para o PROCV ou PROCX."
-        },        
+        },
         {
           "type": "boolean",
           "topics": "LOGI",
@@ -40080,7 +40080,7 @@
             "Capitalização de letras incorreta"
           ],
           "tip": "A cor da fonte ou estilo da célula é apenas estético e não interfere na pesquisa de texto da PROCX."
-        },        
+        },
         {
           "type": "boolean",
           "topics": "PRCX",
@@ -40331,6 +40331,769 @@
           "correct": "É o motor de combustão",
           "tip": "Dominar as funções de busca e lógica garante o processamento vital para o mundo do trabalho.",
           "trans": "END"
+        }
+      ]
+    },
+    {
+      "slug": "aula-54",
+      "lesson_info": {
+        "id": "Aula-54",
+        "title": "AULA 54 - DOMÍNIO DA FUNÇÃO SE E FERRAMENTAS DE ANÁLISE ",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DA FUNÇÃO SE",
+            "desc": "Automatização de decisões lógicas e uso de referências fixas (cifrão).",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "DOCUMENTAÇÃO E COMENTÁRIOS",
+            "desc": "Uso de comentários para colaboração e memória técnica em planilhas.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "ANÁLISE COM CONT.SE E SOMASE",
+            "desc": "Contagem e soma de valores baseadas em critérios específicos.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "VISUALIZAÇÃO E FILTROS",
+            "desc": "Aplicação de filtros e utilização de gráficos para análise de dados.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "E",
+          "X",
+          "E",
+          "L"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], ao arrastar uma fórmula que referencia uma célula de meta, qual tecla deve ser utilizada para fixar a referência?",
+          "answers": [
+            "F2",
+            "F4",
+            "ESC",
+            "ENTER"
+          ],
+          "correct": "F4",
+          "tip": "A tecla F4 insere o símbolo $ antes da coluna e da linha, travando a referência."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], textos dentro da função SE devem estar obrigatoriamente entre aspas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Números e referências de células não precisam de aspas, mas textos sim."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para fixar uma célula manualmente, devemos digitar o símbolo [COMBO] antes da letra da coluna e antes do número da linha.",
+          "options": [
+            "#",
+            "@",
+            "$",
+            "&"
+          ],
+          "correct": "$",
+          "tip": "O caractere $ indica uma referência absoluta no Excel."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são os componentes da estrutura básica da função SE?",
+          "answers": [
+            "Teste lógico",
+            "Valor se verdadeiro",
+            "Valor se falso",
+            "Intervalo de soma"
+          ],
+          "correct": [
+            "Teste lógico",
+            "Valor se verdadeiro",
+            "Valor se falso"
+          ],
+          "tip": "A função SE avalia uma condição e retorna resultados diferentes para verdadeiro ou falso."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o sinal de comparação ao seu significado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": ">=",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "<>",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "<=",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Maior ou igual"
+            },
+            {
+              "id": "z2",
+              "label": "Diferente de"
+            },
+            {
+              "id": "z3",
+              "label": "Menor ou igual"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer esses operadores é essencial para criar testes lógicos eficazes."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual a principal finalidade de inserir comentários em células?",
+          "answers": [
+            "Realizar cálculos matemáticos",
+            "Documentar fórmulas e auxiliar na memória técnica",
+            "Alterar a cor da célula automaticamente",
+            "Bloquear a edição da planilha"
+          ],
+          "correct": "Documentar fórmulas e auxiliar na memória técnica",
+          "tip": "Comentários ajudam o trabalho em equipe e documentam o porquê de cada decisão."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], os comentários alteram a aparência visual da célula, tornando-a sempre visível.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O comentário fica vinculado à célula e aparece apenas ao passar o mouse, sem poluir visualmente."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para inserir um novo comentário, após selecionar a célula, deve-se ir até a guia [COMBO].",
+          "options": [
+            "Página Inicial",
+            "Inserir",
+            "Revisão",
+            "Dados"
+          ],
+          "correct": "Revisão",
+          "tip": "A ferramenta de comentários encontra-se na guia Revisão."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são benefícios de documentar planilhas?",
+          "answers": [
+            "Facilitar o trabalho em equipe",
+            "Criar memória técnica",
+            "Inserir instruções inline",
+            "Aumentar o valor monetário da planilha"
+          ],
+          "correct": [
+            "Facilitar o trabalho em equipe",
+            "Criar memória técnica",
+            "Instruções inline"
+          ],
+          "tip": "Documentação eficiente é crucial para que outros usuários entendam a lógica aplicada."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que acontece ao clicar em 'Postar' após digitar um comentário?",
+          "answers": [
+            "A planilha é salva automaticamente",
+            "O comentário é vinculado à célula",
+            "A fórmula é deletada",
+            "O Excel fecha"
+          ],
+          "correct": "O comentário é vinculado à célula",
+          "tip": "O comentário é registrado e vinculado à célula selecionada."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual função é indicada para contar células que atendem a um critério?",
+          "answers": [
+            "SOMA",
+            "SOMASE",
+            "CONT.SE",
+            "MÉDIA"
+          ],
+          "correct": "CONT.SE",
+          "tip": "CONT.SE conta ocorrências de acordo com um critério."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a função SOMASE soma valores quando um determinado critério é atendido.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Diferente do CONT.SE que conta, o SOMASE soma valores reais."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Na função =SOMASE(intervalo; critério; [COMBO]), o último parâmetro representa a coluna com os valores a somar.",
+          "options": [
+            "intervalo_soma",
+            "valor_final",
+            "critério_soma",
+            "limite_intervalo"
+          ],
+          "correct": "intervalo_soma",
+          "tip": "O intervalo_soma contém os dados numéricos que serão somados."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], ao utilizar CONT.SE ou SOMASE, o que é recomendado fazer com o intervalo?",
+          "answers": [
+            "Deixá-lo dinâmico",
+            "Fixá-lo com a tecla F4",
+            "Selecionar apenas uma célula",
+            "Ignorá-lo"
+          ],
+          "correct": [
+            "Fixá-lo com a tecla F4"
+          ],
+          "tip": "Fixar o intervalo garante que, ao arrastar a fórmula, a referência não mude."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual a diferença fundamental entre CONT.SE e SOMASE?",
+          "answers": [
+            "CONT.SE soma e SOMASE conta",
+            "CONT.SE conta ocorrências e SOMASE soma valores",
+            "Ambas fazem a mesma coisa",
+            "Nenhuma das opções anteriores"
+          ],
+          "correct": "CONT.SE conta ocorrências e SOMASE soma valores",
+          "tip": "Essa distinção permite análises de qualidade versus quantidade de forma rápida."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], ao ativar um filtro, o que ocorre com os dados que não atendem ao critério?",
+          "answers": [
+            "São excluídos da planilha",
+            "São movidos para outra aba",
+            "São ocultados temporariamente",
+            "São formatados em vermelho"
+          ],
+          "correct": "São ocultados temporariamente",
+          "tip": "O filtro oculta os dados, mas não os exclui permanentemente."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], gráficos dinâmicos atualizam automaticamente se os dados de origem forem alterados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Qualquer alteração nos dados fonte reflete instantaneamente nos gráficos."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para ativar o filtro, deve-se selecionar o cabeçalho e acessar a guia Página Inicial > Classificar e Filtrar > [COMBO].",
+          "options": [
+            "Filtro",
+            "Classificar",
+            "Limpar",
+            "Reordenar"
+          ],
+          "correct": "Filtro",
+          "tip": "Ao ativar, surgem setas de dropdown nos cabeçalhos."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são os tipos de gráficos sugeridos para analisar participações em vendas?",
+          "answers": [
+            "Gráfico de Pizza",
+            "Gráfico de Barras",
+            "Gráfico de Dispersão",
+            "Gráfico de Ações"
+          ],
+          "correct": [
+            "Gráfico de Pizza",
+            "Gráfico de Barras"
+          ],
+          "tip": "Pizza é ideal para proporções e barras para comparação de valores absolutos."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], como identificar visualmente que uma coluna está com filtro ativo?",
+          "answers": [
+            "O nome da coluna muda de cor",
+            "O ícone da seta muda para um funil",
+            "A célula fica bloqueada",
+            "A fonte fica em negrito"
+          ],
+          "correct": "O ícone da seta muda para um funil",
+          "tip": "O funil indica claramente que existe um filtro aplicado."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual o resultado de se esquecer de fixar uma referência de célula que deve ser constante ao arrastar?",
+          "answers": [
+            "O Excel corrige automaticamente",
+            "O cálculo quebra ou referencia células erradas",
+            "A célula é deletada",
+            "Nada acontece"
+          ],
+          "correct": "O cálculo quebra ou referencia células erradas",
+          "tip": "Fixar a célula garante que a referência não se mova linha por linha."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], é possível digitar manualmente o símbolo $ para fixar uma célula caso o F4 não funcione.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se o F4 não funcionar, a digitação manual é a alternativa correta."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Em alguns notebooks, é necessário pressionar [COMBO] + F4 para realizar a fixação de célula.",
+          "options": [
+            "ALT",
+            "CTRL",
+            "SHIFT",
+            "FN"
+          ],
+          "correct": "FN",
+          "tip": "Em alguns modelos de notebook, essa tecla é necessária para ativar a função de tecla F4."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destes são sinais de comparação válidos no Excel?",
+          "answers": [
+            "<>",
+            "==",
+            ">=",
+            "<="
+          ],
+          "correct": [
+            "<>",
+            ">=",
+            "<="
+          ],
+          "tip": "O sinal == não é um operador de comparação simples no Excel."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o termo ao seu significado na função SE:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Teste Lógico",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Valor se Verdadeiro",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Valor se Falso",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Condição avaliada"
+            },
+            {
+              "id": "z2",
+              "label": "Retorno se condição OK"
+            },
+            {
+              "id": "z3",
+              "label": "Retorno se condição NOK"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada parte da função SE possui um papel determinante."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o atalho para verificar se uma célula está fixada corretamente?",
+          "answers": [
+            "F1",
+            "F2",
+            "F3",
+            "F5"
+          ],
+          "correct": "F2",
+          "tip": "Pressionar F2 na célula permite editar e confirmar se a referência está travada."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], um bom comentário de célula deve explicar o porquê da decisão técnica tomada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso compõe a chamada 'memória técnica' da planilha."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Trabalhar em equipe com planilhas documentadas evita que outros usuários [COMBO] a lógica da planilha.",
+          "options": [
+            "Entendam",
+            "Estranhem",
+            "Desconsiderem",
+            "Aproveitem"
+          ],
+          "correct": "Estranhem",
+          "tip": "Documentar ajuda quem acessar a planilha depois a compreender os critérios."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], por que comentários são considerados 'instruções inline'?",
+          "answers": [
+            "Pois ficam vinculados à célula",
+            "Pois não alteram o visual da planilha",
+            "Pois são exibidos apenas quando necessário",
+            "Pois exigem macros"
+          ],
+          "correct": [
+            "Pois ficam vinculados à célula",
+            "Pois não alteram o visual da planilha",
+            "Pois são exibidos apenas quando necessário"
+          ],
+          "tip": "Eles orientam sem poluir o layout original."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao passar o mouse sobre uma célula com comentário, o que acontece?",
+          "answers": [
+            "O Excel bloqueia a planilha",
+            "O comentário aparece",
+            "Nada acontece",
+            "A célula muda de cor"
+          ],
+          "correct": "O comentário aparece",
+          "tip": "Essa interatividade mantém a planilha limpa."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual o atalho de teclado para realizar a soma automática?",
+          "answers": [
+            "ALT + =",
+            "CTRL + S",
+            "SHIFT + A",
+            "CTRL + ALT"
+          ],
+          "correct": "ALT + =",
+          "tip": "Este é um atalho rápido para a função =SOMA()."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], arredondar decimais altera o valor real armazenado na célula.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Os botões de aumentar/diminuir casas decimais alteram apenas a exibição, não o valor real."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para arredondar um decimal para cima, o valor da casa deve ser [COMBO] ou igual a 5.",
+          "options": [
+            "Menor",
+            "Maior",
+            "Igual",
+            "Nulo"
+          ],
+          "correct": "Maior",
+          "tip": "Regras de arredondamento seguem o critério >= 5."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], que informações o SOMASE e CONT.SE ajudam a revelar sobre funcionários?",
+          "answers": [
+            "Quantidade de vendas realizadas",
+            "Receita total gerada",
+            "Qualidade da venda",
+            "Apenas a idade"
+          ],
+          "correct": [
+            "Quantidade de vendas realizadas",
+            "Receita total gerada",
+            "Qualidade da venda"
+          ],
+          "tip": "Essas funções permitem comparar qualidade e quantidade de desempenho."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual o intervalo que deve ser fixado com F4 na função SOMASE?",
+          "answers": [
+            "O intervalo do critério",
+            "O intervalo de soma",
+            "Apenas a célula do critério",
+            "Não se deve fixar"
+          ],
+          "correct": "O intervalo de soma",
+          "tip": "Fixar o intervalo de soma garante a integridade do cálculo."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], como realizar a alteração em tempo real de gráficos?",
+          "answers": [
+            "Deve-se recriar o gráfico",
+            "Alterando os valores de origem",
+            "Reiniciando o Excel",
+            "Mudando a cor do gráfico"
+          ],
+          "correct": "Alterando os valores de origem",
+          "tip": "Gráficos no Excel são dinâmicos e reagem a mudanças nos dados fonte."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a ordenação de dados A a Z e Z a A pode ser feita através da ferramenta de filtro.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essas opções de classificação estão disponíveis diretamente no menu do filtro."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Ao filtrar uma planilha, os dados que não correspondem ao critério permanecem nela, apenas [COMBO].",
+          "options": [
+            "Ocultos",
+            "Apagados",
+            "Bloqueados",
+            "Invertidos"
+          ],
+          "correct": "Ocultos",
+          "tip": "O filtro permite exibir apenas o necessário sem deletar os outros dados."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], que passos devem ser seguidos para configurar um gráfico de pizza?",
+          "answers": [
+            "Selecionar os dados",
+            "Acessar a aba Inserir",
+            "Escolher o tipo de gráfico",
+            "Deletar a planilha"
+          ],
+          "correct": [
+            "Selecionar os dados",
+            "Acessar a aba Inserir",
+            "Escolher o tipo de gráfico"
+          ],
+          "tip": "Seguir a sequência lógica garante que o gráfico seja criado corretamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que é importante definir um título claro no gráfico?",
+          "answers": [
+            "Para ocupar espaço",
+            "Para facilitar a leitura e interpretação",
+            "É obrigatório pelo sistema",
+            "Aumenta a velocidade do Excel"
+          ],
+          "correct": "Para facilitar a leitura e interpretação",
+          "tip": "Um título adequado transforma dados em informação compreensível."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], se uma empresa define que faltas descontam o DSR, como a fórmula do valor da falta deve considerar isso?",
+          "answers": [
+            "Multiplicando por 1",
+            "Multiplicando por 2",
+            "Dividindo por 2",
+            "Subtraindo 1"
+          ],
+          "correct": "Multiplicando por 2",
+          "tip": "Considerando o DSR, cada falta pode resultar no desconto de dois dias."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], ao usar a função SE para cálculos numéricos (ex: adicionar bônus), os valores numéricos devem ser colocados entre aspas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Valores numéricos e referências não utilizam aspas; apenas textos sim."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para calcular um valor com acréscimo de bônus, a estrutura é: Líquido + [COMBO].",
+          "options": [
+            "\"Bônus\"",
+            "Célula_Bônus",
+            "\"150\"",
+            "Nada"
+          ],
+          "correct": "Célula_Bônus",
+          "tip": "Ao somar, utilize a referência da célula que contém o valor fixo do bônus."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], que cuidados tomar com valores fixos em cálculos?",
+          "answers": [
+            "Fixar a célula com $",
+            "Utilizar o F4",
+            "Não utilizar aspas em números",
+            "Sempre utilizar aspas"
+          ],
+          "correct": [
+            "Fixar a célula com $",
+            "Utilizar o F4",
+            "Não utilizar aspas em números"
+          ],
+          "tip": "Erros comuns ocorrem ao não fixar corretamente as referências de valores constantes."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que acontece se o valor da comissão não for fixado ao arrastar a fórmula?",
+          "answers": [
+            "O Excel usa a célula acima",
+            "A fórmula desce a referência e o cálculo fica errado",
+            "O resultado permanece correto",
+            "A planilha é bloqueada"
+          ],
+          "correct": "A fórmula desce a referência e o cálculo fica errado",
+          "tip": "Sem o travamento, o Excel referencia células vazias ou erradas na descida."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], para a LogisTech, qual o critério para bônus?",
+          "answers": [
+            "Atingir ou superar a meta",
+            "Ter menos de 10 anos de empresa",
+            "Sempre ganhar bônus",
+            "Nunca faltar"
+          ],
+          "correct": "Atingir ou superar a meta",
+          "tip": "O bônus é condicionado ao desempenho frente à meta."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no desafio da LogisTech, o bônus deve ser fixado em uma célula separada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Fixar a meta e o bônus em células separadas é uma boa prática."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para formatar a planilha da LogisTech, deve-se aplicar [COMBO] e cores nos títulos.",
+          "options": [
+            "Bordas",
+            "Macro",
+            "Fórmulas",
+            "Imagens"
+          ],
+          "correct": "Bordas",
+          "tip": "A formatação com bordas ajuda na organização visual."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], que tipos de análises a diretoria da LogisTech deseja?",
+          "answers": [
+            "Saber quem atingiu a meta",
+            "Classificar metas",
+            "Calcular bônus",
+            "Contar entregas"
+          ],
+          "correct": [
+            "Saber quem atingiu a meta",
+            "Classificar metas",
+            "Calcular bônus",
+            "Contar entregas"
+          ],
+          "tip": "Tudo isso é possível com as ferramentas de função SE, CONT.SE e SOMASE."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual a importância de dominar a Função SE e análise de dados?",
+          "answers": [
+            "Aumentar a produtividade pessoal",
+            "Transformar dados brutos em decisões inteligentes",
+            "Apenas para fins acadêmicos",
+            "Não tem importância"
+          ],
+          "correct": "Transformar dados brutos em decisões inteligentes",
+          "tip": "Análise de dados é fundamental para o mercado de TI atual."
         }
       ]
     }
