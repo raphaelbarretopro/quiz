@@ -42163,7 +42163,7 @@
           ],
           "correct": "Verdadeiro",
           "tip": "Pode ser combinada com =HORA() e =MINUTO()."
-        },        
+        },
         {
           "type": "multiple",
           "topics": "AGEN",
@@ -42771,6 +42771,915 @@
           ],
           "correct": "Preocupação com integridade de dados e minimização de falhas",
           "tip": "Formulários bem estruturados no Excel são protótipos e sistemas reais em muitas empresas corporativas.",
+          "trans": "END"
+        }
+      ]
+    },
+    {
+      "slug": "aula-01-IA",
+      "lesson_info": {
+        "id": "Aula-01-IA",
+        "title": "AULA 01 - INTELIGÊNCIA ARTIFICIAL NA PRÁTICA",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DA IA",
+            "desc": "Conceitos de IA, Machine Learning, Deep Learning e modelos LLM.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "IA GENERATIVA E AGENTES",
+            "desc": "Geração de texto, imagem, vídeo, voz e a revolução dos agentes autônomos.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "PROMPT ENGINEERING",
+            "desc": "Comunicação estratégica e estruturação de prompts eficazes.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "FUTURO, ÉTICA E PRODUTIVIDADE",
+            "desc": "Impactos profissionais, ferramentas, riscos sociais e pensamento crítico.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com os fundamentos, o que é Inteligência Artificial?",
+          "answers": [
+            "Capacidade da máquina simular comportamentos inteligentes e aprender",
+            "Um sistema de robótica industrial padronizado",
+            "Mágica computacional impossível de explicar",
+            "Um banco de dados de regras fixas inalteráveis"
+          ],
+          "correct": "Capacidade da máquina simular comportamentos inteligentes e aprender",
+          "tip": "IA não é magia, mas simula reconhecimento de padrões de forma autônoma."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], Machine Learning (Aprendizado de Máquina) é um subconjunto da IA onde sistemas aprendem a partir de dados, sem serem programados linha por linha.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esses sistemas se baseiam em dados e estatísticas para melhorar."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O Aprendizado [COMBO] é aquele onde a máquina aprende tentando e errando, parecido com um jogo.",
+          "options": [
+            "por Reforço",
+            "Supervisionado",
+            "Oculto",
+            "Profundo"
+          ],
+          "correct": "por Reforço",
+          "tip": "Ele recebe recompensas por acertos, aprendendo em tempo real."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são as três etapas principais ao 'treinar' uma IA, [NAME]?",
+          "answers": [
+            "Dados",
+            "Ajuste",
+            "Validação",
+            "Apagamento"
+          ],
+          "correct": [
+            "Dados",
+            "Ajuste",
+            "Validação"
+          ],
+          "tip": "Essas três etapas garantem que os erros diminuam e as previsões fiquem precisas."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o tipo de Machine Learning ao seu conceito:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Supervisionado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Não Supervisionado",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Por Reforço",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Aprende com exemplos rotulados"
+            },
+            {
+              "id": "z2",
+              "label": "Encontra padrões escondidos"
+            },
+            {
+              "id": "z3",
+              "label": "Decisões em tempo real"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada tipo aborda o desafio de aprendizagem de forma diferente."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é o Deep Learning?",
+          "answers": [
+            "Uma camada avançada de ML que usa redes neurais profundas",
+            "Um software para aprender inglês mais rápido",
+            "Uma forma de limpar dados inúteis do computador",
+            "Um sistema exclusivo para edição de imagens"
+          ],
+          "correct": "Uma camada avançada de ML que usa redes neurais profundas",
+          "tip": "Ele aprende representações abstratas (pixels > bordas > formas)."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "A IA Tradicional se difere da IA Generativa porque a tradicional foca apenas em criar conteúdo novo e original.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "A Tradicional classifica e aplica regras fixas. A Generativa é que cria o conteúdo novo."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "LLMs são [COMBO] Language Models, sistemas treinados em quantidades massivas de texto.",
+          "options": [
+            "Large",
+            "Low",
+            "Logic",
+            "Linear"
+          ],
+          "correct": "Large",
+          "tip": "Eles processam e geram linguagem em larga escala."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], como um LLM aprende a linguagem? Quais fases ele atravessa?",
+          "answers": [
+            "Pré-treinamento",
+            "Ajuste Fino",
+            "RLHF (Feedback humano)",
+            "Edição de Pixel"
+          ],
+          "correct": [
+            "Pré-treinamento",
+            "Ajuste Fino",
+            "RLHF (Feedback humano)"
+          ],
+          "tip": "Edição de pixel não é uma fase de aprendizado de linguagem."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione as partes de uma Rede Neural às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Camada de Entrada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Camadas Ocultas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Camada de Saída",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Recebe dados brutos"
+            },
+            {
+              "id": "z2",
+              "label": "Aprendem padrões complexos"
+            },
+            {
+              "id": "z3",
+              "label": "Gera a previsão final"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Elas são inspiradas no cérebro biológico humano."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual o significado de RLHF no treinamento de IA, [NAME]?",
+          "answers": [
+            "Reinforcement Learning from Human Feedback",
+            "Real Learning for Human Features",
+            "Rapid Language and Hosting Foundation",
+            "Random Logic for Heavy Functions"
+          ],
+          "correct": "Reinforcement Learning from Human Feedback",
+          "tip": "É a fase onde a IA aprende com o feedback de humanos para ser segura e útil."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], LLMs essencialmente aprendem a prever a próxima palavra com extrema precisão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dessa predição matemática emergem capacidades de raciocínio e escrita criativa."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "As IAs modernas se baseiam fortemente em [COMBO], padrões e dados trabalhando juntos, e não em magia.",
+          "options": [
+            "Estatística",
+            "Adivinhação",
+            "Bruxaria",
+            "Magia"
+          ],
+          "correct": "Estatística",
+          "tip": "Matemática e probabilidade formam o motor da IA.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual destas ferramentas é famosa por ser uma IA Generativa de Texto focada em raciocínio e análise longa?",
+          "answers": [
+            "Claude",
+            "Midjourney",
+            "Sora",
+            "Whisper"
+          ],
+          "correct": "Claude",
+          "tip": "Claude (da Anthropic) é amplamente usado para ler documentos densos e raciocinar sobre eles."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A ferramenta Midjourney é especializada em gerar vídeos curtos para redes sociais.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O Midjourney cria imagens e artes conceituais de altíssima qualidade."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O Google [COMBO] 3 é um modelo recente focado na geração de vídeo com áudio integrado.",
+          "options": [
+            "VEO",
+            "Imagen",
+            "Sora",
+            "Gemini"
+          ],
+          "correct": "VEO",
+          "tip": "VEO 3 promete precisão cirúrgica em movimentos."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "O que a Visão Computacional permite realizar hoje, [NAME]?",
+          "answers": [
+            "Desbloqueio facial em smartphones",
+            "Detecção de tumores em radiografias",
+            "Controle de qualidade em fábricas",
+            "Apenas aplicar filtros simples em fotos"
+          ],
+          "correct": [
+            "Desbloqueio facial em smartphones",
+            "Detecção de tumores em radiografias",
+            "Controle de qualidade em fábricas"
+          ],
+          "tip": "A visão computacional superou capacidades humanas em muitas dessas tarefas."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de IA com sua aplicação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sora (OpenAI)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ElevenLabs",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Whisper",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Geração de Vídeos realistas"
+            },
+            {
+              "id": "z2",
+              "label": "Clonagem e Síntese de Voz"
+            },
+            {
+              "id": "z3",
+              "label": "Transcrição precisa de áudio"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Whisper transcende em mais de 50 idiomas."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que diferencia um Agente de IA de um simples Chatbot?",
+          "answers": [
+            "O agente pode usar ferramentas, planejar e executar ações autônomas",
+            "O agente só funciona se você tiver internet lenta",
+            "O agente tem uma interface de áudio unicamente",
+            "O agente não consegue acessar nenhum dado"
+          ],
+          "correct": "O agente pode usar ferramentas, planejar e executar ações autônomas",
+          "tip": "Essa é a transição da 'IA como assistente' para a 'IA como colaboradora'."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], Devin e Manus AI são exemplos de Agentes que executam tarefas e criam código sozinhos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles coordenam passos, abrem navegadores e desenvolvem projetos de forma autônoma."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Na estrutura de um Agente de IA, a [COMBO] é responsável por armazenar o contexto das tarefas.",
+          "options": [
+            "Memória",
+            "Web",
+            "Ferramenta",
+            "Delegação"
+          ],
+          "correct": "Memória",
+          "tip": "Sem memória, o agente não lembraria dos passos anteriores da sua tarefa."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais recursos compõem o ciclo de funcionamento de um Agente de IA?",
+          "answers": [
+            "Uso de Ferramentas (APIs, internet)",
+            "Ação Autônoma e Planejamento",
+            "Delegação de Tarefas",
+            "Incapacidade de interação web"
+          ],
+          "correct": [
+            "Uso de Ferramentas (APIs, internet)",
+            "Ação Autônoma e Planejamento",
+            "Delegação de Tarefas"
+          ],
+          "tip": "Essas competências tornam os Agentes peças poderosas na produtividade moderna."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], conecte as ferramentas de texto às suas desenvolvedoras:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ChatGPT",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Gemini",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Llama 4",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "OpenAI"
+            },
+            {
+              "id": "z2",
+              "label": "Google"
+            },
+            {
+              "id": "z3",
+              "label": "Meta"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As Big Techs lideram a corrida dos grandes modelos fundacionais."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "A IA geradora de imagens pode criar 'fotos de produto' em cenários virtuais, o que reflete:",
+          "answers": [
+            "Uma redução radical de custos fotográficos para empresas",
+            "O fim imediato da profissão de design gráfico",
+            "Um desperdício de tempo",
+            "Apenas um uso para jogos eletrônicos"
+          ],
+          "correct": "Uma redução radical de custos fotográficos para empresas",
+          "tip": "Isso permite escalar catálogos visuais sem precisar de estúdios caros."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], segundo a aula, sistemas de reconhecimento de fala atuais possuem precisão muito baixa, raramente passando de 60%.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Hoje, a precisão desses sistemas facilmente ultrapassa os 95%."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A nova [COMBO] da era atual inclui saber utilizar a Inteligência Artificial a seu favor.",
+          "options": [
+            "Alfabetização",
+            "Linguagem",
+            "Rede",
+            "Internet"
+          ],
+          "correct": "Alfabetização",
+          "tip": "Não basta saber ler ou escrever; saber extrair valor da IA tornou-se vital.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que define o termo 'Prompt Engineering', [NAME]?",
+          "answers": [
+            "A habilidade de comunicar-se efetivamente com IAs para obter resultados melhores",
+            "Aprender a escrever código em Python puro",
+            "A engenharia de montagem física de servidores de IA",
+            "Uma técnica focada apenas na criação de imagens"
+          ],
+          "correct": "A habilidade de comunicar-se efetivamente com IAs para obter resultados melhores",
+          "tip": "É uma nova forma de comunicação e direção criativa, não estritamente programação."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], ao fazer um pedido para a IA, é recomendado ser vago no início e deixar que ela adivinhe todo o contexto.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, é essencial ser específico e definir claramente o contexto e objetivo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O segundo passo para um bom prompt é definir o [COMBO], como em 'Atue como especialista em UX'.",
+          "options": [
+            "Papel",
+            "Tamanho",
+            "Tempo",
+            "Lugar"
+          ],
+          "correct": "Papel",
+          "tip": "Dar uma 'persona' ajuda o LLM a calibrar o tom e o jargão da resposta."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais destes passos são recomendados na construção de um bom Prompt?",
+          "answers": [
+            "Ser específico",
+            "Definir o papel",
+            "Iterar e refinar o pedido",
+            "Não dar informações extras"
+          ],
+          "correct": [
+            "Ser específico",
+            "Definir o papel",
+            "Iterar e refinar o pedido"
+          ],
+          "tip": "Trate a IA como um estagiário brilhante: muito inteligente, mas precisa de diretrizes claras."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione o erro do prompt genérico 'Escreva um email para pedir férias' com a melhoria adequada:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sem dados de tempo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sem adequação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sem limites",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Informar o período exato (ex: 01/09 a 01/10)"
+            },
+            {
+              "id": "z2",
+              "label": "Definir cargo e tom (ex: cordial e profissional)"
+            },
+            {
+              "id": "z3",
+              "label": "Definir tamanho (ex: máx. 200 palavras)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um bom prompt preenche essas três lacunas simultaneamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], ao pedir que a IA crie uma tela de login, por que a palavra 'moderna' é insuficiente?",
+          "answers": [
+            "Porque 'moderno' é muito subjetivo e cada pessoa tem uma visão do que é moderno",
+            "Porque a IA não tem o dicionário atualizado para a palavra",
+            "Porque designs modernos gastam mais tokens computacionais",
+            "A IA se recusa a fazer designs novos"
+          ],
+          "correct": "Porque 'moderno' é muito subjetivo e cada pessoa tem uma visão do que é moderno",
+          "tip": "O ideal é substituir subjetividade por regras (ex: Estilo minimalista, Material Design 3)."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O processo de iterar e refinar trata o uso da IA como um diálogo: você pode pedir ajustes em vez de recomeçar do zero.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dar feedback na mesma janela ajusta o modelo ao seu desejo exato."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Além de definir o estilo, um bom prompt para interfaces deve listar os [COMBO] necessários, como campo de CPF e botão Entrar.",
+          "options": [
+            "Componentes",
+            "Desvios",
+            "Arquivos",
+            "Programadores"
+          ],
+          "correct": "Componentes",
+          "tip": "Garantir a lista de requisitos evita que a IA 'esqueça' peças fundamentais do layout."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais elementos garantem que um prompt de design UI, como o do exemplo do aplicativo, seja excelente?",
+          "answers": [
+            "Definir a plataforma (Android/iOS)",
+            "Definir o público (18-35 anos)",
+            "Exigir a garantia de acessibilidade",
+            "Usar linguagem de baixo nível de máquina"
+          ],
+          "correct": [
+            "Definir a plataforma (Android/iOS)",
+            "Definir o público (18-35 anos)",
+            "Exigir a garantia de acessibilidade"
+          ],
+          "tip": "Você comunica em linguagem humana natural com parâmetros técnicos."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Estruture o seu pedido! Arraste a técnica para a frase do prompt:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Definir o Papel",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Contexto do usuário",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Instrução exata",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Atue como um especialista em comunicação."
+            },
+            {
+              "id": "z2",
+              "label": "Sou Analista com 3 anos de empresa."
+            },
+            {
+              "id": "z3",
+              "label": "Escreva um e-mail de até 200 palavras."
+            }
+          ],
+          "correct": "drag",
+          "tip": "Unir esses três blocos cria a base da Engenharia de Prompt de elite."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual a lição principal sobre como lidamos com os LLMs?",
+          "answers": [
+            "A forma como você pergunta muda completamente a qualidade do resultado",
+            "Você deve sempre usar a primeira resposta entregue",
+            "Apenas programadores seniores podem gerar bons prompts",
+            "Prompts curtos são sempre superiores aos longos"
+          ],
+          "correct": "A forma como você pergunta muda completamente a qualidade do resultado",
+          "tip": "O LLM é um espelho cognitivo: prompts rasos geram respostas genéricas; prompts ricos geram valor."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Prompt Engineering não é programação. Trata-se de um novo tipo de comunicação [COMBO].",
+          "options": [
+            "Estratégica",
+            "Básica",
+            "Telepática",
+            "Musical"
+          ],
+          "correct": "Estratégica",
+          "tip": "Saber liderar a máquina através de estratégia textual.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], sobre o futuro do trabalho, qual é a principal premissa apresentada na aula?",
+          "answers": [
+            "IAs não substituem pessoas. Pessoas com IA substituem pessoas sem IA.",
+            "A IA vai causar desemprego global permanente a todos.",
+            "Não é necessário aprender IA, os trabalhos continuarão iguais.",
+            "Somente líderes e chefes terão acesso às IAs criativas."
+          ],
+          "correct": "IAs não substituem pessoas. Pessoas com IA substituem pessoas sem IA.",
+          "tip": "A adaptação tecnológica sempre moldou quem lidera o mercado de trabalho."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Habilidades como Pensamento Crítico, Julgamento e Liderança passam a ter menos valor na Era da IA, pois a máquina fará tudo.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Na verdade, elas ganham MAIS valor, pois criatividade e empatia não são automatizáveis."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Um programador hoje utiliza o GitHub [COMBO] para completar código em tempo real no seu editor.",
+          "options": [
+            "Copilot",
+            "Auto",
+            "Driver",
+            "Script"
+          ],
+          "correct": "Copilot",
+          "tip": "Estudos mostram ganhos de até 55% de produtividade usando essa tecnologia."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais destas são considerações e riscos éticos cruciais envolvendo Inteligência Artificial, [NAME]?",
+          "answers": [
+            "Geração de Deepfakes",
+            "Desinformação em escala massiva",
+            "Vieses carregados dos dados de treino",
+            "Incapacidade de ligar a câmera do PC"
+          ],
+          "correct": [
+            "Geração de Deepfakes",
+            "Desinformação em escala massiva",
+            "Vieses carregados dos dados de treino"
+          ],
+          "tip": "A ética em IA aborda privacidade, justiça e evitar a desinformação digital."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione as limitações técnicas aos seus significados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Alucinações",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Corte de conhecimento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Vieses",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "A IA inventa informações e soa muito confiante"
+            },
+            {
+              "id": "z2",
+              "label": "O modelo não sabe de fatos que ocorreram ontem"
+            },
+            {
+              "id": "z3",
+              "label": "O modelo reproduz preconceitos do seu treino"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber o que a IA erra é tão importante quanto saber o que ela acerta."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], para que o NotebookLM do Google é ideal no contexto de estudantes?",
+          "answers": [
+            "Fazer upload de PDFs para responder a perguntas baseadas puramente nesse material",
+            "Gerar vídeos e clipes musicais animados",
+            "Clonar a voz do professor para ouvir em podcasts",
+            "Aumentar a velocidade da internet residencial"
+          ],
+          "correct": "Fazer upload de PDFs para responder a perguntas baseadas puramente nesse material",
+          "tip": "É excelente para resumir grandes volumes sem alucinar, pois foca no arquivo anexado."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O uso de IAs para estudantes é encorajado para entender melhor conceitos complexos, não apenas para copiar respostas prontas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A IA funciona como um tutor particular gratuito, alavancando a capacidade humana de aprendizado."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Profissionais usarão IA gerando novas vagas no futuro, como [COMBO] Engineer e AI Trainer.",
+          "options": [
+            "Prompt",
+            "Image",
+            "Robot",
+            "Virtual"
+          ],
+          "correct": "Prompt",
+          "tip": "Escrever, orientar e gerir fluxos de IA são as habilidades cruciais desse perfil."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "O que constitui um comportamento excelente ao se deparar com um conteúdo denso hoje na web?",
+          "answers": [
+            "Verificar fontes e autoria do conteúdo",
+            "Questionar outputs da IA antes de usá-los",
+            "Distinguir fatos reais de uma opinião algoritmicamente gerada",
+            "Aceitar qualquer dado visual como verdade imediata"
+          ],
+          "correct": [
+            "Verificar fontes e autoria do conteúdo",
+            "Questionar outputs da IA antes de usá-los",
+            "Distinguir fatos reais de uma opinião algoritmicamente gerada"
+          ],
+          "tip": "Esses são os pilares do pensamento crítico na Web 3.0/Era da IA."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe as áreas da vida pessoal/produtiva às respectivas ferramentas de IA recomendadas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Gestão de Tempo/Reuniões",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Criação de Apresentações",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pesquisa com fontes citadas",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Notion AI / Otter.ai"
+            },
+            {
+              "id": "z2",
+              "label": "Gamma"
+            },
+            {
+              "id": "z3",
+              "label": "Perplexity"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Ao usar a IA certa, multiplicamos a capacidade sem aumentar a carga horária."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se uma imagem falsa de um político for gerada por um usuário via Midjourney e viralizar, a que risco a aula se refere?",
+          "answers": [
+            "Deepfakes e Desinformação",
+            "Corte de Conhecimento do LLM",
+            "Erro 404 em Servidores Locais",
+            "Melhoria de Qualidade Gráfica"
+          ],
+          "correct": "Deepfakes e Desinformação",
+          "tip": "Deepfakes comprometem as identidades e prejudicam decisões em escala massiva."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a IA é uma ferramenta que, independentemente dos riscos, o substituirá de forma definitiva, inviabilizando qualquer resgate de criatividade estratégica humana.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "A mensagem de fechamento reforça que criatividade estratégica não é algo que muda. A máquina é a ferramenta, você toma as decisões.",
           "trans": "END"
         }
       ]
