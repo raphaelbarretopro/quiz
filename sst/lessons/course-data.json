@@ -41096,6 +41096,980 @@
           "tip": "Análise de dados é fundamental para o mercado de TI atual."
         }
       ]
+    },
+    {
+      "slug": "aula-56",
+      "lesson_info": {
+        "id": "Aula-56",
+        "title": "AULA 56 - EXCEL AVANÇADO: DATA, HORA, FORMULÁRIOS E PROTEÇÃO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNÇÕES DE DATA E HORA",
+            "desc": "Cálculo de prazos, uso de dias úteis e manipulação de relógios.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "ESTRUTURA DE FORMULÁRIOS",
+            "desc": "Criação de cabeçalhos e layout para entrada padronizada de dados.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "PROTEÇÃO DE PLANILHAS",
+            "desc": "Níveis de bloqueio: Célula, Planilha e Pasta de Trabalho.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1614064641913-6b71a2ec01d1?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "VALIDAÇÃO DE DADOS",
+            "desc": "Regras de restrição, listas suspensas e alertas de erro.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual função retorna a data atual e se atualiza automaticamente ao abrir o arquivo?",
+          "answers": [
+            "HOJE()",
+            "AGORA()",
+            "DATA()",
+            "DIATRABALHO()"
+          ],
+          "correct": "HOJE()",
+          "tip": "É a função mais comum para datas dinâmicas no Excel."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o Excel armazena datas como números seriais, onde o número 1 corresponde a 1º de janeiro de 1900.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso permite realizar cálculos matemáticos com datas facilmente."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A função [COMBO] calcula o prazo final somando dias úteis a uma data inicial.",
+          "options": [
+            "DIATRABALHO",
+            "SOMADATAS",
+            "DIAÚTIL",
+            "TEMPO"
+          ],
+          "correct": "DIATRABALHO",
+          "tip": "Ideal para cronogramas, pois desconsidera sábados e domingos automaticamente."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das seguintes funções são usadas para extrair números específicos de uma data completa?",
+          "answers": [
+            "DIA()",
+            "MÊS()",
+            "ANO()",
+            "DIATRABALHO()"
+          ],
+          "correct": [
+            "DIA()",
+            "MÊS()",
+            "ANO()"
+          ],
+          "tip": "DIATRABALHO projeta datas, as demais extraem fragmentos da data fornecida."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione as funções de tempo com a sua funcionalidade principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "HOJE()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "AGORA()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "DATA()",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "TEMPO()",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Retorna apenas data atual"
+            },
+            {
+              "id": "z2",
+              "label": "Retorna data e hora atual"
+            },
+            {
+              "id": "z3",
+              "label": "Monta data (ano;mês;dia)"
+            },
+            {
+              "id": "z4",
+              "label": "Monta hora (h;m;s)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Funções vazias () buscam do sistema; as com parâmetros montam a partir dos números inseridos."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], que função deve ser usada para registos de auditoria onde o horário exato da ação é fundamental?",
+          "answers": [
+            "AGORA()",
+            "HOJE()",
+            "TEMPO()",
+            "HORA()"
+          ],
+          "correct": "AGORA()",
+          "tip": "A função AGORA() junta a precisão do dia com o relógio do sistema."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], para somar mais de 24 horas acumuladas no Excel sem reiniciar a contagem, deve-se formatar a célula como [h]:mm:ss.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Os colchetes [h] impedem que o Excel zere o relógio ao ultrapassar 24h."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A função [COMBO] retorna um número de 1 a 7, representando o dia da semana.",
+          "options": [
+            "DIA.DA.SEMANA",
+            "DIATRABALHO",
+            "TEXTO",
+            "DIA"
+          ],
+          "correct": "DIA.DA.SEMANA",
+          "tip": "O parâmetro 2 faz com que segunda-feira seja 1 e domingo seja 7."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais as funções dedicadas para extrair frações de um horário completo?",
+          "answers": [
+            "HORA()",
+            "MINUTO()",
+            "SEGUNDO()",
+            "TEMPO()"
+          ],
+          "correct": [
+            "HORA()",
+            "MINUTO()",
+            "SEGUNDO()"
+          ],
+          "tip": "A função TEMPO compõe um horário; as outras desmembram um horário existente."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe a máscara de formatação ao seu resultado visual no Excel:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "dd/mm/aaaa",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "dddd",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "[h]:mm",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Geral",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Data Abreviada"
+            },
+            {
+              "id": "z2",
+              "label": "Dia da semana por extenso"
+            },
+            {
+              "id": "z3",
+              "label": "Horas acumulativas"
+            },
+            {
+              "id": "z4",
+              "label": "Exibe o número serial cru"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A formatação visual não altera o valor real armazenado na célula."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], num cálculo de ponto com a fórmula =C2-B2-TEMPO(1;0;0), o que faz o trecho TEMPO(1;0;0)?",
+          "answers": [
+            "Deduz 1 hora correspondente ao almoço.",
+            "Soma 1 hora extra.",
+            "Arredonda o tempo para 1 minuto.",
+            "Transforma o resultado em texto."
+          ],
+          "correct": "Deduz 1 hora correspondente ao almoço.",
+          "tip": "É uma técnica prática para subtrair um tempo fixo de uma carga horária contínua."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], na função DATA(ano; mês; dia), a ordem dos argumentos não interfere no resultado gerado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "No Excel, a sintaxe das funções é rígida. É obrigatório seguir a ordem: ano, mês e por último dia."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para calcular dinamicamente os dias restantes até um prazo final, subtraímos a Data de Entrega pela função [COMBO].",
+          "options": [
+            "HOJE()",
+            "AGORA()",
+            "TEMPO()",
+            "MÊS()"
+          ],
+          "correct": "HOJE()",
+          "tip": "Dessa forma, a cada novo dia em que o arquivo for aberto, a contagem de dias restantes diminuirá automaticamente.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o principal objetivo da estruturação de um formulário no Excel?",
+          "answers": [
+            "Organizar dados padronizados e evitar erros futuros.",
+            "Criar relatórios gráficos automaticamente.",
+            "Eliminar a necessidade de fórmulas matemáticas.",
+            "Transformar o Excel em um editor de texto."
+          ],
+          "correct": "Organizar dados padronizados e evitar erros futuros.",
+          "tip": "Um formulário foca na captação limpa de informações para posterior análise."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], uma estrutura de formulário engessa a planilha, o que dificulta muito as análises e extrações de relatórios posteriores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, dados bem estruturados num formulário são a melhor base para Tabelas Dinâmicas e Dashboards."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A primeira etapa sugerida para criar um formulário funcional é definir bem os [COMBO].",
+          "options": [
+            "Cabeçalhos",
+            "Gráficos",
+            "Cores",
+            "Atalhos"
+          ],
+          "correct": "Cabeçalhos",
+          "tip": "Os cabeçalhos (ex: Nome, Data, Modalidade) delimitam os campos de preenchimento."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são as 4 etapas essenciais para montar um bom formulário no Excel?",
+          "answers": [
+            "Cabeçalhos",
+            "Formulário (Layout)",
+            "Validações",
+            "Proteção"
+          ],
+          "correct": [
+            "Cabeçalhos",
+            "Formulário (Layout)",
+            "Validações",
+            "Proteção"
+          ],
+          "tip": "A construção vai da estrutura base (cabeçalhos) até ao limite de segurança final (proteção)."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Combine os campos típicos de um formulário de curso aos seus Tipos de Dado ideais:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nome do Curso",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Carga Horária",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Data de Início",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Modalidade",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Texto"
+            },
+            {
+              "id": "z2",
+              "label": "Número inteiro"
+            },
+            {
+              "id": "z3",
+              "label": "Data"
+            },
+            {
+              "id": "z4",
+              "label": "Lista de opções"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Definir o tipo de dado antecipadamente guia a forma como a validação será feita na etapa seguinte."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], no contexto de formulários, por que as células com fórmulas e cálculos devem ser bloqueadas?",
+          "answers": [
+            "Para evitar quebras acidentais de cálculos e perda de lógica.",
+            "Para ocultar o resultado do utilizador.",
+            "Porque fórmulas ocupam mais espaço na memória.",
+            "Para acelerar o processamento do computador."
+          ],
+          "correct": "Para evitar quebras acidentais de cálculos e perda de lógica.",
+          "tip": "O utilizador deve apenas inserir os inputs (entradas); o processamento deve ser intocável."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], em um formulário seguro, os cabeçalhos geralmente não devem ser protegidos, pois o usuário final precisa alterá-los constantemente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Os rótulos e cabeçalhos representam a estrutura estática do formulário e devem sempre estar bloqueados contra alterações."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O uso de [COMBO] suspensas em formulários acelera o preenchimento e evita erros de digitação comuns.",
+          "options": [
+            "Listas",
+            "Teclas",
+            "Fórmulas",
+            "Janelas"
+          ],
+          "correct": "Listas",
+          "tip": "As famosas 'Dropdowns' limitam a escolha a um menu pré-definido."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], do ponto de vista do operador que irá preencher o arquivo final, quais destas opções devem permanecer DESBLOQUEADAS (editáveis)?",
+          "answers": [
+            "Células de entrada de dados do aluno",
+            "Dropdowns e Listas de Seleção",
+            "Títulos das Colunas",
+            "Totais automáticos com SOMA()"
+          ],
+          "correct": [
+            "Células de entrada de dados do aluno",
+            "Dropdowns e Listas de Seleção"
+          ],
+          "tip": "Somente os campos onde haverá efetivação de registro (input humano) devem ficar libertos da proteção."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de área de um formulário à sua recomendação de bloqueio:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cabeçalhos (linha 1)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fórmulas de Custo Total",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nome do Colaborador",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Menu Dropdown de Turnos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Bloquear (Estrutura)"
+            },
+            {
+              "id": "z2",
+              "label": "Bloquear (Cálculo)"
+            },
+            {
+              "id": "z3",
+              "label": "Não Bloquear (Input livre)"
+            },
+            {
+              "id": "z4",
+              "label": "Não Bloquear (Input restrito)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta lógica garante integridade, impedindo que partes vitais do documento sejam apagadas por engano."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], onde se localiza a configuração inicial de 'Bloqueada' ou não de uma célula, antes de efetivar a proteção global?",
+          "answers": [
+            "Janela Formatar Células -> Aba Proteção",
+            "Guia Dados -> Classificar",
+            "Guia Inserir -> Ilustrações",
+            "Guia Exibir -> Layout da Página"
+          ],
+          "correct": "Janela Formatar Células -> Aba Proteção",
+          "tip": "O atalho para acessar essa janela é o 'Ctrl+1'."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Um formulário coeso atua como a 'porta de entrada', viabilizando a extração de [COMBO] precisos posteriormente.",
+          "options": [
+            "Relatórios",
+            "Arquivos",
+            "Vírus",
+            "Desenhos"
+          ],
+          "correct": "Relatórios",
+          "tip": "Se a qualidade do dado inserido for alta (graças ao formulário), a qualidade do relatório final será garantida.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o Nível 1 da hierarquia de proteção de dados apresentada na aula?",
+          "answers": [
+            "Célula",
+            "Planilha",
+            "Pasta de Trabalho",
+            "Sistema Operativo"
+          ],
+          "correct": "Célula",
+          "tip": "A proteção de célula é o alicerce onde indicamos o que é e o que não é editável caso a planilha seja trancada."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], por padrão (default), todas as células de uma nova planilha no Excel já vêm com a caixa 'Bloqueada' marcada internamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso mesmo! É por isso que o 1º passo ao configurar um formulário geralmente envolve selecionar tudo e desmarcar essa caixa."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A opção de 'Proteger Planilha' encontra-se tradicionalmente na guia [COMBO] da faixa de opções do Excel.",
+          "options": [
+            "Revisão",
+            "Página Inicial",
+            "Fórmulas",
+            "Dados"
+          ],
+          "correct": "Revisão",
+          "tip": "Nessa guia, localizam-se diversas ferramentas de validação, tradução e segurança do documento."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais os três níveis oficiais de proteção da estrutura explicados no material?",
+          "answers": [
+            "Nível 1: Célula",
+            "Nível 2: Planilha",
+            "Nível 3: Pasta de Trabalho",
+            "Nível 4: Macro VBA"
+          ],
+          "correct": [
+            "Nível 1: Célula",
+            "Nível 2: Planilha",
+            "Nível 3: Pasta de Trabalho"
+          ],
+          "tip": "Estes três formam a pirâmide de proteção abordada para controle de permissões nativas do arquivo."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o Nível de Proteção à sua característica de bloqueio correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nível 1 (Célula)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nível 2 (Planilha)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nível 3 (Pasta de Trabalho)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Afeta a edição pontual de valor"
+            },
+            {
+              "id": "z2",
+              "label": "Impede exclusões e mudanças na aba aberta"
+            },
+            {
+              "id": "z3",
+              "label": "Impede adicionar, ocultar ou excluir as Abas visuais"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Célula lida com o dado em si; Planilha com o ambiente ao redor; Pasta com o esqueleto do documento."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que a proteção da 'Pasta de Trabalho' (Nível 3) evita expressamente?",
+          "answers": [
+            "Que utilizadores adicionem, excluam ou renomeiem guias (abas) de planilhas.",
+            "Que o arquivo seja deletado do Windows.",
+            "Que uma macro seja executada sem autorização.",
+            "Que o conteúdo de uma célula seja modificado."
+          ],
+          "correct": "Que utilizadores adicionem, excluam ou renomeiem guias (abas) de planilhas.",
+          "tip": "Garante a integridade estrutural do ficheiro. Abas novas não podem surgir, nem as velhas desaparecer."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], se perderes a palavra-passe (senha) que protege uma planilha, o Excel dispõe de um mecanismo oficial de recuperação automática por e-mail.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A documentação alerta que o Excel NÃO recupera senhas automaticamente. É vital guardá-las em local seguro!"
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Marcar as células como Bloqueadas só fará efeito após o utilizador [COMBO] a planilha na guia Revisão.",
+          "options": [
+            "Proteger",
+            "Exportar",
+            "Imprimir",
+            "Salvar"
+          ],
+          "correct": "Proteger",
+          "tip": "O cadeado da célula é a 'intenção', proteger a planilha é o ato de 'trancar a porta'."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], na janela de proteção da planilha, podemos revogar várias permissões. O que uma planilha protegida impede tradicionalmente?",
+          "answers": [
+            "Edição de células bloqueadas",
+            "Exclusão acidental de conteúdo",
+            "Mudar cores e formatações de células bloqueadas",
+            "Ler valores já escritos em células protegidas"
+          ],
+          "correct": [
+            "Edição de células bloqueadas",
+            "Exclusão acidental de conteúdo",
+            "Mudar cores e formatações de células bloqueadas"
+          ],
+          "tip": "Ler dados nunca é impedido por esta ferramenta, apenas alterá-los."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Ordene cronologicamente os 4 passos para proteger células específicas (ex: Formulários):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Selecionar Todas as Células (Ctrl+A)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Desmarcar a caixa 'Bloqueada'",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Selecionar áreas sensíveis e Marcar 'Bloqueada'",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Ir em Revisão -> Proteger Planilha",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Passo 1"
+            },
+            {
+              "id": "z2",
+              "label": "Passo 2"
+            },
+            {
+              "id": "z3",
+              "label": "Passo 3"
+            },
+            {
+              "id": "z4",
+              "label": "Passo 4"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Nós destrancamos a planilha inteira para, em seguida, trancar apenas o que é estritamente necessário (Cabeçalhos e Fórmulas)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], por que as células do Excel vêm bloqueadas por padrão, se habitualmente conseguimos editar as células ao abrir um arquivo novo?",
+          "answers": [
+            "Porque o bloqueio da célula permanece latente/inativo até que a ferramenta Proteger Planilha seja acionada.",
+            "Porque existe um bug no pacote Office.",
+            "Porque apenas administradores de rede percebem esse bloqueio.",
+            "Porque o Excel as desbloqueia sozinho ao darmos duplo clique."
+          ],
+          "correct": "Porque o bloqueio da célula permanece latente/inativo até que a ferramenta Proteger Planilha seja acionada.",
+          "tip": "A propriedade 'Bloqueada' é apenas um status aguardando o comando de proteção ser ativado na guia Revisão."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], na prática do dia a dia do Desenvolvedor de TI, planilhas de acesso restrito ajudam a garantir que configurações do sistema ou custos não sejam adulterados por operadores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso permite a entrega de painéis e ferramentas de controle de forma totalmente isolada de riscos de alteração do 'back-end'."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No caso extremo de esquecimento, arquivos .xlsx podem por vezes ter senhas contornadas através de [COMBO] específicas.",
+          "options": [
+            "Ferramentas",
+            "Memórias",
+            "Cores",
+            "Tabelas"
+          ],
+          "correct": "Ferramentas",
+          "tip": "Apesar do Excel não as recuperar de forma nativa, a arquitetura XML dos arquivos permite certos métodos de desbloqueio externo.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual ferramenta é usada para criar limites específicos ou forçar a escolha através de uma lista suspensa numa célula?",
+          "answers": [
+            "Validação de Dados",
+            "Formatação Condicional",
+            "Tabela Dinâmica",
+            "Atingir Meta"
+          ],
+          "correct": "Validação de Dados",
+          "tip": "É a principal barreira preventiva (input constraint) nativa do Excel para formulários limpos."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], com a Validação de Dados, é possível bloquear a inserção de textos em campos destinados estritamente a números inteiros (como Carga Horária).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela recusa dados incompatíveis com a regra e mostra uma janela de advertência ao utilizador."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Além de bloquear dados errados, é prudente configurar uma mensagem na guia [COMBO] de Erro para orientar o usuário.",
+          "options": [
+            "Alerta",
+            "Cores",
+            "Som",
+            "Fórmula"
+          ],
+          "correct": "Alerta",
+          "tip": "Em 'Alerta de Erro', pode personalizar o título e a descrição da janela de erro que surgirá no ecrã."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], dentro dos critérios nativos da ferramenta de Validação de Dados, quais opções são encontradas no menu 'Permitir'?",
+          "answers": [
+            "Número inteiro",
+            "Lista",
+            "Comprimento do texto",
+            "Imagens JPEG"
+          ],
+          "correct": [
+            "Número inteiro",
+            "Lista",
+            "Comprimento do texto"
+          ],
+          "tip": "Não há validação direta para tipos de arquivos como imagens através deste menu básico."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe o Tipo de Critério de Validação com o seu melhor exemplo de uso em um formulário real:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Número inteiro",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Data",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Lista",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Comprimento do texto",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Horas letivas entre 1 e 500"
+            },
+            {
+              "id": "z2",
+              "label": "Aceitar apenas >= a função HOJE()"
+            },
+            {
+              "id": "z3",
+              "label": "Limitar a: Manhã, Tarde ou Noite"
+            },
+            {
+              "id": "z4",
+              "label": "Sigla obrigatória com exatamente 3 letras"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada tipo lida com uma natureza específica de dados (quantitativo, temporal, categórico e formato)."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], se for exigido garantir que um valor inserido na célula E2 seja estritamente positivo (>0), que tipo de validação deve-se escolher no menu dropdown?",
+          "answers": [
+            "Personalizada",
+            "Decimal",
+            "Texto Livre",
+            "Hora"
+          ],
+          "correct": "Personalizada",
+          "tip": "A validação Personalizada permite escrever lógicas booleanas diretas através de fórmulas, ex: =E2>0."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao optarmos pela validação do tipo 'Lista' digitando manualmente os itens (como Presencial;EAD), o delimitador exato pode variar dependendo do idioma/região do Windows.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Normalmente usa-se Ponto-e-Vírgula (;) no Brasil/Portugal e Vírgula (,) no padrão Americano."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para encontrar o botão da Validação de Dados, deves acessar primeiramente à guia [COMBO] no Ribbon (Faixa de Opções).",
+          "options": [
+            "Dados",
+            "Inserir",
+            "Exibição",
+            "Desenvolvedor"
+          ],
+          "correct": "Dados",
+          "tip": "Esta guia concentra ferramentas de tratamento, limpeza e consolidação de informações."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais os reais motivos que justificam um Analista gastar tempo a criar Validações de Dados num arquivo partilhado?",
+          "answers": [
+            "Para reduzir e mitigar erros de digitação (typos).",
+            "Para forçar o utilizador a aderir às nomenclaturas oficiais do sistema (Lista).",
+            "Para proteger o layout visual e as cores das células.",
+            "Para economizar tempo nas fases de limpeza de dados futuras."
+          ],
+          "correct": [
+            "Para reduzir e mitigar erros de digitação (typos).",
+            "Para forçar o utilizador a aderir às nomenclaturas oficiais do sistema (Lista).",
+            "Para economizar tempo nas fases de limpeza de dados futuras."
+          ],
+          "tip": "Validação de dados atua na precisão do conteúdo inserido. A proteção do layout deve ser feita na guia Revisão > Proteger Planilha."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o tipo de restrição (Validação) aplicada com a sua provável consequência de erro:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Regra: Número Inteiro Mínimo 18",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Regra: Data Menor que 01/01/2026",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Regra: Lista (Aprovado;Reprovado)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Regra: Comprimento igual a 11",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Digitar 17 gera Alerta de Erro"
+            },
+            {
+              "id": "z2",
+              "label": "Digitar o Natal de 2026 gera Alerta"
+            },
+            {
+              "id": "z3",
+              "label": "Digitar 'Em Andamento' gera Alerta"
+            },
+            {
+              "id": "z4",
+              "label": "Digitar 12 dígitos (CPF incorreto) gera Alerta"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada regra bem calibrada é um passo para manter os dados absolutamente isentos de 'poluição' humana natural."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], ao configurarmos uma validação de Número Inteiro utilizando o operador 'Está entre', quais campos de preenchimento tornam-se obrigatórios na janela?",
+          "answers": [
+            "Mínimo e Máximo",
+            "Maior que e Menor que",
+            "Data de Início e Término",
+            "Primeiro e Último Nome"
+          ],
+          "correct": "Mínimo e Máximo",
+          "tip": "A operação 'entre' sempre exigirá um piso (mínimo) e um teto (máximo) para criar o intervalo seguro."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O uso simultâneo de Validações de Dados precisas e Proteção de Células eleva substancialmente a [COMBO] da folha de cálculo perante toda a equipa.",
+          "options": [
+            "Integridade",
+            "Lentidão",
+            "Insegurança",
+            "Cor"
+          ],
+          "correct": "Integridade",
+          "tip": "Planilhas com altíssima integridade são aquelas em que o operador sente que não consegue errar, sendo naturalmente guiado pelas restrições.",
+          "trans": "FIM"
+        }
+      ]
     }
   ]
 }
