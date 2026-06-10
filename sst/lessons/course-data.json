@@ -41098,6 +41098,813 @@
       ]
     },
     {
+      "slug": "aula-55",
+      "lesson_info": {
+        "id": "Aula-55",
+        "title": "AULA 55 - FUNÇÕES FINANCEIRAS: SOMASE E CÁLCULO DE JUROS",
+        "topics": [
+          {
+            "id": "SOMA",
+            "name": "FUNÇÃO SOMASE",
+            "desc": "Soma condicional de valores com base em critérios específicos numa planilha.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "JSIM",
+            "name": "JUROS SIMPLES",
+            "desc": "Crescimento linear onde os juros incidem apenas sobre o capital inicial.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "JCOM",
+            "name": "JUROS COMPOSTOS",
+            "desc": "Crescimento acelerado de juros sobre juros, ideal para investimentos.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "FINA",
+            "name": "FINANCIAMENTO",
+            "desc": "Cálculo de parcelas e juros totais utilizando a função PGTO no Excel.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "P",
+          "G",
+          "T",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "SOMA",
+          "questions": "[NAME], qual é o propósito principal da função SOMASE no Excel?",
+          "answers": [
+            "Somar valores num intervalo com base numa condição específica",
+            "Contar quantas células estão preenchidas",
+            "Multiplicar valores que se repetem",
+            "Calcular a média de um intervalo selecionado"
+          ],
+          "correct": "Somar valores num intervalo com base numa condição específica",
+          "tip": "Esta função é ideal para agrupar totais por categoria."
+        },
+        {
+          "type": "boolean",
+          "topics": "SOMA",
+          "questions": "[NAME], a função SOMASE possui três argumentos principais: intervalo, critério e intervalo_soma.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esses três elementos definem onde procurar, o que procurar e o que somar."
+        },
+        {
+          "type": "combo",
+          "topics": "SOMA",
+          "questions": "Na sintaxe do SOMASE, o [COMBO] define a regra ou o filtro que será aplicado (ex: \"Eletrônicos\").",
+          "options": [
+            "Critério",
+            "Intervalo",
+            "Fator",
+            "Vetor"
+          ],
+          "correct": "Critério",
+          "tip": "O critério é sempre a condição que restringe a soma."
+        },
+        {
+          "type": "multi",
+          "topics": "SOMA",
+          "questions": "[NAME], em quais destas situações do dia a dia o SOMASE é muito útil?",
+          "answers": [
+            "Somar vendas totais por vendedor",
+            "Totalizar despesas por categoria",
+            "Somar quantidades de itens no estoque por tipo",
+            "Formatar o texto de todas as células automaticamente"
+          ],
+          "correct": [
+            "Somar vendas totais por vendedor",
+            "Totalizar despesas por categoria",
+            "Somar quantidades de itens no estoque por tipo"
+          ],
+          "tip": "O SOMASE não altera formatos de texto, apenas realiza somas numéricas."
+        },
+        {
+          "type": "drag",
+          "topics": "SOMA",
+          "questions": "[NAME], relacione os argumentos do SOMASE com os seus significados práticos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Intervalo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Critério",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Intervalo_soma",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Onde buscar a condição"
+            },
+            {
+              "id": "z2",
+              "label": "O que filtrar ou buscar"
+            },
+            {
+              "id": "z3",
+              "label": "Os valores reais a somar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender a ordem dos argumentos é vital para não causar erros na fórmula."
+        },
+        {
+          "type": "multiple",
+          "topics": "SOMA",
+          "questions": "[NAME], se utilizares a fórmula =SOMASE(B2:B6; \"Móveis\"; C2:C6), o que o Excel fará?",
+          "answers": [
+            "Somará os valores na coluna C apenas se a coluna B contiver \"Móveis\"",
+            "Somará todas as células de B2 até C6",
+            "Substituirá a palavra \"Móveis\" pelos valores da coluna C",
+            "Dará erro, pois falta um argumento numérico"
+          ],
+          "correct": "Somará os valores na coluna C apenas se a coluna B contiver \"Móveis\"",
+          "tip": "Ele pesquisa o texto na primeira coluna e soma na última."
+        },
+        {
+          "type": "boolean",
+          "topics": "SOMA",
+          "questions": "Para totalizar apenas as vendas do vendedor \"João\", deves colocar o nome \"João\" no campo \"Intervalo_soma\".",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O nome \"João\" é a condição, portanto deve ir no campo \"Critério\"."
+        },
+        {
+          "type": "combo",
+          "topics": "SOMA",
+          "questions": "[NAME], o argumento [COMBO] é o único onde se insere os valores monetários a serem somados.",
+          "options": [
+            "Intervalo_soma",
+            "Critério",
+            "Intervalo",
+            "Filtro"
+          ],
+          "correct": "Intervalo_soma",
+          "tip": "Sempre que houver valores em dinheiro ou quantidades, esse será o intervalo de soma."
+        },
+        {
+          "type": "multi",
+          "topics": "SOMA",
+          "questions": "Ao organizar um orçamento doméstico, o SOMASE pode ajudar a analisar gastos de:",
+          "answers": [
+            "Transporte",
+            "Alimentação",
+            "Lazer",
+            "Velocidade da internet"
+          ],
+          "correct": [
+            "Transporte",
+            "Alimentação",
+            "Lazer"
+          ],
+          "tip": "Quaisquer categorias com custos associados podem ser somadas."
+        },
+        {
+          "type": "multiple",
+          "topics": "SOMA",
+          "questions": "Qual a separação correta entre os parâmetros dentro da função SOMASE numa versão em português do Excel?",
+          "answers": [
+            "Ponto e vírgula (;)",
+            "Vírgula (,)",
+            "Dois pontos (:)",
+            "Barra (/)"
+          ],
+          "correct": "Ponto e vírgula (;)",
+          "tip": "Os dois pontos (:) indicam intervalos (ex: A1:A5), já o ponto e vírgula separa argumentos."
+        },
+        {
+          "type": "boolean",
+          "topics": "SOMA",
+          "questions": "[NAME], é possível aplicar o SOMASE para controle de status, como somar quantos itens estão \"Entregues\".",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O status \"Entregue\" funcionará como critério e a quantidade como o valor a somar."
+        },
+        {
+          "type": "combo",
+          "topics": "SOMA",
+          "questions": "Em suma, o SOMASE economiza tempo ao evitar que se faça a [COMBO] de dados de forma manual.",
+          "options": [
+            "Soma",
+            "Divisão",
+            "Formatação",
+            "Impressão"
+          ],
+          "correct": "Soma",
+          "tip": "Automatizar esse cálculo evita erros humanos na consolidação.",
+          "trans": "JSIM"
+        },
+        {
+          "type": "multiple",
+          "topics": "JSIM",
+          "questions": "[NAME], qual é a característica principal dos Juros Simples?",
+          "answers": [
+            "Os juros calculam-se sempre sobre o capital inicial",
+            "Os juros recaem sobre o saldo atualizado mês a mês",
+            "Eles crescem de forma exponencial",
+            "Os juros diminuem com o passar do tempo"
+          ],
+          "correct": "Os juros calculam-se sempre sobre o capital inicial",
+          "tip": "O valor base do cálculo não muda ao longo do tempo."
+        },
+        {
+          "type": "boolean",
+          "topics": "JSIM",
+          "questions": "O crescimento do montante num regime de Juros Simples ocorre de forma linear.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Como o juro é constante, o crescimento no gráfico é uma linha reta."
+        },
+        {
+          "type": "combo",
+          "topics": "JSIM",
+          "questions": "[NAME], os Juros Simples são frequentemente utilizados em empréstimos de [COMBO] prazo.",
+          "options": [
+            "Curto",
+            "Longo",
+            "Médio",
+            "Indeterminado"
+          ],
+          "correct": "Curto",
+          "tip": "Devido à sua natureza linear, aplica-se mais a curtos períodos."
+        },
+        {
+          "type": "multi",
+          "topics": "JSIM",
+          "questions": "Na fórmula dos juros simples $J=C \times i \times t$, o que representam as letras?",
+          "answers": [
+            "C = Capital inicial",
+            "i = Taxa de Juros",
+            "t = Prazo",
+            "J = Montante Final"
+          ],
+          "correct": [
+            "C = Capital inicial",
+            "i = Taxa de Juros",
+            "t = Prazo"
+          ],
+          "tip": "O Montante Final é representado pela letra M, não por J."
+        },
+        {
+          "type": "drag",
+          "topics": "JSIM",
+          "questions": "Relacione os termos da matemática financeira ao seu significado no contexto de Juros Simples:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Montante",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Capital",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Taxa de Juros",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Valor final após somar os juros"
+            },
+            {
+              "id": "z2",
+              "label": "O valor original ou investido"
+            },
+            {
+              "id": "z3",
+              "label": "Percentagem aplicada ao capital"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber a terminologia é o primeiro passo para interpretar bem a fórmula."
+        },
+        {
+          "type": "multiple",
+          "topics": "JSIM",
+          "questions": "[NAME], se o Capital Inicial é constante no Juro Simples, o valor dos juros gerados a cada mês será:",
+          "answers": [
+            "Sempre o mesmo valor",
+            "Cada vez maior",
+            "Cada vez menor",
+            "Dobrado a cada ciclo"
+          ],
+          "correct": "Sempre o mesmo valor",
+          "tip": "Se a base (Capital) não muda, a percentagem (Taxa) resulta sempre na mesma quantia."
+        },
+        {
+          "type": "boolean",
+          "topics": "JSIM",
+          "questions": "Para encontrar o Montante Final em Juros Simples, usa-se a fórmula $M = C + J$.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Montante é apenas a soma do capital inicial com os juros obtidos."
+        },
+        {
+          "type": "combo",
+          "topics": "JSIM",
+          "questions": "Nas fórmulas financeiras, a Taxa de Juros (i) deve estar sempre na sua forma [COMBO].",
+          "options": [
+            "Decimal",
+            "Inteira",
+            "Negativa",
+            "Letral"
+          ],
+          "correct": "Decimal",
+          "tip": "Por exemplo, 3% deve ser utilizado como 0,03 no cálculo matemático."
+        },
+        {
+          "type": "multi",
+          "topics": "JSIM",
+          "questions": "[NAME], quais são as consequências práticas do regime de Juros Simples?",
+          "answers": [
+            "O crescimento é facilmente previsível",
+            "Não existe 'juros sobre juros'",
+            "Gera montantes exorbitantes a longo prazo",
+            "Pode ser modelado com multiplicações simples no Excel"
+          ],
+          "correct": [
+            "O crescimento é facilmente previsível",
+            "Não existe 'juros sobre juros'",
+            "Pode ser modelado com multiplicações simples no Excel"
+          ],
+          "tip": "Montantes exorbitantes ocorrem em sistemas compostos, não simples."
+        },
+        {
+          "type": "multiple",
+          "topics": "JSIM",
+          "questions": "Se R$ 5.000 rendem a uma taxa de 3% num mês em juros simples, qual é o valor dos juros de um único mês?",
+          "answers": [
+            "R$ 150,00",
+            "R$ 300,00",
+            "R$ 900,00",
+            "R$ 5.150,00"
+          ],
+          "correct": "R$ 150,00",
+          "tip": "5000 vezes 0,03 é igual a 150."
+        },
+        {
+          "type": "boolean",
+          "topics": "JSIM",
+          "questions": "[NAME], no Excel, podes calcular os Juros Simples ao longo dos meses simplesmente multiplicando Capital, Taxa e o número do Mês correspondente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A fórmula direta numa célula reflete a lógica linear: =CapitalTaxaTempo."
+        },
+        {
+          "type": "combo",
+          "topics": "JSIM",
+          "questions": "O gráfico dos Juros Simples apresenta uma reta com uma inclinação que se mantém [COMBO].",
+          "options": [
+            "Constante",
+            "Variável",
+            "Exponencial",
+            "Descendente"
+          ],
+          "correct": "Constante",
+          "tip": "A linha nunca sofre curvas abruptas, subindo degrau por degrau de igual tamanho."
+        },
+        {
+          "type": "multiple",
+          "topics": "JSIM",
+          "questions": "Após 6 meses com o capital inicial de R$ 5.000 a 3% ao mês de juro simples, o montante final será de:",
+          "answers": [
+            "R$ 5.900,00",
+            "R$ 5.000,00",
+            "R$ 900,00",
+            "R$ 6.000,00"
+          ],
+          "correct": "R$ 5.900,00",
+          "tip": "Juros = 5000 * 0.03 * 6 = 900. Montante = 5000 + 900.",
+          "trans": "JCOM"
+        },
+        {
+          "type": "multiple",
+          "topics": "JCOM",
+          "questions": "[NAME], qual é a definição clássica do sistema de Juros Compostos?",
+          "answers": [
+            "Juros calculados sobre o saldo atualizado (Juros sobre juros)",
+            "Juros calculados apenas sobre o montante final",
+            "Juros fixos e inalteráveis",
+            "Uma taxa que decresce com o tempo"
+          ],
+          "correct": "Juros calculados sobre o saldo atualizado (Juros sobre juros)",
+          "tip": "O saldo incorpora o juro do mês anterior para ser a base do mês seguinte."
+        },
+        {
+          "type": "boolean",
+          "topics": "JCOM",
+          "questions": "O crescimento do montante no regime de Juros Compostos é conhecido como linear.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Em Juros Compostos o crescimento é acelerado e considerado Exponencial."
+        },
+        {
+          "type": "combo",
+          "topics": "JCOM",
+          "questions": "[NAME], nos Juros Compostos, o fato de os próximos juros serem maiores explica-se pois o [COMBO] aumenta mensalmente.",
+          "options": [
+            "Saldo",
+            "Prazo",
+            "Taxa",
+            "Capital inicial"
+          ],
+          "correct": "Saldo",
+          "tip": "Como o capital recebe a soma do rendimento anterior, o saldo global avança rápido."
+        },
+        {
+          "type": "multi",
+          "topics": "JCOM",
+          "questions": "Onde os Juros Compostos são mais utilizados no mercado financeiro?",
+          "answers": [
+            "Empréstimos de longo prazo",
+            "Investimentos e aplicações financeiras",
+            "Financiamentos de imóveis",
+            "Cálculos simples de descontos comerciais imediatos"
+          ],
+          "correct": [
+            "Empréstimos de longo prazo",
+            "Investimentos e aplicações financeiras",
+            "Financiamentos de imóveis"
+          ],
+          "tip": "O sistema bancário adota juros compostos para gerar lucro nas suas operações de crédito."
+        },
+        {
+          "type": "drag",
+          "topics": "JCOM",
+          "questions": "[NAME], relacione o conceito financeiro à sua fórmula correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Montante Composto",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Juros Total",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Juros Simples",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "$M = C \times (1 + i)^t$"
+            },
+            {
+              "id": "z2",
+              "label": "$J = M - C$"
+            },
+            {
+              "id": "z3",
+              "label": "$J = C \times i \times t$"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A exponenciação é o traço característico da fórmula de Juros Compostos."
+        },
+        {
+          "type": "multiple",
+          "topics": "JCOM",
+          "questions": "Para elevar uma expressão à potência (como o tempo na fórmula de Juros Compostos) no Excel, utiliza-se qual símbolo?",
+          "answers": [
+            "Acento circunflexo (^)",
+            "Asterisco (*)",
+            "Sinal de mais (+)",
+            "Percentagem (%)"
+          ],
+          "correct": "Acento circunflexo (^)",
+          "tip": "O caractere ^ indica exponenciação no software."
+        },
+        {
+          "type": "boolean",
+          "topics": "JCOM",
+          "questions": "[NAME], se comparares Juros Simples e Juros Compostos num prazo longo, os Juros Compostos gerarão sempre um montante maior.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A diferença entre os dois alarga-se de forma considerável com o passar do tempo."
+        },
+        {
+          "type": "combo",
+          "topics": "JCOM",
+          "questions": "O [COMBO] final de R$ 5.000 a 3% ao mês durante 6 meses em Juros Compostos atinge R$ 5.970,26.",
+          "options": [
+            "Montante",
+            "Juro",
+            "Capital",
+            "Desconto"
+          ],
+          "correct": "Montante",
+          "tip": "Isso ilustra como a capitalização agiganta os valores finais."
+        },
+        {
+          "type": "multi",
+          "topics": "JCOM",
+          "questions": "[NAME], quais são as etapas do Ciclo dos Juros Compostos?",
+          "answers": [
+            "Juros são calculados sobre o saldo atual",
+            "Saldo aumenta com a adição dos juros",
+            "Próximos juros recaem no novo saldo, sendo maiores",
+            "O Capital Inicial é apagado do histórico mensal"
+          ],
+          "correct": [
+            "Juros são calculados sobre o saldo atual",
+            "Saldo aumenta com a adição dos juros",
+            "Próximos juros recaem no novo saldo, sendo maiores"
+          ],
+          "tip": "O Capital Inicial sempre faz parte do histórico; não é ignorado, apenas somado."
+        },
+        {
+          "type": "multiple",
+          "topics": "JCOM",
+          "questions": "Por que razão as instituições financeiras optam por juros compostos em vez de simples nos empréstimos longos?",
+          "answers": [
+            "Devido ao crescimento acelerado que maximiza o lucro do credor",
+            "Porque o Excel apenas dispõe de fórmulas para Juros Compostos",
+            "Pois o juro simples é ilegal na maioria dos países",
+            "Para que o valor da parcela mensal reduza gradativamente"
+          ],
+          "correct": "Devido ao crescimento acelerado que maximiza o lucro do credor",
+          "tip": "Juros sobre juros geram rentabilidade superior e protegem contra a inflação temporal."
+        },
+        {
+          "type": "boolean",
+          "topics": "JCOM",
+          "questions": "[NAME], no primeiro mês de uma aplicação, os valores obtidos com juros simples e compostos (sob mesma taxa e capital) são rigorosamente idênticos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A diferença começa no segundo mês, quando o saldo-base do Juro Composto aumenta."
+        },
+        {
+          "type": "combo",
+          "topics": "JCOM",
+          "questions": "A equação $M = C \times (1 + i)^t$ permite encontrar o valor final em Juros Compostos de forma [COMBO], sem fazer passo a passo.",
+          "options": [
+            "Direta",
+            "Linear",
+            "Demorada",
+            "Complexa"
+          ],
+          "correct": "Direta",
+          "tip": "É a magia das fórmulas financeiras consolidadas."
+        },
+        {
+          "type": "multiple",
+          "topics": "JCOM",
+          "questions": "Num investimento em Juros Compostos, o que garante a \"aceleração\" dos rendimentos?",
+          "answers": [
+            "O fato de o tempo (t) estar no expoente da fórmula",
+            "A ausência de taxas bancárias na operação",
+            "A depreciação do capital base",
+            "A flutuação mensal do valor da taxa (i)"
+          ],
+          "correct": "O fato de o tempo (t) estar no expoente da fórmula",
+          "tip": "Potências indicam crescimento geométrico ou exponencial.",
+          "trans": "FINA"
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "[NAME], no Excel, qual é a função utilizada para calcular o valor das parcelas de um empréstimo ou financiamento?",
+          "answers": [
+            "PGTO",
+            "SOMA",
+            "MÉDIA",
+            "SOMASE"
+          ],
+          "correct": "PGTO",
+          "tip": "PGTO deriva de \"Pagamento\"."
+        },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "Na função PGTO, o argumento \"nper\" significa o número total de parcelas do financiamento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Abreviação de \"Número de Períodos\"."
+        },
+        {
+          "type": "combo",
+          "topics": "FINA",
+          "questions": "[NAME], como a função PGTO interpreta a parcela como um valor pago ou que sai da sua carteira, ela retorna um número [COMBO].",
+          "options": [
+            "Negativo",
+            "Positivo",
+            "Nulo",
+            "Inexistente"
+          ],
+          "correct": "Negativo",
+          "tip": "O Excel segue as leis do fluxo de caixa: saídas são negativas."
+        },
+        {
+          "type": "multi",
+          "topics": "FINA",
+          "questions": "Quais são os principais usos práticos da função PGTO indicados na aula?",
+          "answers": [
+            "Calcular parcelas num Financiamento de Veículos",
+            "Simular cenários num Crédito Imobiliário",
+            "Avaliar empréstimos empresariais para Capital de Giro",
+            "Contar quantas células contêm a palavra 'Dinheiro'"
+          ],
+          "correct": [
+            "Calcular parcelas num Financiamento de Veículos",
+            "Simular cenários num Crédito Imobiliário",
+            "Avaliar empréstimos empresariais para Capital de Giro"
+          ],
+          "tip": "O PGTO concentra-se estritamente na análise de fluxos regulares de pagamento."
+        },
+        {
+          "type": "drag",
+          "topics": "FINA",
+          "questions": "Relacione os parâmetros da função =PGTO(taxa; nper; vp) às suas respetivas definições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "taxa",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "nper",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "vp",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Taxa de juros por período"
+            },
+            {
+              "id": "z2",
+              "label": "Número total de parcelas"
+            },
+            {
+              "id": "z3",
+              "label": "Valor presente ou financiado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada letra da função desempenha um papel chave na exatidão do resultado."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "[NAME], como evitamos que a parcela calculada pela função PGTO apareça como um valor negativo na planilha?",
+          "answers": [
+            "Envolvendo a função PGTO com a função ABS()",
+            "Apagando o sinal de menos na própria célula",
+            "Trocando a taxa para um valor negativo",
+            "A função nunca retorna negativo"
+          ],
+          "correct": "Envolvendo a função PGTO com a função ABS()",
+          "tip": "ABS() significa \"Absoluto\", removendo sinais negativos."
+        },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "Para encontrar o \"Total de Juros\" pago num financiamento, devemos subtrair o Valor Financiado do Total Pago.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O valor que excede o montante original retirado é exatamente o lucro do banco em juros."
+        },
+        {
+          "type": "combo",
+          "topics": "FINA",
+          "questions": "[NAME], o Total Pago ao final do financiamento descobre-se multiplicando o valor da parcela mensal pelo [COMBO].",
+          "options": [
+            "Prazo",
+            "Taxa",
+            "Capital Inicial",
+            "Desconto"
+          ],
+          "correct": "Prazo",
+          "tip": "A soma de todas as mensalidades pagas reflete o valor global desembolsado."
+        },
+        {
+          "type": "multi",
+          "topics": "FINA",
+          "questions": "Para além do cálculo básico, a função PGTO ajuda um administrador a:",
+          "answers": [
+            "Ter clareza sobre o custo real do empréstimo",
+            "Comparar diferentes prazos de pagamento",
+            "Decidir a viabilidade financeira da compra",
+            "Calcular instantaneamente os juros simples do mês"
+          ],
+          "correct": [
+            "Ter clareza sobre o custo real do empréstimo",
+            "Comparar diferentes prazos de pagamento",
+            "Decidir a viabilidade financeira da compra"
+          ],
+          "tip": "Os juros simples não têm vínculo direto com o PGTO (que utiliza regras compostas)."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "Na aula foi citada a frase de Francis Bacon: \"O dinheiro é um servo excelente, mas um péssimo...\":",
+          "answers": [
+            "Senhor",
+            "Amigo",
+            "Conselheiro",
+            "Investimento"
+          ],
+          "correct": "Senhor",
+          "tip": "Significa que quem não entende de finanças será sempre controlado pelas suas dívidas."
+        },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "[NAME], se a taxa do seu banco for anual, e as parcelas mensais, deverá inserir a taxa sem conversões no parâmetro 'taxa' do PGTO.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Para parcelas mensais, a taxa também deve estar na sua base mensal (dividida por 12 se não capitalizada)."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "Se financiarmos R$ 20.000,00 e o total pago ao banco, através de todas as parcelas, somar R$ 23.963,57, o valor de R$ 3.963,57 representa o quê?",
+          "answers": [
+            "O total de juros desembolsado no período",
+            "O valor presente da operação",
+            "A parcela fixa do mês",
+            "O desconto ganho"
+          ],
+          "correct": "O total de juros desembolsado no período",
+          "tip": "É o famoso custo do crédito cobrado pelas instituições financeiras.",
+          "trans": "END"
+        }
+      ]
+    },
+    {
       "slug": "aula-56",
       "lesson_info": {
         "id": "Aula-56",
@@ -41105,31 +41912,31 @@
         "topics": [
           {
             "id": "ACID",
-            "name": "FUNÇÕES DE DATA E HORA",
-            "desc": "Cálculo de prazos, uso de dias úteis e manipulação de relógios.",
+            "name": "DATA E HORA",
+            "desc": "Armazenamento serial e cálculo automatizado de prazos, dias e horários.",
             "color": "#e74c3c",
-            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+            "img_url": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
-            "name": "ESTRUTURA DE FORMULÁRIOS",
-            "desc": "Criação de cabeçalhos e layout para entrada padronizada de dados.",
+            "name": "FORMULÁRIOS",
+            "desc": "Organização padronizada de dados com validações precisas.",
             "color": "#f1c40f",
             "img_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
-            "name": "PROTEÇÃO DE PLANILHAS",
-            "desc": "Níveis de bloqueio: Célula, Planilha e Pasta de Trabalho.",
+            "name": "PROTEÇÃO E SEGURANÇA",
+            "desc": "Níveis de segurança e bloqueio de células, planilhas e pastas.",
             "color": "#3498db",
-            "img_url": "https://images.unsplash.com/photo-1614064641913-6b71a2ec01d1?auto=format&fit=crop&q=80&w=1600"
+            "img_url": "https://images.unsplash.com/photo-1614064641913-6b71f3016578?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
-            "name": "VALIDAÇÃO DE DADOS",
-            "desc": "Regras de restrição, listas suspensas e alertas de erro.",
+            "name": "APLICAÇÃO NO DIA A DIA",
+            "desc": "Boas práticas, desproteção e aplicações reais no desenvolvimento TI.",
             "color": "#2ecc71",
-            "img_url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600"
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
           }
         ],
         "sokoban": [
@@ -41143,302 +41950,278 @@
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], qual função retorna a data atual e se atualiza automaticamente ao abrir o arquivo?",
+          "questions": "[NAME], como o Excel armazena as datas internamente?",
           "answers": [
-            "HOJE()",
-            "AGORA()",
-            "DATA()",
-            "DIATRABALHO()"
+            "Como números seriais",
+            "Como textos",
+            "Como códigos binários",
+            "Como fórmulas"
           ],
-          "correct": "HOJE()",
-          "tip": "É a função mais comum para datas dinâmicas no Excel."
+          "correct": "Como números seriais",
+          "tip": "Isso permite calcular prazos, diferenças e durações com facilidade."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "[NAME], o Excel armazena datas como números seriais, onde o número 1 corresponde a 1º de janeiro de 1900.",
+          "questions": "[NAME], a função HOJE() retorna a data atual e se atualiza automaticamente ao abrir o arquivo.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Isso permite realizar cálculos matemáticos com datas facilmente."
+          "tip": "HOJE() não possui argumentos dentro dos parênteses."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "A função [COMBO] calcula o prazo final somando dias úteis a uma data inicial.",
+          "questions": "A função [COMBO] retorna a data e a hora atuais, sendo muito útil para registros de auditoria.",
           "options": [
-            "DIATRABALHO",
-            "SOMADATAS",
-            "DIAÚTIL",
-            "TEMPO"
+            "AGORA()",
+            "HOJE()",
+            "TEMPO()",
+            "DATA()"
           ],
-          "correct": "DIATRABALHO",
-          "tip": "Ideal para cronogramas, pois desconsidera sábados e domingos automaticamente."
+          "correct": "AGORA()",
+          "tip": "Diferente de HOJE(), esta função inclui o horário exato do sistema."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], quais das seguintes funções são usadas para extrair números específicos de uma data completa?",
+          "questions": "[NAME], quais argumentos são obrigatórios na função DATA()?",
           "answers": [
-            "DIA()",
-            "MÊS()",
-            "ANO()",
-            "DIATRABALHO()"
+            "Ano",
+            "Mês",
+            "Dia",
+            "Hora"
           ],
           "correct": [
-            "DIA()",
-            "MÊS()",
-            "ANO()"
+            "Ano",
+            "Mês",
+            "Dia"
           ],
-          "tip": "DIATRABALHO projeta datas, as demais extraem fragmentos da data fornecida."
+          "tip": "A estrutura correta é DATA(ano; mês; dia)."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Relacione as funções de tempo com a sua funcionalidade principal:",
+          "questions": "Relacione as funções de extração com os seus resultados, [NAME]:",
           "items": [
             {
               "id": "d1",
-              "txt": "HOJE()",
+              "txt": "DIA(HOJE())",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "AGORA()",
+              "txt": "MÊS(HOJE())",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "DATA()",
+              "txt": "ANO(HOJE())",
               "match": "z3"
             },
             {
               "id": "d4",
-              "txt": "TEMPO()",
+              "txt": "DIA.DA.SEMANA(HOJE();2)",
               "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Retorna apenas data atual"
+              "label": "Dia atual"
             },
             {
               "id": "z2",
-              "label": "Retorna data e hora atual"
+              "label": "Mês atual"
             },
             {
               "id": "z3",
-              "label": "Monta data (ano;mês;dia)"
+              "label": "Ano atual"
             },
             {
               "id": "z4",
-              "label": "Monta hora (h;m;s)"
+              "label": "1 a 7 (Seg-Dom)"
             }
           ],
           "correct": "drag",
-          "tip": "Funções vazias () buscam do sistema; as com parâmetros montam a partir dos números inseridos."
+          "tip": "O número 2 em DIA.DA.SEMANA define segunda-feira como o primeiro dia (1)."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], que função deve ser usada para registos de auditoria onde o horário exato da ação é fundamental?",
+          "questions": "[NAME], o que a função DIATRABALHO() faz?",
           "answers": [
-            "AGORA()",
-            "HOJE()",
-            "TEMPO()",
-            "HORA()"
+            "Calcula o prazo referente a dias úteis a partir de uma data",
+            "Conta quantos domingos existem no mês",
+            "Retorna a data e hora do login",
+            "Soma todas as horas trabalhadas"
           ],
-          "correct": "AGORA()",
-          "tip": "A função AGORA() junta a precisão do dia com o relógio do sistema."
+          "correct": "Calcula o prazo referente a dias úteis a partir de uma data",
+          "tip": "Ela ignora finais de semana para definir prazos reais de entrega."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "[NAME], para somar mais de 24 horas acumuladas no Excel sem reiniciar a contagem, deve-se formatar a célula como [h]:mm:ss.",
+          "questions": "Para somar mais de 24h sem erro, [NAME], devemos formatar as células de hora como [h]:mm:ss.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Os colchetes [h] impedem que o Excel zere o relógio ao ultrapassar 24h."
+          "tip": "Os colchetes em [h] impedem que o Excel zere o contador ao chegar em 24h."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "A função [COMBO] retorna um número de 1 a 7, representando o dia da semana.",
+          "questions": "Para subtrair uma hora de almoço em cálculos de ponto, usamos a fórmula: -COMBO.",
           "options": [
-            "DIA.DA.SEMANA",
-            "DIATRABALHO",
-            "TEXTO",
-            "DIA"
+            "TEMPO",
+            "HORA",
+            "AGORA",
+            "DATA"
           ],
-          "correct": "DIA.DA.SEMANA",
-          "tip": "O parâmetro 2 faz com que segunda-feira seja 1 e domingo seja 7."
+          "correct": "TEMPO",
+          "tip": "A função TEMPO monta um valor com horas, minutos e segundos."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], quais as funções dedicadas para extrair frações de um horário completo?",
+          "questions": "Quais destas funções extraem partes específicas de um horário?",
           "answers": [
             "HORA()",
             "MINUTO()",
             "SEGUNDO()",
-            "TEMPO()"
+            "ANO()"
           ],
           "correct": [
             "HORA()",
             "MINUTO()",
             "SEGUNDO()"
           ],
-          "tip": "A função TEMPO compõe um horário; as outras desmembram um horário existente."
+          "tip": "ANO() extrai parte de uma data, não de um horário."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Associe a máscara de formatação ao seu resultado visual no Excel:",
+          "questions": "Relacione o tipo de cálculo à sua fórmula no Excel, [NAME]:",
           "items": [
             {
               "id": "d1",
-              "txt": "dd/mm/aaaa",
+              "txt": "Data de Entrega",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "dddd",
+              "txt": "Dias Restantes",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "[h]:mm",
+              "txt": "Horas Trabalhadas",
               "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Geral",
-              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Data Abreviada"
+              "label": "DIATRABALHO(Início; Prazo)"
             },
             {
               "id": "z2",
-              "label": "Dia da semana por extenso"
+              "label": "Data Entrega - HOJE()"
             },
             {
               "id": "z3",
-              "label": "Horas acumulativas"
-            },
-            {
-              "id": "z4",
-              "label": "Exibe o número serial cru"
+              "label": "Saída - Entrada - TEMPO(1;0;0)"
             }
           ],
           "correct": "drag",
-          "tip": "A formatação visual não altera o valor real armazenado na célula."
+          "tip": "A correta formatação (Geral ou Hora) é crucial para que os resultados façam sentido."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], num cálculo de ponto com a fórmula =C2-B2-TEMPO(1;0;0), o que faz o trecho TEMPO(1;0;0)?",
+          "questions": "Qual a tecla de atalho para abrir o menu de formatar células e configurar datas abreviadas?",
           "answers": [
-            "Deduz 1 hora correspondente ao almoço.",
-            "Soma 1 hora extra.",
-            "Arredonda o tempo para 1 minuto.",
-            "Transforma o resultado em texto."
+            "Ctrl+1",
+            "Alt+F4",
+            "F12",
+            "Ctrl+P"
           ],
-          "correct": "Deduz 1 hora correspondente ao almoço.",
-          "tip": "É uma técnica prática para subtrair um tempo fixo de uma carga horária contínua."
+          "correct": "Ctrl+1",
+          "tip": "É o atalho universal para formatar células no Excel."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "[NAME], na função DATA(ano; mês; dia), a ordem dos argumentos não interfere no resultado gerado.",
+          "questions": "[NAME], a função =SEGUNDO() serve para extrair os segundos de um valor de hora.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
-          "correct": "Falso",
-          "tip": "No Excel, a sintaxe das funções é rígida. É obrigatório seguir a ordem: ano, mês e por último dia."
-        },
-        {
-          "type": "combo",
-          "topics": "ACID",
-          "questions": "Para calcular dinamicamente os dias restantes até um prazo final, subtraímos a Data de Entrega pela função [COMBO].",
-          "options": [
-            "HOJE()",
-            "AGORA()",
-            "TEMPO()",
-            "MÊS()"
-          ],
-          "correct": "HOJE()",
-          "tip": "Dessa forma, a cada novo dia em que o arquivo for aberto, a contagem de dias restantes diminuirá automaticamente.",
-          "trans": "AGEN"
+          "correct": "Verdadeiro",
+          "tip": "Pode ser combinada com =HORA() e =MINUTO()."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], qual é o principal objetivo da estruturação de um formulário no Excel?",
+          "questions": "[NAME], qual é o principal objetivo de criar um formulário no Excel?",
           "answers": [
-            "Organizar dados padronizados e evitar erros futuros.",
-            "Criar relatórios gráficos automaticamente.",
-            "Eliminar a necessidade de fórmulas matemáticas.",
-            "Transformar o Excel em um editor de texto."
+            "Organizar dados de forma padronizada e evitar erros",
+            "Deixar a planilha colorida",
+            "Criar gráficos em 3D",
+            "Excluir dados antigos automaticamente"
           ],
-          "correct": "Organizar dados padronizados e evitar erros futuros.",
-          "tip": "Um formulário foca na captação limpa de informações para posterior análise."
+          "correct": "Organizar dados de forma padronizada e evitar erros",
+          "tip": "Padronização facilita muito as análises futuras de dados."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "[NAME], uma estrutura de formulário engessa a planilha, o que dificulta muito as análises e extrações de relatórios posteriores.",
+          "questions": "[NAME], a primeira etapa para criar um formulário no Excel é definir os cabeçalhos.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
-          "correct": "Falso",
-          "tip": "Pelo contrário, dados bem estruturados num formulário são a melhor base para Tabelas Dinâmicas e Dashboards."
+          "correct": "Verdadeiro",
+          "tip": "Os cabeçalhos definem os dados que serão coletados."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "A primeira etapa sugerida para criar um formulário funcional é definir bem os [COMBO].",
+          "questions": "A Validação de [COMBO] é o recurso usado para restringir o tipo de informação inserida.",
           "options": [
-            "Cabeçalhos",
-            "Gráficos",
-            "Cores",
-            "Atalhos"
+            "Dados",
+            "Textos",
+            "Células",
+            "Sistemas"
           ],
-          "correct": "Cabeçalhos",
-          "tip": "Os cabeçalhos (ex: Nome, Data, Modalidade) delimitam os campos de preenchimento."
+          "correct": "Dados",
+          "tip": "Pode ser acessada pelo menu Dados -> Validação de Dados."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "[NAME], quais são as 4 etapas essenciais para montar um bom formulário no Excel?",
+          "questions": "Quais destas opções são tipos comuns de Validação de Dados, [NAME]?",
           "answers": [
-            "Cabeçalhos",
-            "Formulário (Layout)",
-            "Validações",
-            "Proteção"
+            "Lista",
+            "Número inteiro",
+            "Comprimento do texto",
+            "Tamanho da fonte"
           ],
           "correct": [
-            "Cabeçalhos",
-            "Formulário (Layout)",
-            "Validações",
-            "Proteção"
+            "Lista",
+            "Número inteiro",
+            "Comprimento do texto"
           ],
-          "tip": "A construção vai da estrutura base (cabeçalhos) até ao limite de segurança final (proteção)."
+          "tip": "Tamanho da fonte é uma formatação visual, não uma regra de validação."
         },
         {
           "type": "drag",
           "topics": "AGEN",
-          "questions": "Combine os campos típicos de um formulário de curso aos seus Tipos de Dado ideais:",
+          "questions": "[NAME], relacione o campo do formulário com a validação recomendada:",
           "items": [
             {
               "id": "d1",
@@ -41464,209 +42247,174 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Texto"
+              "label": "Comprimento do texto"
             },
             {
               "id": "z2",
-              "label": "Número inteiro"
+              "label": "Número inteiro (Entre limites)"
             },
             {
               "id": "z3",
-              "label": "Data"
+              "label": "Data (Maior ou igual a HOJE())"
             },
             {
               "id": "z4",
-              "label": "Lista de opções"
+              "label": "Lista (Presencial/EAD)"
             }
           ],
           "correct": "drag",
-          "tip": "Definir o tipo de dado antecipadamente guia a forma como a validação será feita na etapa seguinte."
+          "tip": "Cada tipo de dado exige uma validação específica para evitar erros de digitação."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], no contexto de formulários, por que as células com fórmulas e cálculos devem ser bloqueadas?",
+          "questions": "Para configurar uma validação personalizada impedindo valores negativos, qual fórmula usaríamos, [NAME]?",
           "answers": [
-            "Para evitar quebras acidentais de cálculos e perda de lógica.",
-            "Para ocultar o resultado do utilizador.",
-            "Porque fórmulas ocupam mais espaço na memória.",
-            "Para acelerar o processamento do computador."
+            "=E2>0",
+            "=E2<0",
+            "HOJE()",
+            "AGORA()"
           ],
-          "correct": "Para evitar quebras acidentais de cálculos e perda de lógica.",
-          "tip": "O utilizador deve apenas inserir os inputs (entradas); o processamento deve ser intocável."
+          "correct": "=E2>0",
+          "tip": "Essa fórmula garante que apenas números maiores que zero sejam aceitos na célula E2."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "[NAME], em um formulário seguro, os cabeçalhos geralmente não devem ser protegidos, pois o usuário final precisa alterá-los constantemente.",
+          "questions": "Configurar a mensagem de 'Alerta de Erro' é inútil na validação de dados.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "Os rótulos e cabeçalhos representam a estrutura estática do formulário e devem sempre estar bloqueados contra alterações."
+          "tip": "O alerta orienta o usuário sobre qual foi o erro de digitação."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "O uso de [COMBO] suspensas em formulários acelera o preenchimento e evita erros de digitação comuns.",
+          "questions": "Após definir Validações, o último passo para um formulário seguro é aplicar a [COMBO].",
           "options": [
-            "Listas",
-            "Teclas",
-            "Fórmulas",
-            "Janelas"
+            "Proteção",
+            "Cor",
+            "Fonte",
+            "Exclusão"
           ],
-          "correct": "Listas",
-          "tip": "As famosas 'Dropdowns' limitam a escolha a um menu pré-definido."
+          "correct": "Proteção",
+          "tip": "A proteção garante que fórmulas e cabeçalhos não sejam apagados."
         },
         {
           "type": "multi",
           "topics": "AGEN",
-          "questions": "[NAME], do ponto de vista do operador que irá preencher o arquivo final, quais destas opções devem permanecer DESBLOQUEADAS (editáveis)?",
+          "questions": "[NAME], o que acontece quando usamos Validação do tipo 'Lista'?",
           "answers": [
-            "Células de entrada de dados do aluno",
-            "Dropdowns e Listas de Seleção",
-            "Títulos das Colunas",
-            "Totais automáticos com SOMA()"
+            "O usuário só pode selecionar os itens predefinidos",
+            "É criado um menu dropdown na célula",
+            "O Excel bloqueia a célula com senha",
+            "Garante padronização de nomenclatura"
           ],
           "correct": [
-            "Células de entrada de dados do aluno",
-            "Dropdowns e Listas de Seleção"
+            "O usuário só pode selecionar os itens predefinidos",
+            "É criado um menu dropdown na célula",
+            "Garante padronização de nomenclatura"
           ],
-          "tip": "Somente os campos onde haverá efetivação de registro (input humano) devem ficar libertos da proteção."
-        },
-        {
-          "type": "drag",
-          "topics": "AGEN",
-          "questions": "Relacione o tipo de área de um formulário à sua recomendação de bloqueio:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Cabeçalhos (linha 1)",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Fórmulas de Custo Total",
-              "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Nome do Colaborador",
-              "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Menu Dropdown de Turnos",
-              "match": "z4"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Bloquear (Estrutura)"
-            },
-            {
-              "id": "z2",
-              "label": "Bloquear (Cálculo)"
-            },
-            {
-              "id": "z3",
-              "label": "Não Bloquear (Input livre)"
-            },
-            {
-              "id": "z4",
-              "label": "Não Bloquear (Input restrito)"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Esta lógica garante integridade, impedindo que partes vitais do documento sejam apagadas por engano."
+          "tip": "A lista não bloqueia a célula com senha, isso é feito na aba Revisão."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], onde se localiza a configuração inicial de 'Bloqueada' ou não de uma célula, antes de efetivar a proteção global?",
+          "questions": "[NAME], onde encontramos a ferramenta de Validação de Dados?",
           "answers": [
-            "Janela Formatar Células -> Aba Proteção",
-            "Guia Dados -> Classificar",
-            "Guia Inserir -> Ilustrações",
-            "Guia Exibir -> Layout da Página"
+            "Na guia Dados",
+            "Na guia Página Inicial",
+            "Na guia Fórmulas",
+            "Na guia Exibir"
           ],
-          "correct": "Janela Formatar Células -> Aba Proteção",
-          "tip": "O atalho para acessar essa janela é o 'Ctrl+1'."
+          "correct": "Na guia Dados",
+          "tip": "Fica no grupo Ferramentas de Dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "É impossível criar uma lista de opções puxando dados de outras células na validação do Excel.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Na 'Fonte' da lista, você pode simplesmente selecionar um intervalo de células."
         },
         {
           "type": "combo",
           "topics": "AGEN",
-          "questions": "Um formulário coeso atua como a 'porta de entrada', viabilizando a extração de [COMBO] precisos posteriormente.",
+          "questions": "As 4 etapas de um formulário são: Cabeçalhos, Formulário, Validações e [COMBO].",
           "options": [
-            "Relatórios",
-            "Arquivos",
-            "Vírus",
-            "Desenhos"
+            "Proteção",
+            "Cores",
+            "Macros",
+            "Impressão"
           ],
-          "correct": "Relatórios",
-          "tip": "Se a qualidade do dado inserido for alta (graças ao formulário), a qualidade do relatório final será garantida.",
+          "correct": "Proteção",
+          "tip": "Estas etapas formam a base de sistemas seguros criados em planilhas.",
           "trans": "PROT"
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], qual é o Nível 1 da hierarquia de proteção de dados apresentada na aula?",
+          "questions": "[NAME], quantos níveis de proteção o Excel possui?",
           "answers": [
-            "Célula",
-            "Planilha",
-            "Pasta de Trabalho",
-            "Sistema Operativo"
+            "3 Níveis",
+            "1 Nível",
+            "2 Níveis",
+            "5 Níveis"
           ],
-          "correct": "Célula",
-          "tip": "A proteção de célula é o alicerce onde indicamos o que é e o que não é editável caso a planilha seja trancada."
+          "correct": "3 Níveis",
+          "tip": "São eles: Célula, Planilha e Pasta de Trabalho."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "[NAME], por padrão (default), todas as células de uma nova planilha no Excel já vêm com a caixa 'Bloqueada' marcada internamente.",
+          "questions": "[NAME], por padrão, todas as células de uma planilha já vêm marcadas como 'bloqueadas'.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Isso mesmo! É por isso que o 1º passo ao configurar um formulário geralmente envolve selecionar tudo e desmarcar essa caixa."
+          "tip": "Porém, esse bloqueio só tem efeito quando a 'Proteção de Planilha' é ativada."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "A opção de 'Proteger Planilha' encontra-se tradicionalmente na guia [COMBO] da faixa de opções do Excel.",
+          "questions": "O nível 2 de proteção é o nível de [COMBO].",
           "options": [
-            "Revisão",
-            "Página Inicial",
-            "Fórmulas",
-            "Dados"
+            "Planilha",
+            "Célula",
+            "Pasta",
+            "Macro"
           ],
-          "correct": "Revisão",
-          "tip": "Nessa guia, localizam-se diversas ferramentas de validação, tradução e segurança do documento."
+          "correct": "Planilha",
+          "tip": "Esse nível impede edição e formatação na aba específica."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "[NAME], quais os três níveis oficiais de proteção da estrutura explicados no material?",
+          "questions": "O que a proteção de 'Pasta de Trabalho' (Nível 3) impede que o usuário faça?",
           "answers": [
-            "Nível 1: Célula",
-            "Nível 2: Planilha",
-            "Nível 3: Pasta de Trabalho",
-            "Nível 4: Macro VBA"
+            "Adicionar novas abas",
+            "Remover abas",
+            "Renomear abas",
+            "Digitar em células"
           ],
           "correct": [
-            "Nível 1: Célula",
-            "Nível 2: Planilha",
-            "Nível 3: Pasta de Trabalho"
+            "Adicionar novas abas",
+            "Remover abas",
+            "Renomear abas"
           ],
-          "tip": "Estes três formam a pirâmide de proteção abordada para controle de permissões nativas do arquivo."
+          "tip": "A edição de células é controlada pela proteção de Planilha, não de Pasta."
         },
         {
           "type": "drag",
           "topics": "PROT",
-          "questions": "Relacione o Nível de Proteção à sua característica de bloqueio correspondente:",
+          "questions": "[NAME], relacione os níveis de proteção com suas características:",
           "items": [
             {
               "id": "d1",
@@ -41687,387 +42435,1252 @@
           "zones": [
             {
               "id": "z1",
-              "label": "Afeta a edição pontual de valor"
+              "label": "Requer ativação na guia Revisão para agir."
             },
             {
               "id": "z2",
-              "label": "Impede exclusões e mudanças na aba aberta"
+              "label": "Impede exclusão ou formatação na aba."
             },
             {
               "id": "z3",
-              "label": "Impede adicionar, ocultar ou excluir as Abas visuais"
+              "label": "Protege a estrutura do arquivo (ex: abas)."
             }
           ],
           "correct": "drag",
-          "tip": "Célula lida com o dado em si; Planilha com o ambiente ao redor; Pasta com o esqueleto do documento."
+          "tip": "Conhecer a pirâmide de proteção evita travamentos desnecessários no projeto."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], o que a proteção da 'Pasta de Trabalho' (Nível 3) evita expressamente?",
+          "questions": "Para liberar uma célula para edição antes de proteger a planilha, você deve acessar:",
           "answers": [
-            "Que utilizadores adicionem, excluam ou renomeiem guias (abas) de planilhas.",
-            "Que o arquivo seja deletado do Windows.",
-            "Que uma macro seja executada sem autorização.",
-            "Que o conteúdo de uma célula seja modificado."
+            "Formatar Células -> Proteção -> desmarcar Bloqueada",
+            "Menu Dados -> Filtro",
+            "Revisão -> Ortografia",
+            "Página Inicial -> Mesclar"
           ],
-          "correct": "Que utilizadores adicionem, excluam ou renomeiem guias (abas) de planilhas.",
-          "tip": "Garante a integridade estrutural do ficheiro. Abas novas não podem surgir, nem as velhas desaparecer."
+          "correct": "Formatar Células -> Proteção -> desmarcar Bloqueada",
+          "tip": "Se não for desmarcada, ela travará quando a proteção geral for ativada."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "[NAME], se perderes a palavra-passe (senha) que protege uma planilha, o Excel dispõe de um mecanismo oficial de recuperação automática por e-mail.",
+          "questions": "[NAME], em um formulário, as células de entrada (onde o usuário digita) devem ficar marcadas como bloqueadas.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Falso",
-          "tip": "A documentação alerta que o Excel NÃO recupera senhas automaticamente. É vital guardá-las em local seguro!"
+          "tip": "Elas devem ser desbloqueadas, para permitir que o usuário insira os dados."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "Marcar as células como Bloqueadas só fará efeito após o utilizador [COMBO] a planilha na guia Revisão.",
+          "questions": "Para ativar a proteção final, vamos na guia [COMBO] e clicamos em 'Proteger Planilha'.",
           "options": [
-            "Proteger",
-            "Exportar",
-            "Imprimir",
-            "Salvar"
+            "Revisão",
+            "Dados",
+            "Fórmulas",
+            "Exibir"
           ],
-          "correct": "Proteger",
-          "tip": "O cadeado da célula é a 'intenção', proteger a planilha é o ato de 'trancar a porta'."
+          "correct": "Revisão",
+          "tip": "Nesse menu, você também define a senha."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "[NAME], na janela de proteção da planilha, podemos revogar várias permissões. O que uma planilha protegida impede tradicionalmente?",
+          "questions": "Quais elementos de um formulário devem permanecer com a opção 'Bloqueada' ativada?",
           "answers": [
-            "Edição de células bloqueadas",
-            "Exclusão acidental de conteúdo",
-            "Mudar cores e formatações de células bloqueadas",
-            "Ler valores já escritos em células protegidas"
+            "Cabeçalhos",
+            "Fórmulas de cálculo automático",
+            "Células de entrada do aluno",
+            "Dropdowns onde o usuário escolhe opções"
           ],
           "correct": [
-            "Edição de células bloqueadas",
-            "Exclusão acidental de conteúdo",
-            "Mudar cores e formatações de células bloqueadas"
+            "Cabeçalhos",
+            "Fórmulas de cálculo automático"
           ],
-          "tip": "Ler dados nunca é impedido por esta ferramenta, apenas alterá-los."
+          "tip": "Tudo que é fixo ou sensível deve ser travado."
         },
         {
           "type": "drag",
           "topics": "PROT",
-          "questions": "Ordene cronologicamente os 4 passos para proteger células específicas (ex: Formulários):",
+          "questions": "Por que cada área recebe um tratamento de proteção específico? Relacione:",
           "items": [
             {
               "id": "d1",
-              "txt": "Selecionar Todas as Células (Ctrl+A)",
+              "txt": "Cabeçalhos (linha 1)",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Desmarcar a caixa 'Bloqueada'",
+              "txt": "Fórmulas",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Selecionar áreas sensíveis e Marcar 'Bloqueada'",
+              "txt": "Células de entrada",
               "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Ir em Revisão -> Proteger Planilha",
-              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Passo 1"
+              "label": "Bloqueados, pois não devem ser alterados."
             },
             {
               "id": "z2",
-              "label": "Passo 2"
+              "label": "Bloqueadas, para evitar quebra de cálculos."
             },
             {
               "id": "z3",
-              "label": "Passo 3"
-            },
-            {
-              "id": "z4",
-              "label": "Passo 4"
+              "label": "Desbloqueadas, pois o usuário preenche."
             }
           ],
           "correct": "drag",
-          "tip": "Nós destrancamos a planilha inteira para, em seguida, trancar apenas o que é estritamente necessário (Cabeçalhos e Fórmulas)."
+          "tip": "A lógica é: só o que o usuário interage ativamente fica livre."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "[NAME], por que as células do Excel vêm bloqueadas por padrão, se habitualmente conseguimos editar as células ao abrir um arquivo novo?",
+          "questions": "[NAME], qual o atalho para selecionar todas as células de uma planilha rapidamente?",
           "answers": [
-            "Porque o bloqueio da célula permanece latente/inativo até que a ferramenta Proteger Planilha seja acionada.",
-            "Porque existe um bug no pacote Office.",
-            "Porque apenas administradores de rede percebem esse bloqueio.",
-            "Porque o Excel as desbloqueia sozinho ao darmos duplo clique."
+            "Ctrl+A",
+            "Ctrl+C",
+            "Alt+S",
+            "F4"
           ],
-          "correct": "Porque o bloqueio da célula permanece latente/inativo até que a ferramenta Proteger Planilha seja acionada.",
-          "tip": "A propriedade 'Bloqueada' é apenas um status aguardando o comando de proteção ser ativado na guia Revisão."
+          "correct": "Ctrl+A",
+          "tip": "Ou clicando no triângulo verde no canto superior esquerdo entre A e 1."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "[NAME], na prática do dia a dia do Desenvolvedor de TI, planilhas de acesso restrito ajudam a garantir que configurações do sistema ou custos não sejam adulterados por operadores.",
+          "questions": "Sem executar o último passo (Proteger Planilha na guia Revisão), nenhuma célula ficará efetivamente protegida.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Isso permite a entrega de painéis e ferramentas de controle de forma totalmente isolada de riscos de alteração do 'back-end'."
-        },
-        {
-          "type": "combo",
-          "topics": "PROT",
-          "questions": "No caso extremo de esquecimento, arquivos .xlsx podem por vezes ter senhas contornadas através de [COMBO] específicas.",
-          "options": [
-            "Ferramentas",
-            "Memórias",
-            "Cores",
-            "Tabelas"
-          ],
-          "correct": "Ferramentas",
-          "tip": "Apesar do Excel não as recuperar de forma nativa, a arquitetura XML dos arquivos permite certos métodos de desbloqueio externo.",
+          "tip": "Apenas marcar 'Bloqueada' nas células não ativa a proteção real no Excel.",
           "trans": "NORM"
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], qual ferramenta é usada para criar limites específicos ou forçar a escolha através de uma lista suspensa numa célula?",
+          "questions": "Se você esqueceu a senha da sua planilha Excel (.xlsx), o que ocorre, [NAME]?",
           "answers": [
-            "Validação de Dados",
-            "Formatação Condicional",
-            "Tabela Dinâmica",
-            "Atingir Meta"
+            "A Microsoft não recupera, mas ferramentas específicas podem conseguir.",
+            "O Excel envia um email com um código de reset.",
+            "O arquivo é apagado por segurança.",
+            "Basta usar a tecla F5 para abrir."
           ],
-          "correct": "Validação de Dados",
-          "tip": "É a principal barreira preventiva (input constraint) nativa do Excel para formulários limpos."
+          "correct": "A Microsoft não recupera, mas ferramentas específicas podem conseguir.",
+          "tip": "O Excel não recupera automaticamente senhas perdidas. Guarde-as com cuidado."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "[NAME], com a Validação de Dados, é possível bloquear a inserção de textos em campos destinados estritamente a números inteiros (como Carga Horária).",
+          "questions": "[NAME], para desativar a proteção de uma Pasta de Trabalho, basta clicar novamente em 'Proteger Pasta de Trabalho' e inserir a senha se houver.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Ela recusa dados incompatíveis com a regra e mostra uma janela de advertência ao utilizador."
+          "tip": "O botão atua como um interruptor (liga/desliga)."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "Além de bloquear dados errados, é prudente configurar uma mensagem na guia [COMBO] de Erro para orientar o usuário.",
+          "questions": "Para desproteger a planilha, vá no menu Revisão e clique em [COMBO] Planilha.",
           "options": [
-            "Alerta",
-            "Cores",
-            "Som",
-            "Fórmula"
+            "Desproteger",
+            "Liberar",
+            "Excluir",
+            "Abrir"
           ],
-          "correct": "Alerta",
-          "tip": "Em 'Alerta de Erro', pode personalizar o título e a descrição da janela de erro que surgirá no ecrã."
+          "correct": "Desproteger",
+          "tip": "Caso haja senha, será solicitada neste momento."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "[NAME], dentro dos critérios nativos da ferramenta de Validação de Dados, quais opções são encontradas no menu 'Permitir'?",
+          "questions": "[NAME], no dia a dia do desenvolvedor TI, onde aplicamos esses conhecimentos de Excel?",
           "answers": [
-            "Número inteiro",
-            "Lista",
-            "Comprimento do texto",
-            "Imagens JPEG"
+            "Controle de Sprints e prazos",
+            "Formulários padronizados para coleta de requisitos",
+            "Planilhas financeiras com acesso restrito para operadores",
+            "Codificação de back-end de aplicativos"
           ],
           "correct": [
-            "Número inteiro",
-            "Lista",
-            "Comprimento do texto"
+            "Controle de Sprints e prazos",
+            "Formulários padronizados para coleta de requisitos",
+            "Planilhas financeiras com acesso restrito para operadores"
           ],
-          "tip": "Não há validação direta para tipos de arquivos como imagens através deste menu básico."
+          "tip": "O Excel é apoio de gestão, mas não compila código back-end."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Associe o Tipo de Critério de Validação com o seu melhor exemplo de uso em um formulário real:",
+          "questions": "Relacione o desafio da equipe de TI com a solução do Excel, [NAME]:",
           "items": [
             {
               "id": "d1",
-              "txt": "Número inteiro",
+              "txt": "Saber prazo de entrega sem fds",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Data",
+              "txt": "Evitar dados incorretos no escopo",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Lista",
+              "txt": "Operador não apagar regra de custo",
               "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Comprimento do texto",
-              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Horas letivas entre 1 e 500"
+              "label": "Função DIATRABALHO()"
             },
             {
               "id": "z2",
-              "label": "Aceitar apenas >= a função HOJE()"
+              "label": "Validação de Dados"
             },
             {
               "id": "z3",
-              "label": "Limitar a: Manhã, Tarde ou Noite"
-            },
-            {
-              "id": "z4",
-              "label": "Sigla obrigatória com exatamente 3 letras"
+              "label": "Proteção de Planilha/Célula"
             }
           ],
           "correct": "drag",
-          "tip": "Cada tipo lida com uma natureza específica de dados (quantitativo, temporal, categórico e formato)."
+          "tip": "Soluções simples nativas economizam horas de retrabalho."
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], se for exigido garantir que um valor inserido na célula E2 seja estritamente positivo (>0), que tipo de validação deve-se escolher no menu dropdown?",
+          "questions": "Segundo a citação na aula, Bill Gates diz que a tecnologia é:",
           "answers": [
-            "Personalizada",
-            "Decimal",
-            "Texto Livre",
-            "Hora"
+            "Apenas uma ferramenta; o professor é o mais importante.",
+            "A solução única para a educação moderna.",
+            "Desnecessária para equipes motivadas.",
+            "Muito complexa para alunos novos."
           ],
-          "correct": "Personalizada",
-          "tip": "A validação Personalizada permite escrever lógicas booleanas diretas através de fórmulas, ex: =E2>0."
+          "correct": "Apenas uma ferramenta; o professor é o mais importante.",
+          "tip": "A máquina não substitui a capacidade pedagógica e humana de motivação."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "[NAME], ao optarmos pela validação do tipo 'Lista' digitando manualmente os itens (como Presencial;EAD), o delimitador exato pode variar dependendo do idioma/região do Windows.",
+          "questions": "[NAME], você deve documentar as senhas das suas planilhas de TI em locais públicos para fácil acesso da empresa toda.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "A aula reforça que você deve documentar senhas em LOCAL SEGURO."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Dominar as ferramentas é o primeiro passo, saber usá-las com [COMBO] é o que diferencia o profissional.",
+          "options": [
+            "Inteligência",
+            "Força",
+            "Rapidez",
+            "Senhas"
+          ],
+          "correct": "Inteligência",
+          "tip": "Saber qual fórmula resolve o problema de negócio é a verdadeira habilidade."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Ao recuperar um arquivo .xlsx com senha perdida, quais são fatos reais, [NAME]?",
+          "answers": [
+            "A Microsoft não recupera de forma nativa",
+            "Ferramentas de terceiros podem quebrar a proteção",
+            "O suporte da Apple desbloqueia o arquivo",
+            "A senha mestra '1234' sempre funciona"
+          ],
+          "correct": [
+            "A Microsoft não recupera de forma nativa",
+            "Ferramentas de terceiros podem quebrar a proteção"
+          ],
+          "tip": "Não existe 'senha mestra' universal."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Última rodada, [NAME]! Associe a ação à sua guia no Excel:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Desproteger Planilha",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Validação de Dados",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Formatar Células",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Guia Revisão"
+            },
+            {
+              "id": "z2",
+              "label": "Guia Dados"
+            },
+            {
+              "id": "z3",
+              "label": "Atalho Ctrl+1 ou Botão Direito"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber navegar pela faixa de opções acelera seu trabalho."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a função de 'Proteger Pasta de Trabalho' altera as fórmulas matemáticas da planilha?",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ela protege apenas a ESTRUTURA (nome de abas, mover planilhas)."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Para o profissional de tecnologia, o uso avançado de formulários e proteções reflete qual atitude?",
+          "answers": [
+            "Preocupação com integridade de dados e minimização de falhas",
+            "Vontade de atrasar os colegas que usam o sistema",
+            "Incapacidade de programar um banco de dados SQL",
+            "Aversão à tecnologia em nuvem"
+          ],
+          "correct": "Preocupação com integridade de dados e minimização de falhas",
+          "tip": "Formulários bem estruturados no Excel são protótipos e sistemas reais em muitas empresas corporativas.",
+          "trans": "END"
+        }
+      ]
+    },
+    {
+      "slug": "aula-01-IA",
+      "lesson_info": {
+        "id": "Aula-01-IA",
+        "title": "AULA 01 - INTELIGÊNCIA ARTIFICIAL NA PRÁTICA",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DA IA",
+            "desc": "Conceitos de IA, Machine Learning, Deep Learning e modelos LLM.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "IA GENERATIVA E AGENTES",
+            "desc": "Geração de texto, imagem, vídeo, voz e a revolução dos agentes autônomos.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "PROMPT ENGINEERING",
+            "desc": "Comunicação estratégica e estruturação de prompts eficazes.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "FUTURO, ÉTICA E PRODUTIVIDADE",
+            "desc": "Impactos profissionais, ferramentas, riscos sociais e pensamento crítico.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com os fundamentos, o que é Inteligência Artificial?",
+          "answers": [
+            "Capacidade da máquina simular comportamentos inteligentes e aprender",
+            "Um sistema de robótica industrial padronizado",
+            "Mágica computacional impossível de explicar",
+            "Um banco de dados de regras fixas inalteráveis"
+          ],
+          "correct": "Capacidade da máquina simular comportamentos inteligentes e aprender",
+          "tip": "IA não é magia, mas simula reconhecimento de padrões de forma autônoma."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], Machine Learning (Aprendizado de Máquina) é um subconjunto da IA onde sistemas aprendem a partir de dados, sem serem programados linha por linha.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Normalmente usa-se Ponto-e-Vírgula (;) no Brasil/Portugal e Vírgula (,) no padrão Americano."
+          "tip": "Esses sistemas se baseiam em dados e estatísticas para melhorar."
         },
         {
           "type": "combo",
-          "topics": "NORM",
-          "questions": "Para encontrar o botão da Validação de Dados, deves acessar primeiramente à guia [COMBO] no Ribbon (Faixa de Opções).",
+          "topics": "ACID",
+          "questions": "O Aprendizado [COMBO] é aquele onde a máquina aprende tentando e errando, parecido com um jogo.",
           "options": [
+            "por Reforço",
+            "Supervisionado",
+            "Oculto",
+            "Profundo"
+          ],
+          "correct": "por Reforço",
+          "tip": "Ele recebe recompensas por acertos, aprendendo em tempo real."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são as três etapas principais ao 'treinar' uma IA, [NAME]?",
+          "answers": [
             "Dados",
-            "Inserir",
-            "Exibição",
-            "Desenvolvedor"
-          ],
-          "correct": "Dados",
-          "tip": "Esta guia concentra ferramentas de tratamento, limpeza e consolidação de informações."
-        },
-        {
-          "type": "multi",
-          "topics": "NORM",
-          "questions": "[NAME], quais os reais motivos que justificam um Analista gastar tempo a criar Validações de Dados num arquivo partilhado?",
-          "answers": [
-            "Para reduzir e mitigar erros de digitação (typos).",
-            "Para forçar o utilizador a aderir às nomenclaturas oficiais do sistema (Lista).",
-            "Para proteger o layout visual e as cores das células.",
-            "Para economizar tempo nas fases de limpeza de dados futuras."
+            "Ajuste",
+            "Validação",
+            "Apagamento"
           ],
           "correct": [
-            "Para reduzir e mitigar erros de digitação (typos).",
-            "Para forçar o utilizador a aderir às nomenclaturas oficiais do sistema (Lista).",
-            "Para economizar tempo nas fases de limpeza de dados futuras."
+            "Dados",
+            "Ajuste",
+            "Validação"
           ],
-          "tip": "Validação de dados atua na precisão do conteúdo inserido. A proteção do layout deve ser feita na guia Revisão > Proteger Planilha."
+          "tip": "Essas três etapas garantem que os erros diminuam e as previsões fiquem precisas."
         },
         {
           "type": "drag",
-          "topics": "NORM",
-          "questions": "Relacione o tipo de restrição (Validação) aplicada com a sua provável consequência de erro:",
+          "topics": "ACID",
+          "questions": "Relacione o tipo de Machine Learning ao seu conceito:",
           "items": [
             {
               "id": "d1",
-              "txt": "Regra: Número Inteiro Mínimo 18",
+              "txt": "Supervisionado",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Regra: Data Menor que 01/01/2026",
+              "txt": "Não Supervisionado",
               "match": "z2"
             },
             {
               "id": "d3",
-              "txt": "Regra: Lista (Aprovado;Reprovado)",
+              "txt": "Por Reforço",
               "match": "z3"
-            },
-            {
-              "id": "d4",
-              "txt": "Regra: Comprimento igual a 11",
-              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Digitar 17 gera Alerta de Erro"
+              "label": "Aprende com exemplos rotulados"
             },
             {
               "id": "z2",
-              "label": "Digitar o Natal de 2026 gera Alerta"
+              "label": "Encontra padrões escondidos"
             },
             {
               "id": "z3",
-              "label": "Digitar 'Em Andamento' gera Alerta"
-            },
-            {
-              "id": "z4",
-              "label": "Digitar 12 dígitos (CPF incorreto) gera Alerta"
+              "label": "Decisões em tempo real"
             }
           ],
           "correct": "drag",
-          "tip": "Cada regra bem calibrada é um passo para manter os dados absolutamente isentos de 'poluição' humana natural."
+          "tip": "Cada tipo aborda o desafio de aprendizagem de forma diferente."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que é o Deep Learning?",
+          "answers": [
+            "Uma camada avançada de ML que usa redes neurais profundas",
+            "Um software para aprender inglês mais rápido",
+            "Uma forma de limpar dados inúteis do computador",
+            "Um sistema exclusivo para edição de imagens"
+          ],
+          "correct": "Uma camada avançada de ML que usa redes neurais profundas",
+          "tip": "Ele aprende representações abstratas (pixels > bordas > formas)."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "A IA Tradicional se difere da IA Generativa porque a tradicional foca apenas em criar conteúdo novo e original.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "A Tradicional classifica e aplica regras fixas. A Generativa é que cria o conteúdo novo."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "LLMs são [COMBO] Language Models, sistemas treinados em quantidades massivas de texto.",
+          "options": [
+            "Large",
+            "Low",
+            "Logic",
+            "Linear"
+          ],
+          "correct": "Large",
+          "tip": "Eles processam e geram linguagem em larga escala."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], como um LLM aprende a linguagem? Quais fases ele atravessa?",
+          "answers": [
+            "Pré-treinamento",
+            "Ajuste Fino",
+            "RLHF (Feedback humano)",
+            "Edição de Pixel"
+          ],
+          "correct": [
+            "Pré-treinamento",
+            "Ajuste Fino",
+            "RLHF (Feedback humano)"
+          ],
+          "tip": "Edição de pixel não é uma fase de aprendizado de linguagem."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione as partes de uma Rede Neural às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Camada de Entrada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Camadas Ocultas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Camada de Saída",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Recebe dados brutos"
+            },
+            {
+              "id": "z2",
+              "label": "Aprendem padrões complexos"
+            },
+            {
+              "id": "z3",
+              "label": "Gera a previsão final"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Elas são inspiradas no cérebro biológico humano."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual o significado de RLHF no treinamento de IA, [NAME]?",
+          "answers": [
+            "Reinforcement Learning from Human Feedback",
+            "Real Learning for Human Features",
+            "Rapid Language and Hosting Foundation",
+            "Random Logic for Heavy Functions"
+          ],
+          "correct": "Reinforcement Learning from Human Feedback",
+          "tip": "É a fase onde a IA aprende com o feedback de humanos para ser segura e útil."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], LLMs essencialmente aprendem a prever a próxima palavra com extrema precisão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dessa predição matemática emergem capacidades de raciocínio e escrita criativa."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "As IAs modernas se baseiam fortemente em [COMBO], padrões e dados trabalhando juntos, e não em magia.",
+          "options": [
+            "Estatística",
+            "Adivinhação",
+            "Bruxaria",
+            "Magia"
+          ],
+          "correct": "Estatística",
+          "tip": "Matemática e probabilidade formam o motor da IA.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual destas ferramentas é famosa por ser uma IA Generativa de Texto focada em raciocínio e análise longa?",
+          "answers": [
+            "Claude",
+            "Midjourney",
+            "Sora",
+            "Whisper"
+          ],
+          "correct": "Claude",
+          "tip": "Claude (da Anthropic) é amplamente usado para ler documentos densos e raciocinar sobre eles."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A ferramenta Midjourney é especializada em gerar vídeos curtos para redes sociais.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O Midjourney cria imagens e artes conceituais de altíssima qualidade."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O Google [COMBO] 3 é um modelo recente focado na geração de vídeo com áudio integrado.",
+          "options": [
+            "VEO",
+            "Imagen",
+            "Sora",
+            "Gemini"
+          ],
+          "correct": "VEO",
+          "tip": "VEO 3 promete precisão cirúrgica em movimentos."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "O que a Visão Computacional permite realizar hoje, [NAME]?",
+          "answers": [
+            "Desbloqueio facial em smartphones",
+            "Detecção de tumores em radiografias",
+            "Controle de qualidade em fábricas",
+            "Apenas aplicar filtros simples em fotos"
+          ],
+          "correct": [
+            "Desbloqueio facial em smartphones",
+            "Detecção de tumores em radiografias",
+            "Controle de qualidade em fábricas"
+          ],
+          "tip": "A visão computacional superou capacidades humanas em muitas dessas tarefas."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de IA com sua aplicação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sora (OpenAI)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ElevenLabs",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Whisper",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Geração de Vídeos realistas"
+            },
+            {
+              "id": "z2",
+              "label": "Clonagem e Síntese de Voz"
+            },
+            {
+              "id": "z3",
+              "label": "Transcrição precisa de áudio"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Whisper transcende em mais de 50 idiomas."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que diferencia um Agente de IA de um simples Chatbot?",
+          "answers": [
+            "O agente pode usar ferramentas, planejar e executar ações autônomas",
+            "O agente só funciona se você tiver internet lenta",
+            "O agente tem uma interface de áudio unicamente",
+            "O agente não consegue acessar nenhum dado"
+          ],
+          "correct": "O agente pode usar ferramentas, planejar e executar ações autônomas",
+          "tip": "Essa é a transição da 'IA como assistente' para a 'IA como colaboradora'."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], Devin e Manus AI são exemplos de Agentes que executam tarefas e criam código sozinhos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eles coordenam passos, abrem navegadores e desenvolvem projetos de forma autônoma."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Na estrutura de um Agente de IA, a [COMBO] é responsável por armazenar o contexto das tarefas.",
+          "options": [
+            "Memória",
+            "Web",
+            "Ferramenta",
+            "Delegação"
+          ],
+          "correct": "Memória",
+          "tip": "Sem memória, o agente não lembraria dos passos anteriores da sua tarefa."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais recursos compõem o ciclo de funcionamento de um Agente de IA?",
+          "answers": [
+            "Uso de Ferramentas (APIs, internet)",
+            "Ação Autônoma e Planejamento",
+            "Delegação de Tarefas",
+            "Incapacidade de interação web"
+          ],
+          "correct": [
+            "Uso de Ferramentas (APIs, internet)",
+            "Ação Autônoma e Planejamento",
+            "Delegação de Tarefas"
+          ],
+          "tip": "Essas competências tornam os Agentes peças poderosas na produtividade moderna."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], conecte as ferramentas de texto às suas desenvolvedoras:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ChatGPT",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Gemini",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Llama 4",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "OpenAI"
+            },
+            {
+              "id": "z2",
+              "label": "Google"
+            },
+            {
+              "id": "z3",
+              "label": "Meta"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As Big Techs lideram a corrida dos grandes modelos fundacionais."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "A IA geradora de imagens pode criar 'fotos de produto' em cenários virtuais, o que reflete:",
+          "answers": [
+            "Uma redução radical de custos fotográficos para empresas",
+            "O fim imediato da profissão de design gráfico",
+            "Um desperdício de tempo",
+            "Apenas um uso para jogos eletrônicos"
+          ],
+          "correct": "Uma redução radical de custos fotográficos para empresas",
+          "tip": "Isso permite escalar catálogos visuais sem precisar de estúdios caros."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], segundo a aula, sistemas de reconhecimento de fala atuais possuem precisão muito baixa, raramente passando de 60%.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Hoje, a precisão desses sistemas facilmente ultrapassa os 95%."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A nova [COMBO] da era atual inclui saber utilizar a Inteligência Artificial a seu favor.",
+          "options": [
+            "Alfabetização",
+            "Linguagem",
+            "Rede",
+            "Internet"
+          ],
+          "correct": "Alfabetização",
+          "tip": "Não basta saber ler ou escrever; saber extrair valor da IA tornou-se vital.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que define o termo 'Prompt Engineering', [NAME]?",
+          "answers": [
+            "A habilidade de comunicar-se efetivamente com IAs para obter resultados melhores",
+            "Aprender a escrever código em Python puro",
+            "A engenharia de montagem física de servidores de IA",
+            "Uma técnica focada apenas na criação de imagens"
+          ],
+          "correct": "A habilidade de comunicar-se efetivamente com IAs para obter resultados melhores",
+          "tip": "É uma nova forma de comunicação e direção criativa, não estritamente programação."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], ao fazer um pedido para a IA, é recomendado ser vago no início e deixar que ela adivinhe todo o contexto.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, é essencial ser específico e definir claramente o contexto e objetivo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O segundo passo para um bom prompt é definir o [COMBO], como em 'Atue como especialista em UX'.",
+          "options": [
+            "Papel",
+            "Tamanho",
+            "Tempo",
+            "Lugar"
+          ],
+          "correct": "Papel",
+          "tip": "Dar uma 'persona' ajuda o LLM a calibrar o tom e o jargão da resposta."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais destes passos são recomendados na construção de um bom Prompt?",
+          "answers": [
+            "Ser específico",
+            "Definir o papel",
+            "Iterar e refinar o pedido",
+            "Não dar informações extras"
+          ],
+          "correct": [
+            "Ser específico",
+            "Definir o papel",
+            "Iterar e refinar o pedido"
+          ],
+          "tip": "Trate a IA como um estagiário brilhante: muito inteligente, mas precisa de diretrizes claras."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione o erro do prompt genérico 'Escreva um email para pedir férias' com a melhoria adequada:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sem dados de tempo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sem adequação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sem limites",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Informar o período exato (ex: 01/09 a 01/10)"
+            },
+            {
+              "id": "z2",
+              "label": "Definir cargo e tom (ex: cordial e profissional)"
+            },
+            {
+              "id": "z3",
+              "label": "Definir tamanho (ex: máx. 200 palavras)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um bom prompt preenche essas três lacunas simultaneamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], ao pedir que a IA crie uma tela de login, por que a palavra 'moderna' é insuficiente?",
+          "answers": [
+            "Porque 'moderno' é muito subjetivo e cada pessoa tem uma visão do que é moderno",
+            "Porque a IA não tem o dicionário atualizado para a palavra",
+            "Porque designs modernos gastam mais tokens computacionais",
+            "A IA se recusa a fazer designs novos"
+          ],
+          "correct": "Porque 'moderno' é muito subjetivo e cada pessoa tem uma visão do que é moderno",
+          "tip": "O ideal é substituir subjetividade por regras (ex: Estilo minimalista, Material Design 3)."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O processo de iterar e refinar trata o uso da IA como um diálogo: você pode pedir ajustes em vez de recomeçar do zero.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dar feedback na mesma janela ajusta o modelo ao seu desejo exato."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Além de definir o estilo, um bom prompt para interfaces deve listar os [COMBO] necessários, como campo de CPF e botão Entrar.",
+          "options": [
+            "Componentes",
+            "Desvios",
+            "Arquivos",
+            "Programadores"
+          ],
+          "correct": "Componentes",
+          "tip": "Garantir a lista de requisitos evita que a IA 'esqueça' peças fundamentais do layout."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais elementos garantem que um prompt de design UI, como o do exemplo do aplicativo, seja excelente?",
+          "answers": [
+            "Definir a plataforma (Android/iOS)",
+            "Definir o público (18-35 anos)",
+            "Exigir a garantia de acessibilidade",
+            "Usar linguagem de baixo nível de máquina"
+          ],
+          "correct": [
+            "Definir a plataforma (Android/iOS)",
+            "Definir o público (18-35 anos)",
+            "Exigir a garantia de acessibilidade"
+          ],
+          "tip": "Você comunica em linguagem humana natural com parâmetros técnicos."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Estruture o seu pedido! Arraste a técnica para a frase do prompt:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Definir o Papel",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Contexto do usuário",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Instrução exata",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Atue como um especialista em comunicação."
+            },
+            {
+              "id": "z2",
+              "label": "Sou Analista com 3 anos de empresa."
+            },
+            {
+              "id": "z3",
+              "label": "Escreva um e-mail de até 200 palavras."
+            }
+          ],
+          "correct": "drag",
+          "tip": "Unir esses três blocos cria a base da Engenharia de Prompt de elite."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual a lição principal sobre como lidamos com os LLMs?",
+          "answers": [
+            "A forma como você pergunta muda completamente a qualidade do resultado",
+            "Você deve sempre usar a primeira resposta entregue",
+            "Apenas programadores seniores podem gerar bons prompts",
+            "Prompts curtos são sempre superiores aos longos"
+          ],
+          "correct": "A forma como você pergunta muda completamente a qualidade do resultado",
+          "tip": "O LLM é um espelho cognitivo: prompts rasos geram respostas genéricas; prompts ricos geram valor."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Prompt Engineering não é programação. Trata-se de um novo tipo de comunicação [COMBO].",
+          "options": [
+            "Estratégica",
+            "Básica",
+            "Telepática",
+            "Musical"
+          ],
+          "correct": "Estratégica",
+          "tip": "Saber liderar a máquina através de estratégia textual.",
+          "trans": "NORM"
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], ao configurarmos uma validação de Número Inteiro utilizando o operador 'Está entre', quais campos de preenchimento tornam-se obrigatórios na janela?",
+          "questions": "[NAME], sobre o futuro do trabalho, qual é a principal premissa apresentada na aula?",
           "answers": [
-            "Mínimo e Máximo",
-            "Maior que e Menor que",
-            "Data de Início e Término",
-            "Primeiro e Último Nome"
+            "IAs não substituem pessoas. Pessoas com IA substituem pessoas sem IA.",
+            "A IA vai causar desemprego global permanente a todos.",
+            "Não é necessário aprender IA, os trabalhos continuarão iguais.",
+            "Somente líderes e chefes terão acesso às IAs criativas."
           ],
-          "correct": "Mínimo e Máximo",
-          "tip": "A operação 'entre' sempre exigirá um piso (mínimo) e um teto (máximo) para criar o intervalo seguro."
+          "correct": "IAs não substituem pessoas. Pessoas com IA substituem pessoas sem IA.",
+          "tip": "A adaptação tecnológica sempre moldou quem lidera o mercado de trabalho."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Habilidades como Pensamento Crítico, Julgamento e Liderança passam a ter menos valor na Era da IA, pois a máquina fará tudo.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Na verdade, elas ganham MAIS valor, pois criatividade e empatia não são automatizáveis."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "O uso simultâneo de Validações de Dados precisas e Proteção de Células eleva substancialmente a [COMBO] da folha de cálculo perante toda a equipa.",
+          "questions": "Um programador hoje utiliza o GitHub [COMBO] para completar código em tempo real no seu editor.",
           "options": [
-            "Integridade",
-            "Lentidão",
-            "Insegurança",
-            "Cor"
+            "Copilot",
+            "Auto",
+            "Driver",
+            "Script"
           ],
-          "correct": "Integridade",
-          "tip": "Planilhas com altíssima integridade são aquelas em que o operador sente que não consegue errar, sendo naturalmente guiado pelas restrições.",
-          "trans": "FIM"
+          "correct": "Copilot",
+          "tip": "Estudos mostram ganhos de até 55% de produtividade usando essa tecnologia."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais destas são considerações e riscos éticos cruciais envolvendo Inteligência Artificial, [NAME]?",
+          "answers": [
+            "Geração de Deepfakes",
+            "Desinformação em escala massiva",
+            "Vieses carregados dos dados de treino",
+            "Incapacidade de ligar a câmera do PC"
+          ],
+          "correct": [
+            "Geração de Deepfakes",
+            "Desinformação em escala massiva",
+            "Vieses carregados dos dados de treino"
+          ],
+          "tip": "A ética em IA aborda privacidade, justiça e evitar a desinformação digital."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione as limitações técnicas aos seus significados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Alucinações",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Corte de conhecimento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Vieses",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "A IA inventa informações e soa muito confiante"
+            },
+            {
+              "id": "z2",
+              "label": "O modelo não sabe de fatos que ocorreram ontem"
+            },
+            {
+              "id": "z3",
+              "label": "O modelo reproduz preconceitos do seu treino"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber o que a IA erra é tão importante quanto saber o que ela acerta."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], para que o NotebookLM do Google é ideal no contexto de estudantes?",
+          "answers": [
+            "Fazer upload de PDFs para responder a perguntas baseadas puramente nesse material",
+            "Gerar vídeos e clipes musicais animados",
+            "Clonar a voz do professor para ouvir em podcasts",
+            "Aumentar a velocidade da internet residencial"
+          ],
+          "correct": "Fazer upload de PDFs para responder a perguntas baseadas puramente nesse material",
+          "tip": "É excelente para resumir grandes volumes sem alucinar, pois foca no arquivo anexado."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O uso de IAs para estudantes é encorajado para entender melhor conceitos complexos, não apenas para copiar respostas prontas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A IA funciona como um tutor particular gratuito, alavancando a capacidade humana de aprendizado."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Profissionais usarão IA gerando novas vagas no futuro, como [COMBO] Engineer e AI Trainer.",
+          "options": [
+            "Prompt",
+            "Image",
+            "Robot",
+            "Virtual"
+          ],
+          "correct": "Prompt",
+          "tip": "Escrever, orientar e gerir fluxos de IA são as habilidades cruciais desse perfil."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "O que constitui um comportamento excelente ao se deparar com um conteúdo denso hoje na web?",
+          "answers": [
+            "Verificar fontes e autoria do conteúdo",
+            "Questionar outputs da IA antes de usá-los",
+            "Distinguir fatos reais de uma opinião algoritmicamente gerada",
+            "Aceitar qualquer dado visual como verdade imediata"
+          ],
+          "correct": [
+            "Verificar fontes e autoria do conteúdo",
+            "Questionar outputs da IA antes de usá-los",
+            "Distinguir fatos reais de uma opinião algoritmicamente gerada"
+          ],
+          "tip": "Esses são os pilares do pensamento crítico na Web 3.0/Era da IA."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe as áreas da vida pessoal/produtiva às respectivas ferramentas de IA recomendadas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Gestão de Tempo/Reuniões",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Criação de Apresentações",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pesquisa com fontes citadas",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Notion AI / Otter.ai"
+            },
+            {
+              "id": "z2",
+              "label": "Gamma"
+            },
+            {
+              "id": "z3",
+              "label": "Perplexity"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Ao usar a IA certa, multiplicamos a capacidade sem aumentar a carga horária."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se uma imagem falsa de um político for gerada por um usuário via Midjourney e viralizar, a que risco a aula se refere?",
+          "answers": [
+            "Deepfakes e Desinformação",
+            "Corte de Conhecimento do LLM",
+            "Erro 404 em Servidores Locais",
+            "Melhoria de Qualidade Gráfica"
+          ],
+          "correct": "Deepfakes e Desinformação",
+          "tip": "Deepfakes comprometem as identidades e prejudicam decisões em escala massiva."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a IA é uma ferramenta que, independentemente dos riscos, o substituirá de forma definitiva, inviabilizando qualquer resgate de criatividade estratégica humana.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "A mensagem de fechamento reforça que criatividade estratégica não é algo que muda. A máquina é a ferramenta, você toma as decisões.",
+          "trans": "END"
         }
       ]
     }
