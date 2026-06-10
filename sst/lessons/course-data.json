@@ -42070,6 +42070,812 @@
           "trans": "FIM"
         }
       ]
+    },
+    {
+      "slug": "aula-02-git",
+      "lesson_info": {
+        "id": "Aula-02-git",
+        "title": "AULA 02 - GESTÃO DE ALTERAÇÕES E HISTÓRICO DE VERSÕES COM GIT",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "COMMITS SEMÂNTICOS",
+            "desc": "Aprenda a escrever mensagens de commit claras e padronizadas.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1555952494-efd681c7e3f9?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "ARQUIVO .GITIGNORE",
+            "desc": "Proteja seu repositório ignorando arquivos e pastas desnecessários.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "HISTÓRICO DE VERSÕES",
+            "desc": "Navegue e inspecione o histórico de alterações com 'git log'.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1522252234503-e356532cafd5?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "COMPARAÇÃO DE ALTERAÇÕES",
+            "desc": "Analise as diferenças entre versões do código com 'git diff'.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "C",
+          "O",
+          "D",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal objetivo dos Commits Semânticos?",
+          "answers": [
+            "Tornar o histórico de alterações legível e profissional",
+            "Acelerar o processo de commit",
+            "Reduzir o tamanho do repositório",
+            "Validar o código antes de commitar"
+          ],
+          "correct": "Tornar o histórico de alterações legível e profissional",
+          "tip": "Commits Semânticos são uma convenção para comunicar o 'quê' e o 'porquê' das alterações de forma padronizada."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o tipo 'feat' em um commit semântico indica a correção de um bug.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O tipo 'feat' é usado para novas funcionalidades. Para correção de bugs, o tipo correto é 'fix'."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O tipo [COMBO] é usado para alterações que não modificam o código fonte ou de teste, como configurações de build.",
+          "options": [
+            "chore",
+            "docs",
+            "style",
+            "test"
+          ],
+          "correct": "chore",
+          "tip": "'chore' refere-se a tarefas de manutenção e configurações que não afetam a lógica da aplicação."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual dos seguintes tipos de commit é usado para melhorias de desempenho?",
+          "answers": [
+            "refactor",
+            "style",
+            "perf",
+            "build"
+          ],
+          "correct": "perf",
+          "tip": "'perf' é a abreviação de 'performance' e é usado especificamente para commits que melhoram o desempenho do código."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais dos seguintes são considerados tipos válidos em Commits Semânticos?",
+          "answers": [
+            "fix",
+            "docs",
+            "update",
+            "feat"
+          ],
+          "correct": [
+            "fix",
+            "docs",
+            "feat"
+          ],
+          "tip": "A convenção de Commits Semânticos define tipos específicos como 'feat', 'fix', 'docs', 'style', 'refactor', 'test' e 'chore'."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o tipo de commit semântico com sua finalidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "feat",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "fix",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "docs",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "refactor",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Nova funcionalidade"
+            },
+            {
+              "id": "z2",
+              "label": "Correção de bug"
+            },
+            {
+              "id": "z3",
+              "label": "Alterações na documentação"
+            },
+            {
+              "id": "z4",
+              "label": "Refatoração de código"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada tipo de commit tem um propósito claro para manter o histórico organizado."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a descrição de um commit semântico deve ser escrita no tempo verbal passado, como 'corrigido bug'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A descrição deve ser imperativa e curta, como 'corrige bug', para se alinhar com o estilo de mensagens geradas pelo próprio Git."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "O que o escopo em um commit semântico, como 'feat(auth): ...', representa?",
+          "answers": [
+            "O autor da alteração",
+            "O módulo ou parte da aplicação que foi modificada",
+            "A prioridade da tarefa",
+            "O número da versão"
+          ],
+          "correct": "O módulo ou parte da aplicação que foi modificada",
+          "tip": "O escopo é opcional e serve para dar um contexto mais específico sobre onde a mudança ocorreu."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Alterações que afetam apenas a formatação do código, como espaços e ponto e vírgula, devem usar o tipo [COMBO].",
+          "options": [
+            "style",
+            "refactor",
+            "format",
+            "clean"
+          ],
+          "correct": "style",
+          "tip": "'style' é o tipo correto para mudanças que não alteram a lógica do código, apenas sua aparência."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais são os benefícios de usar Commits Semânticos?",
+          "answers": [
+            "Facilita a geração automática de changelogs",
+            "Melhora a comunicação na equipe",
+            "Torna o código mais rápido",
+            "Permite navegar pelo histórico de forma mais clara"
+          ],
+          "correct": [
+            "Facilita a geração automática de changelogs",
+            "Melhora a comunicação na equipe",
+            "Permite navegar pelo histórico de forma mais clara"
+          ],
+          "tip": "A padronização dos commits traz clareza, automação e melhora a colaboração no projeto."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "O uso de ferramentas como Commitizen e Husky pode ajudar a garantir que todos os commits sigam o padrão semântico.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essas ferramentas automatizam a criação de mensagens de commit e validam se elas estão no formato correto antes de serem enviadas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual tipo de commit é mais apropriado para adicionar testes a um projeto?",
+          "answers": [
+            "feat",
+            "test",
+            "build",
+            "chore"
+          ],
+          "correct": "test",
+          "tip": "O tipo 'test' é usado para adicionar ou corrigir testes, sejam eles unitários, de integração, etc."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], ao reverter um commit anterior, qual tipo semântico é geralmente utilizado?",
+          "answers": [
+            "revert",
+            "fix",
+            "undo",
+            "rollback"
+          ],
+          "correct": "revert",
+          "tip": "O tipo 'revert' indica que o commit desfaz uma alteração anterior, e a mensagem geralmente inclui o hash do commit revertido.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual é a principal função do arquivo .gitignore?",
+          "answers": [
+            "Instruir o Git a ignorar arquivos e pastas específicas",
+            "Definir permissões de usuário",
+            "Armazenar senhas e chaves de API",
+            "Listar todas as dependências do projeto"
+          ],
+          "correct": "Instruir o Git a ignorar arquivos e pastas específicas",
+          "tip": "O .gitignore evita que arquivos desnecessários ou sensíveis sejam rastreados e enviados ao repositório."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a pasta 'node_modules/' deve sempre ser enviada para o repositório para garantir que o projeto funcione.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A pasta 'node_modules/' pode ter centenas de megabytes e deve ser ignorada, pois as dependências podem ser reinstaladas a partir do 'package.json'."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais dos seguintes arquivos ou pastas são comumente adicionados ao .gitignore em um projeto Node.js/Angular?",
+          "answers": [
+            "node_modules/",
+            "dist/",
+            ".env",
+            "package.json"
+          ],
+          "correct": [
+            "node_modules/",
+            "dist/",
+            ".env"
+          ],
+          "tip": "Dependências, builds e arquivos de ambiente contendo dados sensíveis são os principais candidatos a serem ignorados."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para ignorar todos os arquivos com a extensão '.log', você adicionaria a linha [COMBO] ao seu .gitignore.",
+          "options": [
+            "*.log",
+            "log.*",
+            "**/*.log",
+            "all.log"
+          ],
+          "correct": "*.log",
+          "tip": "O asterisco (*) é um caractere curinga que corresponde a qualquer sequência de caracteres."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "Se um arquivo já foi commitado, adicioná-lo ao .gitignore o removerá automaticamente do histórico do Git.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Para de rastrear um arquivo já commitado, você precisa removê-lo do cache do Git com 'git rm --cached <arquivo>'."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual comando você usaria para parar de rastrear a pasta 'node_modules' que foi commitada por engano?",
+          "answers": [
+            "git rm -r --cached node_modules/",
+            "git ignore node_modules/",
+            "git delete node_modules/",
+            "git checkout -- node_modules/"
+          ],
+          "correct": "git rm -r --cached node_modules/",
+          "tip": "O comando 'git rm --cached' remove o arquivo do rastreamento do Git, mas o mantém no seu disco local."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o padrão no .gitignore com o que ele ignora:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "build/",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "*.tmp",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": ".env",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "docs/specific.pdf",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Um diretório inteiro"
+            },
+            {
+              "id": "z2",
+              "label": "Arquivos por extensão"
+            },
+            {
+              "id": "z3",
+              "label": "Arquivo de ambiente"
+            },
+            {
+              "id": "z4",
+              "label": "Um arquivo específico"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O .gitignore é flexível, permitindo ignorar pastas, arquivos por nome, por extensão ou por caminho específico."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Por que é crucial ignorar arquivos como '.env'?",
+          "answers": [
+            "Para evitar a exposição de credenciais e chaves de API",
+            "Porque eles são muito grandes",
+            "Para evitar conflitos de merge",
+            "Porque eles são gerados automaticamente"
+          ],
+          "correct": "Para evitar a exposição de credenciais e chaves de API",
+          "tip": "Expor arquivos .env em repositórios públicos é uma falha de segurança grave."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O arquivo .gitignore só pode ser criado na pasta raiz do projeto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Embora seja mais comum na raiz, você pode ter arquivos .gitignore em subdiretórios para aplicar regras específicas àquela pasta."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Pastas de build como [COMBO] e '.angular/' são ignoradas porque podem ser recriadas a partir do código fonte a qualquer momento.",
+          "options": [
+            "dist/",
+            "src/",
+            "app/",
+            "assets/"
+          ],
+          "correct": "dist/",
+          "tip": "Não se deve versionar código gerado. Versiona-se apenas o código fonte que o gera."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Qual comando pode ser usado para verificar quais arquivos estão sendo ignorados em um diretório específico?",
+          "answers": [
+            "git status --ignored",
+            "git check-ignore -v *",
+            "git ls-files --ignored",
+            "Todas as anteriores"
+          ],
+          "correct": "Todas as anteriores",
+          "tip": "Existem várias formas de listar arquivos ignorados, cada uma com um nível de detalhe diferente."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao commitar a configuração do .gitignore, qual tipo semântico é mais adequado?",
+          "answers": [
+            "feat",
+            "fix",
+            "chore",
+            "style"
+          ],
+          "correct": "chore",
+          "tip": "Configurar o .gitignore é uma tarefa de manutenção do projeto, que se encaixa perfeitamente no tipo 'chore'.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual comando exibe o histórico de commits do projeto?",
+          "answers": [
+            "git history",
+            "git log",
+            "git show",
+            "git status"
+          ],
+          "correct": "git log",
+          "tip": "'git log' é a janela para o passado do seu projeto, exibindo todos os commits realizados."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o 'HEAD' em um 'git log' sempre aponta para o primeiro commit do projeto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "'HEAD' é um ponteiro que indica onde você está atualmente, geralmente apontando para o commit mais recente de uma branch."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para ver o histórico de commits de forma compacta, com uma linha por commit, usa-se o comando 'git log [COMBO]'.",
+          "options": [
+            "--oneline",
+            "--short",
+            "--compact",
+            "--summary"
+          ],
+          "correct": "--oneline",
+          "tip": "A opção '--oneline' é excelente para ter uma visão geral rápida do histórico."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual opção do 'git log' mostra o histórico com um gráfico de branches?",
+          "answers": [
+            "--tree",
+            "--branches",
+            "--graph",
+            "--visual"
+          ],
+          "correct": "--graph",
+          "tip": "'git log --oneline --graph --all' é um comando poderoso para visualizar a estrutura de branches e merges."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais informações são exibidas para cada commit no 'git log' padrão?",
+          "answers": [
+            "Hash do commit",
+            "Autor",
+            "Data",
+            "Arquivos modificados"
+          ],
+          "correct": [
+            "Hash do commit",
+            "Autor",
+            "Data"
+          ],
+          "tip": "O log padrão mostra o hash, autor, data e a mensagem do commit. Para ver os arquivos, é preciso usar opções como '--stat'."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o comando 'git log' com sua funcionalidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "git log --author='Carlos'",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "git log --grep='feat'",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "git log --since='2024-01-01'",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "git log -S 'nomeDaFuncao'",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Filtrar por autor"
+            },
+            {
+              "id": "z2",
+              "label": "Filtrar por mensagem"
+            },
+            {
+              "id": "z3",
+              "label": "Filtrar por data"
+            },
+            {
+              "id": "z4",
+              "label": "Buscar quando um texto foi introduzido"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O 'git log' oferece diversas opções de filtro para encontrar exatamente o que você procura no histórico."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "O comando 'git show <hash>' exibe apenas a mensagem do commit especificado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "'git show' é mais detalhado, exibindo a mensagem, o autor, a data e as alterações de código (diff) do commit."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Para ver quais arquivos foram alterados em cada commit, junto com o número de linhas adicionadas/removidas, qual opção você usa?",
+          "answers": [
+            "git log --files",
+            "git log --details",
+            "git log --stat",
+            "git log --changes"
+          ],
+          "correct": "git log --stat",
+          "tip": "A opção '--stat' (de statistics) fornece um resumo das mudanças de cada commit."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O [COMBO] é um identificador único de 40 caracteres para cada commit.",
+          "options": [
+            "hash",
+            "id",
+            "key",
+            "tag"
+          ],
+          "correct": "hash",
+          "tip": "O hash SHA-1 garante a integridade e a identificação única de cada alteração no histórico."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que o comando 'git log -p' faz?",
+          "answers": [
+            "Mostra o log em formato de patch (com as alterações)",
+            "Mostra o log de um caminho (path) específico",
+            "Mostra o log de forma 'pretty' (bonita)",
+            "Mostra o log de um período específico"
+          ],
+          "correct": "Mostra o log em formato de patch (com as alterações)",
+          "tip": "A opção '-p' ou '--patch' é equivalente a 'git show' para cada commit no log, exibindo o diff completo."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], como você pode formatar a saída do 'git log' para mostrar apenas o hash curto, o autor e a mensagem?",
+          "answers": [
+            "git log --pretty=format:'%h - %an: %s'",
+            "git log --format='%h | %an | %s'",
+            "git log --custom-format='%h, %an, %s'",
+            "git log --oneline --author --subject"
+          ],
+          "correct": "git log --pretty=format:'%h - %an: %s'",
+          "tip": "A opção '--pretty=format' oferece controle total sobre como as informações do log são exibidas.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual comando é usado para comparar as diferenças entre o seu diretório de trabalho (Working Tree) e o último commit?",
+          "answers": [
+            "git diff",
+            "git compare",
+            "git status",
+            "git log -p"
+          ],
+          "correct": "git diff",
+          "tip": "'git diff' sem argumentos mostra todas as alterações que ainda não foram adicionadas ao stage."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], 'git diff --staged' mostra as diferenças entre dois branches.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "'git diff --staged' (ou --cached) mostra as diferenças entre os arquivos que estão no stage e o último commit."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para comparar as diferenças entre dois commits específicos, você usaria 'git diff [COMBO]'.",
+          "options": [
+            "<hash1> <hash2>",
+            "<hash1>..<hash2>",
+            "<hash1>...<hash2>",
+            "<hash1> versus <hash2>"
+          ],
+          "correct": "<hash1> <hash2>",
+          "tip": "Você pode usar tanto 'git diff <hash1> <hash2>' quanto 'git diff <hash1>..<hash2>' para comparar dois pontos no histórico."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Na saída do 'git diff', o que o sinal de '+' no início de uma linha indica?",
+          "answers": [
+            "Uma linha adicionada",
+            "Uma linha removida",
+            "Uma linha modificada",
+            "Um comentário"
+          ],
+          "correct": "Uma linha adicionada",
+          "tip": "O sinal de '+' indica uma linha que existe na nova versão, enquanto o sinal de '-' indica uma linha que foi removida da versão antiga."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais dos seguintes comandos usam 'git diff' implicitamente?",
+          "answers": [
+            "git show",
+            "git log -p",
+            "git add -p",
+            "git status"
+          ],
+          "correct": [
+            "git show",
+            "git log -p",
+            "git add -p"
+          ],
+          "tip": "Muitos comandos do Git utilizam o mecanismo de 'diff' para mostrar ou aplicar alterações de forma detalhada."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o comando 'git diff' com o que ele compara:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "git diff",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "git diff --staged",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "git diff HEAD~1",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "git diff main..develop",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Working Tree vs Stage"
+            },
+            {
+              "id": "z2",
+              "label": "Stage vs Último Commit"
+            },
+            {
+              "id": "z3",
+              "label": "Último commit vs penúltimo commit"
+            },
+            {
+              "id": "z4",
+              "label": "Dois branches"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender os diferentes alvos de comparação do 'git diff' é essencial para revisar o código em cada etapa do processo."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O comando 'git diff --name-only' exibe apenas os nomes dos arquivos que foram alterados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esta é uma forma rápida de listar quais arquivos foram tocados entre duas versões, sem se preocupar com o conteúdo das mudanças."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "O que a linha '@@ -10,7 +10,8 @@' na saída de um 'git diff' significa?",
+          "answers": [
+            "Um resumo das alterações de um trecho de código (hunk)",
+            "Um erro de sintaxe na linha 10",
+            "A data e hora da alteração",
+            "O autor da modificação"
+          ],
+          "correct": "Um resumo das alterações de um trecho de código (hunk)",
+          "tip": "Ela indica a linha de início e o número de linhas no arquivo antigo (-,7) e no novo (+,8) para aquele trecho específico."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para ver as alterações no branch 'feature' que ainda não estão no branch 'main', você usaria o comando 'git diff [COMBO]'.",
+          "options": [
+            "main..feature",
+            "feature..main",
+            "main...feature",
+            "feature...main"
+          ],
+          "correct": "main..feature",
+          "tip": "A sintaxe de dois pontos (..) mostra as diferenças entre a ponta dos dois branches."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual é um dos principais usos do 'git diff' no fluxo de trabalho de desenvolvimento?",
+          "answers": [
+            "Revisar suas próprias alterações antes de commitar",
+            "Criar novos branches",
+            "Baixar atualizações do repositório remoto",
+            "Reverter commits"
+          ],
+          "correct": "Revisar suas próprias alterações antes de commitar",
+          "tip": "Executar 'git diff' e 'git diff --staged' é uma boa prática para garantir que você está commitando exatamente o que pretendia."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o 'git diff' pode ser usado para comparar arquivos que não estão em um repositório Git.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "'git diff' é uma ferramenta interna do Git e opera com base nos objetos e no índice do repositório."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], como você pode comparar o commit atual com o seu 'avô' (dois commits antes)?",
+          "answers": [
+            "git diff HEAD HEAD~2",
+            "git diff HEAD-2",
+            "git diff HEAD...2",
+            "git diff HEAD grand-parent"
+          ],
+          "correct": "git diff HEAD HEAD~2",
+          "tip": "O caractere '~' seguido de um número permite navegar para trás no histórico de commits a partir de um ponto de referência como o HEAD."
+        }
+      ]
     }
   ]
 }
