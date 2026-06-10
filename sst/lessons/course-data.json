@@ -1,6 +1,6 @@
 ﻿{
   "version": 1,
-  "defaultLesson": "aula-01-IA",
+  "defaultLesson": "aula-11",
   "lessons": [
     {
       "slug": "aula-11",
@@ -42876,6 +42876,975 @@
           "tip": "O caractere '~' seguido de um número permite navegar para trás no histórico de commits a partir de um ponto de referência como o HEAD."
         }
       ]
-    }
-  ]
-}
+    },
+    {
+      "slug": "aula-excel-masterclass",
+      "lesson_info": {
+        "id": "Aula-Excel",
+        "title": "MASTERCLASS EXCEL: DO BÁSICO AO AVANÇADO E FINANCEIRO",
+        "topics": [
+          {
+            "id": "LOGI",
+            "name": "ESTATÍSTICA E LÓGICA",
+            "desc": "Fundamentos de funções estatísticas, matemáticas e operadores lógicos.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "FINA",
+            "name": "FINANCEIRA E CONDICIONAIS",
+            "desc": "Cálculos de investimentos, financiamentos e domínio da função SE.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "BUSD",
+            "name": "BUSCA E ANÁLISE",
+            "desc": "PROCV, PROCH, ferramentas de análise e intercâmbio de dados.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AVAN",
+            "name": "AVANÇADO E PROTEÇÃO",
+            "desc": "Datas, formulários, gráficos e segurança de planilhas.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "LOGI",
+          "questions": "[NAME], qual função retorna o maior valor de um conjunto de dados?",
+          "answers": [
+            "MÁXIMO",
+            "MAIOR",
+            "TOPO",
+            "SUPERIOR"
+          ],
+          "correct": "MÁXIMO",
+          "tip": "A função MÁXIMO avalia um intervalo e retorna o valor numérico mais alto."
+        },
+        {
+          "type": "boolean",
+          "topics": "LOGI",
+          "questions": "[NAME], a função CONT.VALORES conta células vazias em um intervalo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "CONT.VALORES conta apenas células que não estão vazias, independentemente do tipo de dado."
+        },
+        {
+          "type": "combo",
+          "topics": "LOGI",
+          "questions": "Para calcular a média aritmética, utiliza-se a função [COMBO].",
+          "options": [
+            "MÉDIA",
+            "MED",
+            "SOMA/N",
+            "MEIO"
+          ],
+          "correct": "MÉDIA",
+          "tip": "A função MED retorna a mediana, enquanto MÉDIA calcula a média aritmética."
+        },
+        {
+          "type": "multi",
+          "topics": "LOGI",
+          "questions": "[NAME], quais destas funções são consideradas funções lógicas no Excel?",
+          "answers": [
+            "E",
+            "OU",
+            "NÃO",
+            "SOMA"
+          ],
+          "correct": [
+            "E",
+            "OU",
+            "NÃO"
+          ],
+          "tip": "As funções E, OU e NÃO avaliam condições e retornam VERDADEIRO ou FALSO."
+        },
+        {
+          "type": "drag",
+          "topics": "LOGI",
+          "questions": "Relacione a função estatística ao seu objetivo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "CONT.NÚM",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "MED",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "MODO",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "MÍNIMO",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Conta células com números"
+            },
+            {
+              "id": "z2",
+              "label": "Retorna o valor central"
+            },
+            {
+              "id": "z3",
+              "label": "Valor que mais se repete"
+            },
+            {
+              "id": "z4",
+              "label": "Retorna o menor valor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender essas funções é essencial para análise estatística básica."
+        },
+        {
+          "type": "multiple",
+          "topics": "LOGI",
+          "questions": "Se =E(A1>10; B1<5) retornar VERDADEIRO, isso significa que:",
+          "answers": [
+            "Ambas as condições são verdadeiras.",
+            "Pelo menos uma condição é verdadeira.",
+            "Nenhuma condição é verdadeira.",
+            "Apenas A1>10 é verdadeira."
+          ],
+          "correct": "Ambas as condições são verdadeiras.",
+          "tip": "A função E exige que todos os argumentos sejam verdadeiros."
+        },
+        {
+          "type": "boolean",
+          "topics": "LOGI",
+          "questions": "[NAME], a função SEERRO permite ocultar mensagens de erro padrão do Excel (como #DIV/0!).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela substitui o erro por um valor personalizado."
+        },
+        {
+          "type": "combo",
+          "topics": "LOGI",
+          "questions": "A função [COMBO] soma valores baseados em um critério específico.",
+          "options": [
+            "SOMASE",
+            "SOMA",
+            "SOMATOTAL",
+            "SOMARPRODUTO"
+          ],
+          "correct": "SOMASE",
+          "tip": "SOMASE soma células em um intervalo que correspondem à condição dada."
+        },
+        {
+          "type": "multi",
+          "topics": "LOGI",
+          "questions": "Quais dos seguintes são operadores de comparação válidos no Excel?",
+          "answers": [
+            ">=",
+            "<>",
+            "==",
+            "<="
+          ],
+          "correct": [
+            ">=",
+            "<>",
+            "<="
+          ],
+          "tip": "O Excel usa = para igualdade e <> para diferença. Não usa ==."
+        },
+        {
+          "type": "drag",
+          "topics": "LOGI",
+          "questions": "Relacione o erro do Excel com o seu significado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "#DIV/0!",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "#NOME?",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "#VALOR!",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "#REF!",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Divisão por zero"
+            },
+            {
+              "id": "z2",
+              "label": "Texto não reconhecido"
+            },
+            {
+              "id": "z3",
+              "label": "Tipo de argumento errado"
+            },
+            {
+              "id": "z4",
+              "label": "Referência inválida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer os erros ajuda a depurar fórmulas mais rápido."
+        },
+        {
+          "type": "multiple",
+          "topics": "LOGI",
+          "questions": "[NAME], qual função conta o número de células num intervalo que satisfazem uma condição?",
+          "answers": [
+            "CONT.SE",
+            "CONT.VALORES",
+            "SOMASE",
+            "CONT.NÚM"
+          ],
+          "correct": "CONT.SE",
+          "tip": "CONT.SE é ideal para contar ocorrências específicas."
+        },
+        {
+          "type": "boolean",
+          "topics": "LOGI",
+          "questions": "Na ordem de precedência, a multiplicação e divisão são calculadas antes da adição e subtração.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "trans": "FINA",
+          "tip": "Use parênteses () para forçar uma ordem diferente de cálculo."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "[NAME], qual função calcula o pagamento periódico de um empréstimo?",
+          "answers": [
+            "PGTO",
+            "VP",
+            "TAXA",
+            "NPER"
+          ],
+          "correct": "PGTO",
+          "tip": "A função PGTO (Pagamento) calcula as prestações baseando-se em juros constantes."
+        },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "A função VP calcula o valor futuro de um investimento com base numa taxa de juros.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "VP significa Valor Presente; a função que calcula o valor futuro é VF."
+        },
+        {
+          "type": "combo",
+          "topics": "FINA",
+          "questions": "Para descobrir o número de períodos de um investimento, usa-se a função [COMBO].",
+          "options": [
+            "NPER",
+            "TAXA",
+            "PGTO",
+            "TIR"
+          ],
+          "correct": "NPER",
+          "tip": "NPER retorna a quantidade total de períodos de pagamento."
+        },
+        {
+          "type": "multi",
+          "topics": "FINA",
+          "questions": "[NAME], ao utilizar funções financeiras, quais são os argumentos obrigatórios na função PGTO?",
+          "answers": [
+            "Taxa",
+            "Nper",
+            "Vp",
+            "Vf"
+          ],
+          "correct": [
+            "Taxa",
+            "Nper",
+            "Vp"
+          ],
+          "tip": "Vf e Tipo são argumentos opcionais (aparecem entre colchetes na sintaxe)."
+        },
+        {
+          "type": "drag",
+          "topics": "FINA",
+          "questions": "Relacione o argumento financeiro à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Taxa",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nper",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Vp",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Tipo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Juros por período"
+            },
+            {
+              "id": "z2",
+              "label": "Número total de pagamentos"
+            },
+            {
+              "id": "z3",
+              "label": "Valor presente (Atual)"
+            },
+            {
+              "id": "z4",
+              "label": "Vencimento (0 ou 1)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "É essencial que a Taxa e o Nper estejam na mesma unidade de tempo (meses, anos)."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "[NAME], qual é o primeiro argumento da função SE?",
+          "answers": [
+            "Teste lógico",
+            "Valor se verdadeiro",
+            "Valor se falso",
+            "Critério"
+          ],
+          "correct": "Teste lógico",
+          "tip": "A estrutura é: =SE(teste_logico; valor_se_verdadeiro; valor_se_falso)."
+        },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "É possível aninhar (colocar uma dentro da outra) funções SE para testar múltiplas condições.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Excel permite até 64 funções SE aninhadas, ou você pode usar a função SES em versões recentes."
+        },
+        {
+          "type": "combo",
+          "topics": "FINA",
+          "questions": "A função [COMBO] permite somar valores com base em múltiplos critérios.",
+          "options": [
+            "SOMASES",
+            "SOMASE",
+            "SOMA",
+            "MULTISOMA"
+          ],
+          "correct": "SOMASES",
+          "tip": "No SOMASES, o intervalo de soma vem em primeiro lugar, ao contrário do SOMASE."
+        },
+        {
+          "type": "multi",
+          "topics": "FINA",
+          "questions": "Quais funções permitem a aplicação de múltiplos critérios de forma nativa?",
+          "answers": [
+            "CONT.SES",
+            "SOMASES",
+            "MÉDIASES",
+            "CONT.SE"
+          ],
+          "correct": [
+            "CONT.SES",
+            "SOMASES",
+            "MÉDIASES"
+          ],
+          "tip": "Funções terminadas em 'SES' (ou 'IFS' em inglês) são preparadas para múltiplas condições."
+        },
+        {
+          "type": "drag",
+          "topics": "FINA",
+          "questions": "Monte a estrutura correta da fórmula =SE(A1>10; \"Bom\"; \"Ruim\"):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "A1>10",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "\"Bom\"",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "\"Ruim\"",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Teste Lógico"
+            },
+            {
+              "id": "z2",
+              "label": "Valor se Verdadeiro"
+            },
+            {
+              "id": "z3",
+              "label": "Valor se Falso"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Lembre-se que textos dentro de fórmulas precisam estar entre aspas duplas."
+        },
+        {
+          "type": "multiple",
+          "topics": "FINA",
+          "questions": "[NAME], ao fixar uma célula para evitar que a referência mude ao arrastar a fórmula, utilizamos qual símbolo?",
+          "answers": [
+            "$",
+            "%",
+            "#",
+            "&"
+          ],
+          "correct": "$",
+          "tip": "Pressionar F4 adiciona automaticamente os cifrões de fixação (ex: $A$1)."
+        },
+          {
+            "type": "boolean",
+            "topics": "FINA",
+            "questions": "Ao usar a função TAXA, o valor presente (VP) e o pagamento (PGTO) devem ter sinais opostos (um positivo e outro negativo).",
+            "answers": [
+              "Verdadeiro",
+              "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "tip": "O Excel entende o fluxo de caixa: o que sai do seu bolso é negativo, o que entra é positivo."
+          },
+          {
+            "type": "combo",
+            "topics": "FINA",
+            "questions": "A função [COMBO] calcula a taxa interna de retorno de uma série de fluxos de caixa.",
+            "options": [
+              "TIR",
+              "VPL",
+              "TAXA",
+              "JUROS"
+            ],
+            "correct": "TIR",
+            "trans": "BUSD",
+            "tip": "TIR é usada para avaliar a rentabilidade de potenciais investimentos."
+          },
+          {
+            "type": "multiple",
+            "topics": "BUSD",
+            "questions": "[NAME], o que faz a função PROCV?",
+            "answers": [
+              "Procura um valor na primeira coluna e retorna o valor na mesma linha de outra coluna.",
+              "Procura um valor na primeira linha e retorna na mesma coluna.",
+              "Soma valores verticalmente.",
+              "Cruza dados entre duas pastas automaticamente."
+            ],
+            "correct": "Procura um valor na primeira coluna e retorna o valor na mesma linha de outra coluna.",
+            "tip": "O 'V' significa Busca Vertical."
+          },
+          {
+            "type": "boolean",
+            "topics": "BUSD",
+            "questions": "No PROCV, o argumento [procurar_intervalo] deve ser 0 (FALSO) para encontrar uma correspondência exata.",
+            "answers": [
+              "Verdadeiro",
+              "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "tip": "Se omitido ou configurado como VERDADEIRO (1), fará uma busca aproximada."
+          },
+          {
+            "type": "combo",
+            "topics": "BUSD",
+            "questions": "Para buscar dados horizontalmente (em linhas), deve-se usar a função [COMBO].",
+            "options": [
+              "PROCH",
+              "PROCV",
+              "CORRESP",
+              "ÍNDICE"
+            ],
+            "correct": "PROCH",
+            "tip": "O 'H' em PROCH significa busca Horizontal."
+          },
+          {
+            "type": "multi",
+            "topics": "BUSD",
+            "questions": "[NAME], quais as vantagens de usar ÍNDICE e CORRESP juntos em vez do PROCV?",
+            "answers": [
+              "Permite buscar à esquerda da coluna de referência.",
+              "Usa menos processamento em planilhas gigantes.",
+              "Não quebra se colunas forem inseridas.",
+              "Exige menos argumentos."
+            ],
+            "correct": [
+              "Permite buscar à esquerda da coluna de referência.",
+              "Usa menos processamento em planilhas gigantes.",
+              "Não quebra se colunas forem inseridas."
+            ],
+            "tip": "ÍNDICE+CORRESP é a combinação mais poderosa para buscas flexíveis."
+          },
+          {
+            "type": "drag",
+            "topics": "BUSD",
+            "questions": "Relacione os argumentos do PROCV com seu significado:",
+            "items": [
+              {
+                "id": "d1",
+                "txt": "valor_procurado",
+                "match": "z1"
+              },
+              {
+                "id": "d2",
+                "txt": "matriz_tabela",
+                "match": "z2"
+              },
+              {
+                "id": "d3",
+                "txt": "núm_índice_coluna",
+                "match": "z3"
+              },
+              {
+                "id": "d4",
+                "txt": "procurar_intervalo",
+                "match": "z4"
+              }
+            ],
+            "zones": [
+              {
+                "id": "z1",
+                "label": "O que você quer buscar"
+              },
+              {
+                "id": "z2",
+                "label": "Onde você quer buscar"
+              },
+              {
+                "id": "z3",
+                "label": "Qual coluna tem a resposta"
+              },
+              {
+                "id": "z4",
+                "label": "Correspondência (Exata/Aprox)"
+              }
+            ],
+            "correct": "drag",
+            "tip": "Memorizar estes 4 argumentos torna o uso do PROCV natural."
+          },
+          {
+            "type": "multiple",
+            "topics": "BUSD",
+            "questions": "O que a função CORRESP retorna?",
+            "answers": [
+              "A posição relativa de um item num intervalo.",
+              "O valor do item num intervalo.",
+              "A soma de itens correspondentes.",
+              "Um erro caso o valor seja falso."
+            ],
+            "correct": "A posição relativa de um item num intervalo.",
+            "tip": "Se buscar por 'Maçã' numa lista onde é o 3º item, ela retorna 3."
+          },
+          {
+            "type": "boolean",
+            "topics": "BUSD",
+            "questions": "Tabelas Dinâmicas alteram permanentemente os dados originais se você as modificar.",
+            "answers": [
+              "Verdadeiro",
+              "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "Tabelas Dinâmicas são de leitura e consolidação; nunca afetam a base de dados original."
+          },
+          {
+            "type": "combo",
+            "topics": "BUSD",
+            "questions": "Para resumir e cruzar milhões de dados rapidamente em relatórios interativos, usamos [COMBO].",
+            "options": [
+              "Tabela Dinâmica",
+              "Subtotais",
+              "Filtro Avançado",
+              "Cenários"
+            ],
+            "correct": "Tabela Dinâmica",
+            "tip": "É uma das ferramentas mais requisitadas no mercado de trabalho."
+          },
+          {
+            "type": "multi",
+            "topics": "BUSD",
+            "questions": "[NAME], ao importar um arquivo .CSV, quais delimitadores são comumente usados?",
+            "answers": [
+              "Vírgula (,)",
+              "Ponto e vírgula (;)",
+              "Tabulação",
+              "Ponto (.)"
+            ],
+            "correct": [
+              "Vírgula (,)",
+              "Ponto e vírgula (;)",
+              "Tabulação"
+            ],
+            "tip": "CSV significa Comma Separated Values, mas no Brasil é comum usar o ponto e vírgula devido ao uso da vírgula decimal."
+          },
+          {
+            "type": "drag",
+            "topics": "BUSD",
+            "questions": "Relacione as ferramentas de análise de dados à sua função:",
+            "items": [
+              {
+                "id": "d1",
+                "txt": "Filtro",
+                "match": "z1"
+              },
+              {
+                "id": "d2",
+                "txt": "Classificar",
+                "match": "z2"
+              },
+              {
+                "id": "d3",
+                "txt": "Subtotal",
+                "match": "z3"
+              },
+              {
+                "id": "d4",
+                "txt": "Consolidar",
+                "match": "z4"
+              }
+            ],
+            "zones": [
+              {
+                "id": "z1",
+                "label": "Oculta dados não desejados"
+              },
+              {
+                "id": "z2",
+                "label": "Ordena de A-Z ou 1-10"
+              },
+              {
+                "id": "z3",
+                "label": "Cria totais em grupos"
+              },
+              {
+                "id": "z4",
+                "label": "Junta dados de planilhas"
+              }
+            ],
+            "correct": "drag",
+            "tip": "Estas ferramentas encontram-se na guia 'Dados' do Excel."
+          },
+          {
+            "type": "multiple",
+            "topics": "BUSD",
+            "questions": "Na importação de textos para colunas (Intercâmbio de dados), a opção 'Largura Fixa' serve para:",
+            "answers": [
+              "Separar dados com base num tamanho de caracteres específico.",
+              "Separar dados usando vírgulas.",
+              "Fixar o tamanho das linhas.",
+              "Remover espaços em branco."
+            ],
+            "correct": "Separar dados com base num tamanho de caracteres específico.",
+            "tip": "É muito usado para importar dados de sistemas legados de mainframe."
+          },
+          {
+            "type": "boolean",
+            "topics": "BUSD",
+            "questions": "O Filtro Avançado permite copiar o resultado do filtro para outro local da planilha automaticamente.",
+            "answers": [
+              "Verdadeiro",
+              "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "trans": "AVAN",
+            "tip": "Basta selecionar a opção 'Copiar para outro local' na janela do Filtro Avançado."
+          },
+          {
+            "type": "multiple",
+            "topics": "AVAN",
+            "questions": "[NAME], qual a diferença principal entre as funções =HOJE() e =AGORA()?",
+            "answers": [
+              "AGORA inclui a hora atual; HOJE apenas a data.",
+              "HOJE inclui a hora; AGORA apenas a data.",
+              "AGORA não atualiza automaticamente.",
+              "HOJE retorna dias úteis."
+            ],
+            "correct": "AGORA inclui a hora atual; HOJE apenas a data.",
+            "tip": "Ambas atualizam sozinhas quando a planilha é recalculada."
+          },
+          {
+            "type": "boolean",
+            "topics": "AVAN",
+            "questions": "A função DIATRABALHOTOTAL calcula o número de dias úteis entre duas datas, excluindo fins de semana e feriados.",
+            "answers": [
+              "Verdadeiro",
+              "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "tip": "Você deve informar os feriados em um intervalo selecionado."
+          },
+          {
+            "type": "combo",
+            "topics": "AVAN",
+            "questions": "A ferramenta de [COMBO] de Dados cria listas suspensas (dropdowns) em uma célula.",
+            "options": [
+              "Validação",
+              "Filtro",
+              "Formatação",
+              "Auditoria"
+            ],
+            "correct": "Validação",
+            "tip": "Ajuda a garantir que o usuário digite apenas dados permitidos."
+          },
+          {
+            "type": "multi",
+            "topics": "AVAN",
+            "questions": "[NAME], ao usar a Proteção de Planilha, você pode permitir que os usuários continuem podendo:",
+            "answers": [
+              "Selecionar células bloqueadas",
+              "Formatar células",
+              "Inserir linhas",
+              "Excluir a pasta de trabalho"
+            ],
+            "correct": [
+              "Selecionar células bloqueadas",
+              "Formatar células",
+              "Inserir linhas"
+            ],
+            "tip": "A proteção de planilha é personalizável, você marca os privilégios que deseja conceder."
+          },
+          {
+            "type": "drag",
+            "topics": "AVAN",
+            "questions": "Relacione o tipo de proteção de segurança do Excel:",
+            "items": [
+              {
+                "id": "d1",
+                "txt": "Proteger Planilha",
+                "match": "z1"
+              },
+              {
+                "id": "d2",
+                "txt": "Proteger Pasta de Trabalho",
+                "match": "z2"
+              },
+              {
+                "id": "d3",
+                "txt": "Senha de Abertura",
+                "match": "z3"
+              },
+              {
+                "id": "d4",
+                "txt": "Células Bloqueadas",
+                "match": "z4"
+              }
+            ],
+            "zones": [
+              {
+                "id": "z1",
+                "label": "Evita edição de células específicas"
+              },
+              {
+                "id": "z2",
+                "label": "Impede deletar ou mover abas"
+              },
+              {
+                "id": "z3",
+                "label": "Impede de abrir o arquivo"
+              },
+              {
+                "id": "z4",
+                "label": "Base para proteção de planilha agir"
+              }
+            ],
+            "correct": "drag",
+            "tip": "Por padrão, todas as células vêm marcadas como 'Bloqueadas'."
+          },
+          {
+            "type": "multiple",
+            "topics": "AVAN",
+            "questions": "Nos formulários do Excel (Guia Desenvolvedor), o 'Botão de Opção' (Radio Button) é usado para:",
+            "answers": [
+              "Escolha exclusiva (apenas uma opção de um grupo).",
+              "Múltipla escolha (várias opções).",
+              "Inserir texto livre.",
+              "Abrir outras planilhas."
+            ],
+            "correct": "Escolha exclusiva (apenas uma opção de um grupo).",
+            "tip": "Já a Caixa de Seleção (Checkbox) permite selecionar várias."
+          },
+          {
+            "type": "boolean",
+            "topics": "AVAN",
+            "questions": "[NAME], gráficos de Pizza são ideais para comparar a evolução de dados ao longo do tempo.",
+            "answers": [
+              "Verdadeiro",
+              "Falso"
+            ],
+            "correct": "Falso",
+            "tip": "Gráficos de Linhas ou Colunas são para tempo; Pizza é para proporções (partes de um todo)."
+          },
+          {
+            "type": "combo",
+            "topics": "AVAN",
+            "questions": "No design de gráficos, os [COMBO] de Dados mostram os valores exatos sobre as barras ou fatias.",
+            "options": [
+              "Rótulos",
+              "Eixos",
+              "Títulos",
+              "Legendas"
+            ],
+            "correct": "Rótulos",
+            "tip": "Substituem muitas vezes o Eixo Vertical (Y) para deixar o gráfico mais limpo."
+          },
+          {
+            "type": "multi",
+            "topics": "AVAN",
+            "questions": "Quais recursos pertencem às guias 'Desenvolvedor' e Formulários no Excel?",
+            "answers": [
+              "Caixa de Combinação",
+              "Barra de Rolagem",
+              "Botão de Rotação",
+              "Tabela Dinâmica"
+            ],
+            "correct": [
+              "Caixa de Combinação",
+              "Barra de Rolagem",
+              "Botão de Rotação"
+            ],
+            "tip": "A Tabela Dinâmica fica na guia Inserir."
+          },
+          {
+            "type": "drag",
+            "topics": "AVAN",
+            "questions": "Relacione o tipo de gráfico à sua melhor aplicação:",
+            "items": [
+              {
+                "id": "d1",
+                "txt": "Colunas",
+                "match": "z1"
+              },
+              {
+                "id": "d2",
+                "txt": "Linhas",
+                "match": "z2"
+              },
+              {
+                "id": "d3",
+                "txt": "Pizza",
+                "match": "z3"
+              },
+              {
+                "id": "d4",
+                "txt": "Dispersão",
+                "match": "z4"
+              }
+            ],
+            "zones": [
+              {
+                "id": "z1",
+                "label": "Comparação entre itens (Volume)"
+              },
+              {
+                "id": "z2",
+                "label": "Tendência ao longo do tempo"
+              },
+              {
+                "id": "z3",
+                "label": "Porcentagem de um total"
+              },
+              {
+                "id": "z4",
+                "label": "Correlação entre duas variáveis"
+              }
+            ],
+            "correct": "drag",
+            "tip": "Escolher o gráfico certo garante a interpretação correta dos dados."
+          },
+          {
+            "type": "multiple",
+            "topics": "AVAN",
+            "questions": "[NAME], ao referenciar células entre abas (ex: Plan1 para Plan2), o formato correto é:",
+            "answers": [
+              "Plan1!A1",
+              "Plan1@A1",
+              "Plan1#A1",
+              "Plan1:A1"
+            ],
+            "correct": "Plan1!A1",
+            "tip": "O ponto de exclamação (!) divide o nome da aba e a célula."
+          },
+          {
+            "type": "boolean",
+            "topics": "AVAN",
+            "questions": "O Gravador de Macros permite automatizar tarefas repetitivas gravando suas ações e transformando em código VBA.",
+            "answers": [
+              "Verdadeiro",
+              "Falso"
+            ],
+            "correct": "Verdadeiro",
+            "tip": "Cuidado para não clicar em locais errados enquanto grava!"
+          },
+          {
+            "type": "combo",
+            "topics": "AVAN",
+            "questions": "A função [COMBO] retorna o último dia do mês, muito usada em vencimentos.",
+            "options": [
+              "FIMMÊS",
+              "DIATRABALHO",
+              "ÚLTIMODIA",
+              "MESFIM"
+            ],
+            "correct": "FIMMÊS",
+            "tip": "Pode também calcular o fim do mês passado (usando -1) ou futuro (+1)."
+          }
+        ]
+      }
+    ]
+  }
