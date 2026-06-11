@@ -43353,498 +43353,1421 @@
           "correct": "$",
           "tip": "Pressionar F4 adiciona automaticamente os cifrões de fixação (ex: $A$1)."
         },
+        {
+          "type": "boolean",
+          "topics": "FINA",
+          "questions": "Ao usar a função TAXA, o valor presente (VP) e o pagamento (PGTO) devem ter sinais opostos (um positivo e outro negativo).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Excel entende o fluxo de caixa: o que sai do seu bolso é negativo, o que entra é positivo."
+        },
+        {
+          "type": "combo",
+          "topics": "FINA",
+          "questions": "A função [COMBO] calcula a taxa interna de retorno de uma série de fluxos de caixa.",
+          "options": [
+            "TIR",
+            "VPL",
+            "TAXA",
+            "JUROS"
+          ],
+          "correct": "TIR",
+          "trans": "BUSD",
+          "tip": "TIR é usada para avaliar a rentabilidade de potenciais investimentos."
+        },
+        {
+          "type": "multiple",
+          "topics": "BUSD",
+          "questions": "[NAME], o que faz a função PROCV?",
+          "answers": [
+            "Procura um valor na primeira coluna e retorna o valor na mesma linha de outra coluna.",
+            "Procura um valor na primeira linha e retorna na mesma coluna.",
+            "Soma valores verticalmente.",
+            "Cruza dados entre duas pastas automaticamente."
+          ],
+          "correct": "Procura um valor na primeira coluna e retorna o valor na mesma linha de outra coluna.",
+          "tip": "O 'V' significa Busca Vertical."
+        },
+        {
+          "type": "boolean",
+          "topics": "BUSD",
+          "questions": "No PROCV, o argumento [procurar_intervalo] deve ser 0 (FALSO) para encontrar uma correspondência exata.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se omitido ou configurado como VERDADEIRO (1), fará uma busca aproximada."
+        },
+        {
+          "type": "combo",
+          "topics": "BUSD",
+          "questions": "Para buscar dados horizontalmente (em linhas), deve-se usar a função [COMBO].",
+          "options": [
+            "PROCH",
+            "PROCV",
+            "CORRESP",
+            "ÍNDICE"
+          ],
+          "correct": "PROCH",
+          "tip": "O 'H' em PROCH significa busca Horizontal."
+        },
+        {
+          "type": "multi",
+          "topics": "BUSD",
+          "questions": "[NAME], quais as vantagens de usar ÍNDICE e CORRESP juntos em vez do PROCV?",
+          "answers": [
+            "Permite buscar à esquerda da coluna de referência.",
+            "Usa menos processamento em planilhas gigantes.",
+            "Não quebra se colunas forem inseridas.",
+            "Exige menos argumentos."
+          ],
+          "correct": [
+            "Permite buscar à esquerda da coluna de referência.",
+            "Usa menos processamento em planilhas gigantes.",
+            "Não quebra se colunas forem inseridas."
+          ],
+          "tip": "ÍNDICE+CORRESP é a combinação mais poderosa para buscas flexíveis."
+        },
+        {
+          "type": "drag",
+          "topics": "BUSD",
+          "questions": "Relacione os argumentos do PROCV com seu significado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "valor_procurado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "matriz_tabela",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "núm_índice_coluna",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "procurar_intervalo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O que você quer buscar"
+            },
+            {
+              "id": "z2",
+              "label": "Onde você quer buscar"
+            },
+            {
+              "id": "z3",
+              "label": "Qual coluna tem a resposta"
+            },
+            {
+              "id": "z4",
+              "label": "Correspondência (Exata/Aprox)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Memorizar estes 4 argumentos torna o uso do PROCV natural."
+        },
+        {
+          "type": "multiple",
+          "topics": "BUSD",
+          "questions": "O que a função CORRESP retorna?",
+          "answers": [
+            "A posição relativa de um item num intervalo.",
+            "O valor do item num intervalo.",
+            "A soma de itens correspondentes.",
+            "Um erro caso o valor seja falso."
+          ],
+          "correct": "A posição relativa de um item num intervalo.",
+          "tip": "Se buscar por 'Maçã' numa lista onde é o 3º item, ela retorna 3."
+        },
+        {
+          "type": "boolean",
+          "topics": "BUSD",
+          "questions": "Tabelas Dinâmicas alteram permanentemente os dados originais se você as modificar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Tabelas Dinâmicas são de leitura e consolidação; nunca afetam a base de dados original."
+        },
+        {
+          "type": "combo",
+          "topics": "BUSD",
+          "questions": "Para resumir e cruzar milhões de dados rapidamente em relatórios interativos, usamos [COMBO].",
+          "options": [
+            "Tabela Dinâmica",
+            "Subtotais",
+            "Filtro Avançado",
+            "Cenários"
+          ],
+          "correct": "Tabela Dinâmica",
+          "tip": "É uma das ferramentas mais requisitadas no mercado de trabalho."
+        },
+        {
+          "type": "multi",
+          "topics": "BUSD",
+          "questions": "[NAME], ao importar um arquivo .CSV, quais delimitadores são comumente usados?",
+          "answers": [
+            "Vírgula (,)",
+            "Ponto e vírgula (;)",
+            "Tabulação",
+            "Ponto (.)"
+          ],
+          "correct": [
+            "Vírgula (,)",
+            "Ponto e vírgula (;)",
+            "Tabulação"
+          ],
+          "tip": "CSV significa Comma Separated Values, mas no Brasil é comum usar o ponto e vírgula devido ao uso da vírgula decimal."
+        },
+        {
+          "type": "drag",
+          "topics": "BUSD",
+          "questions": "Relacione as ferramentas de análise de dados à sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Filtro",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Classificar",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Subtotal",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Consolidar",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Oculta dados não desejados"
+            },
+            {
+              "id": "z2",
+              "label": "Ordena de A-Z ou 1-10"
+            },
+            {
+              "id": "z3",
+              "label": "Cria totais em grupos"
+            },
+            {
+              "id": "z4",
+              "label": "Junta dados de planilhas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas ferramentas encontram-se na guia 'Dados' do Excel."
+        },
+        {
+          "type": "multiple",
+          "topics": "BUSD",
+          "questions": "Na importação de textos para colunas (Intercâmbio de dados), a opção 'Largura Fixa' serve para:",
+          "answers": [
+            "Separar dados com base num tamanho de caracteres específico.",
+            "Separar dados usando vírgulas.",
+            "Fixar o tamanho das linhas.",
+            "Remover espaços em branco."
+          ],
+          "correct": "Separar dados com base num tamanho de caracteres específico.",
+          "tip": "É muito usado para importar dados de sistemas legados de mainframe."
+        },
+        {
+          "type": "boolean",
+          "topics": "BUSD",
+          "questions": "O Filtro Avançado permite copiar o resultado do filtro para outro local da planilha automaticamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "trans": "AVAN",
+          "tip": "Basta selecionar a opção 'Copiar para outro local' na janela do Filtro Avançado."
+        },
+        {
+          "type": "multiple",
+          "topics": "AVAN",
+          "questions": "[NAME], qual a diferença principal entre as funções =HOJE() e =AGORA()?",
+          "answers": [
+            "AGORA inclui a hora atual; HOJE apenas a data.",
+            "HOJE inclui a hora; AGORA apenas a data.",
+            "AGORA não atualiza automaticamente.",
+            "HOJE retorna dias úteis."
+          ],
+          "correct": "AGORA inclui a hora atual; HOJE apenas a data.",
+          "tip": "Ambas atualizam sozinhas quando a planilha é recalculada."
+        },
+        {
+          "type": "boolean",
+          "topics": "AVAN",
+          "questions": "A função DIATRABALHOTOTAL calcula o número de dias úteis entre duas datas, excluindo fins de semana e feriados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Você deve informar os feriados em um intervalo selecionado."
+        },
+        {
+          "type": "combo",
+          "topics": "AVAN",
+          "questions": "A ferramenta de [COMBO] de Dados cria listas suspensas (dropdowns) em uma célula.",
+          "options": [
+            "Validação",
+            "Filtro",
+            "Formatação",
+            "Auditoria"
+          ],
+          "correct": "Validação",
+          "tip": "Ajuda a garantir que o usuário digite apenas dados permitidos."
+        },
+        {
+          "type": "multi",
+          "topics": "AVAN",
+          "questions": "[NAME], ao usar a Proteção de Planilha, você pode permitir que os usuários continuem podendo:",
+          "answers": [
+            "Selecionar células bloqueadas",
+            "Formatar células",
+            "Inserir linhas",
+            "Excluir a pasta de trabalho"
+          ],
+          "correct": [
+            "Selecionar células bloqueadas",
+            "Formatar células",
+            "Inserir linhas"
+          ],
+          "tip": "A proteção de planilha é personalizável, você marca os privilégios que deseja conceder."
+        },
+        {
+          "type": "drag",
+          "topics": "AVAN",
+          "questions": "Relacione o tipo de proteção de segurança do Excel:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Proteger Planilha",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Proteger Pasta de Trabalho",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Senha de Abertura",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Células Bloqueadas",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Evita edição de células específicas"
+            },
+            {
+              "id": "z2",
+              "label": "Impede deletar ou mover abas"
+            },
+            {
+              "id": "z3",
+              "label": "Impede de abrir o arquivo"
+            },
+            {
+              "id": "z4",
+              "label": "Base para proteção de planilha agir"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Por padrão, todas as células vêm marcadas como 'Bloqueadas'."
+        },
+        {
+          "type": "multiple",
+          "topics": "AVAN",
+          "questions": "Nos formulários do Excel (Guia Desenvolvedor), o 'Botão de Opção' (Radio Button) é usado para:",
+          "answers": [
+            "Escolha exclusiva (apenas uma opção de um grupo).",
+            "Múltipla escolha (várias opções).",
+            "Inserir texto livre.",
+            "Abrir outras planilhas."
+          ],
+          "correct": "Escolha exclusiva (apenas uma opção de um grupo).",
+          "tip": "Já a Caixa de Seleção (Checkbox) permite selecionar várias."
+        },
+        {
+          "type": "boolean",
+          "topics": "AVAN",
+          "questions": "[NAME], gráficos de Pizza são ideais para comparar a evolução de dados ao longo do tempo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Gráficos de Linhas ou Colunas são para tempo; Pizza é para proporções (partes de um todo)."
+        },
+        {
+          "type": "combo",
+          "topics": "AVAN",
+          "questions": "No design de gráficos, os [COMBO] de Dados mostram os valores exatos sobre as barras ou fatias.",
+          "options": [
+            "Rótulos",
+            "Eixos",
+            "Títulos",
+            "Legendas"
+          ],
+          "correct": "Rótulos",
+          "tip": "Substituem muitas vezes o Eixo Vertical (Y) para deixar o gráfico mais limpo."
+        },
+        {
+          "type": "multi",
+          "topics": "AVAN",
+          "questions": "Quais recursos pertencem às guias 'Desenvolvedor' e Formulários no Excel?",
+          "answers": [
+            "Caixa de Combinação",
+            "Barra de Rolagem",
+            "Botão de Rotação",
+            "Tabela Dinâmica"
+          ],
+          "correct": [
+            "Caixa de Combinação",
+            "Barra de Rolagem",
+            "Botão de Rotação"
+          ],
+          "tip": "A Tabela Dinâmica fica na guia Inserir."
+        },
+        {
+          "type": "drag",
+          "topics": "AVAN",
+          "questions": "Relacione o tipo de gráfico à sua melhor aplicação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Colunas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Linhas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pizza",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Dispersão",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Comparação entre itens (Volume)"
+            },
+            {
+              "id": "z2",
+              "label": "Tendência ao longo do tempo"
+            },
+            {
+              "id": "z3",
+              "label": "Porcentagem de um total"
+            },
+            {
+              "id": "z4",
+              "label": "Correlação entre duas variáveis"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Escolher o gráfico certo garante a interpretação correta dos dados."
+        },
+        {
+          "type": "multiple",
+          "topics": "AVAN",
+          "questions": "[NAME], ao referenciar células entre abas (ex: Plan1 para Plan2), o formato correto é:",
+          "answers": [
+            "Plan1!A1",
+            "Plan1@A1",
+            "Plan1#A1",
+            "Plan1:A1"
+          ],
+          "correct": "Plan1!A1",
+          "tip": "O ponto de exclamação (!) divide o nome da aba e a célula."
+        },
+        {
+          "type": "boolean",
+          "topics": "AVAN",
+          "questions": "O Gravador de Macros permite automatizar tarefas repetitivas gravando suas ações e transformando em código VBA.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Cuidado para não clicar em locais errados enquanto grava!"
+        },
+        {
+          "type": "combo",
+          "topics": "AVAN",
+          "questions": "A função [COMBO] retorna o último dia do mês, muito usada em vencimentos.",
+          "options": [
+            "FIMMÊS",
+            "DIATRABALHO",
+            "ÚLTIMODIA",
+            "MESFIM"
+          ],
+          "correct": "FIMMÊS",
+          "tip": "Pode também calcular o fim do mês passado (usando -1) ou futuro (+1)."
+        }
+      ]
+    },
+    {
+      "slug": "aula-58",
+      "lesson_info": {
+        "id": "Aula-58",
+        "title": "AULA 58 - DO PAPEL E CANETA AO POWERPOINT",
+        "topics": [
           {
-            "type": "boolean",
-            "topics": "FINA",
-            "questions": "Ao usar a função TAXA, o valor presente (VP) e o pagamento (PGTO) devem ter sinais opostos (um positivo e outro negativo).",
-            "answers": [
-              "Verdadeiro",
-              "Falso"
-            ],
-            "correct": "Verdadeiro",
-            "tip": "O Excel entende o fluxo de caixa: o que sai do seu bolso é negativo, o que entra é positivo."
+            "id": "ACID",
+            "name": "STORYBOARD E NARRATIVA",
+            "desc": "Técnicas de planeamento no papel e estruturação de roteiros com storytelling.",
+            "color": "#ff5722",
+            "img_url": "https://images.unsplash.com/photo-1531346878377-24437dc147bc?auto=format&fit=crop&q=80&w=1600"
           },
           {
-            "type": "combo",
-            "topics": "FINA",
-            "questions": "A função [COMBO] calcula a taxa interna de retorno de uma série de fluxos de caixa.",
-            "options": [
-              "TIR",
-              "VPL",
-              "TAXA",
-              "JUROS"
-            ],
-            "correct": "TIR",
-            "trans": "BUSD",
-            "tip": "TIR é usada para avaliar a rentabilidade de potenciais investimentos."
+            "id": "AGEN",
+            "name": "IMAGENS E REFERÊNCIAS",
+            "desc": "Busca, seleção e uso estratégico de imagens, vetores e ícones gratuitos de alta qualidade.",
+            "color": "#9c27b0",
+            "img_url": "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&q=80&w=1600"
           },
           {
-            "type": "multiple",
-            "topics": "BUSD",
-            "questions": "[NAME], o que faz a função PROCV?",
-            "answers": [
-              "Procura um valor na primeira coluna e retorna o valor na mesma linha de outra coluna.",
-              "Procura um valor na primeira linha e retorna na mesma coluna.",
-              "Soma valores verticalmente.",
-              "Cruza dados entre duas pastas automaticamente."
-            ],
-            "correct": "Procura um valor na primeira coluna e retorna o valor na mesma linha de outra coluna.",
-            "tip": "O 'V' significa Busca Vertical."
+            "id": "PROT",
+            "name": "FONTES E CORES",
+            "desc": "Escolha de tipografias adequadas e criação de paletas de cores harmoniosas.",
+            "color": "#03a9f4",
+            "img_url": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1600"
           },
           {
-            "type": "boolean",
-            "topics": "BUSD",
-            "questions": "No PROCV, o argumento [procurar_intervalo] deve ser 0 (FALSO) para encontrar uma correspondência exata.",
-            "answers": [
-              "Verdadeiro",
-              "Falso"
-            ],
-            "correct": "Verdadeiro",
-            "tip": "Se omitido ou configurado como VERDADEIRO (1), fará uma busca aproximada."
-          },
-          {
-            "type": "combo",
-            "topics": "BUSD",
-            "questions": "Para buscar dados horizontalmente (em linhas), deve-se usar a função [COMBO].",
-            "options": [
-              "PROCH",
-              "PROCV",
-              "CORRESP",
-              "ÍNDICE"
-            ],
-            "correct": "PROCH",
-            "tip": "O 'H' em PROCH significa busca Horizontal."
-          },
-          {
-            "type": "multi",
-            "topics": "BUSD",
-            "questions": "[NAME], quais as vantagens de usar ÍNDICE e CORRESP juntos em vez do PROCV?",
-            "answers": [
-              "Permite buscar à esquerda da coluna de referência.",
-              "Usa menos processamento em planilhas gigantes.",
-              "Não quebra se colunas forem inseridas.",
-              "Exige menos argumentos."
-            ],
-            "correct": [
-              "Permite buscar à esquerda da coluna de referência.",
-              "Usa menos processamento em planilhas gigantes.",
-              "Não quebra se colunas forem inseridas."
-            ],
-            "tip": "ÍNDICE+CORRESP é a combinação mais poderosa para buscas flexíveis."
-          },
-          {
-            "type": "drag",
-            "topics": "BUSD",
-            "questions": "Relacione os argumentos do PROCV com seu significado:",
-            "items": [
-              {
-                "id": "d1",
-                "txt": "valor_procurado",
-                "match": "z1"
-              },
-              {
-                "id": "d2",
-                "txt": "matriz_tabela",
-                "match": "z2"
-              },
-              {
-                "id": "d3",
-                "txt": "núm_índice_coluna",
-                "match": "z3"
-              },
-              {
-                "id": "d4",
-                "txt": "procurar_intervalo",
-                "match": "z4"
-              }
-            ],
-            "zones": [
-              {
-                "id": "z1",
-                "label": "O que você quer buscar"
-              },
-              {
-                "id": "z2",
-                "label": "Onde você quer buscar"
-              },
-              {
-                "id": "z3",
-                "label": "Qual coluna tem a resposta"
-              },
-              {
-                "id": "z4",
-                "label": "Correspondência (Exata/Aprox)"
-              }
-            ],
-            "correct": "drag",
-            "tip": "Memorizar estes 4 argumentos torna o uso do PROCV natural."
-          },
-          {
-            "type": "multiple",
-            "topics": "BUSD",
-            "questions": "O que a função CORRESP retorna?",
-            "answers": [
-              "A posição relativa de um item num intervalo.",
-              "O valor do item num intervalo.",
-              "A soma de itens correspondentes.",
-              "Um erro caso o valor seja falso."
-            ],
-            "correct": "A posição relativa de um item num intervalo.",
-            "tip": "Se buscar por 'Maçã' numa lista onde é o 3º item, ela retorna 3."
-          },
-          {
-            "type": "boolean",
-            "topics": "BUSD",
-            "questions": "Tabelas Dinâmicas alteram permanentemente os dados originais se você as modificar.",
-            "answers": [
-              "Verdadeiro",
-              "Falso"
-            ],
-            "correct": "Falso",
-            "tip": "Tabelas Dinâmicas são de leitura e consolidação; nunca afetam a base de dados original."
-          },
-          {
-            "type": "combo",
-            "topics": "BUSD",
-            "questions": "Para resumir e cruzar milhões de dados rapidamente em relatórios interativos, usamos [COMBO].",
-            "options": [
-              "Tabela Dinâmica",
-              "Subtotais",
-              "Filtro Avançado",
-              "Cenários"
-            ],
-            "correct": "Tabela Dinâmica",
-            "tip": "É uma das ferramentas mais requisitadas no mercado de trabalho."
-          },
-          {
-            "type": "multi",
-            "topics": "BUSD",
-            "questions": "[NAME], ao importar um arquivo .CSV, quais delimitadores são comumente usados?",
-            "answers": [
-              "Vírgula (,)",
-              "Ponto e vírgula (;)",
-              "Tabulação",
-              "Ponto (.)"
-            ],
-            "correct": [
-              "Vírgula (,)",
-              "Ponto e vírgula (;)",
-              "Tabulação"
-            ],
-            "tip": "CSV significa Comma Separated Values, mas no Brasil é comum usar o ponto e vírgula devido ao uso da vírgula decimal."
-          },
-          {
-            "type": "drag",
-            "topics": "BUSD",
-            "questions": "Relacione as ferramentas de análise de dados à sua função:",
-            "items": [
-              {
-                "id": "d1",
-                "txt": "Filtro",
-                "match": "z1"
-              },
-              {
-                "id": "d2",
-                "txt": "Classificar",
-                "match": "z2"
-              },
-              {
-                "id": "d3",
-                "txt": "Subtotal",
-                "match": "z3"
-              },
-              {
-                "id": "d4",
-                "txt": "Consolidar",
-                "match": "z4"
-              }
-            ],
-            "zones": [
-              {
-                "id": "z1",
-                "label": "Oculta dados não desejados"
-              },
-              {
-                "id": "z2",
-                "label": "Ordena de A-Z ou 1-10"
-              },
-              {
-                "id": "z3",
-                "label": "Cria totais em grupos"
-              },
-              {
-                "id": "z4",
-                "label": "Junta dados de planilhas"
-              }
-            ],
-            "correct": "drag",
-            "tip": "Estas ferramentas encontram-se na guia 'Dados' do Excel."
-          },
-          {
-            "type": "multiple",
-            "topics": "BUSD",
-            "questions": "Na importação de textos para colunas (Intercâmbio de dados), a opção 'Largura Fixa' serve para:",
-            "answers": [
-              "Separar dados com base num tamanho de caracteres específico.",
-              "Separar dados usando vírgulas.",
-              "Fixar o tamanho das linhas.",
-              "Remover espaços em branco."
-            ],
-            "correct": "Separar dados com base num tamanho de caracteres específico.",
-            "tip": "É muito usado para importar dados de sistemas legados de mainframe."
-          },
-          {
-            "type": "boolean",
-            "topics": "BUSD",
-            "questions": "O Filtro Avançado permite copiar o resultado do filtro para outro local da planilha automaticamente.",
-            "answers": [
-              "Verdadeiro",
-              "Falso"
-            ],
-            "correct": "Verdadeiro",
-            "trans": "AVAN",
-            "tip": "Basta selecionar a opção 'Copiar para outro local' na janela do Filtro Avançado."
-          },
-          {
-            "type": "multiple",
-            "topics": "AVAN",
-            "questions": "[NAME], qual a diferença principal entre as funções =HOJE() e =AGORA()?",
-            "answers": [
-              "AGORA inclui a hora atual; HOJE apenas a data.",
-              "HOJE inclui a hora; AGORA apenas a data.",
-              "AGORA não atualiza automaticamente.",
-              "HOJE retorna dias úteis."
-            ],
-            "correct": "AGORA inclui a hora atual; HOJE apenas a data.",
-            "tip": "Ambas atualizam sozinhas quando a planilha é recalculada."
-          },
-          {
-            "type": "boolean",
-            "topics": "AVAN",
-            "questions": "A função DIATRABALHOTOTAL calcula o número de dias úteis entre duas datas, excluindo fins de semana e feriados.",
-            "answers": [
-              "Verdadeiro",
-              "Falso"
-            ],
-            "correct": "Verdadeiro",
-            "tip": "Você deve informar os feriados em um intervalo selecionado."
-          },
-          {
-            "type": "combo",
-            "topics": "AVAN",
-            "questions": "A ferramenta de [COMBO] de Dados cria listas suspensas (dropdowns) em uma célula.",
-            "options": [
-              "Validação",
-              "Filtro",
-              "Formatação",
-              "Auditoria"
-            ],
-            "correct": "Validação",
-            "tip": "Ajuda a garantir que o usuário digite apenas dados permitidos."
-          },
-          {
-            "type": "multi",
-            "topics": "AVAN",
-            "questions": "[NAME], ao usar a Proteção de Planilha, você pode permitir que os usuários continuem podendo:",
-            "answers": [
-              "Selecionar células bloqueadas",
-              "Formatar células",
-              "Inserir linhas",
-              "Excluir a pasta de trabalho"
-            ],
-            "correct": [
-              "Selecionar células bloqueadas",
-              "Formatar células",
-              "Inserir linhas"
-            ],
-            "tip": "A proteção de planilha é personalizável, você marca os privilégios que deseja conceder."
-          },
-          {
-            "type": "drag",
-            "topics": "AVAN",
-            "questions": "Relacione o tipo de proteção de segurança do Excel:",
-            "items": [
-              {
-                "id": "d1",
-                "txt": "Proteger Planilha",
-                "match": "z1"
-              },
-              {
-                "id": "d2",
-                "txt": "Proteger Pasta de Trabalho",
-                "match": "z2"
-              },
-              {
-                "id": "d3",
-                "txt": "Senha de Abertura",
-                "match": "z3"
-              },
-              {
-                "id": "d4",
-                "txt": "Células Bloqueadas",
-                "match": "z4"
-              }
-            ],
-            "zones": [
-              {
-                "id": "z1",
-                "label": "Evita edição de células específicas"
-              },
-              {
-                "id": "z2",
-                "label": "Impede deletar ou mover abas"
-              },
-              {
-                "id": "z3",
-                "label": "Impede de abrir o arquivo"
-              },
-              {
-                "id": "z4",
-                "label": "Base para proteção de planilha agir"
-              }
-            ],
-            "correct": "drag",
-            "tip": "Por padrão, todas as células vêm marcadas como 'Bloqueadas'."
-          },
-          {
-            "type": "multiple",
-            "topics": "AVAN",
-            "questions": "Nos formulários do Excel (Guia Desenvolvedor), o 'Botão de Opção' (Radio Button) é usado para:",
-            "answers": [
-              "Escolha exclusiva (apenas uma opção de um grupo).",
-              "Múltipla escolha (várias opções).",
-              "Inserir texto livre.",
-              "Abrir outras planilhas."
-            ],
-            "correct": "Escolha exclusiva (apenas uma opção de um grupo).",
-            "tip": "Já a Caixa de Seleção (Checkbox) permite selecionar várias."
-          },
-          {
-            "type": "boolean",
-            "topics": "AVAN",
-            "questions": "[NAME], gráficos de Pizza são ideais para comparar a evolução de dados ao longo do tempo.",
-            "answers": [
-              "Verdadeiro",
-              "Falso"
-            ],
-            "correct": "Falso",
-            "tip": "Gráficos de Linhas ou Colunas são para tempo; Pizza é para proporções (partes de um todo)."
-          },
-          {
-            "type": "combo",
-            "topics": "AVAN",
-            "questions": "No design de gráficos, os [COMBO] de Dados mostram os valores exatos sobre as barras ou fatias.",
-            "options": [
-              "Rótulos",
-              "Eixos",
-              "Títulos",
-              "Legendas"
-            ],
-            "correct": "Rótulos",
-            "tip": "Substituem muitas vezes o Eixo Vertical (Y) para deixar o gráfico mais limpo."
-          },
-          {
-            "type": "multi",
-            "topics": "AVAN",
-            "questions": "Quais recursos pertencem às guias 'Desenvolvedor' e Formulários no Excel?",
-            "answers": [
-              "Caixa de Combinação",
-              "Barra de Rolagem",
-              "Botão de Rotação",
-              "Tabela Dinâmica"
-            ],
-            "correct": [
-              "Caixa de Combinação",
-              "Barra de Rolagem",
-              "Botão de Rotação"
-            ],
-            "tip": "A Tabela Dinâmica fica na guia Inserir."
-          },
-          {
-            "type": "drag",
-            "topics": "AVAN",
-            "questions": "Relacione o tipo de gráfico à sua melhor aplicação:",
-            "items": [
-              {
-                "id": "d1",
-                "txt": "Colunas",
-                "match": "z1"
-              },
-              {
-                "id": "d2",
-                "txt": "Linhas",
-                "match": "z2"
-              },
-              {
-                "id": "d3",
-                "txt": "Pizza",
-                "match": "z3"
-              },
-              {
-                "id": "d4",
-                "txt": "Dispersão",
-                "match": "z4"
-              }
-            ],
-            "zones": [
-              {
-                "id": "z1",
-                "label": "Comparação entre itens (Volume)"
-              },
-              {
-                "id": "z2",
-                "label": "Tendência ao longo do tempo"
-              },
-              {
-                "id": "z3",
-                "label": "Porcentagem de um total"
-              },
-              {
-                "id": "z4",
-                "label": "Correlação entre duas variáveis"
-              }
-            ],
-            "correct": "drag",
-            "tip": "Escolher o gráfico certo garante a interpretação correta dos dados."
-          },
-          {
-            "type": "multiple",
-            "topics": "AVAN",
-            "questions": "[NAME], ao referenciar células entre abas (ex: Plan1 para Plan2), o formato correto é:",
-            "answers": [
-              "Plan1!A1",
-              "Plan1@A1",
-              "Plan1#A1",
-              "Plan1:A1"
-            ],
-            "correct": "Plan1!A1",
-            "tip": "O ponto de exclamação (!) divide o nome da aba e a célula."
-          },
-          {
-            "type": "boolean",
-            "topics": "AVAN",
-            "questions": "O Gravador de Macros permite automatizar tarefas repetitivas gravando suas ações e transformando em código VBA.",
-            "answers": [
-              "Verdadeiro",
-              "Falso"
-            ],
-            "correct": "Verdadeiro",
-            "tip": "Cuidado para não clicar em locais errados enquanto grava!"
-          },
-          {
-            "type": "combo",
-            "topics": "AVAN",
-            "questions": "A função [COMBO] retorna o último dia do mês, muito usada em vencimentos.",
-            "options": [
-              "FIMMÊS",
-              "DIATRABALHO",
-              "ÚLTIMODIA",
-              "MESFIM"
-            ],
-            "correct": "FIMMÊS",
-            "tip": "Pode também calcular o fim do mês passado (usando -1) ou futuro (+1)."
+            "id": "NORM",
+            "name": "DESIGN VISUAL",
+            "desc": "Princípios de alinhamento, agrupamento, contraste e uso eficiente do grid.",
+            "color": "#4caf50",
+            "img_url": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1600"
           }
+        ],
+        "sokoban": [
+          "G",
+          "R",
+          "I",
+          "D"
         ]
-      }
-    ]
-  }
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com o material, o que é um Storyboard no contexto de apresentações?",
+          "answers": [
+            "São quadrinhos desenhados à mão para representar cada slide.",
+            "É um software avançado de design gráfico.",
+            "É o texto completo que o apresentador irá ler.",
+            "É a paleta de cores final do projeto."
+          ],
+          "correct": "São quadrinhos desenhados à mão para representar cada slide.",
+          "tip": "O storyboard ajuda a visualizar o todo antes de executar no computador."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], iniciar a apresentação diretamente no computador pode inibir a criatividade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O papel libera suas ideias sem as limitações técnicas do software."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Toda apresentação é uma história. Ela deve ter início, meio e [COMBO].",
+          "options": [
+            "fim",
+            "título",
+            "gráfico",
+            "texto"
+          ],
+          "correct": "fim",
+          "tip": "Uma narrativa completa precisa de uma estrutura com começo, desenvolvimento e conclusão."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são vantagens de fazer o rascunho no papel e caneta?",
+          "answers": [
+            "Facilita apagar e reordenar ideias.",
+            "Permite numerar os quadrinhos.",
+            "Gera o arquivo final em PDF automaticamente.",
+            "Ajuda a linkar e concatenar ideias."
+          ],
+          "correct": [
+            "Facilita apagar e reordenar ideias.",
+            "Permite numerar os quadrinhos.",
+            "Ajuda a linkar e concatenar ideias."
+          ],
+          "tip": "O papel é flexível e não te prende a formatações complexas iniciais."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione as marcas aos seus estilos de storytelling aplicados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nubank",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nike",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nespresso",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "iFood",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Simplicidade e autonomia financeira"
+            },
+            {
+              "id": "z2",
+              "label": "Histórias de superação humana"
+            },
+            {
+              "id": "z3",
+              "label": "Experiência de sofisticação e prazer"
+            },
+            {
+              "id": "z4",
+              "label": "Conveniência rápida e próxima"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Grandes marcas vendem emoções e narrativas, não apenas produtos."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal objetivo do Storytelling abordado na aula?",
+          "answers": [
+            "Criar conexões que vendem ideias de forma relevante e emocional.",
+            "Escrever textos longos para a plateia ler.",
+            "Decorar os slides com muitas animações 3D.",
+            "Omitir as partes difíceis do projeto."
+          ],
+          "correct": "Criar conexões que vendem ideias de forma relevante e emocional.",
+          "tip": "Se você atingir emocionalmente seu público, a mensagem será lembrada."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "O PowerPoint deve servir como um roteiro de leitura para o apresentador.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O PPT é um suporte visual com palavras-chave; a narrativa deve estar na cabeça do apresentador."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Para conhecer seu público, a mensagem deve ser customizada e [COMBO] para quem vai recebê-la.",
+          "options": [
+            "personalizada",
+            "genérica",
+            "longa",
+            "escondida"
+          ],
+          "correct": "personalizada",
+          "tip": "Falar a língua do público aumenta o engajamento e a conexão."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], sobre o vocabulário e o roteiro do storytelling, o que é essencial?",
+          "answers": [
+            "Ter personagens que representam as dores do público.",
+            "Utilizar suporte visual como imagens e vídeos.",
+            "Ler todo o conteúdo diretamente da tela.",
+            "Garantir conexão emocional com a plateia."
+          ],
+          "correct": [
+            "Ter personagens que representam as dores do público.",
+            "Utilizar suporte visual como imagens e vídeos.",
+            "Garantir conexão emocional com a plateia."
+          ],
+          "tip": "Histórias precisam de empatia e elementos visuais para ancorar a atenção."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione as marcas de cervejas artesanais com as histórias contadas nos seus rótulos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Birits",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Burgman",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Bohemia",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Homenageia o Mussum (Identidade cultural)"
+            },
+            {
+              "id": "z2",
+              "label": "Adrenalina e comunidade dos motociclistas"
+            },
+            {
+              "id": "z3",
+              "label": "Celebra Santos Dumont e o espírito de Petrópolis"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O rótulo é um espaço valioso para contar a origem e a essência do produto."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "O que a marca Baggio Café vende essencialmente em sua narrativa?",
+          "answers": [
+            "A história de uma família que transformou amor em café.",
+            "Apenas a quantidade de cafeína do grão.",
+            "O preço competitivo de mercado.",
+            "A rapidez da entrega."
+          ],
+          "correct": "A história de uma família que transformou amor em café.",
+          "tip": "Se o café tem alma, ele tem assinatura."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o excesso de texto no slide faz o apresentador se conectar mais com o público.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Excesso de texto cansa a plateia e faz o apresentador ler o slide em vez de olhar para o público."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A regra de ouro de uma boa apresentação é: Menos texto. Mais [COMBO].",
+          "options": [
+            "história",
+            "tabelas",
+            "linhas",
+            "tópicos"
+          ],
+          "correct": "história",
+          "tip": "Sua voz e expressão são os protagonistas da apresentação.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao procurar imagens no Google para uma apresentação comercial, quais filtros são essenciais?",
+          "answers": [
+            "Tamanho grande (2MP+) e licença de uso.",
+            "Apenas cor preta e branca.",
+            "Tamanho pequeno e extensão GIF.",
+            "Filtro de data para a última semana."
+          ],
+          "correct": "Tamanho grande (2MP+) e licença de uso.",
+          "tip": "Isso garante qualidade visual e evita problemas de direitos autorais."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], é recomendado copiar a imagem diretamente da busca do Google para colar no PowerPoint.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Nunca copie direto. Clique em Visualizar Imagem e depois salvar para manter a qualidade."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Busque imagens com área de [COMBO] livre para colocar o texto de forma legível.",
+          "options": [
+            "arejamento",
+            "compressão",
+            "corte",
+            "sombra"
+          ],
+          "correct": "arejamento",
+          "tip": "Espaços negativos na imagem são perfeitos para inserir seus títulos sem perder o contraste."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais destas plataformas são bancos de imagens gratuitas e de qualidade citadas na aula?",
+          "answers": [
+            "Unsplash",
+            "Pexels",
+            "Orkut",
+            "WordArt"
+          ],
+          "correct": [
+            "Unsplash",
+            "Pexels"
+          ],
+          "tip": "Unsplash e Pexels oferecem acervos vastos com licença generosa."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione as bibliotecas de ícones e ilustrações às suas descrições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ouch! (Icons8)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Flaticon",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Phosphor Icons",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ilustrações estilizadas por diversos artistas (3D, minimalista)"
+            },
+            {
+              "id": "z2",
+              "label": "A maior biblioteca de ícones do mundo"
+            },
+            {
+              "id": "z3",
+              "label": "Família de ícones flexível e neutra para UI"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Manter a consistência na família de ícones melhora a coesão do seu projeto."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Para analisar fluxos de usuários reais de aplicativos famosos, qual ferramenta é a mais indicada?",
+          "answers": [
+            "Mobbin",
+            "Unsplash",
+            "Blush",
+            "DaFont"
+          ],
+          "correct": "Mobbin",
+          "tip": "O Mobbin é essencial para entender padrões de usabilidade (UI/UX)."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a imagem deve apenas decorar o slide, sem necessidade de conexão com a narrativa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A imagem deve sempre reforçar o que você está dizendo, criando contexto visual."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Plataformas vibrantes como Dribbble e [COMBO] são essenciais para buscar inspiração de design gráfico.",
+          "options": [
+            "Behance",
+            "Google Docs",
+            "Excel",
+            "Notepad"
+          ],
+          "correct": "Behance",
+          "tip": "Lá você encontra como outros designers resolvem problemas criativos."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais são boas práticas ao selecionar e usar imagens nas apresentações?",
+          "answers": [
+            "Combinar o tom da imagem com a mensagem.",
+            "Evitar imagens genéricas sem conexão.",
+            "Ligar a imagem fortemente à narrativa.",
+            "Usar resoluções muito baixas para poupar espaço."
+          ],
+          "correct": [
+            "Combinar o tom da imagem com a mensagem.",
+            "Evitar imagens genéricas sem conexão.",
+            "Ligar a imagem fortemente à narrativa."
+          ],
+          "tip": "Contexto é tudo na hora de escolher um suporte visual forte."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de recurso gráfico à plataforma focada nele:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Awwwards",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "DrawKit",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Blush",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Inspiração em web design e animações"
+            },
+            {
+              "id": "z2",
+              "label": "Pacotes de ilustrações 2D/3D limpos e editáveis"
+            },
+            {
+              "id": "z3",
+              "label": "Ilustrações customizáveis via plugin do Figma"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Utilize ferramentas especializadas para elevar a qualidade visual dos elementos."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], como você deve organizar as imagens no seu computador para o projeto?",
+          "answers": [
+            "Criando uma pasta \"Apresentação\" com subpasta \"Imagens\".",
+            "Salvando tudo na Área de Trabalho.",
+            "Deixando-as perdidas na pasta de Downloads.",
+            "Deletando-as logo após inserir no PowerPoint."
+          ],
+          "correct": "Criando uma pasta \"Apresentação\" com subpasta \"Imagens\".",
+          "tip": "A organização evita links quebrados caso você mude o PPT de computador."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O uso de imagens gratuitas está restrito a trabalhos escolares, não podendo ser usado em apresentações comerciais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Sites como Unsplash possuem licença gratuita generosa para uso comercial."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O Freepik (Magnific) é um grande acervo de [COMBO] (.AI, .EPS, .SVG) úteis para elementos complexos.",
+          "options": [
+            "vetores",
+            "textos",
+            "áudios",
+            "vídeos"
+          ],
+          "correct": "vetores",
+          "tip": "Fique sempre atento à atribuição necessária ao utilizar acervos do Freepik.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], de acordo com o material, qual o limite recomendado de fontes numa mesma apresentação?",
+          "answers": [
+            "No máximo 2 a 3 fontes.",
+            "Entre 5 a 6 fontes.",
+            "Apenas uma única fonte em toda a apresentação.",
+            "Uma fonte diferente por slide."
+          ],
+          "correct": "No máximo 2 a 3 fontes.",
+          "tip": "No design tipográfico, menos é mais."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Na escolha de fontes para uma apresentação profissional, é altamente recomendado o uso de Comic Sans e Times New Roman.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A aula recomenda evitar fontes desgastadas como Arial, Times e Comic Sans."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Com apenas duas fontes, você pode criar variações usando tamanho, posição e [COMBO].",
+          "options": [
+            "cor",
+            "áudio",
+            "vídeo",
+            "animação"
+          ],
+          "correct": "cor",
+          "tip": "Essas três variáveis (tamanho, posição e cor) geram infinitas combinações."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais fontes constam na lista de 'Use' recomendadas pelo material base?",
+          "answers": [
+            "Bebas Neue",
+            "Open Sans",
+            "Pacifico",
+            "Comic Sans"
+          ],
+          "correct": [
+            "Bebas Neue",
+            "Open Sans",
+            "Pacifico"
+          ],
+          "tip": "Fontes modernas e bem desenhadas garantem uma leitura agradável e estética profissional."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione a ação às variáveis tipográficas para brincar com o texto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Uma palavra grande e outra pequena",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Combinar o tom da letra com o fundo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Distribuir as palavras quebrando a linearidade",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tamanho (Cria hierarquia visual)"
+            },
+            {
+              "id": "z2",
+              "label": "Cor"
+            },
+            {
+              "id": "z3",
+              "label": "Posição"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O contraste e disposição espacial atraem o olhar para o centro da mensagem."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual a melhor estratégia mencionada para criar paletas de cores profissionais e harmoniosas?",
+          "answers": [
+            "Utilizar o Adobe Color.",
+            "Escolher as cores aleatoriamente.",
+            "Usar apenas as cores padrão do Windows.",
+            "Fazer uma mistura usando o Microsoft Paint."
+          ],
+          "correct": "Utilizar o Adobe Color.",
+          "tip": "A ferramenta online da Adobe permite explorar combinações matemáticas e estéticas perfeitas."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], para levar uma cor do Adobe Color para o PowerPoint, você deve copiar e colar o código RGB.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Basta ir em Mais Cores -> RGB no PowerPoint e inserir os valores."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A [COMBO] de cores certa faz toda a diferença em uma apresentação criativa.",
+          "options": [
+            "paleta",
+            "tinta",
+            "fonte",
+            "margem"
+          ],
+          "correct": "paleta",
+          "tip": "As cores geram clima emocional e mantêm a identidade visual."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Onde você pode encontrar fontes gratuitas segundo a aula?",
+          "answers": [
+            "Google Fonts",
+            "DaFont",
+            "Windows Update",
+            "Netflix"
+          ],
+          "correct": [
+            "Google Fonts",
+            "DaFont"
+          ],
+          "tip": "Estas plataformas oferecem fontes criativas, legíveis e fáceis de instalar."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os sites aos seus propósitos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "fonts.google.com",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "dafont.com",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "color.adobe.com",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Milhares de opções seguras para web e UI"
+            },
+            {
+              "id": "z2",
+              "label": "Fontes mais desenhadas e criativas (decorativas)"
+            },
+            {
+              "id": "z3",
+              "label": "Criação de paletas harmoniosas e código RGB"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas são as três ferramentas fundamentais para tipografia e cor."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], como você instala uma fonte baixada?",
+          "answers": [
+            "Baixa o arquivo, dá dois cliques e clica em Instalar.",
+            "Precisa contratar um programador para configurar.",
+            "Apenas arrasta para dentro do slide do PPT.",
+            "Envia o arquivo para a impressora."
+          ],
+          "correct": "Baixa o arquivo, dá dois cliques e clica em Instalar.",
+          "tip": "O processo é simples e funciona diretamente no sistema operacional."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A dica bônus da aula sobre fontes é pesquisar 'top 10 fontes do ano' para se manter atualizado nas tendências.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O design tipográfico evolui rápido, manter-se inspirado é fundamental.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], quais são os quatro pilares da informação visual descritos na aula de Design Visual?",
+          "answers": [
+            "Agrupamento, alinhamento, contraste e grid.",
+            "Cor, texto, áudio e vídeo.",
+            "Título, subtítulo, corpo e rodapé.",
+            "Storytelling, paleta, slide clean e fontes."
+          ],
+          "correct": "Agrupamento, alinhamento, contraste e grid.",
+          "tip": "Dominar esses princípios torna qualquer layout amador em algo profissional."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O agrupamento (ou proximidade) serve para separar elementos semelhantes e criar confusão proposital.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Agrupar une elementos semelhantes, criando blocos que facilitam a leitura rápida."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O alinhamento à [COMBO] é o padrão ocidental de leitura, sendo mais natural e legível para textos longos.",
+          "options": [
+            "esquerda",
+            "direita",
+            "margem",
+            "base"
+          ],
+          "correct": "esquerda",
+          "tip": "O cérebro já está acostumado a varrer as linhas da esquerda para a direita."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são as formas de criar Contraste (Hierarquia Visual) no slide?",
+          "answers": [
+            "Tipos e tamanhos de fontes diferentes.",
+            "Cor do texto claro sobre fundo escuro.",
+            "Uso de estilo Normal contra o estilo Bold (peso).",
+            "Alinhar tudo no centro invisível."
+          ],
+          "correct": [
+            "Tipos e tamanhos de fontes diferentes.",
+            "Cor do texto claro sobre fundo escuro.",
+            "Uso de estilo Normal contra o estilo Bold (peso)."
+          ],
+          "tip": "Contraste é a arte de destacar o que mais importa e guiar a atenção do público."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o tipo de alinhamento à sua melhor aplicação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Justificado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "À Esquerda",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Centralizado",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Texto sem espaços nas bordas, aspecto formal"
+            },
+            {
+              "id": "z2",
+              "label": "Leitura mais natural para blocos de textos longos"
+            },
+            {
+              "id": "z3",
+              "label": "Ideal para títulos curtos. Transmite simetria"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A escolha correta do alinhamento traz ordem visual e fluidez à leitura."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Para que serve a técnica de criar uma \"Máscara de Gradiente\" sobre a imagem?",
+          "answers": [
+            "Para garantir que o texto inserido em cima dela tenha boa visibilidade e legibilidade.",
+            "Para esconder defeitos fotográficos da imagem.",
+            "Para diminuir o tamanho do arquivo no computador.",
+            "Apenas para mudar a cor principal da imagem."
+          ],
+          "correct": "Para garantir que o texto inserido em cima dela tenha boa visibilidade e legibilidade.",
+          "tip": "A máscara cria um escurecimento sutil atrás do texto claro, protegendo contra imagens poluídas."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o uso do \"Grid\" impõe que o slide seja sempre dividido de uma forma única e imutável.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O grid define como organizar o espaço de forma inteligente, podendo usar formas não retangulares e quadrantes diversos."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "No PowerPoint 365, o recurso [COMBO] facilita imensamente o alinhamento automático de elementos ao grid.",
+          "options": [
+            "Snap",
+            "Zoom",
+            "Crop",
+            "Transitions"
+          ],
+          "correct": "Snap",
+          "tip": "Ele cria guias magnéticas para alinhar objetos perfeitamente."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são os passos listados para criar o Gradiente (Máscara) no PowerPoint?",
+          "answers": [
+            "Inserir Retângulo",
+            "Preenchimento Gradiente",
+            "Ajustar Transparência",
+            "Adicionar Texto Branco"
+          ],
+          "correct": [
+            "Inserir Retângulo",
+            "Preenchimento Gradiente",
+            "Ajustar Transparência",
+            "Adicionar Texto Branco"
+          ],
+          "tip": "Essa sequência salva seus textos de fundos complexos."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione os 5 Princípios de um PPT Atrativo citados na revisão:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Storyboard",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Slide Clean",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Boas Imagens",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Paleta de Cores",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Comece no papel. Linke ideias"
+            },
+            {
+              "id": "z2",
+              "label": "Visual limpo e hierarquia clara"
+            },
+            {
+              "id": "z3",
+              "label": "Alta resolução e alinhadas à narrativa"
+            },
+            {
+              "id": "z4",
+              "label": "Uso do Adobe Color para harmonizar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A aplicação sistêmica dos 5 princípios eleva drasticamente a qualidade de suas apresentações."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Ao usar um grid, o que deve ser feito com a imagem principal?",
+          "answers": [
+            "Preservar a área da imagem para que ganhe visibilidade.",
+            "Cobri-la totalmente com blocos de texto.",
+            "Reduzir o tamanho para o canto inferior direito.",
+            "Adicionar uma moldura espessa preta."
+          ],
+          "correct": "Preservar a área da imagem para que ganhe visibilidade.",
+          "tip": "A imagem impactante deve ter espaço para \"respirar\" visualmente."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], adicionar transparência às formas geométricas sobre o grid ajuda a suavizar o layout.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A transparência integra os elementos gráficos ao fundo de maneira harmoniosa e sofisticada."
+        }
+      ]
+    }
+  ]
+}
