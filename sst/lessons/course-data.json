@@ -44770,10 +44770,10 @@
       ]
     },
     {
-      "slug": "aula-59",
+      "slug": "aula-60",
       "lesson_info": {
-        "id": "Aula-59",
-        "title": "AULA 59 - TÉCNICAS DE APRESENTAÇÃO: COMO CONQUISTAR SEU PÚBLICO",
+        "id": "Aula-60",
+        "title": "AULA 60 - TÉCNICAS DE APRESENTAÇÃO: COMO CONQUISTAR SEU PÚBLICO",
         "topics": [
           {
             "id": "ACID",
@@ -45733,6 +45733,937 @@
           "correct": "drag",
           "trans": "FIM",
           "tip": "Design e copy juntos preparam o terreno para um fechamento que só exija a resposta 'Sim'."
+        }
+      ]
+    },
+    {
+      "slug": "aula-59",
+      "lesson_info": {
+        "id": "Aula-59",
+        "title": "AULA 59 - ENGENHARIA DE PROMPTS PARA APRESENTAÇÕES",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DO PITCH",
+            "desc": "A ponte entre o jargão técnico e os argumentos de negócio.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "FRAMEWORK C.P.T.F.R",
+            "desc": "Estruturação clara de prompts: Contexto, Persona, Tarefa, Formato e Restrições.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "CONSTRUÇÃO GRADATIVA",
+            "desc": "Chain of Thought: elaborando a narrativa do pitch slide a slide.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "REFINAMENTO E FERRAMENTAS",
+            "desc": "Antecipação de objeções e o ecossistema de IAs para design.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "C",
+          "A",
+          "S",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal problema de comunicação entre engenheiros e diretores?",
+          "answers": [
+            "Engenheiros focam em técnica, diretores em negócio",
+            "Diretores entendem de APIs, engenheiros não",
+            "Engenheiros falam apenas de lucros",
+            "Não há problema de comunicação"
+          ],
+          "correct": "Engenheiros focam em técnica, diretores em negócio",
+          "tip": "A Engenharia de Prompts traduz o jargão técnico para argumentos de decisão corporativa."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o projeto LogisTech tem processos 100% analógicos, o que gera perda de prazos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Fichas impressas e planilhas isoladas são o caos atual da LogisTech."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Um projeto técnico brilhante pode morrer na [COMBO] se a diretoria não entender.",
+          "options": [
+            "apresentação",
+            "compilação",
+            "nuvem",
+            "arquitetura"
+          ],
+          "correct": "apresentação",
+          "tip": "Código impecável não é aprovado se os tomadores de decisão não enxergarem o valor."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais desses tópicos são o foco de uma diretoria (negócio)?",
+          "answers": [
+            "Lucro",
+            "Deploys de API",
+            "Redução de Risco",
+            "Queries de Banco"
+          ],
+          "correct": [
+            "Lucro",
+            "Redução de Risco"
+          ],
+          "tip": "Diretores tomam decisões baseados em viabilidade, tempo, custo e segurança."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o passo do Pitch Deck à sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "O Gancho",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "O Problema",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "ROI",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Call to Action",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Dor de negócio"
+            },
+            {
+              "id": "z2",
+              "label": "Fichas isoladas"
+            },
+            {
+              "id": "z3",
+              "label": "Redução de custos"
+            },
+            {
+              "id": "z4",
+              "label": "Aprovação final"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os 10 passos do Pitch constroem uma narrativa lógica de convencimento."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "No Pitch, o Gancho deve chocar a diretoria com a realidade atual de perdas e reclamações.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Dados concretos de churn criam urgência imediata para a mudança."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual o papel do Power BI na proposta da LogisTech?",
+          "answers": [
+            "Dashboards para decisões gerenciais em tempo real",
+            "Armazenamento de backups na nuvem",
+            "Fazer deploys automáticos",
+            "Substituir o atendimento via GenIA"
+          ],
+          "correct": "Dashboards para decisões gerenciais em tempo real",
+          "tip": "O BI transforma dados isolados em inteligência acionável."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A [COMBO] revolucionará o relacionamento com os clientes da LogisTech.",
+          "options": [
+            "GenIA",
+            "Ficha impressa",
+            "Planilha",
+            "Lógica analógica"
+          ],
+          "correct": "GenIA",
+          "tip": "Inteligência Artificial Generativa no atendimento é o pilar de modernização de CRM."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destes compõem a solução em 4 pilares da LogisTech?",
+          "answers": [
+            "Cloud",
+            "Automação de Escritório",
+            "Processos Manuais",
+            "Power BI"
+          ],
+          "correct": [
+            "Cloud",
+            "Automação de Escritório",
+            "Power BI"
+          ],
+          "tip": "A GenIA completa o quarto pilar desta transformação digital."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Associe a dor ao pilar tecnológico de solução correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Falta de visualização de perdas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Risco de perder servidores físicos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Demora em responder clientes",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Power BI"
+            },
+            {
+              "id": "z2",
+              "label": "Cloud"
+            },
+            {
+              "id": "z3",
+              "label": "GenIA"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Toda funcionalidade técnica precisa curar uma dor específica."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o último slide de um Pitch Deck (Call to Action) deve sempre pedir a aprovação da diretoria.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O objetivo de toda a apresentação é garantir a decisão e iniciar o deploy."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "A transição de processos manuais para digitais na LogisTech visa evitar:",
+          "answers": [
+            "A migração de clientes para a concorrência digital",
+            "O aumento do uso da nuvem",
+            "A adoção de inteligência artificial",
+            "O treinamento dos engenheiros"
+          ],
+          "correct": "A migração de clientes para a concorrência digital",
+          "trans": "AGEN",
+          "tip": "A concorrência digital está engolindo empresas que dependem de papel."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que significa a letra 'P' no framework C.P.T.F.R?",
+          "answers": [
+            "Persona",
+            "Problema",
+            "Plano",
+            "Processo"
+          ],
+          "correct": "Persona",
+          "tip": "Define que papel a IA deve assumir (ex: Consultor, Arquiteto)."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "No C.P.T.F.R, a etapa 'C' (Contexto) serve para explicar à IA quem é a empresa e qual é o problema atual.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sem contexto, a IA gera respostas genéricas e sem conexão com o projeto."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], a letra 'R' em C.P.T.F.R refere-se a [COMBO], que impõem limites à IA.",
+          "options": [
+            "Restrições",
+            "Regras",
+            "Rotinas",
+            "Respostas"
+          ],
+          "correct": "Restrições",
+          "tip": "Informar o que a IA NÃO deve fazer (ex: 'Não foque em código') é crucial."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais elementos sofrem impacto direto pela falta de Formato (F) no prompt?",
+          "answers": [
+            "Tamanho do texto",
+            "A legibilidade nos slides",
+            "A linguagem da persona",
+            "O contexto de negócio"
+          ],
+          "correct": [
+            "Tamanho do texto",
+            "A legibilidade nos slides"
+          ],
+          "tip": "Sem definir formato, a IA costuma gerar blocos de texto gigantes e acadêmicos."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione as letras do C.P.T.F.R aos seus exemplos práticos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Contexto",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Persona",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Tarefa",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Restrições",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "A LogisTech perde clientes..."
+            },
+            {
+              "id": "z2",
+              "label": "Atue como Arquiteto Cloud"
+            },
+            {
+              "id": "z3",
+              "label": "Crie o roteiro do pitch"
+            },
+            {
+              "id": "z4",
+              "label": "Não utilize jargão técnico"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Mapear o briefing nessas 5 dimensões garante um prompt poderoso."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Um 'Prompt Preguiçoso' geralmente falha porque:",
+          "answers": [
+            "Não possui Persona, Formato e Restrições claras",
+            "Pede as coisas educadamente",
+            "Usa termos em inglês",
+            "É digitado muito rápido"
+          ],
+          "correct": "Não possui Persona, Formato e Restrições claras",
+          "tip": "Isso leva a respostas infantilizadas e inúteis no mundo corporativo."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], exigir o formato 'Título + 3 Bullets + Notas do Orador' ajuda a evitar textos corridos na IA.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso obriga a IA a estruturar o conteúdo de forma pronta para colar na apresentação."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Um prompt excelente começa no [COMBO], não direto na tela do chat.",
+          "options": [
+            "papel",
+            "código",
+            "servidor",
+            "Google"
+          ],
+          "correct": "papel",
+          "tip": "Estruturar o pensamento antes garante que você não esqueça nenhum pilar corporativo."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "O que caracteriza a saída de um prompt sem o Framework estruturado?",
+          "answers": [
+            "Linguagem acadêmica ou escolar",
+            "Conteúdo impossível de colar no slide",
+            "Direcionamento focado em ROI",
+            "Ausência de sugestões visuais"
+          ],
+          "correct": [
+            "Linguagem acadêmica ou escolar",
+            "Conteúdo impossível de colar no slide",
+            "Ausência de sugestões visuais"
+          ],
+          "tip": "A IA tentará adivinhar o contexto e, na maioria das vezes, errará o tom."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], organize a diferença visual entre Ruim vs Excelente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Prompt Excelente",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Prompt Ruim",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Roteiro pronto, persuasivo"
+            },
+            {
+              "id": "z2",
+              "label": "500 palavras, sem quebra"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O formato definido molda a utilidade da resposta."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O papel que definimos (ex: Consultor de Transformação Digital) altera completamente o vocabulário gerado pela IA.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A Persona calibra a complexidade e o tom da resposta da IA."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Se o seu prompt é vago e fala em 'trabalho escolar', a IA irá [COMBO] o material.",
+          "options": [
+            "infantilizar",
+            "profissionalizar",
+            "criptografar",
+            "arquivar"
+          ],
+          "correct": "infantilizar",
+          "tip": "Ela adequa o tom ao que foi solicitado. O corporativo exige rigor."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], dentro do bloco 'Contexto' da LogisTech, qual dado central deve constar?",
+          "answers": [
+            "A dor da ineficiência analógica",
+            "O nome do diretor financeiro",
+            "A marca de computadores usada",
+            "O número exato de caminhões"
+          ],
+          "correct": "A dor da ineficiência analógica",
+          "trans": "PROT",
+          "tip": "O contexto carrega o cenário: problema, tamanho da empresa e dor principal."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "O que significa 'Chain of Thought' na engenharia de prompts?",
+          "answers": [
+            "Gerar o conteúdo em camadas, passo a passo",
+            "Gerar todos os 10 slides em um único prompt",
+            "Travar a inteligência artificial com loops",
+            "Utilizar várias IAs simultaneamente"
+          ],
+          "correct": "Gerar o conteúdo em camadas, passo a passo",
+          "tip": "Construir gradativamente permite corrigir erros de roteiro antes de aprofundar."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], é recomendado pedir todos os 10 slides do Pitch detalhados no primeiro comando.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Se pedir tudo de uma vez, a IA perde foco, coesão e quebra o formato."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A técnica de Cadeia de Pensamento exige que você primeiro valide o [COMBO] antes de pedir o conteúdo completo.",
+          "options": [
+            "esqueleto",
+            "design",
+            "código",
+            "link"
+          ],
+          "correct": "esqueleto",
+          "tip": "Aprovar os títulos dos slides evita que a IA tome rumos indesejados."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são etapas do fluxo Chain of Thought para o Pitch Deck?",
+          "answers": [
+            "Validar Esqueleto",
+            "Gerar Início",
+            "Virada Tecnológica",
+            "Imprimir em PDF"
+          ],
+          "correct": [
+            "Validar Esqueleto",
+            "Gerar Início",
+            "Virada Tecnológica"
+          ],
+          "tip": "O fluxo iterativo organiza a narrativa lógica em blocos."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o bloco do prompt ao seu propósito no formato do slide:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sugestão Visual",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "3 Bullets",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Notas do Orador",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ícone ou gráfico guia"
+            },
+            {
+              "id": "z2",
+              "label": "Tópicos curtos de tela"
+            },
+            {
+              "id": "z3",
+              "label": "A história completa em 1 min"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Slides lotados perdem a audiência. O orador é a atração, não o texto."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], as Notas do Orador são fundamentais porque a diretoria não lê o slide, ela escuta você.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O slide é apenas uma âncora visual para a história que você narra."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Na etapa 'A Virada Tecnológica' (Slides 3 a 6), qual é o foco do conteúdo?",
+          "answers": [
+            "Apresentar a solução em arquitetura, BI e Segurança",
+            "Falar do ROI final do projeto",
+            "Mostrar a dor atual de perda de clientes",
+            "Pedir a assinatura do contrato"
+          ],
+          "correct": "Apresentar a solução em arquitetura, BI e Segurança",
+          "tip": "É o momento de mostrar como a tecnologia resolve o caos estabelecido."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Ao detalhar os slides 1 e 2, o objetivo é causar um choque de [COMBO] na diretoria.",
+          "options": [
+            "realidade",
+            "tecnologia",
+            "preços",
+            "códigos"
+          ],
+          "correct": "realidade",
+          "tip": "A diretoria deve sentir a urgência e o risco de não agir."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], no passo 'Fechar com Impacto', quais elementos são cruciais?",
+          "answers": [
+            "Business Case (ROI)",
+            "Roadmap de Implementação",
+            "Código fonte detalhado",
+            "Call to Action"
+          ],
+          "correct": [
+            "Business Case (ROI)",
+            "Roadmap de Implementação",
+            "Call to Action"
+          ],
+          "tip": "A conclusão amarra confiança (SLA, segurança), números e convite à ação."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Organize a sequência ideal do Chain of Thought:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Passo 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Validar Esqueleto"
+            },
+            {
+              "id": "z2",
+              "label": "Gerar Início (Dor)"
+            },
+            {
+              "id": "z3",
+              "label": "Apresentar Solução"
+            },
+            {
+              "id": "z4",
+              "label": "Fechamento (ROI)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Seguir essa lógica garante um prompt coeso do início ao fim."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Interagir passo a passo com a IA permite corrigir o rumo se o tom começar a ficar muito técnico.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A checagem contínua é o grande trunfo do Chain of Thought."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], em slides, sempre limite os bullets de tela ao máximo de [COMBO].",
+          "options": [
+            "três",
+            "sete",
+            "dez",
+            "um"
+          ],
+          "correct": "três",
+          "tip": "Menos texto na tela garante mais foco no que o apresentador fala."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual instrução deve sempre estar presente no início de CADA novo passo do Chain of Thought?",
+          "answers": [
+            "A lembrança do formato obrigatório de saída",
+            "O pedido para codificar em Python",
+            "Um elogio ao bot",
+            "A alteração completa da persona"
+          ],
+          "correct": "A lembrança do formato obrigatório de saída",
+          "trans": "NORM",
+          "tip": "Para evitar que a IA perca o padrão estrutural ao longo dos passos."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o objetivo da técnica 'Simular o CFO'?",
+          "answers": [
+            "Antecipar objeções financeiras e de risco da diretoria",
+            "Aumentar o salário da equipe técnica",
+            "Desistir do projeto antes da apresentação",
+            "Trocar a IA usada por uma mais cara"
+          ],
+          "correct": "Antecipar objeções financeiras e de risco da diretoria",
+          "tip": "Estar pronto para perguntas difíceis demonstra segurança e profissionalismo."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Se o CFO perguntar sobre vazamento de dados, o orador deve responder com termos técnicos complexos para impressionar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Deve-se traduzir a segurança (criptografia, compliance) para termos de continuidade de negócio."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Devemos injetar defesas antecipadas criando um slide de [COMBO] e Continuidade.",
+          "options": [
+            "Segurança",
+            "Marketing",
+            "Programação",
+            "Estoque"
+          ],
+          "correct": "Segurança",
+          "tip": "Explicar políticas de backup e SLAs tranquiliza a diretoria."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais termos representam o 'Ajuste Fino de Tom' nas Notas do Orador?",
+          "answers": [
+            "Trocar 'DAX queries' por 'Painel Visual de Decisão'",
+            "Remover jargão técnico",
+            "Adicionar mais código SQL no slide",
+            "Focar em reduzir gargalos logísticos"
+          ],
+          "correct": [
+            "Trocar 'DAX queries' por 'Painel Visual de Decisão'",
+            "Remover jargão técnico",
+            "Focar em reduzir gargalos logísticos"
+          ],
+          "tip": "Diretores querem saber O QUE ganham, não COMO o código funciona."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Associe a IA à sua principal vantagem no ecossistema de apresentações:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Manus AI",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Canva AI",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Gamma",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Pitch",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Dados de mercado reais"
+            },
+            {
+              "id": "z2",
+              "label": "Design visual de impacto"
+            },
+            {
+              "id": "z3",
+              "label": "Geração rápida via texto"
+            },
+            {
+              "id": "z4",
+              "label": "Edição simultânea"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada ferramenta resolve um aspecto diferente da materialização do Pitch."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o checklist final verifica se a narrativa faz sentido para um leigo, não apenas para engenheiros.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O avaliador (diretoria) é essencialmente não-técnico."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A ferramenta [COMBO] é destacada por permitir colaboração em tempo real, ideal para equipes do SENAI.",
+          "options": [
+            "Pitch",
+            "Notepad",
+            "Linux",
+            "MySQL"
+          ],
+          "correct": "Pitch",
+          "tip": "Edição simultânea acelera o processo colaborativo."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], no checklist da etapa de Defesa, o que precisamos validar antes de apresentar?",
+          "answers": [
+            "Se as objeções do CFO foram respondidas",
+            "Se há um CTA claro",
+            "Se cada slide possui imagens fortes",
+            "Se o código da API está na tela"
+          ],
+          "correct": [
+            "Se as objeções do CFO foram respondidas",
+            "Se há um CTA claro",
+            "Se cada slide possui imagens fortes"
+          ],
+          "tip": "Cobrir defesas visuais e argumentativas blindam a apresentação."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione a etapa final do fluxo da aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Chain of Thought",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Refinamento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Materializar",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Conteúdo slide a slide"
+            },
+            {
+              "id": "z2",
+              "label": "Ajuste de tom"
+            },
+            {
+              "id": "z3",
+              "label": "Gerar telas visuais"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A execução perfeita segue do planejamento ao design visual."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "A diretoria sempre decide se um projeto segue em frente com base na qualidade e complexidade da linguagem de programação escolhida.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Decisões de negócios baseiam-se em lucro, redução de custos e mitigações de riscos (ROI)."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], iterar o prompt significa ajustar e [COMBO] comandos até a saída atingir o tom executivo ideal.",
+          "options": [
+            "refinar",
+            "apagar",
+            "compilar",
+            "ignorar"
+          ],
+          "correct": "refinar",
+          "tip": "A primeira resposta da IA raramente é perfeita. Refinar é o segredo."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "A ferramenta Gamma é recomendada principalmente para:",
+          "answers": [
+            "Geração rápida de um deck visual a partir de um roteiro de texto",
+            "Programar bancos de dados complexos em nuvem",
+            "Auditoria de logs e segurança da informação",
+            "Criar logotipos gratuitos em vetor"
+          ],
+          "correct": "Geração rápida de um deck visual a partir de um roteiro de texto",
+          "tip": "Ela converte magicamente o seu esqueleto textual em slides estruturados."
         }
       ]
     }
