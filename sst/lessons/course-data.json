@@ -44768,6 +44768,973 @@
           "tip": "A transparência integra os elementos gráficos ao fundo de maneira harmoniosa e sofisticada."
         }
       ]
+    },
+    {
+      "slug": "aula-59",
+      "lesson_info": {
+        "id": "Aula-59",
+        "title": "AULA 59 - TÉCNICAS DE APRESENTAÇÃO: COMO CONQUISTAR SEU PÚBLICO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "PLANEAMENTO E INÍCIO",
+            "desc": "Briefing, perfil do apresentador, storytelling e a importância dos primeiros 60 segundos.",
+            "color": "#e91e63",
+            "img_url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "POSTURA E EXECUÇÃO",
+            "desc": "Movimentação no palco, variação de voz, controle de tempo e gestão do nervosismo.",
+            "color": "#9c27b0",
+            "img_url": "https://images.unsplash.com/photo-1475721028070-95ebfb136429?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "EQUIPAMENTOS E ERROS",
+            "desc": "Checklist de backup, uso do passador de slides e como evitar os principais erros.",
+            "color": "#ff9800",
+            "img_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "PITCH DECKS E PÓS-EVENTO",
+            "desc": "Estrutura do Airbnb, design de slides, validação e técnicas de networking.",
+            "color": "#4caf50",
+            "img_url": "https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "E",
+          "C",
+          "K"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o design dos slides deve sempre refletir o perfil do designer, independentemente da personalidade de quem vai apresentar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Os slides devem refletir o apresentador, não o designer. Um apresentador mais introvertido pede um design mais sóbrio, enquanto um extrovertido permite mais ousadia."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com a técnica ensinada, quais são os três pilares que definem qualquer projeto de apresentação?",
+          "answers": [
+            "Orçamento, Local e Duração",
+            "Objetivo, Cliente e Público",
+            "Design, Texto e Imagens",
+            "Nervosismo, Equipamento e Software"
+          ],
+          "correct": "Objetivo, Cliente e Público",
+          "tip": "Toda apresentação é definida pela intersecção destes três vetores."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], antes de abrir o software de apresentação, a melhor prática é criar um [COMBO] no papel.",
+          "options": [
+            "Storyboard",
+            "Orçamento",
+            "Relatório",
+            "Script de vendas"
+          ],
+          "correct": "Storyboard",
+          "tip": "Fazer um rafe (esboço) no papel primeiro economiza muito retrabalho."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destas perguntas são fundamentais durante o briefing com o cliente?",
+          "answers": [
+            "O que será apresentado?",
+            "Qual é a duração da apresentação?",
+            "Qual a cor preferida da equipa de limpeza do local?",
+            "Quem é o público que vai assistir?"
+          ],
+          "correct": [
+            "O que será apresentado?",
+            "Qual é a duração da apresentação?",
+            "Quem é o público que vai assistir?"
+          ],
+          "tip": "Entender o conteúdo, o tempo e a audiência é crucial antes de desenhar qualquer slide."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione a etapa do fluxo de trabalho da apresentação ao seu momento correto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Etapa 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Etapa 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Etapa 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Etapa 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Storyboard aprovado"
+            },
+            {
+              "id": "z2",
+              "label": "Design finalizado"
+            },
+            {
+              "id": "z3",
+              "label": "Apresentação para o cliente"
+            },
+            {
+              "id": "z4",
+              "label": "Treino do apresentador"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Treinar o apresentador faz parte do entregável do designer de apresentações."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], os primeiros 60 segundos de uma apresentação devem ser usados exclusivamente para explicar detalhadamente o índice do que será falado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O início deve ser usado para gerar curiosidade, não apenas para listar tópicos. Uma pergunta ou provocação funciona melhor."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], sobre os contactos e redes sociais na apresentação, qual é a melhor recomendação?",
+          "answers": [
+            "Colocar apenas no primeiro slide.",
+            "Não colocar para não distrair a plateia.",
+            "Deixar no último slide com um QR Code.",
+            "Falar verbalmente no meio da apresentação sem slide."
+          ],
+          "correct": "Deixar no último slide com um QR Code.",
+          "tip": "No fim, a pessoa já tem interesse e pode facilmente fotografar ou escanear o QR Code."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], na estrutura da apresentação, a fase de 'Fechamento' deve retomar a mensagem principal com [COMBO].",
+          "options": [
+            "Muitos dados novos",
+            "Energia",
+            "Monotonia",
+            "Dúvidas não resolvidas"
+          ],
+          "correct": "Energia",
+          "tip": "O final deve ser marcante, pois é o que fica na memória do público."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são as características de um design para um apresentador com perfil 'Extrovertido'?",
+          "answers": [
+            "Linguagem visual ousada",
+            "Cores estritamente neutras e apagadas",
+            "Ganchos visuais e dinâmicos",
+            "Referências pessoais nos slides"
+          ],
+          "correct": [
+            "Linguagem visual ousada",
+            "Ganchos visuais e dinâmicos",
+            "Referências pessoais nos slides"
+          ],
+          "tip": "Um apresentador extrovertido suporta um design com mais energia e toques pessoais."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], ligue o elemento narrativo à sua finalidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Esquenta",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Apresentação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Fechamento",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gere curiosidade (Provocação)"
+            },
+            {
+              "id": "z2",
+              "label": "Gere autoridade (Quem é você)"
+            },
+            {
+              "id": "z3",
+              "label": "Seja marcante (Retome a ideia)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta é a estrutura clássica de Início, Meio e Fim para reter a atenção."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], um pitch de 15 minutos geralmente comporta, no máximo, 20 slides bem desenhados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Para apresentações curtas, a regra é manter a objetividade. Pouco tempo exige menos slides e maior foco no discurso."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], por que não se aconselha colocar os contactos detalhados no início da apresentação?",
+          "answers": [
+            "Porque ninguém sabe usar QR Codes.",
+            "Porque no começo o público ainda não desenvolveu interesse para anotar.",
+            "Porque é proibido por regras corporativas.",
+            "Porque o apresentador não os sabe de cor."
+          ],
+          "correct": "Porque no começo o público ainda não desenvolveu interesse para anotar.",
+          "tip": "Deixe os contactos para o fim, quando o público já percebeu o valor da sua apresentação."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], se o cliente não tiver o texto pronto na fase de briefing, o seu papel como designer é fazer as [COMBO] certas.",
+          "options": [
+            "Críticas",
+            "Perguntas",
+            "Imagens",
+            "Exigências"
+          ],
+          "correct": "Perguntas",
+          "trans": "AGEN",
+          "tip": "Como profissional, ajudar a extrair a informação através de perguntas é parte do planeamento do storytelling."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], durante a execução no palco, quais atitudes ajudam a manter a atenção do público?",
+          "answers": [
+            "Andar pelo espaço de forma controlada",
+            "Falar em um tom monótono e constante",
+            "Variar o tom de voz (mais alto, mais baixo)",
+            "Fazer uma varredura visual pela sala"
+          ],
+          "correct": [
+            "Andar pelo espaço de forma controlada",
+            "Variar o tom de voz (mais alto, mais baixo)",
+            "Fazer uma varredura visual pela sala"
+          ],
+          "tip": "A monotonia visual e vocal é a maior inimiga da atenção."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], associe o tipo de evento à melhor prática para abrir espaço para perguntas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Workshop (Até 40 pessoas)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Palestra (Mais de 100 pessoas)",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Abrir espaço DURANTE"
+            },
+            {
+              "id": "z2",
+              "label": "Reservar para o FINAL"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Em grupos grandes, perguntas pontuais quebram o ritmo. Em grupos pequenos, enriquecem a troca."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o nervosismo antes de apresentar é totalmente prejudicial e o apresentador deve tomar medidas para não sentir nada ao subir ao palco.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O nervosismo deixa a adrenalina alta, tornando-o mais atento e comprometido. A chave é transformar isso em energia, não eliminar."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que se entende pela técnica das 'Pessoas âncora' no público?",
+          "answers": [
+            "Escolher pessoas para expulsar caso falem muito.",
+            "Identificar pessoas receptivas para olhar quando precisar de segurança.",
+            "Pessoas da organização que seguram os cabos no chão.",
+            "Técnica para focar apenas numa pessoa do início ao fim."
+          ],
+          "correct": "Identificar pessoas receptivas para olhar quando precisar de segurança.",
+          "tip": "As âncoras transmitem confiança visual nos momentos de maior tensão."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], para controlar o tempo eficazmente, é útil manter o telemóvel no bolso com [COMBO] programado para os últimos minutos.",
+          "options": [
+            "Toque musical alto",
+            "Vibração-alarme",
+            "Lanterna a piscar",
+            "Chamada de voz"
+          ],
+          "correct": "Vibração-alarme",
+          "tip": "Um aviso silencioso mantém o profissionalismo sem interromper o fluxo."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], sobre os ensaios, quais afirmações são aconselhadas dependendo da situação?",
+          "answers": [
+            "Para públicos informais: conhecer a sequência e deixar fluir.",
+            "Para grandes palcos: cronometrar e marcar os momentos-chave.",
+            "Em todos os casos: decorar cada palavra exatamente como está no guião.",
+            "Público médio: ensaiar os pontos principais e manter a espontaneidade."
+          ],
+          "correct": [
+            "Para públicos informais: conhecer a sequência e deixar fluir.",
+            "Para grandes palcos: cronometrar e marcar os momentos-chave.",
+            "Público médio: ensaiar os pontos principais e manter a espontaneidade."
+          ],
+          "tip": "Decorar excessivamente mata a espontaneidade e torna a apresentação robótica."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione as práticas no palco com seus efeitos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Andar pelo palco",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pedir telemóveis desligados",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Varredura visual",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Evita o cansaço do público"
+            },
+            {
+              "id": "z2",
+              "label": "Evita a quebra de concentração"
+            },
+            {
+              "id": "z3",
+              "label": "Evita ficar preso numa pessoa"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Movimento, regras de etiqueta e contacto visual são ferramentas de domínio de palco."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], nunca é aconselhável pedir à plateia que coloque os telemóveis no silêncio, pois isso soa arrogante.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Flashes e notificações desconcentram tanto o apresentador quanto o público. É uma prática válida pedir foco."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], porque é que o fechamento da apresentação tem de ser memorável?",
+          "answers": [
+            "Porque o último slide deve ter animações complexas.",
+            "Porque as pessoas lembram-se mais fortemente do final, à semelhança do fim de um filme.",
+            "Porque é a única parte que importa no tempo da palestra.",
+            "Para dar tempo ao orador seguinte se preparar."
+          ],
+          "correct": "Porque as pessoas lembram-se mais fortemente do final, à semelhança do fim de um filme.",
+          "tip": "O fim carimba a mensagem principal. Termine sempre com força."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], no início da apresentação, se o nervosismo for alto, deve ficar levemente [COMBO] no contato visual inicial para reduzir a timidez.",
+          "options": [
+            "Desfocado",
+            "Agressivo",
+            "Choroso",
+            "Sorridente"
+          ],
+          "correct": "Desfocado",
+          "tip": "Esta técnica subtil ajuda a ganhar ritmo até se sentir pronto para focar diretamente."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], que ações ajudam a variar e manter a atenção da audiência ao falar?",
+          "answers": [
+            "Mudar de posição espacial no palco",
+            "Sussurrar e depois projetar mais a voz",
+            "Falar constantemente rápido",
+            "Fazer pausas dramáticas"
+          ],
+          "correct": [
+            "Mudar de posição espacial no palco",
+            "Sussurrar e depois projetar mais a voz",
+            "Fazer pausas dramáticas"
+          ],
+          "tip": "Contrastes (espaço, volume e silêncio) resgatam a atenção."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione o grau de exigência do ensaio com a audiência:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Evento entre colegas da equipa",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Apresentação num congresso normal",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pitch para Conselho de Diretores",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Informal: fluir natural"
+            },
+            {
+              "id": "z2",
+              "label": "Médio: ensaiar os pontos chave"
+            },
+            {
+              "id": "z3",
+              "label": "Alto: cronometrar rigorosamente"
+            }
+          ],
+          "correct": "drag",
+          "trans": "PROT",
+          "tip": "A solenidade da ocasião dita o nível de precisão matemática do ensaio."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], ao cometer um erro durante a fala, a melhor estratégia é ignorá-lo completamente e fingir que nada aconteceu, mesmo que seja óbvio.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Tentar esconder é pior. Peça desculpas rapidamente e continue com naturalidade."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o principal problema de segurar uma caneta, chave ou anel durante a apresentação?",
+          "answers": [
+            "Eles refletem as luzes do projetor.",
+            "Eles bloqueiam o sinal do passador de slides.",
+            "Vai acabar por brincar com eles nervosamente, distraindo a plateia.",
+            "Pode ser considerado uma quebra do código de vestuário corporativo."
+          ],
+          "correct": "Vai acabar por brincar com eles nervosamente, distraindo a plateia.",
+          "tip": "Objetos nas mãos canalizam tiques nervosos involuntários."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], o ponteiro laser deve ser utilizado para [COMBO] informação no ecrã, não como 'varinha mágica' contínua.",
+          "options": [
+            "Destacar",
+            "Substituir",
+            "Apagar",
+            "Rabiscar"
+          ],
+          "correct": "Destacar",
+          "tip": "Movimentar o laser sem parar confunde a vista do público."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], para garantir a integridade dos slides, quais elementos fazem parte da Checklist de Backup recomendada?",
+          "answers": [
+            "Pen drive com os arquivos",
+            "Apresentação enviada para o seu próprio e-mail",
+            "Instalar as fontes não padronizadas na máquina do evento",
+            "Ter uma versão impressa num outdoor"
+          ],
+          "correct": [
+            "Pen drive com os arquivos",
+            "Apresentação enviada para o seu próprio e-mail",
+            "Instalar as fontes não padronizadas na máquina do evento"
+          ],
+          "tip": "Fontes ausentes desconfiguram o design. Levar as fontes ou um PDF evita o desastre."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], associe o plano de contigência à sua utilidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Salvar cópia em PDF",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Combinar sinalização com colega",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passador de slides próprio",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Garante que as fontes não quebrem"
+            },
+            {
+              "id": "z2",
+              "label": "Plano B para avisos de tempo"
+            },
+            {
+              "id": "z3",
+              "label": "Garante autonomia de movimento"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Prever as falhas elimina 90% do nervosismo técnico."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], filmar a si mesmo é descrito como uma das ferramentas mais honestas para melhorar e corrigir tiques de apresentação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Mesmo sendo desconfortável, o vídeo revela falhas de postura e manias que não percebemos."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o conselho fundamental para o apresentador sobre o contato visual em relação à tela de projeção?",
+          "answers": [
+            "Olhar fixamente para a tela para ler tudo perfeitamente.",
+            "Apresentar para as pessoas, evitando dar as costas para a plateia.",
+            "Pedir que o público olhe apenas para o slide e não para o palco.",
+            "Ficar sempre sentado ao lado do computador apontando para a tela."
+          ],
+          "correct": "Apresentar para as pessoas, evitando dar as costas para a plateia.",
+          "tip": "A conexão humana faz-se pelo olhar com a plateia, não com a parede."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], o erro de repetir a mesma ideia várias vezes, cansando o público, é ser [COMBO]. Seja direto.",
+          "options": [
+            "Conciso",
+            "Prolixo",
+            "Carismático",
+            "Silencioso"
+          ],
+          "correct": "Prolixo",
+          "tip": "A prolixidade dilui o impacto do argumento central."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], que alternativas existem para não depender de ficar fixo no teclado do computador?",
+          "answers": [
+            "Contratar um assistente de palco",
+            "Usar um passador de slides (clicker) com Bluetooth",
+            "Utilizar um aplicativo próprio no telemóvel",
+            "Fazer sinais bruscos com as mãos para o técnico de som"
+          ],
+          "correct": [
+            "Usar um passador de slides (clicker) com Bluetooth",
+            "Utilizar um aplicativo próprio no telemóvel"
+          ],
+          "tip": "A tecnologia permite total liberdade de movimento e controle da apresentação."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], mapeie o erro comum à sua solução descrita na aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Esquecer o nome do convidado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Apresentação no formato errado",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sem computador no local",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Levar um papel na mão"
+            },
+            {
+              "id": "z2",
+              "label": "Ter versão em PDF"
+            },
+            {
+              "id": "z3",
+              "label": "Imprimir anotações guia"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As ferramentas analógicas são os últimos e mais seguros recursos de resgate."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], ter um 'Plano B' combinado com alguém de confiança é inútil, pois a tecnologia de hoje nunca falha.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Problemas técnicos são inevitáveis a longo prazo. Testes antecipados e suporte humano previnem falhas maiores."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], por que o passador de slides pode ter um laser integrado?",
+          "answers": [
+            "Para iluminar o rosto do palestrante.",
+            "Para entreter o público no intervalo.",
+            "Para sinalizar pontos importantes da apresentação sem mover o slide.",
+            "Para substituir o uso de texto nos slides completamente."
+          ],
+          "correct": "Para sinalizar pontos importantes da apresentação sem mover o slide.",
+          "tip": "É uma ferramenta de foco, desde que não seja usada de forma excessiva."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], o erro faz parte do crescimento. O importante é ter noção e procurar sempre [COMBO].",
+          "options": [
+            "Desistir",
+            "Esconder",
+            "Melhorar",
+            "Discutir"
+          ],
+          "correct": "Melhorar",
+          "trans": "NORM",
+          "tip": "A aceitação e a autocrítica saudável (como gravar em vídeo) geram mestria."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], o que caracteriza um 'Pitch Deck' segundo a definição da aula?",
+          "answers": [
+            "Uma apresentação de 10 a 20 minutos",
+            "Uma apresentação para treinar voz",
+            "Um formato focado em convencer investidores",
+            "Um manual de regras de Recursos Humanos"
+          ],
+          "correct": [
+            "Uma apresentação de 10 a 20 minutos",
+            "Um formato focado em convencer investidores"
+          ],
+          "tip": "Pitchs são vitais para startups e são marcados por alta clareza num espaço muito curto de tempo."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], ordene corretamente a sequência lógica inicial de um Pitch Deck (Baseado no caso do Airbnb):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Slide 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Slide 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Slide 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Slide 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Slogan"
+            },
+            {
+              "id": "z2",
+              "label": "O Problema"
+            },
+            {
+              "id": "z3",
+              "label": "A Solução"
+            },
+            {
+              "id": "z4",
+              "label": "Validação de Mercado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Começar com o problema cria identificação emocional antes de introduzir a sua ideia genial."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], na análise do Airbnb, recomenda-se encher o slide de concorrência com o máximo de logotipos possíveis para demonstrar muito conhecimento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Menos é mais. Logos poluem visualmente; listar os nomes principais de forma estruturada é suficiente e mais claro."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o objetivo do slide sobre o 'Tamanho de Mercado' num Pitch?",
+          "answers": [
+            "Explicar detalhadamente o código da plataforma.",
+            "Provar aos investidores que há demanda suficiente e o negócio tem potencial de escala.",
+            "Mostrar as fotos dos fundadores da empresa.",
+            "Apresentar a bibliografia e autores estudados."
+          ],
+          "correct": "Provar aos investidores que há demanda suficiente e o negócio tem potencial de escala.",
+          "tip": "Sem um mercado volumoso, o investimento não justifica o risco."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com a lição do Airbnb, imagens reforçam [COMBO], aumentando o impacto emocional.",
+          "options": [
+            "Custos",
+            "Palavras",
+            "Atrasos",
+            "Fontes"
+          ],
+          "correct": "Palavras",
+          "tip": "Uma foto relevante com o discurso sincronizado grava a informação no cérebro do espectador."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais são estratégias indicadas para o Networking Pós-Apresentação?",
+          "answers": [
+            "Troca de cartões de visita física",
+            "Disponibilizar os slides via QR Code com captação de e-mail",
+            "Correr rapidamente para a saída para não atrasar a agenda",
+            "Enviar materiais complementares via follow-up"
+          ],
+          "correct": [
+            "Troca de cartões de visita física",
+            "Disponibilizar os slides via QR Code com captação de e-mail",
+            "Enviar materiais complementares via follow-up"
+          ],
+          "tip": "O evento termina no palco, mas o relacionamento de negócio só acaba de começar."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], diferencie a partilha de slides pelas suas características de distribuição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Link Aberto (Ex: PDF na nuvem)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Link Gated (Ex: Slidebean)",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Qualquer pessoa acede, não gera base de contactos"
+            },
+            {
+              "id": "z2",
+              "label": "Exige e-mail, gera leads e rastreio de leitura"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Partilhar gerando valor para a sua rede de contactos é sempre o caminho profissional estratégico."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], consistência visual (não misturar slides na horizontal e vertical) ajuda o investidor a perceber organização e profissionalismo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Quebras de padrão causam distração cognitiva e comunicam desleixo visual indiretamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que o slide sobre a Equipa (O Time) é vital no pitch de uma Startup?",
+          "answers": [
+            "Apenas porque é uma tradição estética de design.",
+            "Porque a equipa precisa convencer de que tem capacidade para executar a ideia proposta.",
+            "Porque preenche espaço na apresentação curta.",
+            "Para avisar a concorrência de quem são as pessoas."
+          ],
+          "correct": "Porque a equipa precisa convencer de que tem capacidade para executar a ideia proposta.",
+          "tip": "Uma excelente ideia sem as pessoas certas não atrai grandes investimentos."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], a inclusão de depoimentos da mídia ou de clientes serve como estratégia de [COMBO] Social.",
+          "options": [
+            "Dúvida",
+            "Isolamento",
+            "Validação",
+            "Agressão"
+          ],
+          "correct": "Validação",
+          "tip": "Mostrar que pessoas respeitáveis já acreditam no seu produto contorna as barreiras do investidor."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], que elementos devem fazer parte do slide sobre Situação Financeira ('The Ask')?",
+          "answers": [
+            "O capital que já existe.",
+            "Quantia de investimento solicitada.",
+            "Onde se pretende chegar (metas com esse capital).",
+            "Os problemas pessoais e de dívidas dos fundadores."
+          ],
+          "correct": [
+            "O capital que já existe.",
+            "Quantia de investimento solicitada.",
+            "Onde se pretende chegar (metas com esse capital)."
+          ],
+          "tip": "Transparência numérica no fecho gera confiança para a aprovação."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], faça a ponte entre as lições retiradas do deck do Airbnb:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Slogan de capa",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ícones nos slides",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Último slide do Pitch",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Deve explicar em 7 palavras"
+            },
+            {
+              "id": "z2",
+              "label": "Marcam conceitos na memória"
+            },
+            {
+              "id": "z3",
+              "label": "Apresenta a pergunta implícita: 'Topa?'"
+            }
+          ],
+          "correct": "drag",
+          "trans": "FIM",
+          "tip": "Design e copy juntos preparam o terreno para um fechamento que só exija a resposta 'Sim'."
+        }
+      ]
     }
   ]
 }
