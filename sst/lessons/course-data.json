@@ -46666,6 +46666,1065 @@
           "tip": "Ela converte magicamente o seu esqueleto textual em slides estruturados."
         }
       ]
+    },
+    {
+      "slug": "aula-61",
+      "lesson_info": {
+        "id": "Aula-61",
+        "title": "AULA 61 - POR QUE APRENDER LÓGICA DE PROGRAMAÇÃO COM PYTHON EM 2026?",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "MERCADO E MITOS",
+            "desc": "A urgência do mercado tech, a onipresença do software e a desconstrução de falsas barreiras.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "O UNIVERSO PYTHON",
+            "desc": "História, aplicações reais e os princípios fundamentais do Zen do Python.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "AMBIENTE DE DESENVOLVIMENTO",
+            "desc": "Como o interpretador funciona e a configuração do VS Code e GitHub em 2026.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1607799279861-4dddfd1dc1de?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "COMANDOS E BOAS PRÁTICAS",
+            "desc": "Variáveis, entrada de dados (input), saída (print) e Commits Semânticos.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "C",
+          "O",
+          "D",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual a estimativa global de vagas tech não preenchidas até 2030 segundo o estudo citado?",
+          "answers": [
+            "85 milhões",
+            "10 milhões",
+            "300 mil",
+            "2 bilhões"
+          ],
+          "correct": "85 milhões",
+          "tip": "Esse déficit gigantesco indica uma alta demanda por desenvolvedores no mercado."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], sobre o aprendizado de programação, qual destas afirmações derruba um mito comum?",
+          "answers": [
+            "Experiência de vida é vantagem, não obstáculo",
+            "Apenas jovens aprendem rápido",
+            "O inglês fluente é o único meio de aprender",
+            "É necessário ser craque em matemática avançada"
+          ],
+          "correct": "Experiência de vida é vantagem, não obstáculo",
+          "tip": "Muitas pessoas acham que estão 'velhas demais', mas a vivência auxilia na resolução de problemas."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], onde o software NÃO é citado como presente no ecossistema de 2026?",
+          "answers": [
+            "Máquinas de Escrever",
+            "Wearables & IA",
+            "Veículos Autônomos",
+            "Casa Inteligente"
+          ],
+          "correct": "Máquinas de Escrever",
+          "tip": "A aula aborda tecnologias modernas, do seu pulso aos carros guiados por código."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a falta de compromisso é considerada um obstáculo real para aprender a programar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Aprender a programar exige a mesma persistência de aprender a andar de bicicleta."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], segundo o material, formar-se em matemática avançada é pré-requisito obrigatório para programar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Você já usa mais matemática calculando o troco no mercado do que o exigido no início da programação."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o cérebro ativado pela programação desenvolve a criatividade e dificilmente volta ao estado anterior.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O processo de traduzir a lógica para código amplia significativamente a sua forma de pensar."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], o mercado precisa de quem [COMBO] código, e não de quem apenas copia.",
+          "options": [
+            "cria",
+            "apaga",
+            "ignora",
+            "vende"
+          ],
+          "correct": "cria",
+          "tip": "Copiar código sem entender (pressa) é um dos maiores obstáculos reais da aprendizagem."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], compartilhar código é o princípio máximo da cultura de [COMBO].",
+          "options": [
+            "comunidade",
+            "competição",
+            "sigilo",
+            "isolamento"
+          ],
+          "correct": "comunidade",
+          "tip": "O espírito de comunidade fortalece a área de desenvolvimento de software globalmente."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são as verdadeiras vantagens de quem programa listadas no material?",
+          "answers": [
+            "Resolve Problemas",
+            "Criatividade Ampliada",
+            "Espírito de Comunidade",
+            "Aprende Mais Devagar"
+          ],
+          "correct": [
+            "Resolve Problemas",
+            "Criatividade Ampliada",
+            "Espírito de Comunidade"
+          ],
+          "tip": "Programar ensina a dividir grandes desafios em pedaços menores e instiga a colaboração."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], segundo os mitos derrubados, quais elementos NÃO são barreiras reais para a programação?",
+          "answers": [
+            "Idade",
+            "Gênero",
+            "Matemática básica",
+            "Não praticar"
+          ],
+          "correct": [
+            "Idade",
+            "Gênero",
+            "Matemática básica"
+          ],
+          "tip": "A falta de prática é um obstáculo real; idade, gênero e matemática complexa são mitos."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], em quais tecnologias de 2026 o software está fortemente presente, de acordo com o Capítulo 1?",
+          "answers": [
+            "Wearables & IA",
+            "Casa Inteligente",
+            "Veículos Autônomos",
+            "Teclados mecânicos analógicos"
+          ],
+          "correct": [
+            "Wearables & IA",
+            "Casa Inteligente",
+            "Veículos Autônomos"
+          ],
+          "tip": "Do seu pulso aos LLMs, tudo roda através de código no cenário atual."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o falso mito à sua verdadeira realidade no aprendizado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Inglês fraco",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Matemática",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Idade avançada",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Gênero exclusivo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ler redes sociais é o suficiente no início"
+            },
+            {
+              "id": "z2",
+              "label": "Usa-se mais ao calcular troco no mercado"
+            },
+            {
+              "id": "z3",
+              "label": "Experiência de vida é sempre uma vantagem"
+            },
+            {
+              "id": "z4",
+              "label": "Programar é coisa de gente inteligente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas são as barreiras psicológicas mais comuns que devem ser ignoradas."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione as tecnologias inovadoras de 2026 com suas descrições:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Wearables",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Casa Inteligente",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "IA Generativa",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Autônomos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Implantes e óculos monitorados"
+            },
+            {
+              "id": "z2",
+              "label": "Termostatos e câmeras no celular"
+            },
+            {
+              "id": "z3",
+              "label": "LLMs e copilots integrados"
+            },
+            {
+              "id": "z4",
+              "label": "Carros que evitam acidentes"
+            }
+          ],
+          "correct": "drag",
+          "trans": "AGEN",
+          "tip": "A automação está presente em quase todas as facetas da nossa rotina."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], em que ano o Python teve suas primeiras versões lançadas oficialmente?",
+          "answers": [
+            "1991",
+            "1982",
+            "1989",
+            "2001"
+          ],
+          "correct": "1991",
+          "tip": "Em 1989 surgiu a ideia, mas o nascimento com as primeiras versões ocorreu em 1991."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o nome da linguagem 'Python' foi inspirado em qual programa de TV?",
+          "answers": [
+            "Monty Python's Flying Circus",
+            "Python and the Snakes",
+            "The Python Developers",
+            "Cobra Kai"
+          ],
+          "correct": "Monty Python's Flying Circus",
+          "tip": "Guido van Rossum homenageou seu grupo de comédia britânico favorito."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o Zen do Python defende a filosofia de que 'Complexo é melhor que complicado'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Uma solução complexa mas bem estruturada é preferível a uma solução complicada e mal definida."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], em 2026, Python não é mais a linguagem padrão para IA generativa e ciência de dados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, ela é o motor principal da IA, automação e computação espacial em 2026."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], no Zen do Python, está escrito: '[COMBO] é melhor que implícito'.",
+          "options": [
+            "Explícito",
+            "Escondido",
+            "Curto",
+            "Rápido"
+          ],
+          "correct": "Explícito",
+          "tip": "Evite 'mágica' no código. Suas intenções devem ser óbvias a quem lê."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], segundo a filosofia da linguagem, casos especiais não são especiais o suficiente para quebrar as [COMBO].",
+          "options": [
+            "regras",
+            "classes",
+            "telas",
+            "máquinas"
+          ],
+          "correct": "regras",
+          "tip": "A consistência do código é altamente valorizada pela comunidade."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], a sigla PSF, fundada em 2001, significa Python Software [COMBO].",
+          "options": [
+            "Foundation",
+            "Functions",
+            "Files",
+            "Format"
+          ],
+          "correct": "Foundation",
+          "tip": "A PSF coordena o crescimento e as atualizações da linguagem."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais características do Python são apontadas como motivos para o seu domínio no mercado?",
+          "answers": [
+            "Simples e Organizada",
+            "Código Aberto",
+            "Multiplataforma",
+            "Sintaxe complexa focada em hardware"
+          ],
+          "correct": [
+            "Simples e Organizada",
+            "Código Aberto",
+            "Multiplataforma"
+          ],
+          "tip": "Apesar de versátil, o Python brilha por ser legível e rodar em qualquer sistema."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais desses princípios pertencem ao Zen do Python?",
+          "answers": [
+            "Bonito é melhor que feio",
+            "Plano é melhor que aninhado",
+            "Legibilidade importa",
+            "Erros devem sempre passar despercebidos"
+          ],
+          "correct": [
+            "Bonito é melhor que feio",
+            "Plano é melhor que aninhado",
+            "Legibilidade importa"
+          ],
+          "tip": "A filosofia defende que erros NUNCA devem passar despercebidos, a menos que silenciados explicitamente."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione o princípio do Zen do Python à sua explicação correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Bonito > feio",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Simples > complexo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Plano > aninhado",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Espesso > denso",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "A estética ajuda na manutenção do código"
+            },
+            {
+              "id": "z2",
+              "label": "Elegância, evitando engenharia excessiva"
+            },
+            {
+              "id": "z3",
+              "label": "Evita múltiplas camadas em estruturas"
+            },
+            {
+              "id": "z4",
+              "label": "Espaçamento lógico aumenta a leitura"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O Zen do Python (PEP 20) guia os desenvolvedores na escrita de códigos melhores e mais limpos."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], associe o uso prático do Python à respectiva aplicação famosa no mercado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "YouTube",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Google Search",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Raspberry Pi",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "NASA",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Foi amplamente desenvolvido na linguagem"
+            },
+            {
+              "id": "z2",
+              "label": "Crawlers de indexação da web"
+            },
+            {
+              "id": "z3",
+              "label": "Nome é referência e linguagem principal"
+            },
+            {
+              "id": "z4",
+              "label": "Sistemas espaciais e renderização"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Desde gigantes da internet até missões espaciais, o Python é a base estrutural de muitas inovações."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], ligue o ano ao acontecimento histórico da linguagem Python:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1989",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "1991",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "2001",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "2026",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Guido decide criar a linguagem frustrado com C"
+            },
+            {
+              "id": "z2",
+              "label": "Primeiras versões do Python são lançadas"
+            },
+            {
+              "id": "z3",
+              "label": "A fundação PSF é criada para a linguagem"
+            },
+            {
+              "id": "z4",
+              "label": "Motor de IA e padrão global no mercado"
+            }
+          ],
+          "correct": "drag",
+          "trans": "PROT",
+          "tip": "Compreender a cronologia ajuda a valorizar a maturidade que a linguagem atingiu ao longo das décadas."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual a versão exata de manutenção do Python que está sendo utilizada nesta aula (lançada em junho de 2026)?",
+          "answers": [
+            "3.14.6",
+            "3.10.2",
+            "3.14.0",
+            "4.0.1"
+          ],
+          "correct": "3.14.6",
+          "tip": "É a sexta versão de manutenção da linha 3.14, contendo quase 179 correções de bugs."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], durante a criação da Máquina Virtual no Hyper-V para o Windows 11, qual deve ser a geração selecionada?",
+          "answers": [
+            "Geração 2 (UEFI)",
+            "Geração 1 (BIOS)",
+            "Geração 3 (ARM)",
+            "Geração Automática"
+          ],
+          "correct": "Geração 2 (UEFI)",
+          "tip": "O Windows 11 moderno exige a arquitetura UEFI para funcionar corretamente e habilitar o TPM."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], a extensão Python oficial da Microsoft para o VS Code inclui qual ferramenta focada em análise de código em tempo real?",
+          "answers": [
+            "Pylance",
+            "PyInstaller",
+            "Jupyter",
+            "Prettier"
+          ],
+          "correct": "Pylance",
+          "tip": "O Pylance aprimora o autocomplete e ajuda a encontrar erros antes mesmo de rodar o código."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o interpretador atua como um 'tradutor ao vivo' entre o código que você escreve e a máquina.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sem o interpretador do Python, o processador não entende o script que criamos."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], sistemas operacionais como Linux e macOS já possuem o interpretador do Python pré-instalado por padrão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esses sistemas dependem do Python para diversas ferramentas internas, dispensando a instalação do zero."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a recomendação da aula é que você utilize o GitHub Copilot para escrever todos os seus códigos no seu lugar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O material frisa: use como um tutor de sintaxe para aprender, não como um substituto do seu raciocínio."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], no fluxo de funcionamento da linguagem: 'Você escreve, o [COMBO] traduz, e o Computador executa'.",
+          "options": [
+            "Interpretador",
+            "Compilador",
+            "Monitor",
+            "Servidor"
+          ],
+          "correct": "Interpretador",
+          "tip": "Diferente de C++, Python processa o código instrução por instrução em tempo real."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], no VS Code, o atalho de teclado Ctrl + [COMBO] é usado para abrir e fechar o Terminal Integrado.",
+          "options": [
+            "' (aspas simples)",
+            "B",
+            "P",
+            "Enter"
+          ],
+          "correct": "' (aspas simples)",
+          "tip": "Usar o terminal integrado evita a necessidade de abrir o Prompt de Comando fora do editor."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], uma das grandes inovações do Python 3.14 é a PEP 750, que implementa as chamadas [COMBO]-Strings para processamento customizado.",
+          "options": [
+            "T",
+            "F",
+            "X",
+            "C"
+          ],
+          "correct": "T",
+          "tip": "Elas são conhecidas como Template Strings, expandindo as famosas f-strings."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são as novidades do Python 3.14 mencionadas no guia do ambiente?",
+          "answers": [
+            "T-Strings",
+            "Free-Threading Oficial (sem GIL)",
+            "Anotações Diferidas (Lazy eval)",
+            "Fim do suporte ao macOS"
+          ],
+          "correct": [
+            "T-Strings",
+            "Free-Threading Oficial (sem GIL)",
+            "Anotações Diferidas (Lazy eval)"
+          ],
+          "tip": "A versão 3.14 trouxe grande evolução para processamento paralelo e semântica de código."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais as três extensões do VS Code consideradas essenciais na configuração do curso?",
+          "answers": [
+            "Dracula + Material Icon Theme",
+            "Python (Microsoft)",
+            "GitHub Copilot",
+            "Live Server para HTML"
+          ],
+          "correct": [
+            "Dracula + Material Icon Theme",
+            "Python (Microsoft)",
+            "GitHub Copilot"
+          ],
+          "tip": "Essas três extensões garantem visual profissional, autocomplete avançado e um tutor de IA lado a lado."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione os componentes da máquina virtual (Hyper-V) à sua configuração ideal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Memória RAM",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "HD Virtual",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Firmware",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "CPU",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "8192MB sem modo dinâmico"
+            },
+            {
+              "id": "z2",
+              "label": "Tamanho de 100GB"
+            },
+            {
+              "id": "z3",
+              "label": "Geração 2 (UEFI)"
+            },
+            {
+              "id": "z4",
+              "label": "4 núcleos virtuais de processamento"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Definir os recursos de hardware corretamente evita lentidão durante os exercícios de programação."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], defina as etapas fundamentais para que um código ganhe vida:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Ferramenta",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Você escreve a lógica no editor"
+            },
+            {
+              "id": "z2",
+              "label": "O Interpretador traduz a linguagem"
+            },
+            {
+              "id": "z3",
+              "label": "O Computador executa na máquina"
+            },
+            {
+              "id": "z4",
+              "label": "O VS Code abriga todo o processo"
+            }
+          ],
+          "correct": "drag",
+          "trans": "NORM",
+          "tip": "A fluidez do VS Code torna essa jornada de escrever e executar incrivelmente mais fácil."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no contexto de Commits Semânticos com o Git, o prefixo 'feat' é utilizado para indicar o quê?",
+          "answers": [
+            "Uma nova funcionalidade",
+            "A correção de um bug",
+            "Uma mudança na documentação",
+            "Um teste automatizado"
+          ],
+          "correct": "Uma nova funcionalidade",
+          "tip": "Abreviação de 'feature', serve para identificar sempre que você cria um script ou resolução nova."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no seu primeiro script 'ex001.py', qual comando Python foi utilizado para exibir a mensagem 'Olá, mundo!' na tela?",
+          "answers": [
+            "print()",
+            "input()",
+            "show()",
+            "echo"
+          ],
+          "correct": "print()",
+          "tip": "Em Python, o comando print atua como a saída padrão do sistema, jogando dados na tela do terminal."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], em linguagem Python, o sinal '=' (exemplo: nome = 'Ana') significa matematicamente 'igual'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Na programação, um único sinal de igual (=) significa 'recebe' (atribuição de valor à variável)."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], se utilizarmos o sinal '+' entre duas strings (textos em aspas), o Python vai juntar as duas palavras (concatenar).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exatamente! '7' + '4' em string resulta em '74', enquanto 7 + 4 como número resulta em 11."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], para pausar o código e ler uma informação digitada pelo usuário, utilizamos a função embutida COMBO.",
+          "options": [
+            "input",
+            "read",
+            "print",
+            "get"
+          ],
+          "correct": "input",
+          "tip": "A função input() aguarda o usuário digitar algo e apertar a tecla Enter para continuar."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], ao utilizar o GitHub Desktop, para enviar seu novo repositório local à nuvem, você deve clicar no botão 'Publish [COMBO]'.",
+          "options": [
+            "repository",
+            "code",
+            "commit",
+            "branch"
+          ],
+          "correct": "repository",
+          "tip": "Publish Repository envia toda a estrutura que você criou no seu HD diretamente para o GitHub.com."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais dos seguintes prefixos fazem parte das convenções do padrão de Commits Semânticos ensinado?",
+          "answers": [
+            "feat (novidades)",
+            "fix (correção de bugs)",
+            "chore (manutenção)",
+            "delete (apagar pastas)"
+          ],
+          "correct": [
+            "feat (novidades)",
+            "fix (correção de bugs)",
+            "chore (manutenção)"
+          ],
+          "tip": "Commits semânticos organizam o histórico em categorias reconhecidas mundialmente na área."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], sobre o comportamento de variáveis e tipos no Python, quais afirmações estão corretas?",
+          "answers": [
+            "Strings com o operador '+' concatenam",
+            "Números com o operador '+' realizam soma",
+            "Misturar strings e números com '+' sem converter gera erro",
+            "A função input() só aceita números"
+          ],
+          "correct": [
+            "Strings com o operador '+' concatenam",
+            "Números com o operador '+' realizam soma",
+            "Misturar strings e números com '+' sem converter gera erro"
+          ],
+          "tip": "O Python é fortemente tipado; tentar somar um texto com um número diretamente interrompe o programa."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], para resolver o Desafio 01 (Boas-vindas Personalizadas), quais comandos e lógicas foram necessários?",
+          "answers": [
+            "Uso do comando input() para ler o nome",
+            "Uso do comando print() para exibir o resultado",
+            "Uso de uma variável para guardar a informação",
+            "Configurar uma rede virtual no Hyper-V"
+          ],
+          "correct": [
+            "Uso do comando input() para ler o nome",
+            "Uso do comando print() para exibir o resultado",
+            "Uso de uma variável para guardar a informação"
+          ],
+          "tip": "O fluxo básico foi: criar variável -> input para pegar valor -> print com texto formatado."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione o prefixo do commit semântico à sua função no gerenciamento do projeto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "docs",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "style",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "refactor",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "test",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Documentação e instruções no README"
+            },
+            {
+              "id": "z2",
+              "label": "Ajuste de formatação, espaçamento e indentação"
+            },
+            {
+              "id": "z3",
+              "label": "Reestruturação ou simplificação de uma lógica"
+            },
+            {
+              "id": "z4",
+              "label": "Criação de testes para garantir integridade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Manter os commits padronizados facilita para que outras pessoas (e você no futuro) leiam o histórico."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], faça a associação correta entre o comando ou operador do Python e seu papel prático:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "print()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "input()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "=",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "+ (strings)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Escreve resultados na tela do terminal"
+            },
+            {
+              "id": "z2",
+              "label": "Lê uma informação digitada pelo teclado"
+            },
+            {
+              "id": "z3",
+              "label": "Atribui (guarda) um valor a uma variável"
+            },
+            {
+              "id": "z4",
+              "label": "Realiza a concatenação de dois textos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estes são os alicerces fundamentais para qualquer script interativo em Python."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], no exemplo 'feat(auth): adiciona login', relacione cada pedaço da mensagem do commit à sua nomenclatura correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "feat",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "(auth)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "adiciona login",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Semântico",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "É o 'tipo' da alteração realizada"
+            },
+            {
+              "id": "z2",
+              "label": "É o 'escopo' ou área onde ocorreu a mudança"
+            },
+            {
+              "id": "z3",
+              "label": "É a 'descrição' breve e direta do que foi feito"
+            },
+            {
+              "id": "z4",
+              "label": "É o modelo profissional de versionar seu código"
+            }
+          ],
+          "correct": "drag",
+          "trans": "END",
+          "tip": "Aplicar o conceito Tipo(Escopo): Descrição separa um iniciante amador de um júnior preparado para vagas."
+        }
+      ]
     }
   ]
 }
