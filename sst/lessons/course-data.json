@@ -47725,6 +47725,971 @@
           "tip": "Aplicar o conceito Tipo(Escopo): Descrição separa um iniciante amador de um júnior preparado para vagas."
         }
       ]
+    },
+    {
+      "slug": "aula-62",
+      "lesson_info": {
+        "id": "Aula-62",
+        "title": "AULA 62 - PYTHON: TIPOS PRIMITIVOS, VARIÁVEIS E LEITURA DE ERROS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "TIPOS PRIMITIVOS",
+            "desc": "Os blocos fundamentais de dados: int, float, bool e str.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "CONVERSÃO E F-STRINGS",
+            "desc": "Leitura de dados, formatação moderna e os perigos da concatenação acidental.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "INSPEÇÃO DE STRINGS",
+            "desc": "Validação e investigação de variáveis com métodos como isnumeric e isalpha.",
+            "color": "#1abc9c",
+            "img_url": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "PRODUTIVIDADE E DESAFIOS",
+            "desc": "Dicas essenciais no VS Code, Error Lens e laboratório de desafios lógicos.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "T",
+          "I",
+          "P",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], quais são os 4 tipos primitivos fundamentais em Python abordados na aula?",
+          "answers": [
+            "int, float, bool, str",
+            "int, real, logic, text",
+            "number, float, boolean, char",
+            "int, double, bool, string"
+          ],
+          "correct": "int, float, bool, str",
+          "tip": "Toda linguagem opera sobre tipos fundamentais, e esses são os blocos construtivos do Python."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que caracteriza exclusivamente o tipo primitivo 'float' em Python?",
+          "answers": [
+            "Números reais com ponto flutuante",
+            "Números inteiros negativos",
+            "Textos e caracteres especiais",
+            "Valores lógicos de verdadeiro ou falso"
+          ],
+          "correct": "Números reais com ponto flutuante",
+          "tip": "O float é usado para armazenar números que possuem casas decimais, como 3.14."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], como o valor lógico 'Verdadeiro' deve ser estritamente escrito no tipo bool em Python?",
+          "answers": [
+            "True",
+            "true",
+            "TRUE",
+            "Verdadeiro"
+          ],
+          "correct": "True",
+          "tip": "O Python exige a inicial maiúscula para os valores booleanos (True ou False)."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], em Python, o número 7 e o número 7.0 pertencem exatamente ao mesmo tipo primitivo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Matematicamente iguais, mas o 7 é do tipo 'int' e o 7.0 é do tipo 'float'."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], qualquer dado envolto por aspas simples ou duplas no Python é considerado uma string (str).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Mesmo se contiver números, como '7', as aspas o transformam em um texto puro (str)."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a variável contendo o valor '45' (entre aspas) pode ser usada diretamente em operações matemáticas de soma sem causar erros.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Para somar, é preciso antes converter o texto '45' para int ou float."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], o tipo primitivo [COMBO] aceita apenas dois valores possíveis: True ou False.",
+          "options": [
+            "bool",
+            "int",
+            "str",
+            "float"
+          ],
+          "correct": "bool",
+          "tip": "Este tipo é a base fundamental de todas as estruturas condicionais e de lógica na programação."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], em Python e no padrão internacional de desenvolvimento, utiliza-se o [COMBO] como separador de casas decimais.",
+          "options": [
+            "ponto",
+            "espaço",
+            "traço",
+            "vírgula"
+          ],
+          "correct": "ponto",
+          "tip": "Você deve escrever 3.14, e não 3,14. A vírgula é usada para separar itens em listas ou funções."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], uma variável lida do usuário através da função embutida input() é originalmente e sempre do tipo primitivo [COMBO].",
+          "options": [
+            "str",
+            "int",
+            "float",
+            "bool"
+          ],
+          "correct": "str",
+          "tip": "Mesmo que o usuário digite o número 100, o input o devolve como um texto '100'."
+        },        
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], sobre as características dos tipos primitivos, quais afirmações estão corretas no material?",
+          "answers": [
+            "O tipo bool aceita True ou False (com inicial maiúscula).",
+            "O tipo int abrange números positivos, negativos e o zero.",
+            "O tipo float é ideal para cálculos financeiros e medidas.",
+            "O tipo str serve apenas para armazenar letras do alfabeto."
+          ],
+          "correct": [
+            "O tipo bool aceita True ou False (com inicial maiúscula).",
+            "O tipo int abrange números positivos, negativos e o zero.",
+            "O tipo float é ideal para cálculos financeiros e medidas."
+          ],
+          "tip": "Strings podem armazenar letras, números, símbolos, espaços e até mesmo ficarem vazias."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o dado fornecido ao seu respectivo tipo primitivo em Python:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "42",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "3.14",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "'Python'",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "False",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tipo int"
+            },
+            {
+              "id": "z2",
+              "label": "Tipo float"
+            },
+            {
+              "id": "z3",
+              "label": "Tipo str"
+            },
+            {
+              "id": "z4",
+              "label": "Tipo bool"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber identificar os dados só de olhar para eles é uma habilidade visual crucial."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "[NAME], relacione o tipo primitivo à sua aplicação ideal no dia a dia da programação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "int",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "float",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "bool",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "str",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Contagens e índices estruturais"
+            },
+            {
+              "id": "z2",
+              "label": "Cálculos e medidas decimais"
+            },
+            {
+              "id": "z3",
+              "label": "Controle de fluxo (verdadeiro/falso)"
+            },
+            {
+              "id": "z4",
+              "label": "Armazenamento de textos e frases"
+            }
+          ],
+          "correct": "drag",
+          "trans": "AGEN",
+          "tip": "A escolha certa do tipo evita o consumo desnecessário de memória e falhas de lógica."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o erro mais comum e grave de iniciantes ao ler dados numéricos via input() sem efetuar a conversão?",
+          "answers": [
+            "Ocorre a concatenação dos valores em vez da soma matemática",
+            "O programa deleta os números",
+            "Os números são transformados em floats negativos",
+            "O interpretador trava instantaneamente"
+          ],
+          "correct": "Ocorre a concatenação dos valores em vez da soma matemática",
+          "tip": "Como o input retorna string, tentar somar '3' e '2' gera o texto colado '32'."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual o principal objetivo da função embutida type() em Python?",
+          "answers": [
+            "Retornar a classe/tipo do valor armazenado em uma variável",
+            "Digitar automaticamente um texto na tela",
+            "Forçar uma string a virar número",
+            "Criar f-strings"
+          ],
+          "correct": "Retornar a classe/tipo do valor armazenado em uma variável",
+          "tip": "É uma ferramenta indispensável para depurar códigos e conferir a natureza dos seus dados."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual o nome do padrão moderno de formatação em Python que substituiu o método .format()?",
+          "answers": [
+            "f-strings",
+            "template literals",
+            "c-strings",
+            "formatters"
+          ],
+          "correct": "f-strings",
+          "tip": "As f-strings utilizam a letra 'f' antes das aspas e chaves {} para inserir variáveis."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], se você tentar somar matematicamente as strings '10' e '5' usando o operador +, o Python resultará no número 15.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Textos são concatenados, ou seja, colados lado a lado. O resultado seria o texto '105'."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], f-strings são consideradas o padrão atual no mercado pois além de mais velozes, deixam o código muito mais legível.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Elas injetam variáveis diretamente dentro do texto, simplificando imensamente a escrita."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], na área de Automação (RPA), robôs leem dados de formulários inicialmente já convertidos para o formato numérico (int/float).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Todo robô que lê a interface de um usuário captura a informação inicialmente como string pura."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], para converter um texto digitado em um número real que aceite casas decimais, usamos a função COMBO.",
+          "options": [
+            "float",
+            "int",
+            "str",
+            "real"
+          ],
+          "correct": "float",
+          "tip": "Essencial para ler medidas, notas de alunos ou dados financeiros sensíveis."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], dentro de uma f-string, o especificador especial [COMBO] dentro das chaves indica o arredondamento automático para duas casas decimais.",
+          "options": [
+            ".2f",
+            ".2d",
+            ".dc",
+            ".02"
+          ],
+          "correct": ".2f",
+          "tip": "Exemplo prático: f'Preço: {valor:.2f}' padroniza valores financeiros lindamente."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], se quisermos realizar uma soma aritmética entre '3' e '2', primeiro precisamos [COMBO] esses valores usando int() ou float().",
+          "options": [
+            "converter",
+            "imprimir",
+            "formatar",
+            "apagar"
+          ],
+          "correct": "converter",
+          "tip": "Transformar (converter) o dado é a etapa número um na manipulação matemática."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais das seguintes opções são funções de conversão de tipos nativas do Python citadas na aula?",
+          "answers": [
+            "int()",
+            "float()",
+            "str()",
+            "print()"
+          ],
+          "correct": [
+            "int()",
+            "float()",
+            "str()"
+          ],
+          "tip": "print() serve apenas para exibir informações na tela, não para transformá-las."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], de acordo com o material, por que o domínio sobre a tipagem de dados é crucial no mercado atual de TI (2026)?",
+          "answers": [
+            "Impacta as respostas e prompts de APIs de Inteligência Artificial",
+            "Exigência em pipelines de ETL na nuvem (Azure/AWS)",
+            "Evita o bloqueio de dashboards numéricos no Power BI",
+            "Aumenta diretamente a resolução de telas 4k"
+          ],
+          "correct": [
+            "Impacta as respostas e prompts de APIs de Inteligência Artificial",
+            "Exigência em pipelines de ETL na nuvem (Azure/AWS)",
+            "Evita o bloqueio de dashboards numéricos no Power BI"
+          ],
+          "tip": "Dados mal tipados podem derrubar serviços de nuvem complexos inteiros."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], associe a operação aplicada aos textos '3' e '2' aos seus respectivos resultados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "int('3') + int('2')",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "'3' + '2'",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "float('3')",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "type('3')",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Retorna o inteiro 5"
+            },
+            {
+              "id": "z2",
+              "label": "Retorna a string colada '32'"
+            },
+            {
+              "id": "z3",
+              "label": "Retorna o float 3.0"
+            },
+            {
+              "id": "z4",
+              "label": "Informa que o dado é da classe str"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender as saídas dessas operações resolve 90% dos erros iniciantes em Python."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "[NAME], relacione a função nativa abordada nesta unidade com seu propósito principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "input()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "type()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "int()",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "print()",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Pausa e lê dados em texto do usuário"
+            },
+            {
+              "id": "z2",
+              "label": "Retorna o tipo primitivo da variável"
+            },
+            {
+              "id": "z3",
+              "label": "Força a conversão para número inteiro"
+            },
+            {
+              "id": "z4",
+              "label": "Exibe informações renderizadas na tela"
+            }
+          ],
+          "correct": "drag",
+          "trans": "PROT",
+          "tip": "Essas quatro funções formam a espinha dorsal de qualquer programa de terminal."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual método de string é o correto para verificar se o conteúdo de uma variável possui apenas letras e/ou números, sem conter espaços?",
+          "answers": [
+            "isalnum()",
+            "isalpha()",
+            "isnumeric()",
+            "isspace()"
+          ],
+          "correct": "isalnum()",
+          "tip": "A sigla alnum significa AlphaNumeric (alfanumérico)."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual método investigativo é útil para validar formulários verificando se o usuário tentou burlar digitando apenas espaços em branco?",
+          "answers": [
+            "isspace()",
+            "isempty()",
+            "isnull()",
+            "isalpha()"
+          ],
+          "correct": "isspace()",
+          "tip": "Este método retorna True se houver 1 ou mais espaços e nenhum outro caractere visível."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que especificamente o método de string istitle() verifica para retornar verdadeiro (True)?",
+          "answers": [
+            "Se a string está capitalizada (Apenas as primeiras letras em maiúscula)",
+            "Se toda a string está em minúsculas",
+            "Se a string é o título de um livro",
+            "Se a string tem apenas números"
+          ],
+          "correct": "Se a string está capitalizada (Apenas as primeiras letras em maiúscula)",
+          "tip": "Uma palavra como 'Brasil' ou 'Python' retornará True neste teste."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], mesmo sabendo que a função input() nos devolve sempre uma string, é possível usar o método isnumeric() para investigar se há apenas números nela antes de forçar uma conversão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso garante segurança, pois previne que seu código trave tentando converter letras em int."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], ao acionar o método 'Python'.isalpha(), o retorno será Falso porque o texto apresenta uma letra maiúscula.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O isalpha() não distingue maiúsculas de minúsculas, ele apenas exige que existam exclusivamente letras."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], o método COMBO retorna True caso todos os caracteres da string sejam capazes de ser convertidos para um número real ou inteiro.",
+          "options": [
+            "isnumeric",
+            "isalpha",
+            "islower",
+            "isspace"
+          ],
+          "correct": "isnumeric",
+          "tip": "Exemplo: '2026'.isnumeric() será sempre verdadeiro."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], o método investigativo COMBO testa um texto e responde True somente se todas as letras presentes estiverem em formato MAIÚSCULO.",
+          "options": [
+            "isupper",
+            "islower",
+            "istitle",
+            "isalnum"
+          ],
+          "correct": "isupper",
+          "tip": "Muito utilizado para normalizar dados no padrão uppercase (letras grandes)."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], se a string inserida pelo usuário for a palavra exata 'python', o método COMBO testará como True.",
+          "options": [
+            "islower",
+            "isupper",
+            "istitle",
+            "isspace"
+          ],
+          "correct": "islower",
+          "tip": "A função testa se todos os caracteres presentes estão reduzidos à sua forma minúscula."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais dos seguintes comandos representam métodos nativos válidos de inspeção de strings em Python listados na aula?",
+          "answers": [
+            "isnumeric()",
+            "isalpha()",
+            "isupper()",
+            "isfloat()"
+          ],
+          "correct": [
+            "isnumeric()",
+            "isalpha()",
+            "isupper()"
+          ],
+          "tip": "Embora o Python possua dezenas de métodos, 'isfloat()' não existe nativamente com esse nome."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], avaliando dados através da inspeção de strings, quais das afirmações abaixo gerariam o resultado Verdadeiro (True)?",
+          "answers": [
+            "'44'.isnumeric()",
+            "'Python3'.isalnum()",
+            "'Python'.isspace()",
+            "'   '.isalpha()"
+          ],
+          "correct": [
+            "'44'.isnumeric()",
+            "'Python3'.isalnum()"
+          ],
+          "tip": "Strings com mescla de letras e números são aprovadas pelo isalnum()."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], relacione o método da família 'is' ao seu comportamento de verificação correto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "isalpha()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "isnumeric()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "isalnum()",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "isspace()",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Verifica se contém apenas letras"
+            },
+            {
+              "id": "z2",
+              "label": "Verifica se contém apenas números"
+            },
+            {
+              "id": "z3",
+              "label": "Aceita letras e/ou números mesclados"
+            },
+            {
+              "id": "z4",
+              "label": "Verifica se é composto apenas por espaços"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses métodos são a primeira barreira de defesa contra usuários que preenchem dados errados."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "[NAME], associe o texto digitado ao método que seria o único capaz de retornar True para ele em uma validação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "'BRASIL'",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "'brasil'",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "'Brasil'",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "'   '",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Testado por isupper()"
+            },
+            {
+              "id": "z2",
+              "label": "Testado por islower()"
+            },
+            {
+              "id": "z3",
+              "label": "Testado por istitle()"
+            },
+            {
+              "id": "z4",
+              "label": "Testado por isspace()"
+            }
+          ],
+          "correct": "drag",
+          "trans": "NORM",
+          "tip": "As maiúsculas e minúsculas não escapam da inspeção profunda do interpretador Python."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual a extensão do VS Code recomendada no material por iluminar e destacar os erros de sintaxe em vermelho na própria linha de edição?",
+          "answers": [
+            "Error Lens",
+            "Python Debugger",
+            "Code Runner",
+            "Prettier"
+          ],
+          "correct": "Error Lens",
+          "tip": "Ela exibe a mensagem de falha em tempo real sem a necessidade de olhar o terminal escondido."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no ecossistema do VS Code, qual atalho de teclado tem o poder de envolver o trecho de código selecionado em um bloco massivo de comentário?",
+          "answers": [
+            "Shift + Alt + A",
+            "Ctrl + H",
+            "Alt + Shift + Baixo",
+            "Ctrl + ;"
+          ],
+          "correct": "Shift + Alt + A",
+          "tip": "Esse atalho coloca delimitadores de comentário em volta do texto e é ótimo para ignorar longas partes do código."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], baseando-se no Desafio 06, qual é o operador matemático em Python para calcular uma potenciação, que quando elevado a 0.5 (1/2) entrega a Raiz Quadrada?",
+          "answers": [
+            "",
+            "//",
+            "%",
+            "^"
+          ],
+          "correct": "",
+          "tip": "Diferente de outras linguagens que usam circunflexo (^), Python utiliza duplo asterisco para potências."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], instalar o Pacote de Idioma 'Portuguese (Brazil)' no VS Code é considerado positivo pois grande parte das mensagens de erro Python são traduzidas também.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ter o erro exibido no seu idioma agiliza a curva de aprendizado e depuração de lógica."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com os atalhos de teclado do VS Code, a combinação Ctrl + ; é utilizada para buscar um texto e substituir em massa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Ctrl + ; comenta a linha. A função de Localizar e Substituir é ativada via Ctrl + H."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], a moderna e fantástica extensão Error [COMBO] agiliza o diagnóstico de travamentos em seu script.",
+          "options": [
+            "Lens",
+            "View",
+            "Watch",
+            "Fix"
+          ],
+          "correct": "Lens",
+          "tip": "Lens significa lente, atuando como uma lupa visual em cima das falhas do seu texto."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], no Desafio 07 (Calculadora de Média), é imperativo que a soma das duas notas venha entre [COMBO] para resolver a prioridade antes da divisão por 2.",
+          "options": [
+            "parênteses",
+            "aspas",
+            "chaves",
+            "colchetes"
+          ],
+          "correct": "parênteses",
+          "tip": "A matemática dita as regras: divisões acontecem antes das somas, a menos que os parênteses existam."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais dos atalhos listados abaixo configuram dicas de alta produtividade dentro do Visual Studio Code?",
+          "answers": [
+            "Ctrl + H (Localizar e Substituir em massa)",
+            "Alt + Shift + Seta Baixo (Duplica a linha atual rapidamente)",
+            "Ctrl + ; (Alterna o modo comentário em um bloco)",
+            "F5 (Formata imediatamente a fonte para ficar itálica)"
+          ],
+          "correct": [
+            "Ctrl + H (Localizar e Substituir em massa)",
+            "Alt + Shift + Seta Baixo (Duplica a linha atual rapidamente)",
+            "Ctrl + ; (Alterna o modo comentário em um bloco)"
+          ],
+          "tip": "Atalhos evitam o retrabalho constante no uso excessivo do mouse."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais desses Desafios integraram o Laboratório Lógico que encerra o Material da Aula 62?",
+          "answers": [
+            "Somando Dois Números",
+            "Validador de Nome de Usuário",
+            "Antecessor e Sucessor",
+            "Sistema Gráfico de Jogos 3D"
+          ],
+          "correct": [
+            "Somando Dois Números",
+            "Validador de Nome de Usuário",
+            "Antecessor e Sucessor"
+          ],
+          "tip": "Esses exercícios básicos em ambiente terminal garantem que a fundação de código seja enraizada."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], associe perfeitamente a combinação do atalho de teclado do VS Code com seu superpoder executivo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ctrl + ;",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ctrl + H",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Shift + Alt + A",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Alt + Shift + Baixo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Comenta ou descomenta rapidamente"
+            },
+            {
+              "id": "z2",
+              "label": "Chama a caixa de localizar e substituir"
+            },
+            {
+              "id": "z3",
+              "label": "Cria um bloco fechado de comentário"
+            },
+            {
+              "id": "z4",
+              "label": "Duplica idêntica e instantaneamente a linha"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Mapear sua mão esquerda aos atalhos é o passo vital para ganhar agilidade insana em programação."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "[NAME], relacione qual o principal pilar e ferramenta testada por cada um dos desafios do laboratório:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Desafio Somando",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Desafio Validador de Usuário",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Desafio Raiz Quadrada",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Desafio Calculadora de Média",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Trabalha puramente na conversão int() e f-string"
+            },
+            {
+              "id": "z2",
+              "label": "Abusa de métodos como isalnum() e type()"
+            },
+            {
+              "id": "z3",
+              "label": "Exercita o operador aritmético '' elevado"
+            },
+            {
+              "id": "z4",
+              "label": "Fixa o conhecimento vital de precedência e parênteses"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O foco não é apenas realizar a ação, e sim qual estrutura sintática de Python está fixando na memória."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], segundo a visão de mercado detalhada, o que os complexos pipelines de dados (ETL) hospedados em plataformas Azure ou AWS exigem duramente antes do carregamento em bancos de dados?",
+          "answers": [
+            "A tipagem exata e correta dos dados ingeridos",
+            "Conversão universal para string pura",
+            "Que tudo seja formatado em extensões de vídeo",
+            "Remoção cirúrgica de todos os números reais"
+          ],
+          "correct": "A tipagem exata e correta dos dados ingeridos",
+          "tip": "A conversão falha ou errônea interrompe o fluxo massivo de engenharia de dados em nuvem.",
+          "trans": "END"
+        }
+      ]
     }
   ]
 }
