@@ -49354,7 +49354,7 @@
             "Essencial para logs e dashboards de texto em sistemas embarcados"
           ],
           "tip": "A formatação trata-se puramente da apresentação dos dados."
-        },       
+        },
         {
           "type": "multiple",
           "topics": "FORM",
@@ -49609,6 +49609,986 @@
           ],
           "correct": "linguagem",
           "tip": "Você está pronto(a) para dominar lógicas ainda mais robustas na sua jornada tech! ",
+          "trans": "END"
+        }
+      ]
+    },
+    {
+      "slug": "aula-65",
+      "lesson_info": {
+        "id": "Aula-65",
+        "title": "AULA 65 - MÓDULOS EXTERNOS E MANIPULAÇÃO DE TEXTO",
+        "topics": [
+          {
+            "id": "MODU",
+            "name": "MÓDULOS E BIBLIOTECAS",
+            "desc": "Conceitos de importação, biblioteca padrão, math e random.",
+            "color": "#3498db",
+            "img_url": "[https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1600](https://www.google.com/search?q=https://images.unsplash.com/photo-1517694712202-14dd9538aa97%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80%26w%3D1600)"
+          },
+          {
+            "id": "PYPI",
+            "name": "ECOSSISTEMA PYPI",
+            "desc": "Pacotes externos, terminal do VS Code e instalação via pip.",
+            "color": "#9b59b6",
+            "img_url": "[https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600](https://www.google.com/search?q=https://images.unsplash.com/photo-1555066931-4365d14bab8c%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80%26w%3D1600)"
+          },
+          {
+            "id": "FATI",
+            "name": "FATIAMENTO DE TEXTO",
+            "desc": "Slicing de strings, contagem de caracteres e buscas lógicas.",
+            "color": "#e67e22",
+            "img_url": "[https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1600](https://www.google.com/search?q=https://images.unsplash.com/photo-1542831371-29b0f74f9713%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80%26w%3D1600)"
+          },
+          {
+            "id": "MANI",
+            "name": "MANIPULAÇÃO DE STRINGS",
+            "desc": "Transformações, split, join e imutabilidade de strings.",
+            "color": "#2ecc71",
+            "img_url": "[https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600](https://www.google.com/search?q=https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80%26w%3D1600)"
+          }
+        ],
+        "sokoban": [
+          "T",
+          "E",
+          "X",
+          "T"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "MODU",
+          "questions": "[NAME], o que é fundamentalmente um módulo no Python?",
+          "answers": [
+            "Uma extensão de funcionalidade pronta para uso",
+            "Um erro de sintaxe gerado pelo interpretador",
+            "Uma variável de tipo numérico",
+            "Um loop infinito na memória"
+          ],
+          "correct": "Uma extensão de funcionalidade pronta para uso",
+          "tip": "Um módulo é um conjunto de funções, classes e constantes que você importa conforme a necessidade do projeto."
+        },
+        {
+          "type": "boolean",
+          "topics": "MODU",
+          "questions": "As funções nativas (built-in) do Python, como print e len, exigem a declaração de importação antes de serem usadas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Funções built-in estão sempre disponíveis e não requerem importação prévia."
+        },
+        {
+          "type": "combo",
+          "topics": "MODU",
+          "questions": "Módulos como math e random já vêm na instalação padrão do Python, formando a [COMBO] Padrão (stdlib).",
+          "options": [
+            "Biblioteca",
+            "Variável",
+            "Lista",
+            "Estrutura"
+          ],
+          "correct": "Biblioteca",
+          "tip": "A Biblioteca Padrão acompanha o Python, mas requer que façamos o import para utilizá-la."
+        },
+        {
+          "type": "multi",
+          "topics": "MODU",
+          "questions": "[NAME], quais são as formas válidas de importar um módulo ou suas funcionalidades no Python?",
+          "answers": [
+            "import módulo",
+            "from módulo import função",
+            "download módulo",
+            "fetch módulo"
+          ],
+          "correct": [
+            "import módulo",
+            "from módulo import função"
+          ],
+          "tip": "Podemos importar o módulo inteiro ou apenas funções específicas para manter o código enxuto."
+        },
+        {
+          "type": "drag",
+          "topics": "MODU",
+          "questions": "Relacione a função da biblioteca math à sua operação correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "math.sqrt",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "math.ceil",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "math.floor",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "math.trunc",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Calcula a Raiz Quadrada"
+            },
+            {
+              "id": "z2",
+              "label": "Arredonda para cima (Teto)"
+            },
+            {
+              "id": "z3",
+              "label": "Arredonda para baixo (Piso)"
+            },
+            {
+              "id": "z4",
+              "label": "Corta a porção inteira do número"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas funções matemáticas fundamentais estão no núcleo da biblioteca math."
+        },
+        {
+          "type": "multiple",
+          "topics": "MODU",
+          "questions": "Qual sintaxe carrega apenas a função de arredondamento para cima na memória do sistema?",
+          "answers": [
+            "from math import ceil",
+            "import math.ceil",
+            "import math",
+            "from ceil import math"
+          ],
+          "correct": "from math import ceil",
+          "tip": "O formato 'from... import...' carrega apenas o estritamente necessário."
+        },
+        {
+          "type": "boolean",
+          "topics": "MODU",
+          "questions": "[NAME], ao utilizar a instrução 'from math import sqrt, ceil', a função 'floor' também se torna disponível no escopo do programa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Apenas as funções explicitamente declaradas (sqrt e ceil) serão importadas, poupando memória."
+        },
+        {
+          "type": "combo",
+          "topics": "MODU",
+          "questions": "Para retornar um número de ponto flutuante (real) entre 0 e 1, usamos a função [COMBO](https://www.google.com/search?q=) da biblioteca random.",
+          "options": [
+            "random",
+            "randint",
+            "choice",
+            "shuffle"
+          ],
+          "correct": "random",
+          "tip": "A função random.random() gera o valor contínuo base para probabilidades."
+        },
+        {
+          "type": "multi",
+          "topics": "MODU",
+          "questions": "Em cenários corporativos, quais aplicações utilizam ativamente os recursos da biblioteca random?",
+          "answers": [
+            "Seleção aleatória de amostras para treino de Machine Learning",
+            "Geração de dados sintéticos para testes",
+            "Simulações de Monte Carlo para análise de risco",
+            "Geração de chaves robustas para criptografia bancária"
+          ],
+          "correct": [
+            "Seleção aleatória de amostras para treino de Machine Learning",
+            "Geração de dados sintéticos para testes",
+            "Simulações de Monte Carlo para análise de risco"
+          ],
+          "tip": "Atenção: para criptografia segura não se usa random, e sim a biblioteca secrets."
+        },
+        {
+          "type": "drag",
+          "topics": "MODU",
+          "questions": "Ligue cada função do módulo random ao seu respectivo comportamento:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "randint(1, 10)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "choice(lista)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "shuffle(lista)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "random()",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gera um número inteiro entre limites"
+            },
+            {
+              "id": "z2",
+              "label": "Sorteia um único item de uma lista"
+            },
+            {
+              "id": "z3",
+              "label": "Embaralha todos os itens internamente"
+            },
+            {
+              "id": "z4",
+              "label": "Gera float aleatório entre 0 e 1"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas funções resolvem sorteios, jogos e dinâmicas estatísticas rapidamente ."
+        },
+        {
+          "type": "multiple",
+          "topics": "MODU",
+          "questions": "Se usarmos a função math.ceil(8.1), qual será o valor de retorno impresso?",
+          "answers": [
+            "9",
+            "8",
+            "8.1",
+            "1"
+          ],
+          "correct": "9",
+          "tip": "A função ceil (teto) força o arredondamento numérico para cima, mesmo sendo mais perto de 8 ."
+        },
+        {
+          "type": "combo",
+          "topics": "MODU",
+          "questions": "[NAME], agora que compreendemos a lógica dos módulos nativos, vamos explorar o diretório mundial de bibliotecas comunitárias conhecido como [COMBO].",
+          "options": [
+            "PyPI",
+            "Pygame",
+            "GitHub",
+            "Linux"
+          ],
+          "correct": "PyPI",
+          "tip": "Prepare-se para expandir os poderes do Python instalando pacotes criados por outros desenvolvedores!",
+          "trans": "PYPI"
+        },
+        {
+          "type": "multiple",
+          "topics": "PYPI",
+          "questions": "O que a sigla e o ecossistema PyPI representam no ambiente de desenvolvimento Python?",
+          "answers": [
+            "O Índice Oficial de Pacotes do Python para downloads de bibliotecas externas",
+            "Um software de renderização 3D nativo do Windows",
+            "Um tipo de variável de precisão infinita",
+            "A biblioteca padrão que vem embutida na instalação"
+          ],
+          "correct": "O Índice Oficial de Pacotes do Python para downloads de bibliotecas externas",
+          "tip": "O PyPI centraliza centenas de milhares de pacotes desenvolvidos pela comunidade ."
+        },
+        {
+          "type": "boolean",
+          "topics": "PYPI",
+          "questions": "[NAME], atualmente o PyPI hospeda mais de 500 mil projetos que qualquer desenvolvedor pode instalar livremente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O ecossistema é massivo, somando mais de 500K+ pacotes ."
+        },
+        {
+          "type": "combo",
+          "topics": "PYPI",
+          "questions": "A ferramenta de linha de comando utilizada para buscar e instalar esses pacotes no nosso ambiente chama-se [COMBO].",
+          "options": [
+            "pip",
+            "get",
+            "pull",
+            "bash"
+          ],
+          "correct": "pip",
+          "tip": "O PIP (Pip Installs Packages) é o gerenciador canônico de pacotes ."
+        },
+        {
+          "type": "multi",
+          "topics": "PYPI",
+          "questions": "No ecossistema moderno focado em Inteligência Artificial Generativa, quais dessas bibliotecas externas são referências do mercado instaladas via pip?",
+          "answers": [
+            "openai",
+            "langchain",
+            "transformers",
+            "math"
+          ],
+          "correct": [
+            "openai",
+            "langchain",
+            "transformers"
+          ],
+          "tip": "Essas três ditam a automação de linguagem natural com GPTs e Claudes, enquanto 'math' é built-in ."
+        },
+        {
+          "type": "drag",
+          "topics": "PYPI",
+          "questions": "Ligue o nicho corporativo às suas bibliotecas externas mais populares instaladas via pip:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "ETL e Dados para Power BI",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Automação e RPA",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "APIs REST e Integração Cloud",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Inteligência Artificial (LLMs)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "pandas, sqlalchemy"
+            },
+            {
+              "id": "z2",
+              "label": "selenium, pyautogui"
+            },
+            {
+              "id": "z3",
+              "label": "requests, boto3"
+            },
+            {
+              "id": "z4",
+              "label": "openai, transformers"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber que pacote resolve qual problema é metade do trabalho de um desenvolvedor Pleno ."
+        },
+        {
+          "type": "multiple",
+          "topics": "PYPI",
+          "questions": "[NAME], qual comando utilizamos no terminal do VS Code para listar todas as bibliotecas que já estão instaladas no ambiente?",
+          "answers": [
+            "pip list",
+            "pip show",
+            "python modules",
+            "dir pip"
+          ],
+          "correct": "pip list",
+          "tip": "Para consultar os módulos instalados no VS Code, digitamos 'pip list' no terminal."
+        },
+        {
+          "type": "boolean",
+          "topics": "PYPI",
+          "questions": "Para usar o terminal no VS Code, é obrigatório abrir uma tela separada do sistema operacional, como o CMD ou PowerShell externo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O VS Code possui um poderoso terminal integrado que substitui interfaces externas (Ctrl+')."
+        },
+        {
+          "type": "combo",
+          "topics": "PYPI",
+          "questions": "O comando completo para baixar um pacote de figuras ilustrativas no terminal seria 'pip [COMBO] emoji'.",
+          "options": [
+            "install",
+            "download",
+            "fetch",
+            "get"
+          ],
+          "correct": "install",
+          "tip": "Sempre utilizaremos o padrão lógico: pip install nome_do_pacote."
+        },
+        {
+          "type": "multi",
+          "topics": "PYPI",
+          "questions": "Quais são as três etapas fundamentais do ciclo de vida ao integrar um pacote PyPI ao seu código?",
+          "answers": [
+            "Abrir o Terminal",
+            "Instalar o pacote (via pip)",
+            "Importar e usar no código",
+            "Compilar o Kernel C++ manualmente"
+          ],
+          "correct": [
+            "Abrir o Terminal",
+            "Instalar o pacote (via pip)",
+            "Importar e usar no código"
+          ],
+          "tip": "São exatamente esses 3 passos universais apresentados na aula para qualquer biblioteca ."
+        },
+        {
+          "type": "multiple",
+          "topics": "PYPI",
+          "questions": "Após rodar 'import emoji', qual método transforma strings legíveis como ':thumbs_up:' num ícone visual real?",
+          "answers": [
+            "emoji.emojize()",
+            "emoji.show()",
+            "emoji.convert()",
+            "emoji.print()"
+          ],
+          "correct": "emoji.emojize()",
+          "tip": "O método emojize processa os códigos universais para renderizar o caractere."
+        },
+        {
+          "type": "drag",
+          "topics": "PYPI",
+          "questions": "Relacione as interfaces de uso do pacote emoji ao código fornecido:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "import emoji",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": ":thumbs_up:",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": ":red_heart:",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "pip install emoji",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Comando para carregar a biblioteca"
+            },
+            {
+              "id": "z2",
+              "label": "Código interno para Polegar para Cima"
+            },
+            {
+              "id": "z3",
+              "label": "Código interno para Coração Vermelho"
+            },
+            {
+              "id": "z4",
+              "label": "Comando do terminal para baixar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entenda a distinção entre gerenciar o sistema (pip) e codificar em Python ."
+        },
+        {
+          "type": "boolean",
+          "topics": "PYPI",
+          "questions": "[NAME], o recurso IntelliSense (acionado via Ctrl+Espaço) no VS Code ajuda a explorar as funções que o pacote baixado trouxe, auto-completando o código.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O IntelliSense é a principal ferramenta de produtividade ao explorar novas bibliotecas."
+        },
+        {
+          "type": "combo",
+          "topics": "PYPI",
+          "questions": "Agora que sabemos como equipar o Python com módulos novos, vamos entender como processar dados em texto efetuando o [COMBO] de Strings.",
+          "options": [
+            "Slicing",
+            "Hacking",
+            "Compiling",
+            "Looping"
+          ],
+          "correct": "Slicing",
+          "tip": "Vamos extrair a informação vital que mora dentro das palavras!",
+          "trans": "FATI"
+        },
+        {
+          "type": "multiple",
+          "topics": "FATI",
+          "questions": "Qual a definição precisa de 'Fatiamento' (Slicing) de Strings na programação Python?",
+          "answers": [
+            "A técnica de extrair partes específicas de um texto delimitando seus índices de início e fim",
+            "Um processo de apagar o texto de forma permanente da memória",
+            "A criptografia de dados usando salt randômicos",
+            "Apenas contar quantas letras existem na palavra inteira"
+          ],
+          "correct": "A técnica de extrair partes específicas de um texto delimitando seus índices de início e fim",
+          "tip": "O slicing permite focar cirurgicamente numa fatia delimitada pelos colchetes de índice."
+        },
+        {
+          "type": "boolean",
+          "topics": "FATI",
+          "questions": "A 'Regra de Ouro' do Slicing dita que, no intervalo escolhido, o índice de finalização é sempre incluído no resultado exibido na tela.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O índice final nunca é incluído (intervalo aberto no fim), similar ao comportamento da função range()."
+        },
+        {
+          "type": "combo",
+          "topics": "FATI",
+          "questions": "[NAME], ao escrever a string 'LÓGICA', a letra 'L' encontra-se na exata posição associada ao índice [COMBO].",
+          "options": [
+            "0",
+            "1",
+            "L",
+            "-1"
+          ],
+          "correct": "0",
+          "tip": "No Python (e na grande maioria das linguagens), a contagem posicional começa absoluta do zero."
+        },
+        {
+          "type": "multi",
+          "topics": "FATI",
+          "questions": "Na string `frase = 'Lógica de Programação'`, quais comandos de fatia (slicing) estão atrelados aos seus comportamentos corretos?",
+          "answers": [
+            "[:6] fatiará do início absoluto até o caractere de índice 5",
+            "[10:] fatiará do décimo índice correndo até o fim absoluto do texto",
+            "[10:20] fatiará apenas os índices de 10 a 19",
+            "[0] resultará num erro do sistema"
+          ],
+          "correct": [
+            "[:6] fatiará do início absoluto até o caractere de índice 5",
+            "[10:] fatiará do décimo índice correndo até o fim absoluto do texto",
+            "[10:20] fatiará apenas os índices de 10 a 19"
+          ],
+          "tip": "Omitir o índice indica 'vá até o limite', seja para a esquerda (início) ou direita (fim)."
+        },
+        {
+          "type": "drag",
+          "topics": "FATI",
+          "questions": "Relacione o formato da sintaxe de Slicing ao seu resultado esperado na frase 'LÓGICA':",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "frase[:2]",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "frase[2:]",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "frase[::2]",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "frase[0]",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Resulta em 'LÓ'"
+            },
+            {
+              "id": "z2",
+              "label": "Resulta em 'GICA'"
+            },
+            {
+              "id": "z3",
+              "label": "Resulta em 'LGC' (Pulando de 2 em 2)"
+            },
+            {
+              "id": "z4",
+              "label": "Resulta em 'L'"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Brincar com os limites [início:fim:passo] te garante um controle absurdo do dado cru."
+        },
+        {
+          "type": "multiple",
+          "topics": "FATI",
+          "questions": "Ao iniciarmos a Análise de uma String, qual função global utilizamos para descobrir exatamente quantos caracteres a variável possui?",
+          "answers": [
+            "len()",
+            "size()",
+            "length()",
+            "count()"
+          ],
+          "correct": "len()",
+          "tip": "A função len() (de length) lê o tamanho total do dado, incluindo espaços em branco vazios ."
+        },
+        {
+          "type": "boolean",
+          "topics": "FATI",
+          "questions": "Se quisermos computar quantas vezes a letra 'A' aparece num parágrafo inteiro, a função nativa indicada é a `frase.count('A')`.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A função count é uma ferramenta analítica super otimizada para buscar repetições ."
+        },
+        {
+          "type": "combo",
+          "topics": "FATI",
+          "questions": "[NAME], ao utilizar a função `frase.find('CA')`, o Python irá investigar a string e nos devolver a [COMBO] onde inicia a primeira ocorrência do padrão.",
+          "options": [
+            "posição",
+            "quantidade",
+            "letra",
+            "tabela"
+          ],
+          "correct": "posição",
+          "tip": "Find descobre exatamente em qual índice a substring solicitada começa (ex: posição 3)."
+        },
+        {
+          "type": "multi",
+          "topics": "FATI",
+          "questions": "No contexto das buscas analíticas dentro de blocos de texto, quais características detalham os métodos e operadores apresentados?",
+          "answers": [
+            "O find() sempre retorna a posição da primeira ocorrência, não de todas",
+            "Se o find() não encontrar o padrão solicitado, ele retorna o valor especial '-1'",
+            "O operador 'in' (ex: 'CA' in frase) resolve a busca numa estrutura condicional booleana",
+            "A função len() exclui contagens de caracteres em branco por padrão"
+          ],
+          "correct": [
+            "O find() sempre retorna a posição da primeira ocorrência, não de todas",
+            "Se o find() não encontrar o padrão solicitado, ele retorna o valor especial '-1'",
+            "O operador 'in' (ex: 'CA' in frase) resolve a busca numa estrutura condicional booleana"
+          ],
+          "tip": "A função len() sempre incluirá espaços físicos no seu recálculo!."
+        },
+        {
+          "type": "drag",
+          "topics": "FATI",
+          "questions": "Combine o objetivo analítico com sua respectiva função Python de processamento textual:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Saber se a string é longa ou curta",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Saber quantas vezes algo se repetiu",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Descobrir o ponto geográfico de uma palavra",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Testar a simples existência com True/False",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "len()"
+            },
+            {
+              "id": "z2",
+              "label": "count()"
+            },
+            {
+              "id": "z3",
+              "label": "find()"
+            },
+            {
+              "id": "z4",
+              "label": "operador 'in'"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A Análise de strings é o pilar que baseia toda tomada de decisão em dados tabulares e linguísticos ."
+        },
+        {
+          "type": "boolean",
+          "topics": "FATI",
+          "questions": "Se buscarmos `frase.find('Z')` em um texto que não possui essa letra, o interpretador forçará o travamento do sistema com um Erro Fatal.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Em vez de travar e gerar um erro, a função elegantemente devolve -1 sinalizando falha limpa."
+        },
+        {
+          "type": "combo",
+          "topics": "FATI",
+          "questions": "Descobrimos fatiar e analisar a fundo; no entanto, em várias arquiteturas precisamos alterar ativamente os dados com as poderosas ferramentas de [COMBO] de strings.",
+          "options": [
+            "Manipulação",
+            "Impressão",
+            "Soma",
+            "Engenharia"
+          ],
+          "correct": "Manipulação",
+          "tip": "O próximo passo eleva o processamento, alterando letras e injetando formatações padronizadas.",
+          "trans": "MANI"
+        },
+        {
+          "type": "multiple",
+          "topics": "MANI",
+          "questions": "Ao tratarmos a variável `frase = 'Python'`, aplicar o método de transformação `frase.upper()` resultará visualmente em:",
+          "answers": [
+            "PYTHON",
+            "python",
+            "Python",
+            "Py"
+          ],
+          "correct": "PYTHON",
+          "tip": "O .upper() força todos os alfabéticos a escalarem para Caixa Alta absoluta."
+        },
+        {
+          "type": "boolean",
+          "topics": "MANI",
+          "questions": "[NAME], enquanto o método `title()` só transforma a primeira letra da frase toda, o `capitalize()` transforma a primeira letra de cada palavra.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É exatamente o inverso! Capitalize arruma a 1ª letra da frase inteira, e Title arruma o início de cada palavra separada ."
+        },
+        {
+          "type": "combo",
+          "topics": "MANI",
+          "questions": "Para limpar entradas de formulários web repletas de espaços em branco inúteis pelo usuário, nós utilizamos intensamente o método [COMBO](https://www.google.com/search?q=).",
+          "options": [
+            "strip",
+            "clear",
+            "clean",
+            "empty"
+          ],
+          "correct": "strip",
+          "tip": "O .strip() deleta rigorosamente qualquer espaço em branco na direita e esquerda (as extremidades)."
+        },
+        {
+          "type": "multi",
+          "topics": "MANI",
+          "questions": "Considerando as variações do comando strip para aparar textos, quais afirmações estão ligadas corretamente aos seus métodos?",
+          "answers": [
+            "lstrip() vai focar e remover apenas espaços contidos no canto esquerdo da string",
+            "rstrip() vai focar e remover apenas espaços que vazaram pela direita da string",
+            "strip() tradicional limpa as duas extremidades simultaneamente",
+            "Qualquer strip removerá, além dos cantos, os espaços entre as palavras centrais"
+          ],
+          "correct": [
+            "lstrip() vai focar e remover apenas espaços contidos no canto esquerdo da string",
+            "rstrip() vai focar e remover apenas espaços que vazaram pela direita da string",
+            "strip() tradicional limpa as duas extremidades simultaneamente"
+          ],
+          "tip": "Espaços entre as palavras centrais permanecem blindados! O strip só apara os excessos das pontas l(eft) e r(ight) ."
+        },
+        {
+          "type": "drag",
+          "topics": "MANI",
+          "questions": "Conecte a função de transformação textual à sua ação transformadora:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "lower()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "upper()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "capitalize()",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "title()",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Força tudo para letras minúsculas"
+            },
+            {
+              "id": "z2",
+              "label": "Força tudo para letras MAIÚSCULAS"
+            },
+            {
+              "id": "z3",
+              "label": "Normaliza deixando a 1ª letra da sentença maiúscula"
+            },
+            {
+              "id": "z4",
+              "label": "Deixa a inicial de toda palavra separada em Maiúscula"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Muitos sistemas de ML precisam das palavras todas em minúsculas (lower) para a inteligência rodar corretamente ."
+        },
+        {
+          "type": "multiple",
+          "topics": "MANI",
+          "questions": "Se eu possuo `frase = 'Amo JAVA'` e escrevo `frase.replace('JAVA', 'Python')`, qual é o processamento disparado pela máquina?",
+          "answers": [
+            "O sistema varre a string e substitui a ocorrência solicitada pela nova palavra definida",
+            "O sistema quebra a palavra JAVA e não aloca o Python em seu lugar",
+            "Ele lança um erro dizendo que Java e Python não combinam",
+            "Apenas conta quantas vezes JAVA aparece"
+          ],
+          "correct": "O sistema varre a string e substitui a ocorrência solicitada pela nova palavra definida",
+          "tip": "O replace (Substituir) atua como a ferramenta de troca contínua da máquina."
+        },
+        {
+          "type": "boolean",
+          "topics": "MANI",
+          "questions": "[NAME], em Python as Strings são arquiteturas Imutáveis. Isso garante que métodos como .replace() não modificam o endereço original, mas retornam uma nova string processada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa regra de imutabilidade base é o motivo pelo qual costumamos atribuir transformações em novas variáveis."
+        },
+        {
+          "type": "combo",
+          "topics": "MANI",
+          "questions": "Um arquivo CSV de dados brutos muitas vezes precisa ser picotado. Para pegar a frase grande e transformá-la num vetor (Lista) explodido pelas quebras de espaço, chamamos o poderoso [COMBO](https://www.google.com/search?q=).",
+          "options": [
+            "split",
+            "join",
+            "break",
+            "tear"
+          ],
+          "correct": "split",
+          "tip": "Split significa dividir; ele fatia as strings nas lacunas transformando texto corrido numa array/lista acessível."
+        },
+        {
+          "type": "multi",
+          "topics": "MANI",
+          "questions": "Uma vez que o método `.split()` converte uma longa frase em uma lista fragmentada armazenada na variável `partes`, o que podemos afirmar?",
+          "answers": [
+            "A posição `partes[0]` entregará a primeira palavra solta do agrupamento",
+            "A posição negativa `partes[-1]` puxará diretamente a última palavra isolada",
+            "A função `len(partes)` entregará o total físico de palavras que a lista gerou",
+            "A string original deixa de existir após explodir na lista"
+          ],
+          "correct": [
+            "A posição `partes[0]` entregará a primeira palavra solta do agrupamento",
+            "A posição negativa `partes[-1]` puxará diretamente a última palavra isolada",
+            "A função `len(partes)` entregará o total físico de palavras que a lista gerou"
+          ],
+          "tip": "A string em si é intocável (imutável). Os resultados fatiados residem de forma inteligente dentro dessa recém concebida estrutura de lista! ."
+        },
+        {
+          "type": "drag",
+          "topics": "MANI",
+          "questions": "Faça a equivalência lógica entre as funções complexas do processamento e suas ações num texto NLP:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "split()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "join()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "replace()",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "strip()",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Divide uma string criando uma lista"
+            },
+            {
+              "id": "z2",
+              "label": "Reúne itens de uma lista com um separador de liga"
+            },
+            {
+              "id": "z3",
+              "label": "Substituição seletiva de subtextos"
+            },
+            {
+              "id": "z4",
+              "label": "Varre as extremidades limpando caracteres fantasmas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Tais ferramentas estruturam o pré-processamento usado para RAG em Inteligências Artificiais modernas!."
+        },
+        {
+          "type": "boolean",
+          "topics": "MANI",
+          "questions": "Para reunificarmos a lista separada `['LÓGICA', 'DE', 'PROGRAMAÇÃO']` utilizando traços (hifens) na amarração, emitimos o código sintático: `'-'.join(frase)`.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O elemento que invoca o `.join()` serve de cola entre as palavras listadas na variável interna."
+        },
+        {
+          "type": "multiple",
+          "topics": "MANI",
+          "questions": "Em cenários avançados descritos na aula (Integração com ChatGPT, modelos RAG NLP), qual é o papel estrutural destas manipulações de strings vistas (Find, count, replace)?",
+          "answers": [
+            "Elas estruturam as amarrações do prompt de IA, preparam textos (RAG) e extraem dados gerados nas respostas (parsing)",
+            "Elas compilam hardwares neurais nativos no processador local",
+            "Controlam diretamente APIs corporativas em Nuvem, dispensando requests e boto3",
+            "Dão acesso à porta de criptografia global de redes"
+          ],
+          "correct": "Elas estruturam as amarrações do prompt de IA, preparam textos (RAG) e extraem dados gerados nas respostas (parsing)",
+          "tip": "Conhecer strings a fundo é ter a chave para falar, lapidar e filtrar os fluxos verbosos dos LLMs! ."
+        },
+        {
+          "type": "combo",
+          "topics": "MANI",
+          "questions": "[NAME], ao compreender a modularidade inteligente do Python em sua conexão de IA com as eficientes extrações verbais em Strings, constatamos que a sua engenharia base de códigos está completamente [COMBO].",
+          "options": [
+            "Sólida",
+            "Fragmentada",
+            "Confusa",
+            "Bugada"
+          ],
+          "correct": "Sólida",
+          "tip": "E assim finalizamos este mega módulo. É um prazer presenciar sua escalada na lógica de alto escalão!",
           "trans": "END"
         }
       ]
