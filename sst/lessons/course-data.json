@@ -47879,7 +47879,7 @@
           ],
           "correct": "str",
           "tip": "Mesmo que o usuário digite o número 100, o input o devolve como um texto '100'."
-        },        
+        },
         {
           "type": "multi",
           "topics": "ACID",
@@ -48687,6 +48687,928 @@
           ],
           "correct": "A tipagem exata e correta dos dados ingeridos",
           "tip": "A conversão falha ou errônea interrompe o fluxo massivo de engenharia de dados em nuvem.",
+          "trans": "END"
+        }
+      ]
+    },
+    {
+      "slug": "aula-64",
+      "lesson_info": {
+        "id": "Aula-64",
+        "title": "AULA 64 - OPERADORES ARITMÉTICOS EM PYTHON",
+        "topics": [
+          {
+            "id": "OPER",
+            "name": "OPERADORES BÁSICOS",
+            "desc": "Conceitos e uso dos 7 operadores matemáticos essenciais do Python.",
+            "color": "#ff5733",
+            "img_url": "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PREC",
+            "name": "ORDEM DE PRECEDÊNCIA",
+            "desc": "Hierarquia de execução: parênteses, expoentes e operadores na prática.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "FORM",
+            "name": "FORMATAÇÃO E STRINGS",
+            "desc": "F-strings, alinhamento de texto, casas decimais e operações com textos.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "MERC",
+            "name": "DESAFIOS DE MERCADO",
+            "desc": "Aritmética aplicada: automação, conversão de unidades e IA.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "S",
+          "O",
+          "M",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "OPER",
+          "questions": "[NAME], qual operador é utilizado para obter o quociente sem vírgula em uma divisão?",
+          "answers": [
+            "//",
+            "/",
+            "%",
+            ""
+          ],
+          "correct": "//",
+          "tip": "O operador // é chamado de Divisão Inteira e retorna o quociente sem vírgula."
+        },
+        {
+          "type": "boolean",
+          "topics": "OPER",
+          "questions": "[NAME], o operador % em Python é utilizado para calcular diretamente a porcentagem de um valor.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Em Python, % não calcula porcentagem, é o resto da divisão inteira."
+        },
+        {
+          "type": "combo",
+          "topics": "OPER",
+          "questions": "Para exponenciação de base e expoente, utiliza-se o operador [COMBO] no Python.",
+          "options": [
+            "",
+            "//",
+            "%",
+            "pow"
+          ],
+          "correct": "",
+          "tip": "O operador  calcula a potência."
+        },
+        {
+          "type": "multi",
+          "topics": "OPER",
+          "questions": "[NAME], quais dos seguintes operadores retornam valores baseados em divisões no Python?",
+          "answers": [
+            "//",
+            "%",
+            "/",
+            ""
+          ],
+          "correct": [
+            "//",
+            "%",
+            "/"
+          ],
+          "tip": "A divisão normal (/), inteira (//) e o módulo (%) derivam de processos de divisão."
+        },
+        {
+          "type": "drag",
+          "topics": "OPER",
+          "questions": "Relacione o operador aritmético com a sua função correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "+",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "-",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "/",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Soma dois valores"
+            },
+            {
+              "id": "z2",
+              "label": "Diferença entre valores"
+            },
+            {
+              "id": "z3",
+              "label": "Produto entre valores"
+            },
+            {
+              "id": "z4",
+              "label": "Resultado real (float)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses são os 4 operadores fundamentais da matemática aplicados no código ."
+        },
+        {
+          "type": "multiple",
+          "topics": "OPER",
+          "questions": "Qual é o resultado numérico da expressão 5 % 2?",
+          "answers": [
+            "1",
+            "2",
+            "2.5",
+            "3"
+          ],
+          "correct": "1",
+          "tip": "Na divisão de 5 por 2, o quociente inteiro é 2 e sobra 1."
+        },
+        {
+          "type": "boolean",
+          "topics": "OPER",
+          "questions": "O Python suporta inteiros gigantes, limitados apenas pela memória RAM disponível da máquina.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Python consegue lidar nativamente com inteiros gigantes até o limite de RAM."
+        },
+        {
+          "type": "combo",
+          "topics": "OPER",
+          "questions": "A raiz quadrada de 81 pode ser calculada usando potência fracionária através da expressão 81([COMBO]).",
+          "options": [
+            "1/2",
+            "1/3",
+            "2",
+            "0.5"
+          ],
+          "correct": "1/2",
+          "tip": "Raízes podem ser calculadas como potências fracionárias, ex: 81(1/2)."
+        },
+        {
+          "type": "multi",
+          "topics": "OPER",
+          "questions": "Além do operador , de que outras formas podemos interagir com o cálculo de potências?",
+          "answers": [
+            "Função interna pow()",
+            "Usando potências fracionárias para raízes",
+            "Usando //",
+            "Usando %"
+          ],
+          "correct": [
+            "Função interna pow()",
+            "Usando potências fracionárias para raízes"
+          ],
+          "tip": "Também está disponível a função pow(4, 3) que atua sem precedência de operador ."
+        },
+        {
+          "type": "drag",
+          "topics": "OPER",
+          "questions": "Relacione a expressão ao seu resultado respectivo com operandos 5 e 2:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "5 / 2",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "5 // 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "5  2",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "5 - 2",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "2.5"
+            },
+            {
+              "id": "z2",
+              "label": "2"
+            },
+            {
+              "id": "z3",
+              "label": "25"
+            },
+            {
+              "id": "z4",
+              "label": "3"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber a diferença entre as divisões e as potências evita bugs."
+        },
+        {
+          "type": "multiple",
+          "topics": "OPER",
+          "questions": "O que acontece se quebrarmos a ordem de precedência natural de um programa de cálculos?",
+          "answers": [
+            "Ele entregará um resultado errado sem gerar erros no sistema",
+            "O sistema vai travar instantaneamente",
+            "O interpretador corrige a ordem automaticamente",
+            "Dará erro de sintaxe imediato"
+          ],
+          "correct": "Ele entregará um resultado errado sem gerar erros no sistema",
+          "tip": "Um programa pode funcionar sem erros e ainda assim entregar resultado errado por quebrar a ordem de precedência."
+        },
+        {
+          "type": "combo",
+          "topics": "OPER",
+          "questions": "Para transitar de forma segura do conceito de operadores para sua aplicação lógica, o cálculo correto do quociente de 5 e 2 em divisão inteira exige o uso de [COMBO].",
+          "options": [
+            "//",
+            "/",
+            "%",
+            ""
+          ],
+          "correct": "//",
+          "tip": "Com isso fechamos os operadores básicos. Vamos para a ordem de execução! ",
+          "trans": "PREC"
+        },
+        {
+          "type": "multiple",
+          "topics": "PREC",
+          "questions": "[NAME], qual elemento tem a maior prioridade na hierarquia dos operadores em Python?",
+          "answers": [
+            "Parênteses ()",
+            "Potenciação ",
+            "Multiplicação *",
+            "Soma +"
+          ],
+          "correct": "Parênteses ()",
+          "tip": "Os parênteses vêm sempre primeiro e podem ser aninhados ."
+        },
+        {
+          "type": "boolean",
+          "topics": "PREC",
+          "questions": "Na ausência de parênteses, a potenciação () é executada antes da multiplicação e da divisão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A potenciação ocupa o 2º lugar na hierarquia, antes de multiplicar ou dividir."
+        },
+        {
+          "type": "combo",
+          "topics": "PREC",
+          "questions": "A multiplicação, divisão, // e % possuem a mesma precedência e são executadas da [COMBO] para a direita.",
+          "options": [
+            "esquerda",
+            "direita",
+            "extremidade",
+            "base"
+          ],
+          "correct": "esquerda",
+          "tip": "Itens de mesma prioridade no 3º nível são executados da esquerda para a direita."
+        },
+        {
+          "type": "multi",
+          "topics": "PREC",
+          "questions": "[NAME], quais operações estão sempre no último grau (4º) da ordem de precedência matemática?",
+          "answers": [
+            "Soma (+)",
+            "Subtração (-)",
+            "Módulo (%)",
+            "Divisão (/)"
+          ],
+          "correct": [
+            "Soma (+)",
+            "Subtração (-)"
+          ],
+          "tip": "Soma e Subtração estão no 4º nível hierárquico e são avaliadas por último ."
+        },
+        {
+          "type": "drag",
+          "topics": "PREC",
+          "questions": "Ordene as operações de acordo com sua prioridade de execução na Matemática (1º a 4º):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Parênteses",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Potenciação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Multiplicação / Divisão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Soma / Subtração",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "1º Nível"
+            },
+            {
+              "id": "z2",
+              "label": "2º Nível"
+            },
+            {
+              "id": "z3",
+              "label": "3º Nível"
+            },
+            {
+              "id": "z4",
+              "label": "4º Nível"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esta é a hierarquia de operadores que dita a avaliação do Python ."
+        },
+        {
+          "type": "multiple",
+          "topics": "PREC",
+          "questions": "Qual é o resultado correto da expressão: 5 + 3 * 2?",
+          "answers": [
+            "11",
+            "16",
+            "10",
+            "13"
+          ],
+          "correct": "11",
+          "tip": "Primeiro resolvemos 3 * 2 (que dá 6) e depois somamos 5, totalizando 11."
+        },
+        {
+          "type": "boolean",
+          "topics": "PREC",
+          "questions": "Em Python, para agrupar expressões aritméticas complexas, também devemos utilizar colchetes [] e chaves {}.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Colchetes e chaves têm outros usos na linguagem; para expressões aritméticas, use apenas parênteses."
+        },
+        {
+          "type": "combo",
+          "topics": "PREC",
+          "questions": "Na expressão 3 * 5 + 4  2, a primeira operação calculada pelo interpretador é a [COMBO].",
+          "options": [
+            "Potenciação",
+            "Multiplicação",
+            "Soma",
+            "Subtração"
+          ],
+          "correct": "Potenciação",
+          "tip": "A potenciação (42 = 16) tem precedência sobre a multiplicação (35 = 15) ."
+        },
+        {
+          "type": "multi",
+          "topics": "PREC",
+          "questions": "No Exemplo 3, a expressão é 3 * (5 + 4)  2. Quais as etapas de execução aplicadas?",
+          "answers": [
+            "Resolve-se a soma dentro dos parênteses (5+4=9)",
+            "Calcula-se a potência (92=81)",
+            "Aplica-se a multiplicação final (3*81=243)",
+            "Multiplica-se 3 por 5 antes da potência"
+          ],
+          "correct": [
+            "Resolve-se a soma dentro dos parênteses (5+4=9)",
+            "Calcula-se a potência (92=81)",
+            "Aplica-se a multiplicação final (3*81=243)"
+          ],
+          "tip": "Os parênteses forçam a soma a ocorrer antes da potência! ."
+        },
+        {
+          "type": "drag",
+          "topics": "PREC",
+          "questions": "Relacione a expressão ao impacto causado pelo uso de parênteses no seu resultado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "3 * 5 + 4  2",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "3 * (5 + 4)  2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "5 + 3 * 2",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "(5 + 3) * 2",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Resultado = 31"
+            },
+            {
+              "id": "z2",
+              "label": "Resultado = 243"
+            },
+            {
+              "id": "z3",
+              "label": "Resultado = 11"
+            },
+            {
+              "id": "z4",
+              "label": "Resultado = 16"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Observe como os parênteses mudaram completamente o resultado! ."
+        },
+        {
+          "type": "multiple",
+          "topics": "PREC",
+          "questions": "No cálculo da conversão de temperaturas (F = 9 * C / 5 + 32), qual a importância dos parênteses?",
+          "answers": [
+            "São totalmente opcionais, a precedência natural já resolve na ordem certa",
+            "Sem eles, o sistema somaria 5 + 32 primeiro",
+            "Eles impedem erros do interpretador",
+            "São obrigatórios ao lidar com floats"
+          ],
+          "correct": "São totalmente opcionais, a precedência natural já resolve na ordem certa",
+          "tip": "A precedência garante a ordem: 1º multiplica, 2º divide, 3º soma 32."
+        },
+        {
+          "type": "boolean",
+          "topics": "PREC",
+          "questions": "[NAME], ao avaliar operadores do mesmo nível de prioridade, a leitura do Python ocorre da direita para a esquerda.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Se possuem a mesma precedência, o interpretador executa da esquerda para a direita."
+        },
+        {
+          "type": "combo",
+          "topics": "PREC",
+          "questions": "Dominar a precedência de execução evita bugs lógicos difíceis de encontrar. Seguindo adiante, vamos explorar a formatação de [COMBO].",
+          "options": [
+            "strings",
+            "listas",
+            "dicionários",
+            "classes"
+          ],
+          "correct": "strings",
+          "tip": "Próximo passo: exibir nossos cálculos perfeitamente no terminal! ",
+          "trans": "FORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "FORM",
+          "questions": "[NAME], qual ferramenta do VS Code destaca erros de sintaxe diretamente na linha em tempo real?",
+          "answers": [
+            "Error Lens",
+            "Pylance",
+            "Jupyter",
+            "Console Interativo"
+          ],
+          "correct": "Error Lens",
+          "tip": "A extensão Error Lens destaca problemas de código antes mesmo de executar."
+        },
+        {
+          "type": "boolean",
+          "topics": "FORM",
+          "questions": "O Pylance evita erros de tipo silenciosos informando se a variável é um int, float ou str ao passar o mouse.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Pylance infere os tipos das variáveis e melhora a qualidade do código."
+        },
+        {
+          "type": "combo",
+          "topics": "FORM",
+          "questions": "Para testar expressões aritméticas instantaneamente sem criar um arquivo, utilizamos o Console [COMBO].",
+          "options": [
+            "Interativo",
+            "Dinâmico",
+            "Variável",
+            "Lógico"
+          ],
+          "correct": "Interativo",
+          "tip": "O console interativo é ideal para validar precedências rapidamente."
+        },
+        {
+          "type": "multi",
+          "topics": "FORM",
+          "questions": "[NAME], sobre formatação com f-strings, quais das opções são válidas?",
+          "answers": [
+            "Limitar casas decimais com :.3f",
+            "Alinhar ao centro com :^20",
+            "Exibir múltiplos cálculos em uma mesma string",
+            "Apenas inteiros podem ser formatados"
+          ],
+          "correct": [
+            "Limitar casas decimais com :.3f",
+            "Alinhar ao centro com :^20",
+            "Exibir múltiplos cálculos em uma mesma string"
+          ],
+          "tip": "Com f-strings, controlamos a saída perfeitamente em telas e dashboards ."
+        },
+        {
+          "type": "drag",
+          "topics": "FORM",
+          "questions": "Relacione o caractere de alinhamento ao seu comportamento em f-strings:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": ":^20",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": ":>20",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": ":=^20",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": ":.2f",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Centraliza em 20 espaços"
+            },
+            {
+              "id": "z2",
+              "label": "Alinha à direita em 20 espaços"
+            },
+            {
+              "id": "z3",
+              "label": "Centraliza e preenche com ="
+            },
+            {
+              "id": "z4",
+              "label": "Limita a duas casas decimais"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Ferramentas incríveis para formatar dashboards no terminal ."
+        },
+        {
+          "type": "multiple",
+          "topics": "FORM",
+          "questions": "Qual caractere de escape obriga a quebra explícita de linha em uma string?",
+          "answers": [
+            "\n",
+            "\t",
+            "\br",
+            "\r"
+          ],
+          "correct": "\n",
+          "tip": "O \n força uma nova linha no momento da impressão ."
+        },
+        {
+          "type": "boolean",
+          "topics": "FORM",
+          "questions": "No Python, strings não podem ser operadas através de adição ou multiplicação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Strings são operáveis! O + concatena e o * replica textos ."
+        },
+        {
+          "type": "combo",
+          "topics": "FORM",
+          "questions": "Para criar uma linha decorativa rapidamente no terminal, como '=' 20 vezes, podemos fazer a [COMBO] usando o operador *.",
+          "options": [
+            "Replicação",
+            "Divisão",
+            "Soma",
+            "Conversão"
+          ],
+          "correct": "Replicação",
+          "tip": "Replicação com o operador * duplica o valor repetidas vezes (ex: '=' * 20)."
+        },
+        {
+          "type": "multi",
+          "topics": "FORM",
+          "questions": "Quais são as grandes vantagens de dominar o alinhamento de colunas com f-strings?",
+          "answers": [
+            "Relatórios automáticos ficam visualmente limpos",
+            "Essencial para logs e dashboards de texto em sistemas embarcados",
+            "Otimiza o processamento de hardware",
+            "Aumenta a precisão das casas decimais flutuantes"
+          ],
+          "correct": [
+            "Relatórios automáticos ficam visualmente limpos",
+            "Essencial para logs e dashboards de texto em sistemas embarcados"
+          ],
+          "tip": "A formatação trata-se puramente da apresentação dos dados."
+        },       
+        {
+          "type": "multiple",
+          "topics": "FORM",
+          "questions": "[NAME], ao formatar uma tabuada, usar '>3' na f-string garante qual resultado?",
+          "answers": [
+            "Alinha o resultado à direita ocupando 3 espaços",
+            "Gera um multiplicador 3x maior",
+            "Deleta os 3 primeiros caracteres",
+            "Trava o sistema se o número for menor que 3"
+          ],
+          "correct": "Alinha o resultado à direita ocupando 3 espaços",
+          "tip": "O alinhamento >3 garante que as colunas numéricas de 1 e 2 dígitos fiquem organizadas."
+        },
+        {
+          "type": "combo",
+          "topics": "FORM",
+          "questions": "Com a saída corretamente formatada, nossos códigos estão prontos para se conectar com o [COMBO].",
+          "options": [
+            "Mercado",
+            "Lixo",
+            "Hardware",
+            "Mouse"
+          ],
+          "correct": "Mercado",
+          "tip": "Vamos ver como estes cálculos estruturam sistemas profissionais ",
+          "trans": "MERC"
+        },
+        {
+          "type": "multiple",
+          "topics": "MERC",
+          "questions": "No coração de um modelo de Inteligência Artificial Generativa, como o GPT ou Gemini, o processamento de tokens ocorre com base em:",
+          "answers": [
+            "Aritmética aplicada via multiplicação de matrizes e exponenciais",
+            "Condicionais IF simples ligadas em rede",
+            "Uso exclusivo do módulo %",
+            "Processamento manual humano em nuvem"
+          ],
+          "correct": "Aritmética aplicada via multiplicação de matrizes e exponenciais",
+          "tip": "Toda IA roda em cima de operações aritméticas de massa ."
+        },
+        {
+          "type": "boolean",
+          "topics": "MERC",
+          "questions": "[NAME], plataformas de pagamento e fintechs usam a divisão entre reais e a cotação flutuante para a conversão constante de moedas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sistemas de pagamento integram APIs onde: dolar = real / cotação."
+        },
+        {
+          "type": "combo",
+          "topics": "MERC",
+          "questions": "O uso de Robôs de Automação (RPA) para calcular regras de negócio depende fortemente dos [COMBO] aritméticos abordados.",
+          "options": [
+            "operadores",
+            "vídeos",
+            "teclados",
+            "hardware"
+          ],
+          "correct": "operadores",
+          "tip": "Operadores são a fundação lógica do RPA."
+        },
+        {
+          "type": "multi",
+          "topics": "MERC",
+          "questions": "Em ambientes de BI & ETL com integração Python + Power BI, os pipelines calculam rotineiramente:",
+          "answers": [
+            "Médias financeiras",
+            "Desvios de dados",
+            "KPIs de negócios",
+            "Hardware físico instalado"
+          ],
+          "correct": [
+            "Médias financeiras",
+            "Desvios de dados",
+            "KPIs de negócios"
+          ],
+          "tip": "Calcula-se indicadores puros para alimentar dashboards em tempo real."
+        },
+        {
+          "type": "drag",
+          "topics": "MERC",
+          "questions": "Relacione o desafio mercadológico com a regra de cálculo essencial necessária:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Desconto de 5%",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Reajuste salarial (Aumento 15%)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Cálculo de Área Retangular",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Custo total Aluguel",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "preco * 5 / 100"
+            },
+            {
+              "id": "z2",
+              "label": "salario * 15 / 100"
+            },
+            {
+              "id": "z3",
+              "label": "largura * altura"
+            },
+            {
+              "id": "z4",
+              "label": "custo_diaria + custo_km"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas são as lógicas que alimentam sistemas de dinâmica de preços e RH."
+        },
+        {
+          "type": "multiple",
+          "topics": "MERC",
+          "questions": "Qual a melhor estrutura aritmética padrão para se calcular qualquer porcentagem num sistema sem erro?",
+          "answers": [
+            "valor * taxa / 100",
+            "valor % taxa",
+            "taxa // 100 * valor",
+            "valor  taxa"
+          ],
+          "correct": "valor * taxa / 100",
+          "tip": "Dominar a estrutura 'valor * taxa / 100' resolve 100% dos cálculos percentuais."
+        },
+        {
+          "type": "boolean",
+          "topics": "MERC",
+          "questions": "Para converter metros em milímetros num sistema de logística IoT, multiplica-se o valor em metros por 1000.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A conversão para escala milimétrica exige vezes mil (medida * 1000)."
+        },
+        {
+          "type": "combo",
+          "topics": "MERC",
+          "questions": "A fórmula matemática F = 9 * C / 5 + 32 é rotineiramente exigida para converter graus [COMBO] emitidos por sensores de data centers no Brasil para times nos EUA.",
+          "options": [
+            "Celsius",
+            "Kelvin",
+            "Newton",
+            "Rankine"
+          ],
+          "correct": "Celsius",
+          "tip": "A precisão dos termômetros dita o processamento em nuvem global."
+        },
+        {
+          "type": "multi",
+          "topics": "MERC",
+          "questions": "[NAME], ao projetar sistemas de aluguel de carros (ex: Localiza, Movida), aplica-se a 'decomposição de problemas'. Quais elementos compõem o escopo do custo dinâmico total?",
+          "answers": [
+            "Dias de locação do veículo",
+            "Valor das diárias",
+            "Taxa por quilômetros rodados",
+            "Cor da tinta do veículo"
+          ],
+          "correct": [
+            "Dias de locação do veículo",
+            "Valor das diárias",
+            "Taxa por quilômetros rodados"
+          ],
+          "tip": "Dividir o faturamento entre custo de km e dias de diária é a base dos microsserviços do setor."
+        },
+        {
+          "type": "drag",
+          "topics": "MERC",
+          "questions": "Classifique o setor industrial correspondente ao desafio de automação apresentado na aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Modelos Generativos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fintechs",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "E-commerces",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Logística e Sensores IoT",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Processamento Massivo de Matrizes"
+            },
+            {
+              "id": "z2",
+              "label": "Conversão de Câmbio de Moedas em Tempo Real"
+            },
+            {
+              "id": "z3",
+              "label": "Motores Dinâmicos de Desconto"
+            },
+            {
+              "id": "z4",
+              "label": "Sistemas de Geolocalização e Unidades de Medida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Todos esses setores dependem criticamente dos fundamentos de Lógica em Python abordados hoje!."
+        },
+        {
+          "type": "multiple",
+          "topics": "MERC",
+          "questions": "Na automação inteligente de relatórios apresentada no Capítulo 4, a fórmula utilizada para apurar o percentual de margem do relatório é:",
+          "answers": [
+            "(receita - custo) / receita * 100",
+            "custo / receita",
+            "receita  2",
+            "receita % custo * 100"
+          ],
+          "correct": "(receita - custo) / receita * 100",
+          "tip": "Agentes de IA coletam as vendas via API e rodam esse cálculo exato para despachar ao Power BI."
+        },
+        {
+          "type": "combo",
+          "topics": "MERC",
+          "questions": "Parabéns, [NAME]! Aritmética não é um obstáculo. É a [COMBO] universal pela qual sistemas, modelos e humanos se entendem.",
+          "options": [
+            "linguagem",
+            "barreira",
+            "teoria",
+            "complicação"
+          ],
+          "correct": "linguagem",
+          "tip": "Você está pronto(a) para dominar lógicas ainda mais robustas na sua jornada tech! ",
           "trans": "END"
         }
       ]
