@@ -50592,6 +50592,869 @@
           "trans": "END"
         }
       ]
+    },
+    {
+      "slug": "aula-66",
+      "lesson_info": {
+        "id": "Aula-66",
+        "title": "AULA 66 - ESTRUTURAS CONDICIONAIS EM PYTHON",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "ESTRUTURAS CONDICIONAIS",
+            "desc": "Lógica de decisão: if, else e condição simplificada.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "CORES NO TERMINAL",
+            "desc": "Estilização de output com escape sequences ANSI.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "ELIF E OPERADORES LÓGICOS",
+            "desc": "Condições encadeadas e uso de and / or para lógicas complexas.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "APLICAÇÕES E IA",
+            "desc": "IA generativa, automação RPA e integração em nuvem.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "E",
+          "L",
+          "S",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], até agora, todo código executava de forma sequencial, linha a linha, sem escolhas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exato! Na estrutura sequencial não há desvios no fluxo do programa."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que a estrutura condicional permite que o programa faça?",
+          "answers": [
+            "Execute as linhas de trás para frente",
+            "Tome decisões e execute blocos diferentes",
+            "Ignore todas as variáveis",
+            "Pare de funcionar"
+          ],
+          "correct": "Tome decisions e execute blocos diferentes",
+          "tip": "É como um GPS escolhendo o melhor caminho baseado no trânsito!"
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na estrutura condicional, apenas um dos blocos é executado, [COMBO] os dois ao mesmo tempo.",
+          "options": [
+            "sempre",
+            "nunca",
+            "talvez",
+            "frequentemente"
+          ],
+          "correct": "nunca",
+          "tip": "A lógica divide os caminhos, você só pode seguir por um deles por vez."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais são os principais componentes do fluxo condicional?",
+          "answers": [
+            "Bloco Verdadeiro",
+            "Bloco Falso",
+            "Ponto de Decisão",
+            "Laço Infinito"
+          ],
+          "correct": [
+            "Bloco Verdadeiro",
+            "Bloco Falso",
+            "Ponto de Decisão"
+          ],
+          "tip": "A decisão avalia a condição e direciona para o bloco verdadeiro ou falso."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o tipo de bloco à sua ação no Python:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Ponto de Decisão",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Bloco Verdadeiro",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Bloco Falso",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Avalia a condição"
+            },
+            {
+              "id": "z2",
+              "label": "Executa se condição for atendida"
+            },
+            {
+              "id": "z3",
+              "label": "Executa se condição não for atendida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber mapear os blocos garante que você não caia em armadilhas de código!"
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], na condição simples (apenas if), se a condição for falsa, nada acontece.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O código simplesmente segue o fluxo sequencial ignorando o bloco do if."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Para que serve a indentação em Python no uso do if?",
+          "answers": [
+            "Apenas por estética",
+            "Para organizar visualmente e destacar a hierarquia lógica",
+            "Para mudar a cor da fonte",
+            "Para declarar variáveis"
+          ],
+          "correct": "Para organizar visualmente e destacar a hierarquia lógica",
+          "tip": "A indentação é obrigatória! Sem ela, o boss SyntaxError aparece."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A condição composta no Python utiliza a estrutura [COMBO].",
+          "options": [
+            "if / else",
+            "if / when",
+            "try / catch",
+            "for / in"
+          ],
+          "correct": "if / else",
+          "tip": "O 'else' garante uma ação alternativa caso o 'if' falhe."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], sobre a Condição Simplificada (Ternária), é correto afirmar que:",
+          "answers": [
+            "É escrita em uma única linha",
+            "Usa a forma: resultado = 'A' if cond else 'B'",
+            "É ideal para atribuições simples",
+            "É recomendada para lógicas muito complexas"
+          ],
+          "correct": [
+            "É escrita em uma única linha",
+            "Usa a forma: resultado = 'A' if cond else 'B'",
+            "É ideal para atribuições simples"
+          ],
+          "tip": "Lógicas complexas pedem a estrutura completa para ajudar na legibilidade da equipe e das IAs."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], um print que não está indentado após um if sempre será executado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso mesmo, ele está fora do bloco condicional e pertence ao fluxo sequencial principal."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Monte a sintaxe de uma Condição Simples:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "if",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "condição",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": ":",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "#bloco verdadeiro",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Palavra reservada"
+            },
+            {
+              "id": "z2",
+              "label": "Teste lógico"
+            },
+            {
+              "id": "z3",
+              "label": "Dois pontos (fim da declaração)"
+            },
+            {
+              "id": "z4",
+              "label": "Código indentado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Não esqueça dos dois pontos ao final da linha do if!"
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "[NAME], a lógica do if/else permite criar programas mais [COMBO] que tomam decisões reais.",
+          "options": [
+            "inteligentes",
+            "lentos",
+            "coloridos",
+            "antigos"
+          ],
+          "correct": "inteligentes",
+          "tip": "Você está dando 'cérebro' ao seu código!"
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual símbolo é utilizado para verificar igualdade em uma condição no Python?",
+          "answers": [
+            "",
+            "=",
+            "=",
+            "!="
+          ],
+          "correct": "",
+          "tip": "Um sinal de '=' atribui valor. Dois sinais '' fazem a pergunta: 'é igual a?'.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o Padrão ANSI usa 'Escape Sequences' para alterar cores no terminal.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esses códigos são como magias secretas lidas diretamente pelo console."
+        },        
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é o código numérico para o texto de cor vermelha no padrão ANSI?",
+          "answers": [
+            "31",
+            "32",
+            "30",
+            "34"
+          ],
+          "correct": "31",
+          "tip": "A cor verde é 32, a vermelha é 31!"
+        },        
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione as cores de texto (Foreground) aos seus códigos ANSI:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Preto",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Verde",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Amarelo",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Azul",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "30"
+            },
+            {
+              "id": "z2",
+              "label": "32"
+            },
+            {
+              "id": "z3",
+              "label": "33"
+            },
+            {
+              "id": "z4",
+              "label": "34"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Memorize a paleta básica para dar um visual de game profissional aos seus projetos!"
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], os códigos de cor para o fundo (Background) variam de 40 a 47.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Enquanto os textos vão de 30 a 37, os fundos acompanham de 40 a 47."
+        },        
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para aplicar estilo em negrito no texto, usamos o código numérico [COMBO] na posição de estilo.",
+          "options": [
+            "1",
+            "0",
+            "4",
+            "7"
+          ],
+          "correct": "1",
+          "tip": "O código 1 ativa a intensidade ou negrito da cor."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], sobre os Dicionários em Python, marque as corretas:",
+          "answers": [
+            "Armazenam dados no formato Chave-Valor (Key-Value)",
+            "Procuram itens pelo 'nome' (chave) em vez de índice numérico",
+            "São ótimos para organizar os códigos ANSI como variáveis",
+            "Só aceitam números inteiros"
+          ],
+          "correct": [
+            "Armazenam dados no formato Chave-Valor (Key-Value)",
+            "Procuram itens pelo 'nome' (chave) em vez de índice numérico",
+            "São ótimos para organizar os códigos ANSI como variáveis"
+          ],
+          "tip": "Eles facilitam demais a vida. Basta chamar cores['vermelho'] e pronto!"
+        },                
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que acontece se o código ANSI de cor de fundo não for declarado?",
+          "answers": [
+            "O fundo permanece com a cor padrão do terminal",
+            "Dá erro de sintaxe",
+            "O texto fica invisível",
+            "O terminal fica branco"
+          ],
+          "correct": "O fundo permanece com a cor padrão do terminal",
+          "tip": "Os parâmetros de fundo são opcionais!",
+          "trans": "PROT"
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "[NAME], o comando [COMBO] é uma abreviação de 'else if' e permite testar múltiplas condições em sequência.",
+          "options": [
+            "elif",
+            "elseif",
+            "elsif",
+            "case"
+          ],
+          "correct": "elif",
+          "tip": "O Python encurtou o nome para ficar mais prático de digitar."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Na estrutura if/elif/else, se a primeira condição for verdadeira, o Python ignora todas as seguintes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exatamente! Ele executa o bloco e pula fora da cadeia de condições."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], para que serve o operador lógico 'and'?",
+          "answers": [
+            "Exige que TODAS as condições sejam verdadeiras",
+            "Exige que APENAS UMA condição seja verdadeira",
+            "Inverte o valor lógico",
+            "Soma dois valores numéricos"
+          ],
+          "correct": "Exige que TODAS as condições sejam verdadeiras",
+          "tip": "Ambas as chaves precisam estar certas para abrir o baú."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais afirmações sobre o operador 'or' estão corretas?",
+          "answers": [
+            "Basta que pelo menos uma das condições seja verdadeira",
+            "Executa o bloco se uma ou ambas forem verdade",
+            "Exige que ambas sejam falsas para retornar verdadeiro",
+            "Permite criar alternativas lógicas flexíveis"
+          ],
+          "correct": [
+            "Basta que pelo menos uma das condições seja verdadeira",
+            "Executa o bloco se uma ou ambas forem verdade",
+            "Permite criar alternativas lógicas flexíveis"
+          ],
+          "tip": "No final de semana: se for Sábado OU Domingo, é dia de folga!"
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o tipo de estrutura ao seu comportamento:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "if",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "elif",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "else",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Abre a cadeia lógica. Sempre avaliado primeiro."
+            },
+            {
+              "id": "z2",
+              "label": "Testa uma nova condição caso as anteriores falhem."
+            },
+            {
+              "id": "z3",
+              "label": "Executa caso todas as condições anteriores sejam falsas."
+            }
+          ],
+          "correct": "drag",
+          "tip": "Construir cadeias lógicas é essencial para criar IAs robustas."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], você pode usar múltiplos 'elifs' dentro da mesma estrutura condicional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sim, você pode enfileirar quantos quiser para cobrir todas as possibilidades!"
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Uma Desigualdade Triangular exige que cada lado seja menor que a soma dos outros dois, avaliadas de forma simultânea com o operador [COMBO].",
+          "options": [
+            "and",
+            "or",
+            "not",
+            "if"
+          ],
+          "correct": "and",
+          "tip": "Como as três regras precisam ser verdade ao mesmo tempo, 'and' é obrigatório."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Ao construir notas escolares usando if/elif/else, se a nota for avaliada de cima para baixo (ex: >= 9.0, depois >= 7.0), o que ocorre se a nota for 9.5?",
+          "answers": [
+            "Cai no bloco do if >= 9.0 e encerra",
+            "Cai no bloco do >= 9.0 e também no >= 7.0",
+            "Dá erro lógico",
+            "Vai para o else"
+          ],
+          "correct": "Cai no bloco do if >= 9.0 e encerra",
+          "tip": "A execução para no primeiro bloco que for Verdadeiro. Eficiência total!"
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], onde podemos aplicar condicionais encadeadas no ecossistema atual de tecnologia?",
+          "answers": [
+            "Validação de Prompts de IA",
+            "Pipelines RAG (Busca Vetorial vs Resposta Direta)",
+            "Agentes Autônomos controlando ferramentas",
+            "Apenas em calculadoras simples"
+          ],
+          "correct": [
+            "Validação de Prompts de IA",
+            "Pipelines RAG (Busca Vetorial vs Resposta Direta)",
+            "Agentes Autônomos controlando ferramentas"
+          ],
+          "tip": "As condicionais são a espinha dorsal da lógica das IAs e automações!"
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Resolva as lógicas com os operadores:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "True and True",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "True and False",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "False or True",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "False or False",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Retorna True (Ambos verdadeiros)"
+            },
+            {
+              "id": "z2",
+              "label": "Retorna False (O 'and' exige os dois)"
+            },
+            {
+              "id": "z3",
+              "label": "Retorna True (O 'or' só precisa de um)"
+            },
+            {
+              "id": "z4",
+              "label": "Retorna False (Nenhum verdadeiro)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar a tabela verdade te transforma num verdadeiro Mago do Código!"
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], se não usarmos o 'else' ao final de uma cadeia de 'elifs', e nenhuma condição for atendida, o programa simplesmente segue sem executar nenhum dos blocos condicionais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O 'else' é o guarda-redes final, mas não é obrigatório."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O símbolo [COMBO] é o operador usado para calcular o resto de uma divisão, muito útil para saber se um número é par.",
+          "options": [
+            "%",
+            "/",
+            "//",
+            ""
+          ],
+          "correct": "%",
+          "tip": "Se num % 2 == 0, o número é par!"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "No contexto da era da IA, qual o valor real das estruturas condicionais?",
+          "answers": [
+            "Ensinar a máquina a questionar 'se' e tomar decisões",
+            "Deixar a tela mais colorida apenas",
+            "Criar loops infinitos",
+            "Processar dados aleatoriamente"
+          ],
+          "correct": "Ensinar a máquina a questionar 'se' e tomar decisões",
+          "tip": "A inteligência surge quando a máquina sabe decidir o melhor caminho.",
+          "trans": "NORM"
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], em automações RPA (como Power Automate), usamos if/else para rotear o fluxo de tarefas, como verificar limites de velocidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Perfeito. As lógicas condicionais integram mundos e automatizam burocracias pesadas!"
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "No desafio da adivinhação, importamos o módulo [COMBO] para que o computador 'pense' em um número.",
+          "options": [
+            "random",
+            "math",
+            "time",
+            "os"
+          ],
+          "correct": "random",
+          "tip": "A função randint é a alma dos geradores de números aleatórios de games."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], se um carro passar a 90 km/h num radar de 80 km/h, e a multa for de R$ 7,00 por km excedido, como a multa é calculada no código?",
+          "answers": [
+            "(90 - 80) * 7",
+            "90 * 7",
+            "80 * 7",
+            "90 - 80 / 7"
+          ],
+          "correct": "(90 - 80) * 7",
+          "tip": "A lógica pune apenas o que passar do limite estabelecido."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "No contexto corporativo de 2026, onde o Python atua em conjunto com plataformas Low-code?",
+          "answers": [
+            "O frontend low-code captura dados e o Python executa lógica no backend",
+            "Em Azure Functions com funções serverless que escalam automaticamente",
+            "Em Validação Inteligente garantindo conformidade de dados",
+            "Criando planilhas de papel"
+          ],
+          "correct": [
+            "O frontend low-code captura dados e o Python executa lógica no backend",
+            "Em Azure Functions com funções serverless que escalam automaticamente",
+            "Em Validação Inteligente garantindo conformidade de dados"
+          ],
+          "tip": "O Python virou o maestro das integrações modernas em nuvem."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o desafio ao seu conceito matemático ou lógico principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Adivinhação",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Radar Eletrônico",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Par ou Ímpar",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Aumento Salarial",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Módulo random"
+            },
+            {
+              "id": "z2",
+              "label": "Diferença e multiplicação (Excedente * 7)"
+            },
+            {
+              "id": "z3",
+              "label": "Operador Módulo (%)"
+            },
+            {
+              "id": "z4",
+              "label": "Cálculo percentual (+15% ou +10%)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A lógica matemática e a de programação andam sempre de mãos dadas!"
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], para calcular o aumento percentual de um salário em 15%, uma fórmula válida seria: novo = salario + salario * 15 / 100.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Correto! É a matemática financeira básica transformada em código."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Qual a principal utilidade prática de colorir os outputs do terminal em sistemas de automação de 2026?",
+          "answers": [
+            "Destacar vitórias/derrotas, logs de sucesso (verde) e alertas/erros (vermelho) para monitoramento",
+            "Aumentar o tempo de compilação",
+            "Apenas gastar processamento de placa de vídeo",
+            "Reduzir o tamanho do arquivo"
+          ],
+          "correct": "Destacar vitórias/derrotas, logs de sucesso (verde) e alertas/erros (vermelho) para monitoramento",
+          "tip": "A estética tem propósito funcional: alertas vermelhos chamam atenção crítica!"
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], ao formatar valores monetários, utilizamos a marcação :.2[COMBO] para garantir duas casas decimais após a vírgula.",
+          "options": [
+            "f",
+            "d",
+            "s",
+            "x"
+          ],
+          "correct": "f",
+          "tip": "O 'f' significa 'float'. Fundamental para exibir Reais com centavos, R$ 0,00."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "No algoritmo do Radar Eletrônico, quais os passos essenciais para a lógica de multa:",
+          "answers": [
+            "Ler a velocidade como float",
+            "Usar uma condição verificando se velocidade > 80",
+            "Calcular a multa (velocidade - 80) * 7",
+            "Calcular o peso do veículo na balança"
+          ],
+          "correct": [
+            "Ler a velocidade como float",
+            "Usar uma condição verificando se velocidade > 80",
+            "Calcular a multa (velocidade - 80) * 7"
+          ],
+          "tip": "Ter o algoritmo na mente antes de programar é o segredo dos seniores!"
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Ordene as lógicas condicionais complexas para a resolução de precificação dinâmica de viagens:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Avaliar se distância <= 200 km"
+            },
+            {
+              "id": "z2",
+              "label": "Se Sim: calcular preco = distancia * 0.50"
+            },
+            {
+              "id": "z3",
+              "label": "Se Não (else): calcular preco = distancia * 0.45"
+            }
+          ],
+          "correct": "drag",
+          "tip": "É exatamente essa mesma lógica que roda nos bastidores de aplicativos de transporte!"
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao avaliar um triângulo, a lógica requer checar se r1 < r2 + r3 OR r2 < r1 + r3. Apenas uma precisa ser verdade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Você deve usar 'AND'! As TRÊS condições precisam ser verdadeiras simultaneamente."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Em ambientes corporativos, as condicionais Python automatizam processos no [COMBO] BI, como dashboards de People Analytics.",
+          "options": [
+            "Power",
+            "Excel",
+            "Word",
+            "Access"
+          ],
+          "correct": "Power",
+          "tip": "Microsoft Power BI se integra perfeitamente a scripts de dados Python!"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o seu prêmio por dominar estruturas condicionais?",
+          "answers": [
+            "Apenas um certificado",
+            "O poder de ensinar as máquinas a tomar decisões inteligentes para você",
+            "Mais bugs no código",
+            "Nenhuma das opções"
+          ],
+          "correct": "O poder de ensinar as máquinas a tomar decisões inteligentes para você",
+          "tip": "Missão Cumprida, Gafanhoto! Você agora tem controle sobre o fluxo de seus sistemas."
+        }
+      ]
     }
   ]
 }
