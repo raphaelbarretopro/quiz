@@ -50877,7 +50877,7 @@
           ],
           "correct": "Verdadeiro",
           "tip": "Esses códigos são como magias secretas lidas diretamente pelo console."
-        },        
+        },
         {
           "type": "multiple",
           "topics": "AGEN",
@@ -50890,7 +50890,7 @@
           ],
           "correct": "31",
           "tip": "A cor verde é 32, a vermelha é 31!"
-        },        
+        },
         {
           "type": "drag",
           "topics": "AGEN",
@@ -50948,7 +50948,7 @@
           ],
           "correct": "Verdadeiro",
           "tip": "Enquanto os textos vão de 30 a 37, os fundos acompanham de 40 a 47."
-        },        
+        },
         {
           "type": "combo",
           "topics": "AGEN",
@@ -50978,7 +50978,7 @@
             "São ótimos para organizar os códigos ANSI como variáveis"
           ],
           "tip": "Eles facilitam demais a vida. Basta chamar cores['vermelho'] e pronto!"
-        },                
+        },
         {
           "type": "multiple",
           "topics": "AGEN",
@@ -51453,6 +51453,1021 @@
           ],
           "correct": "O poder de ensinar as máquinas a tomar decisões inteligentes para você",
           "tip": "Missão Cumprida, Gafanhoto! Você agora tem controle sobre o fluxo de seus sistemas."
+        }
+      ]
+    },
+    {
+      "slug": "aula-67",
+      "lesson_info": {
+        "id": "Aula-67",
+        "title": "AULA 67 - CONDIÇÕES ANINHADAS",
+        "topics": [
+          {
+            "id": "ANIN",
+            "name": "CONDIÇÕES ANINHADAS",
+            "desc": "Fase 1: Descubra como colocar uma condição dentro da outra, resolvendo puzzles de lógica.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "ELIF",
+            "name": "MÚLTIPLAS ROTAS",
+            "desc": "Fase 2: Domine o comando elif para criar novos caminhos e desbloquear múltiplos finais.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "MATC",
+            "name": "MATCH / CASE",
+            "desc": "Fase 3: Evolua para o Python 3.10+ e equipe seu código com estruturas limpas e modernas.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "DESA",
+            "name": "BOSS FIGHT: DESAFIOS",
+            "desc": "Fase Final: Enfrente problemas práticos de mercado e prove que o seu código roda sem bugs.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "E",
+          "L",
+          "I",
+          "F"
+        ]
+      },
+      "questions": [
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "[NAME], a estrutura if representa uma bifurcação simples de Verdadeiro ou Falso.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Boa! O if básico tem apenas duas saídas possíveis."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "Na programação, 'aninhar' significa colocar uma estrutura fora da outra.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Aninhar é como uma boneca russa: uma condição vive DENTRO da outra."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "[NAME], o bloco else é totalmente opcional numa estrutura condicional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exato! Você pode construir um script apenas com if e elif."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "É perfeitamente possível começar um bloco condicional usando elif.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Todo bloco DEVE começar obrigatoriamente com a palavra reservada if."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "O operador in pode verificar se um nome existe dentro de uma lista de valores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O 'in' é um excelente atalho para poupar comparações múltiplas com 'or'."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "[NAME], esquecer os dois pontos (:) após a condição gera um erro no Python.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A sintaxe exige os dois pontos para iniciar o bloco indentado."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "Um código Python aceita um número ilimitado de blocos else para o mesmo if.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O else é o 'caso padrão' e pode aparecer no máximo uma única vez no final."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "A indentação (espaçamento) define quais comandos pertencem a qual bloco condicional.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "No Python, o visual importa! A indentação controla a hierarquia do seu jogo."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "O elif só funciona se o Python estiver rodando em servidores na nuvem.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O elif é um comando nativo e roda em qualquer ambiente com Python instalado."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANIN",
+          "questions": "[NAME], as condições aninhadas permitem que a IA Generativa decida como rotear os prompts.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A lógica condicional é o cérebro por trás dos fluxos de decisão automatizados."
+        },
+        {
+          "type": "multiple",
+          "topics": "ANIN",
+          "questions": "Qual analogia a aula usa para explicar as estruturas aninhadas?",
+          "answers": [
+            "Caixas de papelão",
+            "Bonecas russas (Matryoshka)",
+            "Peças de LEGO",
+            "Bolas de sinuca"
+          ],
+          "correct": "Bonecas russas (Matryoshka)",
+          "tip": "Uma condição fica perfeitamente encapsulada dentro da outra."
+        },
+        {
+          "type": "multiple",
+          "topics": "ANIN",
+          "questions": "[NAME], se uma estrutura simples tem 2 caminhos, uma aninhada com if/elif/else tem:",
+          "answers": [
+            "Apenas 3 caminhos",
+            "N caminhos",
+            "Exatamente 4 caminhos",
+            "Nenhum caminho"
+          ],
+          "correct": "N caminhos",
+          "tip": "Você pode adicionar múltiplos elifs, criando incontáveis ramificações no level.",
+          "trans": "ELIF"
+        },
+        {
+          "type": "multiple",
+          "topics": "ELIF",
+          "questions": "O comando elif no Python é uma abreviação para qual termo?",
+          "answers": [
+            "else if",
+            "extra if",
+            "end if",
+            "error if"
+          ],
+          "correct": "else if",
+          "tip": "Ele junta a negação da condição anterior com uma nova pergunta."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELIF",
+          "questions": "Qual a principal regra para utilizar o comando elif?",
+          "answers": [
+            "Deve ser o último bloco.",
+            "Deve vir antes do if principal.",
+            "Sempre requer um if antes.",
+            "Substitui o uso do else."
+          ],
+          "correct": "Sempre requer um if antes.",
+          "tip": "Não tem como criar uma rota alternativa se você não abriu a principal primeiro!"
+        },
+        {
+          "type": "multiple",
+          "topics": "ELIF",
+          "questions": "[NAME], qual erro ocorre ao testar um elif ou else sem um if anterior?",
+          "answers": [
+            "Erro de Memória",
+            "Erro de Lógica",
+            "Erro de Sintaxe",
+            "Nenhum erro"
+          ],
+          "correct": "Erro de Sintaxe",
+          "tip": "O compilador trava na hora porque a estrutura gramatical da linguagem foi quebrada."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELIF",
+          "questions": "Em ambientes corporativos, fluxos de Power Automate e bots usam elif para:",
+          "answers": [
+            "Criar designs bonitos",
+            "Decidir ações automatizadas",
+            "Salvar imagens no banco",
+            "Nenhuma das opções"
+          ],
+          "correct": "Decidir ações automatizadas",
+          "tip": "É a estrutura condicional que diz ao bot qual missão ele deve cumprir."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELIF",
+          "questions": "Ao fatiar o resultado da função bin(), qual comando usamos para remover o prefixo '0b'?",
+          "answers": [
+            "[0:]",
+            "[1:]",
+            "[:2]",
+            "[2:]"
+          ],
+          "correct": "[2:]",
+          "tip": "Isso pega a string do índice 2 até o final, pulando os dois primeiros caracteres."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELIF",
+          "questions": "Qual função nativa converte um número decimal em hexadecimal?",
+          "answers": [
+            "bin()",
+            "hex()",
+            "oct()",
+            "hexa()"
+          ],
+          "correct": "hex()",
+          "tip": "Ela retorna uma string formatada iniciada em '0x'."
+        },
+        {
+          "type": "multiple",
+          "topics": "ELIF",
+          "questions": "[NAME], ao invés de usar if n1 > n2 seguido de if n2 > n1, o que é melhor fazer?",
+          "answers": [
+            "Usar elif para a segunda condição",
+            "Apagar o código",
+            "Usar while",
+            "Criar variáveis extras"
+          ],
+          "correct": "Usar elif para a segunda condição",
+          "tip": "Assim você elimina comparações redundantes e otimiza o tempo de execução do jogo!"
+        },
+        {
+          "type": "combo",
+          "topics": "ELIF",
+          "questions": "Na vida real, e nos sistemas, raramente existem apenas [COMBO] opções.",
+          "options": [
+            "duas",
+            "três",
+            "quatro",
+            "cinco"
+          ],
+          "correct": "duas",
+          "tip": "O mundo é complexo, por isso as condições aninhadas são fundamentais."
+        },
+        {
+          "type": "combo",
+          "topics": "ELIF",
+          "questions": "O comando [COMBO] é o caso padrão opcional de uma estrutura condicional.",
+          "options": [
+            "else",
+            "elif",
+            "if",
+            "match"
+          ],
+          "correct": "else",
+          "tip": "Ele serve como o ponto de 'catch-all' quando todas as outras alternativas falham."
+        },
+        {
+          "type": "combo",
+          "topics": "ELIF",
+          "questions": "[NAME], você pode utilizar quantos [COMBO] precisar, um para cada caminho extra.",
+          "options": [
+            "elif",
+            "else",
+            "for",
+            "print"
+          ],
+          "correct": "elif",
+          "tip": "Essa flexibilidade permite criar sistemas com centenas de regras específicas."
+        },
+        {
+          "type": "combo",
+          "topics": "ELIF",
+          "questions": "A regra de ouro afirma que todo bloco condicional nunca começa com [COMBO].",
+          "options": [
+            "elif",
+            "if",
+            "while",
+            "switch"
+          ],
+          "correct": "elif",
+          "tip": "Tem que iniciar com o 'if' principal, obrigatoriamente."
+        },
+        {
+          "type": "combo",
+          "topics": "ELIF",
+          "questions": "A função oct() converte um número inteiro para a base [COMBO].",
+          "options": [
+            "octal",
+            "binária",
+            "decimal",
+            "hexadecimal"
+          ],
+          "correct": "octal",
+          "tip": "É muito utilizada em sistemas antigos e permissões de arquivos."
+        },
+        {
+          "type": "combo",
+          "topics": "ELIF",
+          "questions": "No módulo datetime, usamos a propriedade [COMBO] para capturar o ano atual.",
+          "options": [
+            "today().year",
+            "now()",
+            "current",
+            "get_year()"
+          ],
+          "correct": "today().year",
+          "tip": "Essa função sincroniza o seu script com o relógio do sistema operacional.",
+          "trans": "MATC"
+        },
+        {
+          "type": "combo",
+          "topics": "MATC",
+          "questions": "A estrutura [COMBO] foi introduzida como novidade a partir do Python 3.10.",
+          "options": [
+            "match / case",
+            "if / else",
+            "do / while",
+            "try / catch"
+          ],
+          "correct": "match / case",
+          "tip": "É o equivalente moderno ao switch/case encontrado no C ou Java."
+        },
+        {
+          "type": "combo",
+          "topics": "MATC",
+          "questions": "O uso de Structural Pattern Matching torna o código mais limpo e [COMBO].",
+          "options": [
+            "legível",
+            "lento",
+            "complexo",
+            "obsoleto"
+          ],
+          "correct": "legível",
+          "tip": "Fica visualmente mais fácil de identificar os padrões."
+        },
+        {
+          "type": "combo",
+          "topics": "MATC",
+          "questions": "No match/case, o termo [COMBO] atua capturando qualquer valor não listado.",
+          "options": [
+            "case _:",
+            "else:",
+            "default:",
+            "break:"
+          ],
+          "correct": "case :",
+          "tip": "O underline () funciona como o nosso velho amigo 'else'."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "[NAME], selecione os elementos que pertencem à estrutura clássica condicional:",
+          "answers": [
+            "if",
+            "elif",
+            "else",
+            "match"
+          ],
+          "correct": [
+            "if",
+            "elif",
+            "else"
+          ],
+          "tip": "O 'match' é da sintaxe nova do 3.10, não faz parte do clássico aninhamento."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "Quais cenários tecnológicos atuais utilizam lógicas de múltiplas ramificações?",
+          "answers": [
+            "Bots de RPA",
+            "Pipelines ETL & BI",
+            "IA Generativa",
+            "Formatação de hardware"
+          ],
+          "correct": [
+            "Bots de RPA",
+            "Pipelines ETL & BI",
+            "IA Generativa"
+          ],
+          "tip": "Condições estão por toda parte organizando o caos do big data."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "Quais bases numéricas foram abordadas no desafio de conversão?",
+          "answers": [
+            "Binário",
+            "Octal",
+            "Hexadecimal",
+            "Sexagesimal"
+          ],
+          "correct": [
+            "Binário",
+            "Octal",
+            "Hexadecimal"
+          ],
+          "tip": "São as bases fundamentais para protocolos de rede e IoT."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "[NAME], identifique as boas práticas para montar um menu de opções:",
+          "answers": [
+            "Usar match/case (se Python 3.10+)",
+            "Capturar escolhas inválidas no else/case _",
+            "Criar 50 blocos if soltos",
+            "Exibir clareza nas opções do print"
+          ],
+          "correct": [
+            "Usar match/case (se Python 3.10+)",
+            "Capturar escolhas inválidas no else/case _",
+            "Exibir clareza nas opções do print"
+          ],
+          "tip": "Estruturar bem o menu é chave para a UX do terminal."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "Quais destes causariam um Erro de Sintaxe crítico no Python?",
+          "answers": [
+            "Escrever elif sem if",
+            "Digitar else duas vezes seguidas",
+            "Esquecer os dois pontos (:) no if",
+            "Imprimir uma string vazia"
+          ],
+          "correct": [
+            "Escrever elif sem if",
+            "Digitar else duas vezes seguidas",
+            "Esquecer os dois pontos (:) no if"
+          ],
+          "tip": "O Python é amigável, mas não perdoa vacilos de formatação básica."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "No desafio de Empréstimo, quais variáveis precisamos capturar do usuário?",
+          "answers": [
+            "Valor da casa",
+            "Salário mensal",
+            "Anos de financiamento",
+            "Taxa de inflação"
+          ],
+          "correct": [
+            "Valor da casa",
+            "Salário mensal",
+            "Anos de financiamento"
+          ],
+          "tip": "Os inputs são a munição que o seu algoritmo vai processar na batalha."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "Sobre o match/case, quais são as vantagens reais?",
+          "answers": [
+            "Código mais limpo",
+            "Facilidade na leitura de menus",
+            "Captura de padrões estruturais",
+            "Funciona no Python 2.7"
+          ],
+          "correct": [
+            "Código mais limpo",
+            "Facilidade na leitura de menus",
+            "Captura de padrões estruturais"
+          ],
+          "tip": "Apenas lembre que se sua máquina for antiga, ele não compila."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "No cálculo de idade para alistamento, as variáveis importantes são:",
+          "answers": [
+            "Ano atual",
+            "Ano de nascimento",
+            "Idade calculada",
+            "Mês exato"
+          ],
+          "correct": [
+            "Ano atual",
+            "Ano de nascimento",
+            "Idade calculada"
+          ],
+          "tip": "Com apenas duas datas já calculamos o delta completo em anos."
+        },
+        {
+          "type": "multi",
+          "topics": "MATC",
+          "questions": "[NAME], selecione os status possíveis no desafio de média escolar:",
+          "answers": [
+            "Reprovado",
+            "Recuperação",
+            "Aprovado",
+            "Dependência"
+          ],
+          "correct": [
+            "Reprovado",
+            "Recuperação",
+            "Aprovado"
+          ],
+          "tip": "É um simulador simples com apenas três ramos finais.",
+          "trans": "DESA"
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "Relacione as categorias de Natação às suas idades limite:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Mirim",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Infantil",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sênior",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Máster",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Até 9 anos"
+            },
+            {
+              "id": "z2",
+              "label": "Até 14 anos"
+            },
+            {
+              "id": "z3",
+              "label": "Até 25 anos"
+            },
+            {
+              "id": "z4",
+              "label": "Acima de 25"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Mapear bem os limites de idade impede que um Master caia no nível Mirim!"
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "Ligue cada função nativa ao seu respectivo uso na conversão:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "bin()",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "oct()",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "hex()",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "int()",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sistema Binário"
+            },
+            {
+              "id": "z2",
+              "label": "Sistema Octal"
+            },
+            {
+              "id": "z3",
+              "label": "Hexadecimal"
+            },
+            {
+              "id": "z4",
+              "label": "Decimal Padrão"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Python tem atalhos incríveis; não é preciso fazer divisões sucessivas."
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "[NAME], relacione os blocos condicionais aos seus papéis no código:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "if",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "elif",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "else",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "case _:",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gatilho Inicial Obrigatório"
+            },
+            {
+              "id": "z2",
+              "label": "Rota Alternativa"
+            },
+            {
+              "id": "z3",
+              "label": "Catch-all Clássico"
+            },
+            {
+              "id": "z4",
+              "label": "Catch-all Moderno"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar esses conceitos é como zerar o tutorial da Lógica de Programação."
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "No cálculo do IMC, conecte a faixa de valor ao seu respectivo status:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "imc < 18.5",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "18.5 a 24.9",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "30 a 39.9",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": ">= 40",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Abaixo do peso"
+            },
+            {
+              "id": "z2",
+              "label": "Peso ideal"
+            },
+            {
+              "id": "z3",
+              "label": "Obesidade"
+            },
+            {
+              "id": "z4",
+              "label": "Obesidade Mórbida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Aplicativos de smartwatch usam essa exata lógica aninhada em tempo real."
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "Relacione a forma de pagamento ao bônus (ou punição) matemático:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Dinheiro/Cheque",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Cartão à vista",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "2x no Cartão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "3x ou mais",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "* 0.90 (10% off)"
+            },
+            {
+              "id": "z2",
+              "label": "* 0.95 (5% off)"
+            },
+            {
+              "id": "z3",
+              "label": "Preço / 2"
+            },
+            {
+              "id": "z4",
+              "label": "* 1.20 (20% juros)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A matemática nos multiplicadores agiliza as linhas de código."
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "Conecte a resposta de status ao código fatiado ou regra de banco:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "[2:]",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "0.30",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "idade == 18",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "n1 > n2",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Remove prefixo bin/hex"
+            },
+            {
+              "id": "z2",
+              "label": "Limite de 30% salário"
+            },
+            {
+              "id": "z3",
+              "label": "Alistamento imediato"
+            },
+            {
+              "id": "z4",
+              "label": "Primeiro valor maior"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Pequenos trechos de lógica resolvem grandes problemas em sistemas de RH e Bancos."
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "[NAME], ligue o cenário ao conceito tecnológico citado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Bot de RPA",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "IA Generativa",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nuvem",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "ETL",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Automação de cliques/regras"
+            },
+            {
+              "id": "z2",
+              "label": "Rotear prompts"
+            },
+            {
+              "id": "z3",
+              "label": "Serverless (AWS Lambda)"
+            },
+            {
+              "id": "z4",
+              "label": "Classificar registros de dados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Não é só joguinho e terminal: if/elif/else sustentam a infraestrutura da internet global."
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "Relacione o erro à sua respectiva causa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "SyntaxError (:)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "SyntaxError (elif)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "SyntaxError (else)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "IndentationError",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Faltou fechar com dois pontos"
+            },
+            {
+              "id": "z2",
+              "label": "Usado sem ter um if"
+            },
+            {
+              "id": "z3",
+              "label": "Colocou dois no mesmo bloco"
+            },
+            {
+              "id": "z4",
+              "label": "Espaçamento desalinhado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses são os boss bugs mais comuns entre os devs iniciantes!"
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "No desafio da Média Escolar, relacione as variáveis aos passos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "nota1 / nota2",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "(n1 + n2) / 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "media < 5",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "else",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Leitura de inputs float"
+            },
+            {
+              "id": "z2",
+              "label": "Cálculo matemático"
+            },
+            {
+              "id": "z3",
+              "label": "Condição de Reprovação"
+            },
+            {
+              "id": "z4",
+              "label": "Aprovação garantida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Sempre planeje a lógica antes de codar: input, processamento e output."
+        },
+        {
+          "type": "drag",
+          "topics": "DESA",
+          "questions": "Último desafio! Relacione as fórmulas de cálculo do empréstimo bancário:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Meses totais",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Prestação Mensal",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Limite",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Condição de Negado",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "anos * 12"
+            },
+            {
+              "id": "z2",
+              "label": "casa / meses_totais"
+            },
+            {
+              "id": "z3",
+              "label": "salario * 0.30"
+            },
+            {
+              "id": "z4",
+              "label": "prestacao > limite"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Mandou bem! O código que você deixa para trás é o mapa das escolhas que você fez."
         }
       ]
     }
