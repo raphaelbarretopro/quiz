@@ -52470,6 +52470,949 @@
           "tip": "Mandou bem! O código que você deixa para trás é o mapa das escolhas que você fez."
         }
       ]
+    },
+    {
+      "slug": "aula-76",
+      "lesson_info": {
+        "id": "Aula-76",
+        "title": "AULA 76 - O UNIVERSO DO POWER BI",
+        "topics": [
+          {
+            "id": "DADO",
+            "name": "O PODER DOS DADOS",
+            "desc": "A importância estratégica dos dados e o ciclo de análise na tomada de decisão.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "TIPO",
+            "name": "TIPOS DE ANÁLISE",
+            "desc": "Análises Descritiva, Diagnóstica, Preditiva, Prescritiva e a Inteligência Artificial.",
+            "color": "#9b59b6",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROF",
+            "name": "O ANALISTA DE DADOS",
+            "desc": "O ecossistema de profissionais e as 5 tarefas principais do analista.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PWBI",
+            "name": "O AMBIENTE POWER BI",
+            "desc": "Interface, configurações e o tratamento de dados no Power Query.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "DADO",
+          "questions": "[NAME], qual é o principal problema enfrentado pela empresa Logistech no início do estudo de caso?",
+          "answers": [
+            "Falta de caminhões de entrega",
+            "Dados espalhados, desorganizados e inacessíveis",
+            "Falta de funcionários no armazém",
+            "Ausência de clientes no mercado"
+          ],
+          "correct": "Dados espalhados, desorganizados e inacessíveis",
+          "tip": "Informações duplicadas em planilhas e papéis criam um caos operacional."
+        },
+        {
+          "type": "boolean",
+          "topics": "DADO",
+          "questions": "[NAME], empresas coletam enormes volumes de dados, mas apenas armazená-los já garante vantagem estratégica.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Sem análise estruturada, os dados são apenas um armazenamento caro."
+        },
+        {
+          "type": "combo",
+          "topics": "DADO",
+          "questions": "O processo de análise de dados inclui: Identificar, Limpar, [COMBO] e Visualizar.",
+          "options": [
+            "Transformar",
+            "Apagar",
+            "Vender",
+            "Esconder"
+          ],
+          "correct": "Transformar",
+          "tip": "Os dados precisam ser ajustados e modelados antes de gerar gráficos."
+        },
+        {
+          "type": "multi",
+          "topics": "DADO",
+          "questions": "Quais são fontes de dados comuns citadas como fundamentais para empresas modernas, [NAME]?",
+          "answers": [
+            "Dados de vendas e inventário",
+            "Sinais de redes sociais",
+            "Opiniões informais sem registro",
+            "Registros operacionais logísticos"
+          ],
+          "correct": [
+            "Dados de vendas e inventário",
+            "Sinais de redes sociais",
+            "Registros operacionais logísticos"
+          ],
+          "tip": "Empresas coletam registros digitais constantes; dados não registrados formalmente não são fontes válidas."
+        },
+        {
+          "type": "drag",
+          "topics": "DADO",
+          "questions": "Relacione os problemas da Logistech com suas características:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cadastros Manuais",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Controle em Papel",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Comunicação Lenta",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Informações inconsistentes em planilhas"
+            },
+            {
+              "id": "z2",
+              "label": "Fichas perdidas e entregas que somem"
+            },
+            {
+              "id": "z3",
+              "label": "Cada setor com sua própria verdade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Organizar esses três pilares é o primeiro passo para a transformação digital."
+        },
+        {
+          "type": "multiple",
+          "topics": "DADO",
+          "questions": "[NAME], qual ferramenta foi escolhida para transformar os dados da Logistech em um painel inteligente?",
+          "answers": [
+            "Power BI",
+            "Microsoft Word",
+            "Photoshop",
+            "AutoCAD"
+          ],
+          "correct": "Power BI",
+          "tip": "O Power BI conecta e organiza informações criando narrativas visuais."
+        },
+        {
+          "type": "boolean",
+          "topics": "DADO",
+          "questions": "A chave do Business Intelligence não é apenas ter mais dados, mas criar uma narrativa com eles, [NAME].",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Tomadores de decisão dependem de relatórios e histórias claras para agir."
+        },
+        {
+          "type": "combo",
+          "topics": "DADO",
+          "questions": "No mercado atual, os [COMBO] são considerados o novo petróleo das organizações.",
+          "options": [
+            "Dados",
+            "Caminhões",
+            "Softwares",
+            "Servidores"
+          ],
+          "correct": "Dados",
+          "tip": "Assim como o petróleo, o dado precisa ser refinado para ter alto valor."
+        },
+        {
+          "type": "multi",
+          "topics": "DADO",
+          "questions": "[NAME], o processo de análise transforma números em insights para apoiar:",
+          "answers": [
+            "Decisões estratégicas",
+            "Rapidez competitiva",
+            "Criação de novos logotipos",
+            "Organização em toda a empresa"
+          ],
+          "correct": [
+            "Decisões estratégicas",
+            "Rapidez competitiva",
+            "Organização em toda a empresa"
+          ],
+          "tip": "BI é sobre estratégia e gestão, não sobre design gráfico de marcas."
+        },
+        {
+          "type": "drag",
+          "topics": "DADO",
+          "questions": "Relacione as etapas da linha de produção de dados (processo de análise):",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Etapa 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Etapa 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Etapa 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Etapa 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identificar"
+            },
+            {
+              "id": "z2",
+              "label": "Limpar"
+            },
+            {
+              "id": "z3",
+              "label": "Transformar"
+            },
+            {
+              "id": "z4",
+              "label": "Visualizar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Lembre-se da ordem lógica: achar, limpar as falhas, ajustar formato e gerar gráfico."
+        },
+        {
+          "type": "boolean",
+          "topics": "DADO",
+          "questions": "[NAME], o Power BI exige que você escreva linhas complexas de código para criar uma narrativa visual básica.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A ferramenta permite criar narrativas visuais com IA integrada e baixo uso de código (low-code)."
+        },
+        {
+          "type": "multiple",
+          "topics": "DADO",
+          "questions": "O que acontece quando uma empresa decide com base em dados confiáveis e rápidos?",
+          "answers": [
+            "Conquista vantagem competitiva",
+            "Perde clientes",
+            "Aumenta o caos operacional",
+            "Lentifica seus processos"
+          ],
+          "correct": "Conquista vantagem competitiva",
+          "trans": "TIPO",
+          "tip": "Velocidade na decisão certa é o maior diferencial no mercado moderno."
+        },
+        {
+          "type": "multiple",
+          "topics": "TIPO",
+          "questions": "[NAME], a análise que busca responder à pergunta 'O que aconteceu?' é chamada de:",
+          "answers": [
+            "Descritiva",
+            "Preditiva",
+            "Diagnóstica",
+            "Prescritiva"
+          ],
+          "correct": "Descritiva",
+          "tip": "Ela resume dados históricos, como metas e volume de vendas passadas."
+        },
+        {
+          "type": "boolean",
+          "topics": "TIPO",
+          "questions": "A análise diagnóstica tem como foco principal descobrir 'O que vai acontecer no futuro'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A diagnóstica foca no 'Por que aconteceu?'. O futuro é papel da análise Preditiva."
+        },
+        {
+          "type": "drag",
+          "topics": "TIPO",
+          "questions": "Relacione o tipo de análise à sua pergunta principal, [NAME]:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Descritiva",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Diagnóstica",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Preditiva",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Prescritiva",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O que aconteceu?"
+            },
+            {
+              "id": "z2",
+              "label": "Por que aconteceu?"
+            },
+            {
+              "id": "z3",
+              "label": "O que vai acontecer?"
+            },
+            {
+              "id": "z4",
+              "label": "O que devo fazer?"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses pilares guiam o nível de maturidade analítica de uma empresa."
+        },
+        {
+          "type": "combo",
+          "topics": "TIPO",
+          "questions": "A análise [COMBO] usa machine learning e dados históricos para prever tendências futuras.",
+          "options": [
+            "Preditiva",
+            "Descritiva",
+            "Diagnóstica",
+            "Básica"
+          ],
+          "correct": "Preditiva",
+          "tip": "Ela antecipa demandas, como prever entregas no fim de ano."
+        },
+        {
+          "type": "multi",
+          "topics": "TIPO",
+          "questions": "Quais são passos comuns da análise Diagnóstica?",
+          "answers": [
+            "Identificar anomalias",
+            "Coletar dados contextuais",
+            "Prever o lucro de 2030",
+            "Descobrir tendências nas causas"
+          ],
+          "correct": [
+            "Identificar anomalias",
+            "Coletar dados contextuais",
+            "Descobrir tendências nas causas"
+          ],
+          "tip": "A previsão do futuro não pertence à diagnóstica, mas sim à preditiva."
+        },
+        {
+          "type": "multiple",
+          "topics": "TIPO",
+          "questions": "[NAME], se a IA recomenda a melhor rota de entrega para economizar combustível, qual análise está agindo?",
+          "answers": [
+            "Prescritiva",
+            "Descritiva",
+            "Visual",
+            "Diagnóstica"
+          ],
+          "correct": "Prescritiva",
+          "tip": "A prescritiva sempre sugere a 'melhor ação' perante um cenário de incerteza."
+        },
+        {
+          "type": "boolean",
+          "topics": "TIPO",
+          "questions": "No Power BI, recursos de IA como o Copilot permitem perguntar aos dados em linguagem natural para gerar gráficos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A máquina processa padrões para agir com mínima intervenção humana."
+        },
+        {
+          "type": "combo",
+          "topics": "TIPO",
+          "questions": "Acompanhar metas como ROI e volume de entregas é uma característica da análise [COMBO].",
+          "options": [
+            "Descritiva",
+            "Prescritiva",
+            "Preditiva",
+            "Futurista"
+          ],
+          "correct": "Descritiva",
+          "tip": "Olhar para trás e resumir os resultados é o primeiro degrau da análise."
+        },
+        {
+          "type": "multi",
+          "topics": "TIPO",
+          "questions": "[NAME], o que a Inteligência Artificial é capaz de fazer no processo analítico moderno?",
+          "answers": [
+            "Processar grandes volumes de dados",
+            "Reconhecer padrões automaticamente",
+            "Gerar visualizações por linguagem natural",
+            "Impedir o trabalho dos analistas"
+          ],
+          "correct": [
+            "Processar grandes volumes de dados",
+            "Reconhecer padrões automaticamente",
+            "Gerar visualizações por linguagem natural"
+          ],
+          "tip": "A IA é uma aliada para ganho de escala e agilidade, não uma vilã."
+        },
+        {
+          "type": "drag",
+          "topics": "TIPO",
+          "questions": "Relacione o exemplo prático da Logistech ao tipo de análise:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Relatório de atrasos do mês",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Por que o Sul atrasou 40% mais?",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Aumento de demanda no fim do ano",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Sugestão da rota mais barata",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Descritiva"
+            },
+            {
+              "id": "z2",
+              "label": "Diagnóstica"
+            },
+            {
+              "id": "z3",
+              "label": "Preditiva"
+            },
+            {
+              "id": "z4",
+              "label": "Prescritiva"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender o passado, descobrir a causa, prever o amanhã e recomendar a ação."
+        },
+        {
+          "type": "boolean",
+          "topics": "TIPO",
+          "questions": "O uso de redes neurais e árvores de decisão é característico da análise Preditiva.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essas técnicas de machine learning modelam tendências futuras baseadas no histórico."
+        },
+        {
+          "type": "multiple",
+          "topics": "TIPO",
+          "questions": "[NAME], cruzar dados de rota, motorista e clima para entender uma falha é exemplo de:",
+          "answers": [
+            "Análise Diagnóstica",
+            "Análise Descritiva",
+            "Análise IA pura",
+            "Relatório Básico"
+          ],
+          "correct": "Análise Diagnóstica",
+          "tip": "Cruzar dados contextuais é a chave para investigar as causas de um evento."
+        },
+        {
+          "type": "combo",
+          "topics": "TIPO",
+          "questions": "O pilar focado em encontrar padrões ocultos que humanos não veriam é classificado como o pilar da [COMBO].",
+          "options": [
+            "Inteligência Artificial",
+            "Planilha Manual",
+            "Engenharia Elétrica",
+            "Estatística Básica"
+          ],
+          "correct": "Inteligência Artificial",
+          "trans": "PROF",
+          "tip": "A IA amplifica a visão analítica detectando anomalias não lineares."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROF",
+          "questions": "Qual profissional é responsável por construir pipelines e infraestrutura de dados na nuvem?",
+          "answers": [
+            "Engenheiro de Dados",
+            "Analista de Negócios",
+            "Cientista de Dados",
+            "Analista de Power BI"
+          ],
+          "correct": "Engenheiro de Dados",
+          "tip": "Ele cria as tubulações seguras para a água (dados) chegar na represa corporativa."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROF",
+          "questions": "[NAME], a criação de relatórios e visualizações interativas no Power BI é a tarefa principal do Cientista de Dados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essa é a função do Analista de Dados. O Cientista atua mais com modelos avançados preditivos."
+        },
+        {
+          "type": "combo",
+          "topics": "PROF",
+          "questions": "O [COMBO] de Negócios interpreta os dados para focar em decisões empresariais.",
+          "options": [
+            "Analista",
+            "Engenheiro",
+            "Programador",
+            "Cientista"
+          ],
+          "correct": "Analista",
+          "tip": "Ele faz a ponte entre o relatório técnico e a estratégia da diretoria."
+        },
+        {
+          "type": "drag",
+          "topics": "PROF",
+          "questions": "Relacione o profissional do ecossistema à sua função principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cientista de Dados",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Analista de Dados",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Engenheiro de Análise",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Aplica machine learning preditivo"
+            },
+            {
+              "id": "z2",
+              "label": "Cria dashboards no Power BI"
+            },
+            {
+              "id": "z3",
+              "label": "Modela em data warehouses e lakehouses"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A narrativa de dados é um trabalho de equipe, cada um com sua especialidade."
+        },
+        {
+          "type": "multi",
+          "topics": "PROF",
+          "questions": "Quais destas fazem parte das 5 Tarefas do Analista de Dados?",
+          "answers": [
+            "Preparar",
+            "Modelar",
+            "Visualizar",
+            "Inventar"
+          ],
+          "correct": [
+            "Preparar",
+            "Modelar",
+            "Visualizar"
+          ],
+          "tip": "As outras duas tarefas são: Analisar e Gerenciar."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROF",
+          "questions": "[NAME], a tarefa de definir relacionamentos entre tabelas e criar cálculos em DAX pertence a qual fase?",
+          "answers": [
+            "Modelar",
+            "Preparar",
+            "Gerenciar",
+            "Visualizar"
+          ],
+          "correct": "Modelar",
+          "tip": "O modelo é o motor que garante que cálculos cruzem informações de várias tabelas perfeitamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROF",
+          "questions": "Garantir integridade, limpar valores nulos e estruturar a fonte bruta é parte da tarefa 'Preparar'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É a etapa feita principalmente dentro do Power Query antes da análise."
+        },
+        {
+          "type": "combo",
+          "topics": "PROF",
+          "questions": "Publicar e compartilhar painéis, controlando quem acessa, é a responsabilidade de [COMBO].",
+          "options": [
+            "Gerenciar",
+            "Analisar",
+            "Visualizar",
+            "Desenhar"
+          ],
+          "correct": "Gerenciar",
+          "tip": "Segurança da informação e governança são partes cruciais do trabalho online."
+        },
+        {
+          "type": "multi",
+          "topics": "PROF",
+          "questions": "O que envolve a tarefa 'Visualizar', [NAME]?",
+          "answers": [
+            "Criar narrativas visuais",
+            "Montar gráficos e mapas interativos",
+            "Escrever códigos Python avançados",
+            "Aplicar filtros acessíveis no relatório"
+          ],
+          "correct": [
+            "Criar narrativas visuais",
+            "Montar gráficos e mapas interativos",
+            "Aplicar filtros acessíveis no relatório"
+          ],
+          "tip": "Visualização é sobre comunicação clara, não programação pura."
+        },
+        {
+          "type": "drag",
+          "topics": "PROF",
+          "questions": "Ligue a tarefa do analista com o que ela produz:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Preparar",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Analisar",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Gerenciar",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Dados limpos e confiáveis"
+            },
+            {
+              "id": "z2",
+              "label": "Padrões, insights e tendências revelados"
+            },
+            {
+              "id": "z3",
+              "label": "Dashboards seguros e publicados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Do tratamento do dado bruto à entrega segura para o usuário final."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROF",
+          "questions": "Interpretar os resultados gerados pelos gráficos para ajudar a liderança faz parte da tarefa de 'Analisar'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O analista precisa ir além da estética e explicar o significado dos números."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROF",
+          "questions": "[NAME], qual perfil aplica redes neurais avançadas no ecossistema de dados?",
+          "answers": [
+            "Cientista de Dados",
+            "Analista de Negócios",
+            "Designer de Relatórios",
+            "Gerente Operacional"
+          ],
+          "correct": "Cientista de Dados",
+          "trans": "PWBI",
+          "tip": "O foco científico exige alto rigor estatístico e conhecimento profundo de Machine Learning."
+        },
+        {
+          "type": "multiple",
+          "topics": "PWBI",
+          "questions": "O Power BI Desktop é uma ferramenta:",
+          "answers": [
+            "100% gratuita para uso local",
+            "Paga por mensalidade",
+            "Que só funciona conectada à internet",
+            "Disponível apenas para programadores"
+          ],
+          "correct": "100% gratuita para uso local",
+          "tip": "A versão Pro só é exigida para compartilhar links online em equipes."
+        },
+        {
+          "type": "boolean",
+          "topics": "PWBI",
+          "questions": "É obrigatório fazer login com uma conta Pro para começar a usar e aprender no Power BI Desktop.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Você pode apenas fechar a tela de login inicial e praticar livremente."
+        },
+        {
+          "type": "combo",
+          "topics": "PWBI",
+          "questions": "O botão '[COMBO] Dados' é o ponto de entrada de toda análise no Power BI.",
+          "options": [
+            "Obter",
+            "Apagar",
+            "Colorir",
+            "Vender"
+          ],
+          "correct": "Obter",
+          "tip": "É por ele que você conecta sistemas, arquivos locais e serviços em nuvem."
+        },
+        {
+          "type": "drag",
+          "topics": "PWBI",
+          "questions": "Relacione as salas (visualizações) do Power BI com suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Relatório",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "DAX",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Modelo",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "TMDL",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sala de exibição (gráficos)"
+            },
+            {
+              "id": "z2",
+              "label": "Sala de cálculo"
+            },
+            {
+              "id": "z3",
+              "label": "Sala de integração (relações)"
+            },
+            {
+              "id": "z4",
+              "label": "Sala de código avançado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber transitar entre essas vistas é essencial para o domínio da ferramenta."
+        },
+        {
+          "type": "multi",
+          "topics": "PWBI",
+          "questions": "Quais são as configurações globais indicadas antes de importar os dados, [NAME]?",
+          "answers": [
+            "Desmarcar Detecção Automática de Relações",
+            "Garantir idioma Português (Brasil)",
+            "Desmarcar recursos de visualização em Preview",
+            "Comprar licença Premium imediatamente"
+          ],
+          "correct": [
+            "Desmarcar Detecção Automática de Relações",
+            "Garantir idioma Português (Brasil)",
+            "Desmarcar recursos de visualização em Preview"
+          ],
+          "tip": "Essas opções evitam bugs com moedas, formatos de datas e tabelas vinculadas erroneamente."
+        },
+        {
+          "type": "multiple",
+          "topics": "PWBI",
+          "questions": "Qual a regra de ouro ao importar planilhas brutas no Power BI?",
+          "answers": [
+            "Clicar em 'Transformar Dados' antes de carregar",
+            "Sempre carregar direto",
+            "Salvar como PDF primeiro",
+            "Zerar o computador"
+          ],
+          "correct": "Clicar em 'Transformar Dados' antes de carregar",
+          "tip": "Nunca aceite dados brutos sem verificar qualidade e inconsistências no Power Query."
+        },
+        {
+          "type": "boolean",
+          "topics": "PWBI",
+          "questions": "[NAME], ao excluir linhas vazias e remover colunas inúteis no Power Query, você deleta essas informações do arquivo Excel original.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O arquivo .pbix guarda apenas um espelho e as etapas. A origem permanece intacta."
+        },
+        {
+          "type": "combo",
+          "topics": "PWBI",
+          "questions": "O Power [COMBO] é o editor de consultas, a verdadeira 'linha de qualidade' dos dados.",
+          "options": [
+            "Query",
+            "Point",
+            "Automate",
+            "Apps"
+          ],
+          "correct": "Query",
+          "tip": "Ele grava cada etapa (limpeza, tipagem) e automatiza (RPA) para atualizações futuras."
+        },
+        {
+          "type": "multi",
+          "topics": "PWBI",
+          "questions": "Quais destas ações fazem parte dos passos vitais na limpeza de uma tabela no Power Query?",
+          "answers": [
+            "Renomear a tabela tirando espaços",
+            "Usar primeira linha como cabeçalho",
+            "Corrigir tipos de dados (Texto, Data, Decimal)",
+            "Pintar colunas de amarelo"
+          ],
+          "correct": [
+            "Renomear a tabela tirando espaços",
+            "Usar primeira linha como cabeçalho",
+            "Corrigir tipos de dados (Texto, Data, Decimal)"
+          ],
+          "tip": "Cor é apenas visual, tratamento altera estrutura lógica e matemática da base."
+        },
+        {
+          "type": "drag",
+          "topics": "PWBI",
+          "questions": "No Desafio Logistech, relacione o passo de transformação à sua ação prática:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Renomear Tabelas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Tratar Valores Nulos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Tipos de Dados",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Tirar acentos de TabelaClientes"
+            },
+            {
+              "id": "z2",
+              "label": "Excluir Coluna_Vazia vazia inteira"
+            },
+            {
+              "id": "z3",
+              "label": "Colocar Preço como Número Decimal Fixo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses pequenos ajustes previnem falhas em 90% dos relatórios finais."
+        },
+        {
+          "type": "boolean",
+          "topics": "PWBI",
+          "questions": "Se você mudar o arquivo Excel original de pasta no seu PC, o Power BI continuará atualizando os dados normalmente por magia, [NAME].",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O caminho (link) quebra. A regra de ouro é guardar .pbix e fonte na mesma raiz de pasta."
+        },
+        {
+          "type": "multiple",
+          "topics": "PWBI",
+          "questions": "Qual IA integrada permite automatizar disparo de alertas, como na regra 'atrasos acima de 20%'?",
+          "answers": [
+            "Power Automate",
+            "ChatGPT",
+            "PowerPoint",
+            "Excel Macros"
+          ],
+          "correct": "Power Automate",
+          "tip": "Esta ferramenta compõe a Power Platform agindo em sinergia perfeita com o Power BI."
+        },
+        {
+          "type": "combo",
+          "topics": "PWBI",
+          "questions": "[NAME], a extensão principal salva pelo aplicativo Desktop que contém suas regras e visuais é o [COMBO].",
+          "options": [
+            ".pbix",
+            ".xlsx",
+            ".docx",
+            ".pptx"
+          ],
+          "correct": ".pbix",
+          "trans": "FIM",
+          "tip": "Lembre-se sempre de salvar e manter este arquivo em backup regular."
+        }
+      ]
     }
   ]
 }
