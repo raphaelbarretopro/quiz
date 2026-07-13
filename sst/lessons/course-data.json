@@ -53413,6 +53413,915 @@
           "tip": "Lembre-se sempre de salvar e manter este arquivo em backup regular."
         }
       ]
+    },
+    {
+      "slug": "aula-78",
+      "lesson_info": {
+        "id": "Aula-78",
+        "title": "AULA 78 - POWER BI: COLUNAS AVANÇADAS E FECHAMENTO DE FORMATAÇÃO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "COLUNAS CONDICIONAIS",
+            "desc": "Criação de colunas baseadas em regras lógicas no Power Query.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "LÓGICA E TRATAMENTO",
+            "desc": "A importância da ordem das regras e tratamento de valores nulos.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "COLUNAS DE ÍNDICE",
+            "desc": "Identificadores únicos para relacionamentos entre tabelas.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1556075798-415b22b13e5d?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "BOAS PRÁTICAS E IA",
+            "desc": "Otimização do relatório e conexão com o ecossistema de IA da Microsoft.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em qual guia do Editor de Consultas encontramos a ferramenta Coluna Condicional?",
+          "answers": [
+            "Adicionar Coluna",
+            "Transformar",
+            "Página Inicial",
+            "Exibição"
+          ],
+          "correct": "Adicionar Coluna",
+          "tip": "Ela fica exclusivamente na guia Adicionar Coluna e não aparece na guia Transformar."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a coluna condicional exige o uso de fórmulas complexas para classificar salários e idades.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ela permite classificar dados automaticamente sem o uso de fórmulas complexas."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Pense em uma coluna condicional como um [COMBO] inteligente, que acende uma luz diferente dependendo do valor.",
+          "options": [
+            "semáforo",
+            "relógio",
+            "termômetro",
+            "radar"
+          ],
+          "correct": "semáforo",
+          "tip": "É uma analogia para explicar como as regras reagem aos dados que chegam."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais desses dados podem ser categorizados usando uma Coluna Condicional?",
+          "answers": [
+            "Salários",
+            "Idades",
+            "Status de funcionários",
+            "Cor do monitor"
+          ],
+          "correct": [
+            "Salários",
+            "Idades",
+            "Status de funcionários"
+          ],
+          "tip": "Permite classificar dados como salários, idades, status ou tamanho de famílias."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione as etapas da lógica condicional aos seus resultados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Condição 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Condição 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Caso Contrário",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Se verdadeiro -> Resultado A"
+            },
+            {
+              "id": "z2",
+              "label": "Se não, se verdadeiro -> Resultado B"
+            },
+            {
+              "id": "z3",
+              "label": "Senão -> Resultado C"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A lógica funciona como uma sequência de perguntas em cadeia."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que acontece se o valor analisado não se enquadrar em nenhuma das condições iniciais?",
+          "answers": [
+            "Cai no Caso Contrário",
+            "Gera um erro de sintaxe",
+            "A linha é excluída",
+            "O Power BI trava"
+          ],
+          "correct": "Cai no Caso Contrário",
+          "tip": "O 'Caso Contrário' captura tudo que não foi enquadrado nas condições anteriores."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], na criação de categorias de salário, o 'Caso Contrário' precisa de uma nova regra definida.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Caso Contrário final não precisa de nova regra."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O valor de [COMBO] em uma condicional pode ser um número fixo ou até outra coluna da tabela.",
+          "options": [
+            "comparação",
+            "exclusão",
+            "formatação",
+            "indexação"
+          ],
+          "correct": "comparação",
+          "tip": "Isso é uma funcionalidade poderosa para análises comparativas."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais os passos corretos para criar uma Categoria de Salário?",
+          "answers": [
+            "Selecionar a coluna",
+            "Ir em Adicionar Coluna > Coluna Condicional",
+            "Nomear a coluna",
+            "Apagar a tabela inteira"
+          ],
+          "correct": [
+            "Selecionar a coluna",
+            "Ir em Adicionar Coluna > Coluna Condicional",
+            "Nomear a coluna"
+          ],
+          "tip": "Sempre dê um nome claro antes de criar as regras."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione as regras de salário aos seus resultados na Logistech:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Salário >= 20.000",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Salário >= 10.000",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Abaixo de 10.000",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Categoria A"
+            },
+            {
+              "id": "z2",
+              "label": "Categoria B"
+            },
+            {
+              "id": "z3",
+              "label": "Categoria C"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A Categoria B só é avaliada se o salário não for Categoria A."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que a ferramenta Coluna Condicional cria afinal?",
+          "answers": [
+            "Uma nova coluna com base em regras lógicas",
+            "Um novo banco de dados",
+            "Um gráfico de barras",
+            "Um dashboard interativo"
+          ],
+          "correct": "Uma nova coluna com base em regras lógicas",
+          "tip": "Ela cria uma nova coluna cujo valor é definido por regras lógicas aplicadas sobre outra existente."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], é impossível comparar o valor de uma coluna com outra coluna da mesma tabela usando regras condicionais.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O valor de comparação pode ser um número fixo ou até outra coluna da tabela."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Sempre dê um [COMBO] claro e descritivo antes de criar as regras lógicas.",
+          "options": [
+            "nome",
+            "índice",
+            "filtro",
+            "erro"
+          ],
+          "correct": "nome",
+          "trans": "AGEN",
+          "tip": "O passo 3 é nomear a coluna de forma descritiva."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a regra de ouro ao ordenar as condições lógicas?",
+          "answers": [
+            "Começar pelo valor mais alto ou mais baixo",
+            "Colocar os valores de forma aleatória",
+            "Começar apenas pelos valores médios",
+            "Não importa a ordem das condições"
+          ],
+          "correct": "Começar pelo valor mais alto ou mais baixo",
+          "tip": "Sempre comece pela ponta para evitar que faixas intermediárias 'engulam' as extremas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a segunda condição só é avaliada se a primeira for verdadeira.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A segunda condição só é avaliada se a primeira for falsa."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Ao tentar comparar um valor [COMBO] com uma data, o Power Query gera erro.",
+          "options": [
+            "vazio",
+            "inteiro",
+            "decimal",
+            "booleano"
+          ],
+          "correct": "vazio",
+          "tip": "Não é possível dizer se 'nada' é maior ou menor que uma data."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], como podemos verificar se a coluna condicional foi gerada corretamente?",
+          "answers": [
+            "Clicar no ícone de filtro da coluna",
+            "Ver todas as categorias geradas no filtro",
+            "Desinstalar o Power BI",
+            "Imprimir a tabela em papel"
+          ],
+          "correct": [
+            "Clicar no ícone de filtro da coluna",
+            "Ver todas as categorias geradas no filtro"
+          ],
+          "tip": "Se aparecer algum valor inesperado no filtro, há um caso não tratado nas suas regras."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione as faixas etárias da Logistech:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Idade >= 40 anos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Idade >= 30 anos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Abaixo de 30 anos",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Faixa 1"
+            },
+            {
+              "id": "z2",
+              "label": "Faixa 2"
+            },
+            {
+              "id": "z3",
+              "label": "Faixa 3"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O mesmo princípio de começar pela ponta maior se aplica aqui."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], como resolver o erro gerado por valores nulos ao criar a coluna condicional?",
+          "answers": [
+            "Botão direito na coluna e 'Substituir Erros'",
+            "Formatar o PC",
+            "Ignorar o erro",
+            "Excluir a coluna de datas"
+          ],
+          "correct": "Botão direito na coluna e 'Substituir Erros'",
+          "tip": "Após substituir erros, você pode preencher com 'Funcionário Atual'."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o Power BI conta as datas a partir de 01/01/1900.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse é um macete para verificar se uma data existe: compare com 01/01/1900."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Se o valor não for tratado corretamente nas regras, um valor [COMBO] pode aparecer no filtro.",
+          "options": [
+            "inesperado",
+            "colorido",
+            "invisível",
+            "animado"
+          ],
+          "correct": "inesperado",
+          "tip": "Você pode corrigir isso antes de carregar os dados."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais afirmações são verdadeiras sobre o tratamento de funcionários na Logistech?",
+          "answers": [
+            "A data de demissão fica vazia para ativos",
+            "Comparar valor nulo com data gera erro",
+            "Todos os funcionários têm data de demissão",
+            "É impossível identificar ativos e demitidos"
+          ],
+          "correct": [
+            "A data de demissão fica vazia para ativos",
+            "Comparar valor nulo com data gera erro"
+          ],
+          "tip": "Esse é um cenário real de identificação de colaboradores."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os conceitos de tratamento de dados no Power Query:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "O Problema",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "A Solução",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "O Macete",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Comparar nulo com data gera erro"
+            },
+            {
+              "id": "z2",
+              "label": "Substituir Erros na coluna"
+            },
+            {
+              "id": "z3",
+              "label": "Comparar data com 01/01/1900"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas técnicas ajudam a lidar com datas em branco."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], ao identificar um valor inesperado no filtro, qual a ação recomendada?",
+          "answers": [
+            "Corrigir a regra não tratada",
+            "Fechar o Power Query sem salvar",
+            "Publicar o erro na nuvem",
+            "Apagar o filtro"
+          ],
+          "correct": "Corrigir a regra não tratada",
+          "tip": "Você pode corrigi-lo antes de carregar os dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a Logistech precisa segmentar colaboradores por faixa etária para programas de capacitação diferenciados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse foi o exemplo prático usado para justificar as regras de Idade."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Ao usar regras lógicas, a ordem [COMBO] evita que faixas intermediárias engulam as extremas.",
+          "options": [
+            "correta",
+            "alfabética",
+            "aleatória",
+            "inversa"
+          ],
+          "correct": "correta",
+          "trans": "PROT",
+          "tip": "O erro de sequência compromete a classificação dos dados."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que é uma coluna de índice no Power Query?",
+          "answers": [
+            "Um identificador único e sequencial",
+            "Uma fórmula DAX avançada",
+            "Um gráfico de linhas",
+            "Uma categoria de salário"
+          ],
+          "correct": "Um identificador único e sequencial",
+          "tip": "É como o número do CPF de uma linha, sem repetição."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o número exibido à esquerda das linhas no editor já é uma coluna persistente nos dados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Ele é apenas visual. Só a coluna de índice criada por você é persistente."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O índice é essencial para criar [COMBO] quando você cruza múltiplas tabelas.",
+          "options": [
+            "relacionamentos",
+            "arquivos",
+            "pastas",
+            "cores"
+          ],
+          "correct": "relacionamentos",
+          "tip": "Ele é o elo que conecta os dados corretamente."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são pontos de partida válidos ao criar uma Coluna de Índice?",
+          "answers": [
+            "A partir de 0",
+            "A partir de 1",
+            "A partir de letras",
+            "A partir de emojis"
+          ],
+          "correct": [
+            "A partir de 0",
+            "A partir de 1"
+          ],
+          "tip": "0 é padrão de programação e 1 é mais intuitivo para usuários de negócio."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione os passos para gerir a Coluna de Índice:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Acessar",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Mover",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Desfazer",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Guia Adicionar Coluna"
+            },
+            {
+              "id": "z2",
+              "label": "Para o Início (chave primária)"
+            },
+            {
+              "id": "z3",
+              "label": "Remover no painel Etapas Aplicadas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas são as boas práticas para criar e organizar a coluna."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], por que não se deve excluir a coluna de índice usando o botão direito?",
+          "answers": [
+            "Gera uma etapa extra de remoção",
+            "Corrompe o arquivo do Excel",
+            "Apaga o Windows",
+            "Altera as cores do painel"
+          ],
+          "correct": "Gera uma etapa extra de remoção",
+          "tip": "Etapas acumuladas desnecessariamente tornam o carregamento mais lento."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], se uma tabela já possui uma coluna 'ID_Cliente', você sempre deve criar uma nova coluna de índice.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Criar um segundo índice seria redundante e adicionaria peso ao modelo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A coluna de índice garante a [COMBO] da linha, sem risco de repetição.",
+          "options": [
+            "unicidade",
+            "duplicidade",
+            "formatação",
+            "exclusão"
+          ],
+          "correct": "unicidade",
+          "tip": "Diferente de colunas como CPF, que podem ter erros em bases reais."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quando você DEVE criar um índice?",
+          "answers": [
+            "Quando a tabela não possui coluna com valores únicos",
+            "Quando a coluna de ID tem duplicidades",
+            "Quando você já tem um ID_RH perfeito",
+            "Sempre que abrir o Power BI"
+          ],
+          "correct": [
+            "Quando a tabela não possui coluna com valores únicos",
+            "Quando a coluna de ID tem duplicidades"
+          ],
+          "tip": "Crie apenas quando necessário para garantir a identificação correta."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione a gestão de etapas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Forma Correta",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Forma que Gera Peso",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Resultado Correto",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Remover no painel Etapas Aplicadas"
+            },
+            {
+              "id": "z2",
+              "label": "Clicar com o botão direito e excluir"
+            },
+            {
+              "id": "z3",
+              "label": "Relatório mais leve e rápido"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Ocultar ou gerir etapas afeta o tempo de carregamento."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], a Logistech padroniza o início de suas colunas de índice a partir de qual número?",
+          "answers": [
+            "1",
+            "0",
+            "100",
+            "-1"
+          ],
+          "correct": "1",
+          "tip": "A Logistech usa a partir de 1, que é mais intuitivo para negócios."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], para facilitar a visualização, a boa prática é mover a coluna de índice para o início da tabela.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "trans": "NORM",
+          "tip": "Isso facilita a identificação visual da chave primária."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Após as transformações, é necessário clicar em [COMBO] e Aplicar para carregar os dados.",
+          "options": [
+            "Fechar",
+            "Apagar",
+            "Copiar",
+            "Mesclar"
+          ],
+          "correct": "Fechar",
+          "tip": "Só assim as alterações ficam disponíveis para criar os dashboards."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], as colunas criadas servem de base para integrações com quais ferramentas da Microsoft?",
+          "answers": [
+            "Power Automate",
+            "Copilot e GenIA",
+            "Power BI Service",
+            "PlayStation 5"
+          ],
+          "correct": [
+            "Power Automate",
+            "Copilot e GenIA",
+            "Power BI Service"
+          ],
+          "tip": "Essas ferramentas formam o ecossistema de automação e IA."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o desafio prático à sua solução:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nome Completo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Servidor de E-mail",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Desconto de 20%",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Coluna Personalizada"
+            },
+            {
+              "id": "z2",
+              "label": "Extrair Texto entre Delimitadores"
+            },
+            {
+              "id": "z3",
+              "label": "Multiplicar por 0,2"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses foram os 3 primeiros desafios aplicados aos dados da Logistech."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual tipo de dado deve ser aplicado à coluna de Desconto de 20%?",
+          "answers": [
+            "Número Decimal Fixo",
+            "Texto",
+            "Data/Hora",
+            "Verdadeiro/Falso"
+          ],
+          "correct": "Número Decimal Fixo",
+          "tip": "Isso garante a precisão de valores monetários no Power BI."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], ao extrair o servidor de email, o delimitador de início recomendado foi o '@' e o de fim foi o '.'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Assim isolamos apenas o nome do servidor, como 'gmail' ou 'uol'."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Classificar não é limitar - é revelar a [COMBO] invisível que sempre existiu nos dados.",
+          "options": [
+            "ordem",
+            "bagunça",
+            "cor",
+            "fonte"
+          ],
+          "correct": "ordem",
+          "tip": "Citação do material inspirador da aula."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], no Desafio 3, quais classificações foram usadas para 'Tamanho da Família'?",
+          "answers": [
+            "Pequena",
+            "Média",
+            "Grande",
+            "Gigante"
+          ],
+          "correct": [
+            "Pequena",
+            "Média",
+            "Grande"
+          ],
+          "tip": "A classificação baseia-se no número de filhos: 0, 1 ou 2, e mais de 2."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o conceito ao benefício no ecossistema de IA:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Power Automate",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Copilot",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Power BI Service",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Alertar o gestor via fluxos automáticos"
+            },
+            {
+              "id": "z2",
+              "label": "Gerar narrativas automáticas"
+            },
+            {
+              "id": "z3",
+              "label": "Compartilhamento seguro entre setores"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A estruturação dos dados capacita outras ferramentas a performarem melhor."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com a inspiração da aula, criar colunas condicionais é ensinar a máquina a enxergar o quê?",
+          "answers": [
+            "Padrões",
+            "Apenas números brutos",
+            "Vírus",
+            "Códigos fonte"
+          ],
+          "correct": "Padrões",
+          "tip": "Você está ensinando a máquina a enxergar padrões da mesma forma que um analista."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no desafio do Nome Completo, a fórmula usada unia [Primeiro Nome] e [Sobrenome] sem nenhum espaço entre eles.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O desafio explicitamente pediu para inserir um espaço entre as colunas, usando [Primeiro Nome] & \" \" & [Sobrenome]."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "O botão 'Fechar e Aplicar' fica na guia [COMBO] Inicial do Editor de Consultas.",
+          "options": [
+            "Página",
+            "Exibição",
+            "Transformar",
+            "Excluir"
+          ],
+          "correct": "Página",
+          "tip": "É o último passo para que os dados cheguem aos visuais do relatório."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], ao final do curso, a essência da inteligência aplicada é transformar o quê em decisões?",
+          "answers": [
+            "Dados brutos em categorias",
+            "Caos em respostas significativas",
+            "Padrões em análises estruturadas",
+            "Cores em sons"
+          ],
+          "correct": [
+            "Dados brutos em categorias",
+            "Caos em respostas significativas",
+            "Padrões em análises estruturadas"
+          ],
+          "trans": "FIM",
+          "tip": "Quem aprende a fazer perguntas ao caos aprende a escutar o que os números dizem."
+        }
+      ]
     }
   ]
 }
