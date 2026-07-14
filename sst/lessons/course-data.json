@@ -54322,312 +54322,299 @@
           "tip": "Quem aprende a fazer perguntas ao caos aprende a escutar o que os números dizem."
         }
       ]
-    },
+    },    
     {
       "slug": "aula-79",
       "lesson_info": {
         "id": "Aula-79",
-        "title": "AULA 79 - COMBINAÇÃO DE DADOS E MÚLTIPLAS FONTES NO POWER BI",
+        "title": "AULA 79 - COMBINAÇÃO DE DADOS E MÚLTIPLAS FONTES",
         "topics": [
           {
             "id": "ACID",
             "name": "AGRUPAR DADOS",
-            "desc": "Resumir e agrupar informações por categorias usando o Power Query.",
+            "desc": "Resumo de informações por categorias e métricas agregadas.",
             "color": "#e74c3c",
             "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "AGEN",
             "name": "MESCLAR TABELAS",
-            "desc": "Conectar duas bases com uma coluna em comum, enriquecendo as linhas.",
+            "desc": "Conexão de bases de dados utilizando chaves em comum.",
             "color": "#f1c40f",
-            "img_url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "PROT",
             "name": "ACRESCENTAR CONSULTAS",
-            "desc": "Empilhar bases com a mesma estrutura para criar uma tabela única e completa.",
+            "desc": "Empilhamento de bases com estruturas idênticas.",
             "color": "#3498db",
-            "img_url": "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=1600"
+            "img_url": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1600"
           },
           {
             "id": "NORM",
             "name": "IMPORTAR PASTAS",
-            "desc": "Importar múltiplos arquivos de uma só vez e manter bases sempre atualizadas.",
+            "desc": "Consolidação de diretórios e automação de atualizações.",
             "color": "#2ecc71",
-            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+            "img_url": "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&q=80&w=1600"
           }
         ],
         "sokoban": [
-          "B",
+          "D",
           "A",
-          "S",
-          "E"
+          "D",
+          "O"
         ]
       },
       "questions": [
         {
-          "type": "boolean",
-          "topics": "ACID",
-          "questions": "[NAME], a ferramenta Agrupar Por resume a tabela mostrando cada categoria uma única vez.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Verdadeiro",
-          "tip": "É excelente para consolidações rápidas, como contar funcionários por setor."
-        },
-        {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], qual é o principal objetivo do recurso Agrupar Por no Power Query?",
+          "questions": "[NAME], em uma corporação financeira em 2026, você precisa consolidar 100 mil transações individuais para exibir apenas o saldo total diário por filial. Qual ferramenta do Power Query você deve utilizar para resolver esse cenário da forma mais performática?",
           "answers": [
-            "Resumir dados",
-            "Excluir colunas",
-            "Duplicar tabelas",
-            "Ordenar linhas"
+            "Utilizar a função Agrupar Por, selecionando a filial como critério e a soma das transações como operação.",
+            "Mesclar a tabela de transações com uma tabela auxiliar de calendário.",
+            "Acrescentar a consulta de transações diárias em um banco de dados unificado.",
+            "Criar múltiplas colunas condicionais para separar cada filial e somar os valores manualmente."
           ],
-          "correct": "Resumir dados",
-          "tip": "Ele agrega valores, transformando várias linhas de uma mesma categoria em apenas uma."
+          "correct": "Utilizar a função Agrupar Por, selecionando a filial como critério e a soma das transações como operação.",
+          "tip": "O Agrupar Por resume linhas detalhadas em categorias únicas, aplicando operações matemáticas instantaneamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o Agrupamento Avançado no Power Query permite gerar apenas uma métrica de resultado, como a média salarial, sendo impossível calcular a contagem e a média simultaneamente na mesma consulta.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O modo Avançado serve exatamente para gerar múltiplas colunas de resultado ao mesmo tempo."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "Para descobrir quantos funcionários existem em cada setor, usamos a operação de [COMBO] linhas.",
+          "questions": "Para calcular o número de entregas por cliente e o total financeiro gerado em uma única visualização de consulta, o analista deve utilizar o Agrupamento [COMBO].",
           "options": [
-            "contar",
-            "somar",
-            "mesclar",
-            "deletar"
+            "Avançado",
+            "Básico",
+            "Dinâmico",
+            "Estruturado"
           ],
-          "correct": "contar",
-          "tip": "A contagem de linhas revela o volume de registros em cada agrupamento."
+          "correct": "Avançado",
+          "tip": "O agrupamento avançado é essencial para cruzar mais de uma métrica na mesma operação."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], quais dessas opções são operações matemáticas válidas no Agrupamento Básico?",
+          "questions": "[NAME], quais das opções abaixo representam métricas que podem ser calculadas utilizando a operação básica da ferramenta Agrupar Por no Power Query?",
           "answers": [
-            "Soma",
-            "Contagem de linhas",
-            "Média",
-            "Pintar células"
+            "Contar linhas distintas",
+            "Calcular o máximo de um valor",
+            "Somar os dados de uma coluna numérica",
+            "Inverter a ordem cronológica dos dados"
           ],
           "correct": [
-            "Soma",
-            "Contagem de linhas",
-            "Média"
+            "Contar linhas distinctas",
+            "Calcular o máximo de um valor",
+            "Somar os dados de uma coluna numérica"
           ],
-          "tip": "O Power Query realiza cálculos diretos, mas não aplica formatação visual."
+          "tip": "A ferramenta permite agregações matemáticas e contagens estatísticas, mas não ordenação ou reversão de dados."
         },
         {
           "type": "drag",
           "topics": "ACID",
-          "questions": "Relacione o tipo de agrupamento à sua principal característica:",
+          "questions": "Relacione os conceitos da ferramenta Agrupar Por com suas respectivas características práticas:",
           "items": [
             {
               "id": "d1",
-              "txt": "Básico",
+              "txt": "Duplicar Consulta",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Avançado",
+              "txt": "Agrupamento Básico",
               "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Agrupamento Avançado",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Contar Linhas Distintas",
+              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Gera uma única coluna de resultado"
+              "label": "Preserva os dados originais detalhados"
             },
             {
               "id": "z2",
-              "label": "Gera múltiplas colunas de resultado"
+              "label": "Gera uma única métrica de resultado"
+            },
+            {
+              "id": "z3",
+              "label": "Permite várias agregações simultâneas"
+            },
+            {
+              "id": "z4",
+              "label": "Métrica para remover duplicidades contábeis"
             }
           ],
           "correct": "drag",
-          "tip": "O avançado é ideal quando precisamos de múltiplas métricas simultâneas."
-        },
-        {
-          "type": "boolean",
-          "topics": "ACID",
-          "questions": "[NAME], é considerado uma boa prática duplicar a base original antes de agrupá-la.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Verdadeiro",
-          "tip": "Isso preserva os dados detalhados para análises futuras."
+          "tip": "Sempre duplique a base original antes de agrupar para não perder a granularidade dos dados de origem."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "Se precisarmos da Quantidade de Funcionários e do Total Salarial por área na mesma visão, qual agrupamento devemos usar?",
+          "questions": "[NAME], ao atuar em uma rede de Smart Cities em 2026, você precisa descobrir quantos sensores IoT de qualidade do ar estão ativos em cada bairro. Qual a sequência correta para executar esse resumo no Editor de Consultas?",
           "answers": [
-            "Avançado",
-            "Básico",
-            "Simples",
-            "Composto"
+            "Selecionar a coluna do bairro, clicar em Transformar, escolher Agrupar Por, definir o nome da nova coluna e a operação Contar Linhas.",
+            "Selecionar todas as colunas, clicar em Mesclar, usar o bairro como chave e selecionar a função Contar.",
+            "Clicar em Adicionar Coluna Condicional, criar um contador para cada bairro e depois usar a função Acrescentar.",
+            "Utilizar o recurso de Importar Pasta para ler os dados de cada bairro separadamente e depois resumi-los no Excel."
           ],
-          "correct": "Avançado",
-          "tip": "O agrupamento avançado permite adicionar várias operações na mesma consulta."
+          "correct": "Selecionar a coluna do bairro, clicar em Transformar, escolher Agrupar Por, definir o nome da nova coluna e a operação Contar Linhas.",
+          "tip": "Este é o passo a passo exato para condensar a informação geográfica contando o volume de dispositivos."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], antes de aplicar o agrupamento que consolida os salários por área, a melhor prática é aplicar o Agrupar Por diretamente na base principal para manter o ambiente de consultas o mais limpo e enxuto possível.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "A melhor prática é DUPLICAR a consulta antes de agrupar, preservando a visão analítica completa dos detalhes originais."
         },
         {
           "type": "combo",
           "topics": "ACID",
-          "questions": "O agrupamento [COMBO] permite adicionar mais de uma operação simultaneamente na tabela.",
+          "questions": "Para saber não apenas o custo total, mas também a [COMBO] salarial de um setor, você precisa usar a operação respectiva na ferramenta Agrupar Por.",
           "options": [
-            "Avançado",
-            "Básico",
-            "Simples",
-            "Rápido"
+            "Média",
+            "Junção",
+            "Extração",
+            "Conciliação"
           ],
-          "correct": "Avançado",
-          "tip": "É a escolha certa para criar resumos complexos."
+          "correct": "Média",
+          "tip": "A média é uma das operações estatísticas disponíveis diretamente na interface de agrupamento."
         },
         {
           "type": "multi",
           "topics": "ACID",
-          "questions": "[NAME], no Agrupar Por Avançado, quais cálculos podemos realizar simultaneamente?",
+          "questions": "[NAME], quando estamos formatando a tabela final após um agrupamento salarial, quais ações são recomendadas no Power Query?",
           "answers": [
-            "Soma",
-            "Média",
-            "Máximo",
-            "Exclusão de base"
+            "Renomear a consulta gerada para algo descritivo, como 'CustoPorArea'",
+            "Transformar o total calculado no formato de Número Decimal Fixo",
+            "Excluir permanentemente o arquivo de origem da máquina local",
+            "Manter o nome padrão como 'Tabela1 (2)'"
           ],
           "correct": [
-            "Soma",
-            "Média",
-            "Máximo"
+            "Renomear a consulta gerada para algo descritivo, como 'CustoPorArea'",
+            "Transformar o total calculado no formato de Número Decimal Fixo"
           ],
-          "tip": "Podemos cruzar diferentes métricas quantitativas, mas não comandos de deleção estrutural."
+          "tip": "Boas práticas envolvem nomes claros nas consultas e tipagem de dados correta, como moedas configuradas como Decimal Fixo."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em uma startup de HealthTech, você tem uma tabela com milhares de registros de consultas médicas e precisa saber rapidamente a quantidade de atendimentos por especialidade e o valor máximo cobrado. O que você deve usar?",
+          "answers": [
+            "Agrupamento Avançado, criando duas novas colunas: uma com Contar Linhas e outra com a operação Máximo.",
+            "Agrupamento Básico, gerando duas tabelas separadas e depois mesclando-as.",
+            "Acrescentar Consultas, empilhando as especialidades uma em cima da outra.",
+            "Relacionamentos no Modelo de Dados, conectando a tabela de médicos com a de pacientes."
+          ],
+          "correct": "Agrupamento Avançado, criando duas novas colunas: uma com Contar Linhas e outra com a operação Máximo.",
+          "tip": "O modo avançado é projetado para consolidar múltiplas operações matemáticas na mesma tela de configuração."
         },
         {
           "type": "boolean",
           "topics": "ACID",
-          "questions": "O Agrupamento Básico resolve a grande maioria dos exercícios e necessidades de nível iniciante.",
+          "questions": "A ferramenta Agrupar Por reduz drasticamente a quantidade de linhas de uma tabela, consolidando as ocorrências repetidas de uma categoria em uma linha única.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Muitas vezes, precisamos apenas de um único total ou contagem por categoria."
+          "tip": "Se haviam 500 funcionários em 5 setores, o agrupamento resultará em apenas 5 linhas."
         },
         {
           "type": "multiple",
           "topics": "ACID",
-          "questions": "[NAME], o que acontece fisicamente com a tabela após aplicarmos um Agrupar Por?",
+          "questions": "Qual é a principal justificativa para aplicar a ferramenta Transformar > Agrupar Por em projetos de análise de dados no Power BI corporativo de 2026?",
           "answers": [
-            "O número de linhas é reduzido",
-            "O número de linhas aumenta",
-            "Fica com o mesmo tamanho",
-            "O arquivo é apagado"
+            "Sintetizar grandes volumes de dados brutos em resumos categóricos eficientes para leitura e elaboração de métricas.",
+            "Substituir completamente o processo de modelagem e relacionamentos de dados complexos.",
+            "Garantir que as atualizações em tempo real dos arquivos locais não sobrecarreguem a rede da empresa.",
+            "Corrigir automaticamente os nomes de colunas que foram importados incorretamente do banco de dados."
           ],
-          "correct": "O número de linhas é reduzido",
-          "tip": "Os dados são sumarizados, diminuindo consideravelmente o volume de linhas."
-        },
-        {
-          "type": "drag",
-          "topics": "ACID",
-          "questions": "Associe os passos do processo de Agrupamento ao seu propósito:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Duplicar base",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Agrupar dados",
-              "match": "z2"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Preservar informações originais"
-            },
-            {
-              "id": "z2",
-              "label": "Resumir dados quantitativos"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Cada etapa garante a integridade e objetividade da análise."
-        },
-        {
-          "type": "multiple",
-          "topics": "ACID",
-          "trans": "AGEN",
-          "questions": "[NAME], após agrupar, se precisarmos unir os resultados com outra tabela usando uma coluna em comum, qual recurso devemos usar a seguir?",
-          "answers": [
-            "Mesclar Tabelas",
-            "Acrescentar Consultas",
-            "Agrupar Novamente",
-            "Ordenar Linhas"
-          ],
-          "correct": "Mesclar Tabelas",
-          "tip": "A mesclagem é o próximo passo para enriquecer as colunas do seu modelo."
-        },
-        {
-          "type": "boolean",
-          "topics": "AGEN",
-          "questions": "[NAME], a ferramenta Mesclar Tabelas funciona de forma semelhante ao PROCV do Excel.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Verdadeiro",
-          "tip": "Ambos buscam dados em outra tabela com base em uma chave comum."
+          "correct": "Sintetizar grandes volumes de dados brutos em resumos categóricos eficientes para leitura e elaboração de métricas.",
+          "tip": "O foco do agrupamento é a sumarização analítica, transformando volume bruto em dados estratégicos.",
+          "trans": "AGEN"
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "Para que duas bases possam ser mescladas, o que é estritamente necessário?",
-          "answers": [
-            "Uma coluna em comum",
-            "O mesmo número de linhas",
-            "Cores de formatação iguais",
-            "O mesmo nome de arquivo"
-          ],
-          "correct": "Uma coluna em comum",
-          "tip": "A coluna em comum atua como o elo de ligação entre as informações."
-        },
-        {
-          "type": "combo",
-          "topics": "AGEN",
-          "questions": "A junção do tipo [COMBO] mantém todas as linhas da tabela principal e traz correspondências da segunda.",
-          "options": [
-            "Externa Esquerda",
-            "Interna",
-            "Externa Direita",
-            "Completa"
-          ],
-          "correct": "Externa Esquerda",
-          "tip": "É o tipo de junção mais utilizado no dia a dia."
-        },
-        {
-          "type": "multi",
-          "topics": "AGEN",
-          "questions": "[NAME], quais são os tipos de junção disponíveis ao mesclar consultas no Power Query?",
+          "questions": "[NAME], o setor de dados cruzou a base de 'Transações PIX' com a base de 'Cadastros de Clientes'. O objetivo é manter todas as transações, trazendo os dados do cliente apenas quando houver correspondência. Qual o tipo de junção ideal no Power Query?",
           "answers": [
             "Externa Esquerda",
             "Interna",
             "Externa Completa",
-            "Superior Dupla"
+            "Externa Direita"
+          ],
+          "correct": "Externa Esquerda",
+          "tip": "A Externa Esquerda preserva a integridade de todas as linhas da primeira tabela, preenchendo as colunas anexas onde houver par."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], ao utilizar a ferramenta Mesclar Consultas no Power Query, você está fisicamente empilhando novas linhas na parte inferior da sua tabela original.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Mesclar adiciona novas COLUNAS lado a lado, funcionando de forma semelhante ao PROCV. Empilhar linhas é a função Acrescentar."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Quando você mescla duas tabelas usando a junção [COMBO], o Power Query descarta qualquer linha que não tenha correspondência em ambas as tabelas, mantendo apenas as interseções perfeitas.",
+          "options": [
+            "Interna",
+            "Externa Completa",
+            "Externa Esquerda",
+            "Fuzzy"
+          ],
+          "correct": "Interna",
+          "tip": "A junção Interna age como um filtro duplo: se o ID não existe nas duas pontas, a linha inteira é eliminada da visão final."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], sobre as diferenças arquiteturais entre 'Mesclar Consultas' no Power Query e 'Relacionamentos' no Modelo de Dados, quais afirmações estão corretas para o cenário corporativo atual?",
+          "answers": [
+            "Relacionamentos mantêm as tabelas fisicamente separadas, garantindo um modelo mais leve.",
+            "Mesclar tabelas gigantes fisicamente pode deixar a atualização do relatório mais lenta.",
+            "A mesclagem é inútil e deve ser 100% substituída pelos relacionamentos em qualquer projeto.",
+            "Relacionamentos unem as tabelas fisicamente dentro do Editor de Consultas."
           ],
           "correct": [
-            "Externa Esquerda",
-            "Interna",
-            "Externa Completa"
+            "Relacionamentos mantêm as tabelas fisicamente separadas, garantindo um modelo mais leve.",
+            "Mesclar tabelas gigantes fisicamente pode deixar a atualização do relatório mais lenta."
           ],
-          "tip": "As junções definem quais linhas permanecerão no resultado final."
+          "tip": "Mesclar é essencial quando se precisa exportar uma tabela flat consolidada, mas para análise analítica massiva, relacionamentos são superiores em performance."
         },
         {
           "type": "drag",
           "topics": "AGEN",
-          "questions": "Relacione o tipo de junção ao seu comportamento durante a mesclagem:",
+          "questions": "Associe o tipo de junção ao seu comportamento técnico durante a mesclagem de tabelas:",
           "items": [
             {
               "id": "d1",
@@ -54638,112 +54625,207 @@
               "id": "d2",
               "txt": "Interna",
               "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Externa Completa",
+              "match": "z3"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Traz tudo da primeira tabela"
+              "label": "Mantém tudo da principal, traz dados se achar o par"
             },
             {
               "id": "z2",
-              "label": "Traz apenas as linhas que têm correspondência nas duas"
+              "label": "Remove linhas sem par, preserva apenas correspondências mútuas"
+            },
+            {
+              "id": "z3",
+              "label": "Traz absolutamente tudo de ambas, preenchendo lacunas com Nulo"
             }
           ],
           "correct": "drag",
-          "tip": "Compreender essas junções evita a perda acidental de dados."
-        },
-        {
-          "type": "boolean",
-          "topics": "AGEN",
-          "questions": "[NAME], ao mesclar consultas, estamos fundamentalmente adicionando novas linhas à nossa base de dados principal.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Falso",
-          "tip": "Mesclar adiciona novas COLUNAS, enriquecendo as informações de cada linha."
+          "tip": "Dominar os tipos de junção é fundamental para não perder dados acidentalmente ou gerar valores nulos indesejados."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "Como o Power Query pode resolver o problema de colunas importadas incorretamente com o nome 'column1'?",
+          "questions": "[NAME], em uma plataforma de streaming de 2026, você precisa cruzar a 'Base de Usuários' com a 'Tabela de Assinaturas' para trazer o tipo de plano de cada usuário. Qual o primeiro passo técnico após clicar em Mesclar Consultas?",
           "answers": [
-            "Usar a primeira linha como cabeçalho",
-            "Mesclar assim mesmo",
-            "Apagar a tabela inteira",
-            "Criar uma nova consulta do zero"
+            "Selecionar a tabela secundária na janela e clicar na coluna que serve de chave de ligação em ambas as tabelas (ex: ID_Usuario).",
+            "Expandir as colunas da tabela secundária imediatamente no menu superior.",
+            "Alterar o formato dos dados para texto em todas as colunas antes de validar a junção.",
+            "Criar um agrupamento básico para garantir que não existam duplicatas."
           ],
-          "correct": "Usar a primeira linha como cabeçalho",
-          "tip": "Essa opção promove a primeira linha de dados para os títulos corretos das colunas."
-        },
-        {
-          "type": "combo",
-          "topics": "AGEN",
-          "questions": "O recurso Mesclar Consultas une [COMBO] as tabelas em uma só dentro do Power Query.",
-          "options": [
-            "fisicamente",
-            "virtualmente",
-            "temporariamente",
-            "magicamente"
-          ],
-          "correct": "fisicamente",
-          "tip": "Diferente dos relacionamentos, a mesclagem altera a estrutura da tabela exportada."
-        },
-        {
-          "type": "multi",
-          "topics": "AGEN",
-          "questions": "[NAME], quais são as principais desvantagens de Mesclar consultas grandes em vez de criar um Relacionamento?",
-          "answers": [
-            "Deixa o relatório mais pesado",
-            "Aumenta o tempo de atualização",
-            "Apaga os dados originais",
-            "Gera erro de sintaxe automático"
-          ],
-          "correct": [
-            "Deixa o relatório mais pesado",
-            "Aumenta o tempo de atualização"
-          ],
-          "tip": "Bases muito extensas sofrem impactos de performance quando mescladas fisicamente."
+          "correct": "Selecionar a tabela secundária na janela e clicar na coluna que serve de chave de ligação em ambas as tabelas (ex: ID_Usuario).",
+          "tip": "O Power Query exige que você aponte visualmente qual coluna conecta as duas pontas antes de processar a mesclagem."
         },
         {
           "type": "boolean",
           "topics": "AGEN",
-          "questions": "Criar um Relacionamento no Modelo de Dados é geralmente mais leve e flexível do que Mesclar tabelas no Power Query.",
+          "questions": "Após concluir a operação de mesclagem com sucesso, o Power Query já exibe automaticamente todos os campos da tabela mesclada, sem exigir ações extras do analista.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "A mesclagem gera uma coluna do tipo 'Table'. O analista precisa clicar no ícone de setas duplas para Expandir e escolher as colunas desejadas."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "No contexto corporativo de Business Intelligence, a mesclagem funciona como uma versão extremamente otimizada e turbinada da clássica função [COMBO] originada no Excel.",
+          "options": [
+            "PROCV",
+            "SOMASE",
+            "ÍNDICE",
+            "CONT.NÚM"
+          ],
+          "correct": "PROCV",
+          "tip": "Assim como o PROCV, a mesclagem busca uma referência e traz colunas correspondentes, mas processando milhões de linhas eficientemente."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são as consequências de se utilizar o tipo de junção 'Externa Completa' para mesclar duas bases de dados volumosas com chaves pouco padronizadas?",
+          "answers": [
+            "A tabela resultante terá uma quantidade maciça de valores Nulos onde os dados não convergiram.",
+            "O processamento da consulta será consideravelmente mais pesado e lento.",
+            "Todas as linhas sem correspondência serão automaticamente excluídas pelo sistema.",
+            "O Power BI converterá os dados divergentes em erros de tipagem."
+          ],
+          "correct": [
+            "A tabela resultante terá uma quantidade maciça de valores Nulos onde os dados não convergiram.",
+            "O processamento da consulta será consideravelmente mais pesado e lento."
+          ],
+          "tip": "A externa completa consolida ambos os universos integralmente; se não há match perfeito, ela gera campos em branco (null)."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Você importou a 'BaseCargos' mas percebeu que as nomenclaturas das colunas vieram como Column1, Column2. Qual ajuste crítico deve ser feito antes de tentar mesclá-la com a tabela de Funcionários?",
+          "answers": [
+            "Utilizar o recurso 'Usar a primeira Linha como Cabeçalho' para que a coluna chave receba o nome adequado e possa ser identificada.",
+            "Agrupar a tabela pelas colunas genéricas para forçar a renomeação pelo algoritmo.",
+            "Alterar o tipo de junção para 'Externa Direita' para contornar a falta de cabeçalho.",
+            "Apagar o arquivo de origem e recriar a planilha do zero com formatação nativa de tabela."
+          ],
+          "correct": "Utilizar o recurso 'Usar a primeira Linha como Cabeçalho' para que a coluna chave receba o nome adequado e possa ser identificada.",
+          "tip": "Se a chave de conexão não estiver clara no cabeçalho, a mesclagem e a validação de correspondências ficarão muito mais difíceis."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a opção de 'Desmarcar o prefixo original da coluna' durante a expansão das tabelas mescladas evita que os novos campos venham com nomes extensos e redundantes (ex: BaseCargos.NomeCargo).",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Relacionamentos são a forma nativa e otimizada de conectar dados no Power BI."
+          "tip": "Desmarcar o uso do nome original da tabela como prefixo mantém o modelo de dados limpo e amigável para o usuário final."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Na verificação final da mesclagem, o Power Query informa que '730 de 730 linhas foram encontradas'. Isso indica uma taxa de [COMBO] de 100% entre a base principal e a tabela secundária.",
+          "options": [
+            "Correspondência",
+            "Agrupamento",
+            "Duplicação",
+            "Modelagem"
+          ],
+          "correct": "Correspondência",
+          "tip": "Uma correspondência completa significa que todos os IDs da tabela base encontraram seu respectivo par na tabela de consulta."
         },
         {
           "type": "multiple",
           "topics": "AGEN",
-          "questions": "[NAME], ao finalizar a etapa de mesclagem, o que você deve fazer obrigatoriamente para visualizar os dados da segunda tabela?",
+          "questions": "Por que especialistas em dados do ano de 2026 preferem utilizar o 'Modelo de Dados' para relacionamentos lógicos em vez de 'Mesclar Consultas' em 100% dos relatórios corporativos densos?",
           "answers": [
-            "Expandir a coluna gerada",
-            "Mesclar novamente",
-            "Excluir a coluna chave",
-            "Salvar e fechar o arquivo"
+            "Porque o Modelo de Dados mantém o armazenamento vetorial das colunas separado, sendo mais flexível, consumindo menos memória RAM e garantindo maior velocidade nos dashboards.",
+            "Porque a mesclagem só permite conectar tabelas com menos de dez mil linhas, tornando-se obsoleta para o volume atual de dados.",
+            "Porque o Power Query não consegue executar junções do tipo Externa Esquerda com precisão adequada para balanços fiscais.",
+            "Porque relacionamentos lógicos geram relatórios que não necessitam de atualizações agendadas em nuvem."
           ],
-          "correct": "Expandir a coluna gerada",
-          "tip": "A coluna gerada inicialmente contém o objeto 'Table' que precisa ser desdobrado."
+          "correct": "Porque o Modelo de Dados mantém o armazenamento vetorial das colunas separado, sendo mais flexível, consumindo menos memória RAM e garantindo maior velocidade nos dashboards.",
+          "tip": "Tabelas gigantes fisicamente mescladas criam redundância de dados massiva, estourando a memória e a lentidão do modelo tabular.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], em uma rede de varejo digital, você recebeu 4 planilhas com a mesma estrutura contendo os faturamentos de Q1, Q2, Q3 e Q4. Qual a abordagem estrutural correta para analisá-las de forma temporal unificada?",
+          "answers": [
+            "Usar a função Acrescentar Consultas para empilhar todas as linhas, formando a base de dados consolidada do ano inteiro.",
+            "Usar a ferramenta Mesclar Consultas para adicionar os dados de cada trimestre como colunas ao lado dos dados do trimestre anterior.",
+            "Agrupar as tabelas pelo nome do trimestre, apagando as transações originais.",
+            "Criar 4 dashboards separados e sincronizar os filtros na interface gráfica do Power BI."
+          ],
+          "correct": "Usar a função Acrescentar Consultas para empilhar todas as linhas, formando a base de dados consolidada do ano inteiro.",
+          "tip": "Acrescentar (Append) é a operação voltada para adicionar linhas, empilhando bases que seguem o mesmo padrão arquitetural."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Se você tentar acrescentar uma tabela de 'Funcionários Antigos' e ela não possuir a coluna 'Benefícios' presente na base de 'Funcionários Atuais', o Power Query impedirá o empilhamento e cancelará a operação gerando erro crítico.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O processo não gera erro crítico. O Power Query criará a coluna para todos, e os antigos receberão valores nulos (null) nesse campo."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A principal confusão entre analistas juniores é trocar as funções de junção. Para fixar: Mesclar adiciona novas colunas, enquanto Acrescentar adiciona novas [COMBO].",
+          "options": [
+            "Linhas",
+            "Tabelas",
+            "Variáveis",
+            "Fórmulas"
+          ],
+          "correct": "Linhas",
+          "tip": "Pense no Acrescentar como uma torre de blocos verticais: você coloca os dados empilhados linha a linha na base mestre."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são os cenários clássicos do cotidiano corporativo onde a ferramenta Acrescentar Consultas é a solução definitiva?",
+          "answers": [
+            "Consolidação de dados divididos por período (arquivos mensais ou anuais separados).",
+            "União do histórico de colaboradores, juntando base de ativos com a de desligados.",
+            "Empilhamento de dados gerados por múltiplas filiais da empresa usando o mesmo sistema padrão.",
+            "Busca de descrições longas de produtos em uma tabela dimensional secundária."
+          ],
+          "correct": [
+            "Consolidação de dados divididos por período (arquivos mensais ou anuais separados).",
+            "União do histórico de colaboradores, juntando base de ativos com a de desligados.",
+            "Empilhamento de dados gerados por múltiplas filiais da empresa usando o mesmo sistema padrão."
+          ],
+          "tip": "Buscar descrições em outra tabela é função do Mesclar (adicionar colunas por chave), e não do Acrescentar."
         },
         {
           "type": "drag",
-          "topics": "AGEN",
-          "questions": "Associe a ação de modelagem à sua respectiva ferramenta no Power Query:",
+          "topics": "PROT",
+          "questions": "Relacione o desafio corporativo à ferramenta mais apropriada do Power Query para resolvê-lo:",
           "items": [
             {
               "id": "d1",
-              "txt": "Adicionar Colunas extras",
+              "txt": "Trazer e-mails de uma lista separada usando o CPF",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Adicionar Linhas extras",
+              "txt": "Unir o faturamento de filiais SP, RJ e MG em uma tabela",
               "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Calcular a média de vendas de cada loja matriz",
+              "match": "z3"
             }
           ],
           "zones": [
@@ -54754,403 +54836,286 @@
             {
               "id": "z2",
               "label": "Acrescentar Consultas"
+            },
+            {
+              "id": "z3",
+              "label": "Agrupar Por"
             }
           ],
           "correct": "drag",
-          "tip": "Esta é a regra de ouro para não confundir os dois conceitos."
-        },
-        {
-          "type": "multiple",
-          "topics": "AGEN",
-          "trans": "PROT",
-          "questions": "[NAME], agora que sabemos unir colunas, qual ferramenta devemos usar para empilhar linhas de bases estruturalmente iguais?",
-          "answers": [
-            "Acrescentar Consultas",
-            "Mesclar Avançado",
-            "Agrupar Dados",
-            "Dividir Colunas"
-          ],
-          "correct": "Acrescentar Consultas",
-          "tip": "O Acrescentar (Append) é a solução perfeita para juntar históricos mensais."
-        },
-        {
-          "type": "boolean",
-          "topics": "PROT",
-          "questions": "[NAME], a ferramenta Acrescentar (Append) tem a função de adicionar novas colunas à sua tabela principal.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Falso",
-          "tip": "O Acrescentar empilha dados verticalmente, ou seja, adiciona novas LINHAS."
+          "tip": "CPF é chave (Mesclar). SP, RJ, MG têm a mesma estrutura (Acrescentar). Média por loja é agregação (Agrupar)."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "questions": "O que ocorre se as colunas de duas tabelas não tiverem exatamente o mesmo nome durante a operação de Acrescentar?",
+          "questions": "[NAME], ao utilizar a opção 'Acrescentar Consultas como Novas', qual o impacto real dentro do ambiente do Editor de Consultas?",
           "answers": [
-            "Valores nulos são inseridos onde não há correspondência",
-            "O Power BI trava",
-            "Os nomes das colunas são mesclados",
-            "A operação é automaticamente cancelada"
+            "Cria-se uma nova consulta (uma terceira tabela) mantendo as tabelas originais intactas para validações futuras.",
+            "As duas tabelas de origem são permanentemente deletadas e convertidas em uma tabela temporária.",
+            "O Power Query gera uma interface de relatório no Power BI Desktop focada em gráficos de barra em cascata.",
+            "Modifica diretamente a fonte de dados em Excel ou SQL do servidor da empresa."
           ],
-          "correct": "Valores nulos são inseridos onde não há correspondência",
-          "tip": "O alinhamento depende inteiramente da ortografia idêntica dos cabeçalhos."
-        },
-        {
-          "type": "combo",
-          "topics": "PROT",
-          "questions": "O recurso Acrescentar Consultas é o método ideal para [COMBO] bases que possuem a mesma estrutura.",
-          "options": [
-            "empilhar",
-            "mesclar",
-            "apagar",
-            "dividir"
-          ],
-          "correct": "empilhar",
-          "tip": "Pense em colocar uma pilha de papéis sobre a outra."
-        },
-        {
-          "type": "multi",
-          "topics": "PROT",
-          "questions": "[NAME], em quais destes cenários o uso do Acrescentar é altamente recomendado?",
-          "answers": [
-            "Consolidar vendas mensais",
-            "Unir histórico de funcionários",
-            "Integrar dados de filiais",
-            "Buscar o nome de um cliente pelo ID"
-          ],
-          "correct": [
-            "Consolidar vendas mensais",
-            "Unir histórico de funcionários",
-            "Integrar dados de filiais"
-          ],
-          "tip": "Buscar informações específicas exige um PROCV, o que equivale a Mesclar."
-        },
-        {
-          "type": "drag",
-          "topics": "PROT",
-          "questions": "Relacione o cenário dos nomes das colunas com a consequência ao Acrescentar tabelas:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Nomes exatamente iguais",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Nomes com diferenças",
-              "match": "z2"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Alinhamento perfeito das informações"
-            },
-            {
-              "id": "z2",
-              "label": "Geração de colunas separadas com valores nulos"
-            }
-          ],
-          "correct": "drag",
-          "tip": "É fundamental padronizar os cabeçalhos antes de empilhar."
+          "correct": "Cria-se uma nova consulta (uma terceira tabela) mantendo as tabelas originais intactas para validações futuras.",
+          "tip": "Sempre recomendamos empilhar 'como novas' para ter rastreabilidade se os dados originais continuam corretos e não sobrescrever a etapa."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "[NAME], no Power Query é possível acrescentar três ou mais tabelas simultaneamente em uma única operação.",
+          "questions": "Ao acrescentar dados de ex-funcionários à base de ativos, a coluna 'Data de Demissão' fica preenchida com valores nulos (null) para aqueles que ainda trabalham na companhia.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Existe uma opção dedicada para 'Três ou mais tabelas' na janela de Acrescentar."
-        },
-        {
-          "type": "multiple",
-          "topics": "PROT",
-          "questions": "Ao acrescentar funcionários atuais e antigos, se a base antiga não possuía a coluna 'Benefícios', qual será o resultado para esses registros?",
-          "answers": [
-            "Valor nulo",
-            "Erro de formatação",
-            "Preenchimento com zero",
-            "A linha inteira é excluída"
-          ],
-          "correct": "Valor nulo",
-          "tip": "O sistema preserva a linha, mas marca a informação inexistente como 'null'."
+          "tip": "A divergência estrutural é preenchida com valores vazios quando a informação naturalmente não se aplica àquele grupo."
         },
         {
           "type": "combo",
           "topics": "PROT",
-          "questions": "Para gerar uma base consolidada e manter as originais separadas, usamos a opção Acrescentar Consultas como [COMBO].",
+          "questions": "Quando você acrescenta duas tabelas, o algoritmo do Power Query tenta casar e alinhar os dados rigorosamente pelo [COMBO] das colunas. Se houver divergência, ele cria colunas separadas.",
           "options": [
-            "Novas",
-            "Velhas",
-            "Mescladas",
-            "Agrupadas"
+            "Nome",
+            "Tamanho",
+            "Formato",
+            "Índice"
           ],
-          "correct": "Novas",
-          "tip": "Isso cria uma nova consulta sem destruir a visualização isolada das anteriores."
+          "correct": "Nome",
+          "tip": "Se a base A tem 'Benefícios' e a base B tem 'Benefício', o Power Query criará duas colunas distintas, evidenciando a sensibilidade aos nomes."
         },
         {
           "type": "multi",
           "topics": "PROT",
-          "questions": "[NAME], o que precisamos garantir nas tabelas de origem antes de realizar um Acrescentar perfeito?",
+          "questions": "Para que o processo de Acrescentar Consultas ocorra sem criar dezenas de colunas descentralizadas e bagunçadas, os arquivos originais devem idealmente compartilhar:",
           "answers": [
-            "Mesmo nome exato nas colunas",
-            "Mesmos tipos de dados nas colunas",
-            "Exatamente o mesmo número de linhas",
-            "A mesma data de criação"
+            "A mesma padronização e nomenclatura exata dos cabeçalhos.",
+            "A mesma hierarquia de tipos de dados (texto com texto, data com data).",
+            "A mesma quantidade rigorosa de linhas e registros.",
+            "O mesmo nome de arquivo físico no computador."
           ],
           "correct": [
-            "Mesmo nome exato nas colunas",
-            "Mesmos tipos de dados nas colunas"
+            "A mesma padronização e nomenclatura exata dos cabeçalhos.",
+            "A mesma hierarquia de tipos de dados (texto com texto, data com data)."
           ],
-          "tip": "O número de linhas não importa, pois o objetivo é justamente somar as linhas."
+          "tip": "A quantidade de linhas é irrelevante para o empilhamento, mas os cabeçalhos são o guia mestre para alinhar os dados."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], uma startup do agronegócio rastreia colheitas mensais. Você tem uma consulta estruturada chamada 'Colheita_Atual'. Para o fechamento do ano, você precisa empilhar mais de 5 tabelas diferentes de safras passadas. Qual a forma correta na janela do Acrescentar?",
+          "answers": [
+            "Selecionar a opção 'Três ou mais tabelas', permitindo adicionar todas as fontes na janela de consolidação.",
+            "Acrescentar duas tabelas de cada vez, repetindo o processo até chegar no ano todo.",
+            "Usar a função Mesclar Consultas configurada com junção Externa Completa entre todas as planilhas.",
+            "Agrupar as safras por mês antes de tentar empilhá-las logicamente."
+          ],
+          "correct": "Selecionar a opção 'Três ou mais tabelas', permitindo adicionar todas as fontes na janela de consolidação.",
+          "tip": "O menu de acrescentar possui uma opção nativa e muito ágil para incluir múltiplas consultas ao mesmo tempo na tabela mestre."
         },
         {
           "type": "boolean",
           "topics": "PROT",
-          "questions": "Diferente da mesclagem, a função Acrescentar exige obrigatoriamente que as tabelas possuam uma coluna de chave (ID) para o relacionamento.",
+          "questions": "Se uma tabela possuir as colunas (ID, Valor, Data) e outra possuir apenas (ID, Valor), a operação Acrescentar resultará em erro fatal de desbalanceamento de arquitetura.",
           "answers": [
-            "Verdadeiro",
-            "Falso"
+            "Falso",
+            "Verdadeiro"
           ],
           "correct": "Falso",
-          "tip": "O Acrescentar não cruza dados, apenas empilha pela ordem e nome das colunas."
-        },
-        {
-          "type": "drag",
-          "topics": "PROT",
-          "questions": "Relacione o termo em inglês à sua funcionalidade correspondente no Power Query:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Merge",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Append",
-              "match": "z2"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Mesclar Consultas (Colunas)"
-            },
-            {
-              "id": "z2",
-              "label": "Acrescentar Consultas (Linhas)"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Muitas vezes, a interface ou documentação pode apresentar os termos em inglês."
+          "tip": "Não há erro fatal. O empilhamento acontece, e as linhas originadas da segunda tabela terão 'null' na coluna Data."
         },
         {
           "type": "multiple",
           "topics": "PROT",
-          "trans": "NORM",
-          "questions": "[NAME], empilhar 12 planilhas mensais manualmente dá trabalho. Que recurso automatiza a importação de todos esses arquivos simultaneamente?",
+          "questions": "Qual a principal vantagem estratégica de usar o Acrescentar (Append) para processos de ETL no século da Inteligência Artificial em 2026?",
           "answers": [
-            "Importar Pasta",
-            "Agrupar Múltiplo",
-            "Macros de Atualização",
-            "Mesclar Avançado"
+            "Garante escalabilidade aos modelos preditivos, permitindo empilhar fluxos de novos dados retroativos sem precisar refazer toda a engenharia de dashboards.",
+            "Traduz automaticamente as informações de línguas estrangeiras presentes nas linhas consolidadas.",
+            "Compacta as tabelas na memória gráfica do computador de forma que não é mais preciso atualizar a base remotamente.",
+            "Transforma instantaneamente os dados descritivos em resumos categorizados por geolocalização."
           ],
-          "correct": "Importar Pasta",
-          "tip": "Esse é o recurso definitivo para consolidar diretórios inteiros automaticamente."
+          "correct": "Garante escalabilidade aos modelos preditivos, permitindo empilhar fluxos de novos dados retroativos sem precisar refazer toda a engenharia de dashboards.",
+          "tip": "Acrescentar cria arquiteturas preparadas para receber blocos contínuos de informação, sustentando modelos de ML e análises de longo prazo.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], se você for encarregado de compilar 36 arquivos de vendas mensais referentes aos últimos 3 anos, qual o recurso de obtenção de dados que poupará dezenas de horas de trabalho manual?",
+          "answers": [
+            "Obter Dados > Mais > Pasta, que conectará ao diretório inteiro e processará as transformações em lote.",
+            "Obter Dados > Excel, importando e repetindo a mesclagem 36 vezes.",
+            "Acrescentar Consultas como Novas repetidamente, configurando os tipos de arquivos.",
+            "Exportar todos os dados para um banco de dados SQL e aguardar que a engenharia crie uma procedure."
+          ],
+          "correct": "Obter Dados > Mais > Pasta, que conectará ao diretório inteiro e processará as transformações em lote.",
+          "tip": "Importar uma pasta automatiza o processo de ETL, tratando dezenas de arquivos com mesma estrutura em um único movimento unificado."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "[NAME], o Power BI possui um recurso nativo que permite importar e combinar automaticamente todos os arquivos de uma pasta.",
+          "questions": "[NAME], quando o Power BI importa uma pasta inteira, ele apaga automaticamente o nome do arquivo de origem (como 'Vendas_Jan.xlsx') para proteger a privacidade corporativa.",
           "answers": [
-            "Verdadeiro",
-            "Falso"
+            "Falso",
+            "Verdadeiro"
           ],
-          "correct": "Verdadeiro",
-          "tip": "Isso evita o trabalho maçante de conectar arquivos um por um."
-        },
-        {
-          "type": "multiple",
-          "topics": "NORM",
-          "questions": "Qual é o primeiro passo para iniciar a importação de uma pasta inteira no Power BI?",
-          "answers": [
-            "Obter Dados > Mais > Pasta",
-            "Mesclar Pastas",
-            "Acrescentar Arquivos Múltiplos",
-            "Criar Parâmetro de Diretório"
-          ],
-          "correct": "Obter Dados > Mais > Pasta",
-          "tip": "A opção de pasta fica na seção estendida do menu de obtenção de dados."
+          "correct": "Falso",
+          "tip": "Ele na verdade cria uma coluna extra chamada 'Source.Name' para rastrear exatamente de qual arquivo veio cada lote de linhas, sendo super útil para análises."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "Durante a importação de uma pasta, para unir os arquivos imediatamente, deve-se escolher a opção [COMBO] e Transformar Dados.",
+          "questions": "Ao clicar no botão [COMBO] após apontar para uma pasta, o Power BI analisa uma amostra do primeiro arquivo para entender a estrutura e aplica a mesma lógica de extração em todos os arquivos contidos.",
           "options": [
             "Combinar",
-            "Excluir",
-            "Mesclar",
-            "Dividir"
+            "Arquivar",
+            "Deletar",
+            "Traduzir"
           ],
           "correct": "Combinar",
-          "tip": "A combinação invoca a rotina automática que empilha as planilhas."
+          "tip": "O processo de combinar arquivos cria consultas auxiliares invisíveis que iteram sobre todos os documentos presentes no diretório."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "[NAME], quais das ações abaixo são consideradas boas práticas na organização de arquivos para o Power BI?",
+          "questions": "[NAME], o que acontece tecnicamente em segundo plano quando você utiliza a funcionalidade de Importar Pasta e clica em Combinar e Transformar Dados?",
           "answers": [
-            "Criar uma pasta dedicada por projeto",
-            "Não renomear arquivos após vinculá-los",
-            "Mover os arquivos de lugar diariamente",
-            "Apagar a base original logo após importar"
+            "O Power Query cria um grupo de 'Consultas Auxiliares', incluindo uma função personalizada para ler a estrutura padrão.",
+            "Uma nova coluna é criada evidenciando de qual arquivo específico veio cada conjunto de dados empilhados.",
+            "Os arquivos originais são convertidos obrigatoriamente para o formato proprietário .PBIX.",
+            "O sistema aciona um alerta exigindo senhas de criptografia para cada documento contido na rede."
           ],
           "correct": [
-            "Criar uma pasta dedicada por projeto",
-            "Não renomear arquivos após vinculá-los"
+            "O Power Query cria um grupo de 'Consultas Auxiliares', incluindo uma função personalizada para ler a estrutura padrão.",
+            "Uma nova coluna é criada evidenciando de qual arquivo específico veio cada conjunto de dados empilhados."
           ],
-          "tip": "A estabilidade do caminho de rede é crucial para que o BI atualize sem erros."
+          "tip": "A mágica da importação de pasta é a automação que constrói funções invisíveis para iterar os arquivos e mapear sua origem."
         },
         {
           "type": "drag",
           "topics": "NORM",
-          "questions": "Relacione o problema ao atualizar dados com sua principal causa e solução:",
+          "questions": "Ao lidar com atualização de bases e problemas de caminhos de arquivos, associe a situação com sua respectiva ação recomendada:",
           "items": [
             {
               "id": "d1",
-              "txt": "Erro de Caminho",
+              "txt": "Arquivo no mesmo local, novos dados inseridos no Excel",
               "match": "z1"
             },
             {
               "id": "d2",
-              "txt": "Corrigir o Caminho",
+              "txt": "Erro amarelo indicando que o arquivo não foi encontrado",
               "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Projeto enviado para um colega em outro PC",
+              "match": "z3"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "O arquivo foi movido ou renomeado"
+              "label": "Clicar diretamente no botão Atualizar na página inicial"
             },
             {
               "id": "z2",
-              "label": "Acessar Configurações da Fonte de Dados"
+              "label": "Acessar Configurações de Fonte de Dados e alterar o caminho"
+            },
+            {
+              "id": "z3",
+              "label": "Garantir que as fontes estão na mesma pasta compartilhada e corrigir caminhos"
             }
           ],
           "correct": "drag",
-          "tip": "Saber refazer o caminho evita que você precise reconstruir o dashboard."
-        },
-        {
-          "type": "boolean",
-          "topics": "NORM",
-          "questions": "[NAME], se uma nova planilha de vendas for colada dentro da pasta já importada, basta clicar em 'Atualizar' para que os novos dados entrem no dashboard.",
-          "answers": [
-            "Verdadeiro",
-            "Falso"
-          ],
-          "correct": "Verdadeiro",
-          "tip": "A rotina verifica a pasta e incorpora qualquer novo arquivo que siga o padrão."
+          "tip": "O gerenciamento do caminho absoluto dos arquivos é a fonte do erro mais comum para analistas juniores de BI."
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "O que acontece se movermos o arquivo Excel de origem para a lixeira e tentarmos Atualizar os dados no Power BI?",
+          "questions": "[NAME], em um contexto de segurança de dados em 2026, uma auditoria reorganizou o servidor e moveu a pasta 'Base_Projetos' para um ambiente criptografado. O que acontece com o seu painel do Power BI na próxima atualização agendada?",
           "answers": [
-            "Ocorre um Erro de Conexão",
-            "Ele atualiza normalmente usando cache",
-            "Ele cria um novo arquivo vazio",
-            "O Power BI procura sozinho no PC"
+            "Ele exibirá um erro vermelho/amarelo interrompendo a atualização, pois o caminho absoluto da fonte de dados registrado não existe mais.",
+            "Ele se conectará nativamente ao novo ambiente criptografado através de um escaneamento automático da rede.",
+            "Ele continuará mostrando os dados estáticos antigos infinitamente sem acusar erro.",
+            "Ele transformará todas as informações em valores em branco para proteger a auditoria."
           ],
-          "correct": "Ocorre um Erro de Conexão",
-          "tip": "O Power BI perde o rastreio e falha na conexão, sinalizando o erro."
+          "correct": "Ele exibirá um erro vermelho/amarelo interrompendo a atualização, pois o caminho absoluto da fonte de dados registrado não existe mais.",
+          "tip": "O Power BI não caça arquivos perdidos; se você moveu o documento de raiz, você deve reconfigurar o caminho."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Para resolver um erro de quebra de caminho, a melhor e única prática é excluir totalmente a tabela corrompida do projeto e refazer as etapas de ETL do zero importando do novo local.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Basta usar a 'Configuração da Fonte de Dados', clicar em 'Alterar Fonte' e apontar o novo local sem perder o trabalho anterior."
         },
         {
           "type": "combo",
           "topics": "NORM",
-          "questions": "O processo de tratar bases de dados faz parte do ETL, sigla para Extração, [COMBO] e Carga.",
+          "questions": "As melhores práticas corporativas para organizar um relatório complexo sugerem que você crie uma pasta [COMBO] para cada projeto, agrupando o arquivo .pbix e suas planilhas fonte num ecossistema isolado e sustentável.",
           "options": [
-            "Transformação",
-            "Transferência",
-            "Transação",
-            "Transição"
+            "Dedicada",
+            "Compactada",
+            "Oculta",
+            "Temporária"
           ],
-          "correct": "Transformação",
-          "tip": "Agrupar e Mesclar são exatamente a etapa T (Transformação)."
+          "correct": "Dedicada",
+          "tip": "Manter tudo organizado em pastas dedicadas minimiza imensamente os riscos de corromper caminhos ou mover arquivos por engano."
         },
         {
           "type": "multi",
           "topics": "NORM",
-          "questions": "[NAME], quais ferramentas que estudamos hoje são pilares do processo de ETL no Power Query?",
+          "questions": "[NAME], você acabou de receber um relatório fantástico de um outro departamento, contendo várias planilhas associadas. Quais precauções são consideradas melhores práticas antes de apertar em Atualizar?",
           "answers": [
-            "Agrupar Dados",
-            "Mesclar Tabelas",
-            "Importar Pastas",
-            "Criar Visuais de Gráfico"
+            "Conferir as Configurações da Fonte de Dados para validar se os caminhos locais de pastas batem com a sua máquina.",
+            "Garantir que as planilhas fonte não foram renomeadas de forma amadora pelo criador.",
+            "Desconectar a máquina da internet para forçar uma atualização puramente local.",
+            "Converter todos os gráficos de Inteligência Artificial para formatos visuais de tabela simples."
           ],
           "correct": [
-            "Agrupar Dados",
-            "Mesclar Tabelas",
-            "Importar Pastas"
+            "Conferir as Configurações da Fonte de Dados para validar se os caminhos locais de pastas batem com a sua máquina.",
+            "Garantir que as planilhas fonte não foram renomeadas de forma amadora pelo criador."
           ],
-          "tip": "Gráficos fazem parte da visualização de dados, não do ETL estrutural."
+          "tip": "Caminhos atrelados ao C:/Users/Colega precisam ser remapeados para sua máquina antes que uma atualização possa de fato ocorrer sem erro."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em um projeto ágil focado em inovação de transportes elétricos, o gestor deixou claro: 'O dado separado não toma decisão, ele precisa ser integrado.' Como Agrupar, Mesclar e Acrescentar se encaixam no processo mundialmente conhecido como ETL?",
+          "answers": [
+            "Elas representam a essência da etapa de Transformação (T), onde modelamos, saneamos e enriquecemos os dados para o consumo dos relatórios executivos.",
+            "Elas fazem parte primariamente da Extração (E), lidando exclusivamente com a formatação bruta sem conexão lógica.",
+            "Elas definem a Carga (L), que foca na publicação estética dos gráficos gerados em servidores HTML.",
+            "Essas funções foram aposentadas e não são mais consideradas parte da esteira tradicional de integração em Data Lakes."
+          ],
+          "correct": "Elas representam a essência da etapa de Transformação (T), onde modelamos, saneamos e enriquecemos os dados para o consumo dos relatórios executivos.",
+          "tip": "Extração é pegar o dado. Transformação (onde o Power Query brilha) é moldar, agrupar e empilhar a informação. Carga é carregar para o painel."
         },
         {
           "type": "boolean",
           "topics": "NORM",
-          "questions": "Ao importar uma pasta, o Power BI cria automaticamente uma coluna extra identificando de qual arquivo específico (Source.Name) cada linha veio.",
+          "questions": "Quando novos arquivos são adicionados em uma pasta que já foi conectada ao modelo de dados, não é necessário fazer um novo fluxo de importação, basta atualizar e os novos dados serão combinados e agregados.",
           "answers": [
             "Verdadeiro",
             "Falso"
           ],
           "correct": "Verdadeiro",
-          "tip": "Essa coluna é excelente para rastrear divergências e pode ser excluída caso não seja útil."
-        },
-        {
-          "type": "drag",
-          "topics": "NORM",
-          "questions": "Associe a etapa do ETL ao recurso do Power BI abordado em nossa aula:",
-          "items": [
-            {
-              "id": "d1",
-              "txt": "Extração e Carga",
-              "match": "z1"
-            },
-            {
-              "id": "d2",
-              "txt": "Transformação",
-              "match": "z2"
-            }
-          ],
-          "zones": [
-            {
-              "id": "z1",
-              "label": "Importar Pasta de Arquivos"
-            },
-            {
-              "id": "z2",
-              "label": "Agrupar e Mesclar Tabelas"
-            }
-          ],
-          "correct": "drag",
-          "tip": "Um bom analista domina o ciclo completo do dado."
+          "tip": "É exatamente essa automação incrível que torna a opção 'Importar Pasta' tão vital; arquivos novos na pasta geram atualização instantânea no projeto."
         },
         {
           "type": "multiple",
           "topics": "NORM",
-          "questions": "[NAME], dominar estas quatro ferramentas de Power Query te torna capaz de transformar dados caóticos e espalhados em:",
+          "questions": "Tendo em vista a frase: 'dados separados são apenas fragmentos de uma realidade que ainda não aprendeu a se ver inteira', o que o analista sênior alcança consolidando bases dispersas usando ferramentas avançadas no Power Query?",
           "answers": [
-            "Uma visão integrada e poderosa",
-            "Uma planilha ainda mais confusa",
-            "Múltiplos arquivos separados",
-            "Uma mensagem de erro constante"
+            "Cria uma linguagem analítica fluida, coesa e unificada capaz de pautar decisões que preveem e sustentam o futuro tecnológico das companhias.",
+            "Aumenta a complexidade visual, limitando a visualização dos diretores exclusivamente às antigas matrizes matemáticas.",
+            "Destrói a granularidade primária do modelo corporativo em favor de relatórios sem validação de origem.",
+            "Torna as equipes totalmente dependentes de códigos pesados em linguagens back-end desatualizadas."
           ],
-          "correct": "Uma visão integrada e poderosa",
-          "tip": "O objetivo final de consolidar fontes é trazer clareza para a tomada de decisão."
+          "correct": "Cria uma linguagem analítica fluida, coesa e unificada capaz de pautar decisões que preveem e sustentam o futuro tecnológico das companhias.",
+          "tip": "A consolidação e governança na unificação dos dados garante agilidade e poder para lideranças executivas e analíticas."
         }
       ]
     }
