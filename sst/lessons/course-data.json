@@ -54322,7 +54322,7 @@
           "tip": "Quem aprende a fazer perguntas ao caos aprende a escutar o que os números dizem."
         }
       ]
-    },    
+    },
     {
       "slug": "aula-79",
       "lesson_info": {
@@ -55116,6 +55116,690 @@
           ],
           "correct": "Cria uma linguagem analítica fluida, coesa e unificada capaz de pautar decisões que preveem e sustentam o futuro tecnológico das companhias.",
           "tip": "A consolidação e governança na unificação dos dados garante agilidade e poder para lideranças executivas e analíticas."
+        }
+      ]
+    },
+    {
+      "slug": "aula-80",
+      "lesson_info": {
+        "id": "Aula-80",
+        "title": "AULA 80 - FUNDAMENTOS DE POWER BI E ETL",
+        "topics": [
+          {
+            "id": "ANAL",
+            "name": "ANÁLISE DE DADOS",
+            "desc": "O papel do analista e os 4 níveis de análise.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AMBI",
+            "name": "AMBIENTE E PBIX",
+            "desc": "Estrutura do arquivo .pbix e boas práticas.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "QETL",
+            "name": "POWER QUERY E ETL",
+            "desc": "Extração, transformação, carga e tipagem de dados.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "CRUZ",
+            "name": "CRUZAMENTOS E LÓGICA",
+            "desc": "Mesclar, acrescentar, agrupar e colunas condicionais.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "combo",
+          "topics": "ANAL",
+          "questions": "Se um arquivo mudar de pasta, você deve atualizar o caminho em Configurações da [COMBO].",
+          "options": [
+            "Fonte de Dados",
+            "Exibição",
+            "Página",
+            "Segurança"
+          ],
+          "correct": "Fonte de Dados",
+          "tip": "Não é necessário refazer o projeto, apenas atualizar a fonte."
+        },
+        {
+          "type": "multiple",
+          "topics": "ANAL",
+          "questions": "[NAME], se quisermos descobrir 'Por que aconteceu?', usamos a análise:",
+          "answers": [
+            "Diagnóstica",
+            "Descritiva",
+            "Prescritiva",
+            "Preditiva"
+          ],
+          "correct": "Diagnóstica",
+          "tip": "O objetivo é investigar as causas de um evento."
+        },
+        {
+          "type": "combo",
+          "topics": "ANAL",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista A análise [COMBO] foca em identificar tendências para descobrir o que vai acontecer.",
+          "options": [
+            "Preditiva",
+            "Descritiva",
+            "Prescritiva",
+            "Diagnóstica"
+          ],
+          "correct": "Preditiva",
+          "tip": "Utiliza IA e dados históricos para prever o futuro."
+        },
+        {
+          "type": "combo",
+          "topics": "ANAL",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista Para empilhar planilhas mensais, criando novas linhas, usamos a opção [COMBO] Consultas.",
+          "options": [
+            "Acrescentar",
+            "Mesclar",
+            "Agrupar",
+            "Reduzir"
+          ],
+          "correct": "Acrescentar",
+          "tip": "O 'Acrescentar' coloca uma tabela embaixo da outra."
+        },
+        {
+          "type": "multi",
+          "topics": "ANAL",
+          "questions": "Quais dos seguintes são níveis de análise de dados no ciclo da informação?",
+          "answers": [
+            "Descritiva",
+            "Preditiva",
+            "Criativa",
+            "Prescritiva"
+          ],
+          "correct": [
+            "Descritiva",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "tip": "São 4 níveis: Descritiva, Diagnóstica, Preditiva e Prescritiva."
+        },
+        {
+          "type": "combo",
+          "topics": "ANAL",
+          "questions": "Se um arquivo mudar de pasta, você deve atualizar o caminho em Configurações da [COMBO].",
+          "options": [
+            "Fonte de Dados",
+            "Exibição",
+            "Página",
+            "Segurança"
+          ],
+          "correct": "Fonte de Dados",
+          "tip": "Não é necessário refazer o projeto, apenas atualizar a fonte."
+        },
+        {
+          "type": "combo",
+          "topics": "ANAL",
+          "questions": "A análise [COMBO] foca em identificar tendências para descobrir o que vai acontecer.",
+          "options": [
+            "Preditiva",
+            "Descritiva",
+            "Prescritiva",
+            "Diagnóstica"
+          ],
+          "correct": "Preditiva",
+          "tip": "Utiliza IA e dados históricos para prever o futuro."
+        },
+        {
+          "type": "combo",
+          "topics": "ANAL",
+          "questions": "A análise [COMBO] foca em identificar tendências para descobrir o que vai acontecer.",
+          "options": [
+            "Preditiva",
+            "Descritiva",
+            "Prescritiva",
+            "Diagnóstica"
+          ],
+          "correct": "Preditiva",
+          "tip": "Utiliza IA e dados históricos para prever o futuro."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANAL",
+          "questions": "[NAME], a análise prescritiva sugere ações sobre 'o que devo fazer'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela fornece recomendações inteligentes com base nos dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "ANAL",
+          "questions": "[NAME], a análise prescritiva sugere ações sobre 'o que devo fazer'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela fornece recomendações inteligentes com base nos dados."
+        },
+        {
+          "type": "combo",
+          "topics": "ANAL",
+          "questions": "Para empilhar planilhas mensais, criando novas linhas, usamos a opção [COMBO] Consultas.",
+          "options": [
+            "Acrescentar",
+            "Mesclar",
+            "Agrupar",
+            "Reduzir"
+          ],
+          "correct": "Acrescentar",
+          "tip": "O 'Acrescentar' coloca uma tabela embaixo da outra."
+        },
+        {
+          "type": "combo",
+          "topics": "ANAL",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista Para empilhar planilhas mensais, criando novas linhas, usamos a opção [COMBO] Consultas.",
+          "options": [
+            "Acrescentar",
+            "Mesclar",
+            "Agrupar",
+            "Reduzir"
+          ],
+          "correct": "Acrescentar",
+          "tip": "O 'Acrescentar' coloca uma tabela embaixo da outra.",
+          "trans": "AMBI"
+        },
+        {
+          "type": "multiple",
+          "topics": "AMBI",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista qual recurso funciona de forma semelhante ao PROCV do Excel para unir colunas?",
+          "answers": [
+            "Mesclar Consultas",
+            "Acrescentar Consultas",
+            "Agrupar Por",
+            "Dividir Coluna"
+          ],
+          "correct": "Mesclar Consultas",
+          "tip": "O Mesclar adiciona colunas de uma tabela a outra baseando-se em uma chave comum."
+        },
+        {
+          "type": "boolean",
+          "topics": "AMBI",
+          "questions": "[NAME], o arquivo .pbix altera diretamente a fonte de dados original ao ser salvo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O .pbix salva regras e visuais, mas jamais altera os dados na origem."
+        },
+        {
+          "type": "boolean",
+          "topics": "AMBI",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista o arquivo .pbix altera diretamente a fonte de dados original ao ser salvo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O .pbix salva regras e visuais, mas jamais altera os dados na origem."
+        },
+        {
+          "type": "multiple",
+          "topics": "AMBI",
+          "questions": "Para valores monetários no Power BI, qual tipo de dado é o mais recomendado evitar erros de centavos?",
+          "answers": [
+            "Número Decimal Fixo",
+            "Texto",
+            "Número Inteiro",
+            "Data"
+          ],
+          "correct": "Número Decimal Fixo",
+          "tip": "Evita o desastre silencioso dos erros de arredondamento."
+        },
+        {
+          "type": "combo",
+          "topics": "AMBI",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista A análise [COMBO] foca em identificar tendências para descobrir o que vai acontecer.",
+          "options": [
+            "Preditiva",
+            "Descritiva",
+            "Prescritiva",
+            "Diagnóstica"
+          ],
+          "correct": "Preditiva",
+          "tip": "Utiliza IA e dados históricos para prever o futuro."
+        },
+        {
+          "type": "boolean",
+          "topics": "AMBI",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista a análise prescritiva sugere ações sobre 'o que devo fazer'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela fornece recomendações inteligentes com base nos dados."
+        },
+        {
+          "type": "combo",
+          "topics": "AMBI",
+          "questions": "A análise [COMBO] foca em identificar tendências para descobrir o que vai acontecer.",
+          "options": [
+            "Preditiva",
+            "Descritiva",
+            "Prescritiva",
+            "Diagnóstica"
+          ],
+          "correct": "Preditiva",
+          "tip": "Utiliza IA e dados históricos para prever o futuro."
+        },
+        {
+          "type": "multiple",
+          "topics": "AMBI",
+          "questions": "Qual destas NÃO é uma visão principal dentro do arquivo .pbix?",
+          "answers": [
+            "Relatório",
+            "Dados",
+            "Modelo",
+            "Código Fonte"
+          ],
+          "correct": "Código Fonte",
+          "tip": "As três visões são Relatório, Dados e Modelo (TMDL)."
+        },
+        {
+          "type": "combo",
+          "topics": "AMBI",
+          "questions": "A ferramenta [COMBO] separa o texto em várias partes usando um delimitador, como uma vírgula.",
+          "options": [
+            "Dividir Coluna",
+            "Substituir Valores",
+            "Extrair",
+            "Mesclar"
+          ],
+          "correct": "Dividir Coluna",
+          "tip": "Útil para separar nomes e sobrenomes, por exemplo."
+        },
+        {
+          "type": "boolean",
+          "topics": "AMBI",
+          "questions": "[NAME], a coluna de Índice é utilizada para garantir um ID único para cada linha da tabela.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela normalmente é iniciada a partir do 1 ou 0."
+        },
+        {
+          "type": "boolean",
+          "topics": "AMBI",
+          "questions": "A guia 'Transformar' no Power Query altera a coluna original diretamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa alteração in-place é ideal para formatações como maiúsculas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AMBI",
+          "questions": "A guia 'Transformar' no Power Query altera a coluna original diretamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa alteração in-place é ideal para formatações como maiúsculas."
+        },
+        {
+          "type": "multiple",
+          "topics": "AMBI",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista o que significa a sigla ETL?",
+          "answers": [
+            "Extração, Transformação e Carga",
+            "Edição, Transferência e Leitura",
+            "Entrada, Texto e Lógica",
+            "Exportação, Tabela e Limpeza"
+          ],
+          "correct": "Extração, Transformação e Carga",
+          "tip": "Em inglês: Extract, Transform, Load.",
+          "trans": "QETL"
+        },
+        {
+          "type": "boolean",
+          "topics": "QETL",
+          "questions": "A guia 'Transformar' no Power Query altera a coluna original diretamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa alteração in-place é ideal para formatações como maiúsculas."
+        },
+        {
+          "type": "multiple",
+          "topics": "QETL",
+          "questions": "[NAME], o que significa a sigla ETL?",
+          "answers": [
+            "Extração, Transformação e Carga",
+            "Edição, Transferência e Leitura",
+            "Entrada, Texto e Lógica",
+            "Exportação, Tabela e Limpeza"
+          ],
+          "correct": "Extração, Transformação e Carga",
+          "tip": "Em inglês: Extract, Transform, Load."
+        },
+        {
+          "type": "multi",
+          "topics": "QETL",
+          "questions": "Quais dos seguintes são níveis de análise de dados no ciclo da informação?",
+          "answers": [
+            "Descritiva",
+            "Preditiva",
+            "Criativa",
+            "Prescritiva"
+          ],
+          "correct": [
+            "Descritiva",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "tip": "São 4 níveis: Descritiva, Diagnóstica, Preditiva e Prescritiva."
+        },
+        {
+          "type": "boolean",
+          "topics": "QETL",
+          "questions": "[NAME], o arquivo .pbix altera diretamente a fonte de dados original ao ser salvo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O .pbix salva regras e visuais, mas jamais altera os dados na origem."
+        },
+        {
+          "type": "multiple",
+          "topics": "QETL",
+          "questions": "[NAME], qual recurso funciona de forma semelhante ao PROCV do Excel para unir colunas?",
+          "answers": [
+            "Mesclar Consultas",
+            "Acrescentar Consultas",
+            "Agrupar Por",
+            "Dividir Coluna"
+          ],
+          "correct": "Mesclar Consultas",
+          "tip": "O Mesclar adiciona colunas de uma tabela a outra baseando-se em uma chave comum."
+        },
+        {
+          "type": "boolean",
+          "topics": "QETL",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista A guia 'Transformar' no Power Query altera a coluna original diretamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa alteração in-place é ideal para formatações como maiúsculas."
+        },
+        {
+          "type": "boolean",
+          "topics": "QETL",
+          "questions": "A guia 'Transformar' no Power Query altera a coluna original diretamente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa alteração in-place é ideal para formatações como maiúsculas."
+        },
+        {
+          "type": "multiple",
+          "topics": "QETL",
+          "questions": "[NAME], se quisermos descobrir 'Por que aconteceu?', usamos a análise:",
+          "answers": [
+            "Diagnóstica",
+            "Descritiva",
+            "Prescritiva",
+            "Preditiva"
+          ],
+          "correct": "Diagnóstica",
+          "tip": "O objetivo é investigar as causas de um evento."
+        },
+        {
+          "type": "multi",
+          "topics": "QETL",
+          "questions": "Quais dos seguintes são níveis de análise de dados no ciclo da informação?",
+          "answers": [
+            "Descritiva",
+            "Preditiva",
+            "Criativa",
+            "Prescritiva"
+          ],
+          "correct": [
+            "Descritiva",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "tip": "São 4 níveis: Descritiva, Diagnóstica, Preditiva e Prescritiva."
+        },
+        {
+          "type": "combo",
+          "topics": "QETL",
+          "questions": "A ferramenta [COMBO] separa o texto em várias partes usando um delimitador, como uma vírgula.",
+          "options": [
+            "Dividir Coluna",
+            "Substituir Valores",
+            "Extrair",
+            "Mesclar"
+          ],
+          "correct": "Dividir Coluna",
+          "tip": "Útil para separar nomes e sobrenomes, por exemplo."
+        },
+        {
+          "type": "boolean",
+          "topics": "QETL",
+          "questions": "[NAME], o arquivo .pbix altera diretamente a fonte de dados original ao ser salvo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O .pbix salva regras e visuais, mas jamais altera os dados na origem."
+        },
+        {
+          "type": "multiple",
+          "topics": "QETL",
+          "questions": "[NAME], se quisermos descobrir 'Por que aconteceu?', usamos a análise:",
+          "answers": [
+            "Diagnóstica",
+            "Descritiva",
+            "Prescritiva",
+            "Preditiva"
+          ],
+          "correct": "Diagnóstica",
+          "tip": "O objetivo é investigar as causas de um evento."
+        },
+        {
+          "type": "multiple",
+          "topics": "QETL",
+          "questions": "[NAME], qual tipo de análise responde à pergunta 'O que aconteceu?'",
+          "answers": [
+            "Descritiva",
+            "Diagnóstica",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "correct": "Descritiva",
+          "tip": "Esta análise faz um resumo do passado.",
+          "trans": "CRUZ"
+        },
+        {
+          "type": "multiple",
+          "topics": "CRUZ",
+          "questions": "[NAME], qual tipo de análise responde à pergunta 'O que aconteceu?'",
+          "answers": [
+            "Descritiva",
+            "Diagnóstica",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "correct": "Descritiva",
+          "tip": "Esta análise faz um resumo do passado."
+        },
+        {
+          "type": "multiple",
+          "topics": "CRUZ",
+          "questions": "[NAME], qual recurso funciona de forma semelhante ao PROCV do Excel para unir colunas?",
+          "answers": [
+            "Mesclar Consultas",
+            "Acrescentar Consultas",
+            "Agrupar Por",
+            "Dividir Coluna"
+          ],
+          "correct": "Mesclar Consultas",
+          "tip": "O Mesclar adiciona colunas de uma tabela a outra baseando-se em uma chave comum."
+        },
+        {
+          "type": "boolean",
+          "topics": "CRUZ",
+          "questions": "[NAME], a análise prescritiva sugere ações sobre 'o que devo fazer'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela fornece recomendações inteligentes com base nos dados."
+        },
+        {
+          "type": "multiple",
+          "topics": "CRUZ",
+          "questions": "[NAME], se quisermos descobrir 'Por que aconteceu?', usamos a análise:",
+          "answers": [
+            "Diagnóstica",
+            "Descritiva",
+            "Prescritiva",
+            "Preditiva"
+          ],
+          "correct": "Diagnóstica",
+          "tip": "O objetivo é investigar as causas de um evento."
+        },
+        {
+          "type": "multi",
+          "topics": "CRUZ",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista Quais dos seguintes são níveis de análise de dados no ciclo da informação?",
+          "answers": [
+            "Descritiva",
+            "Preditiva",
+            "Criativa",
+            "Prescritiva"
+          ],
+          "correct": [
+            "Descritiva",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "tip": "São 4 níveis: Descritiva, Diagnóstica, Preditiva e Prescritiva."
+        },
+        {
+          "type": "boolean",
+          "topics": "CRUZ",
+          "questions": "[NAME], a coluna de Índice é utilizada para garantir um ID único para cada linha da tabela.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela normalmente é iniciada a partir do 1 ou 0."
+        },
+        {
+          "type": "multiple",
+          "topics": "CRUZ",
+          "questions": "[NAME], qual tipo de análise responde à pergunta 'O que aconteceu?'",
+          "answers": [
+            "Descritiva",
+            "Diagnóstica",
+            "Preditiva",
+            "Prescritiva"
+          ],
+          "correct": "Descritiva",
+          "tip": "Esta análise faz um resumo do passado."
+        },
+        {
+          "type": "multiple",
+          "topics": "CRUZ",
+          "questions": "[NAME], se quisermos descobrir 'Por que aconteceu?', usamos a análise:",
+          "answers": [
+            "Diagnóstica",
+            "Descritiva",
+            "Prescritiva",
+            "Preditiva"
+          ],
+          "correct": "Diagnóstica",
+          "tip": "O objetivo é investigar as causas de um evento."
+        },
+        {
+          "type": "combo",
+          "topics": "CRUZ",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista Para empilhar planilhas mensais, criando novas linhas, usamos a opção [COMBO] Consultas.",
+          "options": [
+            "Acrescentar",
+            "Mesclar",
+            "Agrupar",
+            "Reduzir"
+          ],
+          "correct": "Acrescentar",
+          "tip": "O 'Acrescentar' coloca uma tabela embaixo da outra."
+        },
+        {
+          "type": "combo",
+          "topics": "CRUZ",
+          "questions": "[NAME], na startup fictícia 'Tech2026', um analista A análise [COMBO] foca em identificar tendências para descobrir o que vai acontecer.",
+          "options": [
+            "Preditiva",
+            "Descritiva",
+            "Prescritiva",
+            "Diagnóstica"
+          ],
+          "correct": "Preditiva",
+          "tip": "Utiliza IA e dados históricos para prever o futuro."
+        },
+        {
+          "type": "combo",
+          "topics": "CRUZ",
+          "questions": "Para empilhar planilhas mensais, criando novas linhas, usamos a opção [COMBO] Consultas.",
+          "options": [
+            "Acrescentar",
+            "Mesclar",
+            "Agrupar",
+            "Reduzir"
+          ],
+          "correct": "Acrescentar",
+          "tip": "O 'Acrescentar' coloca uma tabela embaixo da outra."
+        },
+        {
+          "type": "multiple",
+          "topics": "CRUZ",
+          "questions": "[NAME], qual recurso funciona de forma semelhante ao PROCV do Excel para unir colunas?",
+          "answers": [
+            "Mesclar Consultas",
+            "Acrescentar Consultas",
+            "Agrupar Por",
+            "Dividir Coluna"
+          ],
+          "correct": "Mesclar Consultas",
+          "tip": "O Mesclar adiciona colunas de uma tabela a outra baseando-se em uma chave comum."
         }
       ]
     }
