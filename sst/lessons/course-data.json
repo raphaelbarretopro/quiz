@@ -55802,6 +55802,991 @@
           "tip": "O Mesclar adiciona colunas de uma tabela a outra baseando-se em uma chave comum."
         }
       ]
+    },
+    {
+      "slug": "aula-81",
+      "lesson_info": {
+        "id": "Aula-81",
+        "title": "AULA 81 - MODELAGEM DE DADOS E TABELA CALENDÁRIO NO POWER BI",
+        "topics": [
+          {
+            "id": "RELA",
+            "name": "RELAÇÕES E REDUNDÂNCIA",
+            "desc": "Estruturação eficiente evitando repetição de dados desnecessária.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "CALE",
+            "name": "TABELA CALENDÁRIO",
+            "desc": "A base robusta para análises temporais e filtros de data contínuos.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "CHAV",
+            "name": "CHAVES E CONEXÕES",
+            "desc": "Entendendo Chave Primária, Estrangeira e a mecânica das relações.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "TEMP",
+            "name": "INTELIGÊNCIA DE TEMPO",
+            "desc": "Fórmulas avançadas para comparar períodos e criar indicadores estratégicos.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "RELA",
+          "questions": "[NAME], qual é o principal problema ao utilizarmos a abordagem de mescla de dados em uma única tabela enorme?",
+          "answers": [
+            "Gera colunas duplicadas e torna o arquivo muito mais pesado e lento.",
+            "Acelera o processamento de dados por manter tudo no mesmo lugar.",
+            "Facilita a visualização imediata sem necessidade de cálculos.",
+            "Impede a conexão com bancos de dados em nuvem."
+          ],
+          "correct": "Gera colunas duplicadas e torna o arquivo muito mais pesado e lento.",
+          "tip": "Mesclar todas as características repete informações e prejudica o desempenho do modelo."
+        },
+        {
+          "type": "boolean",
+          "topics": "RELA",
+          "questions": "A abordagem baseada em relações permite que cada informação fique armazenada em uma única tabela, tornando o arquivo mais leve e escalável.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "As tabelas conversam entre si por meio de IDs, evitando repetições."
+        },
+        {
+          "type": "combo",
+          "topics": "RELA",
+          "questions": "Sistemas modernos em 2026 utilizam tabelas conectadas para garantir dados consistentes e evitar a [COMBO] de informações repetidas.",
+          "options": [
+            "Redundância",
+            "Exclusão",
+            "Perda",
+            "Criptografia"
+          ],
+          "correct": "Redundância",
+          "tip": "A redundância silenciosa ocorre quando os mesmos dados são copiados milhares de vezes."
+        },
+        {
+          "type": "multi",
+          "topics": "RELA",
+          "questions": "[NAME], quais são as vantagens de manter as informações únicas e as características em tabelas separadas?",
+          "answers": [
+            "O arquivo final se torna mais leve e rápido.",
+            "É mais fácil de manter e atualizar no futuro.",
+            "Os dados permanecem consistentes ao longo do tempo.",
+            "Aumenta a necessidade de criar fórmulas DAX complexas para leitura simples."
+          ],
+          "correct": [
+            "O arquivo final se torna mais leve e rápido.",
+            "É mais fácil de manter e atualizar no futuro.",
+            "Os dados permanecem consistentes ao longo do tempo."
+          ],
+          "tip": "Bases separadas e relacionadas são a base de um modelo de dados profissional."
+        },
+        {
+          "type": "drag",
+          "topics": "RELA",
+          "questions": "Relacione as abordagens de modelagem com seus respectivos impactos práticos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Abordagem com Mescla",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Abordagem com Relação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Dados inconsistentes",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Arquivo leve e ágil",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gera colunas duplicadas"
+            },
+            {
+              "id": "z2",
+              "label": "Usa IDs para comunicação"
+            },
+            {
+              "id": "z3",
+              "label": "Risco de manter tudo junto"
+            },
+            {
+              "id": "z4",
+              "label": "Benefício de separar tabelas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender o impacto de cada abordagem é crucial para o design de dados."
+        },
+        {
+          "type": "multiple",
+          "topics": "RELA",
+          "questions": "Imagine que você desenvolve o BI de uma rede de fast-food em 2026. Se você colocar os ingredientes de cada sanduíche diretamente na tabela de vendas diárias, o que acontecerá?",
+          "answers": [
+            "A tabela ficará gigantesca, repetindo a lista de ingredientes a cada venda registrada.",
+            "O sistema otimizará automaticamente o peso dos dados no painel.",
+            "Os ingredientes serão ocultados das análises de performance.",
+            "A plataforma criará uma relação virtual para contornar o problema."
+          ],
+          "correct": "A tabela ficará gigantesca, repetindo a lista de ingredientes a cada venda registrada.",
+          "tip": "Isso ilustra o problema prático da redundância em cenários de alto volume de transações."
+        },
+        {
+          "type": "boolean",
+          "topics": "RELA",
+          "questions": "[NAME], em um sistema hospitalar, registrar os dados completos do paciente (nome, idade, histórico) a cada nova consulta na tabela de agendamentos é uma boa prática de modelagem.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O correto é ter uma tabela de Pacientes e apenas referenciar o ID na tabela de Agendamentos."
+        },
+        {
+          "type": "multi",
+          "topics": "RELA",
+          "questions": "Quais cenários abaixo indicam a necessidade urgente de separar dados em tabelas relacionadas?",
+          "answers": [
+            "O nome do gerente repete-se em cada venda que sua equipe realiza.",
+            "A categoria do produto aparece em todas as transações de e-commerce.",
+            "O número da nota fiscal é único e registrado apenas na tabela de faturamento.",
+            "O endereço completo da filial está em cada linha de registro de ponto dos funcionários."
+          ],
+          "correct": [
+            "O nome do gerente repete-se em cada venda que sua equipe realiza.",
+            "A categoria do produto aparece em todas as transações de e-commerce.",
+            "O endereço completo da filial está em cada linha de registro de ponto dos funcionários."
+          ],
+          "tip": "Sempre que uma característica se repete em múltiplas linhas, ela deve ir para uma tabela própria."
+        },
+        {
+          "type": "combo",
+          "topics": "RELA",
+          "questions": "Podemos imaginar a tabela de características como um [COMBO], onde consultamos o significado de um código sem precisar copiá-lo em todas as páginas.",
+          "options": [
+            "Dicionário",
+            "Arquivo de texto",
+            "Backup",
+            "Navegador"
+          ],
+          "correct": "Dicionário",
+          "tip": "Essa analogia ajuda a entender o conceito de referenciar em vez de repetir."
+        },
+        {
+          "type": "multiple",
+          "topics": "RELA",
+          "questions": "Por que sistemas modernos de ERP em nuvem baseiam-se fortemente em modelos relacionais?",
+          "answers": [
+            "Porque garantem a integridade dos dados e reduzem custos de armazenamento.",
+            "Porque a computação em nuvem não suporta tabelas únicas.",
+            "Porque exigem que os usuários saibam programar para acessar relatórios.",
+            "Porque dificultam a extração de dados sensíveis."
+          ],
+          "correct": "Porque garantem a integridade dos dados e reduzem custos de armazenamento.",
+          "tip": "Eficiência e integridade são pilares fundamentais de arquiteturas na nuvem."
+        },
+        {
+          "type": "boolean",
+          "topics": "RELA",
+          "questions": "Ao usar tabelas relacionadas, atualizar a área de atuação de um cargo reflete automaticamente em todos os registros vinculados a ele.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Você altera o dado em um único lugar (na tabela dimensão), e o modelo inteiro é atualizado."
+        },
+        {
+          "type": "drag",
+          "topics": "RELA",
+          "questions": "Associe os termos práticos com suas definições na modelagem de dados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Tabela de Informações",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Tabela de Características",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Referência Cruzada",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Escalabilidade",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Registros únicos, como colaboradores"
+            },
+            {
+              "id": "z2",
+              "label": "Atributos, como detalhes de um cargo"
+            },
+            {
+              "id": "z3",
+              "label": "Uso de IDs para conectar bases"
+            },
+            {
+              "id": "z4",
+              "label": "Capacidade de crescer sem perder velocidade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses são os conceitos fundamentais antes de avançarmos para as datas.",
+          "trans": "CALE"
+        },
+        {
+          "type": "multiple",
+          "topics": "CALE",
+          "questions": "[NAME], por que não devemos criar colunas de mês e ano diretamente na tabela de funcionários?",
+          "answers": [
+            "Porque causa redundância de dados, armazenando o mesmo mês diversas vezes.",
+            "Porque o Power BI não consegue ler formatos de data.",
+            "Porque é impossível calcular a idade sem uma tabela externa.",
+            "Porque datas de nascimento são dados sigilosos e não podem ser transformados."
+          ],
+          "correct": "Porque causa redundância de dados, armazenando o mesmo mês diversas vezes.",
+          "tip": "Assim como outros dados, as características das datas também geram repetição prejudicial."
+        },
+        {
+          "type": "boolean",
+          "topics": "CALE",
+          "questions": "Uma Tabela Calendário serve como uma base centralizada que contém todas as datas possíveis dentro de um período, juntamente com suas características.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Qualquer tabela que precise de informações temporais simplesmente se conecta a ela."
+        },
+        {
+          "type": "combo",
+          "topics": "CALE",
+          "questions": "Para que análises não fiquem incompletas, o calendário precisa ter todos os dias em um intervalo [COMBO], sem pular datas.",
+          "options": [
+            "Contínuo",
+            "Aleatório",
+            "Espaçado",
+            "Intercalado"
+          ],
+          "correct": "Contínuo",
+          "tip": "Buracos no calendário podem corromper as funções de inteligência de tempo."
+        },
+        {
+          "type": "multi",
+          "topics": "CALE",
+          "questions": "Quais das seguintes características podem ser derivadas de uma data em uma Tabela Calendário bem construída?",
+          "answers": [
+            "Semana do Ano",
+            "Trimestre",
+            "Nome do Dia",
+            "Custo de Operação"
+          ],
+          "correct": [
+            "Semana do Ano",
+            "Trimestre",
+            "Nome do Dia"
+          ],
+          "tip": "Custo é uma métrica de negócio, não uma propriedade do calendário."
+        },
+        {
+          "type": "drag",
+          "topics": "CALE",
+          "questions": "Ordene mentalmente o processo e relacione os passos para criar a consulta no Power Query:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Passo 4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Nova Fonte -> Consulta em Branco"
+            },
+            {
+              "id": "z2",
+              "label": "Renomear para BaseCalendario"
+            },
+            {
+              "id": "z3",
+              "label": "Inserir a fórmula padronizada"
+            },
+            {
+              "id": "z4",
+              "label": "Adicionar colunas derivadas de tempo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esse é um procedimento estruturado que você fará em quase todo projeto."
+        },
+        {
+          "type": "multiple",
+          "topics": "CALE",
+          "questions": "Se você estiver construindo um dashboard para uma frota de carros alugados e utilizar as datas apenas das retiradas de veículos, o que acontece com os dias em que não houve locação?",
+          "answers": [
+            "Esses dias simplesmente não existirão no modelo, impedindo análises de ociosidade.",
+            "O sistema preencherá automaticamente esses dias com valores nulos no painel.",
+            "Os veículos ficarão indisponíveis para sempre no banco de dados.",
+            "As métricas de locação serão distorcidas para mostrar lucros irreais."
+          ],
+          "correct": "Esses dias simplesmente não existirão no modelo, impedindo análises de ociosidade.",
+          "tip": "Sem um calendário contínuo, datas sem transações são ignoradas pelo relatório."
+        },
+        {
+          "type": "boolean",
+          "topics": "CALE",
+          "questions": "[NAME], em uma fintech de empréstimos, usar um único calendário central permite cruzar os dados da data de solicitação com os dados da data de quitação de forma eficiente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O calendário unifica todas as dimensões de tempo em um só lugar."
+        },
+        {
+          "type": "combo",
+          "topics": "CALE",
+          "questions": "A fórmula base para gerar datas no Power Query geralmente precisa de uma Data de Início, a Quantidade de Dias e a [COMBO] entre cada registro gerado.",
+          "options": [
+            "Duração",
+            "Subtração",
+            "Frequência Oculta",
+            "Média"
+          ],
+          "correct": "Duração",
+          "tip": "A duração define se os passos serão dia a dia, semana a semana, etc."
+        },
+        {
+          "type": "multi",
+          "topics": "CALE",
+          "questions": "Quais problemas ocorrem ao criar um calendário parcial (apenas com as datas presentes nos dados)?",
+          "answers": [
+            "Análises ficam incompletas por falta de correspondência temporal.",
+            "Resultados e cálculos de inteligência de tempo podem ficar incorretos.",
+            "A base de dados fica significativamente mais rápida.",
+            "Dias sem movimentação financeira desaparecem da visualização."
+          ],
+          "correct": [
+            "Análises ficam incompletas por falta de correspondência temporal.",
+            "Resultados e cálculos de inteligência de tempo podem ficar incorretos.",
+            "Dias sem movimentação financeira desaparecem da visualização."
+          ],
+          "tip": "A continuidade das datas é obrigatória para confiabilidade analítica."
+        },
+        {
+          "type": "multiple",
+          "topics": "CALE",
+          "questions": "Qual botão do Power Query deve ser clicado, após o calendário estar pronto, para que o Power BI processe e carregue as consultas no modelo?",
+          "answers": [
+            "Fechar e Aplicar",
+            "Atualizar Visualizações",
+            "Publicar na Web",
+            "Exportar para Excel"
+          ],
+          "correct": "Fechar e Aplicar",
+          "tip": "Esta ação salva as transformações e as disponibiliza na visão de Modelo de Dados."
+        },
+        {
+          "type": "boolean",
+          "topics": "CALE",
+          "questions": "Não há limite para quais características de data podemos adicionar. Pode-se incluir colunas para 'Início da Semana', identificando sempre o domingo daquele período.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso permite agrupamentos de dados semanais de maneira muito simples."
+        },
+        {
+          "type": "multi",
+          "topics": "CALE",
+          "questions": "[NAME], ao projetar um sistema analítico para 2026, por que automatizamos a data final da tabela calendário até a data atual (LocalNow)?",
+          "answers": [
+            "Para garantir que o calendário esteja sempre atualizado diariamente sem esforço manual.",
+            "Para evitar a criação de datas em anos que ainda não ocorreram, economizando espaço.",
+            "Para impedir que os usuários insiram dados com datas retroativas.",
+            "Para forçar o Power BI a reiniciar a contagem no início de cada mês."
+          ],
+          "correct": [
+            "Para garantir que o calendário esteja sempre atualizado diariamente sem esforço manual.",
+            "Para evitar a criação de datas em anos que ainda não ocorreram, economizando espaço."
+          ],
+          "tip": "A automação com fórmulas dinâmicas torna o relatório autossuficiente."
+        },
+        {
+          "type": "drag",
+          "topics": "CALE",
+          "questions": "Relacione os caminhos de cliques comuns no Power Query ao seu propósito:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Adicionar Coluna -> Mês",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Para a Tabela",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Adicionar Coluna -> Nome do Dia",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Consulta Nula",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Gera o número de 1 a 12"
+            },
+            {
+              "id": "z2",
+              "label": "Converte a lista inicial gerada"
+            },
+            {
+              "id": "z3",
+              "label": "Gera texto como Segunda-feira"
+            },
+            {
+              "id": "z4",
+              "label": "Ponto de partida vazio"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A sequência exata de cliques agiliza o processo de criação.",
+          "trans": "CHAV"
+        },
+        {
+          "type": "multiple",
+          "topics": "CHAV",
+          "questions": "O que define uma Chave Primária (PK) em uma tabela de dimensão?",
+          "answers": [
+            "É um identificador único e exclusivo de cada linha, sem repetições.",
+            "É uma coluna que contém textos descritivos longos sobre a área.",
+            "É o campo que sempre apresenta valores repetidos para cruzamentos.",
+            "É um identificador opcional gerado pelo usuário final."
+          ],
+          "correct": "É um identificador único e exclusivo de cada linha, sem repetições.",
+          "tip": "A chave primária é a impressão digital de um registro específico."
+        },
+        {
+          "type": "boolean",
+          "topics": "CHAV",
+          "questions": "[NAME], a Chave Estrangeira (FK) é a coluna que referencia a chave primária de outra tabela, e por isso ela pode se repetir várias vezes na mesma base.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Exatamente, é ela quem cria a ponte entre as tabelas do modelo."
+        },
+        {
+          "type": "combo",
+          "topics": "CHAV",
+          "questions": "Para construir um modelo sólido, a relação deve ser feita arrastando a coluna da chave estrangeira em direção à chave [COMBO].",
+          "options": [
+            "Primária",
+            "Oculta",
+            "Duplicada",
+            "Texto"
+          ],
+          "correct": "Primária",
+          "tip": "Você arrasta do lado onde os dados se repetem para onde eles são únicos."
+        },
+        {
+          "type": "multi",
+          "topics": "CHAV",
+          "questions": "Quais afirmações abaixo descrevem corretamente a lógica das relações baseadas em chaves?",
+          "answers": [
+            "Elas funcionam como um PROCV automático e permanente.",
+            "Permitem buscar características completas usando apenas um código.",
+            "As chaves primárias não podem conter células em branco.",
+            "As relações consomem o dobro de memória RAM comparadas às mesclas."
+          ],
+          "correct": [
+            "Elas funcionam como um PROCV automático e permanente.",
+            "Permitem buscar características completas usando apenas um código.",
+            "As chaves primárias não podem conter células em branco."
+          ],
+          "tip": "As relações otimizam a memória, contrariando a última afirmação."
+        },
+        {
+          "type": "drag",
+          "topics": "CHAV",
+          "questions": "Associe os ícones da visão de modelo de dados às suas representações:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Extremidade com '1'",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Extremidade com '*'",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Linha Conectora",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Seta na linha",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Lado da Chave Primária (Único)"
+            },
+            {
+              "id": "z2",
+              "label": "Lado da Chave Estrangeira (Muitos)"
+            },
+            {
+              "id": "z3",
+              "label": "A ponte entre as tabelas"
+            },
+            {
+              "id": "z4",
+              "label": "Direção de filtragem dos dados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender os símbolos visuais é essencial para debugar falhas no modelo."
+        },
+        {
+          "type": "multiple",
+          "topics": "CHAV",
+          "questions": "Em um aplicativo de streaming moderno, se quisermos conectar as visualizações diárias (onde usuários assistem vários filmes) à tabela de usuários únicos, que tipo de relação usamos?",
+          "answers": [
+            "Um-para-muitos, ligando o ID único do usuário aos múltiplos registros de visualização.",
+            "Um-para-um, pois cada usuário só assiste a um filme por vida.",
+            "Muitos-para-muitos, gerando ciclos infinitos de recomendação.",
+            "Nenhuma, pois as visualizações devem estar em formato de texto livre."
+          ],
+          "correct": "Um-para-muitos, ligando o ID único do usuário aos múltiplos registros de visualização.",
+          "tip": "Este é o padrão ouro para 95% dos cenários analíticos corporativos."
+        },
+        {
+          "type": "boolean",
+          "topics": "CHAV",
+          "questions": "Em uma operação de galpão logístico, o SKU (código do produto) no cadastro central é a Chave Primária, enquanto esse mesmo SKU na tabela de movimentação diária atua como Chave Estrangeira.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O cadastro é único (PK) e a movimentação registra repetidas vezes a passagem do item (FK)."
+        },
+        {
+          "type": "multi",
+          "topics": "CHAV",
+          "questions": "[NAME], por que não usamos nomes descritivos (ex: 'Analista Sênior') como chave primária, preferindo códigos (ex: 'C-102')?",
+          "answers": [
+            "Porque nomes podem ser digitados com erros de espaço ou acentuação, quebrando a relação.",
+            "Porque cargos podem mudar de nomenclatura no futuro, mas o ID do sistema permanece o mesmo.",
+            "Porque o Power BI não consegue ler colunas de texto de forma alguma.",
+            "Porque IDs padronizados garantem processamento e cruzamento muito mais ágeis no banco."
+          ],
+          "correct": [
+            "Porque nomes podem ser digitados com erros de espaço ou acentuação, quebrando a relação.",
+            "Porque cargos podem mudar de nomenclatura no futuro, mas o ID do sistema permanece o mesmo.",
+            "Porque IDs padronizados garantem processamento e cruzamento muito mais ágeis no banco."
+          ],
+          "tip": "Textos são vulneráveis a erros humanos, enquanto IDs de sistema são imutáveis."
+        },
+        {
+          "type": "combo",
+          "topics": "CHAV",
+          "questions": "Na visão de Modelo de Dados, criar a relação exige apenas que você selecione a coluna com o mouse, arraste e a [COMBO] sobre a correspondente.",
+          "options": [
+            "Solte",
+            "Exclua",
+            "Oculte",
+            "Trave"
+          ],
+          "correct": "Solte",
+          "tip": "O processo é totalmente visual, sem necessidade de escrever códigos em SQL."
+        },
+        {
+          "type": "multiple",
+          "topics": "CHAV",
+          "questions": "A analogia utilizada diz que o Power BI realiza cruzamentos em tempo real sem copiar dados. Isso substitui qual função famosa de planilhas convencionais?",
+          "answers": [
+            "PROCV (ou VLOOKUP)",
+            "SOMASES",
+            "CONT.VALORES",
+            "TABELA DINÂMICA"
+          ],
+          "correct": "PROCV (ou VLOOKUP)",
+          "tip": "As relações eliminam a necessidade de fórmulas de busca pesadas."
+        },
+        {
+          "type": "boolean",
+          "topics": "CHAV",
+          "questions": "O Power BI não permite que você estabeleça uma relação se houver valores em branco na chave primária da tabela de dimensão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Uma chave primária exige que cada linha represente uma entidade válida e única."
+        },
+        {
+          "type": "multi",
+          "topics": "CHAV",
+          "questions": "Quais são as consequências práticas se você tentar conectar duas tabelas sem possuir uma coluna de chave comum entre elas?",
+          "answers": [
+            "O Power BI reportará um erro ou não deixará concluir a linha.",
+            "Os visuais de análise cruzarão todos os dados com todos (Produto Cartesiano), gerando números inflados.",
+            "O sistema adivinhará conexões semânticas com Inteligência Artificial magicamente.",
+            "Filtros de gráficos não afetarão tabelas diferentes."
+          ],
+          "correct": [
+            "O Power BI reportará um erro ou não deixará concluir a linha.",
+            "Os visuais de análise cruzarão todos os dados com todos (Produto Cartesiano), gerando números inflados.",
+            "Filtros de gráficos não afetarão tabelas diferentes."
+          ],
+          "tip": "Chaves correspondentes são o pilar da governança dos dados do relatório."
+        },
+        {
+          "type": "drag",
+          "topics": "CHAV",
+          "questions": "Relacione os problemas às suas prováveis causas na modelagem:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Erro de chave duplicada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Filtro não funciona",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Dados perdidos no painel",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Lentidão extrema",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "A PK não possui valores únicos"
+            },
+            {
+              "id": "z2",
+              "label": "A relação não foi criada ou está desativada"
+            },
+            {
+              "id": "z3",
+              "label": "A FK aponta para um ID que não existe na PK"
+            },
+            {
+              "id": "z4",
+              "label": "Uso excessivo de mescla de tabelas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Troubleshooting (resolução de problemas) é uma habilidade fundamental para desenvolvedores.",
+          "trans": "TEMP"
+        },
+        {
+          "type": "multiple",
+          "topics": "TEMP",
+          "questions": "O que chamamos de Inteligência de Tempo dentro das análises corporativas?",
+          "answers": [
+            "Conjunto de análises que comparam períodos, calculam acumulados e identificam tendências em cima da Tabela Calendário.",
+            "A capacidade do software prever o horário exato que o funcionário vai se aposentar.",
+            "Uma funcionalidade para agendar o envio automático de e-mails do dashboard.",
+            "Uma macro que mede quanto tempo o usuário passa olhando cada gráfico."
+          ],
+          "correct": "Conjunto de análises que comparam períodos, calculam acumulados e identificam tendências em cima da Tabela Calendário.",
+          "tip": "A Tabela Calendário atua como o coração para essas análises avançadas funcionarem."
+        },
+        {
+          "type": "boolean",
+          "topics": "TEMP",
+          "questions": "[NAME], segmentar resultados de faturamento por trimestre com poucos cliques depende inteiramente de uma boa tabela de dimensões focada no tempo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "As colunas criadas no calendário permitem arrastar e criar filtros ágeis."
+        },
+        {
+          "type": "combo",
+          "topics": "TEMP",
+          "questions": "Comparar as vendas deste mês com o mesmo mês do ano passado (MoM) é uma análise típica suportada por fórmulas de [COMBO] de tempo.",
+          "options": [
+            "Inteligência",
+            "Ocultação",
+            "Descarte",
+            "Criptografia"
+          ],
+          "correct": "Inteligência",
+          "tip": "Estas fórmulas exigem a continuidade das datas abordada anteriormente."
+        },
+        {
+          "type": "multi",
+          "topics": "TEMP",
+          "questions": "Quais das opções representam análises avançadas habilitadas pela integração da Calendário ao modelo?",
+          "answers": [
+            "Cálculo de YTD (Acumulado no Ano).",
+            "Comparação de performance ano contra ano (YoY).",
+            "Filtros de dias de semana para identificar picos de serviço.",
+            "Cálculo exato da folha salarial de horas extras com base em fuso horário de Marte."
+          ],
+          "correct": [
+            "Cálculo de YTD (Acumulado no Ano).",
+            "Comparação de performance ano contra ano (YoY).",
+            "Filtros de dias de semana para identificar picos de serviço."
+          ],
+          "tip": "São métricas clássicas utilizadas por diretores para gestão corporativa."
+        },
+        {
+          "type": "drag",
+          "topics": "TEMP",
+          "questions": "Traduza e relacione as siglas corporativas comuns em 2026 para análises de tempo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "YTD (Year-to-Date)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "MTD (Month-to-Date)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "YoY (Year-over-Year)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "QTD (Quarter-to-Date)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Acumulado do início do ano até agora"
+            },
+            {
+              "id": "z2",
+              "label": "Acumulado do início do mês até agora"
+            },
+            {
+              "id": "z3",
+              "label": "Comparativo do ano atual contra ano anterior"
+            },
+            {
+              "id": "z4",
+              "label": "Acumulado dentro do trimestre corrente"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dominar essas nomenclaturas destaca profissionais nas reuniões de diretoria."
+        },
+        {
+          "type": "multiple",
+          "topics": "TEMP",
+          "questions": "Imagine que você audita o faturamento de uma empresa SaaS de energia solar em 2026. Para comparar o crescimento das assinaturas entre o verão atual e o passado, o que é mandatório ter no modelo?",
+          "answers": [
+            "Uma Tabela Calendário ininterrupta conectada à base de contratos ativos.",
+            "Os nomes dos clientes salvos em formato PDF na nuvem.",
+            "Todas as datas da empresa mescladas diretamente na coluna do plano de energia.",
+            "Um cálculo estatístico preditivo rodando em Python separado do relatório."
+          ],
+          "correct": "Uma Tabela Calendário ininterrupta conectada à base de contratos ativos.",
+          "tip": "A inteligência de tempo DAX falha se o modelo tentar comparar feriados e meses fragmentados."
+        },
+        {
+          "type": "boolean",
+          "topics": "TEMP",
+          "questions": "Em um cenário de uma plataforma de venda de passagens aéreas aéreas, é impossível descobrir qual dia da semana tem maior abandono de carrinho sem uma análise que extraia o nome do dia do calendário unificado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O calendário é o responsável por traduzir dados brutos (data) em metadados de gestão (ex: Sábado)."
+        },
+        {
+          "type": "multi",
+          "topics": "TEMP",
+          "questions": "[NAME], por que dizemos que ferramentas de BI dependem da inteligência de tempo para contar narrativas?",
+          "answers": [
+            "Porque 'dados soltos são apenas ruídos' sem contexto histórico.",
+            "Porque comparar metas atuais com históricos fornece base de decisão.",
+            "Porque identificar sazonalidades permite ações antecipadas.",
+            "Porque os painéis precisam de gráficos complexos 3D giratórios para convencer gestores."
+          ],
+          "correct": [
+            "Porque 'dados soltos são apenas ruídos' sem contexto histórico.",
+            "Porque comparar metas atuais com históricos fornece base de decisão.",
+            "Porque identificar sazonalidades permite ações antecipadas."
+          ],
+          "tip": "Narrativa de dados eficiente trata de contexto comparativo, não de recursos visuais supérfluos."
+        },
+        {
+          "type": "combo",
+          "topics": "TEMP",
+          "questions": "Um desenvolvedor que compreende chaves, tabelas separadas e calendário contínuo detém o poder de criar um ecossistema de dados altamente [COMBO] para análises empresariais.",
+          "options": [
+            "Escalável",
+            "Restrito",
+            "Descartável",
+            "Temporário"
+          ],
+          "correct": "Escalável",
+          "tip": "Escalabilidade significa capacidade de crescer sem perder qualidade e rapidez."
+        },
+        {
+          "type": "multiple",
+          "topics": "TEMP",
+          "questions": "Ao final de um processo de modelagem e inteligência de tempo, qual deve ser a principal entrega visual de um profissional em 2026?",
+          "answers": [
+            "Uma narrativa embasada em comparações limpas, respondendo perguntas antes que elas ocorram.",
+            "Uma tabela de Excel de 1500 colunas exportada via e-mail.",
+            "Apresentar a arquitetura técnica pesada diretamente aos acionistas comerciais.",
+            "Focar estritamente nas cores da marca e ignorar os IDs duplicados ocultos no sistema."
+          ],
+          "correct": "Uma narrativa embasada em comparações limpas, respondendo perguntas antes que elas ocorram.",
+          "tip": "A boa modelagem fica nos bastidores, permitindo que a inteligência de negócio brilhe na linha de frente."
+        },
+        {
+          "type": "boolean",
+          "topics": "TEMP",
+          "questions": "A citação \"dados soltos são apenas ruído\" nos lembra que a verdadeira inteligência surge ao sabermos conectar as informações separadas de forma lógica e estratégica.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A arte da modelagem é dar significado aos números organizando-os adequadamente."
+        },
+        {
+          "type": "drag",
+          "topics": "TEMP",
+          "questions": "Relacione os tipos de filtros e agrupamentos à utilidade analítica real no dia a dia corporativo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Semanas do Ano",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Mês a Mês",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Dias da Semana",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Trimestres",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Analisar campanhas táticas ágeis (Ex: Black Friday)"
+            },
+            {
+              "id": "z2",
+              "label": "Acompanhamento de orçamento recorrente e comissões"
+            },
+            {
+              "id": "z3",
+              "label": "Avaliar picos operacionais para escalas de equipes"
+            },
+            {
+              "id": "z4",
+              "label": "Relatórios de resultados globais e planejamento anual"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A granulidade escolhida da inteligência de tempo depende unicamente do tipo de decisão que o negócio precisa."
+        }
+      ]
     }
   ]
 }
