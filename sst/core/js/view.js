@@ -43,6 +43,11 @@ export default class View {
             fbArea: document.getElementById('fb-area'),
             valBtn: document.getElementById('val-btn'),
             nextBtn: document.getElementById('next-btn'),
+            btnPauseQuiz: document.getElementById('btn-pause-quiz'),
+            btnResumeQuiz: document.getElementById('btn-resume-quiz'),
+            quizPauseOverlay: document.getElementById('quiz-pause-overlay'),
+            quizPauseQuestionTime: document.getElementById('quiz-pause-question-time'),
+            quizPauseTotalTime: document.getElementById('quiz-pause-total-time'),
 
             // Modal customizado de feedback (substitui alert nativo).
             feedbackModal: document.getElementById('feedback-modal'),
@@ -258,6 +263,9 @@ export default class View {
         this.minesweeperSession = null;
         this.streakPopupHideTimer = null;
         this.musicRetryHandler = null;
+        this.qTimerRemaining = null;
+        this.qTimerWarningTriggered = false;
+        this.qTimerPaused = false;
 
         this.correctAnswerAudio = new Audio(this.resolveAssetPath('audio/Sonic.mp3'));
         this.correctAnswerAudio.preload = 'auto';
@@ -826,6 +834,14 @@ export default class View {
         this.els.btnGiveUpSokoban.addEventListener('click', handler);
     }
     bindNext(handler) { this.els.nextBtn.addEventListener('click', handler); }
+    bindPauseToggle(handler) {
+        if (this.els.btnPauseQuiz) {
+            this.els.btnPauseQuiz.addEventListener('click', handler);
+        }
+        if (this.els.btnResumeQuiz) {
+            this.els.btnResumeQuiz.addEventListener('click', handler);
+        }
+    }
     bindPacmanTest(handler) {
         // Mantém compatibilidade quando não houver botão de teste do PACMAN no HTML.
         if (!this.els.pacmanTestBtn) return;
@@ -912,6 +928,7 @@ export default class View {
     }
 
     showPortal() {
+        this.hideQuizPauseState();
         this.els.quizScreen.classList.add('hidden');
         this.els.portalScreen.classList.remove('hidden');
         this.els.spinBtn.classList.remove('hidden');
@@ -981,6 +998,7 @@ export default class View {
 
     showSokoban() {
         this.stopQuestionTimer();
+        this.hideQuizPauseState();
         this.els.introModal.classList.add('hidden');
         this.els.portalScreen.classList.add('hidden');
         this.els.quizScreen.classList.add('hidden');
@@ -1059,16 +1077,61 @@ export default class View {
             this.shouldResumeBgMusicOnNextQuestion = false;
             this.resumeGameMusic();
         }
+        this.qTimerRemaining = null;
+        this.qTimerWarningTriggered = false;
+        this.qTimerPaused = false;
         this.qTimerExpired = false;
         if (this.els.qTimerDisplay) {
             this.els.qTimerDisplay.classList.add('hidden');
-            this.els.qTimerDisplay.classList.remove('q-timer-warning', 'q-timer-danger');
+            this.els.qTimerDisplay.classList.remove('q-timer-warning', 'q-timer-danger', 'q-timer-paused');
         }
         if (this.els.qTimeOverlay) {
             this.els.qTimeOverlay.className = 'q-time-overlay';
             this.els.qTimeOverlay.style.opacity = '0';
             this.els.qTimeOverlay.textContent = '';
         }
+    }
+
+    pauseQuestionTimer() {
+        if (!this.qTimerId) return false;
+
+        clearInterval(this.qTimerId);
+        this.qTimerId = null;
+        this.qTimerPaused = true;
+
+        if (this.questionTimerAudio) {
+            this.questionTimerAudio.pause();
+            this.questionTimerAudio.onended = null;
+        }
+        if (this.questionBuzzerAudio) {
+            this.questionBuzzerAudio.pause();
+            this.questionBuzzerAudio.onended = null;
+        }
+        if (this.questionTimer10Audio) {
+            this.questionTimer10Audio.pause();
+        }
+        if (this.els.qTimerDisplay) {
+            this.els.qTimerDisplay.classList.add('q-timer-paused');
+        }
+
+        return true;
+    }
+
+    resumeQuestionTimer() {
+        if (!this.qTimerPaused || !Number.isFinite(this.qTimerRemaining) || this.qTimerRemaining <= 0 || this.qTimerExpired) {
+            return false;
+        }
+
+        this.startQuestionTimer(this.qTimerRemaining, {
+            warningTriggered: this.qTimerWarningTriggered,
+            resumed: true
+        });
+        return true;
+    }
+
+    getQuestionTimerRemainingSeconds() {
+        if (!Number.isFinite(this.qTimerRemaining)) return null;
+        return Math.max(0, Math.floor(this.qTimerRemaining));
     }
 
     showQuizHitText(text, color, persist = false) {
@@ -1082,7 +1145,7 @@ export default class View {
         el.classList.add(persist ? 'q-timer-expired' : 'q-timer-pop');
     }
 
-    startQuestionTimer(totalSecs = 60) {
+    startQuestionTimer(totalSecs = 60, options = {}) {
         if (!this.els.qTimerDisplay) return;
         if (this.isAnyMiniGameActive()) {
             this.stopQuestionTimer();
@@ -1090,22 +1153,23 @@ export default class View {
         }
         this.stopQuestionTimer();
 
-        let remaining = totalSecs;
-        let warningTriggered = false;
+        this.qTimerRemaining = Math.max(0, Math.floor(Number(totalSecs) || 0));
+        this.qTimerWarningTriggered = Boolean(options.warningTriggered);
+        this.qTimerPaused = false;
 
         const updateDisplay = () => {
-            const mins = Math.floor(remaining / 60);
-            const secs = remaining % 60;
+            const mins = Math.floor(this.qTimerRemaining / 60);
+            const secs = this.qTimerRemaining % 60;
             const value = `${mins}:${String(secs).padStart(2, '0')}`;
             if (this.els.qTimerValue) {
                 this.els.qTimerValue.textContent = value;
             } else {
                 this.els.qTimerDisplay.textContent = `⏳ ${value}`;
             }
-            this.els.qTimerDisplay.classList.remove('q-timer-warning', 'q-timer-danger');
-            if (remaining <= 10 && remaining > 5) {
+            this.els.qTimerDisplay.classList.remove('q-timer-warning', 'q-timer-danger', 'q-timer-paused');
+            if (this.qTimerRemaining <= 10 && this.qTimerRemaining > 5) {
                 this.els.qTimerDisplay.classList.add('q-timer-warning');
-            } else if (remaining <= 5) {
+            } else if (this.qTimerRemaining <= 5) {
                 this.els.qTimerDisplay.classList.add('q-timer-danger');
             }
         };
@@ -1114,10 +1178,10 @@ export default class View {
         this.els.qTimerDisplay.classList.remove('hidden');
 
         this.qTimerId = setInterval(() => {
-            remaining--;
+            this.qTimerRemaining--;
 
-            if (remaining === 10 && !warningTriggered) {
-                warningTriggered = true;
+            if (this.qTimerRemaining === 10 && !this.qTimerWarningTriggered) {
+                this.qTimerWarningTriggered = true;
                 this.showQuizHitText('Tempo!!!', '#FFD700', false);
                 this.pauseGameMusic();
                 this.shouldResumeBgMusicOnNextQuestion = true;
@@ -1146,10 +1210,12 @@ export default class View {
                 }
             }
 
-            if (remaining <= 0) {
+            if (this.qTimerRemaining <= 0) {
                 clearInterval(this.qTimerId);
                 this.qTimerId = null;
                 this.qTimerExpired = true;
+                this.qTimerPaused = false;
+                this.qTimerRemaining = 0;
 
                 // Ao acabar o tempo, pausa avisos/sons de contagem para tocar apenas o som final.
                 if (this.questionTimerAudio) {
@@ -1188,6 +1254,39 @@ export default class View {
 
             updateDisplay();
         }, 1000);
+    }
+
+    setPauseButtonState(isPaused = false) {
+        if (!this.els.btnPauseQuiz) return;
+        this.els.btnPauseQuiz.textContent = isPaused ? 'RETOMAR QUIZ' : 'PAUSAR QUIZ';
+        this.els.btnPauseQuiz.setAttribute('aria-pressed', isPaused ? 'true' : 'false');
+    }
+
+    showQuizPauseState({ questionSeconds = null, totalSeconds = 0 } = {}) {
+        this.setPauseButtonState(true);
+
+        if (this.els.quizPauseQuestionTime) {
+            this.els.quizPauseQuestionTime.textContent = Number.isFinite(questionSeconds)
+                ? `Questão: ${this.formatGameTime(questionSeconds)}`
+                : 'Questão: concluída';
+        }
+
+        if (this.els.quizPauseTotalTime) {
+            this.els.quizPauseTotalTime.textContent = `Total: ${this.formatGameTime(totalSeconds)}`;
+        }
+
+        if (this.els.quizPauseOverlay) {
+            this.els.quizPauseOverlay.classList.remove('hidden');
+            this.els.quizPauseOverlay.setAttribute('aria-hidden', 'false');
+        }
+    }
+
+    hideQuizPauseState() {
+        this.setPauseButtonState(false);
+        if (this.els.quizPauseOverlay) {
+            this.els.quizPauseOverlay.classList.add('hidden');
+            this.els.quizPauseOverlay.setAttribute('aria-hidden', 'true');
+        }
     }
 
     _lockAllOptionsOnTimeout() {
@@ -1234,6 +1333,7 @@ export default class View {
     renderQuestion(q, topicData, playerName, answerHandler, currentStep = 0, totalQuestions = 0) {
         // Para o timer da questão anterior antes de qualquer outra operação.
         this.stopQuestionTimer();
+        this.hideQuizPauseState();
 
         // Limpa estado visual da pergunta anterior antes de renderizar a próxima.
         this.els.opts.innerHTML = ""; 
@@ -1705,6 +1805,7 @@ export default class View {
     }
 
     showEndScreen(stats, playerName, totalScore = 0, onShowRanking, totalGameTime = 0) {
+        this.hideQuizPauseState();
         this.updateStreakHud(0, 1, false);
         this.els.quizScreen.innerHTML = `
             <h2 style="font-family:'Audiowide'; color:gold;">🏆 JORNADA CONCLUÍDA: ${playerName}</h2>

@@ -76,6 +76,9 @@ class Controller {
         this.authUser = null;
         this.authUnsubscribe = null;
         this.rankingRealtimeSubscribed = false;
+        this.isQuizPaused = false;
+        this.pauseStartedAt = null;
+        this.totalPausedMs = 0;
 
         // Registra os handlers da interface com o contexto da instância.
         this.view.bindStart(this.handleStart.bind(this));
@@ -105,6 +108,7 @@ class Controller {
         this.view.bindAsteroidsTest(this.handleAsteroidsTest.bind(this));
         this.view.bindMinesweeperTest(this.handleMinesweeperTest.bind(this));
         this.view.bindRankingModalClose(this.handleRankingModalClose.bind(this));
+        this.view.bindPauseToggle(this.handlePauseToggle.bind(this));
     }
 
     getSokobanDurationMsByTopic(topicId) {
@@ -268,6 +272,10 @@ class Controller {
         this.slotRoundId = 0;
         this.slotRoundSpins = [];
         this.slotRoundBaseScore = 0;
+        this.isQuizPaused = false;
+        this.pauseStartedAt = null;
+        this.totalPausedMs = 0;
+        this.view.hideQuizPauseState();
         this.clearGameTimeout();
         this.stopTotalTimer();
         this.view.updateTimerDisplay(this.gameDurationMs / 1000);
@@ -281,8 +289,10 @@ class Controller {
     }
 
     getElapsedGameSeconds() {
-        const startedAt = this.startTime || Date.now();
-        return Math.floor((Date.now() - startedAt) / 1000);
+        if (!this.startTime) return 0;
+        const endReference = this.isQuizPaused && this.pauseStartedAt ? this.pauseStartedAt : Date.now();
+        const elapsedMs = endReference - this.startTime - this.totalPausedMs;
+        return Math.max(0, Math.floor(elapsedMs / 1000));
     }
 
     startTotalTimer() {
@@ -297,6 +307,53 @@ class Controller {
         if (!this.totalTimeTickId) return;
         clearInterval(this.totalTimeTickId);
         this.totalTimeTickId = null;
+    }
+
+    canPauseQuiz() {
+        const quizVisible = this.view?.els?.quizScreen && !this.view.els.quizScreen.classList.contains('hidden');
+        return Boolean(
+            quizVisible
+            && !this.hasTimedOut
+            && !this.isFinalizingQuiz
+            && !this.hasFinalizedQuiz
+            && !this.view.isAnyMiniGameActive()
+        );
+    }
+
+    handlePauseToggle() {
+        if (this.isQuizPaused) {
+            this.resumeQuiz();
+            return;
+        }
+
+        this.pauseQuiz();
+    }
+
+    pauseQuiz() {
+        if (!this.canPauseQuiz() || this.isQuizPaused) return;
+
+        this.isQuizPaused = true;
+        this.pauseStartedAt = Date.now();
+        this.stopTotalTimer();
+        this.view.pauseQuestionTimer();
+        this.view.showQuizPauseState({
+            questionSeconds: this.view.getQuestionTimerRemainingSeconds(),
+            totalSeconds: this.getElapsedGameSeconds()
+        });
+    }
+
+    resumeQuiz() {
+        if (!this.isQuizPaused) return;
+
+        if (this.pauseStartedAt) {
+            this.totalPausedMs += Date.now() - this.pauseStartedAt;
+        }
+
+        this.pauseStartedAt = null;
+        this.isQuizPaused = false;
+        this.view.hideQuizPauseState();
+        this.startTotalTimer();
+        this.view.resumeQuestionTimer();
     }
 
     startGameTimeout() {
@@ -380,6 +437,9 @@ class Controller {
     }
 
     renderStep() {
+        if (this.isQuizPaused) {
+            this.resumeQuiz();
+        }
         this.questionAnswered = false;
         this.isAdvancingStep = false;
         const q = this.model.getCurrentQuestion();
@@ -517,7 +577,7 @@ class Controller {
     }
 
     handleAnswer(selectedValue, btnElement) {
-        if (this.hasTimedOut || this.questionAnswered) return;
+        if (this.hasTimedOut || this.questionAnswered || this.isQuizPaused) return;
         const q = this.model.getCurrentQuestion();
         if (q?.type === 'combo' && this.normalizeAnswerValue(selectedValue) === '') {
             return;
@@ -633,7 +693,7 @@ class Controller {
 
     async handleNext() {
         // Avança no fluxo; ao final, exibe tela de encerramento.
-        if (this.hasTimedOut || this.isFinalizingQuiz || this.hasFinalizedQuiz || this.isAdvancingStep) return;
+        if (this.hasTimedOut || this.isFinalizingQuiz || this.hasFinalizedQuiz || this.isAdvancingStep || this.isQuizPaused) return;
 
         this.isAdvancingStep = true;
 
@@ -691,6 +751,12 @@ class Controller {
             return;
         }
 
+        if (this.isQuizPaused && this.pauseStartedAt) {
+            this.totalPausedMs += Date.now() - this.pauseStartedAt;
+        }
+        this.isQuizPaused = false;
+        this.pauseStartedAt = null;
+        this.view.hideQuizPauseState();
         this.isFinalizingQuiz = true;
         this.clearGameTimeout();
         this.stopTotalTimer();

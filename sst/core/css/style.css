@@ -98,6 +98,96 @@ label,
     position: relative;
 }
 
+.quiz-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.quiz-pause-btn {
+    width: auto;
+    min-width: 180px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #ffe082, #ffb74d);
+    color: #201400;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    box-shadow: 0 0 18px rgba(255, 183, 77, 0.28);
+}
+
+.quiz-pause-btn:hover {
+    filter: brightness(1.04);
+}
+
+.quiz-pause-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 240;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(3, 8, 16, 0.92);
+    border-radius: inherit;
+}
+
+.quiz-pause-card {
+    width: min(100%, 520px);
+    padding: 28px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 224, 130, 0.7);
+    background: radial-gradient(circle at top, rgba(255, 202, 40, 0.18), rgba(7, 16, 28, 0.96) 58%);
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 183, 77, 0.22);
+}
+
+.quiz-pause-kicker {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: var(--font-title);
+    font-size: 0.86rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffe082;
+}
+
+.quiz-pause-card h3 {
+    margin: 0 0 10px;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: #fff5cf;
+}
+
+.quiz-pause-card p {
+    margin: 0;
+    color: #d8e7f5;
+    line-height: 1.6;
+}
+
+.quiz-pause-stats {
+    display: grid;
+    gap: 10px;
+    margin: 18px 0 22px;
+}
+
+.quiz-pause-stats span {
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff7da;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.8px;
+}
+
+.quiz-resume-btn {
+    width: min(100%, 280px);
+    background: linear-gradient(135deg, #7fd6ff, #7af0c2);
+    color: #03131f;
+    font-weight: 800;
+}
+
 .question-counter {
     position: absolute;
     right: 10px;
@@ -1966,6 +2056,13 @@ label,
     color: #ff3333;
     border-color: rgba(255, 50, 50, 0.6);
     animation: qTimerDangerPulse 0.32s ease-in-out infinite alternate;
+}
+
+.q-timer-display.q-timer-paused {
+    color: #d8ebff;
+    border-color: rgba(216, 235, 255, 0.45);
+    animation: none;
+    box-shadow: 0 0 12px rgba(120, 180, 255, 0.28);
 }
 
 @keyframes qTimerWarnPulse {
