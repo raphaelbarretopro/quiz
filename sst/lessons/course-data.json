@@ -56787,6 +56787,896 @@
           "tip": "A granulidade escolhida da inteligência de tempo depende unicamente do tipo de decisão que o negócio precisa."
         }
       ]
+    },
+    {
+      "slug": "aula-88",
+      "lesson_info": {
+        "id": "Aula-88",
+        "title": "AULA 88 - ESTRUTURAÇÃO VISUAL E GRÁFICOS ESSENCIAIS",
+        "topics": [
+          {
+            "id": "ESTR",
+            "name": "ESTRUTURA DOS RELATÓRIOS",
+            "desc": "Visão geral do ambiente, organização de abas e regra de ouro da inserção.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "COLB",
+            "name": "COLUNAS E BARRAS",
+            "desc": "Gráficos empilhados, agrupados, rótulos de dados e formatação condicional.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "LINA",
+            "name": "LINHA, ÁREA E COMBINADOS",
+            "desc": "Evolução temporal, sazonalidade e análise multidimensional.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "FILT",
+            "name": "FILTROS DE DADOS",
+            "desc": "Níveis de filtragem, segmentação e interação direta no relatório.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "E",
+          "I",
+          "X",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ESTR",
+          "questions": "[NAME], qual painel é utilizado para controlar cores, fontes, bordas e detalhes visuais de cada elemento no ambiente de relatórios?",
+          "answers": [
+            "Painel de Visualizações",
+            "Painel de Dados",
+            "Painel de Abas",
+            "Tela Central"
+          ],
+          "correct": "Painel de Visualizações",
+          "tip": "É neste painel que você personaliza o aspecto estético e adiciona os dados ao visual escolhido."
+        },
+        {
+          "type": "boolean",
+          "topics": "ESTR",
+          "questions": "[NAME], a tela central funciona como uma prancheta digital inteligente onde você constrói todas as tabelas e gráficos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A tela em branco é o espaço principal onde todo o trabalho visual e a montagem do dashboard acontecem."
+        },
+        {
+          "type": "combo",
+          "topics": "ESTR",
+          "questions": "Para evitar sobrecarga de informação, você deve organizar o relatório em [COMBO] temáticas, separando dados por setores.",
+          "options": [
+            "Abas",
+            "Tabelas",
+            "Linhas",
+            "Cores"
+          ],
+          "correct": "Abas",
+          "tip": "Agrupar informações relacionadas em páginas diferentes facilita a leitura por públicos específicos."
+        },
+        {
+          "type": "multi",
+          "topics": "ESTR",
+          "questions": "[NAME], quais são consideradas boas práticas para a organização da estrutura do seu relatório?",
+          "answers": [
+            "Criar uma aba inicial de Resumo Geral",
+            "Nomear as abas com nomes descritivos",
+            "Colocar todos os visuais possíveis em uma única aba",
+            "Evitar sobrecarregar uma aba com muitos elementos"
+          ],
+          "correct": [
+            "Criar uma aba inicial de Resumo Geral",
+            "Nomear as abas com nomes descritivos",
+            "Evitar sobrecarregar uma aba com muitos elementos"
+          ],
+          "tip": "O excesso de informação em um só lugar prejudica a tomada de decisão."
+        },
+        {
+          "type": "drag",
+          "topics": "ESTR",
+          "questions": "Relacione os itens que podem ser inseridos no relatório às suas funções:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Imagens",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Caixa de Texto",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Formas",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Visuais",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Dar identidade visual (ex: Logos)"
+            },
+            {
+              "id": "z2",
+              "label": "Adicionar títulos e explicações"
+            },
+            {
+              "id": "z3",
+              "label": "Separar seções do relatório"
+            },
+            {
+              "id": "z4",
+              "label": "Gráficos e tabelas interativas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses elementos compõem o cenário antes mesmo da inserção dos dados complexos."
+        },
+        {
+          "type": "multiple",
+          "topics": "ESTR",
+          "questions": "Imagine que em 2026, você gerencia uma rede de estações de recarga para carros elétricos. Para iniciar qualquer gráfico de forma segura, o que você deve arrastar primeiro para o visual?",
+          "answers": [
+            "O campo de valor numérico (ex: kWh consumido)",
+            "O rótulo do eixo (ex: Nome da Estação)",
+            "A legenda de cores (ex: Status da Bateria)",
+            "A imagem com a logo da sua empresa"
+          ],
+          "correct": "O campo de valor numérico (ex: kWh consumido)",
+          "tip": "Sem um número, é impossível validar se a estrutura do gráfico está funcionando adequadamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "ESTR",
+          "questions": "[NAME], no Painel de Dados, você encontra a lista com todas as tabelas e colunas disponíveis para utilizar no seu projeto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É dali que você arrasta os campos para construir suas métricas visuais."
+        },
+        {
+          "type": "combo",
+          "topics": "ESTR",
+          "questions": "O conjunto de regras essenciais ensina que você só deve adicionar as legendas e rótulos de eixo [COMBO] inserir um valor.",
+          "options": [
+            "Depois de",
+            "Antes de",
+            "Em vez de",
+            "Para não"
+          ],
+          "correct": "Depois de",
+          "tip": "Esta é a Regra de Ouro para montagem de gráficos eficientes."
+        },
+        {
+          "type": "multi",
+          "topics": "ESTR",
+          "questions": "[NAME], ao estruturar o layout inicial do seu projeto visual, o que você pode editar livremente para compor o fundo da tela?",
+          "answers": [
+            "Logomarcas da corporação",
+            "Linhas divisórias coloridas",
+            "O algoritmo de extração de dados brutos",
+            "Caixas de texto com rótulos explicativos"
+          ],
+          "correct": [
+            "Logomarcas da corporação",
+            "Linhas divisórias coloridas",
+            "Caixas de texto com rótulos explicativos"
+          ],
+          "tip": "A estrutura visual e o layout não alteram a forma como a base de dados é extraída internamente."
+        },
+        {
+          "type": "drag",
+          "topics": "ESTR",
+          "questions": "Combine as etapas para organizar as abas do seu relatório:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Renomear",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Adicionar nova",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Excluir",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Clicar duas vezes sobre o nome"
+            },
+            {
+              "id": "z2",
+              "label": "Clicar no botão +"
+            },
+            {
+              "id": "z3",
+              "label": "Clicar no X ao lado do nome"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A gestão das páginas é semelhante à navegação em planilhas ou navegadores web."
+        },
+        {
+          "type": "multiple",
+          "topics": "ESTR",
+          "questions": "Uma startup de drones agrícolas precisa exibir métricas para diferentes departamentos. Como você deve organizar o painel para não confundir os gerentes?",
+          "answers": [
+            "Criando uma aba para Operações, outra para Vendas e outra para Manutenção",
+            "Colocando os 30 gráficos misturados na tela inicial",
+            "Usando um único gráfico gigante com todos os dados empilhados",
+            "Ocultando o Painel de Dados para os gerentes não verem"
+          ],
+          "correct": "Criando uma aba para Operações, outra para Vendas e outra para Manutenção",
+          "tip": "A separação temática em páginas garante que cada setor foque nas métricas que lhe cabem."
+        },
+        {
+          "type": "boolean",
+          "topics": "ESTR",
+          "questions": "[NAME], adicionar formas e linhas na tela central serve apenas para estética e não ajuda em nada na leitura técnica do dashboard.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "trans": "COLB",
+          "tip": "Elas separam seções visualmente, direcionando a leitura e diminuindo a carga cognitiva."
+        },
+        {
+          "type": "multiple",
+          "topics": "COLB",
+          "questions": "[NAME], qual tipo de gráfico exibe a proporção percentual de cada parte dentro do todo, sendo útil quando o tamanho absoluto não importa?",
+          "answers": [
+            "Barra / Coluna 100% Empilhada",
+            "Barra / Coluna Agrupada",
+            "Gráfico de Área",
+            "Barra / Coluna Empilhada Tradicional"
+          ],
+          "correct": "Barra / Coluna 100% Empilhada",
+          "tip": "Ele nivela todas as colunas no mesmo topo (100%), evidenciando apenas a distribuição relativa."
+        },
+        {
+          "type": "combo",
+          "topics": "COLB",
+          "questions": "Se você precisa comparar valores absolutos de forma direta entre categorias paralelas, o ideal é usar um gráfico [COMBO].",
+          "options": [
+            "Agrupado",
+            "Empilhado",
+            "Percentual",
+            "Combinado"
+          ],
+          "correct": "Agrupado",
+          "tip": "Ele posiciona as barras lado a lado, facilitando a verificação de quem obteve o maior valor exato."
+        },
+        {
+          "type": "drag",
+          "topics": "COLB",
+          "questions": "Associe os campos de um gráfico de colunas às suas respectivas funções de quebra de dados:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Eixo X",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Legenda",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Cria colunas separadas para cada categoria primária"
+            },
+            {
+              "id": "z2",
+              "label": "Divide internamente a mesma barra com cores diferentes"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber a diferença entre eixo e legenda é crucial para contar a história certa."
+        },
+        {
+          "type": "boolean",
+          "topics": "COLB",
+          "questions": "A formatação condicional por gradiente colore as barras dinamicamente, realçando do menor para o maior valor através de um espectro de cores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É um ótimo recurso visual para identificar anomalias, como um desempenho muito baixo em vermelho."
+        },
+        {
+          "type": "multi",
+          "topics": "COLB",
+          "questions": "[NAME], quais são os benefícios diretos de ativar os Rótulos de Dados em um visual de colunas?",
+          "answers": [
+            "Mostrar o número exato diretamente sobre a barra",
+            "Dispensar o uso constante do eixo Y para adivinhar valores",
+            "Alterar a base de dados subjacente automaticamente",
+            "Permitir edição de tamanho e cor do texto exibido"
+          ],
+          "correct": [
+            "Mostrar o número exato diretamente sobre a barra",
+            "Dispensar o uso constante do eixo Y para adivinhar valores",
+            "Permitir edição de tamanho e cor do texto exibido"
+          ],
+          "tip": "Rótulos facilitam a leitura rápida e não mexem na fonte de dados."
+        },
+        {
+          "type": "multiple",
+          "topics": "COLB",
+          "questions": "Uma rede de academias de ginástica premium quer ver de relance qual plano (Básico, Plus, Ultra) traz mais alunos ativos em cada filial. Qual a melhor opção visual?",
+          "answers": [
+            "Colunas Empilhadas com filiais no Eixo e planos na Legenda",
+            "Colunas 100% Empilhadas apenas com os planos",
+            "Gráfico de linhas simples",
+            "Caixas de texto soltas pela página"
+          ],
+          "correct": "Colunas Empilhadas com filiais no Eixo e planos na Legenda",
+          "tip": "A barra representa o total de alunos da filial, e as fatias coloridas revelam os diferentes planos embutidos."
+        },
+        {
+          "type": "combo",
+          "topics": "COLB",
+          "questions": "Para enriquecer um gráfico sem poluir a tela principal, você pode arrastar informações complementares para o campo de [COMBO].",
+          "options": [
+            "Dica de Ferramenta",
+            "Eixo Y Secundário",
+            "Rótulo de Dados",
+            "Filtro de Top N"
+          ],
+          "correct": "Dica de Ferramenta",
+          "tip": "Ao passar o mouse, uma caixinha flutuante revela esses dados extras."
+        },
+        {
+          "type": "boolean",
+          "topics": "COLB",
+          "questions": "[NAME], a diferença lógica entre gráfico de barra e gráfico de coluna é gigantesca e requer dados organizados de formas distintas.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "A lógica é idêntica; apenas a orientação muda (barra é horizontal, coluna é vertical)."
+        },
+        {
+          "type": "multi",
+          "topics": "COLB",
+          "questions": "O que ocorre visualmente quando aplicamos a variável de 'Status' em um Gráfico de Colunas Agrupadas?",
+          "answers": [
+            "As colunas ficam lado a lado para cada status",
+            "A altura de cada barra foca na comparação direta do grupo",
+            "A barra se torna uma só, dividida em cores",
+            "É possível analisar o desempenho dos subgrupos facilmente"
+          ],
+          "correct": [
+            "As colunas ficam lado a lado para cada status",
+            "A altura de cada barra foca na comparação direta do grupo",
+            "É possível analisar o desempenho dos subgrupos facilmente"
+          ],
+          "tip": "A fragmentação em blocos paralelos caracteriza o formato agrupado."
+        },
+        {
+          "type": "drag",
+          "topics": "COLB",
+          "questions": "Ajuste os passos para aplicar o Gradiente em um visual de colunas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Passo 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Passo 2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Passo 3",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ir ao painel de Formatar seu Visual"
+            },
+            {
+              "id": "z2",
+              "label": "Clicar no botão fx na cor da barra"
+            },
+            {
+              "id": "z3",
+              "label": "Definir campo base e cores de máximo/mínimo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essa sequência cria escalas térmicas poderosas nos seus relatórios."
+        },
+        {
+          "type": "multiple",
+          "topics": "COLB",
+          "questions": "Uma agência de turismo espacial no ano de 2026 está analisando as reservas de voos orbitais. Eles querem comparar passageiros executivos e turistas puros lado a lado no mesmo mês. Qual formato usar?",
+          "answers": [
+            "Barras Agrupadas",
+            "Barras Empilhadas",
+            "100% Empilhado",
+            "Apenas Rótulo de texto"
+          ],
+          "correct": "Barras Agrupadas",
+          "tip": "Colocar as barras lado a lado por mês permite ver quem superou quem diretamente."
+        },
+        {
+          "type": "combo",
+          "topics": "COLB",
+          "questions": "Em um gráfico empilhado, a altura total da barra mantém-se relevante, pois ela indica o [COMBO] de toda aquela categoria.",
+          "options": [
+            "Total geral",
+            "Valor percentual",
+            "Menor indicador",
+            "Valor médio"
+          ],
+          "correct": "Total geral",
+          "tip": "Mesmo fatiada por cores, o tamanho final ilustra a soma das subcategorias."
+        },
+        {
+          "type": "boolean",
+          "topics": "COLB",
+          "questions": "[NAME], a dica de ferramenta (tooltip) aparece visível o tempo todo na tela, substituindo o rótulo de dados padrão.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "trans": "LINA",
+          "tip": "Ela aparece apenas como um pop-up interativo quando você passa o ponteiro do mouse sobre o elemento."
+        },
+        {
+          "type": "multiple",
+          "topics": "LINA",
+          "questions": "Ao querer mostrar a evolução ao longo do tempo, destacando a tendência de dados com precisão, qual é o melhor gráfico?",
+          "answers": [
+            "Gráfico de Linha",
+            "Gráfico 100% Empilhado",
+            "Forma de Retângulo",
+            "Gráfico de Barras Horizontais"
+          ],
+          "correct": "Gráfico de Linha",
+          "tip": "Linhas são ideais para indicar trajetórias temporais e direções."
+        },
+        {
+          "type": "combo",
+          "topics": "LINA",
+          "questions": "Um erro grave em análises temporais é relacionar a tabela calendário à data de [COMBO] quando você queria medir a data de assinatura de um contrato.",
+          "options": [
+            "Nascimento",
+            "Cancelamento",
+            "Criação",
+            "Emissão"
+          ],
+          "correct": "Nascimento",
+          "tip": "Ligar a data errada fará com que seu gráfico temporal exiba o fluxo de aniversariantes e não de vendas."
+        },
+        {
+          "type": "boolean",
+          "topics": "LINA",
+          "questions": "[NAME], iniciar o Eixo Y a partir de zero transmite credibilidade e evita que variações pequenas pareçam gigantescas no visual.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ajustar o mínimo para zero previne distorções e atende a padrões éticos em BI."
+        },
+        {
+          "type": "multi",
+          "topics": "LINA",
+          "questions": "Quais características pertencem ao uso de um Gráfico Combinado (Linhas e Colunas)?",
+          "answers": [
+            "Possibilidade de usar duas escalas numéricas simultaneamente",
+            "Visualizar faturamento (milhões) e quantidade de clientes (dezenas) juntos",
+            "Necessidade de ter três eixos X diferentes",
+            "Aproveitamento e otimização do espaço na tela"
+          ],
+          "correct": [
+            "Possibilidade de usar duas escalas numéricas simultaneamente",
+            "Visualizar faturamento (milhões) e quantidade de clientes (dezenas) juntos",
+            "Aproveitamento e otimização do espaço na tela"
+          ],
+          "tip": "Gráficos combinados resolvem o problema de grandeza numérica dispar discrepante."
+        },
+        {
+          "type": "drag",
+          "topics": "LINA",
+          "questions": "Relacione os visuais temporais às suas funções mais indicadas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Gráfico de Linha",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Gráfico de Área",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Área Empilhada",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Foca apenas na tendência da curva"
+            },
+            {
+              "id": "z2",
+              "label": "Preenche o espaço para reforçar impacto visual do volume"
+            },
+            {
+              "id": "z3",
+              "label": "Combina múltiplas categorias em camadas sobrepostas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Todos lidam com o tempo, mas o preenchimento muda a percepção de volume."
+        },
+        {
+          "type": "multiple",
+          "topics": "LINA",
+          "questions": "Uma plataforma de streaming em 2026 precisa monitorar o total em R$ de assinaturas e a quantidade de novos usuários inscritos no mês. O faturamento está na casa dos milhões, mas os usuários na casa dos milhares. Como estruturar?",
+          "answers": [
+            "Utilizar um Gráfico Combinado com Valores da Coluna para R$ e Valores da Linha para usuários",
+            "Somar os dois números na mesma coluna empilhada",
+            "Montar um gráfico de Área Empilhada misturando dinheiro e pessoas",
+            "Deixar o painel vazio"
+          ],
+          "correct": "Utilizar um Gráfico Combinado com Valores da Coluna para R$ e Valores da Linha para usuários",
+          "tip": "Assim você mantém uma escala secundária (Linha) sem achatar o volume dos usuários."
+        },
+        {
+          "type": "combo",
+          "topics": "LINA",
+          "questions": "No ambiente interativo, você desce de Ano para Trimestre e para Mês usando as setas de [COMBO] de datas no topo do visual.",
+          "options": [
+            "Hierarquia",
+            "Filtragem",
+            "Agrupamento",
+            "Pintura"
+          ],
+          "correct": "Hierarquia",
+          "tip": "O sistema quebra as datas automaticamente em níveis mais granulares."
+        },
+        {
+          "type": "boolean",
+          "topics": "LINA",
+          "questions": "[NAME], ao adicionar uma Série da Coluna em um gráfico combinado, você transforma as colunas sólidas em segmentos visuais (empilhados ou agrupados).",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa série adiciona uma nova dimensão de cor às barras que estão por trás da linha."
+        },
+        {
+          "type": "multi",
+          "topics": "LINA",
+          "questions": "Quais dicas ajudam na hora de configurar o Eixo Y secundário?",
+          "answers": [
+            "Certificar-se de definir o mínimo como 0",
+            "Usá-lo para métricas de escalas diferentes das do Eixo primário",
+            "Formatar as linhas para se destacarem do fundo",
+            "Ocultá-lo completamente para economizar memória do computador"
+          ],
+          "correct": [
+            "Certificar-se de definir o mínimo como 0",
+            "Usá-lo para métricas de escalas diferentes das do Eixo primário",
+            "Formatar as linhas para se destacarem do fundo"
+          ],
+          "tip": "A formatação evita o olho ser enganado por escalas relativas flutuantes."
+        },
+        {
+          "type": "drag",
+          "topics": "LINA",
+          "questions": "Monte o passo a passo da inserção do Gráfico Combinado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1º",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "2º",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "3º",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Escolher o visual de Linha e Coluna Empilhada"
+            },
+            {
+              "id": "z2",
+              "label": "Arrastar os campos de Valor e Data para os Eixos"
+            },
+            {
+              "id": "z3",
+              "label": "Ajustar Eixos Secundários e Rótulos no menu Formatar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Sempre comece pela estrutura primária antes de buscar a estética avançada."
+        },
+        {
+          "type": "multiple",
+          "topics": "LINA",
+          "questions": "Em 2026, um consultório de nanotecnologia biológica deseja avaliar a flutuação do uso de três equipamentos diferentes por ano. Para ver não apenas qual equipamento foi mais usado, mas também o volume contínuo empilhado, qual a escolha recomendada?",
+          "answers": [
+            "Gráfico de Área Empilhada",
+            "Gráfico de Coluna Simples",
+            "Cartão de Valor",
+            "Linha Simples"
+          ],
+          "correct": "Gráfico de Área Empilhada",
+          "tip": "As áreas empilhadas darão o contorno de montanha, evidenciando o uso robusto mês a mês."
+        },
+        {
+          "type": "boolean",
+          "topics": "LINA",
+          "questions": "No gráfico combinado (Linha + Coluna Agrupada), as subcategorias aparecem divididas dentro da mesma barra, e não lado a lado.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "Na versão 'Agrupada', as barras ficam lado a lado. Na 'Empilhada', ficam dentro da mesma coluna."
+        },
+        {
+          "type": "combo",
+          "topics": "LINA",
+          "questions": "[NAME], em um Gráfico de Linha, se os valores da legenda dividem a métrica em níveis diferentes, você terá uma linha [COMBO] para cada item da legenda.",
+          "options": [
+            "Separada",
+            "Invisível",
+            "Idêntica",
+            "Sombreada"
+          ],
+          "correct": "Separada",
+          "trans": "FILT",
+          "tip": "Isso permite ver as trajetórias de múltiplos grupos ao mesmo tempo."
+        },
+        {
+          "type": "multiple",
+          "topics": "FILT",
+          "questions": "Quantos níveis principais de filtro estrutural você possui à disposição para controle em um relatório complexo?",
+          "answers": [
+            "Três: Visual, Página e Todas as Páginas",
+            "Dois: Básico e Avançado",
+            "Apenas um: Filtro Direto",
+            "Quatro: Básico, Avançado, Drill e Relatório"
+          ],
+          "correct": "Três: Visual, Página e Todas as Páginas",
+          "tip": "Cada nível define o escopo do que será impactado pela filtragem (local vs global)."
+        },
+        {
+          "type": "boolean",
+          "topics": "FILT",
+          "questions": "[NAME], um filtro aplicado no Nível 1 (Neste Visual) altera obrigatoriamente todos os outros gráficos que estão na mesma aba.",
+          "answers": [
+            "Falso",
+            "Verdadeiro"
+          ],
+          "correct": "Falso",
+          "tip": "O Nível 1 é isolado e afeta apenas o visual selecionado no momento da configuração."
+        },
+        {
+          "type": "combo",
+          "topics": "FILT",
+          "questions": "Se você precisa que uma segmentação temporal influencie todo o dashboard, o filtro deve ser configurado para [COMBO] as páginas.",
+          "options": [
+            "Todas",
+            "Nenhuma d",
+            "Inverter",
+            "Apagar"
+          ],
+          "correct": "Todas",
+          "tip": "Isso sincroniza a experiência, para que a diretoria não precise refiltrar o ano a cada aba que visitar."
+        },
+        {
+          "type": "multi",
+          "topics": "FILT",
+          "questions": "Quais ações são típicas do Filtro Avançado em oposição ao filtro básico?",
+          "answers": [
+            "Usar regras lógicas como 'contém' ou 'não está vazio'",
+            "Combinar critérios com lógicas de 'E' / 'OU'",
+            "Simplesmente desmarcar caixinhas numa lista pronta",
+            "Aplicar regras de negócio customizadas para palavras específicas"
+          ],
+          "correct": [
+            "Usar regras lógicas como 'contém' ou 'não está vazio'",
+            "Combinar critérios com lógicas de 'E' / 'OU'",
+            "Aplicar regras de negócio customizadas para palavras específicas"
+          ],
+          "tip": "O formato avançado atua como um sistema de pesquisa condicional sofisticado."
+        },
+        {
+          "type": "drag",
+          "topics": "FILT",
+          "questions": "Conecte os métodos de filtragem aos seus comportamentos na prática:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Filtro Básico",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Filtro Top N",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pormenorizar (Drill)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Clique Direto",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Marca e desmarca checkboxes"
+            },
+            {
+              "id": "z2",
+              "label": "Exibe apenas o top 5 baseado em um valor numérico"
+            },
+            {
+              "id": "z3",
+              "label": "Desce na hierarquia de ano para meses/dias"
+            },
+            {
+              "id": "z4",
+              "label": "Seleciona uma fatia no visual e ajusta os arredores"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Conhecer as ferramentas corretas agiliza a análise situacional e exploratória."
+        },
+        {
+          "type": "multiple",
+          "topics": "FILT",
+          "questions": "Uma prefeitura utiliza um relatório de iluminação pública inteligente em 2026. A gestora selecionou uma barra específica que indica o bairro 'Zona Sul'. O que acontecerá automaticamente com os outros visuais daquela tela?",
+          "answers": [
+            "Sofrerão um cruzamento ou destaque para refletir apenas os dados da Zona Sul",
+            "O relatório inteiro será fechado por segurança",
+            "A tela mudará para a aba Todas as Páginas",
+            "Nada acontecerá a menos que ela programe uma linha de código"
+          ],
+          "correct": "Sofrerão um cruzamento ou destaque para refletir apenas os dados da Zona Sul",
+          "tip": "Este é o comportamento nativo de Filtro por Clique Direto."
+        },
+        {
+          "type": "boolean",
+          "topics": "FILT",
+          "questions": "[NAME], o clique direto gera uma filtragem temporária que se desfaz sozinha caso você altere de página ou clique fora do gráfico.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Não é um filtro fixo estrutural, servindo apenas para análise dinâmica rápida."
+        },
+        {
+          "type": "combo",
+          "topics": "FILT",
+          "questions": "Para encontrar quem gerou mais lucro num período específico, o Filtro [COMBO] avalia uma métrica e devolve os campeões de desempenho.",
+          "options": [
+            "Top N",
+            "Básico",
+            "Avulso",
+            "Por Barra"
+          ],
+          "correct": "Top N",
+          "tip": "Você define o número (ex: top 10) e a regra de ordenação."
+        },
+        {
+          "type": "multi",
+          "topics": "FILT",
+          "questions": "Para configurar corretamente um Filtro Top N, o que é fundamental que você defina?",
+          "answers": [
+            "O número exato de itens a retornar (ex: 5)",
+            "O campo de valor/métrica que baseará o ranqueamento",
+            "A escolha de gradiente de cores da barra",
+            "Confirmar a aplicação no painel lateral"
+          ],
+          "correct": [
+            "O número exato de itens a retornar (ex: 5)",
+            "O campo de valor/métrica que baseará o ranqueamento",
+            "Confirmar a aplicação no painel lateral"
+          ],
+          "tip": "Sem um número ou a métrica (ex: faturamento), o sistema não sabe quem colocar no topo."
+        },
+        {
+          "type": "multiple",
+          "topics": "FILT",
+          "questions": "Em 2026, uma agroindústria usa drones de monitoramento e segmentou na tela uma aba por 'Tipos de Cultura'. Um gerente deseja aplicar um filtro que atinja também a aba 'Clima'. Qual recurso ele utilizará?",
+          "answers": [
+            "Filtro em Todas as Páginas",
+            "Filtro Neste Visual",
+            "Dica de Ferramenta Avançada",
+            "Criação de um novo relatório do zero"
+          ],
+          "correct": "Filtro em Todas as Páginas",
+          "tip": "Apenas o nível 3 consegue romper a barreira entre as abas e aplicar o critério simultaneamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "FILT",
+          "questions": "[NAME], ao utilizar a opção de Segmentação de Dados formatada horizontalmente, você pode criar menus de botões clicáveis no topo da página.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A segmentação não precisa ser apenas uma lista simples; ela se adapta ao design do dashboard."
+        },
+        {
+          "type": "combo",
+          "topics": "FILT",
+          "questions": "Descer nos níveis de uma hierarquia temporal, para realizar análises de períodos em micro escalas, é a ação conhecida como [COMBO].",
+          "options": [
+            "Pormenorizar (Drill)",
+            "Top N Reverso",
+            "Eixo Secundário",
+            "Filtro Lateral"
+          ],
+          "correct": "Pormenorizar (Drill)",
+          "tip": "Esse mergulho nos dados enriquece a investigação temporal sem precisar recriar o gráfico."
+        }
+      ]
     }
   ]
 }
