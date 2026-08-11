@@ -56787,6 +56787,858 @@
           "tip": "A granulidade escolhida da inteligência de tempo depende unicamente do tipo de decisão que o negócio precisa."
         }
       ]
-    }
+    },
+    {
+"slug": "aula-93",
+"lesson_info": {
+"id": "Aula-93",
+"title": "AULA 93 - FUNDAMENTOS DA INTELIGÊNCIA ARTIFICIAL",
+"topics": [
+{
+"id": "HIST",
+"name": "HISTÓRIA DA IA",
+"desc": "A evolução da Inteligência Artificial, de 1950 até os dias atuais.",
+"color": "#9b59b6",
+"img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "PARA",
+"name": "PARADIGMAS DA IA",
+"desc": "Diferenças entre a IA Fraca e a IA Forte (AGI).",
+"color": "#e67e22",
+"img_url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "WORK",
+"name": "WORKLOADS AI-900",
+"desc": "Os 6 pilares de workloads de IA segundo a Microsoft.",
+"color": "#34495e",
+"img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+},
+{
+"id": "PRAT",
+"name": "APLICAÇÕES PRÁTICAS",
+"desc": "Como os workloads de IA resolvem problemas no mercado de 2026.",
+"color": "#16a085",
+"img_url": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1600"
+}
+],
+"sokoban": [
+"D",
+"A",
+"T",
+"A"
+]
+},
+"questions": [
+{
+"type": "multiple",
+"topics": "HIST",
+"questions": "[NAME], em que ano ocorreu a Conferência de Dartmouth, que cunhou o termo Inteligência Artificial?",
+"answers": [
+"1956",
+"1950",
+"1974",
+"2006"
+],
+"correct": "1956",
+"tip": "Foi o evento que marcou o nascimento da IA como campo científico."
+},
+{
+"type": "boolean",
+"topics": "HIST",
+"questions": "[NAME], o Teste de Turing propunha que uma máquina seria inteligente se conseguisse conversar de forma indistinguível de um humano.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Alan Turing publicou essa ideia em 1950."
+},
+{
+"type": "combo",
+"topics": "HIST",
+"questions": "O período de cortes de financiamento e desilusão com a tecnologia ficou conhecido como o [COMBO] da IA.",
+"options": [
+"Inverno",
+"Verão",
+"Colapso",
+"Renascimento"
+],
+"correct": "Inverno",
+"tip": "Ocorreu nas décadas de 1970 e 1980 devido à falta de poder computacional."
+},
+{
+"type": "multi",
+"topics": "HIST",
+"questions": "[NAME], quais destes fatores impulsionaram a Era do Big Data e Machine Learning nos anos 2000?",
+"answers": [
+"Avanço das GPUs",
+"Explosão de dados digitais",
+"Fim da internet",
+"Sistemas baseados apenas em regras"
+],
+"correct": [
+"Avanço das GPUs",
+"Explosão de dados digitais"
+],
+"tip": "Mais dados e melhor processamento permitiram o avanço da IA estatística."
+},
+{
+"type": "drag",
+"topics": "HIST",
+"questions": "Relacione as décadas aos marcos históricos da IA:",
+"items": [
+{
+"id": "h1",
+"txt": "1950",
+"match": "z1"
+},
+{
+"id": "h2",
+"txt": "1956",
+"match": "z2"
+},
+{
+"id": "h3",
+"txt": "1980",
+"match": "z3"
+},
+{
+"id": "h4",
+"txt": "2012",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Artigo de Turing"
+},
+{
+"id": "z2",
+"label": "Termo IA cunhado"
+},
+{
+"id": "z3",
+"label": "Sistemas Especialistas"
+},
+{
+"id": "z4",
+"label": "Boom do Deep Learning"
+}
+],
+"correct": "drag",
+"tip": "Cada época trouxe uma abordagem diferente para o desenvolvimento de máquinas inteligentes."
+},
+{
+"type": "multiple",
+"topics": "HIST",
+"questions": "O que eram os Sistemas Especialistas da década de 1980?",
+"answers": [
+"Programas baseados em regras lógicas",
+"Redes neurais profundas",
+"Robôs humanoides",
+"Modelos de linguagem natural"
+],
+"correct": "Programas baseados em regras lógicas",
+"tip": "Eles usavam estruturas do tipo 'SE... ENTÃO...'."
+},
+{
+"type": "boolean",
+"topics": "HIST",
+"questions": "O sucesso da rede AlexNet no desafio ImageNet aconteceu no ano de 2012.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Isso marcou a explosão do Deep Learning."
+},
+{
+"type": "combo",
+"topics": "HIST",
+"questions": "Em 2017, a arquitetura [COMBO] foi publicada, servindo de base para os modernos LLMs.",
+"options": [
+"Transformer",
+"Convolucional",
+"Especialista",
+"Linear"
+],
+"correct": "Transformer",
+"tip": "O paper 'Attention is All You Need' mudou a história do NLP."
+},
+{
+"type": "multi",
+"topics": "HIST",
+"questions": "Quais modelos são baseados na arquitetura Transformer moderna?",
+"answers": [
+"GPT",
+"Gemini",
+"MYCIN",
+"ELIZA"
+],
+"correct": [
+"GPT",
+"Gemini"
+],
+"tip": "MYCIN e ELIZA são sistemas de décadas muito anteriores."
+},
+{
+"type": "multiple",
+"topics": "HIST",
+"questions": "[NAME], em que ano o ChatGPT atingiu 100 milhões de usuários em apenas 2 meses?",
+"answers": [
+"2023",
+"2020",
+"2017",
+"2026"
+],
+"correct": "2023",
+"tip": "Foi um marco recente de adoção em massa."
+},
+{
+"type": "boolean",
+"topics": "HIST",
+"questions": "Durante o Inverno da IA, as pesquisas avançaram rapidamente devido ao alto financiamento.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Ocorreu exatamente o oposto: cortes e estagnação."
+},
+{
+"type": "combo",
+"topics": "HIST",
+"questions": "A IA moderna não exige programação manual de regras, pois aprende padrões a partir de [COMBO].",
+"options": [
+"Dados",
+"Comandos fixos",
+"Hardware analógico",
+"Sensores de temperatura"
+],
+"correct": "Dados",
+"trans": "PARA",
+"tip": "Os dados são a matéria-prima do Machine Learning."
+},
+{
+"type": "multiple",
+"topics": "PARA",
+"questions": "[NAME], qual é o tipo de IA presente em 100% das soluções comerciais hoje em 2026?",
+"answers": [
+"IA Fraca (Narrow AI)",
+"IA Forte (AGI)",
+"IA Consciente",
+"IA Extraterrestre"
+],
+"correct": "IA Fraca (Narrow AI)",
+"tip": "Mesmo as IAs mais avançadas da atualidade ainda são especialistas em tarefas específicas."
+},
+{
+"type": "boolean",
+"topics": "PARA",
+"questions": "A Inteligência Artificial Geral (AGI) já é amplamente comercializada em 2026 pelas grandes empresas.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "A AGI ainda é um conceito teórico e debatido."
+},
+{
+"type": "combo",
+"topics": "PARA",
+"questions": "Sistemas projetados para executar apenas uma tarefa específica pertencem à [COMBO].",
+"options": [
+"IA Fraca",
+"IA Forte",
+"AGI",
+"IA Universal"
+],
+"correct": "IA Fraca",
+"tip": "Também conhecida como Narrow AI."
+},
+{
+"type": "multi",
+"topics": "PARA",
+"questions": "[NAME], quais são características da AGI (IA Forte)?",
+"answers": [
+"Consciência artificial",
+"Autonomia cognitiva plena",
+"Limitada a um único domínio",
+"Dependência de regras manuais"
+],
+"correct": [
+"Consciência artificial",
+"Autonomia cognitiva plena"
+],
+"tip": "A AGI seria capaz de pensar e adaptar-se como um humano."
+},
+{
+"type": "drag",
+"topics": "PARA",
+"questions": "Relacione o tipo de IA com seu escopo:",
+"items": [
+{
+"id": "p1",
+"txt": "Filtro de Spam",
+"match": "z1"
+},
+{
+"id": "p2",
+"txt": "Raciocínio amplo e humano",
+"match": "z2"
+},
+{
+"id": "p3",
+"txt": "Recomendação Netflix",
+"match": "z1"
+},
+{
+"id": "p4",
+"txt": "Aprendizado geral irrestrito",
+"match": "z2"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "IA Fraca"
+},
+{
+"id": "z2",
+"label": "IA Forte"
+}
+],
+"correct": "drag",
+"tip": "Sistemas atuais são IA Fraca; capacidades humanas plenas são IA Forte."
+},
+{
+"type": "multiple",
+"topics": "PARA",
+"questions": "Qual destas tecnologias é um exemplo de IA Fraca no cotidiano corporativo atual?",
+"answers": [
+"ChatGPT gerando textos",
+"Um robô autoconsciente",
+"Sistema que sente empatia",
+"Máquina que aprende tudo do zero sozinha"
+],
+"correct": "ChatGPT gerando textos",
+"tip": "O ChatGPT é avançado, mas continua sendo uma Narrow AI."
+},
+{
+"type": "boolean",
+"topics": "PARA",
+"questions": "[NAME], a IA Fraca possui a capacidade de generalizar conhecimentos para áreas que nunca foi treinada.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Apenas a AGI teria essa capacidade de generalização."
+},
+{
+"type": "combo",
+"topics": "PARA",
+"questions": "Imagine que sua startup crie um drone agrícola para pulverizar exatamente onde há pragas. Esse sistema usa IA [COMBO].",
+"options": [
+"Fraca",
+"Forte",
+"Geral",
+"Sobrenatural"
+],
+"correct": "Fraca",
+"tip": "É uma solução especializada em um único domínio."
+},
+{
+"type": "multi",
+"topics": "PARA",
+"questions": "Quais pesquisadores debatem ativamente se a AGI será possível um dia?",
+"answers": [
+"Geoffrey Hinton",
+"Yann LeCun",
+"Alan Turing",
+"John McCarthy"
+],
+"correct": [
+"Geoffrey Hinton",
+"Yann LeCun"
+],
+"tip": "Eles são grandes nomes contemporâneos do Deep Learning."
+},
+{
+"type": "multiple",
+"topics": "PARA",
+"questions": "O Face ID do smartphone, que você utiliza para desbloquear a tela, é classificado como:",
+"answers": [
+"Narrow AI",
+"AGI",
+"IA Consciente",
+"IA Autônoma Total"
+],
+"correct": "Narrow AI",
+"tip": "Ele apenas faz o reconhecimento facial e nada mais."
+},
+{
+"type": "boolean",
+"topics": "PARA",
+"questions": "O modelo Microsoft AI-900 categoriza robôs físicos sencientes em um de seus workloads práticos.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "O AI-900 lida com software que imita capacidades humanas de forma prática, não senciente."
+},
+{
+"type": "combo",
+"topics": "PARA",
+"questions": "[NAME], a IA não se trata de robôs de ficção, mas de [COMBO] matemáticos avançados.",
+"options": [
+"Modelos",
+"Engrenagens",
+"Chips alienígenas",
+"Clones"
+],
+"correct": "Modelos",
+"tip": "IA moderna é estatística e matemática pura aplicada aos dados."
+},
+{
+"type": "multiple",
+"topics": "PARA",
+"questions": "Ao programar um carro autônomo, os desenvolvedores sabem que ele falhará se tentar cozinhar o jantar. Isso ocorre pois ele é:",
+"answers": [
+"Limitado ao seu domínio (IA Fraca)",
+"Uma AGI em treinamento",
+"Sem acesso ao Wi-Fi",
+"Um sistema antigo"
+],
+"correct": "Limitado ao seu domínio (IA Fraca)",
+"trans": "WORK",
+"tip": "Ele foi treinado apenas para dirigir."
+},
+{
+"type": "multiple",
+"topics": "WORK",
+"questions": "[NAME], qual workload da Microsoft é a base preditiva para quase toda IA moderna?",
+"answers": [
+"Machine Learning",
+"Visão Computacional",
+"Mineração de Conhecimento",
+"IA Generativa"
+],
+"correct": "Machine Learning",
+"tip": "Aprende padrões baseados em dados históricos."
+},
+{
+"type": "boolean",
+"topics": "WORK",
+"questions": "A Visão Computacional utiliza câmeras e sensores para que os computadores possam interpretar linguagem escrita ou falada.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Interpretar linguagem escrita é tarefa do Processamento de Linguagem Natural (PLN)."
+},
+{
+"type": "combo",
+"topics": "WORK",
+"questions": "O [COMBO] é o workload focado em processar grandes volumes de formulários, recibos e notas fiscais.",
+"options": [
+"Informação de Documentos",
+"Machine Learning",
+"Visão Computacional",
+"PLN"
+],
+"correct": "Informação de Documentos",
+"tip": "Ele extrai e valida dados de documentos comerciais."
+},
+{
+"type": "multi",
+"topics": "WORK",
+"questions": "[NAME], quais destes são workloads oficiais definidos pelo Microsoft AI-900?",
+"answers": [
+"Mineração de Conhecimento",
+"Processamento de Linguagem Natural",
+"Controle Mental Robótico",
+"IA Generativa"
+],
+"correct": [
+"Mineração de Conhecimento",
+"Processamento de Linguagem Natural",
+"IA Generativa"
+],
+"tip": "O framework divide a IA em 6 pilares aplicáveis ao mercado."
+},
+{
+"type": "drag",
+"topics": "WORK",
+"questions": "Associe a ação prática ao seu workload correspondente:",
+"items": [
+{
+"id": "w1",
+"txt": "Prever churn de clientes",
+"match": "z1"
+},
+{
+"id": "w2",
+"txt": "Entender comandos de voz",
+"match": "z2"
+},
+{
+"id": "w3",
+"txt": "Indexar bases de PDFs",
+"match": "z3"
+},
+{
+"id": "w4",
+"txt": "Criar imagens via prompt",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Machine Learning"
+},
+{
+"id": "z2",
+"label": "PLN"
+},
+{
+"id": "z3",
+"label": "Mineração de Conhecimento"
+},
+{
+"id": "z4",
+"label": "IA Generativa"
+}
+],
+"correct": "drag",
+"tip": "Cada pilar atende a um tipo diferente de problema corporativo."
+},
+{
+"type": "multiple",
+"topics": "WORK",
+"questions": "Um aplicativo de segurança que reconhece o rosto dos colaboradores da empresa utiliza qual workload?",
+"answers": [
+"Visão Computacional",
+"PLN",
+"Mineração de Conhecimento",
+"IA Generativa"
+],
+"correct": "Visão Computacional",
+"tip": "Recursos que interpretam o mundo visual."
+},
+{
+"type": "boolean",
+"topics": "WORK",
+"questions": "A Mineração de Conhecimento é usada para criar imagens originais e novos códigos de programação.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Falso",
+"tip": "Criar conteúdo novo é tarefa da IA Generativa."
+},
+{
+"type": "combo",
+"topics": "WORK",
+"questions": "[NAME], a IA [COMBO] revolucionou a criação de conteúdo ao permitir a geração de textos, áudios e vídeos inéditos.",
+"options": [
+"Generativa",
+"Documental",
+"Especialista",
+"Preditiva"
+],
+"correct": "Generativa",
+"tip": "Ferramentas como GitHub Copilot e Suno fazem parte desse grupo."
+},
+{
+"type": "multi",
+"topics": "WORK",
+"questions": "O workload de Processamento de Linguagem Natural (PLN) permite que as máquinas realizem:",
+"answers": [
+"Tradução automática de textos",
+"Respostas via chatbots em SAC",
+"Reconhecimento de falhas em peças",
+"Identificação de fraudes bancárias"
+],
+"correct": [
+"Tradução automática de textos",
+"Respostas via chatbots em SAC"
+],
+"tip": "PLN foca na linguagem humana, falada ou escrita."
+},
+{
+"type": "multiple",
+"topics": "WORK",
+"questions": "No contexto corporativo de 2026, você deseja extrair emoções e opiniões de milhares de avaliações de clientes. Qual workload é ideal?",
+"answers": [
+"Mineração de Conhecimento",
+"Visão Computacional",
+"IA Generativa",
+"Informação de Documentos"
+],
+"correct": "Mineração de Conhecimento",
+"tip": "A Análise de Sentimentos faz parte da extração de conhecimento não estruturado."
+},
+{
+"type": "boolean",
+"topics": "WORK",
+"questions": "[NAME], o Machine Learning é amplamente utilizado em sistemas de recomendação, como os de serviços de streaming.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "O algoritmo prevê o que você vai gostar com base no seu histórico."
+},
+{
+"type": "combo",
+"topics": "WORK",
+"questions": "A detecção de anomalias, como bloquear um cartão de crédito suspeito instantaneamente, é uma aplicação clássica de [COMBO].",
+"options": [
+"Machine Learning",
+"Visão Computacional",
+"IA Generativa",
+"PLN"
+],
+"correct": "Machine Learning",
+"tip": "É uma decisão autônoma baseada em estatística de dados."
+},
+{
+"type": "multiple",
+"topics": "WORK",
+"questions": "Se uma loja online implementa um motor de busca inteligente para indexar manuais de produtos, ela está aplicando:",
+"answers": [
+"Mineração de Conhecimento",
+"IA Generativa",
+"Visão Computacional",
+"Machine Learning"
+],
+"correct": "Mineração de Conhecimento",
+"tip": "O Azure Cognitive Search é um exemplo dessa tecnologia."
+},
+{
+"type": "boolean",
+"topics": "WORK",
+"questions": "A IA Generativa pode ser utilizada no desenvolvimento de software para sugerir e completar linhas de código.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"trans": "PRAT",
+"tip": "Ferramentas como o Copilot executam exatamente essa função."
+},
+{
+"type": "multiple",
+"topics": "PRAT",
+"questions": "[NAME], na indústria logística de 2026, a otimização de rotas de entrega é resolvida de forma mais eficiente utilizando qual workload?",
+"answers": [
+"Machine Learning",
+"IA Generativa",
+"PLN",
+"Mineração de Documentos"
+],
+"correct": "Machine Learning",
+"tip": "Modelos preditivos calculam trajetos baseados em trânsito e histórico."
+},
+{
+"type": "boolean",
+"topics": "PRAT",
+"questions": "Uma montadora de carros utiliza Visão Computacional para identificar riscos e defeitos na pintura dos veículos na linha de montagem.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "Isso substitui a inspeção manual por câmeras inteligentes."
+},
+{
+"type": "combo",
+"topics": "PRAT",
+"questions": "O atendimento de SAC via assistentes virtuais de bancos utiliza primariamente o workload de [COMBO] para entender a demanda.",
+"options": [
+"PLN",
+"IA Generativa",
+"Visão Computacional",
+"Mineração de Conhecimento"
+],
+"correct": "PLN",
+"tip": "A máquina precisa interpretar o que o usuário digita ou fala."
+},
+{
+"type": "multi",
+"topics": "PRAT",
+"questions": "[NAME], quais cenários representam aplicações reais de Manutenção Preditiva na indústria?",
+"answers": [
+"Sensores antecipando a falha de uma turbina",
+"Prever quando trocar o óleo de maquinário industrial",
+"Criar uma música nova para um comercial",
+"Responder a um e-mail de reclamação"
+],
+"correct": [
+"Sensores antecipando a falha de uma turbina",
+"Prever quando trocar o óleo de maquinário industrial"
+],
+"tip": "Esses modelos evitam que a máquina quebre antes do tempo."
+},
+{
+"type": "drag",
+"topics": "PRAT",
+"questions": "Relacione o setor com sua solução prática de IA mais comum:",
+"items": [
+{
+"id": "r1",
+"txt": "Logística",
+"match": "z1"
+},
+{
+"id": "r2",
+"txt": "Controle de Qualidade",
+"match": "z2"
+},
+{
+"id": "r3",
+"txt": "Atendimento",
+"match": "z3"
+},
+{
+"id": "r4",
+"txt": "Financeiro",
+"match": "z4"
+}
+],
+"zones": [
+{
+"id": "z1",
+"label": "Otimizar Rotas"
+},
+{
+"id": "z2",
+"label": "Inspecionar Imagens"
+},
+{
+"id": "z3",
+"label": "Chatbots NLP"
+},
+{
+"id": "z4",
+"label": "Extrair NFes"
+}
+],
+"correct": "drag",
+"tip": "Cada setor demanda uma solução de IA focada em sua rotina."
+},
+{
+"type": "multiple",
+"topics": "PRAT",
+"questions": "Uma rede de farmácias precisa automatizar o lançamento de centenas de notas fiscais de fornecedores diariamente. O workload indicado é:",
+"answers": [
+"Informação de Documentos",
+"Visão Computacional",
+"IA Generativa",
+"PLN"
+],
+"correct": "Informação de Documentos",
+"tip": "Ele extrai os campos estruturados de PDFs e imagens de formulários."
+},
+{
+"type": "boolean",
+"topics": "PRAT",
+"questions": "[NAME], as empresas escolhem 'IA em geral' para resolver problemas, aplicando a mesma tecnologia para qualquer situação.",
+"answers": [
+"Falso",
+"Verdadeiro"
+],
+"correct": "Falso",
+"tip": "Identificar o workload adequado é essencial, não existe 'bala de prata'."
+},
+{
+"type": "combo",
+"topics": "PRAT",
+"questions": "Em 2026, você cria um sistema que lê laudos médicos antigos em PDF e os organiza de forma pesquisável. Você utilizou [COMBO].",
+"options": [
+"Mineração de Conhecimento",
+"IA Generativa",
+"Visão Computacional",
+"Otimização de Rotas"
+],
+"correct": "Mineração de Conhecimento",
+"tip": "Extrai valor de dados não estruturados armazenados há anos."
+},
+{
+"type": "multi",
+"topics": "PRAT",
+"questions": "Quais destas ações dependem fundamentalmente da qualidade dos dados injetados na IA?",
+"answers": [
+"Previsão de demanda da Amazon",
+"Reconhecimento facial do Face ID",
+"Geração de respostas do ChatGPT",
+"Apenas testes matemáticos teóricos"
+],
+"correct": [
+"Previsão de demanda da Amazon",
+"Reconhecimento facial do Face ID",
+"Geração de respostas do ChatGPT"
+],
+"tip": "Toda IA comercial é dependente de dados de alta qualidade."
+},
+{
+"type": "multiple",
+"topics": "PRAT",
+"questions": "Sua agência de marketing deseja criar peças publicitárias originais a partir de textos rápidos. A solução envolve:",
+"answers": [
+"IA Generativa (Imagem)",
+"Machine Learning",
+"Visão Computacional",
+"Informação de Documentos"
+],
+"correct": "IA Generativa (Imagem)",
+"tip": "Ferramentas como DALL-E ou Midjourney operam neste escopo."
+},
+{
+"type": "boolean",
+"topics": "PRAT",
+"questions": "Na prática industrial de hoje, a Visão Computacional também pode analisar exames de raios-X para auxiliar diagnósticos médicos.",
+"answers": [
+"Verdadeiro",
+"Falso"
+],
+"correct": "Verdadeiro",
+"tip": "A interpretação de imagens é o foco desse workload."
+},
+{
+"type": "combo",
+"topics": "PRAT",
+"questions": "A primeira competência de um [COMBO] de soluções de TI moderno é identificar o workload adequado para cada problema.",
+"options": [
+"Desenvolvedor",
+"Robô",
+"Usuário",
+"Gerente"
+],
+"correct": "Desenvolvedor",
+"tip": "A tecnologia só é útil se aplicada ao desafio correto."
+},
+{
+"type": "multiple",
+"topics": "PRAT",
+"questions": "[NAME], ao projetar um sistema antifraude para um e-commerce em 2026, você focará principalmente em detectar:",
+"answers": [
+"Anomalias fora do padrão",
+"Rimas no texto do cliente",
+"A cor do botão de compra",
+"O volume do áudio do microfone"
+],
+"correct": "Anomalias fora do padrão",
+"tip": "É uma funcionalidade vital do workload de Machine Learning."
+}
+]
+}
   ]
 }
