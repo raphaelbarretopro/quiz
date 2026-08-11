@@ -58436,6 +58436,980 @@
           "tip": "Verificar a lógica antes evita prejuízos na hora da programação."
         }
       ]
+    },
+    {
+      "slug": "aula-95",
+      "lesson_info": {
+        "id": "Aula-95",
+        "title": "AULA 95 - FUNDAMENTOS DE MACHINE LEARNING",
+        "topics": [
+          {
+            "id": "CONC",
+            "name": "FUNDAMENTOS DE IA",
+            "desc": "Conceitos básicos de Machine Learning e como as máquinas aprendem.",
+            "color": "#8e44ad",
+            "img_url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "FLUX",
+            "name": "O CICLO DE ML",
+            "desc": "Treinamento, avaliação de modelos e a fase de inferência.",
+            "color": "#e67e22",
+            "img_url": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "TIPO",
+            "name": "TIPOS DE APRENDIZADO",
+            "desc": "Classificação, regressão, clustering e aprendizado por reforço.",
+            "color": "#27ae60",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AZUR",
+            "name": "FERRAMENTAS NA NUVEM",
+            "desc": "Como utilizar o Azure Machine Learning Studio na prática.",
+            "color": "#2980b9",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "A",
+          "D",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "CONC",
+          "questions": "[NAME], o que define o Machine Learning em 2026?",
+          "answers": [
+            "Aprender a partir de dados automaticamente",
+            "Seguir regras rígidas programadas manualmente",
+            "Montar infraestrutura de servidores",
+            "Criar hardware para processadores"
+          ],
+          "correct": "Aprender a partir de dados automaticamente",
+          "tip": "No ML, algoritmos encontram padrões por conta própria."
+        },
+        {
+          "type": "boolean",
+          "topics": "CONC",
+          "questions": "O Machine Learning exige a programação explícita de todas as regras matemáticas para funcionar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O sistema aprende sozinho com exemplos passados, sem regras manuais exaustivas."
+        },
+        {
+          "type": "combo",
+          "topics": "CONC",
+          "questions": "O Machine Learning busca encontrar [COMBO] e relações ocultas nas variáveis dos dados.",
+          "options": [
+            "Padrões",
+            "Erros",
+            "Malwares",
+            "Vírus"
+          ],
+          "correct": "Padrões",
+          "tip": "É assim que ele consegue fazer generalizações para novos eventos."
+        },
+        {
+          "type": "multi",
+          "topics": "CONC",
+          "questions": "[NAME], de que maneiras uma inteligência artificial pode aprender?",
+          "answers": [
+            "Analisando grandes volumes de exemplos",
+            "Por tentativa, erro e recompensas",
+            "Apenas recebendo código fonte engessado",
+            "Memorizando relatórios em PDF"
+          ],
+          "correct": [
+            "Analisando grandes volumes de exemplos",
+            "Por tentativa, erro e recompensas"
+          ],
+          "tip": "As máquinas aprendem por repetição e associação, semelhante aos humanos."
+        },
+        {
+          "type": "drag",
+          "topics": "CONC",
+          "questions": "Relacione os conceitos ao seu significado tecnológico:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "IA",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Machine Learning",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Programação clássica",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Algoritmo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Campo maior de simulação humana"
+            },
+            {
+              "id": "z2",
+              "label": "Subcampo focado em dados"
+            },
+            {
+              "id": "z3",
+              "label": "Baseada em regras manuais"
+            },
+            {
+              "id": "z4",
+              "label": "Motor matemático que aprende"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A IA é o todo, e o ML é a técnica que a impulsiona com dados."
+        },
+        {
+          "type": "multiple",
+          "topics": "CONC",
+          "questions": "[NAME], ao projetar um sistema em 2026 que ajusta a bateria de exoesqueletos com base no histórico de uso, qual área você está aplicando?",
+          "answers": [
+            "Machine Learning",
+            "Design Gráfico",
+            "Desenvolvimento Web",
+            "Robótica Mecânica Clássica"
+          ],
+          "correct": "Machine Learning",
+          "tip": "Aprender com o histórico para otimizar operações é a base do ML."
+        },
+        {
+          "type": "boolean",
+          "topics": "CONC",
+          "questions": "As máquinas que usam ML aprendem de forma muito parecida com crianças pequenas: expostas a exemplos contínuos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A repetição de observações ensina o que é cada coisa."
+        },
+        {
+          "type": "combo",
+          "topics": "CONC",
+          "questions": "Se fornecermos dados ruins, o [COMBO] não conseguirá aprender uma função matemática confiável.",
+          "options": [
+            "Algoritmo",
+            "Monitor",
+            "Roteador",
+            "Usuário"
+          ],
+          "correct": "Algoritmo",
+          "tip": "O algoritmo depende de dados de qualidade para criar o modelo preditivo."
+        },
+        {
+          "type": "multi",
+          "topics": "CONC",
+          "questions": "Para que um atendente holográfico entenda novos sotaques regionais brasileiros, o que ele precisa?",
+          "answers": [
+            "Áudios variados da região",
+            "Textos com gírias locais",
+            "Uma nova placa de vídeo",
+            "Ser reiniciado de fábrica"
+          ],
+          "correct": [
+            "Áudios variados da região",
+            "Textos com gírias locais"
+          ],
+          "tip": "Novos dados (áudio e texto) ensinam as nuances do sotaque."
+        },
+        {
+          "type": "drag",
+          "topics": "CONC",
+          "questions": "Associe os elementos do ML às suas analogias:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Dados",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Algoritmo",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Previsão",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Rótulo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Combustível"
+            },
+            {
+              "id": "z2",
+              "label": "Motor de processamento"
+            },
+            {
+              "id": "z3",
+              "label": "Destino esperado"
+            },
+            {
+              "id": "z4",
+              "label": "Resposta conhecida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender os papéis ajuda a desenhar a arquitetura da solução."
+        },
+        {
+          "type": "multiple",
+          "topics": "CONC",
+          "questions": "Qual o papel principal do desenvolvedor de soluções integradas no ML moderno?",
+          "answers": [
+            "Fornecer dados limpos e escolher o algoritmo",
+            "Escrever cada regra de negócio manualmente",
+            "Limpar o cache dos servidores",
+            "Desenhar as telas de interface apenas"
+          ],
+          "correct": "Fornecer dados limpos e escolher o algoritmo",
+          "tip": "A curadoria de dados é vital, pois o aprendizado ocorre sozinho."
+        },
+        {
+          "type": "boolean",
+          "topics": "CONC",
+          "questions": "O Machine Learning é um processo estático; os modelos nunca podem ser melhorados após o primeiro treino.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Modelos podem e devem ser retreinados com novos dados frequentemente."
+        },
+        {
+          "type": "combo",
+          "topics": "CONC",
+          "questions": "O grande objetivo final do [COMBO] é criar modelos preditivos capazes de analisar novos cenários.",
+          "options": [
+            "Machine Learning",
+            "Suporte de TI",
+            "Marketing",
+            "Design Thinking"
+          ],
+          "correct": "Machine Learning",
+          "trans": "FLUX",
+          "tip": "A previsão é o que traz valor real aos negócios."
+        },
+        {
+          "type": "multiple",
+          "topics": "FLUX",
+          "questions": "[NAME], o que acontece na etapa chamada de Treinamento?",
+          "answers": [
+            "O algoritmo processa históricos para gerar um modelo",
+            "Os dados originais são deletados por segurança",
+            "O sistema entra em hibernação",
+            "As previsões finais são enviadas aos clientes"
+          ],
+          "correct": "O algoritmo processa históricos para gerar um modelo",
+          "tip": "É a fase onde a máquina descobre a função matemática."
+        },
+        {
+          "type": "boolean",
+          "topics": "FLUX",
+          "questions": "Na fase de Inferência (uso prático), o modelo recebe novos dados e precisa de rótulos pré-conhecidos para prever a saída.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Na inferência, os rótulos não são conhecidos; o modelo deve prevê-los."
+        },
+        {
+          "type": "combo",
+          "topics": "FLUX",
+          "questions": "Na notação padrão, as letras [COMBO] representam as características de entrada (features).",
+          "options": [
+            "X",
+            "Y",
+            "Z",
+            "W"
+          ],
+          "correct": "X",
+          "tip": "A entrada 'x' gera a saída 'y'."
+        },
+        {
+          "type": "multi",
+          "topics": "FLUX",
+          "questions": "[NAME], quais elementos estão presentes na construção do modelo?",
+          "answers": [
+            "Algoritmo",
+            "Dados de treinamento",
+            "Dados de validação",
+            "Regras fixas cadastradas por humanos"
+          ],
+          "correct": [
+            "Algoritmo",
+            "Dados de treinamento",
+            "Dados de validação"
+          ],
+          "tip": "As regras fixas pertencem à programação tradicional, não ao ML."
+        },
+        {
+          "type": "drag",
+          "topics": "FLUX",
+          "questions": "Relacione as variáveis matemáticas aos seus significados no ciclo de ML:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "X",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Y",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Y chapéu (ŷ)",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "f(x)",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Características"
+            },
+            {
+              "id": "z2",
+              "label": "Rótulo Real"
+            },
+            {
+              "id": "z3",
+              "label": "Previsão do modelo"
+            },
+            {
+              "id": "z4",
+              "label": "Função aprendida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A máquina busca f(x) de forma que ŷ chegue o mais perto de Y."
+        },
+        {
+          "type": "multiple",
+          "topics": "FLUX",
+          "questions": "Uma fazenda solar envia as condições climáticas atuais para uma IA prever a geração de energia para as próximas horas. Qual fase é essa?",
+          "answers": [
+            "Inferência",
+            "Treinamento",
+            "Deleção de dados",
+            "Clustering"
+          ],
+          "correct": "Inferência",
+          "tip": "Prever algo em tempo real baseando-se em novos dados é Inferência."
+        },
+        {
+          "type": "boolean",
+          "topics": "FLUX",
+          "questions": "[NAME], um bom modelo de Machine Learning memoriza perfeitamente as respostas e não consegue generalizar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Memorizar (overfitting) é ruim. O modelo precisa generalizar o conhecimento."
+        },
+        {
+          "type": "combo",
+          "topics": "FLUX",
+          "questions": "Para atestar a qualidade de um modelo, separamos os dados originais e utilizamos uma parte para [COMBO].",
+          "options": [
+            "Validação",
+            "Formatação",
+            "Exclusão",
+            "Impressão"
+          ],
+          "correct": "Validação",
+          "tip": "Nunca avaliamos o modelo com os mesmos dados usados no treino."
+        },
+        {
+          "type": "multi",
+          "topics": "FLUX",
+          "questions": "Ao testar um sistema que identifica falhas em reatores termonucleares, o que você vai precisar usar?",
+          "answers": [
+            "Conjunto de validação",
+            "Métricas como acurácia e precisão",
+            "Servidores de arquivos em fita",
+            "Perfis de redes sociais corporativas"
+          ],
+          "correct": [
+            "Conjunto de validação",
+            "Métricas como acurácia e precisão"
+          ],
+          "tip": "Avaliar criticamente é essencial para sistemas sensíveis."
+        },
+        {
+          "type": "drag",
+          "topics": "FLUX",
+          "questions": "Ordene cronologicamente o ciclo completo de um modelo de ML:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "1º",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "2º",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "3º",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "4º",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Fornecer Dados e Rótulos"
+            },
+            {
+              "id": "z2",
+              "label": "Executar o Algoritmo"
+            },
+            {
+              "id": "z3",
+              "label": "Gerar o Modelo Final"
+            },
+            {
+              "id": "z4",
+              "label": "Inferência e Previsão"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os dados entram, o modelo é processado, criado e finalmente entra em operação."
+        },
+        {
+          "type": "multiple",
+          "topics": "FLUX",
+          "questions": "Na prática, o que o processo de inferência devolve para a equipe de TI?",
+          "answers": [
+            "O rótulo previsto (ŷ)",
+            "O histórico bruto original",
+            "Um novo algoritmo matemático",
+            "Uma falha no servidor"
+          ],
+          "correct": "O rótulo previsto (ŷ)",
+          "tip": "Ele retorna o valor inferido (previsto)."
+        },
+        {
+          "type": "boolean",
+          "topics": "FLUX",
+          "questions": "[NAME], se treinarmos um algoritmo com informações incorretas e ruídos, a inferência será altamente confiável.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Lixo que entra resulta em lixo que sai. Dados limpos são essenciais."
+        },
+        {
+          "type": "combo",
+          "topics": "FLUX",
+          "questions": "A comparação dos rótulos reais com as previsões de validação gera a medida de [COMBO].",
+          "options": [
+            "Acurácia",
+            "Latência",
+            "Ping",
+            "Redundância"
+          ],
+          "correct": "Acurácia",
+          "trans": "TIPO",
+          "tip": "Métricas como acurácia indicam a taxa de acertos."
+        },
+        {
+          "type": "multiple",
+          "topics": "TIPO",
+          "questions": "Qual é a exigência central do Machine Learning Supervisionado?",
+          "answers": [
+            "Dados de treinamento devem incluir os rótulos conhecidos",
+            "Os dados não podem estar rotulados de forma alguma",
+            "Deve funcionar apenas em ambientes virtuais de simulação",
+            "Não utilizar nenhuma variável de entrada"
+          ],
+          "correct": "Dados de treinamento devem incluir os rótulos conhecidos",
+          "tip": "O sistema aprende comparando a entrada com a resposta certa (rótulo)."
+        },
+        {
+          "type": "boolean",
+          "topics": "TIPO",
+          "questions": "[NAME], a regressão é o método certo quando precisamos prever opções textuais, como 'Aprovado' ou 'Reprovado'.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Regressão prevê números contínuos, como preços e quantidades."
+        },
+        {
+          "type": "combo",
+          "topics": "TIPO",
+          "questions": "Quando os dados não possuem rótulos e a máquina agrupa os itens por semelhança, usamos [COMBO].",
+          "options": [
+            "Clustering",
+            "Regressão",
+            "Ações",
+            "Classificação Binária"
+          ],
+          "correct": "Clustering",
+          "tip": "Clustering pertence à categoria Não Supervisionada."
+        },
+        {
+          "type": "multi",
+          "topics": "TIPO",
+          "questions": "Quais dos itens abaixo são soluções típicas da aprendizagem supervisionada?",
+          "answers": [
+            "Regressão",
+            "Classificação Multiclasse",
+            "Clustering",
+            "Aprendizado por Reforço"
+          ],
+          "correct": [
+            "Regressão",
+            "Classificação Multiclasse"
+          ],
+          "tip": "Ambos precisam de dados históricos com rótulos para funcionar."
+        },
+        {
+          "type": "drag",
+          "topics": "TIPO",
+          "questions": "Relacione o tipo de aprendizado ao seu propósito:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Regressão",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Classificação Binária",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Classificação Multiclasse",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Clustering",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Prever valores numéricos"
+            },
+            {
+              "id": "z2",
+              "label": "Exatamente duas opções"
+            },
+            {
+              "id": "z3",
+              "label": "Diversas categorias possíveis"
+            },
+            {
+              "id": "z4",
+              "label": "Agrupar dados não rotulados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender a saída esperada define o método a escolher."
+        },
+        {
+          "type": "multiple",
+          "topics": "TIPO",
+          "questions": "Para auditar credenciais de acesso corporativo, uma IA classifica cada tentativa como 'Legítima' ou 'Invasão'. O que é isso?",
+          "answers": [
+            "Classificação Binária",
+            "Regressão Linear",
+            "Clustering Espacial",
+            "Aprendizado por Reforço"
+          ],
+          "correct": "Classificação Binária",
+          "tip": "Como existem apenas dois rótulos possíveis, a classificação é binária."
+        },
+        {
+          "type": "boolean",
+          "topics": "TIPO",
+          "questions": "O Aprendizado por Reforço depende de um sistema contínuo de tentativas, recompensas e penalidades no ambiente.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O agente maximiza a recompensa a longo prazo através de ações."
+        },
+        {
+          "type": "combo",
+          "topics": "TIPO",
+          "questions": "Para estimar a temperatura exata de um processador quântico amanhã, aplicamos um algoritmo de [COMBO].",
+          "options": [
+            "Regressão",
+            "Classificação",
+            "Reforço",
+            "Ambiente"
+          ],
+          "correct": "Regressão",
+          "tip": "A temperatura é uma variável contínua, exigindo previsão numérica."
+        },
+        {
+          "type": "multi",
+          "topics": "TIPO",
+          "questions": "Quais casos práticos abaixo se resolvem com algoritmos de Clustering (Não Supervisionado)?",
+          "answers": [
+            "Criar perfis de comportamento em mundos virtuais sem rótulos",
+            "Agrupar anomalias de rede misteriosas em clusters",
+            "Detectar se uma transação PIX é fraude ou segura",
+            "Prever o salário exato de um funcionário em 2026"
+          ],
+          "correct": [
+            "Criar perfis de comportamento em mundos virtuais sem rótulos",
+            "Agrupar anomalias de rede misteriosas em clusters"
+          ],
+          "tip": "Fraude e Salário precisam de rótulos prévios, logo são Supervisionados."
+        },
+        {
+          "type": "drag",
+          "topics": "TIPO",
+          "questions": "Associe os termos do Aprendizado por Reforço:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Agente",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Ambiente",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Ação",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Recompensa",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "A Inteligência que decide"
+            },
+            {
+              "id": "z2",
+              "label": "Contexto onde tudo ocorre"
+            },
+            {
+              "id": "z3",
+              "label": "Escolha feita no momento"
+            },
+            {
+              "id": "z4",
+              "label": "Feedback positivo ou penalidade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses quatro conceitos guiam a IA em cenários de decisão."
+        },
+        {
+          "type": "multiple",
+          "topics": "TIPO",
+          "questions": "[NAME], para treinar satélites coletores de lixo espacial a se desviarem de meteoros sem programação manual, qual a técnica?",
+          "answers": [
+            "Aprendizado por Reforço",
+            "Clustering de imagens",
+            "Classificação Binária",
+            "Regressão logística"
+          ],
+          "correct": "Aprendizado por Reforço",
+          "tip": "Desviar de obstáculos em ambientes dinâmicos é um problema clássico de Reforço."
+        },
+        {
+          "type": "combo",
+          "topics": "TIPO",
+          "questions": "No Aprendizado Profundo, as redes neurais são compostas por diversas funções de ativação emulando um [COMBO].",
+          "options": [
+            "Neurônio",
+            "Roteador",
+            "Monitor",
+            "HD"
+          ],
+          "correct": "Neurônio",
+          "trans": "AZUR",
+          "tip": "As redes neurais artificiais são inspiradas na biologia."
+        },
+        {
+          "type": "multiple",
+          "topics": "AZUR",
+          "questions": "Para que serve um Registry no Azure Machine Learning?",
+          "answers": [
+            "É um repositório para compartilhar ativos e modelos corporativos",
+            "É um firewall para impedir acessos ao sistema",
+            "É uma ferramenta de design gráfico de relatórios",
+            "É o banco de dados que apaga registros duplicados"
+          ],
+          "correct": "É um repositório para compartilhar ativos e modelos corporativos",
+          "tip": "O Registry facilita a reutilização e o trabalho em equipe."
+        },
+        {
+          "type": "boolean",
+          "topics": "AZUR",
+          "questions": "[NAME], o Azure ML Studio oferece uma interface visual robusta, onde até pipelines complexos podem ser montados via drag-and-drop.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Studio facilita o trabalho de dados num ambiente único."
+        },
+        {
+          "type": "combo",
+          "topics": "AZUR",
+          "questions": "Para manter o faturamento organizado, conectamos a conta do Azure a uma [COMBO] responsável pelos custos.",
+          "options": [
+            "Assinatura",
+            "Ação",
+            "Interface",
+            "Agência"
+          ],
+          "correct": "Assinatura",
+          "tip": "Toda implantação na nuvem está atrelada a uma Assinatura financeira."
+        },
+        {
+          "type": "multi",
+          "topics": "AZUR",
+          "questions": "O que conseguimos visualizar ou armazenar no Azure ML Studio?",
+          "answers": [
+            "Métricas de modelos, como Matriz de Confusão",
+            "Conjuntos de dados centralizados",
+            "Modelos treinados para implantação",
+            "Códigos HTML de páginas de e-commerce"
+          ],
+          "correct": [
+            "Métricas de modelos, como Matriz de Confusão",
+            "Conjuntos de dados centralizados",
+            "Modelos treinados para implantação"
+          ],
+          "tip": "O ambiente é focado nas ciências de dados, não no front-end web."
+        },
+        {
+          "type": "drag",
+          "topics": "AZUR",
+          "questions": "Relacione os campos de configuração do Azure aos seus propósitos:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Região Primária",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Grupo de Recursos",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Marcas (Tags)",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Nome Amigável",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Local físico do data center"
+            },
+            {
+              "id": "z2",
+              "label": "Pasta contêiner de ativos"
+            },
+            {
+              "id": "z3",
+              "label": "Etiquetas de categorização"
+            },
+            {
+              "id": "z4",
+              "label": "Título livre para exibição visual"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A boa arquitetura na nuvem começa na organização da criação."
+        },
+        {
+          "type": "multiple",
+          "topics": "AZUR",
+          "questions": "Como garantir a máxima segurança de rede ao criar um Registro ML para um banco em 2026?",
+          "answers": [
+            "Desabilitar o acesso público e usar pontos privados",
+            "Permitir acesso total de todas as redes da internet",
+            "Publicar a senha em um repositório aberto",
+            "Deixar o método de conectividade em branco"
+          ],
+          "correct": "Desabilitar o acesso público e usar pontos privados",
+          "tip": "Pontos de extremidade privados bloqueiam a web aberta."
+        },
+        {
+          "type": "boolean",
+          "topics": "AZUR",
+          "questions": "A aba 'Examinar + criar' no Azure apenas apresenta o termo de uso, sem testar se as configurações preenchidas estão validadas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Azure sempre executa uma validação técnica completa antes de provisionar."
+        },
+        {
+          "type": "combo",
+          "topics": "AZUR",
+          "questions": "O Estúdio do ML agrupa ambientes, códigos e modelos em um único [COMBO] de trabalho para o time.",
+          "options": [
+            "Workspace",
+            "Firewall",
+            "Datacenter",
+            "Email"
+          ],
+          "correct": "Workspace",
+          "tip": "O Workspace (espaço de trabalho) é o núcleo do Azure Machine Learning."
+        },
+        {
+          "type": "multi",
+          "topics": "AZUR",
+          "questions": "[NAME], no menu lateral do Studio, quais recursos pertencem à área de Gerenciamento?",
+          "answers": [
+            "Computação (servidores e GPUs)",
+            "Monitoramento e Serviços de integridade",
+            "Aba de criação visual de Designer",
+            "Cadernos (Notebooks) de código livre"
+          ],
+          "correct": [
+            "Computação (servidores e GPUs)",
+            "Monitoramento e Serviços de integridade"
+          ],
+          "tip": "O gerenciamento lida com o suporte técnico e infraestrutura."
+        },
+        {
+          "type": "drag",
+          "topics": "AZUR",
+          "questions": "Atalhos rápidos do painel central no Studio:",
+          "items": [
+            {
+              "id": "i1",
+              "txt": "Adicionar Computação",
+              "match": "z1"
+            },
+            {
+              "id": "i2",
+              "txt": "Conectar Dados",
+              "match": "z2"
+            },
+            {
+              "id": "i3",
+              "txt": "Implantar Modelo",
+              "match": "z3"
+            },
+            {
+              "id": "i4",
+              "txt": "Modelos Generativos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Provisionar hardware e máquinas"
+            },
+            {
+              "id": "z2",
+              "label": "Importar fontes externas"
+            },
+            {
+              "id": "z3",
+              "label": "Colocar a IA em produção para uso"
+            },
+            {
+              "id": "z4",
+              "label": "Linhas prontas como o TimeGPT"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Entender o painel agiliza o dia a dia corporativo."
+        },
+        {
+          "type": "multiple",
+          "topics": "AZUR",
+          "questions": "Se você possui vários workspaces na sua corporação e deseja conectá-los de forma estruturada, o Azure oferece uma arquitetura baseada em:",
+          "answers": [
+            "Hub",
+            "Clustering Físico",
+            "Spam Filter",
+            "Regressão de Links"
+          ],
+          "correct": "Hub",
+          "tip": "O Hub é a estrutura central de gerenciamento acima dos workspaces."
+        },
+        {
+          "type": "boolean",
+          "topics": "AZUR",
+          "questions": "[NAME], o Azure ML também disponibiliza Exemplos de Bloco de Anotações com tutoriais práticos para acelerar o desenvolvimento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O aprendizado guiado e acelerado por templates é um ponto forte da plataforma."
+        }
+      ]
     }
   ]
 }
