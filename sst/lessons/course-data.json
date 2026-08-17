@@ -59410,6 +59410,847 @@
           "tip": "O aprendizado guiado e acelerado por templates é um ponto forte da plataforma."
         }
       ]
+    },
+    {
+      "slug": "aula-96",
+      "lesson_info": {
+        "id": "Aula-96",
+        "title": "AULA 96 - REDES NEURAIS E DEEP LEARNING",
+        "topics": [
+          {
+            "id": "BIOL",
+            "name": "INSPIRAÇÃO BIOLÓGICA",
+            "desc": "Conceitos sobre o cérebro humano e como inspirou a IA.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "ESTR",
+            "name": "O NEURÔNIO ARTIFICIAL",
+            "desc": "Entradas, pesos, bias e função de ativação.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "DEEP",
+            "name": "DEEP LEARNING",
+            "desc": "Camadas ocultas, classificação e probabilidades.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PRAT",
+            "name": "TREINAMENTO E PRÁTICA",
+            "desc": "Epochs, loss, overfitting e underfitting.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "D",
+          "E",
+          "E",
+          "P"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "questions": "[NAME], no cérebro humano, como os neurônios se comunicam?",
+          "topics": "BIOL",
+          "answers": [
+            "Sinais eletroquímicos",
+            "Ondas de rádio",
+            "Fibras ópticas",
+            "Sinais wi-fi"
+          ],
+          "correct": "Sinais eletroquímicos",
+          "tip": "Os neurônios biológicos usam processos eletroquímicos para passar a informação adiante."
+        },
+        {
+          "type": "boolean",
+          "questions": "[NAME], uma rede neural artificial tenta replicar a estrutura do cérebro humano.",
+          "topics": "BIOL",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ela se inspira na conexão massiva dos neurônios."
+        },
+        {
+          "type": "combo",
+          "questions": "No cérebro, quando o estímulo é forte, o neurônio [COMBO] e passa o sinal adiante.",
+          "topics": "BIOL",
+          "options": [
+            "dispara",
+            "dorme",
+            "apaga",
+            "desconecta"
+          ],
+          "correct": "dispara",
+          "tip": "É o princípio da ativação biológica."
+        },
+        {
+          "type": "multi",
+          "questions": "[NAME], quais são características do cérebro biológico citadas na aula?",
+          "topics": "BIOL",
+          "answers": [
+            "Processamento em paralelo",
+            "Bilhões de neurônios",
+            "Processamento linear sequencial",
+            "Sinais eletroquímicos"
+          ],
+          "correct": [
+            "Processamento em paralelo",
+            "Bilhões de neurônios",
+            "Sinais eletroquímicos"
+          ],
+          "tip": "O cérebro não processa de forma apenas linear."
+        },
+        {
+          "type": "drag",
+          "questions": "Relacione os conceitos biológicos e computacionais:",
+          "topics": "BIOL",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cérebro",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sinal biológico",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Conexões",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Neurônio",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "86 bilhões de neurônios"
+            },
+            {
+              "id": "z2",
+              "label": "Eletroquímico"
+            },
+            {
+              "id": "z3",
+              "label": "Massivas em paralelo"
+            },
+            {
+              "id": "z4",
+              "label": "Célula especializada"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses são os pilares da biologia apresentados."
+        },
+        {
+          "type": "multiple",
+          "questions": "Em 2026, uma startup criou um robô de entregas que reconhece obstáculos instantaneamente. [NAME], isso se assemelha a qual capacidade humana?",
+          "topics": "BIOL",
+          "answers": [
+            "Reconhecimento em milissegundos",
+            "Cálculo de planilhas",
+            "Memorização de senhas",
+            "Digitação rápida"
+          ],
+          "correct": "Reconhecimento em milissegundos",
+          "tip": "O cérebro reconhece padrões complexos, como rostos ou obstáculos, muito rápido."
+        },
+        {
+          "type": "boolean",
+          "questions": "Modelos de IA atuais usam bilhões de parâmetros para imitar as conexões do nosso cérebro.",
+          "topics": "BIOL",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A conexão massiva é o que dá poder ao Deep Learning."
+        },
+        {
+          "type": "combo",
+          "questions": "O Machine Learning tradicional usa [COMBO] matemáticas para dados simples.",
+          "topics": "BIOL",
+          "options": [
+            "fórmulas",
+            "emoções",
+            "cores",
+            "hardware"
+          ],
+          "correct": "fórmulas",
+          "tip": "Por isso ele falha em tarefas muito complexas."
+        },
+        {
+          "type": "multi",
+          "questions": "[NAME], por que o Machine Learning tradicional não é ideal para reconhecer rostos?",
+          "topics": "BIOL",
+          "answers": [
+            "Usa regras matemáticas simples",
+            "Não lida bem com padrões complexos",
+            "Processa muito rápido",
+            "Funciona melhor em dados lineares"
+          ],
+          "correct": [
+            "Usa regras matemáticas simples",
+            "Não lida bem com padrões complexos",
+            "Funciona melhor em dados lineares"
+          ],
+          "tip": "Imagens possuem padrões abstratos demais para fórmulas simples."
+        },
+        {
+          "type": "multiple",
+          "questions": "Uma cafeteria futurista usa câmeras para identificar clientes frequentes mesmo de chapéu. O que permite isso?",
+          "topics": "BIOL",
+          "answers": [
+            "Redes Neurais Artificiais",
+            "Árvores de Decisão",
+            "Regressão Linear",
+            "Sistemas de Regras"
+          ],
+          "correct": "Redes Neurais Artificiais",
+          "tip": "Elas lidam bem com variações no reconhecimento de imagem."
+        },
+        {
+          "type": "boolean",
+          "questions": "Um único neurônio biológico isolado é o responsável por toda a inteligência humana.",
+          "topics": "BIOL",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O poder surge da conexão massiva entre bilhões deles."
+        },
+        {
+          "type": "combo",
+          "questions": "O poder do cérebro vem do processamento em [COMBO].",
+          "topics": "BIOL",
+          "options": [
+            "paralelo",
+            "série",
+            "lote",
+            "nuvem"
+          ],
+          "correct": "paralelo",
+          "tip": "Múltiplas áreas do cérebro trabalham ao mesmo tempo."
+        },
+        {
+          "type": "multiple",
+          "questions": "Qual o número aproximado de neurônios no cérebro humano?",
+          "topics": "BIOL",
+          "answers": [
+            "86 bilhões",
+            "100 milhões",
+            "10 bilhões",
+            "1 trilhão"
+          ],
+          "correct": "86 bilhões",
+          "tip": "É essa quantidade imensa que permite nosso aprendizado complexo.",
+          "trans": "ESTR"
+        },
+        {
+          "type": "multiple",
+          "questions": "[NAME], o que representa a entrada 'x' em um neurônio artificial?",
+          "topics": "ESTR",
+          "answers": [
+            "Dado bruto",
+            "O peso",
+            "O erro",
+            "A função"
+          ],
+          "correct": "Dado bruto",
+          "tip": "Pode ser um pixel ou um valor numérico."
+        },
+        {
+          "type": "boolean",
+          "questions": "O 'peso' (w) indica a importância de uma entrada específica para o resultado final.",
+          "topics": "ESTR",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Pesos altos amplificam o sinal, pesos baixos o ignoram."
+        },
+        {
+          "type": "combo",
+          "questions": "O treinamento de uma rede ajusta os [COMBO] automaticamente.",
+          "topics": "ESTR",
+          "options": [
+            "pesos",
+            "cabos",
+            "sensores",
+            "botões"
+          ],
+          "correct": "pesos",
+          "tip": "O aprendizado consiste em encontrar os pesos corretos."
+        },
+        {
+          "type": "multi",
+          "questions": "Em um sistema de IA de RH de 2026, quais dados poderiam ser a entrada 'x'?",
+          "topics": "ESTR",
+          "answers": [
+            "Anos de experiência",
+            "Nota técnica",
+            "Salário desejado",
+            "Cor da interface"
+          ],
+          "correct": [
+            "Anos de experiência",
+            "Nota técnica",
+            "Salário desejado"
+          ],
+          "tip": "Cor da interface não é relevante para avaliar o candidato."
+        },
+        {
+          "type": "drag",
+          "questions": "Relacione as peças matemáticas do neurônio:",
+          "topics": "ESTR",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Entrada (x)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Peso (w)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Bias (b)",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Ativação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Informação bruta"
+            },
+            {
+              "id": "z2",
+              "label": "Importância do sinal"
+            },
+            {
+              "id": "z3",
+              "label": "Ajuste fino"
+            },
+            {
+              "id": "z4",
+              "label": "Decide se dispara"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Estas são as partes fundamentais de cada nó."
+        },
+        {
+          "type": "multiple",
+          "questions": "[NAME], qual a função principal da Função de Ativação?",
+          "topics": "ESTR",
+          "answers": [
+            "Permitir aprender padrões não-lineares",
+            "Apagar dados antigos",
+            "Diminuir o custo de energia",
+            "Aumentar a resolução da imagem"
+          ],
+          "correct": "Permitir aprender padrões não-lineares",
+          "tip": "Sem ela, a rede resolveria apenas problemas simples (lineares)."
+        },
+        {
+          "type": "boolean",
+          "questions": "Se tirarmos a função de ativação, empilhar camadas ocultas será inútil.",
+          "topics": "ESTR",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A rede viraria apenas uma combinação linear simples."
+        },
+        {
+          "type": "combo",
+          "questions": "Pesos próximos de zero acabam por [COMBO] a entrada.",
+          "topics": "ESTR",
+          "options": [
+            "ignorar",
+            "dobrar",
+            "ativar",
+            "salvar"
+          ],
+          "correct": "ignorar",
+          "tip": "Eles reduzem a influência daquele dado."
+        },
+        {
+          "type": "multi",
+          "questions": "Quais funções fazem parte do cálculo em um neurônio artificial?",
+          "topics": "ESTR",
+          "answers": [
+            "Soma dos produtos (x vezes w)",
+            "Adição do bias (b)",
+            "Função de ativação",
+            "Cálculo de raiz quadrada exclusiva"
+          ],
+          "correct": [
+            "Soma dos produtos (x vezes w)",
+            "Adição do bias (b)",
+            "Função de ativação"
+          ],
+          "tip": "Não há raiz quadrada exclusiva na estrutura básica."
+        },
+        {
+          "type": "multiple",
+          "questions": "Para prever engajamento numa rede social, a IA multiplica curtidas pelo fator de relevância. Esse fator é o nosso:",
+          "topics": "ESTR",
+          "answers": [
+            "Peso (w)",
+            "Bias (b)",
+            "Entrada (x)",
+            "Softmax"
+          ],
+          "correct": "Peso (w)",
+          "tip": "O peso define o quão importante é o número de curtidas."
+        },
+        {
+          "type": "boolean",
+          "questions": "Um neurônio artificial processa várias entradas somando-as antes da ativação.",
+          "topics": "ESTR",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "É o Sigma (somatório) da fórmula central."
+        },
+        {
+          "type": "combo",
+          "questions": "A função matemática que transforma a soma em uma decisão de 'disparo' chama-se [COMBO] de ativação.",
+          "topics": "ESTR",
+          "options": [
+            "Função",
+            "Matriz",
+            "Variável",
+            "Constante"
+          ],
+          "correct": "Função",
+          "tip": "Ela dita o comportamento não-linear."
+        },
+        {
+          "type": "multiple",
+          "questions": "[NAME], o que a letra grega Sigma (Σ) representa na fórmula do neurônio?",
+          "topics": "ESTR",
+          "answers": [
+            "Somatório",
+            "Divisão",
+            "Probabilidade",
+            "Derivada"
+          ],
+          "correct": "Somatório",
+          "tip": "Soma todas as entradas multiplicadas por seus pesos.",
+          "trans": "DEEP"
+        },
+        {
+          "type": "multiple",
+          "questions": "O que caracteriza o modelo como 'Deep' (Profundo)?",
+          "topics": "DEEP",
+          "answers": [
+            "Duas ou mais camadas ocultas",
+            "Muitas entradas",
+            "Pesos muito altos",
+            "Processamento em nuvem"
+          ],
+          "correct": "Duas ou mais camadas ocultas",
+          "tip": "A profundidade vem do número de camadas internas (Hidden Layers)."
+        },
+        {
+          "type": "boolean",
+          "questions": "[NAME], em uma rede totalmente conectada (fully connected), todos os nós de uma camada se ligam a todos da próxima.",
+          "topics": "DEEP",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso permite combinações complexas de características."
+        },
+        {
+          "type": "combo",
+          "questions": "A camada que recebe os dados brutos é chamada de Camada de [COMBO].",
+          "topics": "DEEP",
+          "options": [
+            "Entrada",
+            "Saída",
+            "Oculta",
+            "Processamento"
+          ],
+          "correct": "Entrada",
+          "tip": "É a porta de entrada para a rede neural."
+        },
+        {
+          "type": "multi",
+          "questions": "Quais são as camadas típicas de uma arquitetura Deep Learning?",
+          "topics": "DEEP",
+          "answers": [
+            "Entrada",
+            "Ocultas",
+            "Saída",
+            "Linear"
+          ],
+          "correct": [
+            "Entrada",
+            "Ocultas",
+            "Saída"
+          ],
+          "tip": "A linear não é uma camada estrutural clássica neste contexto."
+        },
+        {
+          "type": "drag",
+          "questions": "Relacione a camada ao seu papel:",
+          "topics": "DEEP",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Entrada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Oculta 1",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Oculta 2",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Saída",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Recebe os dados"
+            },
+            {
+              "id": "z2",
+              "label": "Extrai padrões de baixo nível"
+            },
+            {
+              "id": "z3",
+              "label": "Aprende características de alto nível"
+            },
+            {
+              "id": "z4",
+              "label": "Gera as previsões"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A informação é refinada a cada camada."
+        },
+        {
+          "type": "multiple",
+          "questions": "Num banco digital, o sistema analisa pixel por pixel de um cheque. A primeira camada vê bordas. A última vê números. Isso ocorre nas:",
+          "topics": "DEEP",
+          "answers": [
+            "Camadas Ocultas",
+            "Camadas de Entrada",
+            "Camadas de Perda",
+            "Épocas"
+          ],
+          "correct": "Camadas Ocultas",
+          "tip": "Elas abstraem progressivamente a informação."
+        },
+        {
+          "type": "boolean",
+          "questions": "Um problema multiclasse prevê entre três ou mais categorias diferentes.",
+          "topics": "DEEP",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Como no exemplo dos pinguins da aula."
+        },
+        {
+          "type": "combo",
+          "questions": "A função [COMBO] converte as pontuações finais em probabilidades que somam 100%.",
+          "topics": "DEEP",
+          "options": [
+            "Softmax",
+            "ReLU",
+            "Sigmoid",
+            "Linear"
+          ],
+          "correct": "Softmax",
+          "tip": "É a padrão para a camada de saída multiclasse."
+        },
+        {
+          "type": "multi",
+          "questions": "Ao usar uma rede profunda para classificar três tipos de contratos, a camada de saída deve:",
+          "topics": "DEEP",
+          "answers": [
+            "Ter 3 neurônios",
+            "Usar a função Softmax",
+            "Devolver 100% como soma das opções",
+            "Ter 1 neurônio apenas"
+          ],
+          "correct": [
+            "Ter 3 neurônios",
+            "Usar a função Softmax",
+            "Devolver 100% como soma das opções"
+          ],
+          "tip": "Cada neurônio de saída representa uma classe."
+        },
+        {
+          "type": "multiple",
+          "questions": "Por que empilhar muitas camadas pode ser arriscado?",
+          "topics": "DEEP",
+          "answers": [
+            "Aumenta o risco de overfitting e o custo computacional",
+            "A rede esquece como somar",
+            "Diminui os pesos para zero",
+            "A rede vira um modelo linear"
+          ],
+          "correct": "Aumenta o risco de overfitting e o custo computacional",
+          "tip": "Redes complexas exigem cuidado no treinamento."
+        },
+        {
+          "type": "boolean",
+          "questions": "[NAME], as variáveis de entrada (features) devem carregar informações capazes de distinguir as classes.",
+          "topics": "DEEP",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Se os dados não forem bons, a rede não aprende."
+        },
+        {
+          "type": "combo",
+          "questions": "Cada camada adicional permite aprender representações progressivamente mais [COMBO].",
+          "topics": "DEEP",
+          "options": [
+            "abstratas",
+            "rápidas",
+            "simples",
+            "baratas"
+          ],
+          "correct": "abstratas",
+          "tip": "A rede junta conceitos pequenos em padrões maiores.",
+          "trans": "PRAT"
+        },
+        {
+          "type": "multiple",
+          "questions": "O que é uma Epoch (Época) no treinamento?",
+          "topics": "PRAT",
+          "answers": [
+            "Uma passagem completa de todos os dados pela rede",
+            "O tempo em segundos",
+            "Uma camada oculta extra",
+            "Um erro da rede"
+          ],
+          "correct": "Uma passagem completa de todos os dados pela rede",
+          "tip": "A cada época, a rede ajusta os pesos um pouco mais."
+        },
+        {
+          "type": "boolean",
+          "questions": "O Loss (Perda) mede o quanto o modelo está acertando em 100%.",
+          "topics": "PRAT",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Loss mede o quanto o modelo está ERRANDO."
+        },
+        {
+          "type": "combo",
+          "questions": "A Taxa de Aprendizado (Learning [COMBO]) controla o tamanho do passo no ajuste dos pesos.",
+          "topics": "PRAT",
+          "options": [
+            "Rate",
+            "Time",
+            "Step",
+            "Loss"
+          ],
+          "correct": "Rate",
+          "tip": "Se for muito alta, a rede não converge."
+        },
+        {
+          "type": "multi",
+          "questions": "[NAME], o que acontece se o Learning Rate for muito alto?",
+          "topics": "PRAT",
+          "answers": [
+            "A rede oscila e não converge",
+            "O aprendizado pode falhar",
+            "O modelo aprende mais devagar",
+            "Os pesos ficam perfeitos"
+          ],
+          "correct": [
+            "A rede oscila e não converge",
+            "O aprendizado pode falhar"
+          ],
+          "tip": "Um passo grande demais faz o modelo pular a resposta certa."
+        },
+        {
+          "type": "drag",
+          "questions": "Associe os termos práticos:",
+          "topics": "PRAT",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Overfitting",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Underfitting",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Loss",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Epoch",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Memoriza os dados e falha no teste"
+            },
+            {
+              "id": "z2",
+              "label": "Não aprende nem o básico"
+            },
+            {
+              "id": "z3",
+              "label": "Métrica de erro"
+            },
+            {
+              "id": "z4",
+              "label": "Ciclo de treinamento completo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses conceitos dominam o ajuste fino do modelo."
+        },
+        {
+          "type": "multiple",
+          "questions": "Em um app de música, a IA começou a recomendar APENAS a mesma banda repetidamente. Isso pode ser um caso de:",
+          "topics": "PRAT",
+          "answers": [
+            "Overfitting",
+            "Underfitting",
+            "Learning Rate baixo",
+            "Falta de dados de teste"
+          ],
+          "correct": "Overfitting",
+          "tip": "A IA 'viciou' e memorizou um padrão restrito demais."
+        },
+        {
+          "type": "boolean",
+          "questions": "A engenharia de features, como elevar entradas ao quadrado, pode poupar processamento nas camadas ocultas.",
+          "topics": "PRAT",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Atalhos matemáticos facilitam a vida da rede."
+        },
+        {
+          "type": "combo",
+          "questions": "Quando a rede é simples demais para aprender o padrão, temos um caso de [COMBO].",
+          "topics": "PRAT",
+          "options": [
+            "Underfitting",
+            "Overfitting",
+            "Loss",
+            "Softmax"
+          ],
+          "correct": "Underfitting",
+          "tip": "A rede não tem capacidade suficiente."
+        },
+        {
+          "type": "multi",
+          "questions": "O que o TensorFlow Playground permite fazer visualmente?",
+          "topics": "PRAT",
+          "answers": [
+            "Adicionar neurônios",
+            "Mudar o Learning Rate",
+            "Criar modelos 3D complexos",
+            "Acompanhar a curva de Loss"
+          ],
+          "correct": [
+            "Adicionar neurônios",
+            "Mudar o Learning Rate",
+            "Acompanhar a curva de Loss"
+          ],
+          "tip": "Ele foca em redes simples em 2D, não modelos 3D."
+        },
+        {
+          "type": "multiple",
+          "questions": "[NAME], qual o risco principal de colocar neurônios demais em uma tarefa simples?",
+          "topics": "PRAT",
+          "answers": [
+            "A rede pode sofrer overfitting",
+            "O aprendizado fica muito rápido e impreciso",
+            "As entradas se anulam",
+            "Ocorrerá underfitting"
+          ],
+          "correct": "A rede pode sofrer overfitting",
+          "tip": "O excesso de capacidade faz a rede decorar os ruídos."
+        },
+        {
+          "type": "boolean",
+          "questions": "O processo de ajustar 'x' e 'w' para minimizar o Loss é exclusivo das pequenas redes do Playground.",
+          "topics": "PRAT",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Modelos gigantes como o ChatGPT usam os mesmos princípios."
+        },
+        {
+          "type": "multiple",
+          "questions": "Como as Redes Neurais solucionam problemas que a Regressão Logística falha em resolver?",
+          "topics": "PRAT",
+          "answers": [
+            "Aprendendo padrões não-lineares em várias camadas",
+            "Usando planilhas do Excel",
+            "Eliminando a função de ativação",
+            "Diminuindo os pesos"
+          ],
+          "correct": "Aprendendo padrões não-lineares em várias camadas",
+          "tip": "Camadas profundas + ativação lidam com padrões complexos."
+        }
+      ]
     }
   ]
 }
