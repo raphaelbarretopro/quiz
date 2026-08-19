@@ -60251,6 +60251,877 @@
           "tip": "Camadas profundas + ativação lidam com padrões complexos."
         }
       ]
+    },
+    {
+      "slug": "aula-99",
+      "lesson_info": {
+        "id": "Aula-99",
+        "title": "AULA 99 - FUNDAMENTOS DE TRANSFORMAÇÃO DIGITAL",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "A TRÍADE CONCEITUAL",
+            "desc": "Entenda as diferenças essenciais entre digitalização, informatização e automação.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "IMPACTOS DA MUDANÇA",
+            "desc": "Os pilares da transformação e seus efeitos na eficiência e na cultura corporativa.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "FERRAMENTAS DIGITAIS",
+            "desc": "O uso prático de formulários, workflows automatizados, GED e assinatura eletrônica.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "TENDÊNCIAS E GESTÃO",
+            "desc": "As novidades tecnológicas e os ganhos estratégicos na administração moderna.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1556761175-5973dc0f32f7?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "A",
+          "U",
+          "T",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "O que melhor define o termo digitalização?",
+          "answers": [
+            "Conversão do meio físico para o formato digital",
+            "Fim total do trabalho humano",
+            "Tomada de decisão por IA",
+            "Uso exclusivo de servidores em nuvem"
+          ],
+          "correct": "Conversão do meio físico para o formato digital",
+          "tip": "Digitalizar é mudar o suporte (do papel para a tela), mas a lógica do processo se mantém."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a informatização elimina por completo a necessidade de intervenção humana nas tarefas do dia a dia.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A informatização apenas apoia as tarefas; as pessoas ainda precisam digitar dados e conduzir os processos."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A [COMBO] executa fluxos de trabalho com a mínima intervenção humana, baseando-se em regras pré-definidas.",
+          "options": [
+            "Automação",
+            "Digitalização",
+            "Burocracia",
+            "Lógica"
+          ],
+          "correct": "Automação",
+          "tip": "É o estágio mais avançado, onde os sistemas tomam ações de rotina sozinhos."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais destas características são típicas da automação de processos?",
+          "answers": [
+            "Ações disparadas automaticamente",
+            "Mínima intervenção humana",
+            "Integração entre sistemas diferentes",
+            "Uso exclusivo de pastas de papel"
+          ],
+          "correct": [
+            "Ações disparadas automaticamente",
+            "Mínima intervenção humana",
+            "Integração entre sistemas diferentes"
+          ],
+          "tip": "A automação visa conectar fluxos inteiros sem depender de lembretes manuais."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o conceito ao seu impacto prático na rotina de trabalho:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Digitalização",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Informatização",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Automação",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Processo Analógico",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Apenas muda o suporte (físico para digital)"
+            },
+            {
+              "id": "z2",
+              "label": "Apoia a execução de tarefas manuais"
+            },
+            {
+              "id": "z3",
+              "label": "Executa o fluxo sistematicamente"
+            },
+            {
+              "id": "z4",
+              "label": "Depende totalmente de arquivos físicos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Compreender cada estágio é vital para evoluir a maturidade tecnológica de uma empresa."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Em 2026, a agência de publicidade CriarBR começou a escanear todos os roteiros impressos e salvá-los em PDF. Como chamamos esse passo inicial?",
+          "answers": [
+            "Digitalização",
+            "Automação",
+            "Informatização",
+            "Gamificação"
+          ],
+          "correct": "Digitalização",
+          "tip": "Transformar o que é papel em um arquivo legível no computador é a pura digitalização."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], se uma startup apenas migra seus papéis físicos para pastas no computador, sem alterar o método de trabalho, ela já alcançou o topo da eficiência.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O problema de organização e lentidão continuará existindo se o processo em si não for modernizado."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na informatização, o computador atua como uma ferramenta de [COMBO] para facilitar as tarefas manuais.",
+          "options": [
+            "Apoio",
+            "Bloqueio",
+            "Delegação",
+            "Exclusão"
+          ],
+          "correct": "Apoio",
+          "tip": "Nesse nível, a decisão e a execução final ainda dependem inteiramente do colaborador."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], o que diferencia a informatização de uma simples digitalização?",
+          "answers": [
+            "Uso de sistemas como ERPs",
+            "Organização mais estruturada dos dados em planilhas",
+            "Geração contínua de papéis físicos",
+            "Eliminação total do fator humano"
+          ],
+          "correct": [
+            "Uso de sistemas como ERPs",
+            "Organização mais estruturada dos dados em planilhas"
+          ],
+          "tip": "Informatizar é usar tecnologia para organizar dados ativamente, não apenas criar cópias de imagens."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "O que é um requisito fundamental para que a automação ocorra de forma eficiente?",
+          "answers": [
+            "Regras de negócio previamente definidas",
+            "Trabalho manual constante",
+            "Uso de formulários de papel padronizados",
+            "Intervenção humana em todas as etapas"
+          ],
+          "correct": "Regras de negócio previamente definidas",
+          "tip": "Os sistemas só operam sozinhos porque seguem regras muito bem desenhadas pelos gestores."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], na era da automação moderna, o papel do ser humano passa a ser o de supervisionar os robôs e focar em melhorias criativas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O trabalho braçal repetitivo é substituído, elevando o valor da capacidade analítica humana."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "A clínica de fisioterapia SaúdeHoje implementou em 2026 um sistema onde alertas confirmam e reagendam consultas sem nenhuma intervenção da recepção. Esse é um exemplo claro de [COMBO].",
+          "options": [
+            "Automação",
+            "Informatização",
+            "Digitalização",
+            "Retrocesso"
+          ],
+          "correct": "Automação",
+          "tip": "Quando a máquina executa o fluxo completo do contato com o cliente, estamos falando de automação."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Qual dos níveis de evolução tecnológica apresenta o salto de eficiência mais significativo para os negócios atuais?",
+          "answers": [
+            "Automação",
+            "Informatização",
+            "Digitalização",
+            "Manutenção do Arquivo Físico"
+          ],
+          "correct": "Automação",
+          "tip": "A automação quebra a barreira do retrabalho e entrega velocidade máxima às operações.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que a transparência e a rastreabilidade digital proporcionam para as empresas?",
+          "answers": [
+            "Criação de um rastro auditável e seguro",
+            "Maior perda de documentos sigilosos",
+            "Aumento expressivo de conflitos internos",
+            "Custos muito mais altos com armazenamento físico"
+          ],
+          "correct": "Criação de um rastro auditável e seguro",
+          "tip": "No ambiente digital, você sabe quem fez o quê e em qual instante, eliminando incertezas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o tempo de ciclo de um processo, desde o seu início até o fim, aumenta consideravelmente quando decidimos adotar a automação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Pelo contrário, o tempo de ciclo despenca porque as esperas entre os departamentos são eliminadas."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A redução real de custos operacionais envolve gastar menos com impressões frequentes, papel e grandes espaços de [COMBO].",
+          "options": [
+            "Arquivo",
+            "Nuvem",
+            "Treinamento",
+            "Inovação"
+          ],
+          "correct": "Arquivo",
+          "tip": "Salas gigantes dedicadas a guardar caixas de documentos deixam de ser necessárias."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais destes fatores são barreiras reais que as empresas precisam superar durante a transformação digital?",
+          "answers": [
+            "Resistência cultural das equipes acostumadas ao papel",
+            "Custos iniciais de implantação de softwares",
+            "Necessidade constante de capacitação",
+            "Diminuição da agilidade das entregas"
+          ],
+          "correct": [
+            "Resistência cultural das equipes acostumadas ao papel",
+            "Custos iniciais de implantação de softwares",
+            "Necessidade constante de capacitação"
+          ],
+          "tip": "A tecnologia é a parte fácil; o verdadeiro desafio é preparar as pessoas e o orçamento."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione os pilares organizacionais aos seus benefícios mais diretos:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Transparência",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Eficiência",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Acesso Remoto",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Decisão por Dados",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Facilita auditorias internas e externas"
+            },
+            {
+              "id": "z2",
+              "label": "Reduz o tempo de ciclo dos fluxos"
+            },
+            {
+              "id": "z3",
+              "label": "Viabiliza o trabalho colaborativo à distância"
+            },
+            {
+              "id": "z4",
+              "label": "Substitui os longos levantamentos manuais"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada pilar ataca um problema específico da gestão administrativa clássica."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "Em 2026, a loja FastShoes percebeu que alguns funcionários antigos estavam recusando o novo aplicativo interno. Como chamamos esse desafio específico?",
+          "answers": [
+            "Resistência cultural",
+            "Falha aguda de hardware",
+            "Erro crônico de software",
+            "Acesso remoto"
+          ],
+          "correct": "Resistência cultural",
+          "tip": "É o apego aos métodos manuais, exigindo empatia e treinamento focado por parte da gestão."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a redução de retrabalho humano e a diminuição de falhas e erros de digitação são vantagens evidentes ao adotarmos sistemas conectados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Quando a informação viaja digitalmente, ela não precisa ser redigitada, poupando tempo e evitando erros."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Empresas ágeis que adotam processos inovadores conseguem responder rapidamente aos clientes, adquirindo maior [COMBO] no mercado atual.",
+          "options": [
+            "Competitividade",
+            "Ociosidade",
+            "Burocracia",
+            "Despesa"
+          ],
+          "correct": "Competitividade",
+          "tip": "A tecnologia se tornou o fator de desempate na disputa por melhores clientes."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "A diretora de RH de uma grande varejista precisa justificar o orçamento de tecnologia em 2026. O que ela deve destacar?",
+          "answers": [
+            "Decisões muito mais assertivas baseadas em dados",
+            "Documentos importantes acessíveis de qualquer filial",
+            "Total rastreabilidade das ações de cada funcionário",
+            "Aumento da necessidade de impressoras no escritório"
+          ],
+          "correct": [
+            "Decisões muito mais assertivas baseadas em dados",
+            "Documentos importantes acessíveis de qualquer filial",
+            "Total rastreabilidade das ações de cada funcionário"
+          ],
+          "tip": "Demonstre sempre ganhos práticos como segurança e velocidade para aprovar projetos novos."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "O que é absolutamente indispensável para contornar a resistência cultural durante uma transição tecnológica?",
+          "answers": [
+            "Treinamento constante e engajamento da equipe",
+            "Imposição brusca sem nenhum tipo de aviso",
+            "Demissão imediata dos funcionários que tiverem dúvidas",
+            "Desistência e volta aos processos de papel"
+          ],
+          "correct": "Treinamento constante e engajamento da equipe",
+          "tip": "Acolher as dúvidas e capacitar os colaboradores é a única forma de garantir o uso dos novos sistemas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A implantação inicial de soluções de automação e GED costuma demandar um bom investimento financeiro prévio.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O custo existe (software, servidores, licenças), mas o retorno financeiro em eficiência logo compensa esse valor."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Com o registro digital, a empresa ganha paz. É possível provar com exatidão quem alterou o documento e [COMBO] essa alteração ocorreu.",
+          "options": [
+            "Quando",
+            "Talvez",
+            "Onde imprimir",
+            "Descartar"
+          ],
+          "correct": "Quando",
+          "tip": "A linha do tempo exata de edições traz uma enorme segurança jurídica para o negócio."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], de que forma os dashboards e relatórios automatizados mudam o papel dos gestores nas reuniões?",
+          "answers": [
+            "Facilitam decisões rápidas baseadas em dados sempre atualizados",
+            "Atrasam muito as análises gerenciais rotineiras",
+            "Multiplicam a necessidade de digitação em calculadoras",
+            "Obrigam os líderes a conferirem documentos manualmente o tempo todo"
+          ],
+          "correct": "Facilitam decisões rápidas baseadas em dados sempre atualizados",
+          "tip": "Em vez de construir a planilha durante o mês inteiro, o gestor gasta seu tempo analisando os resultados já processados.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual ferramenta moderna foca em eliminar cópias de papel e permite coletar dados do público de forma bem organizada?",
+          "answers": [
+            "Formulários Eletrônicos",
+            "Máquinas de Escrever",
+            "Carimbos Automatizados",
+            "Malotes Corporativos"
+          ],
+          "correct": "Formulários Eletrônicos",
+          "tip": "Sistemas como o Google Forms e Microsoft Forms são os portões de entrada para dados confiáveis."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], workflows modernos de empresas avançadas ainda dependem que os gestores mandem e-mails manuais para aprovar a próxima etapa do projeto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O workflow justamente substitui esse e-mail. Quando uma etapa é concluída, a plataforma já notifica e repassa a tarefa sozinha."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Uma enorme vantagem de usar formulários online é a [COMBO] automática, que impede o usuário de enviar o pedido se faltar algum campo obrigatório.",
+          "options": [
+            "Validação",
+            "Impressão",
+            "Delegação",
+            "Exclusão"
+          ],
+          "correct": "Validação",
+          "tip": "Isso praticamente zera as devoluções por falta de informação básica nos processos comerciais."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais dessas funções são típicas e altamente esperadas de um sistema de Gestão Eletrônica de Documentos (GED)?",
+          "answers": [
+            "Armazenamento centralizado seguro na empresa",
+            "Controle rigoroso de versões e aprovações",
+            "Busca e recuperação rápida de contratos em segundos",
+            "Envio físico de remessas e cartas de papel"
+          ],
+          "correct": [
+            "Armazenamento centralizado seguro na empresa",
+            "Controle rigoroso de versões e aprovações",
+            "Busca e recuperação rápida de contratos em segundos"
+          ],
+          "tip": "O GED é como um cérebro organizado da empresa, guardando e achando qualquer texto importante em instantes."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Conecte a ferramenta ou plataforma digital ao seu principal objetivo rotineiro:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Formulários Online",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sistemas de Workflow",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sistema GED",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Assinatura Eletrônica",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Estruturar a coleta de dados e triagem inicial"
+            },
+            {
+              "id": "z2",
+              "label": "Automatizar a fila de aprovações entre os times"
+            },
+            {
+              "id": "z3",
+              "label": "Centralizar armazenamento e facilitar buscas"
+            },
+            {
+              "id": "z4",
+              "label": "Garantir a validade jurídica de um acordo sem papel"
+            }
+          ],
+          "correct": "drag",
+          "tip": "No mundo ideal, todas essas quatro ferramentas conversam entre si para criar um fluxo perfeito."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Em 2026, a agência imobiliária MorarBem precisa selar aluguéis com inquilinos que moram em outros estados de forma imediata. O que eles usam?",
+          "answers": [
+            "Assinatura Eletrônica",
+            "Envios Sedex Expresso",
+            "Aprovação por Apelido",
+            "Guarda em Arquivo Central"
+          ],
+          "correct": "Assinatura Eletrônica",
+          "tip": "Com plataformas como Gov.br ou Docusign, acordos milionários são fechados em questão de minutos à distância."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], segundo a nossa legislação atual, as assinaturas feitas em meios eletrônicos não possuem validade jurídica plena e ainda exigem visita ao cartório.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Medidas Provisórias e Leis recentes no Brasil já garantem amparo total a contratos nascidos e firmados apenas no formato digital."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O [COMBO] de versões presente no GED permite visualizar com exatidão todas as revisões, exclusões e ajustes feitos em um texto corporativo.",
+          "options": [
+            "Controle",
+            "Esquecimento",
+            "Bloqueio",
+            "Extravio"
+          ],
+          "correct": "Controle",
+          "tip": "Isso evita aquele problema clássico de usar um modelo de contrato desatualizado por engano."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais destas plataformas são bastante conhecidas no mercado para substituir papeladas de cadastros por formulários digitais dinâmicos?",
+          "answers": [
+            "Google Forms",
+            "Microsoft Forms",
+            "Typeform",
+            "Adobe Photoshop"
+          ],
+          "correct": [
+            "Google Forms",
+            "Microsoft Forms",
+            "Typeform"
+          ],
+          "tip": "Embora o Photoshop seja incrível para imagens, ele não tem absolutamente nenhuma função para coletas de dados administrativos."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "De que maneira a chegada de sistemas de workflow intuitivos mudou as rotinas do setor administrativo?",
+          "answers": [
+            "Democratizou a automação para equipes que não sabem programar",
+            "Encareceu de modo absurdo as despesas da empresa",
+            "Tornou os processos internos misteriosos e lentos",
+            "Obrigou a contratação em massa de engenheiros de software"
+          ],
+          "correct": "Democratizou a automação para equipes que não sabem programar",
+          "tip": "Com as interfaces do tipo arrastar e soltar, hoje qualquer analista bem treinado consegue montar robôs de tarefas."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], plataformas integradoras como o Zapier ajudam a encaminhar arquivos recebidos direto para pastas na nuvem sem precisar da sua intervenção.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa é a magia das integrações modernas: os sistemas conversam nos bastidores de forma invisível."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Com a implantação de um formulário perfeito, a empresa se livra de etapas chatas de conferência prévia e [COMBO] manual dos pedidos pelo escritório.",
+          "options": [
+            "Distribuição",
+            "Retenção",
+            "Confusão",
+            "Impressão"
+          ],
+          "correct": "Distribuição",
+          "tip": "O sistema já sabe que, se a opção X foi marcada, o caso vai direto para o setor de compras. Ninguém precisa entregar o papel lá."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "Qual o principal diferencial em aplicar metadados (dados que descrevem outros dados) no armazenamento GED?",
+          "answers": [
+            "Permitir encontrar arquivos cruciais em questão de segundos",
+            "Consumir exponencialmente mais discos rígidos locais",
+            "Apagar os documentos antigos sozinhos para liberar memória",
+            "Esconder planilhas financeiras dos diretores executivos"
+          ],
+          "correct": "Permitir encontrar arquivos cruciais em questão de segundos",
+          "tip": "Etiquetas como data, fornecedor, valor e status são metadados que transformam a busca num passe de mágica.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "O que a famosa sigla RPA representa dentro do contexto de tendências em alta nos escritórios hoje em dia?",
+          "answers": [
+            "Robôs de software",
+            "Redes privadas avançadas",
+            "Roteamento de papel impresso",
+            "Registro público analógico"
+          ],
+          "correct": "Robôs de software",
+          "tip": "Robotic Process Automation: trata-se de um software capaz de imitar os cliques e digitações humanas no computador."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], graças aos avanços da computação em nuvem, tornou-se fácil e seguro operar os sistemas do escritório confortavelmente a partir de casa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A nuvem é a base que viabilizou e consolidou definitivamente o modelo de teletrabalho mundial."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A tendência chamada [COMBO] consiste em interfaces visuais onde usuários criam aplicativos e lógicas poderosas sem digitar linhas complexas de código.",
+          "options": [
+            "Low-code",
+            "Analógica",
+            "Morosa",
+            "Burocrática"
+          ],
+          "correct": "Low-code",
+          "tip": "Baixo código (ou até nenhum código, o No-code) empodera o administrador a criar suas próprias soluções."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "O inovador FutureBank usa forte Inteligência Artificial em suas operações no ano de 2026. O que a IA costuma trazer de ganho nesse nível de aplicação corporativa?",
+          "answers": [
+            "Análise e antecipação preditiva de comportamentos",
+            "Identificação ultra rápida de padrões de falha",
+            "Geração de eficiências impossíveis ao olhar humano nu",
+            "Necessidade dobrada de carimbos e chancelas analógicas"
+          ],
+          "correct": [
+            "Análise e antecipação preditiva de comportamentos",
+            "Identificação ultra rápida de padrões de falha",
+            "Geração de eficiências impossíveis ao olhar humano nu"
+          ],
+          "tip": "A IA devora bases de dados gigantes e entrega relatórios prontos indicando o melhor caminho a seguir."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Combine essas fortes tendências atuais com os impactos reais que elas causam na rotina corporativa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nuvem",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "LGPD",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "IA",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Low-code",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Garante alta acessibilidade de onde você estiver"
+            },
+            {
+              "id": "z2",
+              "label": "Impõe regras severas na proteção da privacidade"
+            },
+            {
+              "id": "z3",
+              "label": "Aprimora análises gerenciais e faz ações preditivas"
+            },
+            {
+              "id": "z4",
+              "label": "Libera criações ágeis para quem não é desenvolvedor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O administrador moderno não precisa ser um expert em TI, mas deve obrigatoriamente compreender esse mapa."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Se a fábrica Motores do Sul relata falhas constantes de comunicação e perda de informações na hora das entregas, qual é o gargalo mais provável?",
+          "answers": [
+            "Uso de planilhas locais soltas e desconectadas",
+            "Excesso de integrações entre os softwares em nuvem",
+            "Uso de assinaturas eletrônicas ágeis demais",
+            "Investimento desproporcional em robôs de automação"
+          ],
+          "correct": "Uso de planilhas locais soltas e desconectadas",
+          "tip": "Quando a equipe não vê o mesmo dado atualizado, o erro na hora de produzir e faturar é praticamente certo."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], manter processos inteiramente manuais, com fichas e canetas, proporciona aos executivos uma visão limpa e em tempo real da produtividade da empresa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "No mundo físico a informação é invisível aos gestores até que alguém perca um longo tempo compilando tudo."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Para atuar em total conformidade e evitar multas severas, qualquer gestão de documentos modernos no Brasil precisa respeitar as diretrizes da [COMBO].",
+          "options": [
+            "LGPD",
+            "CLT",
+            "RPA",
+            "GED"
+          ],
+          "correct": "LGPD",
+          "tip": "A Lei Geral de Proteção de Dados determinou um novo rumo sobre como empresas coletam e arquivam dados pessoais."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Mapeie os velhos problemas administrativos às ferramentas corretas que as empresas visionárias adotam como solução hoje:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Fichas Manuais Amassadas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fila de E-mails Esquecidos",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pastas Perdidas no Armário",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Espera Longa por Autógrafos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Substituir imediatamente por Formulários Eletrônicos"
+            },
+            {
+              "id": "z2",
+              "label": "Programar caminhos fáceis via Workflows Automáticos"
+            },
+            {
+              "id": "z3",
+              "label": "Digitalizar de vez utilizando uma solução robusta de GED"
+            },
+            {
+              "id": "z4",
+              "label": "Descomplicar com o uso de Assinaturas Eletrônicas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Diagnosticar a falha na rotina é o primeiro e mais importante passo antes de sair comprando software."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "Na visão corporativa de ponta, adotar a automação nunca deve significar destruir equipes, mas sim libertar o colaborador para que ele possa atuar com o foco em:",
+          "answers": [
+            "Pensar as estratégias, criar inovações e solucionar problemas",
+            "Digitar com mais força, conferir e arquivar blocos",
+            "Aperfeiçoar as técnicas de bater carimbos e furar os papéis",
+            "Copiar os relatórios de uma tela para a outra o dia todo"
+          ],
+          "correct": "Pensar as estratégias, criar inovações e solucionar problemas",
+          "tip": "A máquina lida com a burocracia e a rotina exaustiva para que a mente humana lide com o futuro do negócio."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], dominar ao menos uma das tendências tecnológicas de transformação atual lhe conferirá forte vantagem competitiva e empregabilidade nos anos que virão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O profissional do futuro não é apenas um executor; é o desenhista dos processos automatizados."
+        }
+      ]
     }
   ]
 }
