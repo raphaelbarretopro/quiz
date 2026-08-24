@@ -61122,6 +61122,956 @@
           "tip": "O profissional do futuro não é apenas um executor; é o desenhista dos processos automatizados."
         }
       ]
+    },
+    {
+      "slug": "aula-101",
+      "lesson_info": {
+        "id": "Aula-101",
+        "title": "AULA 101 - IDENTIFICANDO GARGALOS E OTIMIZANDO FLUXOS DE PROCESSO",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "GARGALOS E FUNDAMENTOS DE PROCESSO",
+            "desc": "Definição de gargalo, pontos de controle, Lead Time, Process Time e os desperdícios do Lean Office.",
+            "color": "#e74c3c",
+            "img_url": "https://source.unsplash.com/1600x900/?bottleneck-warehouse"
+          },
+          {
+            "id": "AGEN",
+            "name": "FERRAMENTAS DE ANÁLISE DE CAUSA RAIZ",
+            "desc": "Técnica dos 5 Porquês, Diagrama de Ishikawa e mapeamento do fluxo atual (As-Is).",
+            "color": "#f39c12",
+            "img_url": "https://source.unsplash.com/1600x900/?root-cause-analysis"
+          },
+          {
+            "id": "PROT",
+            "name": "MAPEAMENTO E REDESENHO DE FLUXO",
+            "desc": "Aplicação prática dos conceitos a um fluxo real de Solicitação de Compras, do As-Is ao To-Be.",
+            "color": "#3498db",
+            "img_url": "https://source.unsplash.com/1600x900/?process-flowchart"
+          },
+          {
+            "id": "NORM",
+            "name": "AUTOMAÇÃO, BPM E RPA",
+            "desc": "Diferença entre BPM e RPA e a ordem correta para automatizar processos com inteligência.",
+            "color": "#2ecc71",
+            "img_url": "https://source.unsplash.com/1600x900/?automation-technology"
+          }
+        ],
+        "sokoban": [
+          "L",
+          "E",
+          "A",
+          "N"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em um processo de aprovação de compras, 40 solicitações chegam por dia, mas apenas 15 são analisadas. Como essa situação é tecnicamente classificada?",
+          "answers": [
+            "Gargalo",
+            "Ponto de controle",
+            "Lead Time",
+            "Desperdício de duplicidade"
+          ],
+          "correct": "Gargalo",
+          "tip": "Um gargalo ocorre quando a capacidade de execução de uma etapa é inferior à demanda que chega até ela, gerando acúmulo de trabalho."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], um ponto de controle serve para verificar se o trabalho realizado está correto antes de a etapa seguinte começar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Em um processo de compras, um ponto de controle seria validar se a solicitação tem todas as informações obrigatórias antes de enviá-la para aprovação."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na analogia do cruzamento sem semáforo, o semáforo representa as [COMBO] que organizam o fluxo do processo.",
+          "options": [
+            "regras e validações",
+            "planilhas duplicadas",
+            "filas de espera",
+            "relatórios de gestão"
+          ],
+          "correct": "regras e validações",
+          "tip": "Sem pontos de controle bem definidos, todo mundo trabalha, mas ninguém avança — como um cruzamento sem semáforo."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das opções abaixo são sintomas visíveis comuns de problemas de processo?",
+          "answers": [
+            "Pedidos entregues com atraso",
+            "Relatórios imprecisos para a gestão",
+            "Funcionários refazendo o mesmo trabalho duas vezes",
+            "Redução do quadro de funcionários"
+          ],
+          "correct": [
+            "Pedidos entregues com atraso",
+            "Relatórios imprecisos para a gestão",
+            "Funcionários refazendo o mesmo trabalho duas vezes"
+          ],
+          "tip": "Atrasos, relatórios imprecisos, retrabalho e clientes insatisfeitos são sintomas visíveis comuns de problemas de processo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada conceito à sua definição correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Gargalo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ponto de controle",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Lead Time",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Process Time",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Etapa cuja capacidade é inferior à demanda que chega até ela"
+            },
+            {
+              "id": "z2",
+              "label": "Etapa estratégica que verifica se o trabalho está correto antes de seguir"
+            },
+            {
+              "id": "z3",
+              "label": "Tempo total, incluindo esperas e filas, percebido pelo cliente"
+            },
+            {
+              "id": "z4",
+              "label": "Tempo efetivo em que alguém está realmente trabalhando na atividade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses quatro conceitos são a base para entender onde e por que um processo perde eficiência."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], se o Lead Time de uma compra é 8 dias e o Process Time é 2 horas, o que representam as horas restantes do período?",
+          "answers": [
+            "Gargalos, filas e desperdícios do processo",
+            "Tempo de deslocamento do produto",
+            "Prazo contratual do fornecedor",
+            "Tempo de garantia do produto"
+          ],
+          "correct": "Gargalos, filas e desperdícios do processo",
+          "tip": "O gap entre Lead Time e Process Time é exatamente o que precisamos eliminar ao otimizar um processo."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o Process Time corresponde ao tempo total desde o início até a conclusão de uma atividade, incluindo esperas e filas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essa é a definição de Lead Time. O Process Time é apenas o tempo efetivo de trabalho, sem contar as esperas."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O desperdício do Lean Office em que dados são inseridos mais de uma vez em sistemas diferentes sem integração é chamado de [COMBO].",
+          "options": [
+            "Duplicidade",
+            "Espera",
+            "Retrabalho",
+            "Processamento excessivo"
+          ],
+          "correct": "Duplicidade",
+          "tip": "A duplicidade ocorre quando não há integração entre os sistemas, obrigando a redigitação dos mesmos dados."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das situações abaixo são exemplos de desperdícios do Lean Office?",
+          "answers": [
+            "Processos parados aguardando aprovação de outro setor",
+            "Preencher campos desnecessários em formulários",
+            "Refazer tarefas por falta de padronização",
+            "Contratar mais funcionários para o setor"
+          ],
+          "correct": [
+            "Processos parados aguardando aprovação de outro setor",
+            "Preencher campos desnecessários em formulários",
+            "Refazer tarefas por falta de padronização"
+          ],
+          "tip": "Esses exemplos correspondem, respectivamente, aos desperdícios de Espera, Processamento excessivo e Retrabalho."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o desperdício do Lean Office ao seu exemplo prático:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Espera",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Retrabalho",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Processamento excessivo",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Duplicidade",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Processo parado aguardando aprovação de outro setor"
+            },
+            {
+              "id": "z2",
+              "label": "Refazer tarefas por erro ou falta de padronização"
+            },
+            {
+              "id": "z3",
+              "label": "Gerar relatórios que ninguém lê"
+            },
+            {
+              "id": "z4",
+              "label": "Dados inseridos em sistemas diferentes sem integração"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Reconhecer esses padrões é o primeiro passo para eliminá-los, segundo o Lean Office."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a consequência de automatizar um processo mal estruturado antes de corrigi-lo?",
+          "answers": [
+            "Os erros passam a ocorrer de forma mais rápida e frequente",
+            "O processo se torna automaticamente mais barato",
+            "Os pontos de controle deixam de ser necessários",
+            "O Lead Time é reduzido a zero"
+          ],
+          "correct": "Os erros passam a ocorrer de forma mais rápida e frequente",
+          "tip": "Antes de automatizar qualquer coisa, é preciso entender onde o fluxo trava e por quê."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], os problemas em processos mal estruturados ocorrem principalmente por falta de esforço dos colaboradores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O problema está no desenho do processo — processos mal estruturados fazem até bons profissionais errarem."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Em muitas empresas, a causa dos cadastros duplicados de clientes é a ausência de [COMBO] entre os setores.",
+          "options": [
+            "padrão único de cadastro",
+            "pontos de controle",
+            "Lead Time definido",
+            "técnica dos 5 Porquês"
+          ],
+          "correct": "padrão único de cadastro",
+          "tip": "Clientes eram cadastrados em planilhas diferentes, sem padrão, gerando duplicidade e erros frequentes.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual pergunta orienta a aplicação da técnica dos 5 Porquês durante uma investigação de causa raiz?",
+          "answers": [
+            "Mas por que isso acontece?",
+            "Quem é o responsável pelo erro?",
+            "Quanto tempo isso vai levar?",
+            "Quanto custa resolver isso?"
+          ],
+          "correct": "Mas por que isso acontece?",
+          "tip": "A técnica dos 5 Porquês consiste em nunca parar na primeira resposta, sempre questionando a causa seguinte."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], em um exemplo de atrasos nas entregas de uma empresa, a causa raiz identificada pelos 5 Porquês foi a ausência de um campo de prioridade no formulário de solicitação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A solução proposta foi redesenhar o formulário e criar uma regra de triagem automática."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O Diagrama de Ishikawa também é conhecido como diagrama de [COMBO].",
+          "options": [
+            "causa e efeito",
+            "Lead Time e Process Time",
+            "aprovação e controle",
+            "fluxo As-Is e To-Be"
+          ],
+          "correct": "causa e efeito",
+          "tip": "O Ishikawa organiza visualmente as categorias de causas que levam a um problema, funcionando como um raio-X do processo."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais categorias de causas podem aparecer em um Diagrama de Ishikawa aplicado a atrasos nas entregas?",
+          "answers": [
+            "Método",
+            "Mão de obra",
+            "Máquina",
+            "Fornecedor externo"
+          ],
+          "correct": [
+            "Método",
+            "Mão de obra",
+            "Máquina"
+          ],
+          "tip": "O diagrama de Ishikawa também inclui Materiais, Medição e Meio ambiente; 'Fornecedor externo' não é uma das categorias tradicionais."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione a ferramenta de análise ao momento correto de utilizá-la:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "5 Porquês",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Ishikawa",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Ambas as ferramentas",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Problema simples ou localizado, análise rápida em equipe"
+            },
+            {
+              "id": "z2",
+              "label": "Problema complexo, com múltiplas causas e várias áreas envolvidas"
+            },
+            {
+              "id": "z3",
+              "label": "Impacto alto e recorrente, exigindo solução documentada e redesenho completo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A escolha da ferramenta depende da complexidade e do impacto do problema analisado."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a primeira etapa do processo de mapeamento do fluxo atual (As-Is)?",
+          "answers": [
+            "Observar",
+            "Registrar",
+            "Medir",
+            "Identificar"
+          ],
+          "correct": "Observar",
+          "tip": "O mapeamento As-Is segue a sequência: Observar, Registrar, Medir e Identificar."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o fluxo As-Is representa como o processo foi desenhado no papel, e não como ele realmente acontece no dia a dia.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O fluxo As-Is mostra o processo como ele realmente é, não como achamos que é nem como foi desenhado formalmente."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Ao mapear um fluxo de Solicitação de Compras, uma equipe descobriu que [COMBO] das 11 etapas eram duplicações ou aprovações redundantes.",
+          "options": [
+            "6",
+            "3",
+            "9",
+            "11"
+          ],
+          "correct": "6",
+          "tip": "Esse mapeamento revelou que mais da metade das etapas não agregavam valor ao processo."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], em quais situações é recomendado usar a técnica dos 5 Porquês?",
+          "answers": [
+            "Quando o problema parece simples ou localizado",
+            "Quando é preciso uma análise rápida em equipe",
+            "Quando se quer descobrir rapidamente a causa imediata",
+            "Quando é necessário envolver várias áreas da empresa"
+          ],
+          "correct": [
+            "Quando o problema parece simples ou localizado",
+            "Quando é preciso uma análise rápida em equipe",
+            "Quando se quer descobrir rapidamente a causa imediata"
+          ],
+          "tip": "Envolver várias áreas da empresa é uma característica de quando usar o Diagrama de Ishikawa, não os 5 Porquês."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada etapa dos 5 Porquês ao exemplo aplicado a um caso de atrasos nas entregas:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Problema",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Por quê 1?",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Por quê 2?",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Causa Raiz",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "As entregas da empresa estão atrasando"
+            },
+            {
+              "id": "z2",
+              "label": "O pedido demora para ser aprovado pelo gerente"
+            },
+            {
+              "id": "z3",
+              "label": "O gerente recebe muitas solicitações e não tem como priorizar"
+            },
+            {
+              "id": "z4",
+              "label": "O formulário de solicitação não tem campo de prioridade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada 'porquê' aprofunda a investigação até chegar à causa estrutural do problema."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], em um diagrama de Ishikawa, a causa 'sobrecarga do gerente' está associada a qual categoria?",
+          "answers": [
+            "Mão de obra",
+            "Método",
+            "Máquina",
+            "Medição"
+          ],
+          "correct": "Mão de obra",
+          "tip": "A sobrecarga do gerente é uma causa ligada às pessoas envolvidas no processo, categoria Mão de obra."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o Diagrama de Ishikawa deve ser usado antes de propor soluções, funcionando como um raio-X do processo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele permite visualizar de onde vêm os problemas antes de qualquer tentativa de solução."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[NAME], quando o impacto de um problema é alto e recorrente, e a gestão exige uma solução documentada, o recomendado é usar [COMBO].",
+          "options": [
+            "as duas ferramentas (5 Porquês e Ishikawa) em conjunto",
+            "apenas o Lead Time",
+            "apenas o Process Time",
+            "nenhuma ferramenta, apenas intuição"
+          ],
+          "correct": "as duas ferramentas (5 Porquês e Ishikawa) em conjunto",
+          "tip": "Casos que exigem redesenho completo do processo (To-Be) pedem uma análise combinada e mais robusta.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], em um fluxo original de Solicitação de Compras, qual etapa gera retrabalho porque o supervisor precisa redigitar os dados do formulário em papel?",
+          "answers": [
+            "Digitação no sistema",
+            "Aprovação do gerente",
+            "Notificação verbal",
+            "Início da compra"
+          ],
+          "correct": "Digitação no sistema",
+          "tip": "O supervisor precisava redigitar no sistema os dados que já estavam no formulário em papel, duplicando o trabalho."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], o Gargalo 2 de um fluxo de compras, chamado de 'Aprovação sem Critério', ocorre porque não existe campo de urgência nem regra de triagem nas solicitações.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Sem critério de urgência, compras urgentes ficavam na mesma fila de compras simples de papelaria."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A causa do Gargalo 3 (Comunicação Verbal) no fluxo de compras é a ausência de [COMBO].",
+          "options": [
+            "notificação automática integrada ao sistema",
+            "um diagrama de Ishikawa",
+            "um Lead Time definido",
+            "um formulário em papel"
+          ],
+          "correct": "notificação automática integrada ao sistema",
+          "tip": "Sem registro formal, a notificação verbal ao comprador gerava mal-entendidos e retrabalho."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais etapas compõem um fluxo otimizado (To-Be) de Solicitação de Compras?",
+          "answers": [
+            "Formulário",
+            "Categorização",
+            "Aprovação",
+            "Digitação manual duplicada"
+          ],
+          "correct": [
+            "Formulário",
+            "Categorização",
+            "Aprovação"
+          ],
+          "tip": "O fluxo To-Be é composto por Formulário, Categorização, Aprovação e Notificação; a digitação duplicada foi eliminada."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada gargalo do fluxo de compras à sua causa raiz:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Digitação Duplicada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Aprovação sem Critério",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Comunicação Verbal",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ausência de formulário digital integrado"
+            },
+            {
+              "id": "z2",
+              "label": "Ausência de campo de urgência e regra de triagem"
+            },
+            {
+              "id": "z3",
+              "label": "Ausência de notificação automática integrada ao sistema"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada gargalo identificado tem uma causa estrutural específica, revelada por uma análise de causa raiz."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual foi o resultado projetado de Lead Time após o redesenho de um fluxo de compras?",
+          "answers": [
+            "Redução de 8 dias para 1,5 dias",
+            "Redução de 8 dias para 4 dias",
+            "Aumento de 8 dias para 11 dias",
+            "Redução de 8 dias para 8 horas"
+          ],
+          "correct": "Redução de 8 dias para 1,5 dias",
+          "tip": "Esse resultado foi obtido eliminando etapas redundantes e inserindo pontos de controle estratégicos."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], considerando os indicadores do redesenho, o fluxo de compras eliminou 100% da digitação duplicada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso foi possível com a criação de um formulário digital integrado, eliminando a redigitação de dados."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No fluxo ineficiente original, o resumo de problemas apontava digitação duplicada, aprovações redundantes e ausência de [COMBO].",
+          "options": [
+            "rastreabilidade",
+            "Lead Time",
+            "Process Time",
+            "Diagrama de Ishikawa"
+          ],
+          "correct": "rastreabilidade",
+          "tip": "Sem rastreabilidade, ficava difícil saber em que etapa cada solicitação estava, gerando incerteza no processo."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], no gabarito do desafio de redesenho de fluxo (As-Is para To-Be), quais foram os gargalos identificados no processo de compras original?",
+          "answers": [
+            "Dupla assinatura física",
+            "Digitação duplicada",
+            "Notificação verbal",
+            "Falta de fornecedores cadastrados"
+          ],
+          "correct": [
+            "Dupla assinatura física",
+            "Digitação duplicada",
+            "Notificação verbal"
+          ],
+          "tip": "A falta de fornecedores cadastrados não é um dos gargalos apontados neste cenário."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada etapa do fluxo ineficiente original (As-Is) à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Etapa 1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Etapa 3",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Etapa 5",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Etapa 7",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Formulário em papel preenchido pelo colaborador"
+            },
+            {
+              "id": "z2",
+              "label": "Digitação no sistema pelo supervisor (retrabalho)"
+            },
+            {
+              "id": "z3",
+              "label": "Aprovação do gerente sem prioridade (gargalo)"
+            },
+            {
+              "id": "z4",
+              "label": "Notificação verbal ao comprador"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esse fluxo de 8 etapas mostrava claramente onde o processo travava antes do redesenho."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], no fluxo original de compras, quanto tempo o envio de e-mail do sistema ao gerente podia demorar?",
+          "answers": [
+            "Até 3 dias",
+            "Até 1 hora",
+            "Até 30 minutos",
+            "Até 8 dias"
+          ],
+          "correct": "Até 3 dias",
+          "tip": "Esse atraso no envio já era um dos pontos que contribuíam para o Lead Time elevado do processo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no fluxo original de compras, das 11 etapas mapeadas, apenas 2 foram consideradas redundantes ou duplicadas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Foram 6 das 11 etapas identificadas como duplicações ou aprovações redundantes, não apenas 2.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], de acordo com a 'Máxima da Automação', o que acontece quando se automatiza um processo mal desenhado?",
+          "answers": [
+            "Os erros acontecem de forma mais rápida e em maior escala",
+            "O processo se torna automaticamente eficiente",
+            "Os gargalos desaparecem sozinhos",
+            "O Lead Time é eliminado por completo"
+          ],
+          "correct": "Os erros acontecem de forma mais rápida e em maior escala",
+          "tip": "A tecnologia amplifica o que já existe: se o processo é ruim, os problemas aparecem mais depressa e em maior escala."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], na ordem correta de otimização de processos, o processo deve ser automatizado antes de ser mapeado e ter seus gargalos eliminados.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A ordem correta é: mapear o processo atual (As-Is), eliminar gargalos, redesenhar o fluxo (To-Be) e só então automatizar."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "BPM (Business Process Management) é definido como uma [COMBO], enquanto RPA é uma tecnologia de execução automática de tarefas.",
+          "options": [
+            "disciplina de gestão do ciclo de vida dos processos",
+            "ferramenta de digitação de formulários",
+            "técnica de análise de causa raiz",
+            "planilha de controle de entregas"
+          ],
+          "correct": "disciplina de gestão do ciclo de vida dos processos",
+          "tip": "BPM não é uma ferramenta, é uma forma de pensar e gerenciar o trabalho: mapear, analisar, otimizar, implantar e monitorar."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais das afirmações abaixo sobre RPA (Robotic Process Automation) estão corretas?",
+          "answers": [
+            "Executa tarefas repetitivas baseadas em regras",
+            "Simula ações humanas em sistemas digitais",
+            "Power Automate e UiPath são exemplos de ferramentas de RPA",
+            "É uma disciplina de gestão do ciclo de vida dos processos"
+          ],
+          "correct": [
+            "Executa tarefas repetitivas baseadas em regras",
+            "Simula ações humanas em sistemas digitais",
+            "Power Automate e UiPath são exemplos de ferramentas de RPA"
+          ],
+          "tip": "A última afirmação descreve o BPM, não o RPA — são conceitos complementares, mas distintos."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada conceito à sua definição correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "BPM",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "RPA",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Automação Inteligente de Processos",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Disciplina de gestão que mapeia, analisa, otimiza, implanta e monitora processos"
+            },
+            {
+              "id": "z2",
+              "label": "Tecnologia que executa tarefas repetitivas simulando ações humanas"
+            },
+            {
+              "id": "z3",
+              "label": "Princípio segundo o qual a tecnologia amplifica o que já existe no processo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "BPM e RPA caminham juntos: um cuida da gestão do processo, o outro executa a automação."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], segundo o slide 'Tecnologia a Favor do Processo', qual é o papel correto da tecnologia em relação a um processo já otimizado?",
+          "answers": [
+            "Ser uma extensão do processo bem desenhado",
+            "Ser um curativo sobre um processo quebrado",
+            "Substituir a necessidade de mapear o fluxo",
+            "Eliminar a necessidade de pontos de controle"
+          ],
+          "correct": "Ser uma extensão do processo bem desenhado",
+          "tip": "A tecnologia executa as regras definidas de forma autônoma, confiável e rastreável, quando o processo já está bem desenhado."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], apenas pessoas com grande domínio de matemática conseguem trabalhar com ferramentas de BPM e RPA.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essa é uma crença equivocada; as ferramentas atuais de BPM e RPA foram desenhadas para serem intuitivas e acessíveis."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "[NAME], o que realmente importa para trabalhar com tecnologia e automação de processos é a capacidade de observar processos, identificar problemas e [COMBO].",
+          "options": [
+            "propor melhorias",
+            "decorar fórmulas matemáticas",
+            "programar em múltiplas linguagens",
+            "memorizar os desperdícios do Lean Office"
+          ],
+          "correct": "propor melhorias",
+          "tip": "Essa capacidade, qualquer pessoa pode desenvolver — inclusive você."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais das ferramentas abaixo são exemplos de RPA acessíveis a médias empresas?",
+          "answers": [
+            "Power Automate",
+            "UiPath",
+            "Diagrama de Ishikawa",
+            "Técnica dos 5 Porquês"
+          ],
+          "correct": [
+            "Power Automate",
+            "UiPath"
+          ],
+          "tip": "Ishikawa e 5 Porquês são ferramentas de análise de causa raiz, não de automação de processos (RPA)."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada número à etapa correta da ordem correta de automação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "3",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "4",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Mapear o processo atual (As-Is)"
+            },
+            {
+              "id": "z2",
+              "label": "Identificar e eliminar gargalos"
+            },
+            {
+              "id": "z3",
+              "label": "Redesenhar o fluxo (To-Be)"
+            },
+            {
+              "id": "z4",
+              "label": "Automatizar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Seguir essa ordem evita que a automação amplifique um processo ainda cheio de falhas."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o que realmente torna um processo eficiente?",
+          "answers": [
+            "A coragem de questionar por que executamos as tarefas da forma como sempre fizemos",
+            "A velocidade com que as tarefas são executadas",
+            "O número de ferramentas de automação utilizadas",
+            "A quantidade de relatórios gerados"
+          ],
+          "correct": "A coragem de questionar por que executamos as tarefas da forma como sempre fizemos",
+          "tip": "Um processo eficiente não nasce da velocidade de execução, mas da coragem de questionar o que sempre foi feito."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], enxergar etapas invisíveis como espera e retrabalho é descrito como a ferramenta mais poderosa da era digital.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Quem aprende a enxergar o invisível carrega consigo a capacidade de transformar o que é em algo melhor."
+        }
+      ]
     }
   ]
 }
