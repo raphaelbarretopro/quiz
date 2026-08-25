@@ -62072,6 +62072,806 @@
           "tip": "Quem aprende a enxergar o invisível carrega consigo a capacidade de transformar o que é em algo melhor."
         }
       ]
+    },
+    {
+      "slug": "aula-102",
+      "lesson_info": {
+        "id": "Aula-102",
+        "title": "AULA 102 - SELEÇÃO DE FERRAMENTAS DE AUTOMAÇÃO: RPA E BPM NA PRÁTICA",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "O CUSTO INVISÍVEL DO PROCESSO MANUAL",
+            "desc": "Como tarefas manuais repetitivas desperdiçam tempo, potencial analítico e escalam o erro.",
+            "color": "#e74c3c",
+            "img_url": "https://source.unsplash.com/1600x900/?paperwork,office"
+          },
+          {
+            "id": "AGEN",
+            "name": "RPA VS. BPM: ARQUITETURAS E FILOSOFIAS",
+            "desc": "As diferenças entre a automação tática do RPA e a orquestração estratégica do BPM.",
+            "color": "#f1c40f",
+            "img_url": "https://source.unsplash.com/1600x900/?robotics,workflow"
+          },
+          {
+            "id": "PROT",
+            "name": "APLICAÇÃO NA LOGISTECH",
+            "desc": "Como um consultor de automação diagnostica e escolhe a ferramenta certa para cada cenário real.",
+            "color": "#3498db",
+            "img_url": "https://source.unsplash.com/1600x900/?consulting,whiteboard"
+          },
+          {
+            "id": "NORM",
+            "name": "DESAFIOS E CONSOLIDAÇÃO",
+            "desc": "Exercícios práticos de decisão entre RPA e BPM e a síntese final dos conceitos da aula.",
+            "color": "#2ecc71",
+            "img_url": "https://source.unsplash.com/1600x900/?studying,notebook"
+          }
+        ],
+        "sokoban": [
+          "A",
+          "U",
+          "T",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], segundo a aula, o que caracteriza o \"processo invisível\" nas empresas?",
+          "answers": [
+            "Uma tarefa repetitiva aceita sem questionamento por já ser rotina",
+            "Um processo documentado formalmente pela auditoria",
+            "Uma falha de sistema identificada pelo TI",
+            "Um projeto de automação já implementado"
+          ],
+          "correct": "Uma tarefa repetitiva aceita sem questionamento por já ser rotina",
+          "tip": "O processo invisível 'sangra' tempo e energia silenciosamente justamente por não ser questionado."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], de acordo com a aula, o aumento de erros na digitação manual após certo tempo é causado por falha de caráter do profissional, e não por um limite fisiológico da atenção.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A aula é clara: 'não é falha de caráter, é fisiologia' — a atenção humana tem um limite biológico."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Um profissional que passa o dia transcrevendo dados manualmente está deixando de exercer seu potencial [COMBO], que é o verdadeiro custo desse tipo de trabalho.",
+          "options": [
+            "analítico",
+            "motor",
+            "visual",
+            "decorativo"
+          ],
+          "correct": "analítico",
+          "tip": "Quem transcreve dados não está pensando, decidindo ou resolvendo problemas — esse é o custo real."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das afirmações abaixo estão corretas sobre o mito da automação apresentado na aula?",
+          "answers": [
+            "Automação exige raciocínio de processo, não fórmula matemática",
+            "Ferramentas low-code foram pensadas para qualquer profissional organizado e lógico",
+            "É necessário ser um gênio da matemática para automatizar",
+            "Escalar um processo manual significa contratar mais gente para errar mais rápido"
+          ],
+          "correct": [
+            "Automação exige raciocínio de processo, não fórmula matemática",
+            "Ferramentas low-code foram pensadas para qualquer profissional organizado e lógico",
+            "Escalar um processo manual significa contratar mais gente para errar mais rápido"
+          ],
+          "tip": "A aula desmistifica: automação não é 'coisa de gênio da matemática', mas exige raciocínio de processo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o problema da Logistech ao seu respectivo relato na aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cadastros de clientes",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Controle de entregas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Busca de informação entre setores",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Feitos em planilhas diferentes por cada setor"
+            },
+            {
+              "id": "z2",
+              "label": "Ainda anotado em fichas impressas"
+            },
+            {
+              "id": "z3",
+              "label": "Depende de ligar, esperar e torcer para achar a ficha certa"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses três pontos ilustram o 'processo invisível' da Logistech antes de qualquer automação."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], na Logistech, como é feito o cadastro de clientes atualmente, segundo a aula?",
+          "answers": [
+            "Em planilhas diferentes por cada setor",
+            "Em um sistema único integrado",
+            "Por meio de um aplicativo mobile",
+            "Diretamente no ERP da empresa"
+          ],
+          "correct": "Em planilhas diferentes por cada setor",
+          "tip": "Essa fragmentação é justamente parte do 'processo invisível' que a aula destaca."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], segundo a reflexão proposta na aula, identificar o \"processo invisível\" deve ser feito somente depois de escolher a tecnologia de automação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A aula afirma o contrário: é preciso identificar o processo invisível antes de escolher qualquer tecnologia."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na Logistech, quando o setor comercial precisa de uma informação do setor de logística, o caminho típico é ligar, esperar e [COMBO] alguém encontrar a ficha certa.",
+          "options": [
+            "torcer",
+            "garantir",
+            "calcular",
+            "documentar"
+          ],
+          "correct": "torcer",
+          "tip": "Essa descrição ilustra a ineficiência de processos baseados em papel e comunicação informal."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais consequências do processo manual são mencionadas na aula?",
+          "answers": [
+            "Aumento do erro após tempo prolongado de digitação",
+            "Desperdício do potencial analítico do profissional",
+            "Redução imediata dos custos operacionais",
+            "Escalar significa contratar mais gente para errar mais rápido"
+          ],
+          "correct": [
+            "Aumento do erro após tempo prolongado de digitação",
+            "Desperdício do potencial analítico do profissional",
+            "Escalar significa contratar mais gente para errar mais rápido"
+          ],
+          "tip": "O processo manual não reduz custos — pelo contrário, ele os esconde e os multiplica ao escalar."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o conceito à sua descrição, conforme apresentado na aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Limite biológico da atenção",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Potencial analítico desperdiçado",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Mito da automação",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O erro cresce após minutos de digitação, independente do esforço"
+            },
+            {
+              "id": "z2",
+              "label": "O profissional repete movimentos em vez de pensar e decidir"
+            },
+            {
+              "id": "z3",
+              "label": "A crença de que só gênios da matemática conseguem automatizar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses três conceitos formam a base do 'custo invisível' apresentado no capítulo inicial da aula.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a principal característica do RPA segundo a aula?",
+          "answers": [
+            "Imita ações humanas na tela, como clicar e copiar/colar",
+            "Orquestra o fluxo completo entre setores via API",
+            "Substitui integralmente sistemas legados",
+            "Elimina a necessidade de regras de negócio"
+          ],
+          "correct": "Imita ações humanas na tela, como clicar e copiar/colar",
+          "tip": "RPA é descrito como 'o robô que imita o humano', executando ações visuais na interface."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o RPA é considerado ideal para automatizar processos em sistemas legados que não possuem API.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A tabela comparativa da aula marca RPA como 'ideal' para sistemas legados."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O BPM trabalha por meio de conexões estruturadas, chamadas [COMBO], entre sistemas modernos.",
+          "options": [
+            "APIs",
+            "macros",
+            "scripts de tela",
+            "cookies"
+          ],
+          "correct": "APIs",
+          "tip": "Diferente do RPA, o BPM não imita telas — ele se integra via APIs estruturadas."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais das opções abaixo são vantagens do BPM segundo a tabela comparativa da aula?",
+          "answers": [
+            "Foco em processo ponta a ponta",
+            "Integração via APIs estruturadas",
+            "Retorno estruturante e estratégico",
+            "Ideal para sistemas legados sem necessidade de modernização"
+          ],
+          "correct": [
+            "Foco em processo ponta a ponta",
+            "Integração via APIs estruturadas",
+            "Retorno estruturante e estratégico"
+          ],
+          "tip": "A última opção descreve o RPA — o BPM, na verdade, exige modernização para sistemas legados."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada característica da tabela comparativa à ferramenta mais adequada:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Foco em tarefa isolada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Foco em processo ponta a ponta",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Integração por interface visual (UI)",
+              "match": "z1"
+            },
+            {
+              "id": "d4",
+              "txt": "Integração por APIs estruturadas",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "RPA"
+            },
+            {
+              "id": "z2",
+              "label": "BPM / Workflow"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A tabela da aula opõe claramente foco e tipo de integração de cada ferramenta."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a limitação crítica do RPA apontada na aula?",
+          "answers": [
+            "Depender de estabilidade visual da tela do sistema",
+            "Exigir modernização constante dos sistemas",
+            "Não conseguir seguir regras objetivas",
+            "Necessitar de aprovações encadeadas entre setores"
+          ],
+          "correct": "Depender de estabilidade visual da tela do sistema",
+          "tip": "Se a tela do sistema mudar de layout, o robô RPA 'se perde' — essa é sua fragilidade."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], segundo a matriz de decisão, quando um processo passa por vários setores com aprovações encadeadas, isso é um sinal de que o RPA é a ferramenta mais indicada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Orquestração entre setores com aprovações encadeadas é sinal de BPM, não de RPA."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Se o sistema muda de layout com frequência, essa instabilidade [COMBO] a aplicação do RPA.",
+          "options": [
+            "inviabiliza",
+            "favorece",
+            "acelera",
+            "simplifica"
+          ],
+          "correct": "inviabiliza",
+          "tip": "A matriz de decisão da aula é direta: instabilidade de tela inviabiliza o uso do RPA."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais elementos compõem a lógica de um fluxo low-code apresentada na aula (ex.: Power Automate)?",
+          "answers": [
+            "Gatilho",
+            "Ações",
+            "Condição",
+            "Aprovação",
+            "Resultado",
+            "Backup automático em nuvem"
+          ],
+          "correct": [
+            "Gatilho",
+            "Ações",
+            "Condição",
+            "Aprovação",
+            "Resultado"
+          ],
+          "tip": "A aula descreve a sequência Gatilho → Ações → Condição → Aprovação → Resultado como estrutura padrão."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o tipo de fluxo à sua característica predominante, conforme a aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Fluxos estilo RPA",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fluxos estilo BPM",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "RPA e BPM combinados",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Poucas condições e aprovações — mais mecânicos"
+            },
+            {
+              "id": "z2",
+              "label": "Mais condições, aprovações e orquestração entre setores"
+            },
+            {
+              "id": "z3",
+              "label": "Não competem entre si; muitas vezes formam a melhor arquitetura"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A aula encerra o capítulo 02 destacando que RPA e BPM frequentemente se complementam.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], no Cenário A da Logistech (faturas em sistema antigo sem API), qual ferramenta foi escolhida?",
+          "answers": [
+            "RPA",
+            "BPM",
+            "Nenhuma automação",
+            "Substituição do sistema legado"
+          ],
+          "correct": "RPA",
+          "tip": "O gargalo era digitação manual repetitiva em sistema legado — perfil clássico para RPA."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no Cenário B (reembolsos perdidos no e-mail), o gargalo identificado foi a ausência de orquestração e controle entre pessoas e setores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A aula afirma explicitamente que o gargalo não era uma tarefa isolada, mas a falta de orquestração."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No Cenário C, a admissão de motorista exige acesso em um sistema moderno de e-mail (com API) e cadastro em um sistema de folha antigo (sem API), configurando uma solução [COMBO].",
+          "options": [
+            "híbrida",
+            "exclusivamente RPA",
+            "exclusivamente BPM",
+            "manual"
+          ],
+          "correct": "híbrida",
+          "tip": "Esse cenário mostra que a pergunta certa não é 'RPA ou BPM?', mas 'onde cada um encaixa?'"
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais são as etapas do raciocínio de um Centro de Excelência em Automação apresentadas na aula?",
+          "answers": [
+            "Diagnóstico",
+            "Matriz",
+            "Justificativa",
+            "Arquitetura",
+            "Orçamento anual"
+          ],
+          "correct": [
+            "Diagnóstico",
+            "Matriz",
+            "Justificativa",
+            "Arquitetura"
+          ],
+          "tip": "O raciocínio consultivo segue quatro etapas fixas: Diagnóstico, Matriz, Justificativa e Arquitetura."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada cenário da Logistech à ferramenta de automação escolhida:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Cenário A (faturas em sistema antigo)",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Cenário B (reembolsos no e-mail)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Cenário C (admissão de motorista)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "RPA"
+            },
+            {
+              "id": "z2",
+              "label": "BPM / Workflow"
+            },
+            {
+              "id": "z3",
+              "label": "Solução híbrida (RPA + BPM)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada cenário revela um perfil diferente de automação, aplicando a matriz de decisão da aula."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], no Cenário A, por que a equipe optou pelo RPA em vez de substituir o sistema antigo?",
+          "answers": [
+            "Porque oferece implementação rápida, custo baixo e sem impacto na infraestrutura existente",
+            "Porque o sistema antigo possui API robusta",
+            "Porque o processo exige múltiplas aprovações",
+            "Porque é mais caro que trocar o sistema"
+          ],
+          "correct": "Porque oferece implementação rápida, custo baixo e sem impacto na infraestrutura existente",
+          "tip": "Essas vantagens tornam o RPA atrativo quando não é viável substituir sistemas legados."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no Cenário B, a solução de BPM direciona automaticamente cada pedido de reembolso para o aprovador correto e registra prazos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa é exatamente a descrição da decisão de BPM apresentada na aula para o Cenário B."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A etapa \"Diagnóstico\" do raciocínio consultivo consiste em identificar os [COMBO] reais do processo atual.",
+          "options": [
+            "gargalos",
+            "lucros",
+            "fornecedores",
+            "funcionários"
+          ],
+          "correct": "gargalos",
+          "tip": "Sem identificar corretamente o gargalo, a escolha entre RPA e BPM fica comprometida."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais afirmações sobre o Cenário C (admissão de motorista) estão corretas?",
+          "answers": [
+            "O sistema de e-mail corporativo é moderno e possui API",
+            "O sistema de folha de pagamento é antigo e não possui API",
+            "A situação é comum em empresas de médio porte com sistemas de gerações diferentes",
+            "A pergunta correta é sempre \"RPA ou BPM?\", nunca os dois juntos"
+          ],
+          "correct": [
+            "O sistema de e-mail corporativo é moderno e possui API",
+            "O sistema de folha de pagamento é antigo e não possui API",
+            "A situação é comum em empresas de médio porte com sistemas de gerações diferentes"
+          ],
+          "tip": "A aula defende justamente o oposto da última afirmação: a pergunta certa é 'onde cada um encaixa?'"
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione a etapa do raciocínio consultivo à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Diagnóstico",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Matriz",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Justificativa",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Arquitetura",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identificar os gargalos reais do processo atual"
+            },
+            {
+              "id": "z2",
+              "label": "Aplicar os quatro critérios de decisão"
+            },
+            {
+              "id": "z3",
+              "label": "Argumentar tecnicamente qual ferramenta é melhor"
+            },
+            {
+              "id": "z4",
+              "label": "Desenhar entrada, processamento e saída"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas quatro etapas resumem como um consultor de automação estrutura sua análise.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], no Desafio 01 (coleta de dados de planilhas de clientes em formatos diferentes, sistema central sem conexão externa), qual ferramenta seria mais indicada?",
+          "answers": [
+            "RPA, pois as regras são claras e o sistema não tem API",
+            "BPM, pois há múltiplas aprovações envolvidas",
+            "Nenhuma automação é viável nesse caso",
+            "Substituição total do sistema central"
+          ],
+          "correct": "RPA, pois as regras são claras e o sistema não tem API",
+          "tip": "Esse perfil de tarefa mecânica em sistema sem API é o cenário clássico de aplicação do RPA."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no Desafio 02 (liberação de rotas de entrega com três aprovações), a ausência de registro e a necessidade de rastreabilidade indicam o BPM como solução mais adequada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Processos com múltiplas aprovações encadeadas e necessidade de rastreabilidade são sinal claro de BPM."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "No Desafio 03, o problema de cada setor manter sua própria planilha de clientes é caracterizado principalmente como um problema de [COMBO] de processo, e não apenas de tarefa isolada.",
+          "options": [
+            "orquestração",
+            "digitação",
+            "impressão",
+            "arquivamento"
+          ],
+          "correct": "orquestração",
+          "tip": "A falta de um cadastro único confiável entre setores aponta para uma solução de orquestração, típica de BPM."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], segundo a revisão final da aula, quais afirmações estão corretas?",
+          "answers": [
+            "RPA é ideal para tarefas isoladas com regras claras e sistemas legados sem API",
+            "BPM orquestra processos ponta a ponta com governança e auditoria",
+            "A maioria das empresas reais combina RPA e BPM no mesmo processo",
+            "O processo manual não tem custo relevante para a empresa"
+          ],
+          "correct": [
+            "RPA é ideal para tarefas isoladas com regras claras e sistemas legados sem API",
+            "BPM orquestra processos ponta a ponta com governança e auditoria",
+            "A maioria das empresas reais combina RPA e BPM no mesmo processo"
+          ],
+          "tip": "A revisão final reforça que o processo manual, ao contrário da última opção, custa caro de forma invisível."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada desafio proposto na aula ao seu tema central:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Desafio 01",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Desafio 02",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Desafio 03",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Desafio 05",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Coleta de dados de planilhas de clientes"
+            },
+            {
+              "id": "z2",
+              "label": "Liberação de rotas de entrega com aprovações"
+            },
+            {
+              "id": "z3",
+              "label": "Cadastro único de clientes entre setores"
+            },
+            {
+              "id": "z4",
+              "label": "Monitoramento de entregas em tempo real"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Os cinco desafios da aula convidam o aluno a pensar como um consultor de automação em situações reais."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual livro é citado na bibliografia da aula como referência sobre gestão de processos?",
+          "answers": [
+            "OLIVEIRA, Marcos Paulo Valadares (org.) - Gestão de processos",
+            "SILVA, Gilberto B. - Introdução ao RPA",
+            "SANTOS, João - Automação Empresarial",
+            "PEREIRA, Ana - BPM para Iniciantes"
+          ],
+          "correct": "OLIVEIRA, Marcos Paulo Valadares (org.) - Gestão de processos",
+          "tip": "A obra de Oliveira (org.), publicada pela Atlas em 2013, é a primeira referência da bibliografia da aula."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o Desafio 05 trata do monitoramento de entregas em tempo real, questionando se a solução é sobre automatizar uma tarefa isolada ou controlar um processo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Esse desafio pede exatamente essa reflexão: visibilidade contínua é característica de controle de processo, não de tarefa isolada."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Segundo o pensamento final da aula, a verdadeira transformação digital nasce quando a mão que repete e a mente que [COMBO] aprendem a trabalhar como uma só.",
+          "options": [
+            "organiza",
+            "repete",
+            "erra",
+            "ignora"
+          ],
+          "correct": "organiza",
+          "tip": "A frase de encerramento sintetiza a união entre execução (RPA) e orquestração (BPM)."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais desafios apresentados na aula envolvem diretamente uma decisão entre RPA e BPM aplicada a um cenário da Logistech?",
+          "answers": [
+            "Desafio 01 - coleta de dados de planilhas",
+            "Desafio 02 - liberação de rotas de entrega",
+            "Desafio 04 - admissão híbrida de motoristas",
+            "Bibliografia - referências bibliográficas"
+          ],
+          "correct": [
+            "Desafio 01 - coleta de dados de planilhas",
+            "Desafio 02 - liberação de rotas de entrega",
+            "Desafio 04 - admissão híbrida de motoristas"
+          ],
+          "tip": "A bibliografia não é um desafio prático — é a lista de referências teóricas da aula."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione a obra bibliográfica ao seu respectivo autor, conforme a aula:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Gestão de processos: fundamentação teórica, modelagem e práticas de mercado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "BPM e BPMS na prática: gestão de processos de negócio",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "OLIVEIRA, Marcos Paulo Valadares (org.)"
+            },
+            {
+              "id": "z2",
+              "label": "SILVA, Gilberto B."
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essas duas obras compõem a bibliografia oficial da Aula 102 sobre digitalização de processos."
+        }
+      ]
     }
   ]
 }
