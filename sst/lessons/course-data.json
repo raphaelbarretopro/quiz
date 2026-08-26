@@ -62880,6 +62880,895 @@
           "tip": "Essas duas obras compõem a bibliografia oficial da Aula 102 sobre digitalização de processos."
         }
       ]
+    },
+    {
+      "slug": "aula-104",
+      "lesson_info": {
+        "id": "Aula-104",
+        "title": "AULA 104 - PLANEJAR E COORDENAR EQUIPES MULTIDISCIPLINARES",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "MODELOS DE GESTÃO",
+            "desc": "Diferenças entre os modelos preditivo e adaptativo de gestão de projetos.",
+            "color": "#3498db",
+            "img_url": "https://source.unsplash.com/1600x900/?agile-project-management"
+          },
+          {
+            "id": "AGEN",
+            "name": "FRAMEWORK SCRUM",
+            "desc": "Papéis, artefatos e ritos que estruturam o framework Scrum.",
+            "color": "#e67e22",
+            "img_url": "https://source.unsplash.com/1600x900/?scrum-team"
+          },
+          {
+            "id": "PROT",
+            "name": "CULTURA DEVOPS",
+            "desc": "Integração contínua entre desenvolvimento e operação na digitalização.",
+            "color": "#9b59b6",
+            "img_url": "https://source.unsplash.com/1600x900/?devops-server"
+          },
+          {
+            "id": "NORM",
+            "name": "PLANEJAMENTO CONCEITUAL",
+            "desc": "Definição de papéis, uso do Kanban e marcos de acompanhamento do projeto.",
+            "color": "#2ecc71",
+            "img_url": "https://source.unsplash.com/1600x900/?kanban-board"
+          }
+        ],
+        "sokoban": [
+          "A",
+          "G",
+          "I",
+          "L"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual modelo de gestão é caracterizado por uma abordagem linear e sequencial, com planejamento rígido no início do projeto?",
+          "answers": [
+            "Preditivo (Waterfall)",
+            "Adaptativo (Ágil)",
+            "DevOps",
+            "Scrum"
+          ],
+          "correct": "Preditivo (Waterfall)",
+          "tip": "O modelo Preditivo funciona bem em escopos imutáveis, como infraestrutura física."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no modelo Adaptativo (Ágil), as mudanças de requisitos são bem-vindas e podem ser integradas a cada ciclo de trabalho.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Isso contrasta com o modelo Preditivo, onde mudanças são evitadas ou tratadas com processos formais lentos."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "No cenário da Logistech em que a empresa precisa trocar fisicamente os servidores de um data center com especificações 100% definidas, o modelo de gestão mais adequado é o [COMBO], pois representa baixa incerteza e escopo imutável.",
+          "options": [
+            "Preditivo",
+            "Adaptativo",
+            "Scrum",
+            "DevOps"
+          ],
+          "correct": "Preditivo",
+          "tip": "Especificações técnicas fixas e imutáveis pedem uma abordagem sequencial e previsível."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das características abaixo pertencem ao modelo Adaptativo (Ágil)?",
+          "answers": [
+            "Planejamento contínuo",
+            "Entregas frequentes em sprints",
+            "Mudanças evitadas",
+            "Escopo imutável definido no início"
+          ],
+          "correct": [
+            "Planejamento contínuo",
+            "Entregas frequentes em sprints"
+          ],
+          "tip": "As duas últimas opções descrevem características do modelo Preditivo, não do Adaptativo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada característica ao modelo de gestão correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Especificações técnicas 100% definidas e imutáveis",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Regras de aprovação que mudam com frequência",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Entrega do produto completo após meses",
+              "match": "z1"
+            },
+            {
+              "id": "d4",
+              "txt": "Ajustes contínuos e entregas em sprints",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Modelo Preditivo (Waterfall)"
+            },
+            {
+              "id": "z2",
+              "label": "Modelo Adaptativo (Ágil)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O nível de incerteza do processo é o critério técnico para escolher entre os dois modelos."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "Segundo o Manifesto Ágil adaptado à digitalização, o que deve ser priorizado em relação à documentação exaustiva de fluxogramas?",
+          "answers": [
+            "Processo digitalizado e funcional",
+            "Documentação completa antes de iniciar",
+            "Aprovação da diretoria",
+            "Cronograma fixo"
+          ],
+          "correct": "Processo digitalizado e funcional",
+          "tip": "A prioridade é validar cedo se a automação resolve o problema real do usuário."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], escolher entre o modelo Preditivo e o Adaptativo é uma decisão baseada em \"dom para liderança\", e não em uma análise técnica do nível de incerteza do projeto.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É uma competência técnica que se desenvolve com a prática, não um talento inato."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "No cenário da Logistech em que as regras de aprovação de compras mudam com frequência conforme o mês e o fornecedor, o modelo de gestão indicado é o [COMBO], pois há alta incerteza e necessidade de ajustes contínuos.",
+          "options": [
+            "Adaptativo",
+            "Preditivo",
+            "Cascata",
+            "Kanban físico"
+          ],
+          "correct": "Adaptativo",
+          "tip": "Regras instáveis exigem entregas incrementais e feedback constante."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "Quais afirmações abaixo descrevem corretamente o modelo Preditivo (Waterfall)?",
+          "answers": [
+            "Entrega do produto completo após meses",
+            "Indicado para escopos imutáveis",
+            "Mudanças integradas a cada ciclo",
+            "Planejamento contínuo"
+          ],
+          "correct": [
+            "Entrega do produto completo após meses",
+            "Indicado para escopos imutáveis"
+          ],
+          "tip": "As duas últimas opções são características do modelo Adaptativo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione o cenário da Logistech ao modelo de gestão mais adequado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Troca de servidores com especificações imutáveis",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Solicitação de compras com regras que mudam com frequência",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Modelo Preditivo (Waterfall)"
+            },
+            {
+              "id": "z2",
+              "label": "Modelo Adaptativo (Ágil)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada cenário representa um nível diferente de incerteza no processo."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal risco de um projeto de digitalização sem papéis definidos e sem prioridades claras, segundo a analogia da \"Torre de Papel\"?",
+          "answers": [
+            "Cada pessoa constrói uma parte diferente sem coordenação",
+            "Redução do custo do projeto",
+            "Aumento da velocidade de entrega",
+            "Padronização automática dos processos"
+          ],
+          "correct": "Cada pessoa constrói uma parte diferente sem coordenação",
+          "tip": "Sem prioridades claras, o resultado tende a desabar, assim como a torre de papel."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "A abordagem Adaptativa (Ágil) é a única alternativa válida para qualquer projeto de digitalização, independentemente do nível de incerteza envolvido.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Cada modelo é adequado a um tipo diferente de contexto de incerteza."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Ao validar rapidamente se uma automação resolve o problema do usuário final, em vez de documentar exaustivamente um fluxo no papel, uma equipe está aplicando o princípio do [COMBO] adaptado à digitalização de processos.",
+          "options": [
+            "Manifesto Ágil",
+            "Modelo Preditivo",
+            "Kanban físico",
+            "DevOps"
+          ],
+          "correct": "Manifesto Ágil",
+          "tip": "O valor está na entrega real e funcional, não na documentação extensiva.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual papel do Scrum é conhecido como a \"voz do cliente\" dentro do time, responsável por priorizar o Backlog?",
+          "answers": [
+            "Product Owner",
+            "Scrum Master",
+            "Developers",
+            "Squad Master"
+          ],
+          "correct": "Product Owner",
+          "tip": "O PO define o que deve ser feito primeiro com base no valor para o negócio."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "O Scrum Master atua como líder-facilitador, removendo obstáculos e protegendo o time de interferências externas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ele também garante que os ritos do Scrum aconteçam corretamente."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A lista geral de tudo que precisa ser feito no projeto, priorizada pelo Product Owner, é chamada de [COMBO].",
+          "options": [
+            "Product Backlog",
+            "Sprint Backlog",
+            "Incremento",
+            "Kanban"
+          ],
+          "correct": "Product Backlog",
+          "tip": "O Sprint Backlog é apenas o recorte de itens escolhidos para o ciclo atual."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais destes são artefatos do Scrum?",
+          "answers": [
+            "Product Backlog",
+            "Sprint Backlog",
+            "Incremento",
+            "Daily Meeting"
+          ],
+          "correct": [
+            "Product Backlog",
+            "Sprint Backlog",
+            "Incremento"
+          ],
+          "tip": "A Daily é um rito, não um artefato do Scrum."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada elemento do Scrum ao seu tipo correto:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Product Backlog",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Sprint",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Incremento",
+              "match": "z1"
+            },
+            {
+              "id": "d4",
+              "txt": "Review/Retrospective",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Artefato"
+            },
+            {
+              "id": "z2",
+              "label": "Rito"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Artefatos são \"o que existe\"; ritos são \"quando acontece\"."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "No cenário de priorização do Backlog de \"Solicitação de Compras\" da Logistech, qual item foi indicado como prioridade para o primeiro Sprint?",
+          "answers": [
+            "Formulário de entrada",
+            "Banco de fornecedores",
+            "Geração de PDF",
+            "Regra de aprovação"
+          ],
+          "correct": "Formulário de entrada",
+          "tip": "Sem o formulário, não há processo; ele permite validar um MVP rapidamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], segundo o material, a squad de Developers é composta normalmente por uma equipe de 6 a 12 pessoas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A clareza de papéis é o que diferencia essa squad de um grupo sem direção."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "O ciclo de trabalho de 1 a 4 semanas, com meta definida, no qual o time entrega um Incremento do processo digitalizado, é chamado de [COMBO].",
+          "options": [
+            "Sprint",
+            "Backlog",
+            "Milestone",
+            "Kanban"
+          ],
+          "correct": "Sprint",
+          "tip": "Ao final do Sprint, um Incremento testado deve estar pronto."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "Quais afirmações descrevem corretamente os ritos do Scrum?",
+          "answers": [
+            "Planning ocorre para planejar o Sprint",
+            "Daily é o alinhamento rápido diário",
+            "Retrospective avalia o que melhorar no próximo ciclo",
+            "Product Backlog é um rito"
+          ],
+          "correct": [
+            "Planning ocorre para planejar o Sprint",
+            "Daily é o alinhamento rápido diário",
+            "Retrospective avalia o que melhorar no próximo ciclo"
+          ],
+          "tip": "O Product Backlog é um artefato, não um rito."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione o papel do Scrum à sua principal responsabilidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Product Owner",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Scrum Master",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Developers (Squad)",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Prioriza o Backlog com base em valor para o negócio"
+            },
+            {
+              "id": "z2",
+              "label": "Remove obstáculos e garante que os ritos aconteçam"
+            },
+            {
+              "id": "z3",
+              "label": "Executa a digitalização e avalia viabilidade técnica"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada papel tem uma responsabilidade complementar dentro da squad."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], no cenário do Backlog de \"Solicitação de Compras\", por que o item \"Formulário de entrada\" foi priorizado antes da \"Geração de PDF\"?",
+          "answers": [
+            "Porque sem o formulário não há processo, permitindo validar um MVP",
+            "Porque o PDF é tecnicamente mais complexo de programar",
+            "Porque o cliente pediu primeiro o PDF",
+            "Porque a geração de PDF depende de aprovação externa"
+          ],
+          "correct": "Porque sem o formulário não há processo, permitindo validar um MVP",
+          "tip": "A chave é buscar o menor incremento que traga valor tangível ao usuário."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "A clareza de papéis no Scrum é o que diferencia uma squad produtiva de um grupo sem direção, segundo a conexão feita com a dinâmica da Torre de Papel.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Um PO definindo prioridades desde o início evita o caos observado na dinâmica."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A parte do processo já digitalizada e testada ao final de um Sprint é chamada de [COMBO].",
+          "options": [
+            "Incremento",
+            "Sprint Backlog",
+            "Product Backlog",
+            "Milestone"
+          ],
+          "correct": "Incremento",
+          "tip": "O Incremento é a entrega funcional demonstrada na Review.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], a cultura DevOps busca romper qual divisão clássica dentro de um projeto de tecnologia?",
+          "answers": [
+            "Entre quem desenvolve e quem opera o sistema",
+            "Entre Product Owner e Scrum Master",
+            "Entre modelo preditivo e adaptativo",
+            "Entre Backlog e Sprint"
+          ],
+          "correct": "Entre quem desenvolve e quem opera o sistema",
+          "tip": "Isso permite que automações sejam testadas e implantadas continuamente."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Sem a cultura DevOps, as atualizações tendem a ocorrer em grandes ciclos (a cada 3 a 6 meses), aumentando o risco de falhas e longas indisponibilidades.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Com DevOps, o risco é distribuído em pequenas melhorias contínuas."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A prática de testar e entregar pequenas melhorias em ciclos curtos e constantes, reduzindo o risco de uma falha grande travar todo o processo, é chamada de [COMBO].",
+          "options": [
+            "Integração Contínua",
+            "Sprint Planning",
+            "Product Backlog",
+            "Kanban"
+          ],
+          "correct": "Integração Contínua",
+          "tip": "É o conceito-chave da cultura DevOps aplicada à digitalização."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais são riscos de esperar meses para implementar uma pequena mudança em um processo digitalizado?",
+          "answers": [
+            "Acúmulo de débito técnico",
+            "Insatisfação do usuário",
+            "Perda de oportunidade de adaptação rápida",
+            "Redução imediata de bugs"
+          ],
+          "correct": [
+            "Acúmulo de débito técnico",
+            "Insatisfação do usuário",
+            "Perda de oportunidade de adaptação rápida"
+          ],
+          "tip": "A demora não reduz bugs; pelo contrário, tende a agravar problemas simples."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione a situação ao tipo de risco correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Débito técnico se acumula por meses sem correção",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Bugs críticos passam despercebidos e quebram funcionalidades",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Perda de oportunidade de mercado",
+              "match": "z1"
+            },
+            {
+              "id": "d4",
+              "txt": "Perda de confiança dos usuários após falha",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Risco da demora em atualizar"
+            },
+            {
+              "id": "z2",
+              "label": "Risco da mudança excessiva sem testes"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O equilíbrio entre agilidade e estabilidade evita os dois extremos de risco."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o equilíbrio conceitual proposto pela cultura DevOps entre agilidade e estabilidade?",
+          "answers": [
+            "Testes automatizados e monitoramento contínuo (CI/CD) permitindo mudanças pequenas e seguras",
+            "Eliminar todos os testes para ganhar velocidade",
+            "Aumentar o intervalo entre atualizações",
+            "Concentrar todas as mudanças em uma única entrega anual"
+          ],
+          "correct": "Testes automatizados e monitoramento contínuo (CI/CD) permitindo mudanças pequenas e seguras",
+          "tip": "O CI/CD maximiza a agilidade sem comprometer a estabilidade do sistema."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "Implantar mudanças com frequência excessiva e sem testes adequados elimina totalmente o risco de instabilidade no sistema.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Mudanças frequentes sem testes podem gerar instabilidade e bugs críticos."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "No cenário da Logistech, um novo campo obrigatório no formulário de \"Solicitação de Compras\" que é testado e implantado em poucos dias, com risco controlado, exemplifica a aplicação da cultura [COMBO].",
+          "options": [
+            "DevOps",
+            "Waterfall",
+            "Kanban físico",
+            "Scrum tradicional"
+          ],
+          "correct": "DevOps",
+          "tip": "Esse é o contraste direto com esperar uma atualização trimestral."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "Quais destes são riscos associados à mudança excessiva sem testes adequados?",
+          "answers": [
+            "Instabilidade do sistema",
+            "Introdução de bugs críticos",
+            "Aumento do retrabalho",
+            "Redução do débito técnico"
+          ],
+          "correct": [
+            "Instabilidade do sistema",
+            "Introdução de bugs críticos",
+            "Aumento do retrabalho"
+          ],
+          "tip": "A redução do débito técnico está associada a boas práticas, não à falta de testes."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o cenário à sua consequência:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Grande atualização a cada 3-6 meses",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pequenas melhorias contínuas e testadas",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sem Cultura DevOps"
+            },
+            {
+              "id": "z2",
+              "label": "Com Cultura DevOps"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O risco distribuído e controlado é uma das vantagens da cultura DevOps."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], segundo o material, o que garante que a agilidade das entregas frequentes não comprometa a estabilidade do sistema?",
+          "answers": [
+            "Pipelines de entrega contínua (CI/CD) com testes rigorosos",
+            "Aumentar o número de reuniões semanais",
+            "Reduzir o número de Sprints",
+            "Eliminar o papel do Scrum Master"
+          ],
+          "correct": "Pipelines de entrega contínua (CI/CD) com testes rigorosos",
+          "tip": "O monitoramento constante também contribui para esse equilíbrio."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "A cultura DevOps é incompatível com o uso do framework Scrum em um mesmo projeto de digitalização.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "DevOps complementa o Scrum, permitindo entregas contínuas dentro dos Sprints.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], ao planejar uma squad fictícia sem uso de nenhuma ferramenta digital, quem deve ser indicado como Product Owner?",
+          "answers": [
+            "Quem melhor entende as regras de negócio do processo",
+            "Quem tem mais habilidade técnica de programação",
+            "Quem organiza melhor reuniões",
+            "Quem foi contratado há mais tempo"
+          ],
+          "correct": "Quem melhor entende as regras de negócio do processo",
+          "tip": "O PO precisa traduzir as regras de negócio em requisitos priorizáveis."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "O Kanban, nesta disciplina, é tratado como um quadro físico ou conceitual, com post-its em um quadro branco, e não necessariamente uma ferramenta digital.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O planejamento conceitual pode ser feito sem operar nenhuma ferramenta digital."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A coluna do Kanban que indica que uma tarefa já foi concluída e testada é a coluna [COMBO].",
+          "options": [
+            "Done",
+            "To Do",
+            "Doing",
+            "Backlog"
+          ],
+          "correct": "Done",
+          "tip": "As colunas do Kanban são: To Do, Doing e Done."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais das características abaixo descrevem corretamente um Milestone (Marco)?",
+          "answers": [
+            "Representa um avanço real e verificável",
+            "É apenas uma data no calendário",
+            "Comprova entregas concretas do projeto",
+            "Pode ser demonstrado como resultado tangível"
+          ],
+          "correct": [
+            "Representa um avanço real e verificável",
+            "Comprova entregas concretas do projeto",
+            "Pode ser demonstrado como resultado tangível"
+          ],
+          "tip": "Um Milestone não é apenas uma data, mas uma entrega concreta e verificável."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione o papel da squad fictícia à competência que o justifica:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Quem entende as regras de negócio do processo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Quem tem perfil de organização e facilitação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Quem foca na lógica de automação e integração entre sistemas",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Product Owner"
+            },
+            {
+              "id": "z2",
+              "label": "Scrum Master"
+            },
+            {
+              "id": "z3",
+              "label": "Developers (Squad)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Essa análise não exige nenhuma ferramenta, apenas raciocínio sobre perfis e responsabilidades."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "No cenário do \"Reembolso de Despesas\", qual das opções abaixo representa um Milestone coerente, segundo o material?",
+          "answers": [
+            "Protótipo funcional do fluxo de solicitação e aprovação validado com usuários-chave",
+            "Reunião marcada para o dia 15",
+            "Compra de um novo servidor",
+            "Contratação de um novo Scrum Master"
+          ],
+          "correct": "Protótipo funcional do fluxo de solicitação e aprovação validado com usuários-chave",
+          "tip": "Esse Milestone confirma que a lógica central do processo foi digitalizada e validada."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no cenário de \"meio de projeto\" do Reembolso de Despesas, o item \"Mapeamento completo do fluxo de reembolso atual\" foi posicionado na coluna Done, pois já havia sido concluído.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Itens já concluídos e validados devem constar na coluna Done do Kanban."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Um item do Backlog que está em desenvolvimento ativo, mas ainda não finalizado, deve ser posicionado na coluna [COMBO] do Kanban.",
+          "options": [
+            "Doing",
+            "Done",
+            "To Do",
+            "Sprint"
+          ],
+          "correct": "Doing",
+          "tip": "A coluna Doing representa o trabalho que está sendo executado no momento."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "Quais destes itens estariam coerentemente na coluna \"To Do\" em um cenário hipotético de meio de projeto do Reembolso de Despesas, segundo o raciocínio apresentado?",
+          "answers": [
+            "Desenvolver módulo de relatórios financeiros customizáveis",
+            "Testar segurança e vulnerabilidades",
+            "Configuração inicial do banco de dados",
+            "Treinar equipe de usuários finais"
+          ],
+          "correct": [
+            "Desenvolver módulo de relatórios financeiros customizáveis",
+            "Testar segurança e vulnerabilidades",
+            "Treinar equipe de usuários finais"
+          ],
+          "tip": "A configuração inicial do banco de dados já havia sido concluída (coluna Done)."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione a etapa do planejamento conceitual ao seu propósito:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Definir quem prioriza o Backlog e quem executa a automação",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Organizar visualmente o fluxo de trabalho em três colunas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Sinalizar avanços verificáveis do projeto",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Definição de papéis"
+            },
+            {
+              "id": "z2",
+              "label": "Kanban"
+            },
+            {
+              "id": "z3",
+              "label": "Milestones"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As três etapas se complementam para unir raciocínio de coordenação e execução."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], segundo o material, essa análise de papéis, Backlog e organização visual do planejamento conceitual exige o uso obrigatório de qual ferramenta digital?",
+          "answers": [
+            "Nenhuma ferramenta digital é exigida, nesta etapa o raciocínio é conceitual",
+            "Um software de gestão de projetos pago",
+            "Uma planilha eletrônica obrigatória",
+            "Um sistema de CI/CD"
+          ],
+          "correct": "Nenhuma ferramenta digital é exigida, nesta etapa o raciocínio é conceitual",
+          "tip": "O foco está em raciocínio sobre perfis, prioridades e organização visual, sem operar ferramentas."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "Não existe uma única resposta correta para os cenários de planejamento conceitual apresentados; o que importa é a coerência do raciocínio apresentado.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A avaliação foca na justificativa e não em uma resposta fixa e única."
+        }
+      ]
     }
   ]
 }
