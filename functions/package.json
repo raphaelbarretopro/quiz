@@ -1,0 +1,22 @@
+{
+  "name": "quiz-sst-functions",
+  "description": "Cloud Functions do Quiz SST v2 — leitura pública de aula, correção server-side e publicação administrativa.",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions,firestore,auth,database",
+    "shell": "firebase functions:shell",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.6.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}

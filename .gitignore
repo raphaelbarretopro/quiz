@@ -1,0 +1,9 @@
+# Backend v2 (Firebase Functions + migração)
+functions/node_modules/
+functions/.env
+functions/.env.*
+!functions/.env.example
+migration-output/
+firebase-debug.log
+firebase-debug.*.log
+.firebase/
