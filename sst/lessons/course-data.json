@@ -63408,17 +63408,7 @@
               "id": "d2",
               "txt": "Bugs críticos passam despercebidos e quebram funcionalidades",
               "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Perda de oportunidade de mercado",
-              "match": "z1"
-            },
-            {
-              "id": "d4",
-              "txt": "Perda de confiança dos usuários após falha",
-              "match": "z2"
-            }
+            }            
           ],
           "zones": [
             {
