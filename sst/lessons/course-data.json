@@ -62991,17 +62991,8 @@
               "id": "d2",
               "txt": "Regras de aprovação que mudam com frequência",
               "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Entrega do produto completo após meses",
-              "match": "z1"
-            },
-            {
-              "id": "d4",
-              "txt": "Ajustes contínuos e entregas em sprints",
-              "match": "z2"
             }
+            
           ],
           "zones": [
             {
@@ -63204,17 +63195,7 @@
               "id": "d2",
               "txt": "Sprint",
               "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Incremento",
-              "match": "z1"
-            },
-            {
-              "id": "d4",
-              "txt": "Review/Retrospective",
-              "match": "z2"
-            }
+            }            
           ],
           "zones": [
             {
