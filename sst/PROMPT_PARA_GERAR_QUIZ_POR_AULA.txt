@@ -52,6 +52,19 @@ Exemplo com `N = 42`: `blocoBase = 10`, `resto = 2` → ACID = 11, AGEN = 11, PR
 
 Dentro de cada bloco, gere os tipos em ciclo `multiple, boolean, combo, multi, drag, multiple, boolean, ...` até completar o tamanho do bloco (o último bloco pode terminar no meio do ciclo, o que é normal).
 
+#### 2.4.1 Regra estrutural obrigatória para questões do tipo `drag` (bijeção exata)
+
+**⚠️ Erro a evitar (anti-padrão já detectado em produção):** gerar `items` e `zones` com quantidades diferentes (ex.: 4 `items` e apenas 2 `zones`).
+
+Diferente do tipo `combo` (que pode ter opções distratoras a mais), o tipo `drag` **não admite item nem zona sobressalente**. O motor do quiz cria exatamente 1 dropzone por entrada do array `zones`, e cada dropzone guarda apenas 1 card por vez; a questão só é validável quando a quantidade de cards posicionados é igual à quantidade de `items`. Se houver mais `items` do que `zones`, sobra(m) item(ns) sem dropzone disponível e a questão fica **matematicamente impossível de responder** (o botão de validar nunca libera).
+
+Portanto, para toda questão `type: "drag"`:
+
+- `items.length` deve ser **exatamente igual** a `zones.length` (ex.: 4 items ↔ 4 zones, nunca 4 items ↔ 2 zones).
+- Cada `item.match` deve apontar para um `zone.id` **único** — não pode haver dois items com o mesmo `match`.
+- Todo `zone.id` deve ser usado como `match` de exatamente um item — nenhuma zona pode ficar "órfã" (sem item correspondente) nem receber dois items.
+- Ou seja: `items` e `zones` formam uma correspondência 1 para 1 (bijeção) completa, sem sobra em nenhum dos lados.
+
 #### Regra do campo `trans`
 
 - Apenas a **última pergunta de cada bloco de tópico** (ou seja, apenas 3 perguntas no total, independentemente de `N`) recebe o campo `trans`, apontando para o `id` do próximo tópico no ciclo (`ACID→trans:"AGEN"`, `AGEN→trans:"PROT"`, `PROT→trans:"NORM"`).
@@ -65,7 +78,8 @@ Antes de produzir o JSON final, confira mentalmente:
 1. O campo `topics` de cada pergunta forma exatamente 4 sequências contíguas (sem intercalação) na ordem ACID, AGEN, PROT, NORM?
 2. O campo `trans` aparece em exatamente 3 perguntas (a última de ACID, a última de AGEN, a última de PROT) e em nenhuma outra?
 3. Dentro de cada bloco, os tipos seguem o ciclo `multiple, boolean, combo, multi, drag`?
-4. Nenhuma pergunta cita nome de empresa/personagem/estudo de caso fictício do material, nem expressões como "segundo a aula", "segundo o texto" ou "segundo o material" — ver regra 4.1?
+4. Em **toda** questão `type: "drag"`, `items.length` é igual a `zones.length`, e cada `zone.id` é usado como `match` de exatamente um item (bijeção completa, sem item nem zona sobrando) — ver regra 2.4.1?
+5. Nenhuma pergunta cita nome de empresa/personagem/estudo de caso fictício do material, nem expressões como "segundo a aula", "segundo o texto" ou "segundo o material" — ver regra 4.1?
 
 Se qualquer verificação falhar, corrija antes de responder.
 
