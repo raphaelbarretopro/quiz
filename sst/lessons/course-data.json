@@ -62992,7 +62992,6 @@
               "txt": "Regras de aprovação que mudam com frequência",
               "match": "z2"
             }
-            
           ],
           "zones": [
             {
@@ -63195,7 +63194,7 @@
               "id": "d2",
               "txt": "Sprint",
               "match": "z2"
-            }            
+            }
           ],
           "zones": [
             {
@@ -63408,7 +63407,7 @@
               "id": "d2",
               "txt": "Bugs críticos passam despercebidos e quebram funcionalidades",
               "match": "z2"
-            }            
+            }
           ],
           "zones": [
             {
@@ -63738,6 +63737,948 @@
           ],
           "correct": "Verdadeiro",
           "tip": "A avaliação foca na justificativa e não em uma resposta fixa e única."
+        }
+      ]
+    },
+    {
+      "slug": "aula-105",
+      "lesson_info": {
+        "id": "Aula-105",
+        "title": "AULA 105 - GOVERNANÇA, COMPLIANCE E LGPD NA DIGITALIZAÇÃO DE PROCESSOS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DA LGPD",
+            "desc": "Conceitos de dados pessoais, dados sensíveis e os agentes de tratamento previstos na LGPD.",
+            "color": "#e74c3c",
+            "img_url": "https://source.unsplash.com/1600x900/?privacidade-dados"
+          },
+          {
+            "id": "AGEN",
+            "name": "SEGURANÇA E CONTROLE DE ACESSO",
+            "desc": "Mecanismos técnicos de proteção de dados, como criptografia, privilégio mínimo e técnicas de anonimização.",
+            "color": "#f39c12",
+            "img_url": "https://source.unsplash.com/1600x900/?ciberseguranca"
+          },
+          {
+            "id": "PROT",
+            "name": "AUDITORIA E RASTREABILIDADE",
+            "desc": "Como a auditoria e a gestão de logs comprovam a conformidade de um processo digitalizado.",
+            "color": "#3498db",
+            "img_url": "https://source.unsplash.com/1600x900/?auditoria-digital"
+          },
+          {
+            "id": "NORM",
+            "name": "PRIVACY BY DESIGN E GOVERNANÇA",
+            "desc": "Aplicação integrada de privacidade, segurança e auditoria desde a concepção dos processos.",
+            "color": "#2ecc71",
+            "img_url": "https://source.unsplash.com/1600x900/?design-tecnologia"
+          }
+        ],
+        "sokoban": [
+          "L",
+          "G",
+          "P",
+          "D"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal objetivo da LGPD ao regular o tratamento de dados pessoais?",
+          "answers": [
+            "Garantir que a coleta, uso, armazenamento e compartilhamento de dados respeitem a privacidade e a dignidade dos titulares",
+            "Impedir que qualquer empresa armazene dados de clientes",
+            "Obrigar que todos os dados sejam publicados para fins de transparência",
+            "Restringir o uso de dados exclusivamente a órgãos governamentais"
+          ],
+          "correct": "Garantir que a coleta, uso, armazenamento e compartilhamento de dados respeitem a privacidade e a dignidade dos titulares",
+          "tip": "A LGPD estabelece regras claras sobre todo o ciclo de vida do dado pessoal, protegendo a privacidade dos indivíduos."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o CPF de uma pessoa é considerado um dado pessoal, mesmo sem estar acompanhado de outras informações.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O CPF, por si só, já é capaz de identificar uma pessoa natural específica."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Dados sobre [COMBO], como orientação sexual ou convicção religiosa, exigem base legal específica e cuidado redobrado no tratamento.",
+          "options": [
+            "dados sensíveis",
+            "dados pessoais comuns",
+            "dados públicos",
+            "dados anonimizados"
+          ],
+          "correct": "dados sensíveis",
+          "tip": "Dados sensíveis formam uma categoria mais delicada dentro da LGPD, que exige proteção reforçada."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das opções abaixo são exemplos de dados pessoais (não sensíveis)?",
+          "answers": [
+            "Nome completo",
+            "Endereço de e-mail",
+            "Orientação sexual",
+            "Número de telefone"
+          ],
+          "correct": [
+            "Nome completo",
+            "Endereço de e-mail",
+            "Número de telefone"
+          ],
+          "tip": "Orientação sexual é classificada como dado sensível, e não como dado pessoal comum."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada elemento da LGPD à sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Controlador",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Operador",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Base Legal",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Decide a finalidade e os meios do tratamento dos dados"
+            },
+            {
+              "id": "z2",
+              "label": "Realiza o tratamento em nome de outro agente, seguindo instruções"
+            },
+            {
+              "id": "z3",
+              "label": "Justificativa prevista em lei para aquele uso específico do dado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses três elementos formam a estrutura básica de qualquer relação de tratamento de dados na LGPD."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em um processo seletivo, uma empresa contrata uma plataforma externa apenas para armazenar os currículos recebidos, sem que essa plataforma decida sobre a finalidade do uso desses dados. Qual é o papel dessa plataforma externa?",
+          "answers": [
+            "Operadora",
+            "Controladora",
+            "Titular",
+            "Autoridade fiscalizadora"
+          ],
+          "correct": "Operadora",
+          "tip": "A plataforma apenas executa o armazenamento por instrução de terceiros, sem autonomia sobre a finalidade — por isso é operadora."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], reconhecer a diferença entre dado pessoal e dado sensível exige necessariamente formação jurídica especializada.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essa distinção é uma habilidade prática, que exige atenção e consciência sobre os padrões de informação, não formação jurídica."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Quando uma empresa decide coletar currículos para um processo seletivo e define a finalidade, a forma e a duração do armazenamento desses dados, ela está atuando como [COMBO] no tratamento de dados.",
+          "options": [
+            "Controladora",
+            "Operadora",
+            "Titular",
+            "Auditora"
+          ],
+          "correct": "Controladora",
+          "tip": "Quem decide finalidade e meios do tratamento é sempre o Controlador, independentemente de quem armazena o dado."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das situações abaixo representam exemplos válidos de base legal para o tratamento de dados pessoais, segundo a LGPD?",
+          "answers": [
+            "Execução de contrato",
+            "Cumprimento de obrigação legal",
+            "Consentimento expresso do titular",
+            "Curiosidade da empresa sobre o titular"
+          ],
+          "correct": [
+            "Execução de contrato",
+            "Cumprimento de obrigação legal",
+            "Consentimento expresso do titular"
+          ],
+          "tip": "Toda base legal precisa estar prevista em lei; simples curiosidade não justifica o tratamento de dados."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada dado à sua característica correta:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "CPF",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Dado de saúde",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Nome completo",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Orientação sexual",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identifica diretamente a pessoa, classificado como dado pessoal"
+            },
+            {
+              "id": "z2",
+              "label": "Exige base legal específica, por ser dado sensível"
+            },
+            {
+              "id": "z3",
+              "label": "Informação básica que identifica a pessoa natural"
+            },
+            {
+              "id": "z4",
+              "label": "Categoria sensível prevista expressamente na LGPD"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Dados de saúde e orientação sexual pertencem à categoria de dados sensíveis, com proteção reforçada."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em um cenário de recrutamento em que uma empresa coleta dados de candidatos para preencher uma vaga, qual é a base legal mais adequada para justificar esse tratamento, antes da formalização do contrato de trabalho?",
+          "answers": [
+            "Execução de diligências pré-contratuais",
+            "Obrigação legal",
+            "Consentimento formalizado em cartório",
+            "Interesse público"
+          ],
+          "correct": "Execução de diligências pré-contratuais",
+          "tip": "O Art. 7º, V, da LGPD prevê essa base legal quando o tratamento é necessário para iniciar um possível contrato, a pedido do titular."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o operador de dados pode definir livremente a finalidade do tratamento dos dados que recebe do controlador.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O operador não tem autonomia sobre a finalidade do tratamento; ele apenas segue as instruções do controlador."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Quando um dado, uma vez coletado, identifica ou permite identificar uma pessoa natural — como nome, e-mail ou telefone — ele é classificado como [COMBO].",
+          "options": [
+            "dado pessoal",
+            "dado sensível",
+            "dado público",
+            "dado anônimo"
+          ],
+          "correct": "dado pessoal",
+          "tip": "Essa é a definição central de dado pessoal segundo a LGPD.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], quais são os dois momentos em que a criptografia deve proteger um dado para que um processo digitalizado seja considerado seguro?",
+          "answers": [
+            "Em trânsito e em repouso",
+            "Na criação e na exclusão",
+            "No backup e na auditoria",
+            "No upload e no download apenas"
+          ],
+          "correct": "Em trânsito e em repouso",
+          "tip": "Proteger apenas um dos momentos não é suficiente; um processo seguro cobre os dois."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], um processo é considerado seguro se aplicar criptografia apenas quando o dado está armazenado em um servidor, mesmo sem proteção durante sua transmissão entre sistemas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É necessário proteger o dado tanto em trânsito quanto em repouso para o processo ser considerado seguro."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A criptografia [COMBO] garante que, mesmo que alguém consiga acesso físico ao local de armazenamento, o conteúdo do dado permaneça ilegível sem a chave correta.",
+          "options": [
+            "em repouso",
+            "em trânsito",
+            "simétrica de rede",
+            "de aplicação apenas"
+          ],
+          "correct": "em repouso",
+          "tip": "A criptografia em repouso protege especificamente o dado enquanto ele está armazenado."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais das afirmações abaixo descrevem corretamente o Princípio do Privilégio Mínimo?",
+          "answers": [
+            "Cada pessoa deve ter acesso apenas ao necessário para sua função",
+            "Não deve haver acesso irrestrito por padrão",
+            "Todos os funcionários devem ter acesso total para agilizar o trabalho",
+            "É a base de uma política de controle de acesso bem estruturada"
+          ],
+          "correct": [
+            "Cada pessoa deve ter acesso apenas ao necessário para sua função",
+            "Não deve haver acesso irrestrito por padrão",
+            "É a base de uma política de controle de acesso bem estruturada"
+          ],
+          "tip": "Acesso total por padrão é exatamente o oposto do que propõe o Princípio do Privilégio Mínimo."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada técnica ou mecanismo à sua característica:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Anonimização",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pseudonimização",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Criptografia em trânsito",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Criptografia em repouso",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Remove a identificação de forma irreversível"
+            },
+            {
+              "id": "z2",
+              "label": "Substitui a identificação por um código, reversível sob condições controladas"
+            },
+            {
+              "id": "z3",
+              "label": "Protege o dado enquanto ele viaja entre sistemas"
+            },
+            {
+              "id": "z4",
+              "label": "Protege o dado enquanto está armazenado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada mecanismo atua em um momento ou de uma forma diferente para proteger o dado."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], em um sistema de reembolso de despesas configurado para que qualquer funcionário visualize os comprovantes fiscais e dados bancários de todos os colegas, qual princípio de segurança está sendo violado?",
+          "answers": [
+            "Princípio do Privilégio Mínimo",
+            "Criptografia em repouso",
+            "Pseudonimização",
+            "Anonimização"
+          ],
+          "correct": "Princípio do Privilégio Mínimo",
+          "tip": "O acesso amplo e desnecessário a dados sensíveis de terceiros é uma violação clássica desse princípio."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], a pseudonimização é uma técnica permanente e, uma vez aplicada, o dado nunca mais pode ser associado à pessoa original.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "É a anonimização que é permanente; a pseudonimização permite reversão em condições controladas."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Em um sistema de reembolso corrigido, funcionários comuns devem visualizar apenas [COMBO], enquanto perfis como RH ou Financeiro têm acesso amplo aos dados de todos os colaboradores.",
+          "options": [
+            "seus próprios dados de reembolso",
+            "os dados bancários de todos os colegas",
+            "os comprovantes fiscais de toda a empresa",
+            "nenhum dado do sistema"
+          ],
+          "correct": "seus próprios dados de reembolso",
+          "tip": "Restringir o acesso individual aos próprios dados é uma aplicação direta do Privilégio Mínimo."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], em uma reestruturação de controle de acesso baseada no Privilégio Mínimo, quais medidas seriam adequadas para um sistema de reembolso de despesas?",
+          "answers": [
+            "Restringir o acesso amplo à área de RH/Financeiro",
+            "Permitir que gestores aprovem reembolsos sem necessariamente ver dados bancários",
+            "Manter o acesso irrestrito para agilizar aprovações",
+            "Limitar cada funcionário aos próprios dados de reembolso"
+          ],
+          "correct": [
+            "Restringir o acesso amplo à área de RH/Financeiro",
+            "Permitir que gestores aprovem reembolsos sem necessariamente ver dados bancários",
+            "Limitar cada funcionário aos próprios dados de reembolso"
+          ],
+          "tip": "Manter o acesso irrestrito é justamente o problema que o Privilégio Mínimo busca corrigir."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada situação de acesso à sua avaliação quanto ao Privilégio Mínimo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Qualquer funcionário vê dados bancários de todos os colegas",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Funcionário vê apenas seus próprios dados de reembolso",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "RH acessa dados de todos para processar reembolsos",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Viola o princípio do privilégio mínimo"
+            },
+            {
+              "id": "z2",
+              "label": "Respeita o princípio do privilégio mínimo"
+            },
+            {
+              "id": "z3",
+              "label": "Acesso justificado pela função exercida"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O acesso é adequado quando corresponde exatamente à necessidade da função exercida."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual é a principal diferença entre anonimização e pseudonimização?",
+          "answers": [
+            "A anonimização é irreversível, enquanto a pseudonimização permite reversão em condições controladas",
+            "Ambas são processos irreversíveis e idênticos",
+            "A pseudonimização é usada apenas para dados sensíveis",
+            "A anonimização exige uma chave de acesso para ser revertida"
+          ],
+          "correct": "A anonimização é irreversível, enquanto a pseudonimização permite reversão em condições controladas",
+          "tip": "Essa reversibilidade controlada é o que diferencia tecnicamente as duas técnicas."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], um sistema que criptografa dados apenas durante a transmissão entre sistemas, mas os armazena sem proteção no banco de dados, atende integralmente ao conceito de segurança em criptografia.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Faltando a criptografia em repouso, o dado armazenado fica vulnerável mesmo que a transmissão seja segura."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Um dado pseudonimizado, diferente de um dado anonimizado, pode ser [COMBO] à pessoa original sob condições controladas.",
+          "options": [
+            "revertido e associado novamente",
+            "permanentemente desconectado",
+            "publicamente divulgado",
+            "automaticamente excluído"
+          ],
+          "correct": "revertido e associado novamente",
+          "tip": "Essa possibilidade de reversão é o que distingue a pseudonimização da anonimização.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que caracteriza a conformidade (compliance) de um processo digitalizado?",
+          "answers": [
+            "A adequação do processo às normas, leis e políticas internas vigentes",
+            "A velocidade com que o processo é executado",
+            "A quantidade de usuários que utilizam o sistema",
+            "O custo de manutenção da ferramenta utilizada"
+          ],
+          "correct": "A adequação do processo às normas, leis e políticas internas vigentes",
+          "tip": "Compliance é sobre seguir as regras estabelecidas, não sobre velocidade ou custo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um processo pode ser tecnicamente eficiente e, ainda assim, representar uma falha de governança se não for possível comprovar o que aconteceu com um dado específico.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eficiência sem comprovação não é o mesmo que conformidade."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O mecanismo que permite verificar, a qualquer momento, se um processo está seguindo as regras que deveria seguir é chamado de [COMBO].",
+          "options": [
+            "auditoria",
+            "criptografia",
+            "anonimização",
+            "base legal"
+          ],
+          "correct": "auditoria",
+          "tip": "A auditoria é o mecanismo de verificação da conformidade de um processo."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais informações um sistema de logs bem implementado deveria registrar para garantir rastreabilidade completa?",
+          "answers": [
+            "Usuário que realizou a ação",
+            "Timestamp da ação",
+            "Tipo de ação realizada",
+            "Apenas o nome do sistema utilizado"
+          ],
+          "correct": [
+            "Usuário que realizou a ação",
+            "Timestamp da ação",
+            "Tipo de ação realizada"
+          ],
+          "tip": "Um log completo precisa identificar quem, quando e o que foi feito, não apenas o sistema."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada elemento à sua posição na cadeia que sustenta o compliance:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Log",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Rastreabilidade",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Auditoria",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Compliance",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sem ele, não existe rastreabilidade"
+            },
+            {
+              "id": "z2",
+              "label": "Sem ela, não existe auditoria possível"
+            },
+            {
+              "id": "z3",
+              "label": "Verifica se o processo segue as regras estabelecidas"
+            },
+            {
+              "id": "z4",
+              "label": "Resultado da conformidade comprovada por auditoria"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada elemento depende do anterior: sem log não há rastreabilidade, sem rastreabilidade não há auditoria."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], um documento de aprovação de compra foi alterado e ninguém consegue identificar quem fez a alteração nem quando ela ocorreu. Qual elemento de governança está ausente nesse cenário?",
+          "answers": [
+            "Sistema de logs (trilha de auditoria)",
+            "Criptografia em trânsito",
+            "Pseudonimização dos dados",
+            "Consentimento do titular"
+          ],
+          "correct": "Sistema de logs (trilha de auditoria)",
+          "tip": "Sem um sistema de logs, é impossível investigar quem alterou um documento e quando."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a automatização bem-sucedida de um processo é suficiente, por si só, para garantir que ele esteja em conformidade com as normas vigentes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Velocidade e conformidade precisam andar juntas; automatizar não significa estar em conformidade."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Quando um processo migra do papel para o digital, um risco antes físico — como uma gaveta destrancada com documentos — se transforma em um risco [COMBO], como uma pasta compartilhada sem permissão configurada.",
+          "options": [
+            "digital",
+            "inexistente",
+            "jurídico",
+            "financeiro"
+          ],
+          "correct": "digital",
+          "tip": "A natureza do risco muda de físico para digital, mas a responsabilidade de proteger o dado permanece a mesma."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], em um sistema de logs implementado corretamente, quais elementos permitiriam investigar de forma confiável quem alterou um documento?",
+          "answers": [
+            "Identificador do documento",
+            "Conteúdo antes e depois da alteração",
+            "Timestamp exato da ação",
+            "Apenas o número total de acessos ao sistema"
+          ],
+          "correct": [
+            "Identificador do documento",
+            "Conteúdo antes e depois da alteração",
+            "Timestamp exato da ação"
+          ],
+          "tip": "O número total de acessos não identifica quem fez uma alteração específica; os outros elementos sim."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada risco físico ao seu equivalente na transição para o digital:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Gaveta destrancada com documentos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pasta compartilhada sem permissão configurada",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Ausência de fechadura em um arquivo físico",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Acesso configurado como \"Todos os Usuários\" no sistema",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Risco físico de exposição de documentos"
+            },
+            {
+              "id": "z2",
+              "label": "Risco digital equivalente à gaveta destrancada"
+            },
+            {
+              "id": "z3",
+              "label": "Risco físico de acesso irrestrito"
+            },
+            {
+              "id": "z4",
+              "label": "Risco digital de acesso irrestrito"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A responsabilidade de proteger o dado é a mesma, mudando apenas a natureza física ou digital do risco."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], por que a rastreabilidade é considerada indispensável para a auditoria de um processo?",
+          "answers": [
+            "Porque, sem rastreabilidade, não é possível comprovar quem fez o quê e quando, tornando a auditoria inviável",
+            "Porque a rastreabilidade substitui a necessidade de conformidade legal",
+            "Porque ela elimina a necessidade de controle de acesso",
+            "Porque é exigida apenas em processos financeiros"
+          ],
+          "correct": "Porque, sem rastreabilidade, não é possível comprovar quem fez o quê e quando, tornando a auditoria inviável",
+          "tip": "Sem rastreabilidade, a auditoria não tem base factual para verificar o que ocorreu."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a gestão de logs é dispensável em processos digitalizados, desde que o sistema tenha bom desempenho e não apresente falhas técnicas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Desempenho técnico não substitui a necessidade de registro de eventos para fins de auditoria e compliance.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o princípio central do conceito de Privacy by Design?",
+          "answers": [
+            "Segurança e privacidade devem ser parte nativa do desenho do processo desde o início, e não um ajuste posterior",
+            "A privacidade só precisa ser considerada após um incidente de segurança",
+            "O design visual do sistema deve priorizar a estética acima da segurança",
+            "A privacidade é responsabilidade exclusiva do departamento jurídico"
+          ],
+          "correct": "Segurança e privacidade devem ser parte nativa do desenho do processo desde o início, e não um ajuste posterior",
+          "tip": "Privacy by Design significa incorporar a proteção de dados desde a primeira etapa de planejamento."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no Privacy by Design, a pergunta \"isso está protegendo o dado corretamente?\" deve ser tratada como um ajuste de última hora, aplicado apenas antes do lançamento do sistema.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essa pergunta deve estar presente desde a primeira etapa do desenho, nunca como ajuste tardio."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Na etapa de [COMBO] de um processo seguindo Privacy by Design, a pergunta de privacidade entra desde o primeiro esboço do desenho.",
+          "options": [
+            "planejamento",
+            "produção",
+            "encerramento",
+            "divulgação"
+          ],
+          "correct": "planejamento",
+          "tip": "É no planejamento inicial que as questões de privacidade devem ser consideradas pela primeira vez."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], em um cenário onde documentos estão armazenados em uma pasta compartilhada em nuvem, sem criptografia e com permissão de acesso configurada como \"Todos os Usuários\" da rede interna, quais problemas de conformidade podem ser identificados?",
+          "answers": [
+            "Violação do Princípio do Privilégio Mínimo",
+            "Ausência de criptografia em repouso",
+            "Falta de rastreabilidade de acesso",
+            "Excesso de criptografia aplicada aos dados"
+          ],
+          "correct": [
+            "Violação do Princípio do Privilégio Mínimo",
+            "Ausência de criptografia em repouso",
+            "Falta de rastreabilidade de acesso"
+          ],
+          "tip": "Esse cenário reúne três falhas clássicas de governança: acesso irrestrito, dado desprotegido e ausência de logs."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada papel de um role-play de auditoria à sua responsabilidade:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Auditor de Compliance",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Controlador de Dados",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Desenvolvedor Técnico",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identifica os pontos de não conformidade com base na LGPD"
+            },
+            {
+              "id": "z2",
+              "label": "Avalia o impacto e prioriza os riscos sob a ótica do negócio"
+            },
+            {
+              "id": "z3",
+              "label": "Propõe a reestruturação técnica de acesso, criptografia e logs"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As três visões — jurídica, de negócio e técnica — precisam se conectar em uma solução única."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em um fluxo com documentos sem criptografia e acesso liberado a todos os usuários da rede interna, qual risco costuma ser considerado o mais urgente para priorização de correção?",
+          "answers": [
+            "O acesso irrestrito a dados sensíveis, por ser a exposição mais direta e imediata às pessoas afetadas",
+            "A ausência de um manual de boas práticas",
+            "A demora no tempo de resposta do sistema",
+            "A falta de um layout mais moderno no formulário"
+          ],
+          "correct": "O acesso irrestrito a dados sensíveis, por ser a exposição mais direta e imediata às pessoas afetadas",
+          "tip": "Riscos que expõem diretamente as pessoas afetadas costumam ser priorizados antes de questões estéticas ou de desempenho."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], validar a auditoria de um processo antes de colocá-lo em produção é uma prática coerente com o conceito de Privacy by Design.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Validar antes da produção confirma a conformidade desde o início, alinhado ao princípio do Privacy by Design."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Na etapa de [COMBO] de um processo com Privacy by Design, os controles técnicos são implementados diretamente na estrutura do processo.",
+          "options": [
+            "construção",
+            "planejamento",
+            "divulgação",
+            "arquivamento"
+          ],
+          "correct": "construção",
+          "tip": "É na fase de construção que os controles técnicos concretos são efetivamente implementados."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], em uma correção de controle de acesso aplicada ao Princípio do Privilégio Mínimo para documentos sensíveis, quais medidas seriam coerentes?",
+          "answers": [
+            "Restringir o acesso apenas aos profissionais responsáveis pelo processo",
+            "Aplicar criptografia aos documentos armazenados",
+            "Implementar logs que registrem quem acessou os documentos",
+            "Manter o acesso liberado para toda a rede interna"
+          ],
+          "correct": [
+            "Restringir o acesso apenas aos profissionais responsáveis pelo processo",
+            "Aplicar criptografia aos documentos armazenados",
+            "Implementar logs que registrem quem acessou os documentos"
+          ],
+          "tip": "Manter o acesso liberado para toda a rede é justamente a falha que essas medidas corrigem."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada solução técnica ao problema de conformidade que ela resolve:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Reestruturação de permissões",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Criptografia em repouso",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Logs de auditoria",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Corrige o acesso irrestrito aos documentos"
+            },
+            {
+              "id": "z2",
+              "label": "Protege os documentos armazenados"
+            },
+            {
+              "id": "z3",
+              "label": "Garante a rastreabilidade de quem acessou os dados"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada solução técnica corresponde a uma falha específica de conformidade identificada no cenário."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que o relatório final de um role-play de auditoria conceitual deve mostrar coerência entre os papéis de Auditor, Controlador e Desenvolvedor?",
+          "answers": [
+            "Porque as visões jurídica, de negócio e técnica devem se conectar em uma solução única, e não como respostas desconexas",
+            "Porque apenas um dos papéis precisa apresentar conclusões válidas",
+            "Porque a coerência entre papéis é opcional e apenas estética",
+            "Porque cada papel deve ignorar as conclusões dos demais"
+          ],
+          "correct": "Porque as visões jurídica, de negócio e técnica devem se conectar em uma solução única, e não como respostas desconexas",
+          "tip": "A integração entre as três perspectivas é o que torna a solução final consistente e aplicável."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o Privacy by Design é aplicável apenas a sistemas que já estão em produção, sem impacto sobre processos ainda em fase de planejamento.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Privacy by Design se aplica justamente desde a fase de planejamento, antes mesmo da construção do processo."
         }
       ]
     }
