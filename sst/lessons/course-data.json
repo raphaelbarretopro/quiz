@@ -64793,17 +64793,7 @@
               "id": "d2",
               "txt": "Medo de ser substituído pela automação",
               "match": "z2"
-            },
-            {
-              "id": "d3",
-              "txt": "Falta de letramento digital",
-              "match": "z1"
-            },
-            {
-              "id": "d4",
-              "txt": "Perda de autoridade percebida",
-              "match": "z2"
-            }
+            }            
           ],
           "zones": [
             {
