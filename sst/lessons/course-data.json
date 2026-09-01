@@ -64681,6 +64681,769 @@
           "tip": "O Privacy by Design se aplica justamente desde a fase de planejamento, antes mesmo da construção do processo."
         }
       ]
+    },
+    {
+      "slug": "aula-106",
+      "lesson_info": {
+        "id": "Aula-106",
+        "title": "AULA 106 - DIGITALIZAÇÃO DE PROCESSOS: GESTÃO DE PESSOAS E MUDANÇA CULTURAL",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "RESISTÊNCIA À MUDANÇA",
+            "desc": "Fatores psicológicos e operacionais da resistência humana e o Vale do Desespero.",
+            "color": "#e74c3c",
+            "img_url": "https://source.unsplash.com/1600x900/?change-management"
+          },
+          {
+            "id": "AGEN",
+            "name": "CANAIS E TREINAMENTO",
+            "desc": "Como escolher o canal certo e segmentar o treinamento por perfil de público.",
+            "color": "#f39c12",
+            "img_url": "https://source.unsplash.com/1600x900/?workshop-training"
+          },
+          {
+            "id": "PROT",
+            "name": "SUPORTE CONTINUADO",
+            "desc": "Super Users, autoatendimento e o impacto do abandono no TCO do sistema.",
+            "color": "#3498db",
+            "img_url": "https://source.unsplash.com/1600x900/?technical-support"
+          },
+          {
+            "id": "NORM",
+            "name": "PLANO DE ADOÇÃO",
+            "desc": "Diagnóstico de público e construção de peças de engajamento conectadas.",
+            "color": "#2ecc71",
+            "img_url": "https://source.unsplash.com/1600x900/?strategy-planning"
+          }
+        ],
+        "sokoban": [
+          "V",
+          "A",
+          "L",
+          "E"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual das opções a seguir representa um fator OPERACIONAL de resistência a uma mudança digital, e não um fator psicológico?",
+          "answers": [
+            "Falha de ergonomia cognitiva do sistema",
+            "Medo do desconhecido",
+            "Sensação de perda de relevância",
+            "Insegurança quanto ao próprio papel"
+          ],
+          "correct": "Falha de ergonomia cognitiva do sistema",
+          "tip": "Fatores operacionais estão ligados à usabilidade e complexidade do sistema, enquanto fatores psicológicos envolvem emoções e percepções do usuário."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o medo de perder autoridade ou relevância profissional é classificado como um fator operacional de resistência.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Esse medo é um fator psicológico, pois envolve percepção pessoal e emocional, não uma dificuldade prática de uso do sistema."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Fatores [COMBO] de resistência estão relacionados a problemas de usabilidade, complexidade da interface e falta de letramento digital.",
+          "options": [
+            "Operacionais",
+            "Psicológicos",
+            "Estratégicos",
+            "Financeiros"
+          ],
+          "correct": "Operacionais",
+          "tip": "Falhas de ergonomia cognitiva e complexidade excessiva são exemplos clássicos de fatores operacionais."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das situações abaixo são consideradas fatores PSICOLÓGICOS de resistência à mudança?",
+          "answers": [
+            "Medo do desconhecido",
+            "Sensação de perda de relevância",
+            "Interface confusa de usar",
+            "Insegurança sobre ser substituído pela automação"
+          ],
+          "correct": [
+            "Medo do desconhecido",
+            "Sensação de perda de relevância",
+            "Insegurança sobre ser substituído pela automação"
+          ],
+          "tip": "Interface confusa é um fator operacional; os demais envolvem emoções e percepções do colaborador sobre si mesmo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada situação ao tipo de fator de resistência correspondente:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Interface confusa de usar",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Medo de ser substituído pela automação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Falta de letramento digital",
+              "match": "z1"
+            },
+            {
+              "id": "d4",
+              "txt": "Perda de autoridade percebida",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Fator Operacional"
+            },
+            {
+              "id": "z2",
+              "label": "Fator Psicológico"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Fatores operacionais tratam de dificuldades práticas de uso; fatores psicológicos tratam de emoções e percepções."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], segundo o conceito do Vale do Desespero, o que costuma ocorrer logo após a implantação (Go-Live) de uma nova rotina digital?",
+          "answers": [
+            "Queda temporária da produtividade",
+            "Crescimento imediato e sustentado da produtividade",
+            "Estabilização instantânea sem variação",
+            "Redução permanente do desempenho da equipe"
+          ],
+          "correct": "Queda temporária da produtividade",
+          "tip": "Essa queda é conceitualmente esperada e antecede a recuperação e superação do nível anterior de produtividade."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], uma queda de produtividade logo após o Go-Live de um sistema deve ser interpretada, por padrão, como evidência de que a solução tecnicamente falhou.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Essa queda costuma ser uma etapa normal do processo de adoção, e não uma falha técnica da solução."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O período de queda temporária de produtividade após uma implantação, antes da recuperação e superação do nível anterior, é chamado de [COMBO].",
+          "options": [
+            "Vale do Desespero",
+            "Pico de Adoção",
+            "Zona de Conforto",
+            "Curva de Aprendizado Reversa"
+          ],
+          "correct": "Vale do Desespero",
+          "tip": "Esse conceito ajuda equipes de TI a planejar e não interpretar mal uma queda temporária de desempenho."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais afirmações abaixo estão corretas sobre o Vale do Desespero?",
+          "answers": [
+            "É uma etapa esperada e normal do processo de adoção",
+            "Ocorre antes de a produtividade voltar a subir",
+            "Indica que o projeto deve ser cancelado imediatamente",
+            "Exige planejamento prévio da equipe de TI para não ser mal interpretado"
+          ],
+          "correct": [
+            "É uma etapa esperada e normal do processo de adoção",
+            "Ocorre antes de a produtividade voltar a subir",
+            "Exige planejamento prévio da equipe de TI para não ser mal interpretado"
+          ],
+          "tip": "O cancelamento do projeto seria uma reação equivocada a uma etapa natural da curva de adoção."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada etapa da curva de adoção à sua característica principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Implantação",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Vale do Desespero",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Crescimento",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Momento do Go-Live"
+            },
+            {
+              "id": "z2",
+              "label": "Queda temporária de produtividade"
+            },
+            {
+              "id": "z3",
+              "label": "Produtividade supera o nível anterior"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As três etapas formam a curva conceitual de adaptação a uma mudança de rotina digital.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual canal de comunicação é mais indicado para sensibilizar o público sobre o \"porquê\" de uma mudança, abrindo espaço para perguntas e alinhamento de expectativas?",
+          "answers": [
+            "Workshops",
+            "Comunicados formais",
+            "Pílulas de conhecimento",
+            "Relatórios gerenciais"
+          ],
+          "correct": "Workshops",
+          "tip": "Workshops criam um ambiente de diálogo, ideal para tratar medos e expectativas antes de uma mudança."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], comunicados formais são o canal mais indicado para ensinar, passo a passo, como executar uma tarefa específica no sistema.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Esse papel cabe às pílulas de conhecimento; comunicados formais servem para marcar etapas e marcos do projeto."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "[COMBO] são conteúdos curtos e diretos, voltados a apoiar a execução do dia a dia, respondendo objetivamente \"como fazer\" uma tarefa.",
+          "options": [
+            "Pílulas de conhecimento",
+            "Workshops",
+            "Comunicados formais",
+            "Relatórios de KPI"
+          ],
+          "correct": "Pílulas de conhecimento",
+          "tip": "Esses conteúdos objetivos evitam que o usuário trave durante a execução de uma tarefa específica."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais das situações abaixo representam um uso INADEQUADO de canal de comunicação?",
+          "answers": [
+            "Usar um workshop longo para ensinar uma tarefa simples",
+            "Usar um comunicado formal para tentar sensibilizar a equipe sobre o \"porquê\" da mudança",
+            "Usar pílulas de conhecimento para orientar uma tarefa pontual",
+            "Usar um workshop para abrir espaço a perguntas e medos sobre uma mudança"
+          ],
+          "correct": [
+            "Usar um workshop longo para ensinar uma tarefa simples",
+            "Usar um comunicado formal para tentar sensibilizar a equipe sobre o \"porquê\" da mudança"
+          ],
+          "tip": "O canal errado gera distanciamento ou desengajamento; as duas primeiras opções invertem a função de cada canal."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada canal de comunicação ao seu objetivo principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Workshops",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Comunicados formais",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Pílulas de conhecimento",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sensibilização e alinhamento de expectativas"
+            },
+            {
+              "id": "z2",
+              "label": "Marcar etapas e marcos do projeto"
+            },
+            {
+              "id": "z3",
+              "label": "Apoio à execução do dia a dia"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada canal tem uma função específica dentro do processo de mudança; usar o canal certo evita desengajamento."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], um plano de treinamento voltado ao nível operacional de uma equipe deve ter, prioritariamente, qual foco?",
+          "answers": [
+            "Passo a passo prático para executar tarefas sem travar",
+            "Visão analítica orientada a indicadores para tomada de decisão",
+            "Apresentação estratégica de metas de longo prazo",
+            "Discussão sobre políticas de governança corporativa"
+          ],
+          "correct": "Passo a passo prático para executar tarefas sem travar",
+          "tip": "O nível operacional busca resposta prática e imediata para dúvidas do dia a dia, não análise estratégica."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o treinamento voltado ao nível gerencial deve priorizar a extração de indicadores (KPIs) para apoiar decisões, em vez do passo a passo operacional de tarefas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O nível gerencial busca uma visão analítica e estratégica, orientada a painéis e relatórios."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Um plano de treinamento único e igual para todos os públicos tende a ser [COMBO] para pelo menos um dos perfis envolvidos.",
+          "options": [
+            "Irrelevante",
+            "Altamente eficaz",
+            "Obrigatório por norma",
+            "Mais barato"
+          ],
+          "correct": "Irrelevante",
+          "tip": "Perfis operacionais e gerenciais têm necessidades de aprendizado distintas, exigindo segmentação do treinamento."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais elementos caracterizam um treinamento voltado ao nível operacional?",
+          "answers": [
+            "Passo a passo prático e sequencial",
+            "Treinamento curto e frequente",
+            "Foco em painéis analíticos para decisão estratégica",
+            "Foco na mitigação de erros na rotina"
+          ],
+          "correct": [
+            "Passo a passo prático e sequencial",
+            "Treinamento curto e frequente",
+            "Foco na mitigação de erros na rotina"
+          ],
+          "tip": "Painéis analíticos para decisão estratégica são característicos do treinamento de nível gerencial."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada perfil de público ao seu foco principal de treinamento:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nível Operacional",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Nível Gerencial",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "\"Como faço essa tarefa sem travar?\""
+            },
+            {
+              "id": "z2",
+              "label": "\"O que esse sistema me mostra para eu decidir melhor?\""
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada perfil precisa de um tipo diferente de conteúdo para que o treinamento seja realmente útil."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], o que caracteriza um Super User dentro de uma estratégia de suporte continuado?",
+          "answers": [
+            "Colaborador do próprio departamento que se torna referência interna no uso do sistema",
+            "Consultor externo contratado exclusivamente para treinar a equipe de TI",
+            "Gestor responsável por aprovar o orçamento do projeto de digitalização",
+            "Sistema automatizado de resposta a chamados"
+          ],
+          "correct": "Colaborador do próprio departamento que se torna referência interna no uso do sistema",
+          "tip": "Super Users são multiplicadores internos que ajudam os colegas no dia a dia, sem depender exclusivamente do time de TI."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], os Super Users têm como função reduzir o tempo de resposta a dúvidas simples, liberando o time técnico para questões mais complexas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Por estarem próximos da rotina do setor, os Super Users resolvem dúvidas recorrentes com mais agilidade."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Uma base de [COMBO] reúne artigos, vídeos curtos e guias de referência rápida disponíveis 24/7, reduzindo a dependência de suporte humano para dúvidas recorrentes.",
+          "options": [
+            "Conhecimento (Autoatendimento)",
+            "Aprovação Hierárquica",
+            "Auditoria de Processos",
+            "Governança de Dados"
+          ],
+          "correct": "Conhecimento (Autoatendimento)",
+          "tip": "O autoatendimento permite que o usuário resolva dúvidas simples sem precisar acionar o suporte humano."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais afirmações sobre o TCO (Total Cost of Ownership) de um sistema digitalizado estão corretas?",
+          "answers": [
+            "O abandono do usuário é um dos maiores custos ocultos de um projeto",
+            "Suporte continuado é opcional e não impacta o TCO",
+            "Um sistema tecnicamente ótimo mas abandonado tem TCO real mais alto do que o orçado",
+            "O TCO é calculado apenas com base no custo de licenciamento do software"
+          ],
+          "correct": [
+            "O abandono do usuário é um dos maiores custos ocultos de um projeto",
+            "Um sistema tecnicamente ótimo mas abandonado tem TCO real mais alto do que o orçado"
+          ],
+          "tip": "O suporte continuado não é opcional: ele é parte da entrega e reduz o TCO real do sistema."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada conceito de suporte continuado à sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Super Users",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Base de conhecimento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "TCO",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Multiplicadores internos próximos da rotina do setor"
+            },
+            {
+              "id": "z2",
+              "label": "Consulta rápida e autoatendimento 24/7"
+            },
+            {
+              "id": "z3",
+              "label": "Custo real total de propriedade do sistema"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses três conceitos trabalham juntos para reduzir a dependência de suporte técnico direto e o custo real do sistema."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], por que os Super Users são considerados estrategicamente vantajosos em um plano de suporte?",
+          "answers": [
+            "Porque estão fisicamente perto do problema e entendem a rotina real do setor",
+            "Porque substituem integralmente a necessidade de treinamento inicial",
+            "Porque eliminam a necessidade de qualquer suporte técnico especializado",
+            "Porque são sempre os gestores de mais alto escalão da empresa"
+          ],
+          "correct": "Porque estão fisicamente perto do problema e entendem a rotina real do setor",
+          "tip": "Essa proximidade permite respostas mais rápidas a dúvidas simples do dia a dia do setor."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um sistema tecnicamente ótimo, mas abandonado por falta de suporte, tende a apresentar um TCO real menor do que o previsto no orçamento inicial.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O abandono gera um TCO real muito mais alto do que aparenta no orçamento inicial, pois é o maior custo oculto do projeto."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "O maior custo oculto de um projeto de digitalização costuma ser o [COMBO] do usuário.",
+          "options": [
+            "Abandono",
+            "Treinamento",
+            "Hardware",
+            "Licenciamento"
+          ],
+          "correct": "Abandono",
+          "tip": "Quando o usuário abandona o sistema, todo o investimento técnico deixa de gerar retorno real."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais critérios são relevantes para selecionar colaboradores como Super Users?",
+          "answers": [
+            "Curiosidade tecnológica",
+            "Boa capacidade de comunicação",
+            "Ausência total de conhecimento sobre a rotina do setor",
+            "Profundo conhecimento da rotina do próprio setor"
+          ],
+          "correct": [
+            "Curiosidade tecnológica",
+            "Boa capacidade de comunicação",
+            "Profundo conhecimento da rotina do próprio setor"
+          ],
+          "tip": "Um bom Super User precisa entender a rotina real do setor para orientar os colegas com propriedade."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada componente do suporte continuado à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Super Users",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Autoatendimento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "TCO",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Referência interna e multiplicadora"
+            },
+            {
+              "id": "z2",
+              "label": "Reduz a dependência de suporte humano"
+            },
+            {
+              "id": "z3",
+              "label": "Métrica de custo total ao longo do tempo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Juntos, esses componentes sustentam a adoção do sistema após o Go-Live, reduzindo custos ocultos.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], antes de criar qualquer peça de comunicação ou treinamento em um plano de adoção, qual etapa deve ser realizada primeiro?",
+          "answers": [
+            "Diagnóstico do público que vai operar o novo processo",
+            "Definição do orçamento de marketing interno",
+            "Escolha da paleta de cores do material de comunicação",
+            "Contratação de consultoria externa"
+          ],
+          "correct": "Diagnóstico do público que vai operar o novo processo",
+          "tip": "Sem esse diagnóstico, qualquer iniciativa corre o risco de tratar o sintoma errado da resistência."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], pular a etapa de diagnóstico de público antes de criar peças de comunicação aumenta o risco de tratar o sintoma errado da resistência.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O diagnóstico identifica os medos e dificuldades reais do público, orientando toda a comunicação seguinte."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Um e-mail de sensibilização, dentro de um plano de adoção, deve ser construído prioritariamente para mitigar fatores [COMBO].",
+          "options": [
+            "Psicológicos",
+            "Financeiros",
+            "Jurídicos",
+            "Operacionais"
+          ],
+          "correct": "Psicológicos",
+          "tip": "O e-mail de sensibilização reforça a segurança do colaborador e comunica os benefícios reais da mudança."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais elementos devem compor o diagnóstico de público em um plano de adoção?",
+          "answers": [
+            "Perfil e familiaridade digital dos usuários",
+            "Medos psicológicos específicos daquele público",
+            "Dificuldades operacionais como letramento digital e acesso a dispositivos",
+            "Preço de mercado das licenças de software concorrentes"
+          ],
+          "correct": [
+            "Perfil e familiaridade digital dos usuários",
+            "Medos psicológicos específicos daquele público",
+            "Dificuldades operacionais como letramento digital e acesso a dispositivos"
+          ],
+          "tip": "O diagnóstico foca nas pessoas que vão operar o processo, não em questões de mercado de fornecedores."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada peça de comunicação ao seu objetivo principal em um plano de adoção:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "E-mail de sensibilização",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Roteiro de vídeo curto",
+              "match": "z2"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Mitigar fatores psicológicos e reforçar segurança do colaborador"
+            },
+            {
+              "id": "z2",
+              "label": "Resolver um fator operacional crítico do primeiro acesso"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada peça de comunicação tem um foco cirúrgico, endereçando um tipo específico de barreira."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], um roteiro de vídeo curto de treinamento, dentro de um plano de adoção, deve ter como foco principal:",
+          "answers": [
+            "Resolver um problema operacional específico e prático do dia a dia do usuário",
+            "Explicar toda a história do projeto de digitalização",
+            "Apresentar o organograma completo da equipe de TI",
+            "Detalhar cláusulas contratuais do fornecedor do sistema"
+          ],
+          "correct": "Resolver um problema operacional específico e prático do dia a dia do usuário",
+          "tip": "O objetivo é reduzir a hesitação no primeiro acesso, focando em uma ação prática e concreta."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], a elaboração do roteiro de um vídeo curto de treinamento é, essencialmente, um trabalho de produção audiovisual, e não de redação e planejamento de conteúdo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O roteiro em si é trabalho de redação e planejamento de conteúdo, distinto da produção audiovisual final."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Um plano de adoção bem-sucedido conecta, em uma única lógica, diagnóstico, [COMBO] e suporte.",
+          "options": [
+            "Comunicação",
+            "Orçamento",
+            "Hardware",
+            "Jurídico"
+          ],
+          "correct": "Comunicação",
+          "tip": "Diagnóstico, comunicação e suporte formam os três pilares interligados de um plano de adoção coerente."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais afirmações refletem corretamente a lógica de um plano de adoção completo?",
+          "answers": [
+            "O diagnóstico de público fundamenta as decisões de comunicação e suporte",
+            "Comunicação e suporte devem ser planejados de forma isolada, sem relação com o diagnóstico",
+            "A mensagem de sensibilização deve reforçar que a mudança não visa substituir pessoas, mas facilitar o trabalho",
+            "Um plano de adoção termina no dia do Go-Live"
+          ],
+          "correct": [
+            "O diagnóstico de público fundamenta as decisões de comunicação e suporte",
+            "A mensagem de sensibilização deve reforçar que a mudança não visa substituir pessoas, mas facilitar o trabalho"
+          ],
+          "tip": "O plano de adoção é contínuo e conecta diagnóstico, comunicação e suporte em uma única lógica coerente."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada papel de um plano de adoção à sua missão principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Gestor de Mudança",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Analista de Comunicação",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Coordenador de Suporte",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Diagnosticar público-alvo, medos e dificuldades operacionais"
+            },
+            {
+              "id": "z2",
+              "label": "Planejar mensagem de e-mail e roteiro de vídeo com base no diagnóstico"
+            },
+            {
+              "id": "z3",
+              "label": "Propor estratégia de Super Users pós-implantação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Um plano de adoção coerente exige que os três papéis trabalhem de forma conectada, e não isolada."
+        }
+      ]
     }
   ]
 }
