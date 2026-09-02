@@ -64793,7 +64793,7 @@
               "id": "d2",
               "txt": "Medo de ser substituído pela automação",
               "match": "z2"
-            }            
+            }
           ],
           "zones": [
             {
@@ -65432,6 +65432,983 @@
           ],
           "correct": "drag",
           "tip": "Um plano de adoção coerente exige que os três papéis trabalhem de forma conectada, e não isolada."
+        }
+      ]
+    },
+    {
+      "slug": "aula-107",
+      "lesson_info": {
+        "id": "Aula-107",
+        "title": "AULA 107 - MONITORAMENTO, INDICADORES (KPIS) E MELHORIA CONTÍNUA EM PROCESSOS DIGITAIS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "A TRÍADE DO DESEMPENHO",
+            "desc": "Eficiência, eficácia e efetividade como dimensões complementares de análise de processos.",
+            "color": "#e74c3c",
+            "img_url": "https://source.unsplash.com/1600x900/?performance-metrics"
+          },
+          {
+            "id": "AGEN",
+            "name": "KPIS E A LÓGICA DOS INDICADORES",
+            "desc": "Lead Time, Taxa de Erro, Economia de Recursos e Satisfação do Usuário como indicadores estruturados.",
+            "color": "#3498db",
+            "img_url": "https://source.unsplash.com/1600x900/?kpi-dashboard"
+          },
+          {
+            "id": "PROT",
+            "name": "GESTÃO À VISTA E DASHBOARDS",
+            "desc": "Organização visual de indicadores para orientar decisões em tempo real.",
+            "color": "#9b59b6",
+            "img_url": "https://source.unsplash.com/1600x900/?data-dashboard"
+          },
+          {
+            "id": "NORM",
+            "name": "DIAGNÓSTICO DE DESVIOS E MELHORIA CONTÍNUA",
+            "desc": "Da identificação da causa-raiz à proposta concreta de melhoria de processos.",
+            "color": "#27ae60",
+            "img_url": "https://source.unsplash.com/1600x900/?root-cause-analysis"
+          }
+        ],
+        "sokoban": [
+          "M",
+          "E",
+          "T",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual dimensão de desempenho é definida pela relação entre o resultado obtido e os recursos consumidos?",
+          "answers": [
+            "Eficiência",
+            "Eficácia",
+            "Efetividade",
+            "Produtividade Bruta"
+          ],
+          "correct": "Eficiência",
+          "tip": "Eficiência mede fazer mais com menos desperdício de tempo, dinheiro ou esforço."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], um processo pode ser eficaz mesmo sendo ineficiente, desde que cumpra o prazo e a meta estabelecidos, ainda que consuma mais recursos do que deveria.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Eficácia mede apenas o cumprimento da meta ou prazo, independentemente do custo de recursos envolvido."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Um processo que efetivamente resolve o problema do cliente de forma sustentável, gerando valor real e duradouro, está demonstrando alto grau de [COMBO].",
+          "options": [
+            "Efetividade",
+            "Eficiência",
+            "Burocracia",
+            "Retrabalho"
+          ],
+          "correct": "Efetividade",
+          "tip": "Efetividade vai além da meta cumprida: avalia se o resultado gerou valor real e sustentável."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das afirmações abaixo descrevem corretamente as três dimensões da tríade do desempenho?",
+          "answers": [
+            "Eficiência avalia o uso de recursos",
+            "Eficácia avalia o cumprimento de metas",
+            "Efetividade avalia a geração de valor real",
+            "Efetividade mede apenas a velocidade do processo"
+          ],
+          "correct": [
+            "Eficiência avalia o uso de recursos",
+            "Eficácia avalia o cumprimento de metas",
+            "Efetividade avalia a geração de valor real"
+          ],
+          "tip": "As três dimensões são complementares e nenhuma isolada conta a história completa do desempenho de um processo."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada dimensão de desempenho à sua definição central:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Eficiência",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Eficácia",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Efetividade",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Desperdício de Recursos",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Uso mínimo de recursos para o resultado"
+            },
+            {
+              "id": "z2",
+              "label": "Cumprimento do que foi prometido"
+            },
+            {
+              "id": "z3",
+              "label": "Geração de valor real e sustentável"
+            },
+            {
+              "id": "z4",
+              "label": "Indício de baixa eficiência"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada dimensão tem foco distinto: recursos, cumprimento de metas e geração de valor real."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em um processo de aprovação que sempre cumpre o prazo combinado, mas gera hora extra constante e aumento de custo operacional, qual dimensão está comprometida?",
+          "answers": [
+            "Eficiência",
+            "Eficácia",
+            "Efetividade",
+            "Confiabilidade"
+          ],
+          "correct": "Eficiência",
+          "tip": "O aumento de custo e a hora extra indicam desperdício de recursos, o que caracteriza baixa eficiência mesmo com prazos cumpridos."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], é correto afirmar que um processo pode ser considerado bem-sucedido apenas por cumprir os prazos internos estabelecidos, mesmo que o problema do cliente final não tenha sido resolvido.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Cumprir prazos internos reflete apenas eficácia; o sucesso pleno exige também eficiência e efetividade."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Quando um processo entrega dentro do prazo, mas os clientes internos continuam insatisfeitos com o resultado final, isso indica baixa [COMBO].",
+          "options": [
+            "Efetividade",
+            "Eficácia",
+            "Pontualidade",
+            "Automação"
+          ],
+          "correct": "Efetividade",
+          "tip": "A efetividade avalia se o valor entregue realmente resolveu o problema do usuário final."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], para reequilibrar as três dimensões de desempenho em um processo desbalanceado, quais ações são conceitualmente adequadas?",
+          "answers": [
+            "Mapear o processo de ponta a ponta",
+            "Definir indicadores para a dimensão negligenciada",
+            "Investigar causas-raiz dos desequilíbrios",
+            "Ignorar reclamações de clientes internos"
+          ],
+          "correct": [
+            "Mapear o processo de ponta a ponta",
+            "Definir indicadores para a dimensão negligenciada",
+            "Investigar causas-raiz dos desequilíbrios"
+          ],
+          "tip": "O reequilíbrio exige visão ampla do processo e diagnóstico estruturado, nunca ignorar sinais de insatisfação."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada situação ao tipo de desequilíbrio de desempenho que ela representa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Processo rápido, mas com muitos erros",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Processo dentro do prazo, mas com custo elevado",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Processo econômico que não resolve o problema do cliente",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Processo que cumpre todas as metas de prazo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Efetividade comprometida"
+            },
+            {
+              "id": "z2",
+              "label": "Baixa eficiência"
+            },
+            {
+              "id": "z3",
+              "label": "Baixa efetividade"
+            },
+            {
+              "id": "z4",
+              "label": "Alta eficácia"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada sintoma aponta para uma dimensão específica do desempenho que precisa de atenção."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual das alternativas a seguir representa um exemplo de alta eficácia combinada com baixa eficiência?",
+          "answers": [
+            "Processo que cumpre o prazo prometido mas consome o dobro de recursos",
+            "Processo rápido e barato mas com alta taxa de erro",
+            "Processo que resolve o problema do cliente a longo prazo",
+            "Processo sem meta definida"
+          ],
+          "correct": "Processo que cumpre o prazo prometido mas consome o dobro de recursos",
+          "tip": "Cumprir o prometido é eficácia; gastar mais recursos do que o necessário caracteriza baixa eficiência."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], a efetividade de um processo pode ser avaliada isoladamente, sem considerar se a meta de prazo foi cumprida ou se os recursos foram usados de forma econômica.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "As três dimensões devem ser lidas em conjunto; avaliar apenas uma isoladamente pode levar a conclusões equivocadas."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Um processo que cumpre metas de prazo, usa recursos de forma econômica e ainda resolve verdadeiramente o problema do cliente atingiu equilíbrio entre eficiência, eficácia e [COMBO].",
+          "options": [
+            "Efetividade",
+            "Automação",
+            "Governança",
+            "Escalabilidade"
+          ],
+          "correct": "Efetividade",
+          "tip": "O equilíbrio pleno de desempenho exige as três dimensões atuando de forma complementar.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual elemento NÃO faz parte da estrutura completa que um KPI deve possuir para ter valor real?",
+          "answers": [
+            "Cor de destaque no painel",
+            "Fórmula de cálculo",
+            "Meta a ser atingida",
+            "Responsável pelo indicador"
+          ],
+          "correct": "Cor de destaque no painel",
+          "tip": "Um KPI completo precisa de nome, fórmula, meta, frequência de medição e responsável — a cor é apenas um recurso visual."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o Lead Time de um processo é calculado subtraindo a data/hora de início da data/hora de término, independentemente de quantas pessoas participaram da execução.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O Lead Time mede o tempo total consumido pelo processo, do início ao fim."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A fórmula que calcula a proporção de processos que apresentaram falha em relação ao total de processos iniciados corresponde à [COMBO].",
+          "options": [
+            "Taxa de Erro",
+            "Lead Time",
+            "Economia de Recursos",
+            "Satisfação do Usuário"
+          ],
+          "correct": "Taxa de Erro",
+          "tip": "A Taxa de Erro é calculada dividindo os processos com falha pelo total de processos iniciados, multiplicado por 100."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais das afirmações abaixo sobre os KPIs de processos digitais estão corretas?",
+          "answers": [
+            "Um Lead Time excelente pode coexistir com uma Taxa de Erro alta",
+            "A Economia de Recursos compara o custo do processo manual com o do processo digital",
+            "A Satisfação do Usuário pode ser baixa mesmo em processos rápidos e baratos",
+            "Um KPI calculado sempre dispensa meta e responsável definidos"
+          ],
+          "correct": [
+            "Um Lead Time excelente pode coexistir com uma Taxa de Erro alta",
+            "A Economia de Recursos compara o custo do processo manual com o do processo digital",
+            "A Satisfação do Usuário pode ser baixa mesmo em processos rápidos e baratos"
+          ],
+          "tip": "Velocidade sem qualidade, economia sem satisfação — os KPIs precisam ser lidos em conjunto para revelar o quadro completo."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada KPI à sua fórmula ou lógica de cálculo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Lead Time",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Taxa de Erro",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Economia de Recursos",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Satisfação do Usuário",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Data/Hora de Término menos Data/Hora de Início"
+            },
+            {
+              "id": "z2",
+              "label": "Processos com Falha dividido por Processos Iniciados, vezes 100"
+            },
+            {
+              "id": "z3",
+              "label": "Custo do Processo Manual menos Custo do Processo Digital"
+            },
+            {
+              "id": "z4",
+              "label": "Soma das Pontuações dividida pelo Total de Respostas"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada indicador tem uma lógica de cálculo simples, mas o valor está em saber o que medir e por quê."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], em um processo com 50 solicitações iniciadas e 10 que precisaram ser refeitas por erro, qual é a Taxa de Erro?",
+          "answers": [
+            "20%",
+            "10%",
+            "50%",
+            "5%"
+          ],
+          "correct": "20%",
+          "tip": "(10 ÷ 50) × 100 = 20%."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], uma Taxa de Erro alta associada a um Lead Time muito curto indica necessariamente que o processo está funcionando bem, já que a velocidade é o fator mais importante.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Rapidez sem precisão apenas acelera a chegada de um problema ao cliente; a qualidade também precisa ser avaliada."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Ao calcular quanto uma digitalização economizou em relação ao processo manual anterior, em horas de trabalho ou insumos, está sendo medida a [COMBO].",
+          "options": [
+            "Economia de Recursos",
+            "Taxa de Erro",
+            "Satisfação do Usuário",
+            "Efetividade"
+          ],
+          "correct": "Economia de Recursos",
+          "tip": "Esse indicador conecta a tecnologia ao resultado financeiro real, mostrando quanto foi efetivamente economizado."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais informações são necessárias para calcular corretamente a Economia de Recursos de um processo digitalizado?",
+          "answers": [
+            "Custo do processo manual anterior",
+            "Custo do processo digital atual",
+            "Número de solicitações refeitas por erro",
+            "Nota média de satisfação dos usuários"
+          ],
+          "correct": [
+            "Custo do processo manual anterior",
+            "Custo do processo digital atual"
+          ],
+          "tip": "A Economia de Recursos é calculada apenas pela diferença entre o custo do processo manual e o custo do processo digital."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada situação ao KPI mais adequado para medi-la:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Tempo entre a abertura e a conclusão de uma solicitação",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Percentual de solicitações que precisaram ser refeitas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Redução de horas de trabalho após a automação",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Percepção de qualidade relatada pelo usuário do processo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Lead Time"
+            },
+            {
+              "id": "z2",
+              "label": "Taxa de Erro"
+            },
+            {
+              "id": "z3",
+              "label": "Economia de Recursos"
+            },
+            {
+              "id": "z4",
+              "label": "Satisfação do Usuário (NPS/CSAT)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Escolher o KPI certo para cada pergunta é o primeiro passo para um monitoramento útil."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], um processo pode apresentar excelente Economia de Recursos e, ainda assim, ter baixa Satisfação do Usuário. O que esse cenário revela sobre a leitura de indicadores?",
+          "answers": [
+            "Que economia financeira não garante uma boa experiência de uso",
+            "Que a Economia de Recursos é o único indicador relevante",
+            "Que a Satisfação do Usuário é irrelevante quando há economia",
+            "Que o processo está automaticamente com baixa Taxa de Erro"
+          ],
+          "correct": "Que economia financeira não garante uma boa experiência de uso",
+          "tip": "Um processo pode ser barato e ainda ser desagradável de usar; por isso os KPIs devem ser lidos em conjunto."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], calcular os quatro KPIs — Lead Time, Taxa de Erro, Economia de Recursos e Satisfação do Usuário — exige apenas operações matemáticas simples, como subtração, divisão e média.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O desafio não está na complexidade matemática, mas em saber o que medir e por quê."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Interpretar um Lead Time reduzido isoladamente, sem considerar a Taxa de Erro, a Economia de Recursos e a Satisfação do Usuário, é um erro conhecido como a armadilha do [COMBO].",
+          "options": [
+            "Indicador Único",
+            "Painel Completo",
+            "Ciclo de Melhoria",
+            "Diagnóstico Estruturado"
+          ],
+          "correct": "Indicador Único",
+          "tip": "Otimizar um único indicador e ignorar os demais é um dos erros mais comuns na digitalização de processos.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o principal objetivo da Gestão à Vista em um processo monitorado por indicadores?",
+          "answers": [
+            "Tornar os indicadores visíveis, atualizados e organizados para ação em tempo hábil",
+            "Substituir totalmente a necessidade de calcular KPIs",
+            "Arquivar relatórios para consultas esporádicas",
+            "Eliminar a necessidade de diagnóstico de causas-raiz"
+          ],
+          "correct": "Tornar os indicadores visíveis, atualizados e organizados para ação em tempo hábil",
+          "tip": "Um dashboard eficaz funciona como o painel de um carro: precisa ser consultado continuamente para permitir correções a tempo."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um dashboard eficaz deve funcionar como um relatório estático, consultado apenas uma vez ao final de um ciclo de digitalização.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Um dashboard eficaz é consultado continuamente, não é um documento estático para arquivar."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A exibição que mostra qual departamento ou equipe está retendo mais tempo em uma etapa do processo, ajudando a localizar gargalos, é chamada de [COMBO].",
+          "options": [
+            "Comparação entre Grupos",
+            "Tendência ao Longo do Tempo",
+            "Destaque de Números-Chave",
+            "Diagnóstico de Causa-Raiz"
+          ],
+          "correct": "Comparação entre Grupos",
+          "tip": "A comparação entre grupos identifica onde está o ponto crítico antes que ele paralise o fluxo."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais tipos de exibição em um dashboard de gestão à vista servem para organizar indicadores de forma útil?",
+          "answers": [
+            "Comparação entre Grupos",
+            "Tendência ao Longo do Tempo",
+            "Destaque de Números-Chave",
+            "Lista aleatória de todos os gráficos disponíveis"
+          ],
+          "correct": [
+            "Comparação entre Grupos",
+            "Tendência ao Longo do Tempo",
+            "Destaque de Números-Chave"
+          ],
+          "tip": "Essas três formas de exibição ajudam a transformar números soltos em decisões rápidas e organizadas."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada tipo de exibição de dashboard à sua utilidade principal:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Comparação entre Grupos",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Tendência ao Longo do Tempo",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Destaque de Números-Chave",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Poluição Visual",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identificar onde está o gargalo"
+            },
+            {
+              "id": "z2",
+              "label": "Entender se a situação está melhorando ou piorando"
+            },
+            {
+              "id": "z3",
+              "label": "Permitir leitura rápida, de relance"
+            },
+            {
+              "id": "z4",
+              "label": "Sobrecarrega o gestor sem gerar clareza"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada forma de exibição serve a um propósito distinto dentro da gestão à vista."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], em um painel com múltiplos indicadores disponíveis, quais costumam ocupar o topo por exigirem atenção mais imediata?",
+          "answers": [
+            "Os indicadores operacionais que refletem velocidade e qualidade do processo",
+            "Os indicadores de satisfação, sempre em primeiro lugar",
+            "Todos os indicadores devem ter o mesmo destaque visual",
+            "Apenas indicadores financeiros de longo prazo"
+          ],
+          "correct": "Os indicadores operacionais que refletem velocidade e qualidade do processo",
+          "tip": "Indicadores como tempo de ciclo e taxa de erro impactam diretamente a operação diária e por isso demandam atenção prioritária."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], exibir um grande número de gráficos na mesma tela, sem nenhuma hierarquia de prioridade, tende a tornar um painel mais claro e útil para a tomada de decisão.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O excesso de gráficos sem priorização gera sobrecarga cognitiva e pode tornar o painel mais confuso do que uma planilha simples."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Quando informações importantes se perdem em meio a dados menos urgentes em um painel mal organizado, o risco imediato é a ocorrência de decisões baseadas em métricas erradas ou [COMBO] por indecisão.",
+          "options": [
+            "Paralisia",
+            "Aceleração",
+            "Automação",
+            "Padronização"
+          ],
+          "correct": "Paralisia",
+          "tip": "A falta de hierarquia visual pode atrasar a identificação de problemas críticos, levando à paralisia decisória."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais critérios ajudam a decidir quais indicadores devem ocupar o topo de um painel de gestão à vista?",
+          "answers": [
+            "Urgência da atenção operacional exigida",
+            "Impacto direto na experiência do cliente",
+            "Frequência com que o dado precisa ser consultado",
+            "Ordem alfabética do nome do indicador"
+          ],
+          "correct": [
+            "Urgência da atenção operacional exigida",
+            "Impacto direto na experiência do cliente",
+            "Frequência com que o dado precisa ser consultado"
+          ],
+          "tip": "A priorização de um painel deve considerar urgência, impacto e frequência de consulta — não critérios arbitrários."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada prática de construção de painel à sua consequência:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Falta de hierarquia visual",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Boa priorização de indicadores",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Excesso de gráficos sem critério",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Uso de tendência ao longo do tempo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sobrecarga cognitiva no gestor"
+            },
+            {
+              "id": "z2",
+              "label": "Leitura rápida e decisão ágil"
+            },
+            {
+              "id": "z3",
+              "label": "Painel mais confuso que uma planilha simples"
+            },
+            {
+              "id": "z4",
+              "label": "Antecipação de crises antes que se tornem visíveis"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A forma como um painel é construído determina se ele gera clareza ou confusão."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual seria uma boa prática geral para evitar poluição visual em futuros dashboards de gestão à vista?",
+          "answers": [
+            "Definir um critério de priorização entre visão imediata e camadas de detalhamento",
+            "Incluir o máximo possível de gráficos disponíveis na tela principal",
+            "Atualizar os dados apenas uma vez por trimestre",
+            "Remover completamente os indicadores de satisfação do usuário"
+          ],
+          "correct": "Definir um critério de priorização entre visão imediata e camadas de detalhamento",
+          "tip": "Separar o que precisa ser visto à primeira vista do que pode ficar em uma segunda camada evita sobrecarga de informação."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], a exibição de Tendência ao Longo do Tempo é útil principalmente para antecipar se uma situação está melhorando ou piorando, permitindo agir antes que o problema se torne crítico.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Acompanhar a evolução de um indicador no tempo ajuda a antecipar crises antes que elas se tornem visíveis apenas quando já é tarde.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual é o primeiro passo do processo estruturado de diagnóstico de desvios em indicadores?",
+          "answers": [
+            "Identificar o desvio e quantificar sua magnitude",
+            "Propor imediatamente uma solução sem investigação",
+            "Ignorar o indicador até o próximo ciclo de medição",
+            "Comparar apenas com metas de outros departamentos"
+          ],
+          "correct": "Identificar o desvio e quantificar sua magnitude",
+          "tip": "Quantificar o desvio é o primeiro passo para tratá-lo com seriedade antes de investigar suas causas."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], um indicador fora da meta deve ser entendido apenas como um sintoma, sendo necessário investigar a causa-raiz antes de propor qualquer ação corretiva.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O trabalho de diagnóstico não termina ao identificar que algo está errado; é preciso investigar por que aquilo acontece."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A etapa do diagnóstico que busca entender o que, no processo, está gerando um resultado fora da meta — como um gargalo específico ou falta de treinamento — corresponde à investigação da [COMBO].",
+          "options": [
+            "Causa-Raiz",
+            "Meta Estabelecida",
+            "Frequência de Medição",
+            "Hierarquia Visual"
+          ],
+          "correct": "Causa-Raiz",
+          "tip": "Investigar a causa-raiz significa buscar o que realmente está gerando o desvio identificado no indicador."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais fatores podem ser hipóteses plausíveis para explicar o acúmulo de tempo em uma etapa específica de um processo digitalizado?",
+          "answers": [
+            "Gargalo humano por sobrecarga de trabalho na etapa",
+            "Formulário ou sistema mal desenhado",
+            "Falta de treinamento da equipe responsável",
+            "Aumento espontâneo e sem causa da meta do indicador"
+          ],
+          "correct": [
+            "Gargalo humano por sobrecarga de trabalho na etapa",
+            "Formulário ou sistema mal desenhado",
+            "Falta de treinamento da equipe responsável"
+          ],
+          "tip": "Fatores humanos, de processo e de sistema costumam explicar acúmulos e atrasos em etapas específicas."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada etapa do ciclo de diagnóstico à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Identificar o Desvio",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Investigar a Causa-Raiz",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Conectar a uma Proposta de Melhoria",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Ignorar o Indicador",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Quantificar qual indicador está fora da meta e em que magnitude"
+            },
+            {
+              "id": "z2",
+              "label": "Buscar o que no processo está gerando o resultado"
+            },
+            {
+              "id": "z3",
+              "label": "Definir uma ação concreta ligada à causa identificada"
+            },
+            {
+              "id": "z4",
+              "label": "Não faz parte do ciclo de diagnóstico estruturado"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O diagnóstico estruturado segue uma sequência lógica de identificação, investigação e ação."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que medir um indicador uma única vez, sem repetir o processo periodicamente, não gera melhoria real ao longo do tempo?",
+          "answers": [
+            "Porque não permite verificar se as ações tomadas realmente surtiram efeito",
+            "Porque a meta de um indicador muda a cada medição",
+            "Porque um indicador só pode ser calculado uma vez por lei",
+            "Porque medições repetidas são proibidas em melhoria contínua"
+          ],
+          "correct": "Porque não permite verificar se as ações tomadas realmente surtiram efeito",
+          "tip": "A melhoria contínua depende de repetir o ciclo de medição para confirmar se as ações implementadas tiveram o impacto esperado."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], transformar o monitoramento de indicadores em um evento único, e não em uma rotina organizacional contínua, é uma prática recomendada para sustentar a melhoria de processos.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A melhoria contínua exige que o monitoramento vire hábito organizacional, e não um evento isolado."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Uma ação de melhoria bem formulada deve estar diretamente conectada à causa identificada e ter seu impacto esperado nos indicadores devidamente [COMBO].",
+          "options": [
+            "Antecipado",
+            "Ignorado",
+            "Ocultado",
+            "Postergado indefinidamente"
+          ],
+          "correct": "Antecipado",
+          "tip": "A proposta de melhoria deve prever, ainda que conceitualmente, o impacto esperado sobre os indicadores monitorados."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais comportamentos organizacionais ajudam a transformar indicadores em uma cultura de melhoria contínua, e não apenas em dados coletados?",
+          "answers": [
+            "Revisar os indicadores periodicamente em rotinas estabelecidas",
+            "Conectar desvios identificados a ações concretas de melhoria",
+            "Usar os dados coletados apenas para arquivamento histórico",
+            "Incentivar a investigação de causas-raiz antes de agir"
+          ],
+          "correct": [
+            "Revisar os indicadores periodicamente em rotinas estabelecidas",
+            "Conectar desvios identificados a ações concretas de melhoria",
+            "Incentivar a investigação de causas-raiz antes de agir"
+          ],
+          "tip": "Uma cultura de melhoria contínua usa os indicadores ativamente, conectando dados a decisões e ações."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada prática à sua consequência no ciclo de melhoria contínua:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Medir apenas uma vez e arquivar o resultado",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Revisar indicadores em rotina periódica",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Conectar causa-raiz a ação concreta",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Ignorar reclamações sobre o processo",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Não gera aprendizado real ao longo do tempo"
+            },
+            {
+              "id": "z2",
+              "label": "Permite identificar tendências e agir a tempo"
+            },
+            {
+              "id": "z3",
+              "label": "Reduz a chance do desvio se repetir"
+            },
+            {
+              "id": "z4",
+              "label": "Deixa causas-raiz importantes sem investigação"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A cultura de melhoria contínua depende de transformar dados em ações recorrentes, não em relatórios esquecidos."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em um processo cujo indicador de tempo médio caiu drasticamente, mas cujas reclamações sobre erros de cadastro aumentaram, qual deve ser a próxima etapa de diagnóstico?",
+          "answers": [
+            "Investigar a causa-raiz do aumento de erros antes de declarar sucesso",
+            "Declarar o processo bem-sucedido com base apenas na redução de tempo",
+            "Aumentar ainda mais a velocidade do processo sem outras verificações",
+            "Eliminar o indicador de tempo por não ser mais relevante"
+          ],
+          "correct": "Investigar a causa-raiz do aumento de erros antes de declarar sucesso",
+          "tip": "Velocidade sem precisão é apenas um problema chegando mais rápido ao cliente; a causa dos erros precisa ser investigada."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], diagnosticar causas-raiz de desvios em indicadores é uma habilidade de investigação estruturada que pode ser desenvolvida por meio de perguntas em sequência, e não um talento reservado a poucas pessoas.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A investigação de causas-raiz é um processo estruturado e replicável, acessível a quem pratica boas perguntas em sequência."
         }
       ]
     }
