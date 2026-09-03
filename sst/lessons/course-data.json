@@ -10370,22 +10370,30 @@
             {
               "id": "d3",
               "txt": "Computação em nuvem",
-              "match": "z1"
+              "match": "z3"
             },
             {
               "id": "d4",
               "txt": "Criatividade e inovação",
-              "match": "z2"
+              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Competência Técnica (Hard Skill)"
+              "label": "Competência Técnica (Hard Skill) – Dados e Programação"
             },
             {
               "id": "z2",
-              "label": "Competência Socioemocional (Soft Skill)"
+              "label": "Competência Socioemocional (Soft Skill) – Raciocínio"
+            },
+            {
+              "id": "z3",
+              "label": "Competência Técnica (Hard Skill) – Infraestrutura"
+            },
+            {
+              "id": "z4",
+              "label": "Competência Socioemocional (Soft Skill) – Criatividade"
             }
           ],
           "correct": "drag",
@@ -13504,30 +13512,30 @@
             {
               "id": "d3",
               "txt": "Sensor para ERP",
-              "match": "z1"
+              "match": "z3"
             },
             {
               "id": "d4",
               "txt": "Fornecedor para Cliente",
-              "match": "z2"
+              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Integração Vertical"
+              "label": "Integração Vertical (Empresa)"
             },
             {
               "id": "z2",
-              "label": "Integração Horizontal"
+              "label": "Integração Horizontal (Cadeia)"
             },
             {
               "id": "z3",
-              "label": "Integração Transversal"
+              "label": "Integração Vertical (Sensor → ERP)"
             },
             {
               "id": "z4",
-              "label": "Engenharia de Ponta a Ponta"
+              "label": "Integração Horizontal (Fornecedor → Cliente)"
             }
           ],
           "correct": "drag",
@@ -14573,7 +14581,7 @@
             {
               "id": "d4",
               "txt": "Controle de Qualidade",
-              "match": "z3"
+              "match": "z4"
             }
           ],
           "zones": [
@@ -14587,7 +14595,11 @@
             },
             {
               "id": "z3",
-              "label": "Técnica"
+              "label": "Técnica – Letramento Tecnológico"
+            },
+            {
+              "id": "z4",
+              "label": "Técnica – Controle de Qualidade"
             }
           ],
           "correct": "drag",
@@ -18803,11 +18815,6 @@
             "Bases acadêmicas como \"IEEE Xplore\".",
             "Comunidades técnicas como \"Stack Overflow\" e \"GitHub\"."
           ],
-          "correct": [
-            "Documentação oficial de \"frameworks\" e APIs.",
-            "Bases acadêmicas como \"IEEE Xplore\".",
-            "Comunidades técnicas como \"Stack Overflow\" e \"GitHub\"."
-          ],
           "tip": "É fundamental buscar informações validadas por comunidades ou instituições respeitadas."
         },
         {
@@ -19497,8 +19504,8 @@
             },
             {
               "id": "d2",
-              "txt": "Configuração de infraestrutura Cloud (AWS/Azure).",
-              "match": "z1"
+              "txt": "Comunicação clara e trabalho em equipe.",
+              "match": "z2"
             }
           ],
           "zones": [
@@ -27240,27 +27247,35 @@
             {
               "id": "d2",
               "txt": "Configurar IP",
-              "match": "z1"
+              "match": "z2"
             },
             {
               "id": "d3",
               "txt": "Renomear PC",
-              "match": "z2"
+              "match": "z3"
             },
             {
               "id": "d4",
               "txt": "Criar usuários Carlos e Maria",
-              "match": "z2"
+              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "Já está pronto (Estado Inicial)"
+              "label": "Já está pronto (Estado Inicial) – Sistema Operacional"
             },
             {
               "id": "z2",
-              "label": "Ainda falta configurar"
+              "label": "Já está pronto (Estado Inicial) – Rede"
+            },
+            {
+              "id": "z3",
+              "label": "Ainda falta configurar – Identificação"
+            },
+            {
+              "id": "z4",
+              "label": "Ainda falta configurar – Usuários"
             }
           ],
           "correct": "drag",
@@ -27603,7 +27618,7 @@
             {
               "id": "d3",
               "txt": "Maria",
-              "match": "z2"
+              "match": "z4"
             },
             {
               "id": "d4",
@@ -27618,11 +27633,15 @@
             },
             {
               "id": "z2",
-              "label": "Ainda falta configurar (Script)"
+              "label": "Ainda falta configurar (Script) – Carlos"
             },
             {
               "id": "z3",
               "label": "Ferramenta de criação"
+            },
+            {
+              "id": "z4",
+              "label": "Ainda falta configurar (Script) – Maria"
             }
           ],
           "correct": "drag",
@@ -57093,22 +57112,30 @@
             {
               "id": "p3",
               "txt": "Recomendação Netflix",
-              "match": "z1"
+              "match": "z3"
             },
             {
               "id": "p4",
               "txt": "Aprendizado geral irrestrito",
-              "match": "z2"
+              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "IA Fraca"
+              "label": "IA Fraca – Automação de Tarefa Específica"
             },
             {
               "id": "z2",
-              "label": "IA Forte"
+              "label": "IA Forte – Raciocínio Geral"
+            },
+            {
+              "id": "z3",
+              "label": "IA Fraca – Sistema de Recomendação"
+            },
+            {
+              "id": "z4",
+              "label": "IA Forte – Aprendizado Irrestrito"
             }
           ],
           "correct": "drag",
@@ -62373,30 +62400,30 @@
             {
               "id": "d3",
               "txt": "Integração por interface visual (UI)",
-              "match": "z1"
+              "match": "z3"
             },
             {
               "id": "d4",
               "txt": "Integração por APIs estruturadas",
-              "match": "z2"
+              "match": "z4"
             }
           ],
           "zones": [
             {
               "id": "z1",
-              "label": "RPA"
+              "label": "RPA – Foco"
             },
             {
               "id": "z2",
-              "label": "BPM / Workflow"
+              "label": "BPM / Workflow – Foco"
             },
             {
-              "id": "z1",
-              "label": "RPA"
+              "id": "z3",
+              "label": "RPA – Integração"
             },
             {
-              "id": "z2",
-              "label": "BPM / Workflow"
+              "id": "z4",
+              "label": "BPM / Workflow – Integração"
             }
           ],
           "correct": "drag",

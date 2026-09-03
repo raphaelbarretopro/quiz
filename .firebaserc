@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "quiz-sst",
+    "prod": "quiz-sst",
+    "staging": "REPLACE_WITH_STAGING_PROJECT_ID"
+  }
+}

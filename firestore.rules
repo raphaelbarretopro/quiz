@@ -1,0 +1,52 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.role == 'admin';
+    }
+
+    // Conteúdo público de cada aula (perguntas, itens, zonas) — SEM gabarito.
+    // Só a Cloud Function publishLesson (Admin SDK) escreve aqui.
+    match /lessons_public/{slug} {
+      allow read: if isSignedIn();
+      allow write: if false;
+    }
+
+    // Gabarito de cada aula. Nunca lido pelo SDK do cliente — nem por admin.
+    // Só código rodando com Admin SDK (Cloud Functions) acessa.
+    match /lessons_answers/{slug} {
+      allow read, write: if false;
+    }
+
+    // Rascunhos em edição pelo admin, antes de publicar. Visível só para admins,
+    // para permitir preview na área administrativa.
+    match /lessons_draft/{slug} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    // Histórico de versões publicadas, para auditoria/rollback.
+    match /lessons_history/{slug}/versions/{versionId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    // Tentativas de resposta de cada aluno. Só a Cloud Function submitAnswer grava
+    // (via Admin SDK); o próprio aluno pode ler seu histórico, e admins também.
+    match /attempts/{uid}/lessons/{slug}/questions/{qid} {
+      allow read: if isSignedIn() && (request.auth.uid == uid || isAdmin());
+      allow write: if false;
+    }
+
+    // Qualquer outro caminho fica fechado por padrão.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

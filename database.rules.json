@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "scores": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$scoreId": {
+        ".validate": "newData.hasChildren(['name', 'score', 'correct', 'total', 'accuracy', 'timestamp', 'date'])"
+      }
+    },
+    ".read": false,
+    ".write": false
+  }
+}
