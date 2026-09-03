@@ -66413,453 +66413,848 @@
       ]
     },
     {
-    "slug": "aula-108",
-    "lesson_info": {
+      "slug": "aula-108",
+      "lesson_info": {
         "id": "Aula-108",
         "title": "AULA 108 - MELHORIA CONTÍNUA E RELATÓRIO TÉCNICO FINAL",
         "topics": [
-            {
-                "id": "ACID",
-                "name": "PDCA - MELHORIA CONTÍNUA",
-                "desc": "O ciclo de planejar, executar, verificar e agir para evoluir processos digitalizados.",
-                "color": "#e63946",
-                "img_url": "https://source.unsplash.com/1600x900/?gears,process"
-            },
-            {
-                "id": "AGEN",
-                "name": "SDCA E RETROALIMENTAÇÃO",
-                "desc": "Padronização de processos e as fontes de sinais que sustentam a melhoria contínua.",
-                "color": "#f4a300",
-                "img_url": "https://source.unsplash.com/1600x900/?documentation,data"
-            },
-            {
-                "id": "PROT",
-                "name": "RELATÓRIO TÉCNICO EXECUTIVO",
-                "desc": "Estrutura de um relatório que traduz decisões técnicas em linguagem de valor para a diretoria.",
-                "color": "#2077b4",
-                "img_url": "https://source.unsplash.com/1600x900/?business-report,office"
-            },
-            {
-                "id": "NORM",
-                "name": "PLANO DE EVOLUÇÃO",
-                "desc": "Como propor direções futuras coerentes e comunicar o valor de uma solução digital.",
-                "color": "#27ae60",
-                "img_url": "https://source.unsplash.com/1600x900/?future,strategy"
-            }
+          {
+            "id": "ACID",
+            "name": "PDCA - MELHORIA CONTÍNUA",
+            "desc": "O ciclo de planejar, executar, verificar e agir para evoluir processos digitalizados.",
+            "color": "#e63946",
+            "img_url": "https://source.unsplash.com/1600x900/?gears,process"
+          },
+          {
+            "id": "AGEN",
+            "name": "SDCA E RETROALIMENTAÇÃO",
+            "desc": "Padronização de processos e as fontes de sinais que sustentam a melhoria contínua.",
+            "color": "#f4a300",
+            "img_url": "https://source.unsplash.com/1600x900/?documentation,data"
+          },
+          {
+            "id": "PROT",
+            "name": "RELATÓRIO TÉCNICO EXECUTIVO",
+            "desc": "Estrutura de um relatório que traduz decisões técnicas em linguagem de valor para a diretoria.",
+            "color": "#2077b4",
+            "img_url": "https://source.unsplash.com/1600x900/?business-report,office"
+          },
+          {
+            "id": "NORM",
+            "name": "PLANO DE EVOLUÇÃO",
+            "desc": "Como propor direções futuras coerentes e comunicar o valor de uma solução digital.",
+            "color": "#27ae60",
+            "img_url": "https://source.unsplash.com/1600x900/?future,strategy"
+          }
         ],
-        "sokoban": ["P", "D", "C", "A"]
-    },
-    "questions": [
+        "sokoban": [
+          "P",
+          "D",
+          "C",
+          "A"
+        ]
+      },
+      "questions": [
         {
-            "type": "multiple",
-            "topics": "ACID",
-            "questions": "[NAME], qual é a sequência correta das quatro etapas do ciclo PDCA?",
-            "answers": ["Planejar, Fazer, Verificar, Agir", "Fazer, Planejar, Agir, Verificar", "Verificar, Planejar, Fazer, Agir", "Agir, Verificar, Fazer, Planejar"],
-            "correct": "Planejar, Fazer, Verificar, Agir",
-            "tip": "O PDCA (Plan-Do-Check-Act) segue essa ordem lógica: primeiro se planeja a mudança, depois se executa, se verifica o resultado e, por fim, se age com base no que foi constatado."
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a sequência correta das quatro etapas do ciclo PDCA?",
+          "answers": [
+            "Planejar, Fazer, Verificar, Agir",
+            "Fazer, Planejar, Agir, Verificar",
+            "Verificar, Planejar, Fazer, Agir",
+            "Agir, Verificar, Fazer, Planejar"
+          ],
+          "correct": "Planejar, Fazer, Verificar, Agir",
+          "tip": "O PDCA (Plan-Do-Check-Act) segue essa ordem lógica: primeiro se planeja a mudança, depois se executa, se verifica o resultado e, por fim, se age com base no que foi constatado."
         },
         {
-            "type": "boolean",
-            "topics": "ACID",
-            "questions": "[NAME], um processo automatizado que nunca é revisado tende a se tornar mais eficiente com o tempo, mesmo sem intervenção humana.",
-            "answers": ["Verdadeiro", "Falso"],
-            "correct": "Falso",
-            "tip": "Um processo automatizado sem revisão periódica tende a se tornar 'caos automatizado', repetindo erros em alta velocidade e perpetuando decisões desatualizadas."
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], um processo automatizado que nunca é revisado tende a se tornar mais eficiente com o tempo, mesmo sem intervenção humana.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Um processo automatizado sem revisão periódica tende a se tornar 'caos automatizado', repetindo erros em alta velocidade e perpetuando decisões desatualizadas."
         },
         {
-            "type": "combo",
-            "topics": "ACID",
-            "questions": "Na etapa [COMBO] do PDCA, o objetivo é identificar oportunidades de melhoria com base em indicadores e definir qual mudança será testada.",
-            "options": ["Planejar", "Fazer", "Verificar", "Agir"],
-            "correct": "Planejar",
-            "tip": "A etapa de Planejar (Plan) é onde se analisa os indicadores disponíveis e se define a hipótese de mudança a ser testada."
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Na etapa [COMBO] do PDCA, o objetivo é identificar oportunidades de melhoria com base em indicadores e definir qual mudança será testada.",
+          "options": [
+            "Planejar",
+            "Fazer",
+            "Verificar",
+            "Agir"
+          ],
+          "correct": "Planejar",
+          "tip": "A etapa de Planejar (Plan) é onde se analisa os indicadores disponíveis e se define a hipótese de mudança a ser testada."
         },
         {
-            "type": "multi",
-            "topics": "ACID",
-            "questions": "[NAME], quais das afirmações abaixo descrevem corretamente a etapa 'Verificar' (Check) do PDCA?",
-            "answers": ["Analisar se a mudança gerou o efeito esperado", "Executar a mudança de forma controlada", "Conferir se os indicadores melhoraram", "Documentar o processo como padrão definitivo"],
-            "correct": ["Analisar se a mudança gerou o efeito esperado", "Conferir se os indicadores melhoraram"],
-            "tip": "Verificar consiste em analisar os resultados obtidos e comparar com o efeito esperado, checando a evolução dos indicadores — sem ainda executar ou padronizar nada."
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das afirmações abaixo descrevem corretamente a etapa 'Verificar' (Check) do PDCA?",
+          "answers": [
+            "Analisar se a mudança gerou o efeito esperado",
+            "Executar a mudança de forma controlada",
+            "Conferir se os indicadores melhoraram",
+            "Documentar o processo como padrão definitivo"
+          ],
+          "correct": [
+            "Analisar se a mudança gerou o efeito esperado",
+            "Conferir se os indicadores melhoraram"
+          ],
+          "tip": "Verificar consiste em analisar os resultados obtidos e comparar com o efeito esperado, checando a evolução dos indicadores — sem ainda executar ou padronizar nada."
         },
         {
-            "type": "drag",
-            "topics": "ACID",
-            "questions": "Relacione cada etapa do PDCA à sua descrição:",
-            "items": [
-                {"id": "d1", "txt": "Planejar", "match": "z1"},
-                {"id": "d2", "txt": "Fazer", "match": "z2"},
-                {"id": "d3", "txt": "Verificar", "match": "z3"},
-                {"id": "d4", "txt": "Agir", "match": "z4"}
-            ],
-            "zones": [
-                {"id": "z1", "label": "Identifica oportunidade de melhoria com base em indicadores"},
-                {"id": "z2", "label": "Executa a mudança de forma controlada, registrando o que foi feito"},
-                {"id": "z3", "label": "Analisa se a mudança gerou o efeito esperado"},
-                {"id": "z4", "label": "Padroniza a melhoria ou retoma o ciclo"}
-            ],
-            "correct": "drag",
-            "tip": "Cada etapa do PDCA tem uma função específica e sequencial dentro do ciclo de melhoria contínua."
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada etapa do PDCA à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Planejar",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Fazer",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Verificar",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Agir",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identifica oportunidade de melhoria com base em indicadores"
+            },
+            {
+              "id": "z2",
+              "label": "Executa a mudança de forma controlada, registrando o que foi feito"
+            },
+            {
+              "id": "z3",
+              "label": "Analisa se a mudança gerou o efeito esperado"
+            },
+            {
+              "id": "z4",
+              "label": "Padroniza a melhoria ou retoma o ciclo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada etapa do PDCA tem uma função específica e sequencial dentro do ciclo de melhoria contínua."
         },
         {
-            "type": "multiple",
-            "topics": "ACID",
-            "questions": "[NAME], o que diferencia, segundo o raciocínio de melhoria contínua, um profissional mais maduro de um desenvolvedor júnior?",
-            "answers": ["A disciplina de fechar o ciclo de melhoria repetidamente, sem se acomodar com a primeira versão que funcionou", "A capacidade de escrever código mais rápido", "O uso exclusivo de ferramentas de automação mais recentes", "A quantidade de linguagens de programação dominadas"],
-            "correct": "A disciplina de fechar o ciclo de melhoria repetidamente, sem se acomodar com a primeira versão que funcionou",
-            "tip": "A maturidade profissional está associada à disciplina de continuar revisando e evoluindo uma solução, mesmo depois que ela já funciona."
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], o que diferencia, segundo o raciocínio de melhoria contínua, um profissional mais maduro de um desenvolvedor júnior?",
+          "answers": [
+            "A disciplina de fechar o ciclo de melhoria repetidamente, sem se acomodar com a primeira versão que funcionou",
+            "A capacidade de escrever código mais rápido",
+            "O uso exclusivo de ferramentas de automação mais recentes",
+            "A quantidade de linguagens de programação dominadas"
+          ],
+          "correct": "A disciplina de fechar o ciclo de melhoria repetidamente, sem se acomodar com a primeira versão que funcionou",
+          "tip": "A maturidade profissional está associada à disciplina de continuar revisando e evoluindo uma solução, mesmo depois que ela já funciona."
         },
         {
-            "type": "boolean",
-            "topics": "ACID",
-            "questions": "[NAME], corrigir um erro pontual em um processo é considerado, na lógica do PDCA, um exemplo de proação.",
-            "answers": ["Verdadeiro", "Falso"],
-            "correct": "Falso",
-            "tip": "Corrigir um erro é reação; otimizar um fluxo antes que ele se torne um problema é proação. Quem só reage está sempre um passo atrás."
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], corrigir um erro pontual em um processo é considerado, na lógica do PDCA, um exemplo de proação.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Corrigir um erro é reação; otimizar um fluxo antes que ele se torne um problema é proação. Quem só reage está sempre um passo atrás."
         },
         {
-            "type": "combo",
-            "topics": "ACID",
-            "questions": "Quando a estagnação de um indicador é causada por um limite estrutural da própria solução (e não por falha na execução das pessoas), a ação adequada é aplicar o ciclo [COMBO].",
-            "options": ["PDCA", "SDCA", "Nenhum ciclo é necessário", "Apenas retreinar a equipe"],
-            "correct": "PDCA",
-            "tip": "Quando o problema é estrutural — a solução em si tem um limite —, é preciso repensar parte da lógica, o que caracteriza uma melhoria (PDCA), diferente de uma falha de execução, que pede padronização (SDCA)."
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Quando a estagnação de um indicador é causada por um limite estrutural da própria solução (e não por falha na execução das pessoas), a ação adequada é aplicar o ciclo [COMBO].",
+          "options": [
+            "PDCA",
+            "SDCA",
+            "Nenhum ciclo é necessário",
+            "Apenas retreinar a equipe"
+          ],
+          "correct": "PDCA",
+          "tip": "Quando o problema é estrutural — a solução em si tem um limite —, é preciso repensar parte da lógica, o que caracteriza uma melhoria (PDCA), diferente de uma falha de execução, que pede padronização (SDCA)."
         },
         {
-            "type": "multi",
-            "topics": "ACID",
-            "questions": "[NAME], quais das situações abaixo indicam a necessidade de acionar o ciclo PDCA, e não o SDCA?",
-            "answers": ["Um indicador estagnado por limite estrutural da solução", "Pessoas deixando de seguir um padrão já definido", "A necessidade de repensar uma parte da lógica do processo", "A necessidade de apenas reforçar que o processo já implantado seja seguido"],
-            "correct": ["Um indicador estagnado por limite estrutural da solução", "A necessidade de repensar uma parte da lógica do processo"],
-            "tip": "O PDCA é acionado quando é preciso evoluir ou repensar a lógica de um processo; quando o problema é apenas fazer as pessoas seguirem o padrão já existente, o caso é de SDCA."
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais das situações abaixo indicam a necessidade de acionar o ciclo PDCA, e não o SDCA?",
+          "answers": [
+            "Um indicador estagnado por limite estrutural da solução",
+            "Pessoas deixando de seguir um padrão já definido",
+            "A necessidade de repensar uma parte da lógica do processo",
+            "A necessidade de apenas reforçar que o processo já implantado seja seguido"
+          ],
+          "correct": [
+            "Um indicador estagnado por limite estrutural da solução",
+            "A necessidade de repensar uma parte da lógica do processo"
+          ],
+          "tip": "O PDCA é acionado quando é preciso evoluir ou repensar a lógica de um processo; quando o problema é apenas fazer as pessoas seguirem o padrão já existente, o caso é de SDCA."
         },
         {
-            "type": "drag",
-            "topics": "ACID",
-            "questions": "Relacione cada situação à sua classificação:",
-            "items": [
-                {"id": "d1", "txt": "Otimizar um fluxo antes que vire um problema", "match": "z1"},
-                {"id": "d2", "txt": "Apenas corrigir um erro pontual já ocorrido", "match": "z2"},
-                {"id": "d3", "txt": "Processo revisado e ajustado continuamente", "match": "z3"},
-                {"id": "d4", "txt": "Processo nunca revisado após entrar em operação", "match": "z4"}
-            ],
-            "zones": [
-                {"id": "z1", "label": "Proação"},
-                {"id": "z2", "label": "Reação"},
-                {"id": "z3", "label": "Tende a se manter competitivo"},
-                {"id": "z4", "label": "Tende a se tornar 'caos automatizado'"}
-            ],
-            "correct": "drag",
-            "tip": "A postura proativa de revisão contínua é o que sustenta a competitividade de uma solução digital ao longo do tempo.",
-            "trans": "AGEN"
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada situação à sua classificação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Otimizar um fluxo antes que vire um problema",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Apenas corrigir um erro pontual já ocorrido",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Processo revisado e ajustado continuamente",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Processo nunca revisado após entrar em operação",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Proação"
+            },
+            {
+              "id": "z2",
+              "label": "Reação"
+            },
+            {
+              "id": "z3",
+              "label": "Tende a se manter competitivo"
+            },
+            {
+              "id": "z4",
+              "label": "Tende a se tornar 'caos automatizado'"
+            }
+          ],
+          "correct": "drag",
+          "tip": "A postura proativa de revisão contínua é o que sustenta a competitividade de uma solução digital ao longo do tempo.",
+          "trans": "AGEN"
         },
         {
-            "type": "multiple",
-            "topics": "AGEN",
-            "questions": "[NAME], o que representa a sigla SDCA?",
-            "answers": ["Padronizar, Fazer, Verificar, Agir", "Planejar, Fazer, Verificar, Agir", "Padronizar, Delegar, Comunicar, Avaliar", "Selecionar, Documentar, Corrigir, Avançar"],
-            "correct": "Padronizar, Fazer, Verificar, Agir",
-            "tip": "SDCA vem de Standardize-Do-Check-Act: Padronizar, Fazer, Verificar, Agir — o ciclo que consolida um processo já digitalizado."
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], o que representa a sigla SDCA?",
+          "answers": [
+            "Padronizar, Fazer, Verificar, Agir",
+            "Planejar, Fazer, Verificar, Agir",
+            "Padronizar, Delegar, Comunicar, Avaliar",
+            "Selecionar, Documentar, Corrigir, Avançar"
+          ],
+          "correct": "Padronizar, Fazer, Verificar, Agir",
+          "tip": "SDCA vem de Standardize-Do-Check-Act: Padronizar, Fazer, Verificar, Agir — o ciclo que consolida um processo já digitalizado."
         },
         {
-            "type": "boolean",
-            "topics": "AGEN",
-            "questions": "[NAME], o papel do ciclo SDCA é evitar que uma empresa regrida ao caos anterior à digitalização, como planilhas soltas e retrabalho manual.",
-            "answers": ["Verdadeiro", "Falso"],
-            "correct": "Verdadeiro",
-            "tip": "O SDCA consolida o processo digitalizado, evitando o retorno a práticas manuais e desorganizadas anteriores."
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], o papel do ciclo SDCA é evitar que uma empresa regrida ao caos anterior à digitalização, como planilhas soltas e retrabalho manual.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O SDCA consolida o processo digitalizado, evitando o retorno a práticas manuais e desorganizadas anteriores."
         },
         {
-            "type": "combo",
-            "topics": "AGEN",
-            "questions": "Documentar com rigor como um processo deve funcionar, incluindo regras de decisão e o que é esperado de cada etapa, é a definição de [COMBO] dentro do ciclo SDCA.",
-            "options": ["Padronizar", "Verificar", "Agir", "Planejar"],
-            "correct": "Padronizar",
-            "tip": "Padronizar significa registrar formalmente como o processo funciona, suas regras e expectativas — a base do SDCA."
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Documentar com rigor como um processo deve funcionar, incluindo regras de decisão e o que é esperado de cada etapa, é a definição de [COMBO] dentro do ciclo SDCA.",
+          "options": [
+            "Padronizar",
+            "Verificar",
+            "Agir",
+            "Planejar"
+          ],
+          "correct": "Padronizar",
+          "tip": "Padronizar significa registrar formalmente como o processo funciona, suas regras e expectativas — a base do SDCA."
         },
         {
-            "type": "multi",
-            "topics": "AGEN",
-            "questions": "[NAME], quais das fontes abaixo são consideradas formas válidas de retroalimentação para monitorar continuamente um processo digitalizado?",
-            "answers": ["Logs de sistema", "Feedback de usuários", "Análise de falhas", "Auditoria fiscal anual"],
-            "correct": ["Logs de sistema", "Feedback de usuários", "Análise de falhas"],
-            "tip": "Logs de sistema, feedback de usuários e análise de falhas são as três fontes de sinais que alimentam a melhoria contínua de um processo digitalizado."
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais das fontes abaixo são consideradas formas válidas de retroalimentação para monitorar continuamente um processo digitalizado?",
+          "answers": [
+            "Logs de sistema",
+            "Feedback de usuários",
+            "Análise de falhas",
+            "Auditoria fiscal anual"
+          ],
+          "correct": [
+            "Logs de sistema",
+            "Feedback de usuários",
+            "Análise de falhas"
+          ],
+          "tip": "Logs de sistema, feedback de usuários e análise de falhas são as três fontes de sinais que alimentam a melhoria contínua de um processo digitalizado."
         },
         {
-            "type": "drag",
-            "topics": "AGEN",
-            "questions": "Relacione cada fonte de retroalimentação à sua função:",
-            "items": [
-                {"id": "d1", "txt": "Logs de sistema", "match": "z1"},
-                {"id": "d2", "txt": "Feedback de usuários", "match": "z2"},
-                {"id": "d3", "txt": "Análise de falhas", "match": "z3"}
-            ],
-            "zones": [
-                {"id": "z1", "label": "Identifica exceções e gargalos em fluxos automatizados"},
-                {"id": "z2", "label": "Traz a percepção de quem usa a solução no dia a dia"},
-                {"id": "z3", "label": "Investiga a causa raiz de um erro para evitar repetição"}
-            ],
-            "correct": "drag",
-            "tip": "Cada fonte de retroalimentação capta um tipo diferente de sinal sobre o funcionamento real do processo."
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada fonte de retroalimentação à sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Logs de sistema",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Feedback de usuários",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Análise de falhas",
+              "match": "z3"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Identifica exceções e gargalos em fluxos automatizados"
+            },
+            {
+              "id": "z2",
+              "label": "Traz a percepção de quem usa a solução no dia a dia"
+            },
+            {
+              "id": "z3",
+              "label": "Investiga a causa raiz de um erro para evitar repetição"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada fonte de retroalimentação capta um tipo diferente de sinal sobre o funcionamento real do processo."
         },
         {
-            "type": "multiple",
-            "topics": "AGEN",
-            "questions": "[NAME], por que a documentação técnica rigorosa de um processo é considerada uma competência estratégica, e não uma tarefa menor?",
-            "answers": ["Porque, sem ela, mesmo uma boa automação depende da memória de uma única pessoa", "Porque substitui a necessidade de testes automatizados", "Porque é exigida por lei em qualquer projeto de TI", "Porque elimina a necessidade de monitorar indicadores"],
-            "correct": "Porque, sem ela, mesmo uma boa automação depende da memória de uma única pessoa",
-            "tip": "Se o conhecimento sobre o processo não está documentado, ele existe apenas na cabeça de quem o construiu — e se essa pessoa sai da empresa, o conhecimento vai junto."
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], por que a documentação técnica rigorosa de um processo é considerada uma competência estratégica, e não uma tarefa menor?",
+          "answers": [
+            "Porque, sem ela, mesmo uma boa automação depende da memória de uma única pessoa",
+            "Porque substitui a necessidade de testes automatizados",
+            "Porque é exigida por lei em qualquer projeto de TI",
+            "Porque elimina a necessidade de monitorar indicadores"
+          ],
+          "correct": "Porque, sem ela, mesmo uma boa automação depende da memória de uma única pessoa",
+          "tip": "Se o conhecimento sobre o processo não está documentado, ele existe apenas na cabeça de quem o construiu — e se essa pessoa sai da empresa, o conhecimento vai junto."
         },
         {
-            "type": "boolean",
-            "topics": "AGEN",
-            "questions": "[NAME], investigar a causa raiz de um erro, em vez de apenas corrigir o sintoma, é uma prática que ajuda a evitar que o mesmo problema volte a ocorrer no futuro.",
-            "answers": ["Verdadeiro", "Falso"],
-            "correct": "Verdadeiro",
-            "tip": "A análise de falhas busca a causa raiz, prevenindo a repetição do problema — diferente de apenas tratar o sintoma momentaneamente."
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], investigar a causa raiz de um erro, em vez de apenas corrigir o sintoma, é uma prática que ajuda a evitar que o mesmo problema volte a ocorrer no futuro.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A análise de falhas busca a causa raiz, prevenindo a repetição do problema — diferente de apenas tratar o sintoma momentaneamente."
         },
         {
-            "type": "combo",
-            "topics": "AGEN",
-            "questions": "Quando a estagnação de um indicador é causada por pessoas que deixaram de seguir um padrão já definido (falha de execução), a ação adequada é reforçar o ciclo [COMBO].",
-            "options": ["SDCA", "PDCA", "Nenhuma ação é necessária", "Substituir a equipe"],
-            "correct": "SDCA",
-            "tip": "Falhas de execução — quando o padrão existe mas não está sendo seguido — pedem reforço de padronização (SDCA), e não uma mudança na lógica do processo (PDCA)."
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Quando a estagnação de um indicador é causada por pessoas que deixaram de seguir um padrão já definido (falha de execução), a ação adequada é reforçar o ciclo [COMBO].",
+          "options": [
+            "SDCA",
+            "PDCA",
+            "Nenhuma ação é necessária",
+            "Substituir a equipe"
+          ],
+          "correct": "SDCA",
+          "tip": "Falhas de execução — quando o padrão existe mas não está sendo seguido — pedem reforço de padronização (SDCA), e não uma mudança na lógica do processo (PDCA)."
         },
         {
-            "type": "multi",
-            "topics": "AGEN",
-            "questions": "[NAME], quais atitudes caracterizam um profissional que antecipa, em vez de apenas reagir a, o fim do ciclo de vida de uma tecnologia?",
-            "answers": ["Avaliar se uma solução pode se beneficiar de migração para a nuvem", "Esperar que o sistema pare de funcionar para agir", "Considerar a integração com inteligência artificial generativa em pontos do processo", "Ignorar sinais de gargalo até que virem uma crise"],
-            "correct": ["Avaliar se uma solução pode se beneficiar de migração para a nuvem", "Considerar a integração com inteligência artificial generativa em pontos do processo"],
-            "tip": "Antecipar a obsolescência significa avaliar proativamente oportunidades como migração para nuvem ou uso de IA generativa, em vez de esperar o sistema falhar."
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais atitudes caracterizam um profissional que antecipa, em vez de apenas reagir a, o fim do ciclo de vida de uma tecnologia?",
+          "answers": [
+            "Avaliar se uma solução pode se beneficiar de migração para a nuvem",
+            "Esperar que o sistema pare de funcionar para agir",
+            "Considerar a integração com inteligência artificial generativa em pontos do processo",
+            "Ignorar sinais de gargalo até que virem uma crise"
+          ],
+          "correct": [
+            "Avaliar se uma solução pode se beneficiar de migração para a nuvem",
+            "Considerar a integração com inteligência artificial generativa em pontos do processo"
+          ],
+          "tip": "Antecipar a obsolescência significa avaliar proativamente oportunidades como migração para nuvem ou uso de IA generativa, em vez de esperar o sistema falhar."
         },
         {
-            "type": "drag",
-            "topics": "AGEN",
-            "questions": "Relacione cada situação ao ciclo mais adequado para tratá-la:",
-            "items": [
-                {"id": "d1", "txt": "Pessoas não seguem o padrão já definido", "match": "z1"},
-                {"id": "d2", "txt": "A solução tem um limite estrutural que precisa ser repensado", "match": "z2"},
-                {"id": "d3", "txt": "Processo digitalizado precisa ser consolidado e documentado", "match": "z3"},
-                {"id": "d4", "txt": "Indicador estagnado exige nova lógica de funcionamento", "match": "z4"}
-            ],
-            "zones": [
-                {"id": "z1", "label": "SDCA"},
-                {"id": "z2", "label": "PDCA"},
-                {"id": "z3", "label": "SDCA"},
-                {"id": "z4", "label": "PDCA"}
-            ],
-            "correct": "drag",
-            "tip": "Falha de execução e necessidade de consolidação pedem SDCA; limite estrutural e necessidade de nova lógica pedem PDCA.",
-            "trans": "PROT"
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada situação ao ciclo mais adequado para tratá-la:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Pessoas não seguem o padrão já definido",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "A solução tem um limite estrutural que precisa ser repensado",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Processo digitalizado precisa ser consolidado e documentado",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Indicador estagnado exige nova lógica de funcionamento",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "SDCA"
+            },
+            {
+              "id": "z2",
+              "label": "PDCA"
+            },
+            {
+              "id": "z3",
+              "label": "SDCA"
+            },
+            {
+              "id": "z4",
+              "label": "PDCA"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Falha de execução e necessidade de consolidação pedem SDCA; limite estrutural e necessidade de nova lógica pedem PDCA.",
+          "trans": "PROT"
         },
         {
-            "type": "multiple",
-            "topics": "PROT",
-            "questions": "[NAME], qual é a principal função do relatório técnico executivo dentro de uma organização?",
-            "answers": ["Traduzir decisões técnicas em ganhos de negócio compreensíveis para quem toma decisões", "Substituir a necessidade de testes de qualidade do sistema", "Servir apenas como registro burocrático interno da equipe de TI", "Detalhar linha a linha o código-fonte da solução implementada"],
-            "correct": "Traduzir decisões técnicas em ganhos de negócio compreensíveis para quem toma decisões",
-            "tip": "O relatório técnico executivo é um documento de governança e persuasão, que converte decisões técnicas em linguagem de valor para a diretoria."
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é a principal função do relatório técnico executivo dentro de uma organização?",
+          "answers": [
+            "Traduzir decisões técnicas em ganhos de negócio compreensíveis para quem toma decisões",
+            "Substituir a necessidade de testes de qualidade do sistema",
+            "Servir apenas como registro burocrático interno da equipe de TI",
+            "Detalhar linha a linha o código-fonte da solução implementada"
+          ],
+          "correct": "Traduzir decisões técnicas em ganhos de negócio compreensíveis para quem toma decisões",
+          "tip": "O relatório técnico executivo é um documento de governança e persuasão, que converte decisões técnicas em linguagem de valor para a diretoria."
         },
         {
-            "type": "boolean",
-            "topics": "PROT",
-            "questions": "[NAME], comunicar valor técnico em linguagem executiva é considerada uma habilidade menos valorizada no mercado do que a capacidade de programar.",
-            "answers": ["Verdadeiro", "Falso"],
-            "correct": "Falso",
-            "tip": "Profissionais capazes de comunicar valor técnico em linguagem executiva são mais valorizados justamente porque essa combinação de competências é rara."
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], comunicar valor técnico em linguagem executiva é considerada uma habilidade menos valorizada no mercado do que a capacidade de programar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Profissionais capazes de comunicar valor técnico em linguagem executiva são mais valorizados justamente porque essa combinação de competências é rara."
         },
         {
-            "type": "combo",
-            "topics": "PROT",
-            "questions": "A seção do relatório técnico que deve caber em poucos parágrafos e responder diretamente qual foi o objetivo e os principais ganhos obtidos é o [COMBO].",
-            "options": ["Sumário Executivo", "Plano de Evolução", "Descrição da Solução", "Bibliografia"],
-            "correct": "Sumário Executivo",
-            "tip": "O Sumário Executivo é a parte que um diretor provavelmente lerá com atenção total, e deve responder objetivamente à pergunta 'valeu a pena?'."
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "A seção do relatório técnico que deve caber em poucos parágrafos e responder diretamente qual foi o objetivo e os principais ganhos obtidos é o [COMBO].",
+          "options": [
+            "Sumário Executivo",
+            "Plano de Evolução",
+            "Descrição da Solução",
+            "Bibliografia"
+          ],
+          "correct": "Sumário Executivo",
+          "tip": "O Sumário Executivo é a parte que um diretor provavelmente lerá com atenção total, e deve responder objetivamente à pergunta 'valeu a pena?'."
         },
         {
-            "type": "multi",
-            "topics": "PROT",
-            "questions": "[NAME], quais elementos devem compor a seção de Descrição da Solução em um relatório técnico executivo?",
-            "answers": ["A arquitetura conceitual da automação implementada, em linguagem clara", "Quais integrações entre sistemas foram criadas", "A conformidade com políticas de segurança e proteção de dados", "O código-fonte completo linha a linha, para fins de auditoria"],
-            "correct": ["A arquitetura conceitual da automação implementada, em linguagem clara", "Quais integrações entre sistemas foram criadas", "A conformidade com políticas de segurança e proteção de dados"],
-            "tip": "A Descrição da Solução apresenta a arquitetura conceitual e as integrações em linguagem acessível, reforçando também a conformidade com segurança e proteção de dados — sem entrar em código-fonte."
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais elementos devem compor a seção de Descrição da Solução em um relatório técnico executivo?",
+          "answers": [
+            "A arquitetura conceitual da automação implementada, em linguagem clara",
+            "Quais integrações entre sistemas foram criadas",
+            "A conformidade com políticas de segurança e proteção de dados",
+            "O código-fonte completo linha a linha, para fins de auditoria"
+          ],
+          "correct": [
+            "A arquitetura conceitual da automação implementada, em linguagem clara",
+            "Quais integrações entre sistemas foram criadas",
+            "A conformidade com políticas de segurança e proteção de dados"
+          ],
+          "tip": "A Descrição da Solução apresenta a arquitetura conceitual e as integrações em linguagem acessível, reforçando também a conformidade com segurança e proteção de dados — sem entrar em código-fonte."
         },
         {
-            "type": "drag",
-            "topics": "PROT",
-            "questions": "Relacione cada seção do relatório técnico à sua descrição:",
-            "items": [
-                {"id": "d1", "txt": "Sumário Executivo", "match": "z1"},
-                {"id": "d2", "txt": "Contextualização", "match": "z2"},
-                {"id": "d3", "txt": "Descrição da Solução", "match": "z3"},
-                {"id": "d4", "txt": "Análise de Resultados", "match": "z4"}
-            ],
-            "zones": [
-                {"id": "z1", "label": "Responde objetivamente qual foi o objetivo e os principais ganhos"},
-                {"id": "z2", "label": "Resgata como o processo funcionava antes da intervenção"},
-                {"id": "z3", "label": "Apresenta a arquitetura conceitual da automação em linguagem clara"},
-                {"id": "z4", "label": "Traduz números do painel de indicadores em linguagem de valor"}
-            ],
-            "correct": "drag",
-            "tip": "Cada seção do relatório técnico executivo cumpre uma função específica na construção da narrativa de valor para a diretoria."
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada seção do relatório técnico à sua descrição:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Sumário Executivo",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Contextualização",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Descrição da Solução",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Análise de Resultados",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Responde objetivamente qual foi o objetivo e os principais ganhos"
+            },
+            {
+              "id": "z2",
+              "label": "Resgata como o processo funcionava antes da intervenção"
+            },
+            {
+              "id": "z3",
+              "label": "Apresenta a arquitetura conceitual da automação em linguagem clara"
+            },
+            {
+              "id": "z4",
+              "label": "Traduz números do painel de indicadores em linguagem de valor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada seção do relatório técnico executivo cumpre uma função específica na construção da narrativa de valor para a diretoria."
         },
         {
-            "type": "multiple",
-            "topics": "PROT",
-            "questions": "[NAME], qual é o objetivo da seção de Contextualização em um relatório técnico executivo?",
-            "answers": ["Resgatar como o processo funcionava antes da intervenção e quais gargalos motivaram a digitalização", "Detalhar o cronograma de reuniões da equipe de TI", "Listar todas as tecnologias disponíveis no mercado", "Apresentar o currículo dos desenvolvedores envolvidos"],
-            "correct": "Resgatar como o processo funcionava antes da intervenção e quais gargalos motivaram a digitalização",
-            "tip": "A Contextualização mostra o ponto de partida — o 'antes' que justifica o 'depois' apresentado no restante do relatório."
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual é o objetivo da seção de Contextualização em um relatório técnico executivo?",
+          "answers": [
+            "Resgatar como o processo funcionava antes da intervenção e quais gargalos motivaram a digitalização",
+            "Detalhar o cronograma de reuniões da equipe de TI",
+            "Listar todas as tecnologias disponíveis no mercado",
+            "Apresentar o currículo dos desenvolvedores envolvidos"
+          ],
+          "correct": "Resgatar como o processo funcionava antes da intervenção e quais gargalos motivaram a digitalização",
+          "tip": "A Contextualização mostra o ponto de partida — o 'antes' que justifica o 'depois' apresentado no restante do relatório."
         },
         {
-            "type": "boolean",
-            "topics": "PROT",
-            "questions": "[NAME], na Análise de Resultados de um relatório técnico executivo, o principal desafio é apenas gerar o gráfico com os dados do painel de indicadores.",
-            "answers": ["Verdadeiro", "Falso"],
-            "correct": "Falso",
-            "tip": "O desafio não é gerar o gráfico, mas interpretar o que ele significa para quem decide sobre orçamento e prioridades."
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], na Análise de Resultados de um relatório técnico executivo, o principal desafio é apenas gerar o gráfico com os dados do painel de indicadores.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O desafio não é gerar o gráfico, mas interpretar o que ele significa para quem decide sobre orçamento e prioridades."
         },
         {
-            "type": "combo",
-            "topics": "PROT",
-            "questions": "Traduzir um ganho técnico, como a eliminação de duplicidade de cadastro, para uma linguagem de negócio como 'redução de retrabalho e economia de horas de equipe', é uma boa prática ao redigir o [COMBO].",
-            "options": ["Sumário Executivo", "Manual de instalação do sistema", "Contrato de prestação de serviço", "Log de erros do sistema"],
-            "correct": "Sumário Executivo",
-            "tip": "Traduzir termos técnicos em linguagem de negócio é essencial para que o Sumário Executivo comunique valor de forma compreensível à diretoria."
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Traduzir um ganho técnico, como a eliminação de duplicidade de cadastro, para uma linguagem de negócio como 'redução de retrabalho e economia de horas de equipe', é uma boa prática ao redigir o [COMBO].",
+          "options": [
+            "Sumário Executivo",
+            "Manual de instalação do sistema",
+            "Contrato de prestação de serviço",
+            "Log de erros do sistema"
+          ],
+          "correct": "Sumário Executivo",
+          "tip": "Traduzir termos técnicos em linguagem de negócio é essencial para que o Sumário Executivo comunique valor de forma compreensível à diretoria."
         },
         {
-            "type": "multi",
-            "topics": "PROT",
-            "questions": "[NAME], quais tipos de ganho podem ser traduzidos em linguagem de valor na Análise de Resultados de um relatório técnico executivo?",
-            "answers": ["Retorno sobre o investimento", "Horas de trabalho manual economizadas", "Redução no tempo total de um processo", "Quantidade de linhas de código escritas"],
-            "correct": ["Retorno sobre o investimento", "Horas de trabalho manual economizadas", "Redução no tempo total de um processo"],
-            "tip": "Retorno sobre investimento, horas economizadas e redução de tempo são exemplos de métricas técnicas traduzidas em linguagem de valor — diferente de métricas puramente técnicas como linhas de código."
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais tipos de ganho podem ser traduzidos em linguagem de valor na Análise de Resultados de um relatório técnico executivo?",
+          "answers": [
+            "Retorno sobre o investimento",
+            "Horas de trabalho manual economizadas",
+            "Redução no tempo total de um processo",
+            "Quantidade de linhas de código escritas"
+          ],
+          "correct": [
+            "Retorno sobre o investimento",
+            "Horas de trabalho manual economizadas",
+            "Redução no tempo total de um processo"
+          ],
+          "tip": "Retorno sobre investimento, horas economizadas e redução de tempo são exemplos de métricas técnicas traduzidas em linguagem de valor — diferente de métricas puramente técnicas como linhas de código."
         },
         {
-            "type": "drag",
-            "topics": "PROT",
-            "questions": "Relacione cada pergunta típica da diretoria à seção do relatório que a responde:",
-            "items": [
-                {"id": "d1", "txt": "Valeu a pena investir nessa automação?", "match": "z1"},
-                {"id": "d2", "txt": "Como o processo funcionava antes da mudança?", "match": "z2"},
-                {"id": "d3", "txt": "O que exatamente foi construído?", "match": "z3"},
-                {"id": "d4", "txt": "Qual é o próximo passo dessa evolução?", "match": "z4"}
-            ],
-            "zones": [
-                {"id": "z1", "label": "Sumário Executivo"},
-                {"id": "z2", "label": "Contextualização"},
-                {"id": "z3", "label": "Descrição da Solução"},
-                {"id": "z4", "label": "Plano de Evolução"}
-            ],
-            "correct": "drag",
-            "tip": "Cada pergunta típica de uma diretoria corresponde a uma seção específica da estrutura do relatório técnico executivo.",
-            "trans": "NORM"
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada pergunta típica da diretoria à seção do relatório que a responde:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Valeu a pena investir nessa automação?",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Como o processo funcionava antes da mudança?",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "O que exatamente foi construído?",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Qual é o próximo passo dessa evolução?",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Sumário Executivo"
+            },
+            {
+              "id": "z2",
+              "label": "Contextualização"
+            },
+            {
+              "id": "z3",
+              "label": "Descrição da Solução"
+            },
+            {
+              "id": "z4",
+              "label": "Plano de Evolução"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada pergunta típica de uma diretoria corresponde a uma seção específica da estrutura do relatório técnico executivo.",
+          "trans": "NORM"
         },
         {
-            "type": "multiple",
-            "topics": "NORM",
-            "questions": "[NAME], o que caracteriza o Plano de Evolução dentro de um relatório técnico executivo?",
-            "answers": ["Propostas de melhoria futura, fundamentadas em dados de monitoramento e alinhadas ao raciocínio de melhoria contínua", "Um cronograma detalhado de tarefas diárias da equipe de TI", "A lista de erros encontrados durante os testes do sistema", "O orçamento total gasto no projeto até o momento"],
-            "correct": "Propostas de melhoria futura, fundamentadas em dados de monitoramento e alinhadas ao raciocínio de melhoria contínua",
-            "tip": "O Plano de Evolução é a última peça do relatório: propõe direções futuras coerentes com os dados coletados e com o PDCA."
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], o que caracteriza o Plano de Evolução dentro de um relatório técnico executivo?",
+          "answers": [
+            "Propostas de melhoria futura, fundamentadas em dados de monitoramento e alinhadas ao raciocínio de melhoria contínua",
+            "Um cronograma detalhado de tarefas diárias da equipe de TI",
+            "A lista de erros encontrados durante os testes do sistema",
+            "O orçamento total gasto no projeto até o momento"
+          ],
+          "correct": "Propostas de melhoria futura, fundamentadas em dados de monitoramento e alinhadas ao raciocínio de melhoria contínua",
+          "tip": "O Plano de Evolução é a última peça do relatório: propõe direções futuras coerentes com os dados coletados e com o PDCA."
         },
         {
-            "type": "boolean",
-            "topics": "NORM",
-            "questions": "[NAME], para elaborar um bom Plano de Evolução, é necessário detalhar tecnicamente como cada melhoria futura será implementada, passo a passo.",
-            "answers": ["Verdadeiro", "Falso"],
-            "correct": "Falso",
-            "tip": "O que se avalia no Plano de Evolução é a capacidade de propor uma direção coerente com os dados, não o detalhamento técnico de implementação."
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], para elaborar um bom Plano de Evolução, é necessário detalhar tecnicamente como cada melhoria futura será implementada, passo a passo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O que se avalia no Plano de Evolução é a capacidade de propor uma direção coerente com os dados, não o detalhamento técnico de implementação."
         },
         {
-            "type": "combo",
-            "topics": "NORM",
-            "questions": "Um relatório técnico que aponta apenas para o presente, sem propor nenhuma direção futura, está incompleto porque falta a etapa de [COMBO].",
-            "options": ["Plano de Evolução", "Bibliografia", "Contextualização", "Sumário Executivo"],
-            "correct": "Plano de Evolução",
-            "tip": "O relatório não termina no presente — ele deve apontar para o futuro através do Plano de Evolução."
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Um relatório técnico que aponta apenas para o presente, sem propor nenhuma direção futura, está incompleto porque falta a etapa de [COMBO].",
+          "options": [
+            "Plano de Evolução",
+            "Bibliografia",
+            "Contextualização",
+            "Sumário Executivo"
+          ],
+          "correct": "Plano de Evolução",
+          "tip": "O relatório não termina no presente — ele deve apontar para o futuro através do Plano de Evolução."
         },
         {
-            "type": "multi",
-            "topics": "NORM",
-            "questions": "[NAME], quais das opções abaixo são exemplos válidos de direção de evolução para uma solução digital já implantada?",
-            "answers": ["Migração de dados para infraestrutura em nuvem", "Uso de inteligência artificial generativa em pontos do processo", "Abandono total do processo digitalizado, retornando ao método manual", "Incorporação de novas fontes de retroalimentação, como feedback de usuários"],
-            "correct": ["Migração de dados para infraestrutura em nuvem", "Uso de inteligência artificial generativa em pontos do processo", "Incorporação de novas fontes de retroalimentação, como feedback de usuários"],
-            "tip": "Migração para nuvem, uso de IA generativa e ampliação das fontes de retroalimentação são direções coerentes de evolução — diferente de abandonar a digitalização."
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais das opções abaixo são exemplos válidos de direção de evolução para uma solução digital já implantada?",
+          "answers": [
+            "Migração de dados para infraestrutura em nuvem",
+            "Uso de inteligência artificial generativa em pontos do processo",
+            "Abandono total do processo digitalizado, retornando ao método manual",
+            "Incorporação de novas fontes de retroalimentação, como feedback de usuários"
+          ],
+          "correct": [
+            "Migração de dados para infraestrutura em nuvem",
+            "Uso de inteligência artificial generativa em pontos do processo",
+            "Incorporação de novas fontes de retroalimentação, como feedback de usuários"
+          ],
+          "tip": "Migração para nuvem, uso de IA generativa e ampliação das fontes de retroalimentação são direções coerentes de evolução — diferente de abandonar a digitalização."
         },
         {
-            "type": "drag",
-            "topics": "NORM",
-            "questions": "Relacione cada decisão à etapa do raciocínio de comunicação de valor:",
-            "items": [
-                {"id": "d1", "txt": "Selecionar o indicador central que mais comunica o ganho de negócio", "match": "z1"},
-                {"id": "d2", "txt": "Priorizar informações pela relevância para quem decide orçamento", "match": "z2"},
-                {"id": "d3", "txt": "Traduzir um termo técnico em linguagem de negócio", "match": "z3"},
-                {"id": "d4", "txt": "Organizar as informações do problema ao resultado", "match": "z4"}
-            ],
-            "zones": [
-                {"id": "z1", "label": "Seleção do indicador central"},
-                {"id": "z2", "label": "Priorização pela relevância"},
-                {"id": "z3", "label": "Tradução do termo técnico"},
-                {"id": "z4", "label": "Estruturação da sequência lógica"}
-            ],
-            "correct": "drag",
-            "tip": "Construir um relatório eficaz exige selecionar o indicador certo, priorizar pela relevância, traduzir termos técnicos e estruturar a narrativa de forma lógica."
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada decisão à etapa do raciocínio de comunicação de valor:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Selecionar o indicador central que mais comunica o ganho de negócio",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Priorizar informações pela relevância para quem decide orçamento",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Traduzir um termo técnico em linguagem de negócio",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Organizar as informações do problema ao resultado",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Seleção do indicador central"
+            },
+            {
+              "id": "z2",
+              "label": "Priorização pela relevância"
+            },
+            {
+              "id": "z3",
+              "label": "Tradução do termo técnico"
+            },
+            {
+              "id": "z4",
+              "label": "Estruturação da sequência lógica"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Construir um relatório eficaz exige selecionar o indicador certo, priorizar pela relevância, traduzir termos técnicos e estruturar a narrativa de forma lógica."
         },
         {
-            "type": "multiple",
-            "topics": "NORM",
-            "questions": "[NAME], por que um diretor tende a decidir sobre orçamento e prioridades com base no Sumário Executivo, e não nos detalhes técnicos do relatório?",
-            "answers": ["Porque ele precisa entender rapidamente o ganho de negócio, sem se aprofundar em detalhes técnicos", "Porque detalhes técnicos são sempre irrelevantes para qualquer decisão", "Porque o Sumário Executivo substitui legalmente o restante do relatório", "Porque a diretoria não tem permissão para acessar as demais seções"],
-            "correct": "Porque ele precisa entender rapidamente o ganho de negócio, sem se aprofundar em detalhes técnicos",
-            "tip": "O Sumário Executivo existe justamente para que quem decide sobre orçamento e prioridades entenda o valor da solução sem precisar mergulhar em detalhes técnicos."
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], por que um diretor tende a decidir sobre orçamento e prioridades com base no Sumário Executivo, e não nos detalhes técnicos do relatório?",
+          "answers": [
+            "Porque ele precisa entender rapidamente o ganho de negócio, sem se aprofundar em detalhes técnicos",
+            "Porque detalhes técnicos são sempre irrelevantes para qualquer decisão",
+            "Porque o Sumário Executivo substitui legalmente o restante do relatório",
+            "Porque a diretoria não tem permissão para acessar as demais seções"
+          ],
+          "correct": "Porque ele precisa entender rapidamente o ganho de negócio, sem se aprofundar em detalhes técnicos",
+          "tip": "O Sumário Executivo existe justamente para que quem decide sobre orçamento e prioridades entenda o valor da solução sem precisar mergulhar em detalhes técnicos."
         },
         {
-            "type": "boolean",
-            "topics": "NORM",
-            "questions": "[NAME], propor uma direção de evolução plausível para uma solução digital deve estar desconectado dos dados de monitoramento já coletados sobre o processo.",
-            "answers": ["Verdadeiro", "Falso"],
-            "correct": "Falso",
-            "tip": "O Plano de Evolução deve ser fundamentado nos dados de monitoramento coletados, mantendo coerência com o que foi observado no processo."
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], propor uma direção de evolução plausível para uma solução digital deve estar desconectado dos dados de monitoramento já coletados sobre o processo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O Plano de Evolução deve ser fundamentado nos dados de monitoramento coletados, mantendo coerência com o que foi observado no processo."
         },
         {
-            "type": "combo",
-            "topics": "NORM",
-            "questions": "A capacidade de comunicar valor técnico em linguagem executiva é descrita como uma competência tão desenvolvível quanto [COMBO].",
-            "options": ["qualquer linguagem de programação", "a sorte no mercado de trabalho", "o acaso das oportunidades", "a experiência de outra pessoa"],
-            "correct": "qualquer linguagem de programação",
-            "tip": "Assim como se aprende uma linguagem de programação, a comunicação técnica clara para públicos executivos é uma competência que pode ser desenvolvida com prática."
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "A capacidade de comunicar valor técnico em linguagem executiva é descrita como uma competência tão desenvolvível quanto [COMBO].",
+          "options": [
+            "qualquer linguagem de programação",
+            "a sorte no mercado de trabalho",
+            "o acaso das oportunidades",
+            "a experiência de outra pessoa"
+          ],
+          "correct": "qualquer linguagem de programação",
+          "tip": "Assim como se aprende uma linguagem de programação, a comunicação técnica clara para públicos executivos é uma competência que pode ser desenvolvida com prática."
         },
         {
-            "type": "multi",
-            "topics": "NORM",
-            "questions": "[NAME], quais das afirmações abaixo estão alinhadas ao raciocínio de melhoria contínua e comunicação de valor apresentado?",
-            "answers": ["Toda solução precisa de ciclos constantes de observação e ajuste para continuar competitiva", "Uma vez implementada, uma automação nunca mais precisa ser revisada", "Um relatório técnico bem construído conta uma história do problema ao resultado", "O silêncio de quem deixa de observar um processo contribui para sua obsolescência"],
-            "correct": ["Toda solução precisa de ciclos constantes de observação e ajuste para continuar competitiva", "Um relatório técnico bem construído conta uma história do problema ao resultado", "O silêncio de quem deixa de observar um processo contribui para sua obsolescência"],
-            "tip": "A melhoria contínua e a comunicação de valor dependem de observação constante e de uma narrativa clara — nenhuma solução se mantém competitiva sem revisão."
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais das afirmações abaixo estão alinhadas ao raciocínio de melhoria contínua e comunicação de valor apresentado?",
+          "answers": [
+            "Toda solução precisa de ciclos constantes de observação e ajuste para continuar competitiva",
+            "Uma vez implementada, uma automação nunca mais precisa ser revisada",
+            "Um relatório técnico bem construído conta uma história do problema ao resultado",
+            "O silêncio de quem deixa de observar um processo contribui para sua obsolescência"
+          ],
+          "correct": [
+            "Toda solução precisa de ciclos constantes de observação e ajuste para continuar competitiva",
+            "Um relatório técnico bem construído conta uma história do problema ao resultado",
+            "O silêncio de quem deixa de observar um processo contribui para sua obsolescência"
+          ],
+          "tip": "A melhoria contínua e a comunicação de valor dependem de observação constante e de uma narrativa clara — nenhuma solução se mantém competitiva sem revisão."
         },
         {
-            "type": "drag",
-            "topics": "NORM",
-            "questions": "Relacione cada afirmação ao conceito central que ela resume:",
-            "items": [
-                {"id": "d1", "txt": "Nenhuma solução se mantém competitiva sem revisão constante", "match": "z1"},
-                {"id": "d2", "txt": "Documentar rigorosamente evita depender da memória de uma pessoa", "match": "z2"},
-                {"id": "d3", "txt": "O relatório aponta para o futuro, não só para o presente", "match": "z3"},
-                {"id": "d4", "txt": "Comunicar valor técnico em linguagem executiva é uma competência rara e valorizada", "match": "z4"}
-            ],
-            "zones": [
-                {"id": "z1", "label": "Melhoria contínua (PDCA)"},
-                {"id": "z2", "label": "Padronização (SDCA)"},
-                {"id": "z3", "label": "Plano de Evolução"},
-                {"id": "z4", "label": "Comunicação de valor"}
-            ],
-            "correct": "drag",
-            "tip": "Esses quatro princípios resumem o raciocínio central de melhoria contínua e comunicação de valor técnico para a diretoria."
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada afirmação ao conceito central que ela resume:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Nenhuma solução se mantém competitiva sem revisão constante",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Documentar rigorosamente evita depender da memória de uma pessoa",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "O relatório aponta para o futuro, não só para o presente",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Comunicar valor técnico em linguagem executiva é uma competência rara e valorizada",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Melhoria contínua (PDCA)"
+            },
+            {
+              "id": "z2",
+              "label": "Padronização (SDCA)"
+            },
+            {
+              "id": "z3",
+              "label": "Plano de Evolução"
+            },
+            {
+              "id": "z4",
+              "label": "Comunicação de valor"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Esses quatro princípios resumem o raciocínio central de melhoria contínua e comunicação de valor técnico para a diretoria."
         }
-    ]
-}
+      ]
+    }
   ]
 }
