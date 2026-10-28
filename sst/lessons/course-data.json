@@ -67343,8 +67343,8 @@
           "questions": "[NAME], qual destas atividades faz parte da programação presencial do Mundo SENAI?",
           "answers": [
             "Visitas guiadas",
-            "Campeonato de jogos eletrônicos",
-            "Provas de admissão",
+            "Provas para certificações",
+            "Visita com o Presidente do SENAI",
             "Matrícula automática em cursos"
           ],
           "correct": "Visitas guiadas",
