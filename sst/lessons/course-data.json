@@ -67255,6 +67255,176 @@
           "tip": "Esses quatro princípios resumem o raciocínio central de melhoria contínua e comunicação de valor técnico para a diretoria."
         }
       ]
+    },
+    {
+      "slug": "aula-mundo-senai-2026",
+      "lesson_info": {
+        "id": "Aula-Mundo-SENAI-2026",
+        "title": "MUNDO SENAI 2026 - CAMINHOS PARA A CARREIRA NA INDÚSTRIA",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "O EVENTO MUNDO SENAI",
+            "desc": "Objetivo, abrangência nacional e público do maior evento de portas abertas do SENAI.",
+            "color": "#e74c3c",
+            "img_url": "https://source.unsplash.com/1600x900/?education,event"
+          },
+          {
+            "id": "AGEN",
+            "name": "PROGRAMAÇÃO PRESENCIAL E ONLINE",
+            "desc": "Workshops, visitas guiadas, exposições de projetos e transmissões online.",
+            "color": "#f1c40f",
+            "img_url": "https://source.unsplash.com/1600x900/?workshop,livestream"
+          },
+          {
+            "id": "PROT",
+            "name": "ESCRITÓRIO DE CARREIRA DA INDÚSTRIA",
+            "desc": "Plataforma gratuita que conecta profissionais a empresas em busca de talentos.",
+            "color": "#3498db",
+            "img_url": "https://source.unsplash.com/1600x900/?career,job"
+          },
+          {
+            "id": "NORM",
+            "name": "INDÚSTRIA NO SENAI",
+            "desc": "Conceito que leva empresas parceiras para dentro das unidades durante o evento.",
+            "color": "#2ecc71",
+            "img_url": "https://source.unsplash.com/1600x900/?factory,industry"
+          }
+        ],
+        "sokoban": [
+          "R",
+          "U",
+          "M",
+          "O"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é o principal objetivo do Mundo SENAI?",
+          "answers": [
+            "Apresentar as oportunidades de educação profissional e ajudar o público a descobrir caminhos para a carreira",
+            "Selecionar alunos para bolsas de estudo",
+            "Vender cursos com desconto",
+            "Realizar uma competição entre escolas"
+          ],
+          "correct": "Apresentar as oportunidades de educação profissional e ajudar o público a descobrir caminhos para a carreira",
+          "tip": "O Mundo SENAI é uma vitrine das oportunidades de formação profissional, pensada para orientar escolhas de carreira."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], o Mundo SENAI acontece em Escolas e Faculdades SENAI de todo o Brasil.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O evento tem abrangência nacional e é voltado a jovens e adultos interessados em formação profissional."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Em 2026, o Mundo SENAI chega à sua [COMBO] edição.",
+          "options": [
+            "18ª",
+            "10ª",
+            "15ª",
+            "20ª"
+          ],
+          "correct": "18ª",
+          "tip": "A edição de 2026 é a 18ª, mostrando que o evento já é tradição no calendário do SENAI.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], qual destas atividades faz parte da programação presencial do Mundo SENAI?",
+          "answers": [
+            "Visitas guiadas",
+            "Campeonato de jogos eletrônicos",
+            "Provas de admissão",
+            "Matrícula automática em cursos"
+          ],
+          "correct": "Visitas guiadas",
+          "tip": "Nas unidades há workshops, visitas guiadas, exposição de projetos, palestras e conversas com profissionais."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], as transmissões online do Mundo SENAI 2026 acontecem nos dias 5 e 6 de novembro.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Além das atividades presenciais, o evento conta com programação online nos dias 5 e 6 de novembro."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "A programação online do Mundo SENAI serve para [COMBO] o acesso aos conteúdos e às experiências do evento.",
+          "options": [
+            "Ampliar",
+            "Restringir",
+            "Substituir",
+            "Encerrar"
+          ],
+          "correct": "Ampliar",
+          "tip": "As transmissões complementam o evento presencial, permitindo que mais pessoas acompanhem os conteúdos.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], qual plataforma gratuita da Firjan SENAI conecta profissionais a empresas que buscam talentos qualificados?",
+          "answers": [
+            "Escritório de Carreira da Indústria",
+            "Banco de Talentos SENAI",
+            "Conecta Indústria",
+            "Portal do Emprego Firjan"
+          ],
+          "correct": "Escritório de Carreira da Indústria",
+          "tip": "O Escritório de Carreira da Indústria aproxima quem busca oportunidade de empresas que precisam de mão de obra qualificada."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], para usar o Escritório de Carreira da Indústria é preciso pagar uma mensalidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "A plataforma é gratuita, o que facilita o acesso de profissionais às oportunidades da indústria.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], qual conceito fortalece a edição 2026 do Mundo SENAI, trazendo empresas parceiras para dentro das unidades?",
+          "answers": [
+            "Indústria no SENAI",
+            "SENAI na Escola",
+            "SENAI Digital",
+            "Futuro em Rede"
+          ],
+          "correct": "Indústria no SENAI",
+          "tip": "O conceito \"Indústria no SENAI\" aproxima o público do ambiente real das empresas durante o evento."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], no Mundo SENAI 2026 as indústrias parceiras participam ativamente, com demonstrações do ambiente fabril e contato direto com o público.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Essa participação ajuda o público a entender as demandas reais do mercado e ainda fortalece as marcas das empresas."
+        }
+      ]
     }
   ]
 }
