@@ -813,6 +813,95 @@ export default class View {
         }
     }
 
+    mountTouchControls(anchor, controls) {
+        if (!anchor || !Array.isArray(controls) || !controls.length) return () => {};
+
+        const root = document.createElement('div');
+        root.className = 'game-touch-controls';
+        root.setAttribute('role', 'group');
+        root.setAttribute('aria-label', 'Controles por toque');
+
+        const directionControls = controls.filter((control) => control.group !== 'action');
+        const actionControls = controls.filter((control) => control.group === 'action');
+        const mountedButtons = [];
+
+        const createButton = (control) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'game-touch-button';
+            button.textContent = control.label;
+            button.setAttribute('aria-label', control.ariaLabel || control.label);
+            if (control.direction) button.dataset.direction = control.direction;
+            if (control.active) button.setAttribute('aria-pressed', 'false');
+
+            let pressed = false;
+            const press = (event) => {
+                if (pressed) return;
+                pressed = true;
+                control.onPress?.(event, button);
+            };
+            const release = (event) => {
+                if (!pressed) return;
+                pressed = false;
+                control.onRelease?.(event, button);
+            };
+
+            if (control.onRelease) {
+                button.addEventListener('pointerdown', (event) => {
+                    if (event.button !== undefined && event.button !== 0) return;
+                    event.preventDefault();
+                    button.setPointerCapture?.(event.pointerId);
+                    press(event);
+                });
+                ['pointerup', 'pointercancel', 'lostpointercapture'].forEach((type) => {
+                    button.addEventListener(type, release);
+                });
+                button.addEventListener('keydown', (event) => {
+                    if (event.key !== ' ' && event.key !== 'Enter') return;
+                    event.preventDefault();
+                    if (!event.repeat) press(event);
+                });
+                button.addEventListener('keyup', (event) => {
+                    if (event.key === ' ' || event.key === 'Enter') release(event);
+                });
+                button.addEventListener('blur', release);
+            } else {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    control.onPress?.(event, button);
+                });
+            }
+
+            mountedButtons.push({ button, release });
+            return button;
+        };
+
+        if (directionControls.length) {
+            const directionPad = document.createElement('div');
+            directionPad.className = 'game-touch-direction-pad';
+            directionPad.setAttribute('role', 'group');
+            directionPad.setAttribute('aria-label', 'Direções');
+            directionControls.forEach((control) => directionPad.appendChild(createButton(control)));
+            root.appendChild(directionPad);
+        }
+
+        if (actionControls.length) {
+            const actionPad = document.createElement('div');
+            actionPad.className = 'game-touch-action-pad';
+            actionPad.setAttribute('role', 'group');
+            actionPad.setAttribute('aria-label', 'Ações');
+            actionControls.forEach((control) => actionPad.appendChild(createButton(control)));
+            root.appendChild(actionPad);
+        }
+
+        anchor.insertAdjacentElement('afterend', root);
+
+        return () => {
+            mountedButtons.forEach(({ release }) => release());
+            root.remove();
+        };
+    }
+
     bindWheelStart(handler) { this.els.spinBtn.addEventListener('click', handler); }
     bindRankingPreview(handler) {
         if (!this.els.btnPreviewRanking) return;
@@ -828,6 +917,12 @@ export default class View {
             if (e.key === "ArrowLeft") { e.preventDefault(); handler(-1, 0); }
             if (e.key === "ArrowRight") { e.preventDefault(); handler(1, 0); }
         });
+        this.mountTouchControls(this.els.sokobanGrid, [
+            { label: '↑', ariaLabel: 'Mover para cima', direction: 'up', onPress: () => handler(0, -1) },
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => handler(-1, 0) },
+            { label: '↓', ariaLabel: 'Mover para baixo', direction: 'down', onPress: () => handler(0, 1) },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => handler(1, 0) }
+        ]);
     }
     bindSokobanGiveUp(handler) {
         if (!this.els.btnGiveUpSokoban) return;
@@ -2622,6 +2717,7 @@ export default class View {
         // ── KEYS ─────────────────────────────────────────────────────────────
         const keys = { left: false, right: false, shoot: false };
         let keyDownHandler = null, keyUpHandler = null;
+        let touchControlsCleanup = null;
 
         // ── CLEANUP / FINISH ─────────────────────────────────────────────────
         const stopSounds = () => {
@@ -2639,6 +2735,7 @@ export default class View {
             if (rafId)               { cancelAnimationFrame(rafId); rafId = null; }
             if (keyDownHandler)      { document.removeEventListener('keydown', keyDownHandler); keyDownHandler = null; }
             if (keyUpHandler)        { document.removeEventListener('keyup', keyUpHandler); keyUpHandler = null; }
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
             stopSounds();
             modal.classList.add('hidden');
             resolvePromise({ won, score });
@@ -2661,6 +2758,11 @@ export default class View {
         };
         document.addEventListener('keydown', keyDownHandler);
         document.addEventListener('keyup', keyUpHandler);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => { keys.left = true; }, onRelease: () => { keys.left = false; } },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => { keys.right = true; }, onRelease: () => { keys.right = false; } },
+            { label: 'Atirar', ariaLabel: 'Atirar', group: 'action', onPress: () => { keys.shoot = true; }, onRelease: () => { keys.shoot = false; } }
+        ]);
 
         // ── INVADER SHOOT INTERVAL ────────────────────────────────────────────
         const invaderShoot = () => {
@@ -2955,6 +3057,7 @@ export default class View {
         let startRaceTimer = null;
         let deathTimer = null;
         let keyDownHandler = null;
+        let touchControlsCleanup = null;
         let keyUpHandler = null;
         let lastTs = 0;
 
@@ -3338,6 +3441,7 @@ export default class View {
             if (deathTimer) clearTimeout(deathTimer);
             if (keyDownHandler) window.removeEventListener('keydown', keyDownHandler, true);
             if (keyUpHandler) window.removeEventListener('keyup', keyUpHandler, true);
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
 
             stopMarioSounds();
 
@@ -3559,6 +3663,11 @@ export default class View {
 
         window.addEventListener('keydown', keyDownHandler, true);
         window.addEventListener('keyup', keyUpHandler, true);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => { keys.left = true; }, onRelease: () => { keys.left = false; } },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => { keys.right = true; }, onRelease: () => { keys.right = false; } },
+            { label: 'Pular', ariaLabel: 'Pular', group: 'action', onPress: tryJump }
+        ]);
 
         if (this.els.marioGiveUpBtn) {
             this.els.marioGiveUpBtn.onclick = () => finish(false);
@@ -3886,6 +3995,7 @@ export default class View {
         let timerTick = null;
         let renderRaf = null;
         let keyHandler = null;
+        let touchControlsCleanup = null;
         let resolvePromise = () => {};
         let powerWarnPlayed = false;
 
@@ -4257,6 +4367,7 @@ export default class View {
             if (timerTick) clearInterval(timerTick);
             if (renderRaf) cancelAnimationFrame(renderRaf);
             if (keyHandler) window.removeEventListener('keydown', keyHandler);
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
 
             stopPacmanSounds();
             this.pacmanStartAudio.pause();
@@ -4361,6 +4472,12 @@ export default class View {
             setDir(dir);
         };
         window.addEventListener('keydown', keyHandler);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '↑', ariaLabel: 'Mover para cima', direction: 'up', onPress: () => setDir({ x: 0, y: -1 }) },
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => setDir({ x: -1, y: 0 }) },
+            { label: '↓', ariaLabel: 'Mover para baixo', direction: 'down', onPress: () => setDir({ x: 0, y: 1 }) },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => setDir({ x: 1, y: 0 }) }
+        ]);
 
         if (this.els.pacmanGiveUpBtn) {
             this.els.pacmanGiveUpBtn.onclick = () => finish(false, 'giveup');
@@ -4427,6 +4544,7 @@ export default class View {
         let rafId = null;
         let resolvePromise = () => {};
         let keyDownHandler = null;
+        let touchControlsCleanup = null;
         let keyUpHandler = null;
         let startRaceTimer = null;
         let lastTs = 0;
@@ -4604,6 +4722,7 @@ export default class View {
             if (startRaceTimer) clearTimeout(startRaceTimer);
             if (keyDownHandler) window.removeEventListener('keydown', keyDownHandler);
             if (keyUpHandler) window.removeEventListener('keyup', keyUpHandler);
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
             stopEnduroSounds();
 
             if (this.els.enduroGiveUpBtn) {
@@ -4794,6 +4913,12 @@ export default class View {
         };
         window.addEventListener('keydown', keyDownHandler);
         window.addEventListener('keyup', keyUpHandler);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '←', ariaLabel: 'Virar à esquerda', direction: 'left', onPress: () => { keys.left = true; }, onRelease: () => { keys.left = false; } },
+            { label: '→', ariaLabel: 'Virar à direita', direction: 'right', onPress: () => { keys.right = true; }, onRelease: () => { keys.right = false; } },
+            { label: '↑', ariaLabel: 'Acelerar', direction: 'up', onPress: () => { keys.up = true; }, onRelease: () => { keys.up = false; } },
+            { label: '↓', ariaLabel: 'Frear', direction: 'down', onPress: () => { keys.down = true; }, onRelease: () => { keys.down = false; } }
+        ]);
 
         if (this.els.enduroGiveUpBtn) {
             this.els.enduroGiveUpBtn.onclick = () => finish(false);
@@ -4902,6 +5027,7 @@ export default class View {
         let timerTick = null;
         let startRaceTimer = null;
         let keyDownHandler = null;
+        let touchControlsCleanup = null;
         let keyUpHandler = null;
         let pointerJumpHandler = null;
 
@@ -5196,6 +5322,7 @@ export default class View {
             if (startRaceTimer) clearTimeout(startRaceTimer);
             if (keyDownHandler) window.removeEventListener('keydown', keyDownHandler);
             if (keyUpHandler) window.removeEventListener('keyup', keyUpHandler);
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
             if (pointerJumpHandler) {
                 canvas.removeEventListener('pointerdown', pointerJumpHandler);
             }
@@ -5364,6 +5491,12 @@ export default class View {
         window.addEventListener('keydown', keyDownHandler);
         window.addEventListener('keyup', keyUpHandler);
         canvas.addEventListener('pointerdown', pointerJumpHandler);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => { controls.left = true; }, onRelease: () => { controls.left = false; } },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => { controls.right = true; }, onRelease: () => { controls.right = false; } },
+            { label: '↓', ariaLabel: 'Agachar', direction: 'down', onPress: () => { controls.down = true; }, onRelease: () => { controls.down = false; } },
+            { label: 'Pular', ariaLabel: 'Pular', group: 'action', onPress: tryJump }
+        ]);
         canvas.setAttribute('tabindex', '0');
         canvas.focus();
 
@@ -6205,6 +6338,7 @@ export default class View {
         let moveInterval = null;
         let timerTick = null;
         let keyHandler = null;
+        let touchControlsCleanup = null;
         let respawnTimer = null;
         let isRespawning = false;
 
@@ -6488,6 +6622,7 @@ export default class View {
             if (moveInterval) { clearInterval(moveInterval); moveInterval = null; }
             if (respawnTimer) { clearTimeout(respawnTimer); respawnTimer = null; }
             if (keyHandler)   { document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
 
             modal.classList.add('hidden');
             resolvePromise({ won, applesEaten, reason });
@@ -6503,6 +6638,12 @@ export default class View {
             if (k === 'ArrowRight' || k === 'd' || k === 'D') { nextDir = { x:  1, y:  0 }; e.preventDefault(); }
         };
         document.addEventListener('keydown', keyHandler);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '↑', ariaLabel: 'Mover para cima', direction: 'up', onPress: () => { nextDir = { x: 0, y: -1 }; } },
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => { nextDir = { x: -1, y: 0 }; } },
+            { label: '↓', ariaLabel: 'Mover para baixo', direction: 'down', onPress: () => { nextDir = { x: 0, y: 1 }; } },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => { nextDir = { x: 1, y: 0 }; } }
+        ]);
 
         if (this.els.snakeGiveUpBtn) {
             this.els.snakeGiveUpBtn.onclick = () => finish(false, 'giveup');
@@ -6953,6 +7094,7 @@ export default class View {
                 let finished = false;
                 let timeLeft = GAME_DURATION;
                 let timerTick = null;
+                let touchControlsCleanup = null;
                 let currentScore = 0;
                 let maxCombo = 0;
 
@@ -6984,6 +7126,10 @@ export default class View {
                                 clearInterval(timerTick);
                                 timerTick = null;
                         }
+                        if (touchControlsCleanup) {
+                                touchControlsCleanup();
+                                touchControlsCleanup = null;
+                        }
 
                         window.removeEventListener('message', onMessage);
                         modal.classList.add('hidden');
@@ -7004,6 +7150,23 @@ export default class View {
                 window.addEventListener('message', onMessage);
 
                 iframe.src = this.getLordeHeroGameUrl();
+                const dispatchGameKey = (key, type) => {
+                        const gameWindow = iframe.contentWindow;
+                        if (!gameWindow) return;
+                        gameWindow.document.dispatchEvent(new gameWindow.KeyboardEvent(type, {
+                                key,
+                                bubbles: true
+                        }));
+                };
+                touchControlsCleanup = this.mountTouchControls(iframe.parentElement, [
+                        ...['a', 's', 'j', 'k', 'l'].map((key) => ({
+                                label: key.toUpperCase(),
+                                ariaLabel: `Acionar faixa ${key.toUpperCase()}`,
+                                group: 'action',
+                                onPress: () => dispatchGameKey(key, 'keydown'),
+                                onRelease: () => dispatchGameKey(key, 'keyup')
+                        }))
+                ]);
 
                 timerTick = setInterval(() => {
                         if (finished) return;
@@ -7186,6 +7349,7 @@ export default class View {
         let rafId = null;
         let timerTick = null;
         let keyHandler = null;
+        let touchControlsCleanup = null;
         let lastTs = 0;
 
         // Initialize cars evenly spread per lane
@@ -7433,6 +7597,7 @@ export default class View {
             if (rafId)     { cancelAnimationFrame(rafId); rafId = null; }
             if (timerTick) { clearInterval(timerTick);   timerTick = null; }
             if (keyHandler){ document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
             modal.classList.add('hidden');
             resolvePromise({ won, crossings, reason });
         };
@@ -7472,6 +7637,12 @@ export default class View {
             }
         };
         document.addEventListener('keydown', keyHandler);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '↑', ariaLabel: 'Mover para cima', direction: 'up', onPress: () => keyHandler({ key: 'ArrowUp', preventDefault() {} }) },
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => keyHandler({ key: 'ArrowLeft', preventDefault() {} }) },
+            { label: '↓', ariaLabel: 'Mover para baixo', direction: 'down', onPress: () => keyHandler({ key: 'ArrowDown', preventDefault() {} }) },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => keyHandler({ key: 'ArrowRight', preventDefault() {} }) }
+        ]);
 
         if (this.els.froggerGiveUpBtn) {
             this.els.froggerGiveUpBtn.onclick = () => finish(false, 'giveup');
@@ -7660,6 +7831,7 @@ export default class View {
         let rafId = null;
         let timerTick = null;
         let keyHandler = null;
+        let touchControlsCleanup = null;
         let lastTs = 0;
         let dropAcc = 0;
 
@@ -7808,6 +7980,7 @@ export default class View {
             if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
             if (timerTick) { clearInterval(timerTick); timerTick = null; }
             if (keyHandler) { document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
             if (this.els.tetrisGiveUpBtn) this.els.tetrisGiveUpBtn.onclick = null;
             modal.classList.add('hidden');
             resolvePromise({ won, reason, linesCleared });
@@ -7934,6 +8107,13 @@ export default class View {
             }
         };
         document.addEventListener('keydown', keyHandler);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => keyHandler({ key: 'ArrowLeft', preventDefault() {} }) },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => keyHandler({ key: 'ArrowRight', preventDefault() {} }) },
+            { label: '↓', ariaLabel: 'Descer peça', direction: 'down', onPress: () => keyHandler({ key: 'ArrowDown', preventDefault() {} }) },
+            { label: 'Girar', ariaLabel: 'Girar peça', group: 'action', onPress: () => keyHandler({ key: 'ArrowUp', preventDefault() {} }) },
+            { label: 'Queda', ariaLabel: 'Queda rápida', group: 'action', onPress: () => keyHandler({ key: ' ', preventDefault() {} }) }
+        ]);
 
         if (this.els.tetrisGiveUpBtn) {
             this.els.tetrisGiveUpBtn.onclick = () => finish(false, 'giveup');
@@ -8119,6 +8299,7 @@ export default class View {
         let finished = false;
         let timerTick = null;
         let keyHandler = null;
+        let touchControlsCleanup = null;
 
         const playTone = (frequency = 440, duration = 0.08, type = 'triangle', gainValue = 0.07) => {
             const ac = this.getSharedAudioContext();
@@ -8256,6 +8437,7 @@ export default class View {
             finished = true;
             if (timerTick) { clearInterval(timerTick); timerTick = null; }
             if (keyHandler) { document.removeEventListener('keydown', keyHandler); keyHandler = null; }
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
             if (this.els.game2048GiveUpBtn) this.els.game2048GiveUpBtn.onclick = null;
             modal.classList.add('hidden');
             resolvePromise({ won, reason, score, maxTile: getMaxTile() });
@@ -8312,6 +8494,12 @@ export default class View {
             }
         };
         document.addEventListener('keydown', keyHandler);
+        touchControlsCleanup = this.mountTouchControls(this.els.game2048Board, [
+            { label: '↑', ariaLabel: 'Mover para cima', direction: 'up', onPress: () => keyHandler({ key: 'ArrowUp', preventDefault() {} }) },
+            { label: '←', ariaLabel: 'Mover para a esquerda', direction: 'left', onPress: () => keyHandler({ key: 'ArrowLeft', preventDefault() {} }) },
+            { label: '↓', ariaLabel: 'Mover para baixo', direction: 'down', onPress: () => keyHandler({ key: 'ArrowDown', preventDefault() {} }) },
+            { label: '→', ariaLabel: 'Mover para a direita', direction: 'right', onPress: () => keyHandler({ key: 'ArrowRight', preventDefault() {} }) }
+        ]);
 
         if (this.els.game2048GiveUpBtn) {
             this.els.game2048GiveUpBtn.onclick = () => finish(false, 'giveup');
@@ -8489,7 +8677,6 @@ export default class View {
         let timerTick = null;
         let keyHandler = null;
         let pointerHandler = null;
-        let touchHandler = null;
         let lastTs = 0;
         let spawnAcc = 0;
         let flashUntil = 0;
@@ -8854,7 +9041,6 @@ export default class View {
             if (timerTick) { clearInterval(timerTick); timerTick = null; }
             if (keyHandler) { document.removeEventListener('keydown', keyHandler); keyHandler = null; }
             if (pointerHandler) { canvas.removeEventListener('pointerdown', pointerHandler); pointerHandler = null; }
-            if (touchHandler) { canvas.removeEventListener('touchstart', touchHandler); touchHandler = null; }
             if (this.els.flappybirdGiveUpBtn) this.els.flappybirdGiveUpBtn.onclick = null;
             modal.classList.add('hidden');
             resolvePromise({ won, reason, pipesCleared, bestStreak });
@@ -8902,26 +9088,6 @@ export default class View {
             flap();
         };
         canvas.addEventListener('pointerdown', pointerHandler);
-
-        touchHandler = (event) => {
-            event.preventDefault();
-            const touch = event.touches && event.touches[0];
-            if (!touch) return;
-            const rect = canvas.getBoundingClientRect();
-            const ratioX = canvas.width / rect.width;
-            const ratioY = canvas.height / rect.height;
-            const x = (touch.clientX - rect.left) * ratioX;
-            const y = (touch.clientY - rect.top) * ratioY;
-
-            if (introActive) {
-                if (canStartGameplay() && isInsideIntroButton(x, y)) {
-                    startGameplayAfterIntro();
-                }
-                return;
-            }
-            flap();
-        };
-        canvas.addEventListener('touchstart', touchHandler, { passive: false });
 
         if (this.els.flappybirdGiveUpBtn) {
             this.els.flappybirdGiveUpBtn.onclick = () => finish(false, 'giveup');
@@ -9101,8 +9267,6 @@ export default class View {
         let keyUpHandler = null;
         let pointerMoveHandler = null;
         let pointerDownHandler = null;
-        let touchMoveHandler = null;
-        let touchStartHandler = null;
         let lastTs = 0;
         let moveLeft = false;
         let moveRight = false;
@@ -9364,8 +9528,6 @@ export default class View {
             if (keyUpHandler) { document.removeEventListener('keyup', keyUpHandler); keyUpHandler = null; }
             if (pointerMoveHandler) { canvas.removeEventListener('pointermove', pointerMoveHandler); pointerMoveHandler = null; }
             if (pointerDownHandler) { canvas.removeEventListener('pointerdown', pointerDownHandler); pointerDownHandler = null; }
-            if (touchMoveHandler) { canvas.removeEventListener('touchmove', touchMoveHandler); touchMoveHandler = null; }
-            if (touchStartHandler) { canvas.removeEventListener('touchstart', touchStartHandler); touchStartHandler = null; }
             if (this.els.arkanoidGiveUpBtn) this.els.arkanoidGiveUpBtn.onclick = null;
             modal.classList.add('hidden');
             resolvePromise({ won, reason, bricksDestroyed, bestCombo });
@@ -9419,22 +9581,7 @@ export default class View {
 
         pointerDownHandler = (event) => {
             event.preventDefault();
-            launchBall();
-        };
-
-        touchMoveHandler = (event) => {
-            event.preventDefault();
-            const touch = event.touches && event.touches[0];
-            if (!touch) return;
-            const rect = canvas.getBoundingClientRect();
-            if (!rect.width) return;
-            const ratio = canvas.width / rect.width;
-            const pointerX = (touch.clientX - rect.left) * ratio;
-            paddle.x = Math.max(0, Math.min(canvas.width - paddle.width, pointerX - paddle.width / 2));
-        };
-
-        touchStartHandler = (event) => {
-            event.preventDefault();
+            canvas.setPointerCapture?.(event.pointerId);
             launchBall();
         };
 
@@ -9442,8 +9589,6 @@ export default class View {
         document.addEventListener('keyup', keyUpHandler);
         canvas.addEventListener('pointermove', pointerMoveHandler);
         canvas.addEventListener('pointerdown', pointerDownHandler);
-        canvas.addEventListener('touchmove', touchMoveHandler, { passive: false });
-        canvas.addEventListener('touchstart', touchStartHandler, { passive: false });
 
         if (this.els.arkanoidGiveUpBtn) {
             this.els.arkanoidGiveUpBtn.onclick = () => finish(false, 'giveup');
@@ -9622,6 +9767,7 @@ export default class View {
         let keyDownHandler = null;
         let keyUpHandler = null;
         let pointerDownHandler = null;
+        let touchControlsCleanup = null;
         let lastTs = 0;
         let fireCooldownLeft = 0;
         let invuln = 0;
@@ -9771,6 +9917,7 @@ export default class View {
             if (keyDownHandler) { document.removeEventListener('keydown', keyDownHandler); keyDownHandler = null; }
             if (keyUpHandler) { document.removeEventListener('keyup', keyUpHandler); keyUpHandler = null; }
             if (pointerDownHandler) { canvas.removeEventListener('pointerdown', pointerDownHandler); pointerDownHandler = null; }
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
             if (this.els.asteroidsGiveUpBtn) this.els.asteroidsGiveUpBtn.onclick = null;
             modal.classList.add('hidden');
             resolvePromise({ won, reason, asteroidsDestroyed, bestCombo });
@@ -10031,6 +10178,12 @@ export default class View {
         document.addEventListener('keydown', keyDownHandler);
         document.addEventListener('keyup', keyUpHandler);
         canvas.addEventListener('pointerdown', pointerDownHandler);
+        touchControlsCleanup = this.mountTouchControls(canvas.parentElement, [
+            { label: '←', ariaLabel: 'Girar à esquerda', direction: 'left', onPress: () => { pressed.left = true; }, onRelease: () => { pressed.left = false; } },
+            { label: '→', ariaLabel: 'Girar à direita', direction: 'right', onPress: () => { pressed.right = true; }, onRelease: () => { pressed.right = false; } },
+            { label: '↑', ariaLabel: 'Acelerar', direction: 'up', onPress: () => { pressed.thrust = true; }, onRelease: () => { pressed.thrust = false; } },
+            { label: 'Atirar', ariaLabel: 'Atirar', group: 'action', onPress: () => { pressed.fire = true; fire(); }, onRelease: () => { pressed.fire = false; } }
+        ]);
 
         if (this.els.asteroidsGiveUpBtn) {
             this.els.asteroidsGiveUpBtn.onclick = () => finish(false, 'giveup');
@@ -10198,6 +10351,8 @@ export default class View {
         let timerTick = null;
         let boardClickHandler = null;
         let boardContextHandler = null;
+        let touchControlsCleanup = null;
+        let flagMode = false;
 
         const board = Array.from({ length: TOTAL_CELLS }, () => ({
             mine: false,
@@ -10314,6 +10469,7 @@ export default class View {
             if (timerTick) { clearInterval(timerTick); timerTick = null; }
             if (boardClickHandler) { boardEl.removeEventListener('click', boardClickHandler); boardClickHandler = null; }
             if (boardContextHandler) { boardEl.removeEventListener('contextmenu', boardContextHandler); boardContextHandler = null; }
+            if (touchControlsCleanup) { touchControlsCleanup(); touchControlsCleanup = null; }
             if (this.els.minesweeperGiveUpBtn) this.els.minesweeperGiveUpBtn.onclick = null;
             modal.classList.add('hidden');
             resolvePromise({ won, reason, safeRevealed, flagsUsed });
@@ -10389,7 +10545,11 @@ export default class View {
             if (!target || !boardEl.contains(target)) return;
             const index = Number(target.dataset.idx);
             if (!Number.isInteger(index)) return;
-            revealSafeCell(index);
+            if (flagMode) {
+                toggleFlag(index);
+            } else {
+                revealSafeCell(index);
+            }
         };
 
         boardContextHandler = (event) => {
@@ -10404,6 +10564,19 @@ export default class View {
 
         boardEl.addEventListener('click', boardClickHandler);
         boardEl.addEventListener('contextmenu', boardContextHandler);
+        touchControlsCleanup = this.mountTouchControls(boardEl, [
+            {
+                label: '🚩 Bandeira',
+                ariaLabel: 'Alternar modo de bandeira',
+                group: 'action',
+                active: true,
+                onPress: (_event, button) => {
+                    flagMode = !flagMode;
+                    button.setAttribute('aria-pressed', String(flagMode));
+                    button.classList.toggle('is-active', flagMode);
+                }
+            }
+        ]);
 
         if (this.els.minesweeperGiveUpBtn) {
             this.els.minesweeperGiveUpBtn.onclick = () => finish(false, 'giveup');
