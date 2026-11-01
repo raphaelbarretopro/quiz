@@ -1,4 +1,4 @@
-# ⚡ Quick Start - Quiz Dinâmico
+# ⚡ Quick Start - Quiz Gamificado: aprendizagem ativa nas aulas de TI
 
 ## 🚀 Iniciar em 3 Passos
 

@@ -1,7 +1,7 @@
-# Quiz SST
+# Quiz Gamificado: aprendizagem ativa nas aulas de TI
 
 <p align="center">
-  Plataforma web de quiz gamificado para trilhas educacionais, com autenticação Google, ranking em tempo real por aula, motor de perguntas em múltiplos formatos e mini-games bônus integrados ao fluxo de aprendizagem.
+  Plataforma web de aprendizagem ativa para aulas de TI, com quizzes gamificados, autenticação Google, ranking em tempo real por aula, perguntas em múltiplos formatos e mini-games bônus integrados ao fluxo de aprendizagem.
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
 
 ## Visão Geral
 
-O Quiz SST é um aplicativo front-end em HTML, CSS e JavaScript criado para transformar conteúdos de aula em uma experiência interativa. Cada aula é carregada dinamicamente a partir de um único arquivo JSON, pode ser acessada por URL, exige login com Google para iniciar a jornada e publica o desempenho do jogador em um ranking filtrado automaticamente pela aula atual.
+O **Quiz Gamificado: aprendizagem ativa nas aulas de TI** é um aplicativo front-end em HTML, CSS e JavaScript que transforma conteúdos de aula em uma experiência interativa. O projeto reúne aulas de segurança do trabalho, matemática, ferramentas digitais, programação, infraestrutura, dados, inteligência artificial e outros temas de tecnologia. Cada aula é carregada dinamicamente de um único arquivo JSON e pode ser aberta por um link próprio; o login com Google libera a jornada e o desempenho é publicado em um ranking filtrado pela aula atual.
 
 Além do fluxo tradicional de perguntas e respostas, o projeto combina roleta de tópicos, feedback visual e sonoro, cronômetros, pontuação por moedas, certificado final e uma camada de mini-games bônus sorteados ao longo da sessão.
 
@@ -159,25 +159,85 @@ Os mini-games são sorteados ao longo da sessão para adicionar variação ao ri
 
 ## Aulas Disponíveis
 
-As aulas atuais estão centralizadas em [sst/lessons/course-data.json](./sst/lessons/course-data.json) e podem ser abertas tanto localmente quanto em produção.
+As **75 aulas** cadastradas atualmente estão centralizadas em [sst/lessons/course-data.json](./sst/lessons/course-data.json). Cada link local usa o slug da aula e pode ser aberto quando o projeto estiver sendo servido por HTTP; os links de produção apontam para o GitHub Pages.
 
-| Aula | Tema | Link local |
-|---|---|---|
-| Aula 11 | Guardiões da Prevenção: Segurança no Trabalho em TI | [Abrir Aula 11](./sst/core/index.html?cod=aula-11) |
-| Aula 12 | Guardiões da Prevenção: Saúde, Segurança e Meio Ambiente | [Abrir Aula 12](./sst/core/index.html?cod=aula-12) |
-| Aula 13 | Guardiões do Futuro: Sustentabilidade e Qualidade Ambiental | [Abrir Aula 13](./sst/core/index.html?cod=aula-13) |
-| Aula 14 | Guardiões da Saúde: Impactos de Substâncias no Trabalho | [Abrir Aula 14](./sst/core/index.html?cod=aula-14) |
-| Aula 15 | Guardiões do Respeito: Direitos, Saúde e Autoconhecimento | [Abrir Aula 15](./sst/core/index.html?cod=aula-15) |
-| Aula 16 | Raciocínio Lógico: Fundamentos, Princípios e Sequências | [Abrir Aula 16](./sst/core/index.html?cod=aula-16) |
-| Aula 17 | Conjuntos e Frações Aplicadas à Computação | [Abrir Aula 17](./sst/core/index.html?cod=aula-17) |
-| Aula 18 | Razões, Proporções, Porcentagens e Correlação | [Abrir Aula 18](./sst/core/index.html?cod=aula-18) |
-| Aula 19 | Técnicas de Resolução de Problemas | [Abrir Aula 19](./sst/core/index.html?cod=aula-19) |
-| Aula 17-1 | Lógica Matemática: Conjuntos e Frações Aplicadas | [Abrir Aula 17-1](./sst/core/index.html?cod=aula-17-1) |
-
-### Exemplo de acesso em produção
-
-- [Aula 13 em produção](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-13)
-- [Aula 14 em produção](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-14)
+| Aula | Tema (catálogo oficial) | Link local | Produção |
+|---|---|---|---|
+| Aula-11 | AULA 11 - GUARDIÕES DA PREVENÇÃO: SEGURANÇA NO TRABALHO EM TI | [Abrir Aula-11](./sst/core/index.html?cod=aula-11) | [Abrir Aula-11](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-11) |
+| Aula-12 | AULA 12 - GUARDIÕES DA PREVENÇÃO: SAÚDE, SEGURANÇA E MEIO AMBIENTE | [Abrir Aula-12](./sst/core/index.html?cod=aula-12) | [Abrir Aula-12](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-12) |
+| Aula-13 | AULA 13 - GUARDIÕES DO FUTURO: SUSTENTABILIDADE E QUALIDADE AMBIENTAL | [Abrir Aula-13](./sst/core/index.html?cod=aula-13) | [Abrir Aula-13](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-13) |
+| Aula-14 | AULA 14 - GUARDIÕES DA SAÚDE: IMPACTOS DE SUBSTÂNCIAS NO TRABALHO | [Abrir Aula-14](./sst/core/index.html?cod=aula-14) | [Abrir Aula-14](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-14) |
+| Aula-15 | AULA 15 - GUARDIÕES DO RESPEITO: DIREITOS, SAÚDE E AUTOCONHECIMENTO | [Abrir Aula-15](./sst/core/index.html?cod=aula-15) | [Abrir Aula-15](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-15) |
+| Aula-16 | AULA 16 - RACIOCÍNIO LÓGICO: FUNDAMENTOS, PRINCÍPIOS E SEQUÊNCIAS | [Abrir Aula-16](./sst/core/index.html?cod=aula-16) | [Abrir Aula-16](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-16) |
+| Aula-17 | AULA 17 - CONJUNTOS E FRAÇÕES APLICADAS À COMPUTAÇÃO | [Abrir Aula-17](./sst/core/index.html?cod=aula-17) | [Abrir Aula-17](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-17) |
+| Aula-18 | AULA 18 - RAZÕES, PROPORÇÕES, PORCENTAGENS E CORRELAÇÃO | [Abrir Aula-18](./sst/core/index.html?cod=aula-18) | [Abrir Aula-18](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-18) |
+| Aula-17-1 | AULA 17 - LÓGICA MATEMÁTICA: CONJUNTOS E FRAÇÕES APLICADAS | [Abrir Aula-17-1](./sst/core/index.html?cod=aula-17-1) | [Abrir Aula-17-1](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-17-1) |
+| Aula-19 | AULA 19 - TÉCNICAS DE RESOLUÇÃO DE PROBLEMAS | [Abrir Aula-19](./sst/core/index.html?cod=aula-19) | [Abrir Aula-19](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-19) |
+| Aula-21 | AULA 21 - INDÚSTRIA 4.0: DAS REVOLUÇÕES AO FUTURO DO EMPREGO | [Abrir Aula-21](./sst/core/index.html?cod=aula-21) | [Abrir Aula-21](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-21) |
+| Aula-20 | AULA 20 - PLANILHAS ELETRÔNICAS, GRÁFICOS, QUADROS E TABELAS | [Abrir Aula-20](./sst/core/index.html?cod=aula-20) | [Abrir Aula-20](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-20) |
+| Aula-22 | AULA 22 - TECNOLOGIAS HABILITADORAS DA INDÚSTRIA 4.0 | [Abrir Aula-22](./sst/core/index.html?cod=aula-22) | [Abrir Aula-22](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-22) |
+| Aula-23 | AULA 23 - ROBÓTICA, MANUFATURA ADITIVA E SIMULAÇÃO | [Abrir Aula-23](./sst/core/index.html?cod=aula-23) | [Abrir Aula-23](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-23) |
+| Aula-24 | AULA 24 - INTEGRAÇÃO DE SISTEMAS, SEGURANÇA DIGITAL E REALIDADE AUMENTADA | [Abrir Aula-24](./sst/core/index.html?cod=aula-24) | [Abrir Aula-24](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-24) |
+| Aula-25 | AULA 25 - AUTOCONHECIMENTO E METAS PROFISSIONAIS NA ERA DIGITAL | [Abrir Aula-25](./sst/core/index.html?cod=aula-25) | [Abrir Aula-25](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-25) |
+| Aula-23-bonus | AULA 23 BÔNUS - APRENDENDO ARDUINO DO ZERO | [Abrir Aula-23-bonus](./sst/core/index.html?cod=aula-23-bonus) | [Abrir Aula-23-bonus](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-23-bonus) |
+| Aula-26 | AULA 26 - ORGANIZAÇÃO E PLANEJAMENTO EM AMBIENTES PROFISSIONAIS | [Abrir Aula-26](./sst/core/index.html?cod=aula-26) | [Abrir Aula-26](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-26) |
+| Aula-27 | AULA 27 - TRABALHO EM EQUIPE E LIDERANÇA NA INDÚSTRIA | [Abrir Aula-27](./sst/core/index.html?cod=aula-27) | [Abrir Aula-27](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-27) |
+| Aula-28 | AULA 28 - FERRAMENTAS DA QUALIDADE: ESTRATÉGIAS PARA A MELHORIA CONTÍNUA | [Abrir Aula-28](./sst/core/index.html?cod=aula-28) | [Abrir Aula-28](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-28) |
+| Aula-29 | AULA 29 - PESQUISA, INOVAÇÃO E EMPREENDEDORISMO NA TI | [Abrir Aula-29](./sst/core/index.html?cod=aula-29) | [Abrir Aula-29](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-29) |
+| Aula-30 | AULA 30 - FINANÇAS, APRESENTAÇÕES E PLANEJAMENTO DE CARREIRA | [Abrir Aula-30](./sst/core/index.html?cod=aula-30) | [Abrir Aula-30](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-30) |
+| Aula-31 | AULA 31 - CONCEITOS BÁSICOS DA COMPUTAÇÃO E PAPEL DA TI | [Abrir Aula-31](./sst/core/index.html?cod=aula-31) | [Abrir Aula-31](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-31) |
+| Aula-32 | AULA 32 - UNIDADES DE MEDIDA DE DADOS E SISTEMAS DE NUMERAÇÃO | [Abrir Aula-32](./sst/core/index.html?cod=aula-32) | [Abrir Aula-32](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-32) |
+| Aula-33 | AULA 33 - INFRAESTRUTURA DE TI: COMPONENTES E ARQUITETURAS | [Abrir Aula-33](./sst/core/index.html?cod=aula-33) | [Abrir Aula-33](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-33) |
+| Aula-34 | AULA 34 - VIRTUALIZAÇÃO E AMBIENTES DE DESENVOLVIMENTO | [Abrir Aula-34](./sst/core/index.html?cod=aula-34) | [Abrir Aula-34](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-34) |
+| Aula-35 | AULA 35 - GERENCIAMENTO DE ARQUIVOS, PERMISSÕES E SISTEMAS DE ARQUIVOS | [Abrir Aula-35](./sst/core/index.html?cod=aula-35) | [Abrir Aula-35](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-35) |
+| Aula-36 | AULA 36 - INSTALAÇÃO DE SISTEMAS OPERACIONAIS | [Abrir Aula-36](./sst/core/index.html?cod=aula-36) | [Abrir Aula-36](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-36) |
+| Aula-37 | AULA 37 - INSTALAÇÃO E CONFIGURAÇÃO DO SERVIDOR DHCP | [Abrir Aula-37](./sst/core/index.html?cod=aula-37) | [Abrir Aula-37](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-37) |
+| Aula-38 | AULA 38 - SCRIPT PARA NOVA MÁQUINA DO GRUPO DE TRABALHO | [Abrir Aula-38](./sst/core/index.html?cod=aula-38) | [Abrir Aula-38](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-38) |
+| Aula-39 | AULA 39 - DOMÍNIOS E ACTIVE DIRECTORY | [Abrir Aula-39](./sst/core/index.html?cod=aula-39) | [Abrir Aula-39](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-39) |
+| Aula-40 | AULA 40 - INFRAESTRUTURA WINDOWS SERVER: DOMÍNIO, DHCP E ACESSO REMOTO | [Abrir Aula-40](./sst/core/index.html?cod=aula-40) | [Abrir Aula-40](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-40) |
+| Aula-42 | AULA 42 - RESTRIÇÕES DE LOGON, COMPARTILHAMENTOS E POLÍTICAS DE GRUPO | [Abrir Aula-42](./sst/core/index.html?cod=aula-42) | [Abrir Aula-42](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-42) |
+| Aula-43 | AULA 43 - HABILITANDO, DESABILITANDO E EXCLUINDO GPOs | [Abrir Aula-43](./sst/core/index.html?cod=aula-43) | [Abrir Aula-43](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-43) |
+| Aula-41 | AULA 41 - ADMINISTRAÇÃO DE DOMÍNIO E USUÁRIOS NO ACTIVE DIRECTORY | [Abrir Aula-41](./sst/core/index.html?cod=aula-41) | [Abrir Aula-41](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-41) |
+| Aula-44 | AULA 44 - CMD MASTERY: DOMINANDO A LINHA DE COMANDO DO WINDOWS | [Abrir Aula-44](./sst/core/index.html?cod=aula-44) | [Abrir Aula-44](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-44) |
+| Aula-45 | AULA 45 - UBUNTU NA PRÁTICA: DO GNOME AOS CONTAINERS | [Abrir Aula-45](./sst/core/index.html?cod=aula-45) | [Abrir Aula-45](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-45) |
+| Aula-46 | AULA 46 - FERRAMENTAS DE ESCRITÓRIO: WORD BÁSICO | [Abrir Aula-46](./sst/core/index.html?cod=aula-46) | [Abrir Aula-46](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-46) |
+| Aula-47 | AULA 47 - WORD INTERMEDIÁRIO E ACADÊMICO | [Abrir Aula-47](./sst/core/index.html?cod=aula-47) | [Abrir Aula-47](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-47) |
+| Aula-48 | AULA 48 - CONCLUSÃO DO WORD | [Abrir Aula-48](./sst/core/index.html?cod=aula-48) | [Abrir Aula-48](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-48) |
+| Aula-49 | AULA 49 - EXCEL BÁSICO E FINANCEIRO | [Abrir Aula-49](./sst/core/index.html?cod=aula-49) | [Abrir Aula-49](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-49) |
+| Aula-50 | AULA 50 - EXCEL: ESTATÍSTICAS E LÓGICA | [Abrir Aula-50](./sst/core/index.html?cod=aula-50) | [Abrir Aula-50](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-50) |
+| Aula-53 | AULA 53 - EXCEL: FIXAÇÃO E ANÁLISE DE DADOS | [Abrir Aula-53](./sst/core/index.html?cod=aula-53) | [Abrir Aula-53](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-53) |
+| Aula-52 | AULA 52 - EXCEL INTERMEDIÁRIO: FUNÇÕES DE BUSCA E LÓGICA | [Abrir Aula-52](./sst/core/index.html?cod=aula-52) | [Abrir Aula-52](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-52) |
+| Aula-54 | AULA 54 - DOMÍNIO DA FUNÇÃO SE E FERRAMENTAS DE ANÁLISE | [Abrir Aula-54](./sst/core/index.html?cod=aula-54) | [Abrir Aula-54](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-54) |
+| Aula-56 | AULA 56 - EXCEL AVANÇADO: DATA, HORA, FORMULÁRIOS E PROTEÇÃO | [Abrir Aula-56](./sst/core/index.html?cod=aula-56) | [Abrir Aula-56](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-56) |
+| Aula-02-git | AULA 02 - GESTÃO DE ALTERAÇÕES E HISTÓRICO DE VERSÕES COM GIT | [Abrir Aula-02-git](./sst/core/index.html?cod=aula-02-git) | [Abrir Aula-02-git](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-02-git) |
+| Aula-Excel | MASTERCLASS EXCEL: DO BÁSICO AO AVANÇADO E FINANCEIRO | [Abrir Aula-Excel](./sst/core/index.html?cod=aula-excel-masterclass) | [Abrir Aula-Excel](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-excel-masterclass) |
+| Aula-58 | AULA 58 - DO PAPEL E CANETA AO POWERPOINT | [Abrir Aula-58](./sst/core/index.html?cod=aula-58) | [Abrir Aula-58](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-58) |
+| Aula-60 | AULA 60 - TÉCNICAS DE APRESENTAÇÃO: COMO CONQUISTAR SEU PÚBLICO | [Abrir Aula-60](./sst/core/index.html?cod=aula-60) | [Abrir Aula-60](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-60) |
+| Aula-59 | AULA 59 - ENGENHARIA DE PROMPTS PARA APRESENTAÇÕES | [Abrir Aula-59](./sst/core/index.html?cod=aula-59) | [Abrir Aula-59](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-59) |
+| Aula-61 | AULA 61 - POR QUE APRENDER LÓGICA DE PROGRAMAÇÃO COM PYTHON EM 2026? | [Abrir Aula-61](./sst/core/index.html?cod=aula-61) | [Abrir Aula-61](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-61) |
+| Aula-62 | AULA 62 - PYTHON: TIPOS PRIMITIVOS, VARIÁVEIS E LEITURA DE ERROS | [Abrir Aula-62](./sst/core/index.html?cod=aula-62) | [Abrir Aula-62](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-62) |
+| Aula-64 | AULA 64 - OPERADORES ARITMÉTICOS EM PYTHON | [Abrir Aula-64](./sst/core/index.html?cod=aula-64) | [Abrir Aula-64](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-64) |
+| Aula-65 | AULA 65 - MÓDULOS EXTERNOS E MANIPULAÇÃO DE TEXTO | [Abrir Aula-65](./sst/core/index.html?cod=aula-65) | [Abrir Aula-65](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-65) |
+| Aula-66 | AULA 66 - ESTRUTURAS CONDICIONAIS EM PYTHON | [Abrir Aula-66](./sst/core/index.html?cod=aula-66) | [Abrir Aula-66](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-66) |
+| Aula-67 | AULA 67 - CONDIÇÕES ANINHADAS | [Abrir Aula-67](./sst/core/index.html?cod=aula-67) | [Abrir Aula-67](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-67) |
+| Aula-76 | AULA 76 - O UNIVERSO DO POWER BI | [Abrir Aula-76](./sst/core/index.html?cod=aula-76) | [Abrir Aula-76](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-76) |
+| Aula-78 | AULA 78 - POWER BI: COLUNAS AVANÇADAS E FECHAMENTO DE FORMATAÇÃO | [Abrir Aula-78](./sst/core/index.html?cod=aula-78) | [Abrir Aula-78](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-78) |
+| Aula-79 | AULA 79 - COMBINAÇÃO DE DADOS E MÚLTIPLAS FONTES | [Abrir Aula-79](./sst/core/index.html?cod=aula-79) | [Abrir Aula-79](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-79) |
+| Aula-80 | AULA 80 - FUNDAMENTOS DE POWER BI E ETL | [Abrir Aula-80](./sst/core/index.html?cod=aula-80) | [Abrir Aula-80](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-80) |
+| Aula-81 | AULA 81 - MODELAGEM DE DADOS E TABELA CALENDÁRIO NO POWER BI | [Abrir Aula-81](./sst/core/index.html?cod=aula-81) | [Abrir Aula-81](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-81) |
+| Aula-93 | AULA 93 - FUNDAMENTOS DA INTELIGÊNCIA ARTIFICIAL | [Abrir Aula-93](./sst/core/index.html?cod=aula-93) | [Abrir Aula-93](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-93) |
+| Aula-94 | AULA 94 - RACIOCÍNIO LÓGICO E REPRESENTAÇÃO DO CONHECIMENTO | [Abrir Aula-94](./sst/core/index.html?cod=aula-94) | [Abrir Aula-94](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-94) |
+| Aula-95 | AULA 95 - FUNDAMENTOS DE MACHINE LEARNING | [Abrir Aula-95](./sst/core/index.html?cod=aula-95) | [Abrir Aula-95](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-95) |
+| Aula-96 | AULA 96 - REDES NEURAIS E DEEP LEARNING | [Abrir Aula-96](./sst/core/index.html?cod=aula-96) | [Abrir Aula-96](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-96) |
+| Aula-99 | AULA 99 - FUNDAMENTOS DE TRANSFORMAÇÃO DIGITAL | [Abrir Aula-99](./sst/core/index.html?cod=aula-99) | [Abrir Aula-99](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-99) |
+| Aula-101 | AULA 101 - IDENTIFICANDO GARGALOS E OTIMIZANDO FLUXOS DE PROCESSO | [Abrir Aula-101](./sst/core/index.html?cod=aula-101) | [Abrir Aula-101](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-101) |
+| Aula-102 | AULA 102 - SELEÇÃO DE FERRAMENTAS DE AUTOMAÇÃO: RPA E BPM NA PRÁTICA | [Abrir Aula-102](./sst/core/index.html?cod=aula-102) | [Abrir Aula-102](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-102) |
+| Aula-104 | AULA 104 - PLANEJAR E COORDENAR EQUIPES MULTIDISCIPLINARES | [Abrir Aula-104](./sst/core/index.html?cod=aula-104) | [Abrir Aula-104](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-104) |
+| Aula-105 | AULA 105 - GOVERNANÇA, COMPLIANCE E LGPD NA DIGITALIZAÇÃO DE PROCESSOS | [Abrir Aula-105](./sst/core/index.html?cod=aula-105) | [Abrir Aula-105](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-105) |
+| Aula-106 | AULA 106 - DIGITALIZAÇÃO DE PROCESSOS: GESTÃO DE PESSOAS E MUDANÇA CULTURAL | [Abrir Aula-106](./sst/core/index.html?cod=aula-106) | [Abrir Aula-106](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-106) |
+| Aula-107 | AULA 107 - MONITORAMENTO, INDICADORES (KPIS) E MELHORIA CONTÍNUA EM PROCESSOS DIGITAIS | [Abrir Aula-107](./sst/core/index.html?cod=aula-107) | [Abrir Aula-107](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-107) |
+| Aula-108 | AULA 108 - MELHORIA CONTÍNUA E RELATÓRIO TÉCNICO FINAL | [Abrir Aula-108](./sst/core/index.html?cod=aula-108) | [Abrir Aula-108](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-108) |
+| Aula-Mundo-SENAI-2026 | MUNDO SENAI 2026 - CAMINHOS PARA A CARREIRA NA INDÚSTRIA | [Abrir Aula-Mundo-SENAI-2026](./sst/core/index.html?cod=aula-mundo-senai-2026) | [Abrir Aula-Mundo-SENAI-2026](https://raphaelbarretopro.github.io/quiz/sst/core/index.html?cod=aula-mundo-senai-2026) |
 
 ## Como Executar Localmente
 
