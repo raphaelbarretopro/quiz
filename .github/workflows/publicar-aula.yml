@@ -2,7 +2,7 @@ name: Publicar aula do importador
 
 on:
   push:
-    branches: [main, novo-importador]
+    branches: [main]
     paths: ['.importador/fila/*.json', '.importador/exclusao/*.json']
 
 permissions:
