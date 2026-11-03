@@ -27,6 +27,8 @@ const $ = (id) => document.getElementById(id);
 let lesson = null;
 let pollTimer = null;
 let publishedSlug = null;
+// Fica só na memória de propósito: ao recarregar a página, a exclusão deixa de ser possível.
+let deleteToken = null;
 
 function el(tag, props = {}, ...children) {
   const node = document.createElement(tag);
@@ -370,7 +372,8 @@ async function handlePublish() {
   const status = $('resultado-status');
 
   try {
-    await api('/publicar', { method: 'POST', body: JSON.stringify({ lesson }) });
+    const published = await api('/publicar', { method: 'POST', body: JSON.stringify({ lesson }) });
+    deleteToken = published.exclusao;
   } catch (error) {
     const details = error.erros?.length ? `\n${error.erros.slice(0, 5).join('\n')}` : '';
     $('etapa-resultado').hidden = false;
@@ -399,6 +402,7 @@ function watchPublication(slug, startedAt) {
         publishedSlug = slug;
         $('link-aula').href = `../core/index.html?cod=${encodeURIComponent(slug)}`;
         $('btn-excluir').disabled = false;
+        $('btn-excluir').hidden = !deleteToken;
         $('resultado-link').hidden = false;
         $('btn-nova').hidden = false;
         return;
@@ -424,7 +428,7 @@ function watchPublication(slug, startedAt) {
 // ---- Exclusão ----
 async function handleDelete() {
   const slug = publishedSlug;
-  if (!slug) return;
+  if (!slug || !deleteToken) return;
   if (!window.confirm(`Excluir a aula ${slug} do curso? Essa ação remove a aula do quiz.`)) return;
 
   const status = $('resultado-status');
@@ -432,10 +436,11 @@ async function handleDelete() {
   $('btn-nova').hidden = true;
 
   try {
-    await api('/excluir', { method: 'POST', body: JSON.stringify({ slug }) });
+    await api('/excluir', { method: 'POST', body: JSON.stringify({ slug, exclusao: deleteToken }) });
   } catch (error) {
     setStatus(status, error.message, 'erro');
     $('btn-excluir').disabled = false;
+    $('btn-excluir').hidden = error.message.startsWith('Só é possível');
     $('btn-nova').hidden = false;
     return;
   }
@@ -452,6 +457,7 @@ function watchDeletion(slug, startedAt) {
       if (result.estado === 'excluida') {
         setStatus(status, 'Aula excluída do curso. O site pode levar mais alguns minutos para atualizar.', 'sucesso');
         publishedSlug = null;
+        deleteToken = null;
         $('resultado-link').hidden = true;
         $('btn-nova').hidden = false;
         return;
@@ -506,6 +512,7 @@ $('btn-gerar-novamente').addEventListener('click', backToForm);
 $('btn-excluir').addEventListener('click', handleDelete);
 $('btn-nova').addEventListener('click', () => {
   publishedSlug = null;
+  deleteToken = null;
   $('resultado-link').hidden = true;
   $('btn-nova').hidden = true;
   $('numero').value = '';

@@ -213,6 +213,7 @@ const env = {
   FIREBASE_PROJECT_ID: 'quiz-sst', ALLOWED_EMAILS: 'outro@exemplo.com, Professor@exemplo.com',
   ALLOWED_ORIGINS: 'https://raphaelbarretopro.github.io', GITHUB_REPO: 'dono/quiz', PUBLISH_BRANCH: 'teste',
   GEMINI_MODEL: 'modelo', GEMINI_FALLBACK_MODEL: 'reserva', GEMINI_RETRY_DELAY_MS: 0,
+  DELETE_TOKEN_SECRET: 'segredo-de-teste',
   GEMINI_API_KEY: 'CHAVE-SECRETA', GITHUB_TOKEN: 'TOKEN-SECRETO'
 };
 
@@ -371,22 +372,40 @@ test('/publicacao informa fila, erro e publicada', async () => {
   assert.equal((await get('/publicacao/..%2Fsegredo')).status, 404);
 });
 
-test('/excluir exige login, recusa aulas antigas e grava só o pedido', async () => {
+test('só exclui com a autorização da publicação que acabou de ser feita', async () => {
   const token = await signToken();
-  let calls = withFetch(() => { throw new Error('não deveria chamar o GitHub'); });
-  assert.equal((await call('/excluir', { body: { slug: 'aula-900' } })).status, 401);
-  assert.equal((await call('/excluir', { body: { slug: 'aula-900' }, token: await signToken({ email: 'intruso@exemplo.com' }) })).status, 403);
-  assert.equal((await call('/excluir', { body: { slug: '../segredo' }, token })).status, 400);
+  withFetch(() => Response.json({}, { status: 201 }));
+  const published = await call('/publicar', { body: { lesson: validLesson() }, token });
+  const exclusao = published.json.exclusao;
+  assert.match(exclusao, /^\d+\.[\w-]+$/);
+
+  // Sem chamar o GitHub: recarregar a página perde a autorização, e as outras aulas nunca a têm.
+  const calls = withFetch(() => { throw new Error('não deveria chamar o GitHub'); });
+  const refused = async (body, tokenToUse = token) => (await call('/excluir', { body, token: tokenToUse })).status;
+  assert.equal((await call('/excluir', { body: { slug: 'aula-900', exclusao } })).status, 401);
+  assert.equal(await refused({ slug: '../segredo', exclusao }), 400);
+  assert.equal(await refused({ slug: 'aula-900' }), 403, 'sem autorização, como depois de F5');
+  assert.equal(await refused({ slug: 'aula-11', exclusao }), 403, 'aula antiga');
+  assert.equal(await refused({ slug: 'aula-901', exclusao }), 403, 'outra aula do importador');
+  assert.equal(await refused({ slug: 'aula-900', exclusao: `${exclusao}x` }), 403, 'assinatura alterada');
+  const [expires, signature] = exclusao.split('.');
+  assert.equal(await refused({ slug: 'aula-900', exclusao: `${Number(expires) + 99999}.${signature}` }), 403, 'prazo alterado');
+  const otherTeacher = await signToken({ email: 'outro@exemplo.com' });
+  assert.equal(await refused({ slug: 'aula-900', exclusao }, otherTeacher), 403, 'outro professor');
   assert.ok(calls.every((c) => c.url.includes('securetoken')));
 
-  calls = withFetch(() => new Response('', { status: 404 }));
-  const old = await call('/excluir', { body: { slug: 'aula-11' }, token });
-  assert.equal(old.status, 403);
-  assert.ok(!calls.some((c) => c.init.method === 'PUT'), 'aula antiga não gera pedido');
+  // Prazo vencido.
+  const expired = await createExpiredToken(token);
+  assert.equal(await refused({ slug: 'aula-900', exclusao: expired }), 403, 'prazo vencido');
 
-  calls = withFetch((url, init) => (init.method === 'PUT' ? Response.json({}, { status: 201 }) : Response.json({})));
-  assert.equal((await call('/excluir', { body: { slug: 'aula-900' }, token })).status, 202);
-  const put = calls.find((c) => c.init.method === 'PUT');
+  // Autorizada, mas sem o registro do importador, a aula continua protegida.
+  let githubCalls = withFetch(() => new Response('', { status: 404 }));
+  assert.equal(await refused({ slug: 'aula-900', exclusao }), 403);
+  assert.ok(!githubCalls.some((c) => c.init.method === 'PUT'));
+
+  githubCalls = withFetch((url, init) => (init.method === 'PUT' ? Response.json({}, { status: 201 }) : Response.json({})));
+  assert.equal((await call('/excluir', { body: { slug: 'aula-900', exclusao }, token })).status, 202);
+  const put = githubCalls.find((c) => c.init.method === 'PUT');
   assert.ok(put.url.endsWith('/contents/.importador/exclusao/aula-900.json'));
   assert.equal(JSON.parse(put.init.body).branch, 'teste');
 
@@ -395,6 +414,14 @@ test('/excluir exige login, recusa aulas antigas e grava só o pedido', async ()
   withFetch(() => new Response('', { status: 404 }));
   assert.equal((await call('/exclusao/aula-900', { method: 'GET', token })).json.estado, 'excluida');
 });
+
+async function createExpiredToken(token) {
+  env.DELETE_WINDOW_MS = -1000;
+  withFetch(() => Response.json({}, { status: 201 }));
+  const res = await call('/publicar', { body: { lesson: validLesson() }, token });
+  delete env.DELETE_WINDOW_MS;
+  return res.json.exclusao;
+}
 
 test('origem desconhecida não recebe CORS e rotas abertas são mínimas', async () => {
   withFetch(() => new Response(''));

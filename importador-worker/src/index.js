@@ -12,6 +12,7 @@ const ERRORS_DIR = '.importador/erros';
 const PUBLISHED_DIR = '.importador/publicadas';
 const DELETE_DIR = '.importador/exclusao';
 const SLUG_PATTERN = 'aula-[a-z0-9]+(?:-[a-z0-9]+)*';
+const DELETE_WINDOW_MS = 30 * 60 * 1000;
 
 class HttpError extends Error {
   constructor(status, message) {
@@ -85,11 +86,48 @@ async function handleGenerate(request, env, teacher) {
   return Response.json({ lesson, erros: validateLesson(lesson) });
 }
 
-async function handlePublish(request, env) {
+function deleteKey(env) {
+  return crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(env.DELETE_TOKEN_SECRET),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign', 'verify']
+  );
+}
+
+function deleteMessage(slug, email, expires) {
+  return new TextEncoder().encode(`${slug}|${email}|${expires}`);
+}
+
+// Autorização entregue uma única vez, ao publicar. Ela fica só na memória da página:
+// sem ela não há exclusão, então recarregar a página encerra a possibilidade de excluir.
+async function createDeleteToken(slug, email, env) {
+  const expires = Date.now() + Number(env.DELETE_WINDOW_MS ?? DELETE_WINDOW_MS);
+  const signature = await crypto.subtle.sign('HMAC', await deleteKey(env), deleteMessage(slug, email, expires));
+  return `${expires}.${Buffer.from(signature).toString('base64url')}`;
+}
+
+async function isDeleteTokenValid(token, slug, email, env) {
+  const [expires, signature, ...rest] = String(token ?? '').split('.');
+  if (rest.length || !/^\d+$/.test(expires ?? '') || !signature) return false;
+  if (Number(expires) <= Date.now()) return false;
+
+  return crypto.subtle.verify(
+    'HMAC',
+    await deleteKey(env),
+    Buffer.from(signature, 'base64url'),
+    deleteMessage(slug, email, expires)
+  );
+}
+
+async function handlePublish(request, env, teacher) {
   const body = await readJson(request);
   const lesson = body?.lesson;
   const erros = validateLesson(lesson);
   if (erros.length) return Response.json({ ok: false, erros }, { status: 422 });
+
+  const exclusao = await createDeleteToken(lesson.slug, teacher.email, env);
 
   const content = Buffer.from(`${JSON.stringify(lesson, null, 2)}\n`, 'utf8').toString('base64');
   const response = await githubFetch(env, `${QUEUE_DIR}/${lesson.slug}.json`, {
@@ -109,13 +147,16 @@ async function handlePublish(request, env) {
     throw new HttpError(502, 'Não foi possível enviar a aula ao GitHub. Tente novamente.');
   }
 
-  return Response.json({ ok: true, slug: lesson.slug }, { status: 202 });
+  return Response.json({ ok: true, slug: lesson.slug, exclusao }, { status: 202 });
 }
 
-async function handleDelete(request, env) {
+async function handleDelete(request, env, teacher) {
   const body = await readJson(request);
   const slug = String(body?.slug ?? '');
   if (!new RegExp(`^${SLUG_PATTERN}$`).test(slug)) throw new HttpError(400, 'Aula inválida.');
+  if (!await isDeleteTokenValid(body?.exclusao, slug, teacher.email, env)) {
+    throw new HttpError(403, 'Só é possível excluir a aula logo após publicá-la, nesta mesma página.');
+  }
 
   const ref = `?ref=${encodeURIComponent(env.PUBLISH_BRANCH)}`;
   const published = await githubFetch(env, `${PUBLISHED_DIR}/${slug}.json${ref}`);
@@ -181,8 +222,8 @@ async function route(request, env) {
 
   const teacher = await requireTeacher(request, env);
   if (isGenerate) return handleGenerate(request, env, teacher);
-  if (isPublish) return handlePublish(request, env);
-  if (isDelete) return handleDelete(request, env);
+  if (isPublish) return handlePublish(request, env, teacher);
+  if (isDelete) return handleDelete(request, env, teacher);
   return statusMatch[1] === 'publicacao'
     ? handleStatus(statusMatch[2], env, QUEUE_DIR, 'publicada')
     : handleStatus(statusMatch[2], env, DELETE_DIR, 'excluida');
