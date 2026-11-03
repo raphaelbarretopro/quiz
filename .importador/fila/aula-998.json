@@ -1,0 +1,170 @@
+{
+  "slug": "aula-998",
+  "lesson_info": {
+    "id": "Aula-998",
+    "title": "AULA 998 - TESTE",
+    "topics": [
+      {
+        "id": "ACID",
+        "name": "ABERTURA E CORREÇÕES DA AULA",
+        "desc": "Foco nas correções prioritárias do projeto.",
+        "color": "#e63946",
+        "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "AGEN",
+        "name": "PAINEL NO POWER BI DESKTOP",
+        "desc": "Criação do painel de dados para o gestor.",
+        "color": "#f4a300",
+        "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "PROT",
+        "name": "ROTEIRO E DEMONSTRAÇÃO",
+        "desc": "Preparação e testes práticos da demonstração.",
+        "color": "#2077b4",
+        "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "NORM",
+        "name": "ENSAIO E PLANO B",
+        "desc": "Planejamento final de contingência e ensaios.",
+        "color": "#27ae60",
+        "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+      }
+    ],
+    "sokoban": [
+      "D",
+      "E",
+      "M",
+      "O"
+    ]
+  },
+  "questions": [
+    {
+      "type": "multiple",
+      "topics": "ACID",
+      "questions": "Olá [NAME], ao iniciar as correções de um projeto, qual critério deve ser usado para ordenar os itens a serem corrigidos?",
+      "answers": [
+        "Por ordem de gravidade",
+        "Por ordem alfabética",
+        "Por data de criação",
+        "Por nome do desenvolvedor"
+      ],
+      "correct": "Por ordem de gravidade",
+      "tip": "As correções devem ser ordenadas por gravidade para garantir que os erros mais críticos que impedem a demonstração sejam corrigidos primeiro."
+    },
+    {
+      "type": "boolean",
+      "topics": "ACID",
+      "questions": "[NAME], se uma correção individual passar de 30 minutos sem solução, o item deve ser cortado ou deve-se chamar o instrutor.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "Quando uma correção ultrapassa 30 minutos, deve-se chamar o instrutor ou cortar o item para não comprometer o cronograma."
+    },
+    {
+      "type": "combo",
+      "topics": "ACID",
+      "questions": "Na etapa de correções, a equipe deve garantir que a lista de correções prioritárias fique sem [COMBO] que impeçam a demonstração.",
+      "options": [
+        "erros",
+        "visuais",
+        "banners",
+        "intervalos"
+      ],
+      "correct": "erros",
+      "tip": "O objetivo final do processo de correção é zerar todos os erros que possam impedir a realização da demonstração.",
+      "trans": "AGEN"
+    },
+    {
+      "type": "multiple",
+      "topics": "AGEN",
+      "questions": "[NAME], qual tipo de visualização é recomendado no Power BI para mostrar a evolução de dados ao longo do tempo?",
+      "answers": [
+        "Gráfico em linha",
+        "Cartão",
+        "Gráfico em colunas",
+        "Tabela dinâmica"
+      ],
+      "correct": "Gráfico em linha",
+      "tip": "O gráfico em linha é ideal para apresentar a evolução temporal de métricas e dados."
+    },
+    {
+      "type": "boolean",
+      "topics": "AGEN",
+      "questions": "[NAME], ao conectar o Power BI Desktop ao SharePoint Online, deve-se informar a URL direta da lista e não a URL do site.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "Ao conectar o Power BI ao SharePoint, informa-se a URL do site principal, escolhendo a lista específica na etapa seguinte."
+    },
+    {
+      "type": "combo",
+      "topics": "AGEN",
+      "questions": "No Power BI Desktop, para exibir totais simples como valor total ou pedidos pendentes, utiliza-se a visualização do tipo [COMBO].",
+      "options": [
+        "cartão",
+        "linha",
+        "coluna",
+        "mapa"
+      ],
+      "correct": "cartão",
+      "tip": "Os cartões são utilizados para apresentar totais acumulados e valores numéricos diretos em um painel.",
+      "trans": "PROT"
+    },
+    {
+      "type": "multiple",
+      "topics": "PROT",
+      "questions": "[NAME], durante a fase final de preparação de um projeto, qual deve ser a regra sobre novas funcionalidades?",
+      "answers": [
+        "Não iniciar nenhuma funcionalidade nova",
+        "Adicionar quantas funcionalidades forem possíveis",
+        "Substituir todas as funcionalidades existentes",
+        "Criar um novo projeto do zero"
+      ],
+      "correct": "Não iniciar nenhuma funcionalidade nova",
+      "tip": "Na fase final de preparação para a demonstração, deve-se focar apenas em correções e ajustes, sem adicionar novas funcionalidades."
+    },
+    {
+      "type": "boolean",
+      "topics": "PROT",
+      "questions": "[NAME], a demonstração do projeto deve ser testada e executada com sucesso pelo menos 3 vezes sem erro.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "Executar a demonstração três vezes sem erros ajuda a garantir a estabilidade e a confiança da equipe antes da apresentação.",
+      "trans": "NORM"
+    },
+    {
+      "type": "multiple",
+      "topics": "NORM",
+      "questions": "Para garantir a segurança da apresentação caso ocorra um imprevisto técnico, qual medida deve ser tomada [NAME]?",
+      "answers": [
+        "Gravar um vídeo do sistema como plano B",
+        "Cancelar a apresentação",
+        "Refazer todo o código-fonte",
+        "Ignorar os possíveis falhas técnicas"
+      ],
+      "correct": "Gravar um vídeo do sistema como plano B",
+      "tip": "Gravar um vídeo de funcionamento do sistema garante uma alternativa segura caso ocorram imprevistos durante a demonstração ao vivo."
+    },
+    {
+      "type": "boolean",
+      "topics": "NORM",
+      "questions": "Durante os ensaios e apresentações de projeto, é recomendado o uso exclusivo de dados fictícios [NAME].",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "O uso de dados fictícios evita o vazamento de informações reais e confidenciais durante demonstrações públicas."
+    }
+  ]
+}
