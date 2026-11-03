@@ -141,6 +141,20 @@ button.secondary {
   border: 1px solid rgba(126, 202, 255, 0.25);
 }
 
+button.perigo {
+  color: #ffd9d9;
+  background: rgba(255, 123, 123, 0.12);
+  border: 1px solid rgba(255, 123, 123, 0.6);
+}
+
+.acoes-aula {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;

@@ -7,7 +7,7 @@ import worker from '../src/index.js';
 import { resetKeyCache } from '../src/auth.js';
 import { buildLesson, buildPrompt } from '../src/gemini.js';
 import { expectedLayout, findDuplicate, validateLesson } from '../src/lesson-validator.js';
-import { appendLessonText, insertLesson, processQueue } from '../scripts/publicar-fila.mjs';
+import { appendLessonText, insertLesson, processDeletions, processQueue, removeLesson } from '../scripts/publicar-fila.mjs';
 
 function rawQuestion(entry, i) {
   const base = { type: entry.type, topics: entry.topic, questions: `[NAME], qual é o conceito ${i}?`, tip: `Dica ${i}.` };
@@ -145,6 +145,50 @@ test('a fila publica a aula válida e guarda o motivo da recusada', () => {
   fs.rmSync(root, { recursive: true, force: true });
 });
 
+test('excluir devolve o arquivo exatamente como era antes de inserir', () => {
+  const real = fs.readFileSync(new URL('../../sst/lessons/course-data.json', import.meta.url), 'utf8');
+  const withLesson = insertLesson(real, validLesson());
+  assert.equal(removeLesson(withLesson, 'aula-900'), real);
+
+  // Com "}" e aspas dentro do texto da aula, e em outras posições da lista.
+  const tricky = validLesson(10, '901');
+  tricky.questions[0].questions = 'Use a chave } e as aspas " aqui';
+  const both = insertLesson(withLesson, tricky);
+  assert.equal(removeLesson(both, 'aula-901'), withLesson);
+  const before = JSON.parse(real.replace(/^﻿/, ''));
+  const middleRemoved = JSON.parse(removeLesson(both, 'aula-900').replace(/^﻿/, ''));
+  assert.deepEqual(middleRemoved.lessons.slice(0, -1), before.lessons);
+  assert.equal(middleRemoved.lessons.at(-1).slug, 'aula-901');
+  assert.throws(() => removeLesson(real, 'aula-900'), /não foi encontrada/);
+});
+
+test('a exclusão só vale para aulas publicadas pelo importador', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'exclusao-'));
+  const dir = (name) => path.join(root, name);
+  fs.mkdirSync(dir('sst/lessons'), { recursive: true });
+  fs.mkdirSync(dir('.importador/fila'), { recursive: true });
+  const course = dir('sst/lessons/course-data.json');
+  const original = JSON.stringify({ lessons: [{ slug: 'aula-1', lesson_info: { id: 'Aula-1' }, questions: [] }] }, null, 2);
+  fs.writeFileSync(course, original);
+
+  fs.writeFileSync(dir('.importador/fila/aula-900.json'), JSON.stringify(validLesson()));
+  assert.deepEqual(processQueue(root).publicadas, ['aula-900']);
+  assert.ok(fs.existsSync(dir('.importador/publicadas/aula-900.json')));
+
+  fs.mkdirSync(dir('.importador/exclusao'), { recursive: true });
+  fs.writeFileSync(dir('.importador/exclusao/aula-1.json'), '{}');
+  assert.deepEqual(processDeletions(root), { excluidas: [], naoExcluidas: ['aula-1'] });
+  assert.match(JSON.parse(fs.readFileSync(dir('.importador/erros/aula-1.json'), 'utf8')).erro, /publicadas pelo importador/);
+  assert.equal(JSON.parse(fs.readFileSync(course, 'utf8')).lessons.length, 2);
+
+  fs.writeFileSync(dir('.importador/exclusao/aula-900.json'), '{}');
+  assert.deepEqual(processDeletions(root), { excluidas: ['aula-900'], naoExcluidas: [] });
+  assert.equal(fs.readFileSync(course, 'utf8'), original);
+  assert.ok(!fs.existsSync(dir('.importador/publicadas/aula-900.json')));
+  assert.deepEqual(fs.readdirSync(dir('.importador/exclusao')), []);
+  fs.rmSync(root, { recursive: true, force: true });
+});
+
 // ---- Worker, com login e serviços externos simulados ----
 const b64 = (value) => Buffer.from(value).toString('base64url');
 const { privateKey, publicKey } = await crypto.subtle.generateKey(
@@ -201,8 +245,8 @@ function sse(text, finishReason = 'STOP', extra = []) {
     { candidates: [{ finishReason, content: { parts: [{ text: text.slice(middle) }] } }] },
     ...extra
   ];
-  const bytes = new TextEncoder().encode(events.map((event) => `data: ${JSON.stringify(event)}
-
+  const bytes = new TextEncoder().encode(events.map((event) => `data: ${JSON.stringify(event)}
+
 `).join(''));
   return new Response(new ReadableStream({
     start(controller) {
@@ -325,6 +369,31 @@ test('/publicacao informa fila, erro e publicada', async () => {
   withFetch(() => new Response('', { status: 404 }));
   assert.equal((await get('/publicacao/aula-900')).json.estado, 'publicada');
   assert.equal((await get('/publicacao/..%2Fsegredo')).status, 404);
+});
+
+test('/excluir exige login, recusa aulas antigas e grava só o pedido', async () => {
+  const token = await signToken();
+  let calls = withFetch(() => { throw new Error('não deveria chamar o GitHub'); });
+  assert.equal((await call('/excluir', { body: { slug: 'aula-900' } })).status, 401);
+  assert.equal((await call('/excluir', { body: { slug: 'aula-900' }, token: await signToken({ email: 'intruso@exemplo.com' }) })).status, 403);
+  assert.equal((await call('/excluir', { body: { slug: '../segredo' }, token })).status, 400);
+  assert.ok(calls.every((c) => c.url.includes('securetoken')));
+
+  calls = withFetch(() => new Response('', { status: 404 }));
+  const old = await call('/excluir', { body: { slug: 'aula-11' }, token });
+  assert.equal(old.status, 403);
+  assert.ok(!calls.some((c) => c.init.method === 'PUT'), 'aula antiga não gera pedido');
+
+  calls = withFetch((url, init) => (init.method === 'PUT' ? Response.json({}, { status: 201 }) : Response.json({})));
+  assert.equal((await call('/excluir', { body: { slug: 'aula-900' }, token })).status, 202);
+  const put = calls.find((c) => c.init.method === 'PUT');
+  assert.ok(put.url.endsWith('/contents/.importador/exclusao/aula-900.json'));
+  assert.equal(JSON.parse(put.init.body).branch, 'teste');
+
+  withFetch(() => Response.json({}));
+  assert.equal((await call('/exclusao/aula-900', { method: 'GET', token })).json.estado, 'fila');
+  withFetch(() => new Response('', { status: 404 }));
+  assert.equal((await call('/exclusao/aula-900', { method: 'GET', token })).json.estado, 'excluida');
 });
 
 test('origem desconhecida não recebe CORS e rotas abertas são mínimas', async () => {

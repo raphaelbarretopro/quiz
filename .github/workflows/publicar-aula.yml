@@ -3,7 +3,7 @@ name: Publicar aula do importador
 on:
   push:
     branches: [main, novo-importador]
-    paths: ['.importador/fila/*.json']
+    paths: ['.importador/fila/*.json', '.importador/exclusao/*.json']
 
 permissions:
   contents: write
@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 22
 
-      - name: Inserir aulas da fila
+      - name: Processar inclusões e exclusões
         id: fila
         run: node importador-worker/scripts/publicar-fila.mjs
 

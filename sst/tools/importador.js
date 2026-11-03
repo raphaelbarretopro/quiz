@@ -26,6 +26,7 @@ const TYPE_LABELS = {
 const $ = (id) => document.getElementById(id);
 let lesson = null;
 let pollTimer = null;
+let publishedSlug = null;
 
 function el(tag, props = {}, ...children) {
   const node = document.createElement(tag);
@@ -395,7 +396,9 @@ function watchPublication(slug, startedAt) {
       const result = await api(`/publicacao/${slug}`);
       if (result.estado === 'publicada') {
         setStatus(status, 'Aula inserida no curso! O site pode levar mais alguns minutos para atualizar.', 'sucesso');
+        publishedSlug = slug;
         $('link-aula').href = `../core/index.html?cod=${encodeURIComponent(slug)}`;
+        $('btn-excluir').disabled = false;
         $('resultado-link').hidden = false;
         $('btn-nova').hidden = false;
         return;
@@ -415,6 +418,60 @@ function watchPublication(slug, startedAt) {
       return;
     }
     watchPublication(slug, startedAt);
+  }, POLL_INTERVAL_MS);
+}
+
+// ---- Exclusão ----
+async function handleDelete() {
+  const slug = publishedSlug;
+  if (!slug) return;
+  if (!window.confirm(`Excluir a aula ${slug} do curso? Essa ação remove a aula do quiz.`)) return;
+
+  const status = $('resultado-status');
+  $('btn-excluir').disabled = true;
+  $('btn-nova').hidden = true;
+
+  try {
+    await api('/excluir', { method: 'POST', body: JSON.stringify({ slug }) });
+  } catch (error) {
+    setStatus(status, error.message, 'erro');
+    $('btn-excluir').disabled = false;
+    $('btn-nova').hidden = false;
+    return;
+  }
+
+  setStatus(status, 'Excluindo a aula do curso, o que costuma levar 1 a 2 minutos.', 'andamento');
+  watchDeletion(slug, Date.now());
+}
+
+function watchDeletion(slug, startedAt) {
+  const status = $('resultado-status');
+  pollTimer = setTimeout(async () => {
+    try {
+      const result = await api(`/exclusao/${slug}`);
+      if (result.estado === 'excluida') {
+        setStatus(status, 'Aula excluída do curso. O site pode levar mais alguns minutos para atualizar.', 'sucesso');
+        publishedSlug = null;
+        $('resultado-link').hidden = true;
+        $('btn-nova').hidden = false;
+        return;
+      }
+      if (result.estado === 'erro') {
+        setStatus(status, `A aula não foi excluída: ${result.mensagem}`, 'erro');
+        $('btn-excluir').disabled = false;
+        $('btn-nova').hidden = false;
+        return;
+      }
+    } catch (error) {
+      console.error('Falha ao consultar a exclusão:', error.message);
+    }
+
+    if (Date.now() - startedAt > POLL_LIMIT_MS) {
+      setStatus(status, 'A exclusão está demorando mais que o normal. Confira o course-data no GitHub.', 'andamento');
+      $('btn-nova').hidden = false;
+      return;
+    }
+    watchDeletion(slug, startedAt);
   }, POLL_INTERVAL_MS);
 }
 
@@ -446,7 +503,9 @@ $('btn-gerar').addEventListener('click', handleGenerate);
 $('btn-publicar').addEventListener('click', handlePublish);
 $('revisado').addEventListener('change', refreshValidation);
 $('btn-gerar-novamente').addEventListener('click', backToForm);
+$('btn-excluir').addEventListener('click', handleDelete);
 $('btn-nova').addEventListener('click', () => {
+  publishedSlug = null;
   $('resultado-link').hidden = true;
   $('btn-nova').hidden = true;
   $('numero').value = '';

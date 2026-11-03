@@ -227,7 +227,7 @@ async function readStream(response) {
   return { text: state.parts.join(''), finishReason: state.finishReason };
 }
 
-async function callModel(model, params, env) {
+async function callModel(model, requestBody, env) {
   // A resposta chega aos poucos; esperar em silêncio derruba a conexão por volta de 2 minutos.
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`;
 
@@ -236,16 +236,7 @@ async function callModel(model, params, env) {
     response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
-        contents: [{ role: 'user', parts: [{ text: buildPrompt(params) }] }],
-        generationConfig: {
-          temperature: 0.4,
-          maxOutputTokens: 32768,
-          responseMimeType: 'application/json',
-          responseSchema: RESPONSE_SCHEMA
-        }
-      }),
+      body: requestBody,
       signal: AbortSignal.timeout(TIMEOUT_MS)
     });
   } catch (error) {
@@ -285,12 +276,23 @@ async function callModel(model, params, env) {
 export async function generateQuiz(params, env) {
   const models = [env.GEMINI_MODEL, env.GEMINI_FALLBACK_MODEL].filter(Boolean);
   const delay = Number(env.GEMINI_RETRY_DELAY_MS ?? RETRY_DELAY_MS);
+  // Montado uma única vez para não repetir esse trabalho de CPU a cada tentativa.
+  const requestBody = JSON.stringify({
+    systemInstruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+    contents: [{ role: 'user', parts: [{ text: buildPrompt(params) }] }],
+    generationConfig: {
+      temperature: 0.4,
+      maxOutputTokens: 32768,
+      responseMimeType: 'application/json',
+      responseSchema: RESPONSE_SCHEMA
+    }
+  });
   let lastError;
 
   for (const model of models) {
     for (let attempt = 1; attempt <= ATTEMPTS_PER_MODEL; attempt += 1) {
       try {
-        const result = await callModel(model, params, env);
+        const result = await callModel(model, requestBody, env);
         console.log('Gemini concluiu com o modelo', model);
         return result;
       } catch (error) {

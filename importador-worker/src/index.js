@@ -9,6 +9,9 @@ const MIN_TEXT_CHARS = 200;
 const MAX_NAME_CHARS = 150;
 const QUEUE_DIR = '.importador/fila';
 const ERRORS_DIR = '.importador/erros';
+const PUBLISHED_DIR = '.importador/publicadas';
+const DELETE_DIR = '.importador/exclusao';
+const SLUG_PATTERN = 'aula-[a-z0-9]+(?:-[a-z0-9]+)*';
 
 class HttpError extends Error {
   constructor(status, message) {
@@ -109,10 +112,43 @@ async function handlePublish(request, env) {
   return Response.json({ ok: true, slug: lesson.slug }, { status: 202 });
 }
 
-async function handleStatus(slug, env) {
+async function handleDelete(request, env) {
+  const body = await readJson(request);
+  const slug = String(body?.slug ?? '');
+  if (!new RegExp(`^${SLUG_PATTERN}$`).test(slug)) throw new HttpError(400, 'Aula inválida.');
+
+  const ref = `?ref=${encodeURIComponent(env.PUBLISH_BRANCH)}`;
+  const published = await githubFetch(env, `${PUBLISHED_DIR}/${slug}.json${ref}`);
+  if (published.status === 404) throw new HttpError(403, 'Só é possível excluir aulas publicadas pelo importador.');
+  if (!published.ok) {
+    console.error('GitHub falhou ao conferir a aula:', published.status);
+    throw new HttpError(502, 'Não foi possível conferir a aula agora. Tente novamente.');
+  }
+
+  const response = await githubFetch(env, `${DELETE_DIR}/${slug}.json`, {
+    method: 'PUT',
+    body: JSON.stringify({
+      message: `Importador: pede a exclusão de ${slug}`,
+      content: Buffer.from(`${JSON.stringify({ slug })}\n`, 'utf8').toString('base64'),
+      branch: env.PUBLISH_BRANCH
+    })
+  });
+
+  if (response.status === 422 || response.status === 409) {
+    throw new HttpError(409, 'A exclusão dessa aula já está em andamento.');
+  }
+  if (!response.ok) {
+    console.error('GitHub recusou a exclusão:', response.status);
+    throw new HttpError(502, 'Não foi possível pedir a exclusão. Tente novamente.');
+  }
+
+  return Response.json({ ok: true, slug }, { status: 202 });
+}
+
+async function handleStatus(slug, env, queueDir, finalState) {
   const ref = `?ref=${encodeURIComponent(env.PUBLISH_BRANCH)}`;
 
-  const queued = await githubFetch(env, `${QUEUE_DIR}/${slug}.json${ref}`);
+  const queued = await githubFetch(env, `${queueDir}/${slug}.json${ref}`);
   if (queued.ok) return Response.json({ estado: 'fila' });
 
   const failed = await githubFetch(env, `${ERRORS_DIR}/${slug}.json${ref}`);
@@ -126,7 +162,7 @@ async function handleStatus(slug, env) {
     console.error('GitHub falhou ao consultar a fila:', queued.status, failed.status);
     throw new HttpError(502, 'Não foi possível consultar a publicação agora.');
   }
-  return Response.json({ estado: 'publicada' });
+  return Response.json({ estado: finalState });
 }
 
 async function route(request, env) {
@@ -136,16 +172,20 @@ async function route(request, env) {
     return Response.json({ ok: true });
   }
 
-  const statusMatch = pathname.match(/^\/publicacao\/(aula-[a-z0-9]+(?:-[a-z0-9]+)*)$/);
+  const statusMatch = pathname.match(new RegExp(`^/(publicacao|exclusao)/(${SLUG_PATTERN})$`));
   const isGenerate = pathname === '/gerar' && request.method === 'POST';
   const isPublish = pathname === '/publicar' && request.method === 'POST';
+  const isDelete = pathname === '/excluir' && request.method === 'POST';
   const isStatus = Boolean(statusMatch) && request.method === 'GET';
-  if (!isGenerate && !isPublish && !isStatus) throw new HttpError(404, 'Rota não encontrada.');
+  if (!isGenerate && !isPublish && !isDelete && !isStatus) throw new HttpError(404, 'Rota não encontrada.');
 
   const teacher = await requireTeacher(request, env);
   if (isGenerate) return handleGenerate(request, env, teacher);
   if (isPublish) return handlePublish(request, env);
-  return handleStatus(statusMatch[1], env);
+  if (isDelete) return handleDelete(request, env);
+  return statusMatch[1] === 'publicacao'
+    ? handleStatus(statusMatch[2], env, QUEUE_DIR, 'publicada')
+    : handleStatus(statusMatch[2], env, DELETE_DIR, 'excluida');
 }
 
 export default {
