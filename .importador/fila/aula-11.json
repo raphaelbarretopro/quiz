@@ -1,0 +1,168 @@
+{
+  "slug": "aula-11",
+  "lesson_info": {
+    "id": "Aula-11",
+    "title": "AULA 11 - TESTE DE PUBLICACAO",
+    "topics": [
+      {
+        "id": "ACID",
+        "name": "TOPICO ACID",
+        "desc": "Desc ACID",
+        "color": "#e63946",
+        "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "AGEN",
+        "name": "TOPICO AGEN",
+        "desc": "Desc AGEN",
+        "color": "#f4a300",
+        "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "PROT",
+        "name": "TOPICO PROT",
+        "desc": "Desc PROT",
+        "color": "#2077b4",
+        "img_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "NORM",
+        "name": "TOPICO NORM",
+        "desc": "Desc NORM",
+        "color": "#27ae60",
+        "img_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1600"
+      }
+    ],
+    "sokoban": [
+      "R",
+      "E",
+      "D",
+      "E"
+    ]
+  },
+  "questions": [
+    {
+      "type": "multiple",
+      "topics": "ACID",
+      "questions": "[NAME], conceito de teste 0?",
+      "answers": [
+        "Certa",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "correct": "Certa",
+      "tip": "Dica 0"
+    },
+    {
+      "type": "boolean",
+      "topics": "ACID",
+      "questions": "[NAME], conceito de teste 1?",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "Dica 1"
+    },
+    {
+      "type": "combo",
+      "topics": "ACID",
+      "questions": "Conceito 2 é [COMBO].",
+      "options": [
+        "Certa",
+        "E1",
+        "E2"
+      ],
+      "correct": "Certa",
+      "tip": "Dica 2",
+      "trans": "AGEN"
+    },
+    {
+      "type": "multiple",
+      "topics": "AGEN",
+      "questions": "[NAME], conceito de teste 3?",
+      "answers": [
+        "Certa",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "correct": "Certa",
+      "tip": "Dica 3"
+    },
+    {
+      "type": "boolean",
+      "topics": "AGEN",
+      "questions": "[NAME], conceito de teste 4?",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "Dica 4"
+    },
+    {
+      "type": "combo",
+      "topics": "AGEN",
+      "questions": "Conceito 5 é [COMBO].",
+      "options": [
+        "Certa",
+        "E1",
+        "E2"
+      ],
+      "correct": "Certa",
+      "tip": "Dica 5",
+      "trans": "PROT"
+    },
+    {
+      "type": "multiple",
+      "topics": "PROT",
+      "questions": "[NAME], conceito de teste 6?",
+      "answers": [
+        "Certa",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "correct": "Certa",
+      "tip": "Dica 6"
+    },
+    {
+      "type": "boolean",
+      "topics": "PROT",
+      "questions": "[NAME], conceito de teste 7?",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "Dica 7",
+      "trans": "NORM"
+    },
+    {
+      "type": "multiple",
+      "topics": "NORM",
+      "questions": "[NAME], conceito de teste 8?",
+      "answers": [
+        "Certa",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "correct": "Certa",
+      "tip": "Dica 8"
+    },
+    {
+      "type": "boolean",
+      "topics": "NORM",
+      "questions": "[NAME], conceito de teste 9?",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "Dica 9"
+    }
+  ]
+}
