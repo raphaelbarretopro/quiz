@@ -39,9 +39,11 @@ export function normalizeRankingId(value) {
 }
 
 // N questões em 4 blocos seguidos; os tipos reiniciam o ciclo em cada bloco.
+// Em blocos menores que o ciclo, ele continua entre os blocos para que todos os tipos apareçam.
 export function expectedLayout(total) {
   const base = Math.floor(total / TOPIC_IDS.length);
   const rest = total % TOPIC_IDS.length;
+  const restartCycle = base >= TYPE_CYCLE.length;
   const layout = [];
 
   TOPIC_IDS.forEach((topic, topicIndex) => {
@@ -51,7 +53,7 @@ export function expectedLayout(total) {
       const next = TOPIC_IDS[topicIndex + 1];
       layout.push({
         topic,
-        type: TYPE_CYCLE[i % TYPE_CYCLE.length],
+        type: TYPE_CYCLE[(restartCycle ? i : layout.length) % TYPE_CYCLE.length],
         trans: isLastOfBlock && next ? next : undefined
       });
     }

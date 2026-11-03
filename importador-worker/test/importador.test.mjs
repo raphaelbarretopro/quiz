@@ -38,6 +38,15 @@ test('o layout segue as regras do prompt oficial', () => {
   assert.equal(layout[11].type, 'multiple');
 });
 
+test('todos os tipos aparecem em qualquer quantidade permitida', () => {
+  for (const total of [10, 20, 30, 40, 50]) {
+    const types = new Set(expectedLayout(total).map((entry) => entry.type));
+    assert.equal(types.size, 5, `total ${total}`);
+  }
+  assert.deepEqual(expectedLayout(10).map((entry) => entry.type).slice(0, 5), ['multiple', 'boolean', 'combo', 'multi', 'drag']);
+  assert.equal(expectedLayout(20)[5].type, 'multiple');
+});
+
 test('a aula montada é válida, com título e identificadores corretos', () => {
   for (const total of [10, 20, 30, 40, 50]) {
     const lesson = validLesson(total);
