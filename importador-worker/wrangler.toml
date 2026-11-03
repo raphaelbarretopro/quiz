@@ -1,0 +1,20 @@
+name = "quiz-importador"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+FIREBASE_PROJECT_ID = "quiz-sst"
+GITHUB_REPO = "raphaelbarretopro/quiz"
+PUBLISH_BRANCH = "main"
+GEMINI_MODEL = "gemini-3.8-flash"
+GEMINI_FALLBACK_MODEL = "gemini-3.6-flash"
+ALLOWED_ORIGINS = "https://raphaelbarretopro.github.io"
+
+[[ratelimits]]
+name = "LIMITE_GERACAO"
+namespace_id = "1001"
+simple = { limit = 4, period = 60 }
+
+[observability]
+enabled = true

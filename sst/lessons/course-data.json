@@ -8754,7 +8754,7 @@
             "Um conflito entre membros de uma equipe",
             "Qualquer tarefa que exija cálculos matemáticos"
           ],
-          "correct": "A diferença entre a situation atual e a situação desejada",
+          "correct": "A diferença entre a situação atual e a situação desejada",
           "tip": "Um problema surge quando há uma lacuna (gap) entre o estado real e o estado ideal esperado."
         },
         {
@@ -31329,7 +31329,7 @@
             "Caminho web HTTP",
             "Atalho na área de trabalho"
           ],
-          "correct": "Caminho UNC de rede (ex: \\\\Server\\img)",
+          "correct": "Caminho de rede (ex: \\\\Server\\img)",
           "tip": "Caminhos locais não funcionam porque cada máquina cliente tentaria buscar a imagem em seu próprio disco C:."
         },
         {
@@ -40519,7 +40519,7 @@
           "correct": [
             "Facilitar o trabalho em equipe",
             "Criar memória técnica",
-            "Instruções inline"
+            "Inserir instruções inline"
           ],
           "tip": "Documentação eficiente é crucial para que outros usuários entendam a lógica aplicada."
         },
@@ -48491,12 +48491,12 @@
           "topics": "NORM",
           "questions": "[NAME], baseando-se no Desafio 06, qual é o operador matemático em Python para calcular uma potenciação, que quando elevado a 0.5 (1/2) entrega a Raiz Quadrada?",
           "answers": [
-            "",
+            "**",
             "//",
             "%",
             "^"
           ],
-          "correct": "",
+          "correct": "**",
           "tip": "Diferente de outras linguagens que usam circunflexo (^), Python utiliza duplo asterisco para potências."
         },
         {
@@ -48763,12 +48763,12 @@
           "topics": "OPER",
           "questions": "Para exponenciação de base e expoente, utiliza-se o operador [COMBO] no Python.",
           "options": [
-            "",
+            "**",
             "//",
             "%",
             "pow"
           ],
-          "correct": "",
+          "correct": "**",
           "tip": "O operador  calcula a potência."
         },
         {
@@ -50657,7 +50657,7 @@
             "Ignore todas as variáveis",
             "Pare de funcionar"
           ],
-          "correct": "Tome decisions e execute blocos diferentes",
+          "correct": "Tome decisões e execute blocos diferentes",
           "tip": "É como um GPS escolhendo o melhor caminho baseado no trânsito!"
         },
         {
@@ -50858,12 +50858,11 @@
           "topics": "ACID",
           "questions": "Qual símbolo é utilizado para verificar igualdade em uma condição no Python?",
           "answers": [
-            "",
-            "=",
+            "==",
             "=",
             "!="
           ],
-          "correct": "",
+          "correct": "==",
           "tip": "Um sinal de '=' atribui valor. Dois sinais '' fazem a pergunta: 'é igual a?'.",
           "trans": "AGEN"
         },
@@ -51842,7 +51841,7 @@
             "default:",
             "break:"
           ],
-          "correct": "case :",
+          "correct": "case _:",
           "tip": "O underline () funciona como o nosso velho amigo 'else'."
         },
         {

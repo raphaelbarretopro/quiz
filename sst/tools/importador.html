@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com https://apis.google.com; connect-src 'self' https://quiz-importador.importador-worker.workers.dev https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://www.gstatic.com; frame-src https://quiz-sst.firebaseapp.com https://accounts.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; worker-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Importador de Aulas - Quiz Gamificado</title>
+  <link rel="stylesheet" href="importador.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <h1>Importador de Aulas</h1>
+      <p>Envie o material da aula, gere as questões com IA, revise e publique no quiz.</p>
+      <p id="usuario" class="hint" hidden></p>
+    </header>
+
+    <section id="etapa-login" class="panel">
+      <h2>Entre para começar</h2>
+      <p>O importador é restrito a professores autorizados.</p>
+      <button id="btn-login" type="button">Entrar com Google</button>
+    </section>
+
+    <div id="area-trabalho" hidden>
+      <section id="etapa-rascunho" class="panel aviso" hidden>
+        <h2>Revisão não concluída</h2>
+        <p id="rascunho-texto"></p>
+        <div class="actions">
+          <button id="btn-retomar" type="button">Retomar revisão</button>
+          <button id="btn-descartar" type="button" class="secondary">Descartar</button>
+        </div>
+      </section>
+
+      <section id="etapa-dados" class="panel">
+        <h2>1. Dados da aula</h2>
+        <div class="grid-dados">
+          <div>
+            <label for="numero">Número da aula</label>
+            <input id="numero" type="text" placeholder="Ex.: 109" autocomplete="off" maxlength="30">
+          </div>
+          <div class="campo-nome">
+            <label for="nome">Nome da aula</label>
+            <input id="nome" type="text" placeholder="Ex.: Fundamentos de redes" autocomplete="off" maxlength="150">
+          </div>
+          <div>
+            <label for="total">Questões</label>
+            <select id="total">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50" selected>50</option>
+            </select>
+          </div>
+          <div>
+            <label for="nivel">Dificuldade</label>
+            <select id="nivel">
+              <option value="Fácil">Fácil</option>
+              <option value="Médio" selected>Médio</option>
+              <option value="Difícil">Difícil</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section id="etapa-material" class="panel">
+        <h2>2. Material da aula</h2>
+        <label for="arquivo">Envie um arquivo PDF, DOCX ou TXT</label>
+        <input id="arquivo" type="file" accept=".pdf,.docx,.txt,application/pdf,text/plain,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+        <p id="arquivo-status" class="hint" role="status"></p>
+
+        <label for="texto">Ou cole o texto aqui. O texto extraído aparece neste campo para você conferir.</label>
+        <textarea id="texto" spellcheck="false" placeholder="O conteúdo da aula aparecerá aqui."></textarea>
+        <p id="contador" class="hint">0 caracteres</p>
+        <p class="hint">Não envie dados pessoais de alunos. No plano gratuito do Gemini, o Google pode usar o conteúdo enviado para melhorar os produtos.</p>
+
+        <div class="actions">
+          <button id="btn-gerar" type="button">Gerar questões</button>
+        </div>
+        <p id="gerar-status" class="status" role="status" hidden></p>
+      </section>
+
+      <section id="etapa-revisao" class="panel" hidden>
+        <h2>3. Revise antes de publicar</h2>
+        <p>A IA pode errar. Confira as respostas e ajuste o que precisar.</p>
+        <div id="dados-revisao"></div>
+        <div id="questoes"></div>
+
+        <div id="painel-publicar" class="painel-publicar">
+          <ul id="erros" class="erros" hidden></ul>
+          <label class="checkbox-row">
+            <input id="revisado" type="checkbox">
+            Revisei as questões e confirmo a publicação
+          </label>
+          <div class="actions">
+            <button id="btn-publicar" type="button" disabled>Publicar aula</button>
+            <button id="btn-gerar-novamente" type="button" class="secondary">Voltar e gerar novamente</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="etapa-resultado" class="panel" hidden>
+        <h2>4. Publicação</h2>
+        <p id="resultado-status" class="status" role="status"></p>
+        <div id="resultado-link" class="acoes-aula" hidden>
+          <a id="link-aula" target="_blank" rel="noopener">Abrir a aula</a>
+          <button id="btn-excluir" type="button" class="perigo">Excluir aula</button>
+        </div>
+        <div class="actions">
+          <button id="btn-nova" type="button" class="secondary" hidden>Importar outra aula</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="importador.js"></script>
+</body>
+</html>
