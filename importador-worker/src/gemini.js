@@ -205,7 +205,11 @@ export async function generateQuiz(params, env) {
   }
 
   if (!response.ok) {
-    console.error('Gemini respondeu com erro:', response.status);
+    const details = await response.json().catch(() => null);
+    console.error('Gemini respondeu com erro:', response.status, details?.error?.status, String(details?.error?.message ?? '').slice(0, 400));
+    if (response.status === 401 || response.status === 403) {
+      throw new GeminiError(502, 'O Gemini recusou a chave de API configurada no servidor.');
+    }
     if (response.status === 429) {
       throw new GeminiError(429, 'A cota gratuita do Gemini acabou por enquanto. Tente mais tarde; a cota diária renova à meia-noite no horário do Pacífico.');
     }
