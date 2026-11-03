@@ -8,6 +8,7 @@ FIREBASE_PROJECT_ID = "quiz-sst"
 GITHUB_REPO = "raphaelbarretopro/quiz"
 PUBLISH_BRANCH = "novo-importador"
 GEMINI_MODEL = "gemini-3.8-flash"
+GEMINI_FALLBACK_MODEL = "gemini-3.6-flash"
 ALLOWED_ORIGINS = "https://raphaelbarretopro.github.io,http://localhost:5500,http://127.0.0.1:5500"
 
 [[ratelimits]]

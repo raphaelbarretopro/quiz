@@ -1,6 +1,8 @@
 import { TOPIC_IDS, TYPE_CYCLE, expectedLayout, lessonId, lessonSlug, lessonTitle } from './lesson-validator.js';
 
 const TIMEOUT_MS = 170000;
+const ATTEMPTS_PER_MODEL = 2;
+const RETRY_DELAY_MS = 4000;
 const TOPIC_COLORS = ['#e63946', '#f4a300', '#2077b4', '#27ae60'];
 // Imagens já usadas nas aulas e conferidas; a IA não escolhe URLs para evitar links inexistentes.
 const TOPIC_IMAGES = [
@@ -15,9 +17,10 @@ const TOPIC_IMAGES = [
 ].map((photo) => `https://images.unsplash.com/${photo}?auto=format&fit=crop&q=80&w=1600`);
 
 export class GeminiError extends Error {
-  constructor(status, message) {
+  constructor(status, message, retryable = false) {
     super(message);
     this.status = status;
+    this.retryable = retryable;
   }
 }
 
@@ -179,8 +182,8 @@ export function buildLesson(generated, { numero, nome }) {
   };
 }
 
-export async function generateQuiz(params, env) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${env.GEMINI_MODEL}:generateContent`;
+async function callModel(model, params, env) {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
 
   let response;
   try {
@@ -213,6 +216,9 @@ export async function generateQuiz(params, env) {
     if (response.status === 429) {
       throw new GeminiError(429, 'A cota gratuita do Gemini acabou por enquanto. Tente mais tarde; a cota diária renova à meia-noite no horário do Pacífico.');
     }
+    if (response.status === 500 || response.status === 503) {
+      throw new GeminiError(503, 'O Gemini está sobrecarregado agora. Tente de novo em alguns minutos.', true);
+    }
     throw new GeminiError(502, 'O Gemini não conseguiu processar o pedido. Tente novamente.');
   }
 
@@ -229,4 +235,29 @@ export async function generateQuiz(params, env) {
     console.error('Resposta do Gemini fora do formato. finishReason:', candidate?.finishReason);
     throw new GeminiError(502, 'O Gemini devolveu uma resposta fora do formato esperado. Tente novamente.');
   }
+}
+
+// Sobrecarga costuma ser passageira: repete e, se preciso, tenta o modelo reserva.
+export async function generateQuiz(params, env) {
+  const models = [env.GEMINI_MODEL, env.GEMINI_FALLBACK_MODEL].filter(Boolean);
+  const delay = Number(env.GEMINI_RETRY_DELAY_MS ?? RETRY_DELAY_MS);
+  let lastError;
+
+  for (const model of models) {
+    for (let attempt = 1; attempt <= ATTEMPTS_PER_MODEL; attempt += 1) {
+      try {
+        const result = await callModel(model, params, env);
+        console.log('Gemini concluiu com o modelo', model);
+        return result;
+      } catch (error) {
+        if (!error.retryable) throw error;
+        lastError = error;
+        console.error('Gemini indisponível no modelo', model, 'tentativa', attempt);
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+    }
+  }
+
+  console.error('Gemini esgotou as tentativas');
+  throw lastError;
 }

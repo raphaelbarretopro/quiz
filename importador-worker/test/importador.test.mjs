@@ -159,7 +159,8 @@ async function signToken(overrides = {}, key = privateKey) {
 const env = {
   FIREBASE_PROJECT_ID: 'quiz-sst', ALLOWED_EMAILS: 'outro@exemplo.com, Professor@exemplo.com',
   ALLOWED_ORIGINS: 'https://raphaelbarretopro.github.io', GITHUB_REPO: 'dono/quiz', PUBLISH_BRANCH: 'teste',
-  GEMINI_MODEL: 'modelo', GEMINI_API_KEY: 'CHAVE-SECRETA', GITHUB_TOKEN: 'TOKEN-SECRETO'
+  GEMINI_MODEL: 'modelo', GEMINI_FALLBACK_MODEL: 'reserva', GEMINI_RETRY_DELAY_MS: 0,
+  GEMINI_API_KEY: 'CHAVE-SECRETA', GITHUB_TOKEN: 'TOKEN-SECRETO'
 };
 
 function withFetch(handler) {
@@ -225,6 +226,31 @@ test('/gerar trata entrada inválida, cota e resposta quebrada', async () => {
   for (const change of [{ numero: '../x' }, { nome: '' }, { total: 7 }, { nivel: 'x' }, { texto: 'curto' }, { texto: 'x'.repeat(400001) }]) {
     assert.ok((await call('/gerar', { body: { ...generateBody, ...change }, token })).status >= 400, JSON.stringify(Object.keys(change)));
   }
+});
+
+test('/gerar repete na sobrecarga, usa o modelo reserva e não repete outros erros', async () => {
+  const token = await signToken();
+  const success = () => Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: JSON.stringify(generated()) }] } }] });
+  const geminiCalls = (calls) => calls.filter((c) => c.url.includes('generativelanguage')).map((c) => c.url.match(/models\/(\w+):/)[1]);
+
+  let count = 0;
+  let calls = withFetch(() => { count += 1; return count === 1 ? new Response('', { status: 503 }) : success(); });
+  assert.equal((await call('/gerar', { body: generateBody, token })).status, 200);
+  assert.deepEqual(geminiCalls(calls), ['modelo', 'modelo']);
+
+  calls = withFetch((url) => (url.includes('reserva') ? success() : new Response('', { status: 503 })));
+  assert.equal((await call('/gerar', { body: generateBody, token })).status, 200);
+  assert.deepEqual(geminiCalls(calls), ['modelo', 'modelo', 'reserva']);
+
+  calls = withFetch(() => new Response('', { status: 503 }));
+  const exhausted = await call('/gerar', { body: generateBody, token });
+  assert.equal(exhausted.status, 503);
+  assert.match(exhausted.json.error, /sobrecarregado/);
+  assert.equal(geminiCalls(calls).length, 4);
+
+  calls = withFetch(() => new Response('{}', { status: 429 }));
+  assert.equal((await call('/gerar', { body: generateBody, token })).status, 429);
+  assert.equal(geminiCalls(calls).length, 1);
 });
 
 test('/publicar valida antes de enviar e grava só na fila', async () => {
