@@ -1,0 +1,974 @@
+{
+  "slug": "aula-996",
+  "lesson_info": {
+    "id": "Aula-996",
+    "title": "AULA 996 - TESTE",
+    "topics": [
+      {
+        "id": "ACID",
+        "name": "CONCEITOS DE API E VERBOS HTTP",
+        "desc": "Compreendimento dos fundamentos de APIs, endpoints e verbos de requisicao HTTP.",
+        "color": "#e63946",
+        "img_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "AGEN",
+        "name": "ESTRUTURA JSON E DADOS",
+        "desc": "Regras de sintaxe JSON e manipulacao de tipos de dados em integracoes.",
+        "color": "#f4a300",
+        "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "PROT",
+        "name": "API REST DO SHAREPOINT",
+        "desc": "Operacoes de consulta e escrita em listas utilizando requisicoes HTTP REST.",
+        "color": "#2077b4",
+        "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+      },
+      {
+        "id": "NORM",
+        "name": "TRATAMENTO DE ERROS E RAMIFICACAO",
+        "desc": "Gerenciamento de status code, configuracao de execucao e fluxos de excecao.",
+        "color": "#27ae60",
+        "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+      }
+    ],
+    "sokoban": [
+      "R",
+      "E",
+      "S",
+      "T"
+    ]
+  },
+  "questions": [
+    {
+      "type": "multiple",
+      "topics": "ACID",
+      "questions": "Apos analisar os verbos HTTP disponiveis, [NAME], qual metodo deve ser utilizado para atualizar parcialmente apenas uma propriedade especifica de um recurso existente?",
+      "answers": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "correct": "PATCH",
+      "tip": "O verbo PATCH e utilizado para modificacoes parciais em propriedades especificas de um recurso."
+    },
+    {
+      "type": "boolean",
+      "topics": "ACID",
+      "questions": "[NAME], a URI completa de uma API e composta unicamente pelo endereco base do servidor, sem incluir o caminho do recurso ou parametros de busca.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "A URI engloba todo o caminho ate o recurso e pode incluir parametros de filtro ou configuracao apos o caractere de interrogacao."
+    },
+    {
+      "type": "combo",
+      "topics": "ACID",
+      "questions": "[NAME], quando um cliente envia uma requisicao com erro de sintaxe ou parametros invalidos, o servidor retorna um codigo de status da faixa [COMBO].",
+      "options": [
+        "2xx",
+        "3xx",
+        "4xx",
+        "5xx"
+      ],
+      "correct": "4xx",
+      "tip": "Erros causados pelo cliente, como requisicoes malformatadas ou falta de permissao, pertencem a faixa 4xx."
+    },
+    {
+      "type": "multi",
+      "topics": "ACID",
+      "questions": "[NAME], quais dos seguintes verbos HTTP sao considerados adequados para modificacao ou exclusao de dados em um servidor via API REST?",
+      "answers": [
+        "POST",
+        "PATCH",
+        "DELETE",
+        "GET"
+      ],
+      "correct": [
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "tip": "GET e um metodo exclusivo de leitura, enquanto POST, PATCH e DELETE realizam alteracoes ou remocoes no servidor."
+    },
+    {
+      "type": "drag",
+      "topics": "ACID",
+      "questions": "[NAME], relacione os verbos HTTP com a respectiva finalidade no gerenciamento de recursos.",
+      "items": [
+        {
+          "id": "d1",
+          "txt": "GET",
+          "match": "z1"
+        },
+        {
+          "id": "d2",
+          "txt": "POST",
+          "match": "z2"
+        },
+        {
+          "id": "d3",
+          "txt": "PATCH",
+          "match": "z3"
+        },
+        {
+          "id": "d4",
+          "txt": "DELETE",
+          "match": "z4"
+        }
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "label": "Consultar dados"
+        },
+        {
+          "id": "z2",
+          "label": "Criar novo registro"
+        },
+        {
+          "id": "z3",
+          "label": "Atualizar parcialmente"
+        },
+        {
+          "id": "z4",
+          "label": "Remover registro"
+        }
+      ],
+      "correct": "drag",
+      "tip": "Cada verbo HTTP tem uma responsabilidade bem definida nas operacoes sobre recursos da API."
+    },
+    {
+      "type": "multiple",
+      "topics": "ACID",
+      "questions": "Um sistema tentou acessar um recurso inexistente na API e recebeu o codigo de status HTTP 404. O que esse codigo significa, [NAME]?",
+      "answers": [
+        "Sucesso na requisicao",
+        "Recurso nao encontrado",
+        "Erro interno no servidor",
+        "Requisicao nao autorizada"
+      ],
+      "correct": "Recurso nao encontrado",
+      "tip": "O codigo 404 indica que o recurso ou endpoint solicitado nao foi localizado no servidor."
+    },
+    {
+      "type": "boolean",
+      "topics": "ACID",
+      "questions": "O codigo de status 201 Created indica que a requisicao HTTP foi bem-sucedida e resultou na criacao de um novo recurso no servidor.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "O status 201 e retornado especificamente quando um novo recurso e criado com sucesso via POST."
+    },
+    {
+      "type": "combo",
+      "topics": "ACID",
+      "questions": "Ao estruturar uma requisicao HTTP, o ponto especifico de conexao exposto pela API para acessar um recurso e denominado [COMBO].",
+      "options": [
+        "Endpoint",
+        "Parametro",
+        "Cabecalho",
+        "Payload"
+      ],
+      "correct": "Endpoint",
+      "tip": "Endpoint e o caminho relativo fornecido pela API para interagir com um recurso especifico."
+    },
+    {
+      "type": "multi",
+      "topics": "ACID",
+      "questions": "Quais das seguintes faixas de codigo de status HTTP representam respostas de falha ou erro, [NAME]?",
+      "answers": [
+        "2xx",
+        "4xx",
+        "5xx",
+        "1xx"
+      ],
+      "correct": [
+        "4xx",
+        "5xx"
+      ],
+      "tip": "A faixa 4xx representa erro do cliente e a faixa 5xx indica falha interna no lado do servidor."
+    },
+    {
+      "type": "drag",
+      "topics": "ACID",
+      "questions": "Relacione os codigos de status HTTP com sua descricao correspondente.",
+      "items": [
+        {
+          "id": "d1",
+          "txt": "200 OK",
+          "match": "z1"
+        },
+        {
+          "id": "d2",
+          "txt": "201 Created",
+          "match": "z2"
+        },
+        {
+          "id": "d3",
+          "txt": "401 Unauthorized",
+          "match": "z3"
+        },
+        {
+          "id": "d4",
+          "txt": "500 Internal Server Error",
+          "match": "z4"
+        }
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "label": "Requisicao executada com sucesso"
+        },
+        {
+          "id": "z2",
+          "label": "Novo recurso criado com sucesso"
+        },
+        {
+          "id": "z3",
+          "label": "Falha de autenticacao do cliente"
+        },
+        {
+          "id": "z4",
+          "label": "Falha generica no servidor"
+        }
+      ],
+      "correct": "drag",
+      "tip": "Os codigos de status informam o resultado exato do processamento da requisicao HTTP."
+    },
+    {
+      "type": "multiple",
+      "topics": "ACID",
+      "questions": "[NAME], qual e a funcao dos parametros OData iniciados pelo caractere cifrao em uma URI de consulta?",
+      "answers": [
+        "Autenticar o usuario na API",
+        "Filtrar, ordenar ou limitar os dados retornados",
+        "Alterar o metodo HTTP utilizado na requisicao",
+        "Definir o formato de codificacao do corpo da mensagem"
+      ],
+      "correct": "Filtrar, ordenar ou limitar os dados retornados",
+      "tip": "Parametros OData como select, filter e orderby configuram a busca e definem o retorno da consulta."
+    },
+    {
+      "type": "boolean",
+      "topics": "ACID",
+      "questions": "[NAME], o verbo HTTP PUT e indicado quando desejamos atualizar apenas um campo de um registro sem alterar os demais.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "O verbo PUT substitui o objeto por inteiro; para atualizar apenas campos isolados, utiliza-se o PATCH."
+    },
+    {
+      "type": "combo",
+      "topics": "ACID",
+      "questions": "Para limitar a quantidade maxima de itens retornados em uma consulta OData, deve-se utilizar o parametro [COMBO].",
+      "options": [
+        "$top",
+        "$select",
+        "$filter",
+        "$orderby"
+      ],
+      "correct": "$top",
+      "tip": "O parametro $top limita o numero de registros devolvidos pela API.",
+      "trans": "AGEN"
+    },
+    {
+      "type": "multiple",
+      "topics": "AGEN",
+      "questions": "[NAME], qual e a regra correta para delimitacao de chaves e valores do tipo texto na estrutura de um documento JSON?",
+      "answers": [
+        "Usar aspas simples tanto em chaves quanto em textos",
+        "Usar aspas duplas obrigatoriamente em chaves e valores de texto",
+        "Deixar as chaves sem aspas e os textos entre aspas simples",
+        "Usar parenteses para envolver os textos das propriedades"
+      ],
+      "correct": "Usar aspas duplas obrigatoriamente em chaves e valores de texto",
+      "tip": "O padrao JSON exige estritamente aspas duplas em chaves e textos; aspas simples causam erro de sintaxe."
+    },
+    {
+      "type": "boolean",
+      "topics": "AGEN",
+      "questions": "[NAME], em um objeto JSON valido, o ultimo elemento de uma lista ou objeto pode conter uma virgula sobrando no final.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "A presenca de virgula apos o ultimo elemento resulta em erro de formatacao no JSON."
+    },
+    {
+      "type": "combo",
+      "topics": "AGEN",
+      "questions": "Em uma estrutura JSON, o simbolo de colchetes indica a criacao de uma [COMBO].",
+      "options": [
+        "Objeto",
+        "Lista",
+        "Texto",
+        "Numero"
+      ],
+      "correct": "Lista",
+      "tip": "Colchetes [ ] especificam listas (arrays), enquanto chaves { } delimitam objetos."
+    },
+    {
+      "type": "multi",
+      "topics": "AGEN",
+      "questions": "[NAME], quais dos tipos de dados a seguir devem ser gravados SEM aspas em uma estrutura JSON valida?",
+      "answers": [
+        "Numeros",
+        "Valores booleanos (true/false)",
+        "Textos simples",
+        "Nomes de colunas"
+      ],
+      "correct": [
+        "Numeros",
+        "Valores booleanos (true/false)"
+      ],
+      "tip": "Numeros e valores booleanos sao gravados sem aspas no JSON; apenas textos e chaves exigem aspas duplas."
+    },
+    {
+      "type": "drag",
+      "topics": "AGEN",
+      "questions": "Relacione os simbolos e estruturas do formato JSON com suas respectivas funcoes.",
+      "items": [
+        {
+          "id": "d1",
+          "txt": "Chaves { }",
+          "match": "z1"
+        },
+        {
+          "id": "d2",
+          "txt": "Colchetes [ ]",
+          "match": "z2"
+        },
+        {
+          "id": "d3",
+          "txt": "Aspas duplas \" \"",
+          "match": "z3"
+        },
+        {
+          "id": "d4",
+          "txt": "Virgula ,",
+          "match": "z4"
+        }
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "label": "Delimitar um objeto"
+        },
+        {
+          "id": "z2",
+          "label": "Delimitar uma lista"
+        },
+        {
+          "id": "z3",
+          "label": "Delimitar textos e chaves"
+        },
+        {
+          "id": "z4",
+          "label": "Separar pares de chave/valor"
+        }
+      ],
+      "correct": "drag",
+      "tip": "Compreender a sintaxe JSON e essencial para montar estruturas corretas em integracoes."
+    },
+    {
+      "type": "multiple",
+      "topics": "AGEN",
+      "questions": "[NAME], ao analisar a resposta de uma consulta em lista no SharePoint via REST, em qual propriedade a matriz de registros fica envelopada?",
+      "answers": [
+        "root",
+        "value",
+        "items",
+        "data"
+      ],
+      "correct": "value",
+      "tip": "A API REST do SharePoint encapsula a lista principal de itens dentro do atributo value."
+    },
+    {
+      "type": "boolean",
+      "topics": "AGEN",
+      "questions": "E possivel aninhar um objeto JSON dentro de outro objeto JSON para representar informacoes estruturadas.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "O JSON suporta aninhamento de objetos e matrizes em múltiplos niveis de profundidade."
+    },
+    {
+      "type": "combo",
+      "topics": "AGEN",
+      "questions": "Se um fluxo tentar processar um JSON formatado com aspas simples no lugar de aspas duplas, o validador retornara um erro de [COMBO].",
+      "options": [
+        "Sintaxe",
+        "Autenticacao",
+        "Conectividade",
+        "Permissao"
+      ],
+      "correct": "Sintaxe",
+      "tip": "O uso de aspas simples fere a especificacao oficial da linguagem JSON, gerando erro de sintaxe."
+    },
+    {
+      "type": "multi",
+      "topics": "AGEN",
+      "questions": "Quais das opcoes abaixo apresentam erros comuns de formatacao JSON que devem ser evitados, [NAME]?",
+      "answers": [
+        "Uso de aspas simples em textos",
+        "Virgula extra apos o ultimo item",
+        "Uso de aspas duplas na chave",
+        "Valores numericos sem aspas"
+      ],
+      "correct": [
+        "Uso de aspas simples em textos",
+        "Virgula extra apos o ultimo item"
+      ],
+      "tip": "Aspas simples e virgulas no ultimo item violam a sintaxe basica de arquivos JSON."
+    },
+    {
+      "type": "drag",
+      "topics": "AGEN",
+      "questions": "Relacione os tipos de dados aos seus respectivos exemplos sintaticos no formato JSON.",
+      "items": [
+        {
+          "id": "d1",
+          "txt": "Objeto",
+          "match": "z1"
+        },
+        {
+          "id": "d2",
+          "txt": "Lista",
+          "match": "z2"
+        },
+        {
+          "id": "d3",
+          "txt": "Booleano",
+          "match": "z3"
+        },
+        {
+          "id": "d4",
+          "txt": "Numero",
+          "match": "z4"
+        }
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "label": "{ \"id\": 1 }"
+        },
+        {
+          "id": "z2",
+          "label": "[ \"a\", \"b\" ]"
+        },
+        {
+          "id": "z3",
+          "label": "true"
+        },
+        {
+          "id": "z4",
+          "label": "28"
+        }
+      ],
+      "correct": "drag",
+      "tip": "Cada tipo de dado possui representacao propria conforme o padrao JSON."
+    },
+    {
+      "type": "multiple",
+      "topics": "AGEN",
+      "questions": "[NAME], qual acao de operacoes de dados no Power Automate converte uma lista de objetos JSON diretamente em formato tabular sem necessidade de loop?",
+      "answers": [
+        "Criar tabela HTML",
+        "Parse JSON",
+        "Compor",
+        "Inicializar variavel"
+      ],
+      "correct": "Criar tabela HTML",
+      "tip": "A acao Criar tabela HTML processa uma matriz de objetos JSON e gera a tabela automaticamente."
+    },
+    {
+      "type": "boolean",
+      "topics": "AGEN",
+      "questions": "[NAME], quando a API retorna a lista envolvida na chave value, a acao Criar tabela HTML deve receber essa propriedade interna em vez do corpo completo.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "Como a acao exige uma matriz, deve-se apontar para a chave interna value contendo a lista."
+    },
+    {
+      "type": "combo",
+      "topics": "AGEN",
+      "questions": "Para concatenar o valor do campo Nome com o campo Email de cada item em um fluxo, utiliza-se a funcao [COMBO].",
+      "options": [
+        "concat",
+        "join",
+        "split",
+        "replace"
+      ],
+      "correct": "concat",
+      "tip": "A funcao concat junta duas ou mais cadeias de texto em uma unica string.",
+      "trans": "PROT"
+    },
+    {
+      "type": "multiple",
+      "topics": "PROT",
+      "questions": "[NAME], qual e o nome interno padrao mantido na API REST para uma coluna criada como 'Titulo' e posteriormente renomeada para 'Nome'?",
+      "answers": [
+        "Title",
+        "Name",
+        "Nome",
+        "Header"
+      ],
+      "correct": "Title",
+      "tip": "O renomeio da coluna altera apenas seu nome de exibicao; o nome interno da API permanece o original Title."
+    },
+    {
+      "type": "boolean",
+      "topics": "PROT",
+      "questions": "O cabecalho IF-MATCH com valor * e obrigatorio em requisicoes PATCH e DELETE no SharePoint para permitir alteracao independente da versao do item.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "O asterisco no cabecalho IF-MATCH instrui o SharePoint a prosseguir sem comparar a versao atual do item."
+    },
+    {
+      "type": "combo",
+      "topics": "PROT",
+      "questions": "Ao efetuar uma requisicao HTTP para inserir um registro na API REST do SharePoint, deve-se utilizar o metodo [COMBO].",
+      "options": [
+        "POST",
+        "GET",
+        "DELETE",
+        "PUT"
+      ],
+      "correct": "POST",
+      "tip": "O verbo POST e utilizado para envio do corpo com os dados e insercao de novos itens na lista."
+    },
+    {
+      "type": "multi",
+      "topics": "PROT",
+      "questions": "Quais dos seguintes cabecalhos devem ser incluidos em uma requisicao PATCH para atualizar um item de lista no SharePoint via REST?",
+      "answers": [
+        "Accept",
+        "Content-Type",
+        "IF-MATCH",
+        "Authorization-Type"
+      ],
+      "correct": [
+        "Accept",
+        "Content-Type",
+        "IF-MATCH"
+      ],
+      "tip": "Accept e Content-Type especificam o formato dos dados JSON, e IF-MATCH valida a autorizacao de edicao."
+    },
+    {
+      "type": "drag",
+      "topics": "PROT",
+      "questions": "Relacione os cabecalhos HTTP utilizados na integracao com SharePoint as suas respectivas funcoes.",
+      "items": [
+        {
+          "id": "d1",
+          "txt": "Accept",
+          "match": "z1"
+        },
+        {
+          "id": "d2",
+          "txt": "Content-Type",
+          "match": "z2"
+        },
+        {
+          "id": "d3",
+          "txt": "IF-MATCH",
+          "match": "z3"
+        },
+        {
+          "id": "d4",
+          "txt": "Location",
+          "match": "z4"
+        }
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "label": "Define o formato de resposta desejado"
+        },
+        {
+          "id": "z2",
+          "label": "Informa o formato do corpo enviado"
+        },
+        {
+          "id": "z3",
+          "label": "Autoriza alteracao ou exclusao por versao"
+        },
+        {
+          "id": "z4",
+          "label": "Retorna o endereco/ID do item criado"
+        }
+      ],
+      "correct": "drag",
+      "tip": "Os cabecalhos definem metadados vitais de negociacao de conteudo e controle de alteracao."
+    },
+    {
+      "type": "multiple",
+      "topics": "PROT",
+      "questions": "[NAME], qual parametro OData deve ser anexado a URI para selecionar apenas as colunas Id, Title e Email em uma consulta GET no SharePoint?",
+      "answers": [
+        "$select=Id,Title,Email",
+        "$filter=Id,Title,Email",
+        "$orderby=Id,Title,Email",
+        "$top=Id,Title,Email"
+      ],
+      "correct": "$select=Id,Title,Email",
+      "tip": "O parametro $select especifica quais campos devem ser incluidos na resposta da API."
+    },
+    {
+      "type": "boolean",
+      "topics": "PROT",
+      "questions": "[NAME], a acao Enviar uma solicitacao HTTP ao SharePoint exige conector Premium no Power Automate.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "Essa acao faz parte do conector padrao do SharePoint e nao exige assinatura Premium."
+    },
+    {
+      "type": "combo",
+      "topics": "PROT",
+      "questions": "Ao realizar uma exclusao de item via REST no SharePoint sem corpo de mensagem, a requisicao utiliza o verbo HTTP [COMBO].",
+      "options": [
+        "DELETE",
+        "POST",
+        "PATCH",
+        "GET"
+      ],
+      "correct": "DELETE",
+      "tip": "O verbo DELETE e a instrucao padrao para remover o recurso indicado na URI."
+    },
+    {
+      "type": "multi",
+      "topics": "PROT",
+      "questions": "Quais das seguintes funcoes de expressao sao utilizadas em conjunto para isolar o ID numerico do cabecalho Location retornado em um POST?",
+      "answers": [
+        "split",
+        "last",
+        "replace",
+        "concat"
+      ],
+      "correct": [
+        "split",
+        "last",
+        "replace"
+      ],
+      "tip": "A combinacao divide o texto pelo parentese com split, pega a ultima parte com last e limpa caracteres com replace."
+    },
+    {
+      "type": "drag",
+      "topics": "PROT",
+      "questions": "Relacione as operacoes REST no SharePoint aos codigos de status de sucesso esperados.",
+      "items": [
+        {
+          "id": "d1",
+          "txt": "Consulta GET",
+          "match": "z1"
+        },
+        {
+          "id": "d2",
+          "txt": "Criacao POST",
+          "match": "z2"
+        },
+        {
+          "id": "d3",
+          "txt": "Atualizacao PATCH",
+          "match": "z3"
+        },
+        {
+          "id": "d4",
+          "txt": "Exclusao DELETE",
+          "match": "z4"
+        }
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "label": "200 OK"
+        },
+        {
+          "id": "z2",
+          "label": "201 Created"
+        },
+        {
+          "id": "z3",
+          "label": "204 No Content"
+        },
+        {
+          "id": "z4",
+          "label": "200 OK"
+        }
+      ],
+      "correct": "drag",
+      "tip": "Cada tipo de requisicao HTTP retorna um codigo de status especifico em caso de êxito."
+    },
+    {
+      "type": "multiple",
+      "topics": "PROT",
+      "questions": "[NAME], se voce deseja filtrar os itens de uma lista para trazer apenas registros onde a Cidade seja igual a 'Niterói', qual parametro OData deve usar?",
+      "answers": [
+        "$filter=Cidade eq 'Niterói'",
+        "$select=Cidade eq 'Niterói'",
+        "$orderby=Cidade eq 'Niterói'",
+        "$top=Cidade eq 'Niterói'"
+      ],
+      "correct": "$filter=Cidade eq 'Niterói'",
+      "tip": "O operador eq dentro do parametro $filter realiza a comparacao de igualdade exata."
+    },
+    {
+      "type": "boolean",
+      "topics": "PROT",
+      "questions": "Na API REST do SharePoint, a estrutura do corpo JSON enviado em um POST aceita o nome de exibicao visivel da coluna na interface.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "A API exige estritamente os nomes internos originais das colunas definidos durante a criacao.",
+      "trans": "NORM"
+    },
+    {
+      "type": "multiple",
+      "topics": "NORM",
+      "questions": "[NAME], qual e o comportamento padrao das acoes subsequentes em um fluxo quando uma acao anterior falha durante a execucao?",
+      "answers": [
+        "Sao executadas normalmente",
+        "Ficam com o status Ignorado e nao executam",
+        "O fluxo e reiniciado do inicio",
+        "Uma mensagem de aviso e enviada por e-mail"
+      ],
+      "correct": "Ficam com o status Ignorado e nao executam",
+      "tip": "Por padrao, a falha de um passo interrompe a sequencia e marca as acoes seguintes como Ignorado."
+    },
+    {
+      "type": "boolean",
+      "topics": "NORM",
+      "questions": "[NAME], a configuracao Executar apos (Run after) permite definir que uma acao rode mesmo quando a acao anterior falhar.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "O recurso Run after permite capturar erros ativando acoes alternativas caso ocorra falha ou tempo limite."
+    },
+    {
+      "type": "combo",
+      "topics": "NORM",
+      "questions": "Para capturar a quantidade total de elementos presentes em um array retornado por uma variavel, utiliza-se a funcao [COMBO].",
+      "options": [
+        "length",
+        "count",
+        "size",
+        "sum"
+      ],
+      "correct": "length",
+      "tip": "A funcao length() calcula e retorna o numero total de itens presentes em uma lista."
+    },
+    {
+      "type": "multi",
+      "topics": "NORM",
+      "questions": "Quais sao as opcoes validas de estado que podem ser marcadas na configuracao Executar apos de uma acao no Power Automate?",
+      "answers": [
+        "Teve êxito",
+        "Teve falha",
+        "Foi ignorado",
+        "Pendente"
+      ],
+      "correct": [
+        "Teve êxito",
+        "Teve falha",
+        "Foi ignorado"
+      ],
+      "tip": "As condicoes de disparo no Run after incluem Teve êxito, Teve falha, Foi ignorado e Atingiu o tempo limite."
+    },
+    {
+      "type": "drag",
+      "topics": "NORM",
+      "questions": "Relacione as funcoes de expressao do Power Automate as suas respectivas finalidades.",
+      "items": [
+        {
+          "id": "d1",
+          "txt": "length",
+          "match": "z1"
+        },
+        {
+          "id": "d2",
+          "txt": "join",
+          "match": "z2"
+        },
+        {
+          "id": "d3",
+          "txt": "outputs",
+          "match": "z3"
+        },
+        {
+          "id": "d4",
+          "txt": "variables",
+          "match": "z4"
+        }
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "label": "Contar elementos de um array"
+        },
+        {
+          "id": "z2",
+          "label": "Unir elementos com separador"
+        },
+        {
+          "id": "z3",
+          "label": "Obter saidas de uma acao"
+        },
+        {
+          "id": "z4",
+          "label": "Obter o valor de uma variavel"
+        }
+      ],
+      "correct": "drag",
+      "tip": "O uso de expressoes adequadas e fundamental para manipulacao e tratamento de dados."
+    },
+    {
+      "type": "multiple",
+      "topics": "NORM",
+      "questions": "[NAME], como uma ramificacao paralela auxilia na construcao de um fluxo com tratamento de erros robusto sem usar Condicao?",
+      "answers": [
+        "Executando duas requisicoes identicas para garantir entrega",
+        "Criando caminhos separados para execucao com êxito e para tratamento de falhas",
+        "Impedindo que falhas ocorram nas requisicoes HTTP",
+        "Convertendo automaticamente erros 4xx em erros 2xx"
+      ],
+      "correct": "Criando caminhos separados para execucao com êxito e para tratamento de falhas",
+      "tip": "A ramificacao paralela divide a sequencia em duas vias independentes, uma para sucesso e outra para excecao."
+    },
+    {
+      "type": "boolean",
+      "topics": "NORM",
+      "questions": "[NAME], se uma acao configurada para rodar em caso de falha da acao anterior nao tiver o estado Teve falha marcado no Executar apos, ela sera executada.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Falso",
+      "tip": "Se o estado Teve falha nao for explicitamente marcado, a acao sera ignorada quando ocorrer o erro."
+    },
+    {
+      "type": "combo",
+      "topics": "NORM",
+      "questions": "Para unir os elementos de uma matriz em um unico texto separado por virgulas, utiliza-se a funcao [COMBO].",
+      "options": [
+        "join",
+        "concat",
+        "split",
+        "array"
+      ],
+      "correct": "join",
+      "tip": "A funcao join() converte uma lista em string concatenando os elementos por um delimitador."
+    },
+    {
+      "type": "multi",
+      "topics": "NORM",
+      "questions": "Quais das razoes a seguir justificam a necessidade de implementar tratamento de excecoes em fluxos de integracao?",
+      "answers": [
+        "Servidores externos podem ficar indisponiveis ou instaveis",
+        "Garantir o envio de notificacoes aos administradores em caso de falha",
+        "Evitar que dados sejam duplicados em execucoes repetidas",
+        "Omitir erros de digitacao nas URLs dos endpoints"
+      ],
+      "correct": [
+        "Servidores externos podem ficar indisponiveis ou instaveis",
+        "Garantir o envio de notificacoes aos administradores em caso de falha"
+      ],
+      "tip": "O tratamento de erros previne falhas silenciosas e garante alertas quando ocorrem indisponibilidades do servidor."
+    },
+    {
+      "type": "drag",
+      "topics": "NORM",
+      "questions": "Relacione as abordagens de tratamento de falhas as suas respectivas caracteristicas no Power Automate.",
+      "items": [
+        {
+          "id": "d1",
+          "txt": "Ramificacao paralela",
+          "match": "z1"
+        },
+        {
+          "id": "d2",
+          "txt": "Condicao com statusCode",
+          "match": "z2"
+        },
+        {
+          "id": "d3",
+          "txt": "Executar apos (Run After)",
+          "match": "z3"
+        },
+        {
+          "id": "d4",
+          "txt": "Envio de alerta por e-mail",
+          "match": "z4"
+        }
+      ],
+      "zones": [
+        {
+          "id": "z1",
+          "label": "Separa caminhos de sucesso e erro sem aninhamento"
+        },
+        {
+          "id": "z2",
+          "label": "Avalia o codigo HTTP para tomar decisoes"
+        },
+        {
+          "id": "z3",
+          "label": "Define quando um passo roda baseado no status anterior"
+        },
+        {
+          "id": "z4",
+          "label": "Notifica responsaveis sobre falhas detectadas"
+        }
+      ],
+      "correct": "drag",
+      "tip": "A combinacao de desvios e notificacoes cria automacoes resilientes e auditaveis."
+    },
+    {
+      "type": "multiple",
+      "topics": "NORM",
+      "questions": "[NAME], qual e o resultado de utilizar a expressao body('POST_Cliente')?['statusCode'] caso o nome da acao no fluxo seja POST Cliente (com espaco)?",
+      "answers": [
+        "A expressao funcionara pois o espaco e substituido por sublinhado",
+        "A expressao falhara exigindo a remocao do sublinhado",
+        "O fluxo retornara erro de sintaxe irremediavel",
+        "A expressao acessara uma variavel global de sistema"
+      ],
+      "correct": "A expressao funcionara pois o espaco e substituido por sublinhado",
+      "tip": "O Power Automate converte automaticamente espacos em caracteres de sublinhado nas referencias das acoes."
+    },
+    {
+      "type": "boolean",
+      "topics": "NORM",
+      "questions": "[NAME], ao importar dados em lote a partir de uma planilha, caso o fluxo seja reexecutado sem validacao prévia, os registros podem ser duplicados no SharePoint.",
+      "answers": [
+        "Verdadeiro",
+        "Falso"
+      ],
+      "correct": "Verdadeiro",
+      "tip": "Como o POST cria novos itens sem checar duplicidade, reexecutar o fluxo insere os registros novamente."
+    }
+  ]
+}
