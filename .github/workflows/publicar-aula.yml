@@ -1,0 +1,52 @@
+name: Publicar aula do importador
+
+on:
+  push:
+    branches: [main, novo-importador]
+    paths: ['.importador/fila/*.json']
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: publicar-aula
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Inserir aulas da fila
+        id: fila
+        run: node importador-worker/scripts/publicar-fila.mjs
+
+      - name: Gravar no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sst/lessons/course-data.json .importador
+          if git diff --cached --quiet; then
+            echo "Nada para gravar."
+            exit 0
+          fi
+          git commit -m "Importador: ${{ steps.fila.outputs.resumo }}"
+          for tentativa in 1 2 3; do
+            git pull --rebase origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep 10
+          done
+          exit 1
+
+      - name: Atualizar o site
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds"
