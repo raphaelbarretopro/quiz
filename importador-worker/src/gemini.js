@@ -1,8 +1,11 @@
 import { TOPIC_IDS, TYPE_CYCLE, expectedLayout, lessonId, lessonSlug, lessonTitle } from './lesson-validator.js';
 
-const TIMEOUT_MS = 170000;
-const ATTEMPTS_PER_MODEL = 2;
-const RETRY_DELAY_MS = 4000;
+const TIMEOUT_MS = 280000;
+const ATTEMPTS_PER_MODEL = 3;
+const RETRY_DELAY_MS = 5000;
+const RETRYABLE_STATUS = [500, 502, 503, 504, 524];
+const OVERLOADED_MESSAGE = 'O Gemini está sobrecarregado agora. Tente de novo em alguns minutos.';
+const TIMEOUT_MESSAGE = 'O Gemini demorou demais para responder. Tente com menos questões ou um material menor.';
 const TOPIC_COLORS = ['#e63946', '#f4a300', '#2077b4', '#27ae60'];
 // Imagens já usadas nas aulas e conferidas; a IA não escolhe URLs para evitar links inexistentes.
 const TOPIC_IMAGES = [
@@ -182,8 +185,51 @@ export function buildLesson(generated, { numero, nome }) {
   };
 }
 
+function readStreamLine(line, state) {
+  if (!line.startsWith('data:')) return;
+
+  const payload = JSON.parse(line.slice(5));
+  if (payload.error) {
+    console.error('Gemini interrompeu a resposta:', payload.error.code, payload.error.status);
+    throw new GeminiError(503, OVERLOADED_MESSAGE, RETRYABLE_STATUS.includes(payload.error.code));
+  }
+
+  const candidate = payload.candidates?.[0];
+  (candidate?.content?.parts ?? []).forEach((part) => {
+    if (part?.text && !part.thought) state.parts.push(part.text);
+  });
+  if (candidate?.finishReason) state.finishReason = candidate.finishReason;
+}
+
+async function readStream(response) {
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  const state = { parts: [], finishReason: undefined };
+  let buffer = '';
+
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop();
+      lines.forEach((line) => readStreamLine(line.trim(), state));
+    }
+    readStreamLine(buffer.trim(), state);
+  } catch (error) {
+    if (error instanceof GeminiError) throw error;
+    console.error('Falha ao ler a resposta do Gemini:', error.name);
+    if (error.name === 'TimeoutError') throw new GeminiError(504, TIMEOUT_MESSAGE);
+    throw new GeminiError(503, OVERLOADED_MESSAGE, true);
+  }
+
+  return { text: state.parts.join(''), finishReason: state.finishReason };
+}
+
 async function callModel(model, params, env) {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+  // A resposta chega aos poucos; esperar em silêncio derruba a conexão por volta de 2 minutos.
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:streamGenerateContent?alt=sse`;
 
   let response;
   try {
@@ -204,7 +250,7 @@ async function callModel(model, params, env) {
     });
   } catch (error) {
     console.error('Falha de conexão com o Gemini:', error.name);
-    throw new GeminiError(504, 'O Gemini demorou demais para responder. Tente novamente.');
+    throw new GeminiError(504, TIMEOUT_MESSAGE);
   }
 
   if (!response.ok) {
@@ -216,23 +262,21 @@ async function callModel(model, params, env) {
     if (response.status === 429) {
       throw new GeminiError(429, 'A cota gratuita do Gemini acabou por enquanto. Tente mais tarde; a cota diária renova à meia-noite no horário do Pacífico.');
     }
-    if (response.status === 500 || response.status === 503) {
-      throw new GeminiError(503, 'O Gemini está sobrecarregado agora. Tente de novo em alguns minutos.', true);
+    if (RETRYABLE_STATUS.includes(response.status)) {
+      throw new GeminiError(503, OVERLOADED_MESSAGE, true);
     }
     throw new GeminiError(502, 'O Gemini não conseguiu processar o pedido. Tente novamente.');
   }
 
-  const payload = await response.json();
-  const candidate = payload?.candidates?.[0];
-  if (candidate?.finishReason === 'MAX_TOKENS') {
+  const { text, finishReason } = await readStream(response);
+  if (finishReason === 'MAX_TOKENS') {
     throw new GeminiError(502, 'A resposta do Gemini ficou incompleta. Tente com menos questões.');
   }
 
-  const text = (candidate?.content?.parts ?? []).map((part) => part?.text ?? '').join('');
   try {
     return JSON.parse(text);
   } catch {
-    console.error('Resposta do Gemini fora do formato. finishReason:', candidate?.finishReason);
+    console.error('Resposta do Gemini fora do formato. finishReason:', finishReason);
     throw new GeminiError(502, 'O Gemini devolveu uma resposta fora do formato esperado. Tente novamente.');
   }
 }

@@ -183,6 +183,26 @@ async function call(pathName, { method = 'POST', body, token, origin } = {}) {
   return { status: response.status, json: await response.json().catch(() => null), headers: response.headers };
 }
 
+// Simula a resposta em partes do Gemini, cortando os dados em pedaços pequenos como na rede real.
+function sse(text, finishReason = 'STOP', extra = []) {
+  const middle = Math.floor(text.length / 2);
+  const events = [
+    { candidates: [{ content: { parts: [{ text: 'raciocínio interno', thought: true }] } }] },
+    { candidates: [{ content: { parts: [{ text: text.slice(0, middle) }] } }] },
+    { candidates: [{ finishReason, content: { parts: [{ text: text.slice(middle) }] } }] },
+    ...extra
+  ];
+  const bytes = new TextEncoder().encode(events.map((event) => `data: ${JSON.stringify(event)}
+
+`).join(''));
+  return new Response(new ReadableStream({
+    start(controller) {
+      for (let i = 0; i < bytes.length; i += 97) controller.enqueue(bytes.slice(i, i + 97));
+      controller.close();
+    }
+  }), { headers: { 'Content-Type': 'text/event-stream' } });
+}
+
 const generateBody = { numero: '900', nome: 'Gestão de Redes', total: 50, nivel: 'Médio', texto: 'conteúdo '.repeat(50) };
 
 test('o Worker exige login válido e conta autorizada', async () => {
@@ -203,7 +223,7 @@ test('o Worker exige login válido e conta autorizada', async () => {
 });
 
 test('/gerar devolve a aula e nunca expõe a chave', async () => {
-  const calls = withFetch(() => Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: JSON.stringify(generated()) }] } }] }));
+  const calls = withFetch(() => sse(JSON.stringify(generated())));
   const res = await call('/gerar', { body: generateBody, token: await signToken(), origin: 'https://raphaelbarretopro.github.io' });
   assert.equal(res.status, 200);
   assert.deepEqual(res.json.erros, []);
@@ -219,9 +239,9 @@ test('/gerar trata entrada inválida, cota e resposta quebrada', async () => {
   const token = await signToken();
   withFetch(() => new Response('{}', { status: 429 }));
   assert.equal((await call('/gerar', { body: generateBody, token })).status, 429);
-  withFetch(() => Response.json({ candidates: [{ content: { parts: [{ text: 'nao e json' }] } }] }));
+  withFetch(() => sse('nao e json'));
   assert.equal((await call('/gerar', { body: generateBody, token })).status, 502);
-  withFetch(() => Response.json({ candidates: [{ finishReason: 'MAX_TOKENS', content: { parts: [{ text: '{' }] } }] }));
+  withFetch(() => sse('{', 'MAX_TOKENS'));
   assert.match((await call('/gerar', { body: generateBody, token })).json.error, /incompleta/);
   for (const change of [{ numero: '../x' }, { nome: '' }, { total: 7 }, { nivel: 'x' }, { texto: 'curto' }, { texto: 'x'.repeat(400001) }]) {
     assert.ok((await call('/gerar', { body: { ...generateBody, ...change }, token })).status >= 400, JSON.stringify(Object.keys(change)));
@@ -230,7 +250,7 @@ test('/gerar trata entrada inválida, cota e resposta quebrada', async () => {
 
 test('/gerar repete na sobrecarga, usa o modelo reserva e não repete outros erros', async () => {
   const token = await signToken();
-  const success = () => Response.json({ candidates: [{ finishReason: 'STOP', content: { parts: [{ text: JSON.stringify(generated()) }] } }] });
+  const success = () => sse(JSON.stringify(generated()));
   const geminiCalls = (calls) => calls.filter((c) => c.url.includes('generativelanguage')).map((c) => c.url.match(/models\/(\w+):/)[1]);
 
   let count = 0;
@@ -240,13 +260,22 @@ test('/gerar repete na sobrecarga, usa o modelo reserva e não repete outros err
 
   calls = withFetch((url) => (url.includes('reserva') ? success() : new Response('', { status: 503 })));
   assert.equal((await call('/gerar', { body: generateBody, token })).status, 200);
-  assert.deepEqual(geminiCalls(calls), ['modelo', 'modelo', 'reserva']);
+  assert.deepEqual(geminiCalls(calls), ['modelo', 'modelo', 'modelo', 'reserva']);
 
   calls = withFetch(() => new Response('', { status: 503 }));
   const exhausted = await call('/gerar', { body: generateBody, token });
   assert.equal(exhausted.status, 503);
   assert.match(exhausted.json.error, /sobrecarregado/);
-  assert.equal(geminiCalls(calls).length, 4);
+  assert.equal(geminiCalls(calls).length, 6);
+
+  // Queda por tempo de espera (524) e erro no meio da resposta também são repetidos.
+  count = 0;
+  calls = withFetch(() => { count += 1; return count === 1 ? new Response('', { status: 524 }) : success(); });
+  assert.equal((await call('/gerar', { body: generateBody, token })).status, 200);
+  count = 0;
+  calls = withFetch(() => { count += 1; return count === 1 ? sse('{"parcial"', 'STOP', [{ error: { code: 503, status: 'UNAVAILABLE' } }]) : success(); });
+  assert.equal((await call('/gerar', { body: generateBody, token })).status, 200);
+  assert.equal(geminiCalls(calls).length, 2);
 
   calls = withFetch(() => new Response('{}', { status: 429 }));
   assert.equal((await call('/gerar', { body: generateBody, token })).status, 429);

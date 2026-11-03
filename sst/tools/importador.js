@@ -200,7 +200,7 @@ async function handleGenerate() {
     const body = readForm();
     setStatus(status, 'Conferindo o número da aula...', 'andamento');
     await checkDuplicate(body.numero);
-    setStatus(status, 'Gerando as questões com IA. Isso pode levar até 3 minutos; mantenha a página aberta.', 'andamento');
+    setStatus(status, 'Gerando as questões com IA. Isso pode levar alguns minutos; mantenha a página aberta.', 'andamento');
 
     const data = await api('/gerar', { method: 'POST', body: JSON.stringify(body) });
     lesson = data.lesson;
