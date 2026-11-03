@@ -417,7 +417,7 @@ function watchPublication(slug, startedAt) {
     }
 
     if (Date.now() - startedAt > POLL_LIMIT_MS) {
-      setStatus(status, 'A publicação está demorando mais que o normal. Confira o course-data no GitHub antes de tentar de novo.', 'andamento');
+      setStatus(status, 'A publicação está demorando mais que o normal. Confira o course-data no GitHub antes de tentar de novo.', 'aviso');
       $('btn-nova').hidden = false;
       return;
     }
@@ -473,7 +473,7 @@ function watchDeletion(slug, startedAt) {
     }
 
     if (Date.now() - startedAt > POLL_LIMIT_MS) {
-      setStatus(status, 'A exclusão está demorando mais que o normal. Confira o course-data no GitHub.', 'andamento');
+      setStatus(status, 'A exclusão está demorando mais que o normal. Confira o course-data no GitHub.', 'aviso');
       $('btn-nova').hidden = false;
       return;
     }
