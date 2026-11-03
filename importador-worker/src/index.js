@@ -3,8 +3,8 @@ import { AuthError, requireTeacher } from './auth.js';
 import { GeminiError, buildLesson, generateQuiz } from './gemini.js';
 import { ALLOWED_TOTALS, LEVELS, isValidLessonNumber, validateLesson } from './lesson-validator.js';
 
-const MAX_BODY_BYTES = 200000;
-const MAX_TEXT_CHARS = 60000;
+const MAX_BODY_BYTES = 1000000;
+const MAX_TEXT_CHARS = 400000;
 const MIN_TEXT_CHARS = 200;
 const MAX_NAME_CHARS = 150;
 const QUEUE_DIR = '.importador/fila';

@@ -222,7 +222,7 @@ test('/gerar trata entrada inválida, cota e resposta quebrada', async () => {
   assert.equal((await call('/gerar', { body: generateBody, token })).status, 502);
   withFetch(() => Response.json({ candidates: [{ finishReason: 'MAX_TOKENS', content: { parts: [{ text: '{' }] } }] }));
   assert.match((await call('/gerar', { body: generateBody, token })).json.error, /incompleta/);
-  for (const change of [{ numero: '../x' }, { nome: '' }, { total: 7 }, { nivel: 'x' }, { texto: 'curto' }, { texto: 'x'.repeat(60001) }]) {
+  for (const change of [{ numero: '../x' }, { nome: '' }, { total: 7 }, { nivel: 'x' }, { texto: 'curto' }, { texto: 'x'.repeat(400001) }]) {
     assert.ok((await call('/gerar', { body: { ...generateBody, ...change }, token })).status >= 400, JSON.stringify(Object.keys(change)));
   }
 });
