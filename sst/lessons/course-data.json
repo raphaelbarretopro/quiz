@@ -68398,6 +68398,860 @@
           "tip": "Como o POST cria novos itens sem checar duplicidade, reexecutar o fluxo insere os registros novamente."
         }
       ]
+    },
+    {
+      "slug": "aula-155",
+      "lesson_info": {
+        "id": "Aula-155",
+        "title": "AULA 155 - SEGURANÇA EM NUVEM E MAPA DE RISCOS",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FUNDAMENTOS DE SEGURANÇA EM NUVEM",
+            "desc": "Tríade CIA, Zero Trust e o que muda quando o sistema está na nuvem.",
+            "color": "#e74c3c",
+            "img_url": "https://source.unsplash.com/1600x900/?cloud-security"
+          },
+          {
+            "id": "AGEN",
+            "name": "MODELOS DE SERVIÇO E RESPONSABILIDADE",
+            "desc": "IaaS, PaaS, SaaS e quem cuida de quê na responsabilidade compartilhada.",
+            "color": "#f39c12",
+            "img_url": "https://source.unsplash.com/1600x900/?datacenter"
+          },
+          {
+            "id": "PROT",
+            "name": "ATIVOS, VULNERABILIDADES E AMEAÇAS",
+            "desc": "Inventário de ativos, vocabulário da análise de segurança e ameaças comuns na nuvem.",
+            "color": "#3498db",
+            "img_url": "https://source.unsplash.com/1600x900/?cybersecurity"
+          },
+          {
+            "id": "NORM",
+            "name": "MAPA DE RISCOS",
+            "desc": "Probabilidade × impacto, classificação dos riscos e escolha de controles.",
+            "color": "#2ecc71",
+            "img_url": "https://source.unsplash.com/1600x900/?risk-analysis"
+          }
+        ],
+        "sokoban": [
+          "M",
+          "A",
+          "P",
+          "A"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], em um app de reembolso, o valor de um pedido é alterado depois de aprovado, sem que ninguém tivesse permissão para isso. Qual pilar da tríade CIA foi violado?",
+          "answers": [
+            "Integridade",
+            "Confidencialidade",
+            "Disponibilidade",
+            "Autenticidade"
+          ],
+          "correct": "Integridade",
+          "tip": "Integridade significa que ninguém altera a informação sem permissão. Autenticidade é um conceito real de segurança, mas não faz parte da tríade CIA."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no modelo Zero Trust, um acesso feito a partir da rede interna da empresa pode ser liberado sem verificação adicional, pois acontece dentro do perímetro corporativo.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "No Zero Trust não existe 'dentro da empresa é seguro': todo acesso confirma quem é a pessoa, de onde vem e com qual aparelho."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "Quando um app corporativo fica fora do ar justamente no fim do mês, período de maior uso, o pilar da tríade CIA comprometido é a [COMBO].",
+          "options": [
+            "Disponibilidade",
+            "Integridade",
+            "Confidencialidade",
+            "Rastreabilidade"
+          ],
+          "correct": "Disponibilidade",
+          "tip": "Disponibilidade é o sistema funcionar quando precisa, especialmente nos momentos de pico."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais afirmações descrevem corretamente o que muda quando um sistema passa a rodar na nuvem?",
+          "answers": [
+            "Os dados ficam no datacenter do provedor, e não na sala da empresa",
+            "O acesso de qualquer lugar beneficia o usuário e também o invasor",
+            "Muitas empresas usam a mesma nuvem, cada uma separada das demais",
+            "O provedor passa a responder por todas as configurações de acesso do cliente"
+          ],
+          "correct": [
+            "Os dados ficam no datacenter do provedor, e não na sala da empresa",
+            "O acesso de qualquer lugar beneficia o usuário e também o invasor",
+            "Muitas empresas usam a mesma nuvem, cada uma separada das demais"
+          ],
+          "tip": "As configurações de acesso continuam sendo do cliente. Por isso o erro mais comum na nuvem é a configuração errada, e não o 'hacker de filme'."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada conceito à situação prática que o representa:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Verificar sempre",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Menor privilégio",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Presumir invasão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Confidencialidade",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "O login confirma quem é a pessoa, de onde vem e com qual aparelho"
+            },
+            {
+              "id": "z2",
+              "label": "Cada perfil recebe só o acesso de que precisa para o trabalho"
+            },
+            {
+              "id": "z3",
+              "label": "Registrar e vigiar todos os acessos, como se alguém já tivesse entrado"
+            },
+            {
+              "id": "z4",
+              "label": "Cada motorista enxerga apenas os próprios pedidos"
+            }
+          ],
+          "correct": "drag",
+          "tip": "As três primeiras são as regras do Zero Trust. A última é um pilar da tríade CIA: só quem pode, vê."
+        },
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], qual é a causa mais comum de problemas de segurança em sistemas na nuvem?",
+          "answers": [
+            "Configuração errada feita pelo próprio cliente",
+            "Ataques sofisticados de hackers especializados",
+            "Falhas físicas nos servidores do provedor",
+            "Quedas de energia no prédio do datacenter"
+          ],
+          "correct": "Configuração errada feita pelo próprio cliente",
+          "tip": "Uma lista ou app compartilhado com mais gente do que devia é um exemplo típico de configuração errada."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], todo risco de segurança ataca pelo menos um dos pilares: confidencialidade, integridade ou disponibilidade.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Por isso, no mapa de riscos, cada linha indica qual pilar (C, I ou D) a ameaça atinge."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "No modelo Zero Trust, a regra do [COMBO] determina que cada pessoa receba apenas o acesso necessário para o seu trabalho.",
+          "options": [
+            "menor privilégio",
+            "verificar sempre",
+            "presumir invasão",
+            "acesso por perímetro"
+          ],
+          "correct": "menor privilégio",
+          "tip": "Perfis distintos, como Admin, Supervisor e Motorista, aplicam o menor privilégio na prática."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], em um app de reembolso, quais situações representam violação de confidencialidade?",
+          "answers": [
+            "Um motorista consegue ver os pedidos de outros motoristas",
+            "A foto de um recibo fica visível a usuários sem relação com o pedido",
+            "O valor de um pedido aprovado é alterado sem permissão",
+            "O app fica indisponível durante uma hora"
+          ],
+          "correct": [
+            "Um motorista consegue ver os pedidos de outros motoristas",
+            "A foto de um recibo fica visível a usuários sem relação com o pedido"
+          ],
+          "tip": "Alterar um valor ataca a integridade, e ficar fora do ar ataca a disponibilidade. Confidencialidade é sobre quem pode ver."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada conceito ao seu significado:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Confidencialidade",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Integridade",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Disponibilidade",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Zero Trust",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Só quem pode, vê"
+            },
+            {
+              "id": "z2",
+              "label": "Ninguém altera sem permissão"
+            },
+            {
+              "id": "z3",
+              "label": "Funciona quando precisa"
+            },
+            {
+              "id": "z4",
+              "label": "Não confie, verifique"
+            }
+          ],
+          "correct": "drag",
+          "tip": "CIA vem do inglês Confidentiality, Integrity e Availability. Zero Trust é o modelo de confiança zero.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], uma empresa aluga máquinas virtuais na nuvem e instala nelas o próprio sistema operacional e as próprias aplicações. Qual é o modelo de serviço?",
+          "answers": [
+            "IaaS",
+            "PaaS",
+            "SaaS",
+            "Local (servidor próprio)"
+          ],
+          "correct": "IaaS",
+          "tip": "No IaaS você aluga a máquina. Sistema operacional, aplicação e dados continuam sendo responsabilidade sua."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], no modelo SaaS, a proteção dos dados e das contas de acesso passa a ser responsabilidade do provedor.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Em qualquer modelo (IaaS, PaaS ou SaaS), os dados e as contas de acesso são sempre do cliente."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "No modelo PaaS, o sistema operacional é responsabilidade do [COMBO], enquanto a aplicação continua sendo do cliente.",
+          "options": [
+            "provedor",
+            "cliente",
+            "usuário final",
+            "fabricante do hardware"
+          ],
+          "correct": "provedor",
+          "tip": "No PaaS você aluga a plataforma: o provedor cuida do sistema operacional, da rede, dos servidores e do datacenter."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais dos serviços abaixo são exemplos de SaaS?",
+          "answers": [
+            "SharePoint",
+            "Gmail",
+            "Máquinas Virtuais do Azure",
+            "Google App Engine"
+          ],
+          "correct": [
+            "SharePoint",
+            "Gmail"
+          ],
+          "tip": "Máquinas Virtuais do Azure são IaaS, e o Google App Engine é PaaS. No SaaS você usa o programa pronto."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada serviço ao seu modelo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Amazon EC2",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Power Apps",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Outlook",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Servidor na sala da empresa",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "IaaS"
+            },
+            {
+              "id": "z2",
+              "label": "PaaS"
+            },
+            {
+              "id": "z3",
+              "label": "SaaS"
+            },
+            {
+              "id": "z4",
+              "label": "Local"
+            }
+          ],
+          "correct": "drag",
+          "tip": "EC2 aluga a máquina, o Power Apps oferece a plataforma para criar apps e o Outlook é um programa pronto do Microsoft 365."
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], na analogia da pizza, que compara os modelos de serviço, 'pedir no delivery' corresponde a qual modelo?",
+          "answers": [
+            "PaaS",
+            "IaaS",
+            "SaaS",
+            "Local"
+          ],
+          "correct": "PaaS",
+          "tip": "Fazer em casa é local, comprar a massa pronta é IaaS, pedir no delivery é PaaS e comer na pizzaria é SaaS. Quanto mais pronto, menos você cuida."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], nos modelos IaaS, PaaS e SaaS, a rede, os servidores e o prédio do datacenter são sempre responsabilidade do provedor.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "A camada física é sempre do provedor. O que muda entre os modelos é quem cuida do sistema operacional e da aplicação."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Um app criado no Power Apps que guarda os dados em listas do SharePoint combina os modelos PaaS e [COMBO].",
+          "options": [
+            "SaaS",
+            "IaaS",
+            "Local",
+            "Nuvem híbrida"
+          ],
+          "correct": "SaaS",
+          "tip": "O Power Apps é a plataforma (PaaS), e o SharePoint é um programa pronto do Microsoft 365 (SaaS)."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], em um ambiente IaaS, quais itens ficam sob responsabilidade do cliente?",
+          "answers": [
+            "Dados e contas de acesso",
+            "Aplicação",
+            "Sistema operacional",
+            "Prédio do datacenter"
+          ],
+          "correct": [
+            "Dados e contas de acesso",
+            "Aplicação",
+            "Sistema operacional"
+          ],
+          "tip": "No IaaS o cliente cuida de quase tudo acima da máquina. Rede, servidores e prédio ficam com o provedor."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada modelo ao que ele oferece:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Local",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "IaaS",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "PaaS",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "SaaS",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Você cuida de tudo"
+            },
+            {
+              "id": "z2",
+              "label": "Aluga a máquina"
+            },
+            {
+              "id": "z3",
+              "label": "Aluga a plataforma"
+            },
+            {
+              "id": "z4",
+              "label": "Usa o programa pronto"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Do servidor próprio ao programa pronto: quanto mais pronto o serviço, menos você cuida. Mas os dados são sempre seus.",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], em uma análise de segurança, uma tela de app que libera uma ação sem verificar o perfil do usuário é classificada como:",
+          "answers": [
+            "Vulnerabilidade",
+            "Ameaça",
+            "Ativo",
+            "Controle"
+          ],
+          "correct": "Vulnerabilidade",
+          "tip": "A vulnerabilidade é a fraqueza, como uma janela sem tranca. A ameaça é quem explora essa fraqueza."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], um fluxo de automação que envia e-mails e PDFs com valores financeiros também deve ser tratado como um ativo a proteger.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Ativo é tudo o que tem valor. Fluxos que manipulam dados sensíveis entram no inventário de ativos."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Na análise de segurança, [COMBO] é quem ou o que explora uma fraqueza, como um usuário mal-intencionado.",
+          "options": [
+            "a ameaça",
+            "o ativo",
+            "o controle",
+            "a vulnerabilidade"
+          ],
+          "correct": "a ameaça",
+          "tip": "Na analogia da casa, a ameaça é o ladrão que se aproveita da janela sem tranca."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], quais das opções abaixo são ameaças comuns na nuvem?",
+          "answers": [
+            "Lista ou app compartilhado com mais gente do que devia",
+            "Conta roubada por senha fraca, falta de MFA ou phishing",
+            "Alguém de dentro aprovando ou apagando o que não devia",
+            "Botão de aprovação visível apenas para supervisores"
+          ],
+          "correct": [
+            "Lista ou app compartilhado com mais gente do que devia",
+            "Conta roubada por senha fraca, falta de MFA ou phishing",
+            "Alguém de dentro aprovando ou apagando o que não devia"
+          ],
+          "tip": "Restringir o botão de aprovação a supervisores é um controle, ou seja, algo que reduz o risco. Não é uma ameaça."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Na analogia da casa, relacione cada elemento ao termo de segurança:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "A TV da sala",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "A janela sem tranca",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "O ladrão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "A grade na janela",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Ativo"
+            },
+            {
+              "id": "z2",
+              "label": "Vulnerabilidade"
+            },
+            {
+              "id": "z3",
+              "label": "Ameaça"
+            },
+            {
+              "id": "z4",
+              "label": "Controle"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O quinto termo é o risco: a chance de dar problema combinada com o tamanho do estrago."
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], em uma solução Microsoft na nuvem, qual ativo é considerado 'a chave de tudo' por definir quem consegue entrar no sistema?",
+          "answers": [
+            "A conta corporativa no Microsoft Entra ID",
+            "A lista de dados no SharePoint",
+            "O fluxo que gera relatórios em PDF",
+            "O app publicado no Power Apps"
+          ],
+          "correct": "A conta corporativa no Microsoft Entra ID",
+          "tip": "Se a conta for comprometida, todos os outros ativos ficam expostos. Uma senha fraca abre todas as portas."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], no Power Apps Studio, para criar uma cópia de um app sem alterar o original, basta clicar no ícone do disquete e informar um novo nome.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O disquete salva o app original. Para criar a cópia, clique na setinha ao lado do disquete e escolha Salvar como."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Quando um usuário de dentro da empresa aprova ou apaga algo que não deveria, a ameaça é classificada como [COMBO].",
+          "options": [
+            "abuso de quem já tem acesso",
+            "conta roubada",
+            "configuração errada",
+            "serviço fora do ar"
+          ],
+          "correct": "abuso de quem já tem acesso",
+          "tip": "Nem toda ameaça vem de fora. Pessoas com acesso legítimo também podem causar dano, por má-fé ou por descuido."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], uma cópia de app de tela criada com Salvar como continua usando as mesmas conexões de dados do original. Quais afirmações são corretas?",
+          "answers": [
+            "Os dados gravados na cópia também aparecem no app original",
+            "A estrutura do app original continua intacta",
+            "A cópia cria automaticamente novas listas de dados independentes",
+            "Se a cópia abrir sem dados, pode ser preciso autorizar as conexões clicando em Permitir"
+          ],
+          "correct": [
+            "Os dados gravados na cópia também aparecem no app original",
+            "A estrutura do app original continua intacta",
+            "Se a cópia abrir sem dados, pode ser preciso autorizar as conexões clicando em Permitir"
+          ],
+          "tip": "A cópia duplica o app, mas não as listas. Como as duas versões compartilham os mesmos dados, o que muda numa aparece na outra."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione cada ameaça comum na nuvem a um exemplo:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Configuração errada",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Conta roubada",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Abuso de quem já tem acesso",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Fora do ar ou perda",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "App compartilhado com a organização inteira"
+            },
+            {
+              "id": "z2",
+              "label": "E-mail falso captura a senha do usuário"
+            },
+            {
+              "id": "z3",
+              "label": "Funcionário com acesso se coloca como Admin na lista de perfis"
+            },
+            {
+              "id": "z4",
+              "label": "Item apagado sem cópia de segurança"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Cada ameaça pede um controle diferente: revisar compartilhamentos, usar MFA, aplicar menor privilégio e ter cópias de segurança.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], um risco tem probabilidade 2 e impacto 3. Qual é o nível e a classificação desse risco?",
+          "answers": [
+            "Nível 6, alto",
+            "Nível 5, médio",
+            "Nível 6, médio",
+            "Nível 5, alto"
+          ],
+          "correct": "Nível 6, alto",
+          "tip": "Nível = P × I. Como 2 × 3 = 6, e de 6 a 9 o risco é alto, ele deve ser tratado primeiro."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], em uma matriz de probabilidade × impacto com notas de 1 a 3, um risco de nível 4 é classificado como médio.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Faixas: 1 a 2 é baixo, 3 a 4 é médio e 6 a 9 é alto."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Em uma matriz de riscos, o nível do risco é calculado pela [COMBO] entre probabilidade e impacto.",
+          "options": [
+            "multiplicação",
+            "soma",
+            "média",
+            "diferença"
+          ],
+          "correct": "multiplicação",
+          "tip": "Nível = Probabilidade × Impacto. Com notas de 1 a 3, o resultado vai de 1 a 9."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais combinações de probabilidade (P) e impacto (I) resultam em risco alto, que deve ser tratado primeiro?",
+          "answers": [
+            "P3 × I2",
+            "P2 × I3",
+            "P3 × I3",
+            "P1 × I3"
+          ],
+          "correct": [
+            "P3 × I2",
+            "P2 × I3",
+            "P3 × I3"
+          ],
+          "tip": "P1 × I3 = 3, que é médio. Um impacto alto sozinho não basta: a probabilidade também pesa no nível."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada risco ao controle que o reduz:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Motorista aprova o próprio pedido",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Foto do recibo vista por outros motoristas",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "PDF enviado para o e-mail errado",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Conta invadida por senha fraca",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Botão Aprovar visível só para Supervisor e Admin"
+            },
+            {
+              "id": "z2",
+              "label": "Galeria filtrada pelo e-mail de quem entrou"
+            },
+            {
+              "id": "z3",
+              "label": "Fluxo envia só para o e-mail do usuário logado (User().Email)"
+            },
+            {
+              "id": "z4",
+              "label": "Exigir autenticação multifator (MFA)"
+            }
+          ],
+          "correct": "drag",
+          "tip": "O controle é o que diminui o risco, seja reduzindo a probabilidade de acontecer, seja reduzindo o estrago."
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], em uma planilha de mapa de riscos com fórmula P × I, o nível não é calculado em uma das linhas. Qual é a causa mais provável?",
+          "answers": [
+            "Probabilidade ou impacto preenchidos com texto ou deixados vazios",
+            "Planilha salva no OneDrive do usuário",
+            "Nome do ativo muito longo",
+            "Coluna de controle ainda não preenchida"
+          ],
+          "correct": "Probabilidade ou impacto preenchidos com texto ou deixados vazios",
+          "tip": "A fórmula só multiplica números. Digite apenas valores de 1 a 3 nas colunas P e I."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], o controle registrado no mapa de riscos descreve o que diminui o risco, e não o dano que a ameaça pode causar.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O dano possível entra na nota de impacto. O controle é a 'grade na janela', ou seja, a medida de proteção."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Um risco com probabilidade 1 e impacto 3, como um relatório enviado ao e-mail errado, recebe nível 3 e classificação [COMBO].",
+          "options": [
+            "médio",
+            "baixo",
+            "alto",
+            "crítico"
+          ],
+          "correct": "médio",
+          "tip": "1 × 3 = 3, dentro da faixa de 3 a 4, que é risco médio."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais informações devem compor cada linha de um mapa de riscos?",
+          "answers": [
+            "Ameaça e ativo afetado",
+            "Pilar da tríade CIA atingido (C, I ou D)",
+            "Notas de probabilidade e impacto de 1 a 3",
+            "Senha de acesso do responsável pelo ativo"
+          ],
+          "correct": [
+            "Ameaça e ativo afetado",
+            "Pilar da tríade CIA atingido (C, I ou D)",
+            "Notas de probabilidade e impacto de 1 a 3"
+          ],
+          "tip": "Uma linha traz ameaça, ativo, pilar, P, I, nível e controle. Senhas nunca devem ser registradas em planilhas."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada combinação de probabilidade (P) e impacto (I) ao nível e à classificação:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "P1 × I1",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "P1 × I2",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "P2 × I2",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "P3 × I3",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Nível 1, baixo"
+            },
+            {
+              "id": "z2",
+              "label": "Nível 2, baixo"
+            },
+            {
+              "id": "z3",
+              "label": "Nível 4, médio"
+            },
+            {
+              "id": "z4",
+              "label": "Nível 9, alto"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Ordenar os riscos pelo nível mostra quais tratar primeiro: os de 6 a 9."
+        }
+      ]
     }
   ]
 }
