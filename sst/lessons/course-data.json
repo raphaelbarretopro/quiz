@@ -69252,6 +69252,458 @@
           "tip": "Ordenar os riscos pelo nível mostra quais tratar primeiro: os de 6 a 9."
         }
       ]
+    },
+    {
+      "slug": "aula-157",
+      "lesson_info": {
+        "id": "Aula-157",
+        "title": "AULA 157 - AZURE MONITOR E KQL: CONSULTANDO LOGS DE DESEMPENHO E SEGURANÇA",
+        "topics": [
+          {
+            "id": "ACID",
+            "name": "FERRAMENTAS NATIVAS DE MONITORAMENTO",
+            "desc": "Azure Monitor, AWS CloudWatch e Google Cloud Monitoring e o caminho do dado até a tela.",
+            "color": "#e74c3c",
+            "img_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "AGEN",
+            "name": "FUNDAMENTOS DA LINGUAGEM KQL",
+            "desc": "Anatomia de uma consulta e os principais comandos do Log Analytics.",
+            "color": "#f1c40f",
+            "img_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "PROT",
+            "name": "DESEMPENHO: CPU, MEMÓRIA E IO",
+            "desc": "Consultas e gráficos para medir e interpretar o desempenho dos servidores.",
+            "color": "#3498db",
+            "img_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1600"
+          },
+          {
+            "id": "NORM",
+            "name": "SEGURANÇA E PRIVACIDADE NOS LOGS",
+            "desc": "Sinais de ataque nos logs, origem dos acessos e mascaramento do IP.",
+            "color": "#2ecc71",
+            "img_url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1600"
+          }
+        ],
+        "sokoban": [
+          "L",
+          "O",
+          "G",
+          "S"
+        ]
+      },
+      "questions": [
+        {
+          "type": "multiple",
+          "topics": "ACID",
+          "questions": "[NAME], uma equipe que hospeda seus sistemas na AWS precisa da ferramenta nativa equivalente ao Azure Monitor para acompanhar métricas e logs. Qual ela deve usar?",
+          "answers": [
+            "AWS CloudWatch",
+            "Google Cloud Monitoring",
+            "Log Analytics",
+            "Azure Workbooks"
+          ],
+          "correct": "AWS CloudWatch",
+          "tip": "Cada nuvem tem sua ferramenta nativa: Azure Monitor (Microsoft), CloudWatch (AWS) e Cloud Monitoring (Google). Log Analytics e Workbooks são partes do próprio Azure Monitor."
+        },
+        {
+          "type": "boolean",
+          "topics": "ACID",
+          "questions": "[NAME], no Azure Monitor, os logs coletados ficam em um workspace do Log Analytics, organizados em tabelas, e são consultados com a linguagem KQL.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "O caminho é: o servidor gera o dado, um agente ou SDK coleta, o workspace guarda em tabelas e a consulta KQL pergunta a elas."
+        },
+        {
+          "type": "combo",
+          "topics": "ACID",
+          "questions": "O Google Cloud Monitoring, ferramenta nativa de monitoramento do Google Cloud, era conhecido anteriormente como [COMBO].",
+          "options": [
+            "Stackdriver",
+            "CloudTrail",
+            "Kusto",
+            "Sentinel"
+          ],
+          "correct": "Stackdriver",
+          "tip": "Stackdriver é o nome antigo do Google Cloud Monitoring. Kusto é o motor que deu nome à KQL, e CloudTrail é um serviço de auditoria da AWS."
+        },
+        {
+          "type": "multi",
+          "topics": "ACID",
+          "questions": "[NAME], quais destas etapas fazem parte do caminho de um dado, do servidor até a tela, no Azure Monitor?",
+          "answers": [
+            "Coleta feita por um agente ou SDK",
+            "Armazenamento em tabelas de um workspace do Log Analytics",
+            "Consulta escrita em KQL para interpretar os dados",
+            "Envio obrigatório dos dados ao CloudWatch Logs"
+          ],
+          "correct": [
+            "Coleta feita por um agente ou SDK",
+            "Armazenamento em tabelas de um workspace do Log Analytics",
+            "Consulta escrita em KQL para interpretar os dados"
+          ],
+          "tip": "O CloudWatch Logs é o equivalente da AWS e não faz parte do fluxo do Azure Monitor."
+        },
+        {
+          "type": "drag",
+          "topics": "ACID",
+          "questions": "Relacione cada tabela do Application Insights ao tipo de dado que ela guarda:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "AppPerformanceCounters",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "AppRequests",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "AppExceptions",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "AppAvailabilityResults",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Contadores de CPU, memória e IO dos servidores"
+            },
+            {
+              "id": "z2",
+              "label": "Cada página pedida: nome, código, duração e país"
+            },
+            {
+              "id": "z3",
+              "label": "Erros (exceções) dos aplicativos"
+            },
+            {
+              "id": "z4",
+              "label": "Testes de disponibilidade feitos de vários pontos do mundo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Saber o que cada tabela guarda é o primeiro passo para escrever a consulta certa: desempenho em AppPerformanceCounters, acessos em AppRequests.",
+          "trans": "AGEN"
+        },
+        {
+          "type": "multiple",
+          "topics": "AGEN",
+          "questions": "[NAME], em uma consulta KQL, qual é a função do caractere | (pipe)?",
+          "answers": [
+            "Passar o resultado de uma etapa para a próxima",
+            "Unir os dados de duas tabelas diferentes",
+            "Separar comentários do código da consulta",
+            "Indicar o fim da consulta"
+          ],
+          "correct": "Passar o resultado de uma etapa para a próxima",
+          "tip": "O pipe funciona como uma esteira de fábrica: cada etapa (where, summarize, sort) recebe o que sobrou da anterior."
+        },
+        {
+          "type": "boolean",
+          "topics": "AGEN",
+          "questions": "[NAME], em KQL, o filtro where Name = \"% Processor Time\" está correto, pois o sinal = é o operador de comparação da linguagem.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "Para comparar usa-se ==. O sinal = serve para dar nome a uma coluna, como em CPU_media = avg(Value)."
+        },
+        {
+          "type": "combo",
+          "topics": "AGEN",
+          "questions": "Para juntar os registros em blocos de 10 minutos e preparar um gráfico no tempo, usa-se a função [COMBO](TimeGenerated, 10m).",
+          "options": [
+            "bin",
+            "ago",
+            "round",
+            "take"
+          ],
+          "correct": "bin",
+          "tip": "bin agrupa o tempo em blocos. ago calcula um momento no passado, round arredonda valores e take mostra linhas quaisquer."
+        },
+        {
+          "type": "multi",
+          "topics": "AGEN",
+          "questions": "[NAME], quais destas práticas evitam erros comuns ao escrever consultas KQL?",
+          "answers": [
+            "Respeitar maiúsculas e minúsculas nos nomes de tabelas e colunas",
+            "Usar aspas retas em vez de aspas curvas copiadas de editores de texto",
+            "Ampliar o intervalo de tempo, como ago(7d), quando o período não tiver dados",
+            "Usar = no where para comparar valores"
+          ],
+          "correct": [
+            "Respeitar maiúsculas e minúsculas nos nomes de tabelas e colunas",
+            "Usar aspas retas em vez de aspas curvas copiadas de editores de texto",
+            "Ampliar o intervalo de tempo, como ago(7d), quando o período não tiver dados"
+          ],
+          "tip": "KQL diferencia maiúsculas e minúsculas, só aceita aspas retas e retorna vazio quando a tabela não tem dados no período. Comparar é sempre ==."
+        },
+        {
+          "type": "drag",
+          "topics": "AGEN",
+          "questions": "Relacione cada comando KQL à sua função:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "take 10",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "ago(1h)",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "summarize avg(Value) by AppRoleInstance",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "render timechart",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Mostra 10 linhas quaisquer para conhecer a tabela"
+            },
+            {
+              "id": "z2",
+              "label": "Representa o momento de 1 hora atrás"
+            },
+            {
+              "id": "z3",
+              "label": "Calcula a média agrupada por servidor"
+            },
+            {
+              "id": "z4",
+              "label": "Desenha um gráfico de linha no tempo"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Uma consulta típica segue a ordem: de qual tabela, filtra (where), resume (summarize), ordena (sort) e, se quiser, desenha (render).",
+          "trans": "PROT"
+        },
+        {
+          "type": "multiple",
+          "topics": "PROT",
+          "questions": "[NAME], uma consulta mostra um servidor com CPU média de 71% e picos de 100%, enquanto os demais ficam perto de 10%. Qual é a ação mais adequada?",
+          "answers": [
+            "Aumentar o servidor ou dividir a carga",
+            "Desligar a coleta de métricas desse servidor",
+            "Ignorar, pois picos de 100% são esperados em qualquer servidor",
+            "Reduzir a memória disponível para economizar recursos"
+          ],
+          "correct": "Aumentar o servidor ou dividir a carga",
+          "tip": "CPU alta de forma constante indica servidor pequeno para a carga. A decisão é dimensionar melhor o servidor ou distribuir o trabalho."
+        },
+        {
+          "type": "boolean",
+          "topics": "PROT",
+          "questions": "[NAME], para converter o contador Available Bytes de bytes para megabytes, divide-se o valor por 1024 duas vezes.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Verdadeiro",
+          "tip": "Bytes ÷ 1024 = KB, e KB ÷ 1024 = MB. Por isso a consulta de memória livre divide o valor duas vezes."
+        },
+        {
+          "type": "combo",
+          "topics": "PROT",
+          "questions": "Para medir o volume de leitura e escrita em disco de cada servidor, consulta-se o contador [COMBO].",
+          "options": [
+            "IO Data Bytes/sec",
+            "% Processor Time",
+            "Available Bytes",
+            "DurationMs"
+          ],
+          "correct": "IO Data Bytes/sec",
+          "tip": "% Processor Time mede CPU, Available Bytes mede memória livre e DurationMs é a duração de uma requisição, não um contador de disco."
+        },
+        {
+          "type": "multi",
+          "topics": "PROT",
+          "questions": "[NAME], sobre a consulta AppPerformanceCounters | where Name == \"% Processor Time\" | summarize CPU_media = round(avg(Value), 1) by AppRoleInstance, quais afirmações estão corretas?",
+          "answers": [
+            "CPU_media é o nome dado à coluna do resultado",
+            "round(…, 1) arredonda o valor com uma casa decimal",
+            "by AppRoleInstance gera uma linha por servidor",
+            "Name == \"% Processor Time\" altera o nome do contador para CPU"
+          ],
+          "correct": [
+            "CPU_media é o nome dado à coluna do resultado",
+            "round(…, 1) arredonda o valor com uma casa decimal",
+            "by AppRoleInstance gera uma linha por servidor"
+          ],
+          "tip": "O == apenas filtra as linhas cujo contador é % Processor Time; ele não altera nada. Quem dá nome à coluna é o = dentro do summarize."
+        },
+        {
+          "type": "drag",
+          "topics": "PROT",
+          "questions": "Relacione o que foi observado no monitoramento ao que isso pode significar:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "CPU média alta com picos de 100%",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Memória livre abaixo de 600 MB",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "CPU que sobe de repente, fora do padrão",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "Um número isolado, sem horário nem outros logs",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Servidor pequeno para a carga"
+            },
+            {
+              "id": "z2",
+              "label": "Risco de lentidão e queda do aplicativo"
+            },
+            {
+              "id": "z3",
+              "label": "Possível ataque ou programa travado"
+            },
+            {
+              "id": "z4",
+              "label": "Pouca informação: é preciso correlacionar"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Monitorar é correlacionar: um número sozinho diz pouco, mas junto com o horário e outros logs ele conta a história.",
+          "trans": "NORM"
+        },
+        {
+          "type": "multiple",
+          "topics": "NORM",
+          "questions": "[NAME], uma sequência de muitas respostas 401 e 403 (sem permissão) nos logs de requisições costuma indicar:",
+          "answers": [
+            "Tentativa de adivinhar senhas (força bruta)",
+            "Um robô procurando páginas que não existem",
+            "Testes de disponibilidade normais",
+            "Um servidor com pouca memória livre"
+          ],
+          "correct": "Tentativa de adivinhar senhas (força bruta)",
+          "tip": "401/403 indicam acesso negado; em sequência, sugerem força bruta. Já muitos 404 em páginas inexistentes indicam varredura por robô."
+        },
+        {
+          "type": "boolean",
+          "topics": "NORM",
+          "questions": "[NAME], quando o Application Insights registra o IP do cliente como 0.0.0.0, isso significa que a requisição veio de dentro da própria rede da empresa.",
+          "answers": [
+            "Verdadeiro",
+            "Falso"
+          ],
+          "correct": "Falso",
+          "tip": "O IP é mascarado: ele é usado só para descobrir país e cidade e depois é descartado. É privacidade desde a concepção, já que IP é dado pessoal (LGPD)."
+        },
+        {
+          "type": "combo",
+          "topics": "NORM",
+          "questions": "Em uma consulta de segurança, o operador [COMBO] \"login\" encontra qualquer página que contenha a palavra login no nome.",
+          "options": [
+            "has",
+            "==",
+            "take",
+            "bin"
+          ],
+          "correct": "has",
+          "tip": "has procura o termo dentro do texto. O == exigiria o nome exato, take só limita as linhas e bin agrupa o tempo."
+        },
+        {
+          "type": "multi",
+          "topics": "NORM",
+          "questions": "[NAME], quais destes sinais nos logs sugerem um ataque automatizado, e não a ação de uma pessoa?",
+          "answers": [
+            "Milhares de tentativas concentradas em uma única hora",
+            "Milhares de tentativas espalhadas por milhares de páginas diferentes",
+            "Muitas respostas 404 para páginas que não existem",
+            "Um único acesso por cidade feito por testes de disponibilidade"
+          ],
+          "correct": [
+            "Milhares de tentativas concentradas em uma única hora",
+            "Milhares de tentativas espalhadas por milhares de páginas diferentes",
+            "Muitas respostas 404 para páginas que não existem"
+          ],
+          "tip": "Volume alto em pouco tempo e em muitas páginas é típico de robô. Testes de disponibilidade fazem poucos acessos e são tráfego normal."
+        },
+        {
+          "type": "drag",
+          "topics": "NORM",
+          "questions": "Relacione cada sinal encontrado nos logs à sua interpretação mais provável:",
+          "items": [
+            {
+              "id": "d1",
+              "txt": "Muitos 404 em páginas inexistentes",
+              "match": "z1"
+            },
+            {
+              "id": "d2",
+              "txt": "Pedidos a /login, /wp-login e /admin",
+              "match": "z2"
+            },
+            {
+              "id": "d3",
+              "txt": "Muitos pedidos do mesmo IP ou de país incomum",
+              "match": "z3"
+            },
+            {
+              "id": "d4",
+              "txt": "IP registrado como 0.0.0.0",
+              "match": "z4"
+            }
+          ],
+          "zones": [
+            {
+              "id": "z1",
+              "label": "Robô varrendo o site atrás de portas de entrada"
+            },
+            {
+              "id": "z2",
+              "label": "Procura por telas de login para atacar"
+            },
+            {
+              "id": "z3",
+              "label": "Origem suspeita"
+            },
+            {
+              "id": "z4",
+              "label": "Endereço mascarado por privacidade"
+            }
+          ],
+          "correct": "drag",
+          "tip": "Segurança e privacidade andam juntas: os logs revelam o padrão do ataque mesmo sem guardar o IP completo de cada visitante."
+        }
+      ]
     }
   ]
 }
